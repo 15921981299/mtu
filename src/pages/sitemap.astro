@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import { services } from '../data/services';
+import { products } from '../data/products';
+import { productSubpages } from '../data/product-subpages';
+import { industries } from '../data/industries';
+import { applications } from '../data/applications';
+import { isSubpageNoindex } from '../data/subpage-quality';
+import { breadcrumbSchema, site } from '../data/site';
+import '../styles/resource-page.css';
+
+const corePages = [
+  { href: '/', label: 'Home' },
+  { href: '/products/', label: 'Products' },
+  { href: '/capabilities/', label: 'Service & Support' },
+  { href: '/industries/', label: 'Industries' },
+  { href: '/applications/', label: 'Applications' },
+  { href: '/resources/', label: 'Parts Guides' },
+  { href: '/certifications/', label: 'Certifications' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Send Parts Inquiry' },
+];
+
+const toolPages = [
+  { href: '/products/mtu-spare-parts/mtu-part-number-lookup/', label: 'MTU Part Number Lookup' },
+  { href: '/products/mtu-spare-parts/mtu-engine-series-guide/', label: 'MTU Engine Series Guide' },
+  { href: '/products/mtu-2000-series-parts/marine-generator-service-parts/', label: 'MTU 2000 Marine & Generator Parts' },
+  { href: '/products/mtu-4000-series-parts/overhaul-parts/', label: 'MTU 4000 Overhaul Parts' },
+  { href: '/products/cummins-parts/service-kits-and-overhaul-parts/', label: 'Cummins Service Kits & Overhaul Parts' },
+  { href: '/products/deutz-parts/industrial-equipment-parts/', label: 'DEUTZ Industrial Equipment Parts' },
+  { href: '/llm-instructions/', label: 'LLM / AI Instructions' },
+];
+
+const termsPages = [
+  { href: '/terms/payment/', label: 'Payment Terms' },
+  { href: '/terms/shipping/', label: 'Shipping Terms' },
+  { href: '/terms/samples/', label: 'Sample Terms' },
+  { href: '/privacy/', label: 'Privacy Policy' },
+];
+
+const capabilityLinks = services.map((s) => ({ href: `/capabilities/${s.slug}/`, label: s.title }));
+const productLinks = products.map((p) => ({ href: `/products/${p.slug}/`, label: p.title }));
+const productSubLinks = productSubpages
+  .filter((sp) => !isSubpageNoindex(sp.productSlug, sp.slug))
+  .map((sp) => ({ href: `/products/${sp.productSlug}/${sp.slug}/`, label: sp.title }));
+const industryLinks = industries.map((i) => ({ href: `/industries/${i.slug}/`, label: i.title }));
+const applicationLinks = applications.map((a) => ({ href: `/applications/${a.slug}/`, label: a.title }));
+
+const sections = [
+  { title: 'Main Pages', items: corePages },
+  { title: 'Service & Support', items: capabilityLinks },
+  { title: 'Engine Parts', items: productLinks },
+  { title: 'Parts Guides', items: productSubLinks },
+  { title: 'Industries', items: industryLinks },
+  { title: 'Applications', items: applicationLinks },
+  { title: 'Resources', items: toolPages },
+  { title: 'Terms & Policies', items: termsPages },
+];
+
+const totalLinks = sections.reduce((sum, s) => sum + s.items.length, 0);
+---
+
+<BaseLayout
+  title="Sitemap — Engine Family"
+  description="Full HTML sitemap of Engine Family — browse diesel engine parts, MTU parts guides, service support, industries, applications, and contact pages."
+  currentPath="/sitemap"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Sitemap', url: `${site.url}/sitemap/` },
+  ])}
+>
+  <BreadcrumbHero
+    title="Sitemap"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Sitemap' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <p class="resource-intro">
+            Every priority Engine Family page in one place — {totalLinks} links across engine parts, service support,
+            industries, applications, resources, and terms.
+          </p>
+
+          {sections.map((section) => (
+            section.items.length > 0 && (
+              <section class="sitemap-section">
+                <h2 class="sitemap-section-title">{section.title} <span class="sitemap-count">({section.items.length})</span></h2>
+                <ul class="sitemap-list">
+                  {section.items.map((item) => (
+                    <li><a href={item.href}>{item.label}</a></li>
+                  ))}
+                </ul>
+              </section>
+            )
+          ))}
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sitemap-section {
+    margin: 0 0 28px;
+  }
+  .sitemap-section-title {
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-stroke);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+  .sitemap-count {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-body-text);
+    opacity: 0.7;
+  }
+  .sitemap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 3;
+    column-gap: 28px;
+  }
+  .sitemap-list li {
+    margin: 0 0 8px;
+    break-inside: avoid;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .sitemap-list a {
+    color: var(--color-body-text);
+    text-decoration: none;
+  }
+  .sitemap-list a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .sitemap-list a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  @media (max-width: 767px) {
+    .sitemap-list {
+      columns: 2;
+    }
+  }
+  @media (max-width: 479px) {
+    .sitemap-list {
+      columns: 1;
+    }
+  }
+</style>

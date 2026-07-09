@@ -1,0 +1,22 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ss-plate" x1="10" y1="12" x2="38" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDE2EA"/>
+      <stop offset="0.35" stop-color="#F7F9FC"/>
+      <stop offset="0.55" stop-color="#B8C0CC"/>
+      <stop offset="1" stop-color="#8F99A8"/>
+    </linearGradient>
+    <linearGradient id="ss-shine" x1="16" y1="14" x2="28" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="9" y="14" width="30" height="22" rx="2" fill="url(#ss-plate)" stroke="#6E7888" stroke-width="0.8"/>
+  <rect x="9" y="14" width="30" height="22" rx="2" fill="url(#ss-shine)"/>
+  <ellipse cx="18" cy="20" rx="5" ry="2.2" fill="#FFFFFF" fill-opacity="0.55"/>
+  <path d="M14 30H34" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1"/>
+  <circle cx="34" cy="18" r="6" fill="#C7CFDB" stroke="#8A94A4" stroke-width="0.8"/>
+  <circle cx="34" cy="18" r="2.2" fill="#EEF1F6"/>
+  <path d="M31 18H37" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M34 15V21" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="0.8" stroke-linecap="round"/>
+</svg>

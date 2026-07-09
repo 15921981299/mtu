@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { productFaqs } from '../../data/page-faqs';
+import { products } from '../../data/products';
+import { breadcrumbSchema, faqSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts']);
+---
+
+<BaseLayout
+  title="Diesel Engine Parts — MTU, Cummins, DEUTZ & Detroit Diesel"
+  description="Engine Family supplies genuine diesel engine parts for MTU, Detroit Diesel, Cummins, and DEUTZ engines. Search by part number, engine series, model, or serial number."
+  currentPath="/products"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Products', url: `${site.url}/products/` },
+    ]),
+    faqSchema(productFaqs.map((f) => ({ question: f.question, answer: f.answer }))),
+  ]}
+>
+  <FunnelPageView stage="service" label="products-index" />
+  <BreadcrumbHero
+    title="Diesel Engine<br>Parts"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Products' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <nav class="resource-nav" aria-label="Products navigation">
+            <a href="/products/" class="resource-nav-link active" aria-current="page">
+              All engine parts
+            </a>
+            <a href="/products/mtu-spare-parts/" class="resource-nav-link">MTU Parts</a>
+            <a href="/products/cummins-parts/" class="resource-nav-link">Cummins</a>
+            <a href="/products/deutz-parts/" class="resource-nav-link">DEUTZ</a>
+            <a href="/resources/" class="resource-nav-link resource-nav-all">Parts Guides</a>
+          </nav>
+
+          <p class="resource-intro">
+            Browse Engine Family's core engine-parts categories for MTU, Detroit Diesel, Cummins, and DEUTZ engines. Send a part number, engine model, serial number, or nameplate photo and we will confirm availability before shipment.
+          </p>
+
+          <div class="resource-meta">
+            <span><strong>{products.length}</strong> brand and series hubs</span>
+            <span>Genuine · OEM manufacturer parts</span>
+            <span>MTU 183 to <strong>8000</strong> series</span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Send your part number, engine serial number, and quantity. We check stock, replacements, and global shipping options.</p>
+            <a href="/contact/?source=products" class="detail-rfq-link">Check Parts Availability</a>
+          </div>
+
+          <div class="hub-grid products-hub-grid">
+            {products.map((product) => (
+              <article class:list={['hub-card', { featured: featuredSlugs.has(product.slug) }]}>
+                {featuredSlugs.has(product.slug) && <span class="hub-featured-badge">Featured</span>}
+                <a href={`/products/${product.slug}/`} class="hub-card-image">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    width="400"
+                    height="280"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <div class="hub-card-body">
+                  <h2 class="hub-card-title">
+                    <a href={`/products/${product.slug}/`}>{product.title}</a>
+                  </h2>
+                  <p class="hub-card-summary">{product.summary}</p>
+                  <a href={`/products/${product.slug}/`} class="hub-card-link">
+                    View parts →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="resource-note">
+            <strong>Have only an old part or engine plate?</strong>
+            Send photos through
+            <a href="/contact/">the inquiry form</a>
+            and include the engine brand, model, serial number, quantity, and delivery country.
+          </div>
+
+          <h2 class="hub-faq-heading">Engine Parts FAQ</h2>
+          <div class="hub-faq-list">
+            {productFaqs.map((faq) => (
+              <details class="hub-faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <p class="resource-related">
+            <a href="/products/mtu-spare-parts/">MTU spare parts</a>
+            <span aria-hidden="true">·</span>
+            <a href="/products/cummins-parts/">Cummins parts</a>
+            <span aria-hidden="true">·</span>
+            <a href="/products/deutz-parts/">DEUTZ parts</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/">Parts guides</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="service"
+    topic="products-index"
+    title="Need a part-number availability check?"
+    text="Send the part number, engine model, serial number, quantity, and destination. We verify compatibility before quotation."
+    primaryLabel="Check Parts"
+    primaryHref="/contact/?source=products"
+    primaryEvent="products_index_rfq"
+    secondaryLabel="Parts guides"
+    secondaryHref="/resources/"
+    secondaryEvent="products_index_dfm"
+  />
+</BaseLayout>
+
+<style>
+  .products-hub-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 991px) {
+    .products-hub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .products-hub-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import { site } from '../data/site';
+---
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-wrapper">
+      <div class="footer-content-block">
+        <a href="/" class="footer-logo-link-block">
+          <img src={site.logo.default} alt={`${site.name} logo`} class="footer-logo" width={site.logo.width} height={site.logo.height} loading="lazy" decoding="async" />
+        </a>
+        <p class="footer-title">Genuine Engine Parts<br />Fast Global Delivery</p>
+        <a href="/contact/" class="primary-button footer">
+          <div class="button-content-block">
+            <div class="button-text">Request Parts</div>
+            <div class="button-text">Request Parts</div>
+          </div>
+        </a>
+      </div>
+      <div class="footer-image-block">
+        <img src="/images/machining-supplier-footer-illustration.webp" alt="Engine parts supply support" class="footer-image" width="880" height="719" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <div class="footer-bottom-block">
+      <nav class="footer-nav-grid" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">Parts</p>
+          <a href="/products/mtu-spare-parts/" class="footer-link">MTU Spare Parts</a>
+          <a href="/products/mtu-2000-series-parts/" class="footer-link">MTU 2000 Series Parts</a>
+          <a href="/products/mtu-4000-series-parts/" class="footer-link">MTU 4000 Series Parts</a>
+          <a href="/products/detroit-diesel-parts/" class="footer-link">Detroit Diesel Parts</a>
+          <a href="/products/cummins-parts/" class="footer-link">Cummins Parts</a>
+          <a href="/products/deutz-parts/" class="footer-link">DEUTZ Parts</a>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">Service & Support</p>
+          <a href="/capabilities/mtu-engine-parts/" class="footer-link">MTU Engine Parts</a>
+          <a href="/capabilities/industrial-engine-service/" class="footer-link">Industrial Engine Service</a>
+          <a href="/capabilities/marine-engine-service/" class="footer-link">Marine Service</a>
+          <a href="/capabilities/genuine-oem-parts/" class="footer-link">Genuine OEM Parts</a>
+          <a href="/capabilities/" class="footer-link">All Support</a>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">Applications</p>
+          <a href="/industries/marine/" class="footer-link">Marine</a>
+          <a href="/industries/industrial-engines/" class="footer-link">Industrial Engines</a>
+          <a href="/industries/power-generation/" class="footer-link">Power Generation</a>
+          <a href="/industries/rail/" class="footer-link">Rail</a>
+          <a href="/industries/shipyards-repair/" class="footer-link">Shipyards & Repair</a>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">Company</p>
+          <a href="/about/" class="footer-link">About Engine Family</a>
+          <a href="/certifications/" class="footer-link">Quality Policy</a>
+          <a href="/case-studies/" class="footer-link">Client Stories</a>
+          <a href="/contact/" class="footer-link">Contact</a>
+          <a href="/privacy/" class="footer-link">Privacy</a>
+          <a href="/sitemap/" class="footer-link">Sitemap</a>
+        </div>
+      </nav>
+      <div class="footer-nav-meta">
+        <a href={`mailto:${site.email}`} class="footer-link footer-link--email">{site.email}</a>
+        <span class="footer-link footer-link--email">{site.phone}</span>
+      </div>
+    </div>
+  </div>
+</footer>

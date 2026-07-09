@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+const quoteHref = '/contact/?source=material-grades';
+
+type Grade = { grade: string; note: string };
+type Group = { family: string; href: string; grades: Grade[] };
+
+const groups: Group[] = [
+  {
+    family: 'Aluminum',
+    href: '/materials/aluminum/',
+    grades: [
+      { grade: '6061 / 6061-T6', note: 'All-round structural; best anodizing & machinability' },
+      { grade: '7075 / 7075-T6', note: 'High strength-to-weight; aerospace structural' },
+      { grade: '2024-T3', note: 'High fatigue strength; aircraft skins & fittings' },
+      { grade: '5052', note: 'Excellent formability & corrosion; marine' },
+      { grade: '5083', note: 'Marine-grade; superb saltwater corrosion resistance' },
+      { grade: '6063', note: 'Architectural / extrusion profiles; good finish' },
+      { grade: '6082', note: 'Structural; higher strength than 6061 in EU' },
+      { grade: 'MIC-6 / cast tooling plate', note: 'Stable, flat; jigs, fixtures, tooling plates' },
+      { grade: 'ADC12 / A380', note: 'Die-cast alloy (cast, then machined)' },
+    ],
+  },
+  {
+    family: 'Stainless Steel',
+    href: '/materials/stainless-steel/',
+    grades: [
+      { grade: '303', note: 'Free-machining; fittings, fasteners, shafts' },
+      { grade: '304 / 304L', note: 'General corrosion resistance; most common' },
+      { grade: '316 / 316L', note: 'Marine/chemical corrosion; medical, food' },
+      { grade: '17-4PH', note: 'High strength precipitation-hardening; aerospace' },
+      { grade: '430', note: 'Ferritic, magnetic; decorative, appliances' },
+      { grade: '431', note: 'High strength martensitic; shafts, fasteners' },
+      { grade: '440C', note: 'High hardness; bearings, blades, wear parts' },
+    ],
+  },
+  {
+    family: 'Carbon & Alloy Steel',
+    href: '/materials/carbon-steel/',
+    grades: [
+      { grade: '1018', note: 'Low-carbon; general parts, easy to weld' },
+      { grade: '1045', note: 'Medium-carbon; shafts, gears, higher strength' },
+      { grade: '1215', note: 'Free-machining; high-volume turned parts' },
+      { grade: '4130', note: 'Chromoly; tubing, structural, weldable' },
+      { grade: '4140', note: 'Pre-hard / heat-treatable; shafts, tooling' },
+      { grade: '4340', note: 'High-strength alloy; heavy-duty shafts, gears' },
+      { grade: 'A36', note: 'Structural mild steel; brackets, bases' },
+    ],
+  },
+  {
+    family: 'Tool Steel',
+    href: '/materials/tool-steels/',
+    grades: [
+      { grade: 'D2', note: 'High wear, cold-work; dies, punches, blades' },
+      { grade: 'A2', note: 'Air-hardening, stable; precision tooling, gauges' },
+      { grade: 'O1', note: 'Oil-hardening; general tooling' },
+      { grade: 'H13', note: 'Hot-work; die casting & molding tooling' },
+    ],
+  },
+  {
+    family: 'Titanium',
+    href: '/materials/titanium/',
+    grades: [
+      { grade: 'Grade 2 (TA2)', note: 'Commercially pure; corrosion, weldable' },
+      { grade: 'Grade 5 / Ti-6Al-4V (TC4)', note: 'High strength; aerospace, medical implants' },
+    ],
+  },
+  {
+    family: 'Copper',
+    href: '/materials/brass-copper/',
+    grades: [
+      { grade: 'C101 (oxygen-free)', note: 'Highest conductivity; electrical, thermal' },
+      { grade: 'C110 (ETP)', note: 'High conductivity; bus bars, electrodes' },
+      { grade: 'Beryllium Copper (C17200)', note: 'High strength + conductivity; springs, molds' },
+    ],
+  },
+  {
+    family: 'Brass',
+    href: '/materials/brass-copper/',
+    grades: [
+      { grade: 'C360 (free-cutting)', note: 'Best machinability; fittings, valves' },
+      { grade: 'C260 (cartridge)', note: 'Good formability; decorative, hardware' },
+    ],
+  },
+  {
+    family: 'Bronze',
+    href: '/materials/bronze-alloys/',
+    grades: [
+      { grade: 'C932 (SAE 660 bearing bronze)', note: 'Bearings, bushings, wear parts' },
+      { grade: 'Aluminum bronze', note: 'High strength & corrosion; marine, pumps' },
+    ],
+  },
+  {
+    family: 'Nickel Alloys',
+    href: '/materials/nickel-alloys/',
+    grades: [
+      { grade: 'Inconel 625 / 718', note: 'High-temp strength; aerospace, oil & gas' },
+      { grade: 'Monel 400 / K-500', note: 'Marine & acid corrosion; pumps, valves' },
+      { grade: 'Hastelloy C-276', note: 'Extreme chemical corrosion resistance' },
+    ],
+  },
+  {
+    family: 'Magnesium',
+    href: '/materials/magnesium/',
+    grades: [
+      { grade: 'AZ31B', note: 'Wrought; lightest structural metal' },
+      { grade: 'AZ91D', note: 'Cast magnesium; lightweight housings' },
+    ],
+  },
+  {
+    family: 'Engineering Plastics',
+    href: '/materials/engineering-plastics/',
+    grades: [
+      { grade: 'POM / Delrin (Acetal)', note: 'Stiff, low friction; precision gears, parts' },
+      { grade: 'PEEK', note: 'High temp & chemical; aerospace, medical' },
+      { grade: 'PTFE / Teflon', note: 'Lowest friction; seals, chemical parts' },
+      { grade: 'Nylon (PA6 / PA66)', note: 'Tough, wear-resistant; gears, bushings' },
+      { grade: 'PC (Polycarbonate)', note: 'Impact-resistant, clear; covers, guards' },
+      { grade: 'PMMA (Acrylic)', note: 'Optical clarity; windows, light pipes' },
+      { grade: 'ABS', note: 'Tough, low-cost; prototypes, housings' },
+      { grade: 'PP (Polypropylene)', note: 'Chemical-resistant; fluid handling, hinges' },
+      { grade: 'HDPE / UHMW', note: 'Low friction, wear; guides, rollers' },
+      { grade: 'PET-P (Ertalyte)', note: 'Stiff, stable; bearings, pump parts' },
+      { grade: 'PPS', note: 'High temp & chemical; pump/valve parts' },
+      { grade: 'Ultem (PEI)', note: 'High strength & temp, flame-retardant' },
+      { grade: 'G10 / FR-4', note: 'Glass-epoxy laminate; electrical insulators' },
+    ],
+  },
+];
+
+const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
+---
+
+<BaseLayout
+  title="CNC Machining Materials & Grades — Aluminum, Steel, Stainless, Titanium, Plastics | Machining Supplier"
+  description="Full list of CNC machining material grades we machine: aluminum (6061, 7075, 2024, 5052, 5083), stainless (303, 304, 316, 17-4PH, 440C), steel, titanium, copper, brass, bronze, nickel alloys, and engineering plastics."
+  currentPath="/materials"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Materials', url: `${site.url}/materials/` },
+    { name: 'Material Grades', url: `${site.url}/materials/grades/` },
+  ])}
+>
+  <FunnelPageView stage="selection" label="material-grades" />
+  <BreadcrumbHero
+    title="CNC Machining Material Grades"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Materials', href: '/materials/' },
+      { label: 'Material Grades' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <p class="resource-intro">
+            The full list of metal and plastic grades we CNC machine — {totalGrades}+ grades across {groups.length} material
+            families. Not sure which grade fits? Send your drawing and we recommend one in free DFM review.
+          </p>
+
+          <div class="resource-meta" aria-label="Material grade facts">
+            <span><strong>{totalGrades}+</strong> grades</span>
+            <span><strong>{groups.length}</strong> families</span>
+            <span>EN 10204 3.1 certs available</span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Upload your drawing with a target grade (or ask for a recommendation) — quote within 24 hours.</p>
+            <a href={quoteHref} class="detail-rfq-link">Request a Quote</a>
+          </div>
+
+          <div class="calc-tool">
+            <div class="calc-field">
+              <label class="calc-label" for="mg-search">Search a grade (e.g. 7075, 316, PEEK, 4140)</label>
+              <input class="calc-input" type="search" id="mg-search" placeholder="Type to filter…" autocomplete="off" />
+            </div>
+          </div>
+
+          {groups.map((group) => (
+            <section class="mg-group">
+              <h2 class="mg-group-title">
+                <a href={group.href}>{group.family}</a>
+              </h2>
+              <div class="resource-table-wrap">
+                <table class="resource-table mg-table">
+                  <caption class="resource-table-caption">{group.family} grades for CNC machining</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Grade</th>
+                      <th scope="col">Typical use / property</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.grades.map((g) => (
+                      <tr data-grade={`${g.grade} ${group.family} ${g.note}`.toLowerCase()}>
+                        <td>{g.grade}</td>
+                        <td>{g.note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          ))}
+          <p id="mg-empty" class="calc-hint" hidden>No grade matches that search.</p>
+
+          <div class="resource-note">
+            <strong>Material certs:</strong> EN 10204 3.1 mill certificates and heat-lot traceability are available on request for traceable orders. See our <a href="/resources/material-certificates/">material certificates guide</a>.
+          </div>
+
+          <p class="resource-related">
+            <a href="/materials/">All materials</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/metal-weight-calculator/">Metal weight calculator</a>
+            <span aria-hidden="true">·</span>
+            <a href="/compare/">Material comparisons</a>
+            <span aria-hidden="true">·</span>
+            <a href={quoteHref}>Request a quote</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="selection"
+    topic="material-grades"
+    title="Not sure which grade to spec?"
+    text="Upload your drawing — we recommend the right material grade for your function and budget in free DFM review."
+    primaryLabel="Request a Quote"
+    primaryHref={quoteHref}
+    primaryEvent="material_grades_rfq"
+    secondaryLabel="Material comparisons"
+    secondaryHref="/compare/"
+    secondaryEvent="material_grades_compare"
+  />
+</BaseLayout>
+
+<style>
+  .mg-group {
+    margin: 0 0 24px;
+  }
+  .mg-group-title {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: none;
+  }
+  .mg-group-title a {
+    color: var(--color-title);
+    text-decoration: none;
+  }
+  .mg-group-title a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .mg-group-title a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  const search = document.getElementById('mg-search') as HTMLInputElement | null;
+  const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>('.mg-table tbody tr'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('.mg-group'));
+  const empty = document.getElementById('mg-empty');
+
+  search?.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    rows.forEach((row) => {
+      const match = !q || (row.dataset.grade ?? '').includes(q);
+      row.hidden = !match;
+    });
+    let anyVisible = false;
+    groups.forEach((group) => {
+      const visible = group.querySelectorAll('tbody tr:not([hidden])').length > 0;
+      group.hidden = !visible;
+      if (visible) anyVisible = true;
+    });
+    if (empty) empty.hidden = anyVisible;
+  });
+</script>

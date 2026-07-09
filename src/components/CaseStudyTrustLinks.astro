@@ -1,0 +1,71 @@
+---
+import { getComparisonsForCaseStudy } from '../data/funnel-links';
+import type { CaseStudyIndustryContext } from '../data/industry-proof';
+
+interface Props {
+  context: CaseStudyIndustryContext;
+  caseStudySlug: string;
+}
+
+const { context, caseStudySlug } = Astro.props;
+const comparePreview = getComparisonsForCaseStudy(caseStudySlug, 3);
+const totalCompares = context.compareSlugs.length;
+---
+
+<nav class="case-study-trust-links" aria-label="Verify capability">
+  <a href="/resources/inspection-samples/">Inspection report samples</a>
+  <span aria-hidden="true">·</span>
+  <a href="/certifications/">QC process</a>
+  {context.standardSlug && context.standardTitle && (
+    <>
+      <span aria-hidden="true">·</span>
+      <a href={`/standards/${context.standardSlug}/`}>{context.standardTitle} standard</a>
+    </>
+  )}
+  {context.auditBlogSlug && (
+    <>
+      <span aria-hidden="true">·</span>
+      <a href={`/blog/${context.auditBlogSlug}/`}>
+        {context.auditBlogLabel ?? 'Supplier audit guide'}
+      </a>
+    </>
+  )}
+  {comparePreview.map((item) => (
+    <>
+      <span aria-hidden="true">·</span>
+      <a href={`/compare/${item.slug}/`}>{item.title}</a>
+    </>
+  ))}
+  {totalCompares > comparePreview.length && (
+    <>
+      <span aria-hidden="true">·</span>
+      <a href="#case-study-comparisons">+{totalCompares - comparePreview.length} more comparisons</a>
+    </>
+  )}
+</nav>
+
+<style>
+  .case-study-trust-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 0 0 28px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .case-study-trust-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .case-study-trust-links a:hover {
+    text-decoration: underline;
+  }
+
+  .case-study-trust-links span {
+    color: var(--color-body-text);
+    opacity: 0.45;
+  }
+</style>

@@ -1,0 +1,31 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+_ref_home_body.html
+
+# Local training videos (not for repo)
+videocourse/
+
+# Whisper transcription scratch files
+.tmp-*
+
+# Local ops docs (transcripts scratch — markdown plans can be committed)
+docs/*
+!docs/**/*.md
+
+# AI / IDE tools
+.agent/
+.claude/
+.codebuddy/
+.codex/
+.continue/
+.cursor/
+.gemini/
+.kiro/
+.opencode/
+.qoder/
+.roo/
+.trae/
+.windsurf/

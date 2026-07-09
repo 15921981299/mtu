@@ -1,0 +1,85 @@
+---
+type ResourceNavActive =
+  | 'resources-index'
+  | 'by-role'
+  | 'dfm-checklist'
+  | 'cnc-tolerance-guide'
+  | 'surface-finish-converter'
+  | 'tolerance-fits-calculator'
+  | 'tap-drill-chart'
+  | 'hardness-conversion-chart'
+  | 'metal-weight-calculator'
+  | 'feeds-and-speeds-calculator'
+  | 'bolt-circle-calculator'
+  | 'material-certificates'
+  | 'inspection-samples'
+  | 'cnc-pricing-guide'
+  | 'cnc-cost-calculator'
+  | 'process-selection';
+
+interface Props {
+  active?: ResourceNavActive;
+}
+
+const { active } = Astro.props;
+
+const guides = [
+  { id: 'by-role', label: 'By Role', href: '/resources/by-role/' },
+  { id: 'dfm-checklist', label: 'DFM Checklist', href: '/resources/dfm-checklist/' },
+  { id: 'cnc-tolerance-guide', label: 'Tolerance', href: '/resources/cnc-tolerance-guide/' },
+  { id: 'material-certificates', label: 'Material Certs', href: '/resources/material-certificates/' },
+  { id: 'inspection-samples', label: 'Inspection Samples', href: '/resources/inspection-samples/' },
+  { id: 'cnc-pricing-guide', label: 'Pricing', href: '/resources/cnc-pricing-guide/' },
+  { id: 'process-selection', label: 'Process', href: '/resources/process-selection/' },
+] as const;
+
+const tools = [
+  { id: 'surface-finish-converter', label: 'Finish Converter', href: '/resources/surface-finish-converter/' },
+  { id: 'tolerance-fits-calculator', label: 'Fits Calculator', href: '/resources/tolerance-fits-calculator/' },
+  { id: 'tap-drill-chart', label: 'Tap & Drill Chart', href: '/resources/tap-drill-chart/' },
+  { id: 'hardness-conversion-chart', label: 'Hardness Chart', href: '/resources/hardness-conversion-chart/' },
+  { id: 'metal-weight-calculator', label: 'Weight Calculator', href: '/resources/metal-weight-calculator/' },
+  { id: 'feeds-and-speeds-calculator', label: 'Feeds & Speeds', href: '/resources/feeds-and-speeds-calculator/' },
+  { id: 'bolt-circle-calculator', label: 'Bolt Circle', href: '/resources/bolt-circle-calculator/' },
+  { id: 'cnc-cost-calculator', label: 'Cost Calculator', href: '/resources/cnc-cost-calculator/' },
+] as const;
+---
+
+<div class="resource-nav-groups">
+  <div class="resource-nav-group">
+    <span class="resource-nav-group-label">Guides</span>
+    <nav class="resource-nav" aria-label="Engineering guides">
+      {guides.map((item) => (
+        <a
+          href={item.href}
+          class:list={['resource-nav-link', { active: item.id === active }]}
+          aria-current={item.id === active ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <div class="resource-nav-group">
+    <span class="resource-nav-group-label">Calculators &amp; Tools</span>
+    <nav class="resource-nav" aria-label="Engineering calculators and tools">
+      {tools.map((item) => (
+        <a
+          href={item.href}
+          class:list={['resource-nav-link', { active: item.id === active }]}
+          aria-current={item.id === active ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/resources/"
+        class:list={['resource-nav-link', 'resource-nav-all', { active: active === 'resources-index' }]}
+        aria-current={active === 'resources-index' ? 'page' : undefined}
+      >
+        All resources
+      </a>
+    </nav>
+  </div>
+</div>

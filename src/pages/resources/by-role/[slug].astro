@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
+import BlogCta from '../../../components/BlogCta.astro';
+import FunnelPageView from '../../../components/FunnelPageView.astro';
+import ResourceNav from '../../../components/ResourceNav.astro';
+import { getAllRoleHubSlugs, getRoleHub, roleHubs } from '../../../data/role-hubs';
+import { breadcrumbSchema, site } from '../../../data/site';
+import '../../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return getAllRoleHubSlugs().map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const hub = getRoleHub(slug!);
+
+if (!hub) {
+  return Astro.redirect('/resources/by-role/');
+}
+
+const pageUrl = `${site.url}/resources/by-role/${hub.slug}/`;
+const otherHubs = roleHubs.filter((item) => item.slug !== hub.slug);
+---
+
+<BaseLayout
+  title={`${hub.title} — CNC Machining Resources | Machining Supplier`}
+  description={hub.description}
+  currentPath="/resources/by-role"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Resources', url: `${site.url}/resources/` },
+    { name: 'By Role', url: `${site.url}/resources/by-role/` },
+    { name: hub.title, url: pageUrl },
+  ])}
+>
+  <FunnelPageView stage="service" label={`role-hub-${hub.slug}`} />
+  <BreadcrumbHero
+    title={hub.title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Resources', href: '/resources/' },
+      { label: 'By Role', href: '/resources/by-role/' },
+      { label: hub.title },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <ResourceNav active="by-role" />
+
+          <p class="resource-intro">{hub.description}</p>
+
+          <div class="resource-meta">
+            <span><strong>{hub.headline}</strong></span>
+            <span><strong>{hub.links.length}</strong> curated guides</span>
+            <span><strong>{hub.rfqPackage.length}</strong> RFQ package items</span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Send the RFQ package below with your drawing — we confirm scope and respond within 24 hours.</p>
+            <a href={hub.ctaHref} class="detail-rfq-link">{hub.ctaLabel}</a>
+          </div>
+
+          <section class="resource-note" aria-labelledby="rfq-package-heading">
+            <h2 id="rfq-package-heading" class="role-section-title">{hub.rfqPackageTitle}</h2>
+            <p>Send these items with your drawing — we respond faster and your quote matches audit expectations.</p>
+            <ul class="role-rfq-list">
+              {hub.rfqPackage.map((item) => (
+                <li>
+                  <strong>{item.label}</strong>
+                  <span>{item.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <h2 class="role-section-title">Recommended for {hub.title}</h2>
+          <ul class="role-hub-links">
+            {hub.links.map((link) => (
+              <li class="role-hub-link-item">
+                <a href={link.href}><strong>{link.label}</strong></a>
+                <span>{link.summary}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="resource-note">
+            <strong>Next step:</strong>
+            <a href={hub.ctaHref}>{hub.ctaLabel}</a>
+          </div>
+
+          {otherHubs.length > 0 && (
+            <nav class="role-hub-switch" aria-label="Other buyer roles">
+              {otherHubs.map((item) => (
+                <a href={`/resources/by-role/${item.slug}/`} class="role-hub-switch-link">
+                  {item.title}
+                </a>
+              ))}
+            </nav>
+          )}
+
+          <p class="resource-related">
+            <a href="/resources/by-role/">All buyer roles</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/inspection-samples/">Inspection samples</a>
+            <span aria-hidden="true">·</span>
+            <a href="/case-studies/">Project proof</a>
+            <span aria-hidden="true">·</span>
+            <a href={hub.ctaHref}>{hub.ctaLabel}</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="service"
+    topic={`role-hub-${hub.slug}`}
+    title={hub.ctaLabel}
+    text={hub.description}
+    primaryLabel={hub.ctaLabel}
+    primaryHref={hub.ctaHref}
+    primaryEvent={`role_hub_${hub.slug}_rfq`}
+    secondaryLabel="All buyer roles"
+    secondaryHref="/resources/by-role/"
+    secondaryEvent="role_hub_index"
+  />
+</BaseLayout>
+
+<style>
+  .role-section-title {
+    margin: 28px 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+
+  .role-section-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .resource-note .role-section-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .resource-note p {
+    margin: 0 0 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-body-text);
+  }
+
+  .role-rfq-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .role-rfq-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .role-rfq-list strong {
+    font-size: 14px;
+    color: var(--color-title);
+  }
+
+  .role-rfq-list span {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-body-text);
+  }
+
+  .role-hub-links {
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .role-hub-link-item {
+    padding: 14px 16px;
+    background: var(--color-background);
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .role-hub-link-item a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .role-hub-link-item a:hover {
+    text-decoration: underline;
+  }
+
+  .role-hub-link-item span {
+    display: block;
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--color-body-text);
+  }
+
+  .role-hub-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 4px;
+  }
+
+  .role-hub-switch-link {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--color-stroke);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    background: var(--color-white);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+
+  .role-hub-switch-link:hover {
+    border-color: rgba(20, 110, 245, 0.45);
+    background: rgba(20, 110, 245, 0.08);
+    color: var(--color-primary);
+  }
+
+  .role-hub-link-item a:focus-visible,
+  .role-hub-switch-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .role-hub-switch-link:focus-visible {
+    border-radius: 999px;
+  }
+</style>

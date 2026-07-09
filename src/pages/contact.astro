@@ -1,0 +1,806 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import FaqSection from '../components/FaqSection.astro';
+import FunnelPageView from '../components/FunnelPageView.astro';
+import QualifiedCustomerNote from '../components/QualifiedCustomerNote.astro';
+import RfqWorkflowProof from '../components/RfqWorkflowProof.astro';
+import SocialProofStrip from '../components/SocialProofStrip.astro';
+import { faqs } from '../data/faqs';
+import { breadcrumbSchema, faqSchema, site } from '../data/site';
+
+const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+---
+
+<BaseLayout
+  title="Contact Engine Family | Diesel Engine Parts Inquiry"
+  description="Contact Engine Family for MTU, Detroit Diesel, Cummins, and DEUTZ engine parts. Send engine model, serial number, part number, and destination for fast support."
+  currentPath="/contact"
+  hideFloatingCta
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Parts Inquiry', url: `${site.url}/contact/` },
+    ]),
+    faqSchema(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
+  ]}
+>
+  <FunnelPageView stage="quote" label="contact-rfq" />
+  <BreadcrumbHero
+    title="Contact & Parts Inquiry"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Contact' },
+    ]}
+    variant="5"
+  />
+
+  <nav class="contact-resource-links fade-in" aria-label="Helpful resources before you quote">
+    <a href="/online-cnc-machining/?source=contact">MTU spare parts</a>
+    <a href="/compare/">Engine applications</a>
+    <a href="/case-studies/">Client stories</a>
+    <a href="/certifications/">Quality policy</a>
+    <a href="/blog/guides/">News & articles</a>
+  </nav>
+
+  <section class="contact-form-section">
+    <div class="section-gap">
+      <div class="container">
+        <div class="contact-form-wrapper fade-in">
+          <div class="contact-leftside-block">
+            <div class="contact-form-block">
+              <div class="contact-form-title-block">
+                <h2 class="contact-form-title">Send an Engine Parts Inquiry</h2>
+                <p class="contact-form-lead">Share your engine brand, model, serial number, part number, quantity, and destination. We verify the part and respond with availability, lead time, and shipping options.</p>
+                <ul class="contact-trust-badges" aria-label="Quote guarantees">
+                  <li><span class="contact-trust-check" set:html={checkIcon} />Fast inquiry response</li>
+                  <li><span class="contact-trust-check" set:html={checkIcon} />Part-number verification</li>
+                  <li><span class="contact-trust-check" set:html={checkIcon} />Genuine & OEM sourcing</li>
+                  <li><span class="contact-trust-check" set:html={checkIcon} />Global delivery support</li>
+                </ul>
+                <div class="quote-package-card">
+                  <p class="quote-package-kicker">Your parts reply includes</p>
+                  <ul>
+                    <li>Part-number confirmation and replacement notes when available.</li>
+                    <li>Unit price, stock status, lead time, and shipping route.</li>
+                    <li>Export packing and documentation notes for international shipment.</li>
+                  </ul>
+                </div>
+                <QualifiedCustomerNote compact />
+              </div>
+              <form class="contact-form" id="rfq-form" data-endpoint="/api/rfq" data-fallback-email={site.email}>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-name">Your Name *</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-email">Your Email *</label>
+                  <input class="contact-form-input-field" type="email" id="rfq-email" name="email" placeholder="jane@company.com" autocomplete="email" required />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-company">Company Name</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-company" name="company" placeholder="Company Inc." autocomplete="organization" />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-phone">Phone / WhatsApp *</label>
+                  <input class="contact-form-input-field" type="tel" id="rfq-phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel" required />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-role">Your Role</label>
+                  <select name="role" id="rfq-role" class="contact-form-input-field is-2">
+                    <option value="">Your Role</option>
+                    <option value="Engineer">Fleet / Vessel Operator</option>
+                    <option value="Purchaser">Purchasing / Procurement</option>
+                    <option value="Quality">Maintenance / Service</option>
+                    <option value="Founder">Shipyard / Repair Company</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-material">Engine Brand</label>
+                  <select name="material" id="rfq-material" class="contact-form-input-field is-2">
+                    <option value="">Engine Brand</option>
+                    <option value="Aluminum">MTU</option>
+                    <option value="Stainless Steel">Detroit Diesel</option>
+                    <option value="Carbon Steel">Cummins</option>
+                    <option value="Titanium">DEUTZ</option>
+                    <option value="Brass">Other diesel engine</option>
+                    <option value="Plastic">Not sure</option>
+                    <option value="Not Sure">Not sure — need identification help</option>
+                  </select>
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-quantity">Quantity</label>
+                  <select name="quantity" id="rfq-quantity" class="contact-form-input-field is-2">
+                    <option value="">Quantity</option>
+                    <option value="1-10">1-5 pcs</option>
+                    <option value="10-100">6-20 pcs</option>
+                    <option value="100-1000">21-100 pcs</option>
+                    <option value="1000+">100+ pcs / stock order</option>
+                    <option value="Not Sure">Not Sure Yet</option>
+                  </select>
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-tolerance">Engine Model / Serial Number</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-tolerance" name="tolerance" placeholder="e.g. MTU 16V4000, engine serial number" />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-finish">Part Number(s)</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-finish" name="surface_finish" placeholder="e.g. X00E50207217 pressure sensor" />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-deadline">Target Delivery</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-deadline" name="deadline" placeholder="Date or lead time needed" />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-country">Destination Country</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-country" name="country" placeholder="e.g. United States, Germany, Australia" autocomplete="country-name" />
+                </div>
+                <div class="contact-form-column file-upload-column">
+                  <span class="contact-field-label" id="rfq-drawing-label">Upload Nameplate / Part Photo</span>
+                  <label class="file-upload-label" for="drawing-upload" aria-labelledby="rfq-drawing-label">
+                    <input
+                      type="file"
+                      id="drawing-upload"
+                      name="drawing"
+                      accept=".pdf,.xls,.xlsx,.csv,.jpg,.jpeg,.png"
+                      class="file-upload-input"
+                    />
+                    <span class="file-upload-icon" aria-hidden="true">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M4 14V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </span>
+                    <span class="file-upload-content">
+                      <span class="file-upload-title">Upload Nameplate / Part Photo</span>
+                      <span class="file-upload-hint">PDF, Excel, JPG, PNG, or part-list file · Max 50MB</span>
+                      <span class="file-upload-filename" data-placeholder="No file selected">No file selected</span>
+                    </span>
+                  </label>
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-message">Parts Details *</label>
+                  <textarea id="rfq-message" placeholder="Engine model, serial number, part numbers, quantity, destination, and delivery deadline" name="message" class="contact-form-input-field large" required></textarea>
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-source">How Did You Find Us?</label>
+                  <select name="source" id="rfq-source" class="contact-form-input-field is-2">
+                    <option value="">How Did You Find Us?</option>
+                    <option value="Google Search">Google Search</option>
+                    <option value="Technical Blog">Technical Blog / Guide</option>
+                    <option value="Case Study">Case Study</option>
+                    <option value="Comparison Page">Comparison Page</option>
+                    <option value="Referral">Referral / Word of Mouth</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Trade Show">Trade Show / Event</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="contact-form-column contact-form-column--full">
+                  <p class="contact-field-label">Support Needed</p>
+                  <div class="contact-checkbox-grid">
+                    <label class="contact-form-checkbox" for="rfq-inspection-report">
+                      <input type="checkbox" id="rfq-inspection-report" name="inspection_report" />
+                      <span class="checkbox-label">Part-number verification</span>
+                    </label>
+                    <label class="contact-form-checkbox" for="rfq-material-cert">
+                      <input type="checkbox" id="rfq-material-cert" name="material_certificate" />
+                      <span class="checkbox-label">Genuine / OEM documentation if available</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="contact-form-column contact-form-column--full">
+                  <label class="contact-form-checkbox" for="rfq-nda">
+                    <input type="checkbox" id="rfq-nda" name="nda" />
+                    <span class="checkbox-label">I need confidentiality before sharing engine or fleet details</span>
+                  </label>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="rfq-website">Leave this field empty</label>
+                  <input type="text" id="rfq-website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
+                <div class="contact-form-button-block">
+                  <button type="submit" class="contact-form-button">Send Parts Inquiry →</button>
+                  <p class="contact-form-submit-note">Typical response within one business day. No spam — parts support only.</p>
+                </div>
+                <div class="form-result" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+          <div class="contact-rightside-block">
+            <div class="contact-image-block">
+              <img src="/images/cnc-machining-contact-request-quote.webp" alt="Diesel engine parts inquiry" class="contact-form-image" width="1200" height="1114" loading="lazy" decoding="async" />
+            </div>
+            <div class="contact-form-image-overlay"></div>
+            <div class="contact-image-contect-block">
+              <div class="contact-text-contect-block">
+                <h2 class="contact-form-title text-color-white">What Happens Next</h2>
+                <div class="process-steps">
+                  <div class="process-step">
+                    <span class="step-number">1</span>
+                    <p class="contact-form-summary">You send engine and part details</p>
+                  </div>
+                  <div class="process-step">
+                    <span class="step-number">2</span>
+                    <p class="contact-form-summary">We verify part numbers, replacement options, and availability</p>
+                  </div>
+                  <div class="process-step">
+                    <span class="step-number">3</span>
+                    <p class="contact-form-summary">You receive price, lead time, stock status, and shipping options</p>
+                  </div>
+                  <div class="process-step">
+                    <span class="step-number">4</span>
+                    <p class="contact-form-summary">Approve the quote, then we pack and ship to your destination.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-workflow-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <RfqWorkflowProof />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="contact-info-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div class="contact-info-wrapper">
+          <div class="contact-info-single-block fade-in">
+            <div class="contact-info-icon-block"><img src="/images/contact-email-message-icon.svg" alt="" aria-hidden="true" class="contact-info-icon" width="24" height="24" loading="lazy" decoding="async" /></div>
+            <div class="contact-info-content-block">
+              <h3 class="contact-info-title">Email Us</h3>
+              <p class="contact-info-summary">
+                <a href={`mailto:${site.email}`} class="contact-info-link">{site.email}</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-info-single-block fade-in">
+            <div class="contact-info-icon-block"><img src="/images/contact-location-pin-icon.svg" alt="" aria-hidden="true" class="contact-info-icon" width="24" height="24" loading="lazy" decoding="async" /></div>
+            <div class="contact-info-content-block">
+              <h3 class="contact-info-title">Shanghai Office, Global Service</h3>
+              <p class="contact-info-summary">Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District, Shanghai, 201112 China.</p>
+            </div>
+          </div>
+          <div class="contact-info-single-block fade-in">
+            <div class="contact-info-icon-block"><img src="/images/contact-phone-call-icon.svg" alt="" aria-hidden="true" class="contact-info-icon" width="24" height="24" loading="lazy" decoding="async" /></div>
+            <div class="contact-info-content-block">
+              <h3 class="contact-info-title">Response Time</h3>
+              <p class="contact-info-summary">We respond to parts inquiries as quickly as possible. Urgent vessel or generator downtime? Mention it in your message.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SocialProofStrip
+    heading="Engine parts supply trusted by global buyers"
+    showTestimonial
+    testimonialIndex={1}
+  />
+
+  <FaqSection />
+</BaseLayout>
+
+<style>
+  .contact-resource-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto 28px;
+    padding: 0 20px;
+  }
+
+  .contact-resource-links a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(20, 110, 245, 0.25);
+    background: rgba(20, 110, 245, 0.06);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .contact-resource-links a:hover {
+    background: rgba(20, 110, 245, 0.12);
+    border-color: rgba(20, 110, 245, 0.4);
+  }
+
+  .contact-form-lead {
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #475569;
+  }
+
+  .contact-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contact-trust-badges li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #334155;
+  }
+
+  .contact-trust-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact-field-label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-title);
+  }
+
+  .contact-form-submit-note {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    text-align: center;
+  }
+
+  .contact-form-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  .contact-form-button:disabled {
+    opacity: 0.72;
+    cursor: not-allowed;
+  }
+
+  .contact-form-checkbox:focus-within {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .contact-info-single-block {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-info-link {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .contact-info-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .quote-package-card {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border: 1px solid rgba(20, 110, 245, 0.16);
+    border-radius: 8px;
+    background: rgba(20, 110, 245, 0.05);
+  }
+  .quote-package-kicker {
+    margin: 0 0 8px;
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+  .quote-package-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding-left: 18px;
+  }
+  .quote-package-card li {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--color-body-text);
+  }
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .file-upload-column {
+    grid-column: 1 / -1;
+  }
+  .contact-form-column--full {
+    grid-column: 1 / -1;
+  }
+
+  .contact-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 16px;
+  }
+
+  .file-upload-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 72px;
+    padding: 16px 20px;
+    border: 1px dashed var(--color-stroke);
+    border-radius: 6px;
+    background-color: var(--color-white);
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+
+  @media (max-width: 720px) {
+    .contact-checkbox-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .file-upload-label:hover,
+  .file-upload-label.is-dragover {
+    border-color: var(--color-primary);
+    background-color: rgba(20, 110, 245, 0.04);
+  }
+
+  .file-upload-label:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(20, 110, 245, 0.12);
+    outline: none;
+  }
+
+  .file-upload-label.has-file {
+    border-style: solid;
+    border-color: var(--color-primary);
+  }
+
+  .file-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .file-upload-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: rgba(20, 110, 245, 0.08);
+    color: var(--color-primary);
+  }
+
+  .file-upload-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .file-upload-title {
+    font-family: var(--font-title);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-title);
+    line-height: 1.3;
+  }
+
+  .file-upload-hint {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #64748b;
+  }
+
+  .file-upload-filename {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #475569;
+    word-break: break-all;
+  }
+
+  .file-upload-label.has-file .file-upload-filename {
+    color: var(--color-primary);
+  }
+
+  .form-result.is-error a {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  .form-result.is-error a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  import { fireAttributionLeadEvent, populateRfqAttributionFields } from '../scripts/attribution';
+
+  // ── 文件上传 UI ──
+  const fileLabel = document.querySelector<HTMLLabelElement>('.file-upload-label');
+  const fileInput = document.querySelector<HTMLInputElement>('#drawing-upload');
+  const fileNameEl = document.querySelector<HTMLElement>('.file-upload-filename');
+
+  if (fileLabel && fileInput && fileNameEl) {
+    const placeholder = fileNameEl.dataset.placeholder ?? 'No file selected';
+
+    const updateFileState = () => {
+      const file = fileInput.files?.[0];
+      if (file) {
+        fileLabel.classList.add('has-file');
+        fileNameEl.textContent = file.name;
+      } else {
+        fileLabel.classList.remove('has-file');
+        fileNameEl.textContent = placeholder;
+      }
+    };
+
+    fileInput.addEventListener('change', updateFileState);
+
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      fileLabel.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        fileLabel.classList.add('is-dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach((eventName) => {
+      fileLabel.addEventListener(eventName, () => {
+        fileLabel.classList.remove('is-dragover');
+      });
+    });
+
+    fileLabel.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const file = event.dataTransfer?.files?.[0];
+      if (!file) return;
+
+      const transfer = new DataTransfer();
+      transfer.items.add(file);
+      fileInput.files = transfer.files;
+      updateFileState();
+    });
+  }
+
+  // ── AJAX 提交（不跳转） ──
+  const form = document.getElementById('rfq-form') as HTMLFormElement;
+  const resultEl = document.querySelector('.form-result') as HTMLElement;
+  const submitBtn = form?.querySelector('.contact-form-button') as HTMLButtonElement;
+
+  let formStarted = false;
+
+  if (form) {
+    populateRfqAttributionFields(form);
+    const params = new URLSearchParams(window.location.search);
+    const urlSource = params.get('source');
+    if (urlSource) {
+      const sourceSelect = form.querySelector<HTMLSelectElement>('select[name="source"]');
+      const sourceMap: Record<string, string> = {
+        comparison: 'Comparison Page',
+        compare: 'Comparison Page',
+        selection: 'Technical Blog',
+        blog: 'Technical Blog',
+        resource: 'Technical Blog',
+        resources: 'Technical Blog',
+        floating: 'Google Search',
+        homepage: 'Google Search',
+        engineer: 'Technical Blog',
+        procurement: 'Technical Blog',
+        quality: 'Technical Blog',
+        'engineer-hub': 'Technical Blog',
+        'procurement-hub': 'Technical Blog',
+        'quality-hub': 'Technical Blog',
+        'material-certs': 'Technical Blog',
+        'inspection-samples': 'Technical Blog',
+        'payment-terms': 'Technical Blog',
+        'shipping-terms': 'Technical Blog',
+        sample: 'Technical Blog',
+        'case-study': 'Case Study',
+        rfq: 'Google Search',
+        products: 'Google Search',
+        materials: 'Google Search',
+        capabilities: 'Google Search',
+        industries: 'Google Search',
+        applications: 'Google Search',
+        features: 'Technical Blog',
+        standard: 'Technical Blog',
+        certifications: 'Technical Blog',
+        'process-selection': 'Technical Blog',
+        glossary: 'Technical Blog',
+        about: 'Google Search',
+        'capability-sub': 'Google Search',
+        'product-sub': 'Google Search',
+        'industry-sub': 'Google Search',
+        'material-sub': 'Google Search',
+        '404': 'Other',
+      };
+      const mapped =
+        sourceMap[urlSource.toLowerCase()] ??
+        (urlSource.startsWith('blog-')
+          ? 'Technical Blog'
+          : urlSource.startsWith('product-') ||
+            urlSource.startsWith('capability-') ||
+            urlSource.startsWith('industry-') ||
+            urlSource.startsWith('feature-') ||
+            urlSource.startsWith('application-') ||
+            urlSource.startsWith('capability-sub-') ||
+            urlSource.startsWith('product-sub-') ||
+            urlSource.startsWith('industry-sub-') ||
+            urlSource.startsWith('material-sub-') ||
+            urlSource.startsWith('compare-') ||
+            urlSource.startsWith('case-study-')
+            ? 'Google Search'
+            : '');
+      if (sourceSelect && mapped) sourceSelect.value = mapped;
+    }
+  }
+
+  form?.querySelectorAll('input, textarea, select').forEach((field) => {
+    field.addEventListener(
+      'focus',
+      () => {
+        if (formStarted || typeof window.gtag !== 'function') return;
+        formStarted = true;
+        window.gtag('event', 'form_start', {
+          event_category: 'Funnel',
+          event_label: 'contact_form',
+          funnel_stage: 'quote',
+        });
+        window.gtag('event', 'rfq_form_view', {
+          event_category: 'Funnel',
+          event_label: 'contact_form',
+          funnel_stage: 'quote',
+        });
+      },
+      { once: true }
+    );
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    resultEl.innerHTML = '';
+
+    populateRfqAttributionFields(form);
+    const formData = new FormData(form);
+
+    if (formData.get('website')) {
+      window.location.href = '/thank-you/?source=rfq';
+      return;
+    }
+
+    try {
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) throw new Error('Missing form endpoint');
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        const role = formData.get('role')?.toString() ?? '';
+        const source = formData.get('source')?.toString() ?? '';
+        const material = formData.get('material')?.toString() ?? '';
+        const quantity = formData.get('quantity')?.toString() ?? '';
+        const surfaceFinish = formData.get('surface_finish')?.toString() ?? '';
+        const country = formData.get('country')?.toString() ?? '';
+        const inspectionReport = formData.get('inspection_report') ? 'yes' : 'no';
+        const materialCertificate = formData.get('material_certificate') ? 'yes' : 'no';
+        const urlSource = formData.get('url_source')?.toString() ?? new URLSearchParams(window.location.search).get('source') ?? '';
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'rfq_form_submit', {
+            event_category: 'Funnel',
+            event_label: 'contact_form',
+            funnel_stage: 'quote',
+            buyer_role: role || 'unspecified',
+            lead_source: source || 'unspecified',
+            url_source: urlSource || 'unspecified',
+            material: material || 'unspecified',
+            quantity: quantity || 'unspecified',
+            surface_finish: surfaceFinish || 'unspecified',
+            destination_country: country || 'unspecified',
+            inspection_report: inspectionReport,
+            material_certificate: materialCertificate,
+          });
+          window.gtag('event', 'generate_lead', {
+            event_category: 'RFQ',
+            event_label: source || 'contact_form',
+            buyer_role: role || 'unspecified',
+            url_source: urlSource || 'unspecified',
+            material: material || 'unspecified',
+            quantity: quantity || 'unspecified',
+            surface_finish: surfaceFinish || 'unspecified',
+            destination_country: country || 'unspecified',
+            inspection_report: inspectionReport,
+            material_certificate: materialCertificate,
+          });
+          fireAttributionLeadEvent({
+            buyer_role: role || 'unspecified',
+            lead_source: source || 'unspecified',
+            url_source: urlSource || 'unspecified',
+          });
+        }
+        window.location.href = '/thank-you/?source=rfq';
+        return;
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      resultEl.className = 'form-result is-visible is-error';
+      resultEl.innerHTML = `<p>Something went wrong. Please email us directly at <a href="mailto:${form.dataset.fallbackEmail ?? 'charles@engine-family.com'}">${form.dataset.fallbackEmail ?? 'charles@engine-family.com'}</a>.</p>`;
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Parts Inquiry →';
+  });
+</script>
+
+

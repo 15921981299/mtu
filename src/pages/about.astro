@@ -1,0 +1,606 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import BlogCta from '../components/BlogCta.astro';
+import FunnelPageView from '../components/FunnelPageView.astro';
+import ProofMediaGallery from '../components/ProofMediaGallery.astro';
+import QualifiedCustomerNote from '../components/QualifiedCustomerNote.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { breadcrumbSchema, site, videoSchema } from '../data/site';
+
+const workshopVideo = videoSchema({
+  name: 'Engine Family Parts Support Overview',
+  description: 'See how Engine Family supports diesel engine parts identification, stock checking, and global delivery.',
+  thumbnailUrl: 'https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg',
+  embedUrl: 'https://www.youtube.com/embed/M7uJEbDD-_8',
+  uploadDate: '2023-06-01',
+});
+
+const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0001 17L20 12L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+---
+
+<BaseLayout
+  title="About Engine Family — Genuine Diesel Engine Parts Supplier"
+  description="Engine Family supplies MTU, Detroit Diesel, Cummins, and DEUTZ engine parts from Shanghai with part-number verification, genuine/OEM sourcing, and fast global delivery."
+  currentPath="/about"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'About Us', url: `${site.url}/about/` },
+    ]),
+    workshopVideo,
+  ]}
+>
+  <FunnelPageView stage="awareness" label="about" />
+  <BreadcrumbHero
+    title="The Engine Parts Team Behind Your Supply"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'About Us' },
+    ]}
+    variant="1"
+  />
+
+  <!-- Mission: Who We Are -->
+  <section id="about-mission" class="mission-and-vision-section about-section">
+    <div class="section-gap">
+      <div class="container">
+        <div class="mission-and-vision-wrapper">
+          <SectionHeading title="We Speak Engine, Parts, and Urgency" subtitle="Who We Are" />
+
+          <div class="about-trust-meta" aria-label="Company credentials">
+            <span><strong>MTU</strong> full-series parts support</span>
+            <span>Genuine and OEM manufacturer parts</span>
+            <span>Part-number and serial-number checks</span>
+            <span><strong>Global</strong> express delivery</span>
+          </div>
+
+          <div class="about-legal-block fade-in" aria-label="Legal entity">
+            <p class="about-legal-name"><strong>{site.company.legalNameEn}</strong> · {site.company.legalName}</p>
+            <p class="about-legal-detail">
+              Shanghai-based diesel engine parts supplier serving marine, industrial, generator, rail, and repair buyers worldwide —
+              <a href="/certifications/">view QC & certification scope</a>.
+              Contact: <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:${site.phone}`}>{site.phone}</a>
+            </p>
+          </div>
+
+          <nav class="about-jump-nav" aria-label="On this page">
+            <a href="#about-mission" class="about-jump-link">Mission & vision</a>
+            <a href="#about-stats" class="about-jump-link">By the numbers</a>
+            <a href="#about-different" class="about-jump-link">Why us</a>
+            <a href="#about-factory" class="about-jump-link">Global delivery</a>
+            <a href="#about-team" class="about-jump-link">Parts knowledge</a>
+          </nav>
+
+          <div class="mission-and-vision-content">
+            <div class="mission-block fade-in">
+              <div class="mission-content-block">
+                <div class="mission-subtitle-block"><div class="mission-subtitle-text">Our Mission</div></div>
+                <div class="mission-text-block">
+                  <h3 class="mission-title">Correct Engine Parts, Verified Before Shipment</h3>
+                  <p class="mission-summary">Engine downtime is expensive, and a wrong spare part costs more than a slow quotation. Our mission is to help buyers identify genuine and OEM manufacturer parts by part number, engine model, serial number, and nameplate photos before the order ships.</p>
+                  <a href="/products/" class="mission-link-button"><div class="link-button-text">Our Parts Range</div><div class="link-button-icon" set:html={linkArrow} /></a>
+                </div>
+              </div>
+              <div class="mission-image-block">
+                <img src="/images/precision-cnc-machined-parts-collection.jpg" alt="Diesel engine spare parts and components" class="mission-image" width="850" height="753" loading="lazy" decoding="async" />
+                <div class="image-overlay"></div>
+              </div>
+            </div>
+            <div class="vision-block fade-in">
+              <div class="vision-content-block">
+                <div class="vision-subtitle-block"><div class="vision-subtitle-text">Our Vision</div></div>
+                <div class="vision-text-block">
+                  <h3 class="vision-title">Be the Parts Partner Buyers Call First</h3>
+                  <p class="vision-summary">We are building Engine Family around clear communication, accurate part verification, and practical global delivery. Whether the request is a single pressure sensor, a full overhaul list, or urgent marine downtime support, the process starts with identifying the correct part.</p>
+                  <a href="/contact/?source=about" class="vision-link-button"><div class="link-button-text">Send Parts Inquiry</div><div class="link-button-icon" set:html={linkArrow} /></a>
+                </div>
+              </div>
+              <div class="vision-image-block">
+                <img src="/images/cnc-machining-quality-inspection.webp" alt="Engine parts verification and quality check" class="vision-image" width="850" height="753" loading="lazy" decoding="async" />
+                <div class="image-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Are: Your background story -->
+  <section id="about-stats" class="who-we-are-section about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div class="who-we-are-wrapper">
+          <div class="who-we-are-content-block fade-in">
+            <div class="who-we-are-text">Engine Family is focused on diesel engine spare parts for MTU, Detroit Diesel, Cummins, and DEUTZ users. We help marine operators, shipyards, repair companies, generator owners, and industrial maintenance teams turn unclear part requests into verified quotations with the right engine details attached.</div>
+            <!-- <div class="who-we-are-image-block">
+              <img src="/images/machining-supplier-engineer-team.webp" alt="Machining workshop" class="who-we-are-image" width="520" height="400" loading="lazy" decoding="async" />
+              <div class="who-we-are-lightbox">
+                <button type="button" class="lightbox-link-block primary" data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s" aria-label="Play workshop video">
+                  <div class="lightbox-inner-block primary"><img src="/images/video-play-icon.svg" alt="" class="lightbox-play-icon primary" width="20" height="20" loading="lazy" decoding="async" /></div>
+                  <div class="lightbox-circle-one primary"></div>
+                  <div class="lightbox-circle-two primary"></div>
+                </button>
+              </div>
+            </div> -->
+          </div>
+          <div class="funfact-wrapper about-metrics-grid fade-in">
+            <div class="funfact-single-block">
+              <div class="funfact-number-block"><div class="chain-character">15+</div></div>
+              <div class="funfact-text-block">
+                <h3 class="funfact-title">MTU Series Covered</h3>
+                <p class="funfact-summary">Parts support for classic and current MTU 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.</p>
+              </div>
+            </div>
+            <div class="funfact-separtion-liner"></div>
+            <div class="funfact-single-block">
+              <div class="funfact-number-block"><div class="chain-character">4</div></div>
+              <div class="funfact-text-block">
+                <h3 class="funfact-title">Core Brands</h3>
+                <p class="funfact-summary">MTU, Detroit Diesel, Cummins, and DEUTZ spare parts for marine, industrial, power generation, and rail users.</p>
+              </div>
+            </div>
+            <div class="funfact-separtion-liner"></div>
+            <div class="funfact-single-block">
+              <div class="funfact-number-block"><div class="chain-character">Global</div></div>
+              <div class="funfact-text-block">
+                <h3 class="funfact-title">Delivery Support</h3>
+                <p class="funfact-summary">Express and freight shipment from Shanghai for urgent downtime and planned maintenance orders.</p>
+              </div>
+            </div>
+
+            <div class="funfact-separtion-liner"></div>
+            <div class="funfact-single-block">
+              <div class="funfact-number-block"><div class="chain-character">24h</div></div>
+              <div class="funfact-text-block">
+                <h3 class="funfact-title">Fast Response</h3>
+                <p class="funfact-summary">Availability checks are faster when buyers send part numbers, engine serial numbers, photos, quantity, and destination together.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Different -->
+  <section id="about-different" class="who-we-are-section about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading title="What Makes Engine Family Different" subtitle="Why Choose Us" />
+        <div class="funfact-wrapper about-differentiators-grid fade-in">
+          <div class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character">01</div></div>
+            <div class="funfact-text-block">
+              <h3 class="funfact-title">We Verify Before We Quote</h3>
+              <p class="funfact-summary">Part number, engine series, model, serial number, and photos are checked together to reduce wrong-part risk.</p>
+            </div>
+          </div>
+          <div class="funfact-separtion-liner"></div>
+          <div class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character">02</div></div>
+            <div class="funfact-text-block">
+              <h3 class="funfact-title">Genuine and OEM Manufacturer Focus</h3>
+              <p class="funfact-summary">We prioritize reliable parts for maintenance, overhaul, and fleet operation, not vague substitute offers.</p>
+            </div>
+          </div>
+          <div class="funfact-separtion-liner"></div>
+          <div class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character">03</div></div>
+            <div class="funfact-text-block">
+              <h3 class="funfact-title">Built for Global Maintenance Teams</h3>
+              <p class="funfact-summary">We support shipyards, fleets, generator operators, rail users, repair companies, and industrial equipment owners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Factory tour -->
+  <section id="about-factory" class="who-we-are-section about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading title="Global Delivery From Shanghai" subtitle="Shipping Support" />
+        <div class="who-we-are-wrapper fade-in">
+          <div class="who-we-are-content-block">
+            <p class="who-we-are-text">Engine Family is based in Shanghai and supports international buyers with express, air, and freight shipment options. For urgent vessel, generator, or industrial downtime orders, share the destination and deadline in your first inquiry.</p>
+            <p class="about-factory-cta-row">
+              <a href="/contact/?source=about-shipping" class="about-inline-cta">Send a parts inquiry →</a>
+              <a href="/terms/shipping/" class="about-inline-cta about-inline-cta--secondary">Shipping terms</a>
+            </p>
+          </div>
+          <div class="who-we-are-image-block about-factory-image">
+            <img src="/images/global-delivery-shipping-step.webp" alt="Global diesel engine parts delivery" class="who-we-are-image" width="520" height="400" loading="lazy" decoding="async" />
+            <div class="who-we-are-lightbox">
+              <button type="button" class="lightbox-link-block primary" data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s" aria-label="Play factory tour video">
+                <div class="lightbox-inner-block primary"><img src="/images/video-play-icon.svg" alt="" aria-hidden="true" class="lightbox-play-icon primary" width="20" height="20" loading="lazy" decoding="async" /></div>
+                <div class="lightbox-circle-one primary"></div>
+                <div class="lightbox-circle-two primary"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <QualifiedCustomerNote />
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <ProofMediaGallery
+          title="Factory, inspection, packaging, and sample proof"
+          intro="Visual proof helps buyers verify that the supplier behind the website can support real machining, QC, export packing, and sample review before the first PO."
+          categories={['factory', 'inspection', 'packaging', 'samples']}
+          limit={8}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial team -->
+  <section id="about-team" class="who-we-are-section about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading title="Parts Knowledge Behind the Guides" subtitle="Editorial Team" />
+        <div class="editorial-team-grid fade-in">
+          <article class="editorial-team-card">
+            <h3 class="editorial-team-name"><a href="/blog/author/wei-chen/">Wei Chen</a></h3>
+            <p class="editorial-team-role">Engine Parts Identification Lead</p>
+            <p class="editorial-team-bio">Supports part-number checks, nameplate review, and engine-series matching for MTU and related diesel engine inquiries.</p>
+          </article>
+          <article class="editorial-team-card">
+            <h3 class="editorial-team-name"><a href="/blog/author/lisa-huang/">Lisa Huang</a></h3>
+            <p class="editorial-team-role">Global Sourcing & Logistics Lead</p>
+            <p class="editorial-team-bio">Coordinates availability checks, export packing, and international shipment options for urgent and planned parts orders.</p>
+          </article>
+        </div>
+        <p class="editorial-team-note">
+          Every guide is reviewed for practical inquiry accuracy. See <a href="/resources/">parts guides</a> and <a href="/products/">engine parts hubs</a>.
+          <span aria-hidden="true"> · </span>
+          <a href="/contact/">Send parts inquiry</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <BlogCta
+    stage="awareness"
+    topic="about"
+    title="Ready to Check Engine Parts Availability?"
+    primaryHref="/contact/?source=about"
+  />
+</BaseLayout>
+<style>
+  .about-section {
+    scroll-margin-top: 100px;
+  }
+
+  .about-trust-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin: 0 0 20px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    background: var(--color-background);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .about-trust-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .about-trust-meta strong {
+    color: var(--color-title);
+  }
+
+  .about-legal-block {
+    margin: 0 0 20px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-body-text);
+    background: rgba(20, 110, 245, 0.06);
+    border: 1px solid rgba(20, 110, 245, 0.15);
+    border-radius: 8px;
+  }
+
+  .about-legal-name {
+    margin: 0 0 6px;
+    font-size: 15px;
+    color: var(--color-title);
+  }
+
+  .about-legal-detail {
+    margin: 0;
+  }
+
+  .about-legal-block a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .about-legal-block a:hover {
+    text-decoration: underline;
+  }
+
+  .about-jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .about-jump-link {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--color-stroke);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    background: var(--color-white);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .about-jump-link:hover {
+    border-color: rgba(20, 110, 245, 0.45);
+    background: rgba(20, 110, 245, 0.08);
+    color: var(--color-primary);
+  }
+
+  .about-jump-link:focus-visible,
+  .mission-link-button:focus-visible,
+  .vision-link-button:focus-visible,
+  .about-inline-cta:focus-visible,
+  .editorial-team-name a:focus-visible,
+  .editorial-team-note a:focus-visible,
+  .lightbox-link-block:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .mission-link-button,
+  .vision-link-button {
+    cursor: pointer;
+  }
+
+  .about-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    background: var(--color-body);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .about-metrics-grid .funfact-single-block {
+    max-width: none;
+    padding: 40px 28px;
+    border-right: 1px solid var(--color-stroke);
+  }
+
+  .about-metrics-grid .funfact-single-block:last-child {
+    border-right: none;
+  }
+
+  .about-metrics-grid .funfact-separtion-liner {
+    display: none;
+  }
+
+  .about-differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    background: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .about-differentiators-grid .funfact-single-block {
+    max-width: none;
+    padding: 40px 28px;
+    border-right: 1px solid var(--color-stroke);
+  }
+
+  .about-differentiators-grid .funfact-single-block:last-child {
+    border-right: none;
+  }
+
+  .about-differentiators-grid .funfact-separtion-liner {
+    display: none;
+  }
+
+  .about-factory-image {
+    position: relative;
+  }
+
+  .about-factory-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 16px;
+  }
+
+  .about-inline-cta {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .about-inline-cta:hover {
+    text-decoration: underline;
+  }
+
+  .about-inline-cta--secondary {
+    color: var(--color-title);
+  }
+
+  .about-inline-cta--secondary:hover {
+    color: var(--color-primary);
+  }
+
+  .editorial-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .editorial-team-card {
+    padding: 24px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .editorial-team-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 4px 18px rgba(20, 110, 245, 0.08);
+  }
+
+  .editorial-team-name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    text-transform: none;
+  }
+
+  .editorial-team-name a {
+    color: var(--color-title);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .editorial-team-name a:hover {
+    color: var(--color-primary);
+  }
+
+  .editorial-team-role {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+
+  .editorial-team-bio {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .editorial-team-note {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748b;
+  }
+
+  .editorial-team-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .editorial-team-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 991px) {
+    .about-metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-metrics-grid .funfact-single-block:nth-child(2) {
+      border-right: none;
+    }
+
+    .about-metrics-grid .funfact-single-block:nth-child(1),
+    .about-metrics-grid .funfact-single-block:nth-child(2) {
+      border-bottom: 1px solid var(--color-stroke);
+    }
+
+    .about-differentiators-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-differentiators-grid .funfact-single-block {
+      border-right: none;
+      border-bottom: 1px solid var(--color-stroke);
+    }
+
+    .about-differentiators-grid .funfact-single-block:last-child {
+      border-bottom: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .editorial-team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-jump-nav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .about-jump-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .about-jump-link {
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-metrics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-metrics-grid .funfact-single-block {
+      border-right: none;
+      border-bottom: 1px solid var(--color-stroke);
+    }
+
+    .about-metrics-grid .funfact-single-block:last-child {
+      border-bottom: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .editorial-team-card:hover {
+      box-shadow: none;
+    }
+  }
+</style>

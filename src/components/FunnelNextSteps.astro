@@ -1,0 +1,126 @@
+---
+import {
+  funnelNextStepsByStage,
+  type FunnelNextStep,
+} from '../data/funnel-links';
+import type { ComparisonGuide } from '../data/comparisons';
+import type { FunnelStage } from '../data/funnel';
+
+interface Props {
+  stage: FunnelStage;
+  /** When a blog post has a matching compare page, surface it first. */
+  comparison?: ComparisonGuide | null;
+  topic?: string;
+}
+
+const { stage, comparison, topic } = Astro.props;
+
+const baseSteps = funnelNextStepsByStage[stage];
+const steps: FunnelNextStep[] = comparison
+  ? [
+      {
+        label: comparison.title,
+        href: `/compare/${comparison.slug}/`,
+        hint: 'Structured decision table for this topic',
+      },
+      ...baseSteps.filter((step) => step.href !== `/compare/${comparison.slug}/`),
+    ].slice(0, 4)
+  : baseSteps.slice(0, 3);
+---
+
+<aside class="funnel-next-steps fade-in" data-funnel-stage={stage}>
+  <p class="funnel-next-kicker">Next in your buying journey</p>
+  <h2 class="funnel-next-title">Continue exploring</h2>
+  <ul class="funnel-next-list">
+    {steps.map((step) => (
+      <li>
+        <a
+          href={step.href}
+          class="funnel-next-link"
+          data-funnel-event="funnel_next_step"
+          data-funnel-stage={stage}
+          data-funnel-label={topic ?? step.label}
+        >
+          <span class="funnel-next-link-label">{step.label}</span>
+          {step.hint && <span class="funnel-next-link-hint">{step.hint}</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.funnel-next-link[data-funnel-event]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', link.dataset.funnelEvent ?? 'funnel_next_step', {
+        event_category: 'Funnel',
+        event_label: link.dataset.funnelLabel ?? '',
+        funnel_stage: link.dataset.funnelStage ?? '',
+      });
+    });
+  });
+</script>
+
+<style>
+  .funnel-next-steps {
+    margin: 0 0 40px;
+    padding: 28px 32px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    background: var(--color-background);
+  }
+  .funnel-next-kicker {
+    margin: 0 0 6px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+  .funnel-next-title {
+    margin: 0 0 18px;
+    font-size: 22px;
+    color: var(--color-title);
+    text-transform: none;
+  }
+  .funnel-next-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .funnel-next-link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 16px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    background: var(--color-white);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .funnel-next-link:hover {
+    border-color: rgba(20, 110, 245, 0.45);
+    background: rgba(20, 110, 245, 0.04);
+  }
+  .funnel-next-link-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+  .funnel-next-link-hint {
+    font-size: 13px;
+    color: var(--color-body-text);
+  }
+  @media (min-width: 768px) {
+    .funnel-next-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .funnel-next-steps:has(.funnel-next-list li:nth-child(4)) .funnel-next-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

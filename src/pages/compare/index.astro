@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { comparisons, getComparisonsByCategory, getIndexableComparisons } from '../../data/comparisons';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+const grouped = getComparisonsByCategory(getIndexableComparisons());
+const totalCount = getIndexableComparisons().length;
+const allComparisonCount = comparisons.length;
+---
+
+<BaseLayout
+  title="CNC Machining Comparisons — Process, Material & RFQ Decision Guides"
+  description={`${totalCount} side-by-side comparison guides for CNC buyers — process, material, finish, and sourcing tables with FAQ schema. Pick your path, then upload CAD for a 24h quote.`}
+  currentPath="/compare"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Comparisons', url: `${site.url}/compare/` },
+  ])}
+>
+  <FunnelPageView stage="comparison" label="compare-index" />
+  <BreadcrumbHero
+    title="CNC Machining<br>Comparisons"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Comparisons' },
+    ]}
+    variant="2"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <nav class="resource-nav" aria-label="Comparisons navigation">
+            <a href="/compare/" class="resource-nav-link active" aria-current="page">
+              All comparisons
+            </a>
+            <a href="/products/" class="resource-nav-link">Part types</a>
+            <a href="/materials/" class="resource-nav-link">Materials</a>
+            <a href="/case-studies/" class="resource-nav-link">Case studies</a>
+            <a href="/resources/" class="resource-nav-link resource-nav-all">Resources</a>
+          </nav>
+
+          <p class="resource-intro">
+            {totalCount} decision-stage guides with side-by-side tables and clear recommendations — built for engineers comparing processes, materials, finishes, and sourcing options.
+            {allComparisonCount > totalCount && (
+              <> Long-tail comparisons remain available via <a href="/resources/process-selection/">process selection</a> and parent hub pages.</>
+            )}
+          </p>
+
+          <div class="resource-meta">
+            <span><strong>{totalCount}</strong> comparison guides</span>
+            <span><strong>{grouped.length}</strong> categories</span>
+            <span>Verify before <strong>RFQ</strong></span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>After you pick a process or material, upload your drawing — we confirm feasibility and quote within 24 hours.</p>
+            <div class="detail-rfq-actions-inline">
+              <a href="/contact/?source=comparison" class="detail-rfq-link">Request a Quote</a>
+              <a href="/online-cnc-machining/" class="detail-rfq-link detail-rfq-link-secondary">Online CNC quote</a>
+            </div>
+          </div>
+
+          <nav class="compare-priority-nav" aria-label="High-traffic comparison guides">
+            <span class="compare-priority-label">Popular guides:</span>
+            <a href="/compare/ra-vs-rz-surface-roughness/">Ra vs Rz</a>
+            <a href="/compare/cnc-milling-vs-turning/">Milling vs turning</a>
+            <a href="/compare/sinker-edm-vs-wire-edm/">Sinker vs wire EDM</a>
+            <a href="/compare/magnesium-vs-aluminum/">Magnesium vs aluminum</a>
+            <a href="/compare/concentricity-vs-runout/">Concentricity vs runout</a>
+            <a href="/compare/iso-2768-m-vs-f/">ISO 2768 m vs f</a>
+            <a href="/compare/cpk-vs-ppk-capability/">Cpk vs Ppk</a>
+          </nav>
+
+          <div class="resource-note">
+            <strong>After you choose:</strong> Verify supplier capability with
+            <a href="/resources/inspection-samples/">redacted inspection samples</a>
+            and
+            <a href="/case-studies/">project proof by industry</a>.
+          </div>
+
+          <nav class="resource-nav hub-jump-nav" aria-label="Comparison categories">
+            {grouped.map((group) => (
+              <a href={`#compare-${group.id}`} class="resource-nav-link hub-jump-link">
+                {group.label}
+                <span class="hub-jump-count">{group.items.length}</span>
+              </a>
+            ))}
+          </nav>
+
+          {grouped.map((group) => (
+            <section id={`compare-${group.id}`} class="hub-section">
+              <header class="hub-section-header">
+                <h2>{group.label}</h2>
+                <p>{group.description}</p>
+              </header>
+              <div class="hub-grid">
+                {group.items.map((item) => (
+                  <article class="hub-card">
+                    <div class="hub-card-body">
+                      <p class="hub-card-meta">{group.label}</p>
+                      <h3 class="hub-card-title">
+                        <a href={`/compare/${item.slug}/`}>{item.title}</a>
+                      </h3>
+                      <p class="hub-card-summary">{item.summary}</p>
+                      <a href={`/compare/${item.slug}/`} class="hub-card-link">
+                        View comparison →
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+
+          <p class="resource-related">
+            <a href="/standards/">Industry standards</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/by-role/engineers/">Engineer hub</a>
+            <span aria-hidden="true">·</span>
+            <a href="/blog/guides/">Guide hubs</a>
+            <span aria-hidden="true">·</span>
+            <a href="/certifications/">QC process</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="comparison"
+    topic="compare-index"
+    title="Ready to quote your chosen process?"
+    text="Upload your drawing after comparing options — we confirm material, finish, and tolerance feasibility in the quote."
+    primaryLabel="Request a Quote"
+    primaryHref="/contact/?source=comparison"
+    primaryEvent="compare_index_rfq"
+    secondaryLabel="Online CNC quote"
+    secondaryHref="/online-cnc-machining/"
+    secondaryEvent="compare_index_online"
+  />
+</BaseLayout>
+
+<style>
+  .detail-rfq-actions-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 12px;
+  }
+
+  .detail-rfq-link-secondary {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 1px solid rgba(20, 110, 245, 0.35);
+  }
+
+  .compare-priority-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin: 20px 0 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+    background: var(--color-background);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .compare-priority-label {
+    font-weight: 700;
+    color: var(--color-title);
+  }
+
+  .compare-priority-nav a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .compare-priority-nav a:hover {
+    text-decoration: underline;
+  }
+
+  .compare-priority-nav a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .hub-card-title {
+    font-size: 17px;
+  }
+</style>

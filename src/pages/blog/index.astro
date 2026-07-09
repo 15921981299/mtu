@@ -1,0 +1,486 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogTagNav from '../../components/BlogTagNav.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import BlogLatestCard from '../../components/BlogLatestCard.astro';
+import BlogPagination from '../../components/BlogPagination.astro';
+import { blogPillars } from '../../data/blog-quality';
+import {
+  blogPosts,
+  authors,
+  getBlogPostsForPage,
+  getBlogTotalPages,
+  getFeaturedBlogPost,
+  getPostAuthorKey,
+} from '../../data/blog';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+import '../../styles/hub-list-page.css';
+import '../../styles/blog-list-page.css';
+
+const featured = getFeaturedBlogPost();
+const featuredAuthor = authors[getPostAuthorKey(featured.slug, featured.author)];
+const pagePosts = getBlogPostsForPage(1);
+const articleCount = blogPosts.length;
+const hubCount = blogPillars.length;
+const totalPages = getBlogTotalPages();
+
+const hubLabels: Record<string, string> = {
+  tolerances: 'Tolerances',
+  sourcing: 'Sourcing',
+  dfm: 'DFM',
+  materials: 'Materials',
+  process: 'Process',
+  'cost-leadtime': 'Cost',
+  quality: 'Quality',
+  finishes: 'Finishes',
+  drawings: 'Drawings',
+  'getting-started': 'Start',
+};
+---
+
+<BaseLayout
+  title="CNC Machining Blog — Technical Articles & Design Guides | Machining Supplier"
+  description="Practical CNC machining guides — tolerances, materials, design tips, and process selection. Written by engineers for engineers and procurement professionals."
+  currentPath="/blog"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Blog', url: `${site.url}/blog/` },
+  ])}
+>
+  <FunnelPageView stage="awareness" label="blog-index" />
+  <BreadcrumbHero
+    title="Machining Knowledge"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Blog' },
+    ]}
+    variant="3"
+  />
+
+  <BlogTagNav activeAllPosts />
+
+  <section class="blog-details-section blog-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block blog-index-page fade-in">
+          <nav class="resource-nav blog-index-top-nav" aria-label="Blog navigation">
+            <a href="/blog/" class="resource-nav-link active" aria-current="page">
+              All articles
+            </a>
+            <a href="/blog/guides/" class="resource-nav-link">Guide hubs</a>
+            <a href="/compare/" class="resource-nav-link">Comparisons</a>
+            <a href="/glossary/" class="resource-nav-link">Glossary</a>
+            <a href="/resources/" class="resource-nav-link resource-nav-all">Resources</a>
+          </nav>
+
+          <header class="blog-index-hero">
+            <p class="blog-index-kicker">Engineer-written · RFQ-ready</p>
+            <p class="blog-index-intro">
+              Practical CNC guides for engineers and procurement — tolerances, materials, DFM, supplier selection, and process trade-offs.
+            </p>
+            <div class="blog-index-stats" role="list">
+              <span class="blog-index-stat" role="listitem">
+                <strong>{articleCount}</strong>
+                <span>articles</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>{hubCount}</strong>
+                <span>guide hubs</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>Free</strong>
+                <span>DFM on every RFQ</span>
+              </span>
+            </div>
+          </header>
+
+          <div class="blog-index-rfq-strip detail-rfq-strip">
+            <p>Read the guides, then upload your drawing — free DFM feedback included on every RFQ.</p>
+            <a href="/contact/?source=blog" class="blog-index-rfq-btn detail-rfq-link">Request DFM Review</a>
+          </div>
+
+          <nav class="hub-list-jump-nav blog-index-jump" aria-label="On this page">
+            <a href="#guide-hubs" class="hub-list-jump-link">
+              Guide hubs
+              <span class="hub-list-jump-count">{hubCount}</span>
+            </a>
+            <a href="#featured" class="hub-list-jump-link">Featured</a>
+            <a href="#latest" class="hub-list-jump-link">
+              Latest
+              <span class="hub-list-jump-count">{pagePosts.length}</span>
+            </a>
+          </nav>
+
+          <section id="guide-hubs" class="hub-section blog-index-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Deep-dive guide hubs</h2>
+                <p>Pillar articles that anchor topic clusters — start here, then follow focused subtopics.</p>
+              </div>
+              <a href="/blog/guides/" class="blog-index-section-link">All {hubCount} hubs →</a>
+            </header>
+            <div class="blog-pillar-grid">
+              {blogPillars.slice(0, 6).map((pillar, index) => (
+                <a href={`/blog/${pillar.slug}/`} class="blog-pillar-card">
+                  <div class="blog-pillar-card-top">
+                    <span class="blog-pillar-kicker">Hub {String(index + 1).padStart(2, '0')}</span>
+                    <span class="blog-pillar-badge">{hubLabels[pillar.id] ?? pillar.id}</span>
+                  </div>
+                  <span class="blog-pillar-title">{pillar.title}</span>
+                  <span class="blog-pillar-desc">{pillar.description}</span>
+                  <span class="blog-pillar-meta">{pillar.spokes.length} subtopics</span>
+                  <span class="blog-pillar-link">Read pillar guide →</span>
+                </a>
+              ))}
+            </div>
+            <p class="resource-note blog-index-more">
+              <a href="/blog/guides/">View all {hubCount} guide hubs</a>
+              <span aria-hidden="true">·</span>
+              <a href="/resources/dfm-checklist/">DFM checklist</a>
+            </p>
+          </section>
+
+          <section id="featured" class="hub-section blog-index-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Featured article</h2>
+                <p>Popular starting point for engineers preparing an RFQ.</p>
+              </div>
+            </header>
+            <a href={`/blog/${featured.slug}/`} class="blog-index-featured-card">
+              <div class="blog-index-featured-media">
+                <img
+                  src={featured.image}
+                  alt={featured.title}
+                  width="640"
+                  height="420"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span class="blog-index-featured-badge">Featured</span>
+              </div>
+              <div class="blog-index-featured-body">
+                <h3 class="blog-index-featured-title">{featured.title}</h3>
+                <p class="blog-index-featured-excerpt">{featured.excerpt}</p>
+                <p class="blog-index-featured-author">
+                  By <span>{featuredAuthor.name}</span> · {featuredAuthor.jobTitle}
+                </p>
+                <span class="blog-index-featured-cta">Read article →</span>
+              </div>
+            </a>
+          </section>
+
+          <section id="latest" class="hub-section blog-index-section blog-index-latest">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Latest articles</h2>
+                <p>
+                  Engineer-reviewed guides — updated for RFQ and shop-floor decisions.
+                </p>
+              </div>
+              {totalPages > 1 && (
+                <span class="blog-index-latest-pager" aria-live="polite">
+                  Page <strong>1</strong> of {totalPages}
+                </span>
+              )}
+            </header>
+            <ul class="blog-content-wrapper blog-index-latest-grid" role="list">
+              {pagePosts.map((post, index) => (
+                <li class="blog-index-latest-item">
+                  <BlogLatestCard
+                    slug={post.slug}
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    image={post.image}
+                    publishedAt={post.publishedAt}
+                    tags={post.tags}
+                    authorKey={getPostAuthorKey(post.slug, post.author)}
+                    index={index}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div class="blog-index-pagination">
+              <BlogPagination currentPage={1} />
+            </div>
+          </section>
+
+          <footer class="hub-list-footer-links blog-index-footer">
+            <a href="/case-studies/">Case studies</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/process-selection/">Process selection</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=blog">Upload drawing for DFM review</a>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="awareness"
+    topic="blog-index"
+    title="Turn guides into a scoped quote"
+    text="Upload your drawing after reading — we confirm process, tolerances, and inspection scope in the quote."
+    primaryLabel="Request a Quote"
+    primaryHref="/contact/?source=blog"
+    primaryEvent="blog_index_rfq"
+    secondaryLabel="DFM checklist"
+    secondaryHref="/resources/dfm-checklist/"
+    secondaryEvent="blog_index_dfm"
+  />
+</BaseLayout>
+
+<style>
+  .blog-index-jump {
+    margin-bottom: 36px;
+  }
+
+  .blog-index-section-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .blog-index-section-link:hover {
+    text-decoration: underline;
+  }
+
+  .blog-pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .blog-pillar-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .blog-pillar-card:hover {
+    border-color: rgba(20, 110, 245, 0.4);
+    box-shadow: 0 8px 28px rgba(20, 110, 245, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .blog-pillar-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .blog-pillar-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .blog-pillar-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  .blog-pillar-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.1);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .blog-pillar-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-title);
+    line-height: 1.35;
+  }
+
+  .blog-pillar-desc {
+    flex: 1;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-pillar-meta {
+    font-size: 12px;
+    font-weight: 600;
+    color: #94a3b8;
+  }
+
+  .blog-pillar-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .blog-index-more {
+    margin-top: 18px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .blog-index-featured-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-stroke);
+    border-radius: 12px;
+    background: var(--color-white);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .blog-index-featured-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 12px 36px rgba(20, 110, 245, 0.1);
+  }
+
+  .blog-index-featured-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  .blog-index-featured-media {
+    position: relative;
+    min-height: 220px;
+    background: var(--color-background);
+  }
+
+  .blog-index-featured-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-index-featured-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .blog-index-featured-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 32px;
+  }
+
+  .blog-index-featured-title {
+    margin: 0;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-title);
+  }
+
+  .blog-index-featured-excerpt {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #64748b;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-index-featured-author {
+    margin: 0;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .blog-index-featured-author span {
+    color: var(--color-title);
+    font-weight: 600;
+  }
+
+  .blog-index-featured-cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .blog-index-grid {
+    margin-bottom: 12px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-pillar-card,
+    .blog-index-featured-card {
+      transition: none;
+    }
+
+    .blog-pillar-card:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .blog-pillar-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-index-featured-card {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-index-featured-media img {
+      min-height: 200px;
+      max-height: 260px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .blog-pillar-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-index-featured-body {
+      padding: 22px 20px;
+    }
+  }
+</style>

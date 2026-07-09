@@ -1,0 +1,68 @@
+---
+import { authors } from '../data/blog';
+import type { AuthorSlug } from '../data/blog-authors';
+import { caseStudyDisclaimer, caseStudyExpectationNote } from '../data/case-study-shared';
+
+interface Props {
+  documentedBy: AuthorSlug;
+  datePublished: string;
+}
+
+const { documentedBy, datePublished } = Astro.props;
+const author = authors[documentedBy];
+const publishedLabel = new Date(datePublished).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<footer class="case-study-meta-footer">
+  <p class="case-study-byline">
+    Documented by{' '}
+    <a href={`/blog/author/${author.slug}/`}>{author.name}</a>
+    , {author.jobTitle}
+    <span aria-hidden="true"> · </span>
+    <time datetime={datePublished}>{publishedLabel}</time>
+  </p>
+  <p class="case-study-disclaimer">{caseStudyDisclaimer}</p>
+  <p class="case-study-expectation">{caseStudyExpectationNote}</p>
+</footer>
+
+<style>
+  .case-study-meta-footer {
+    margin-top: 8px;
+    padding: 18px 20px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    background: var(--color-background);
+  }
+
+  .case-study-byline {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .case-study-byline a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .case-study-byline a:hover {
+    text-decoration: underline;
+  }
+
+  .case-study-disclaimer,
+  .case-study-expectation {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-body-text);
+  }
+
+  .case-study-expectation {
+    margin-bottom: 0;
+  }
+</style>

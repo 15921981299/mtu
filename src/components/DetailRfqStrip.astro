@@ -1,0 +1,50 @@
+---
+interface Props {
+  quoteHref: string;
+  title?: string;
+  text?: string;
+  label?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  quoteHref,
+  title = 'Quote this part type',
+  text = 'Upload your drawing for a free DFM review and engineer-led quote within 24 hours.',
+  label = 'Request a Quote',
+  secondaryHref,
+  secondaryLabel = 'Online CNC quote',
+} = Astro.props;
+---
+
+<div class="detail-rfq-strip">
+  <p>
+    <strong>{title}:</strong> {text}
+  </p>
+  <div class="detail-rfq-actions">
+    <a href={quoteHref} class="detail-rfq-link">{label}</a>
+    {secondaryHref && (
+      <a href={secondaryHref} class="detail-rfq-link detail-rfq-link--secondary">{secondaryLabel}</a>
+    )}
+  </div>
+</div>
+
+<style>
+  .detail-rfq-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 12px;
+  }
+
+  .detail-rfq-link--secondary {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 1px solid rgba(20, 110, 245, 0.35);
+  }
+
+  .detail-rfq-link--secondary:hover {
+    background: rgba(20, 110, 245, 0.06);
+  }
+</style>

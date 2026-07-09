@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { features } from '../../data/features';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+const featureIcons: Record<string, string> = {
+  'hardened-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  'precision-ground-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  'threaded-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  'corrosion-resistant-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  'lightweight-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.5 4.5H18l-3.5 2.5 1.5 4.5L12 12l-4 2.5 1.5-4.5L6 7.5h4.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  'high-precision-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  'quick-turn-prototypes': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  'no-moq-small-batch': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+
+const defaultFeatureIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke="currentColor" stroke-width="1.5"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.5"/></svg>`;
+---
+
+<BaseLayout
+  title="CNC Parts by Feature — Hardened, Precision Ground, Threaded & More | Machining Supplier"
+  description="Browse CNC machined parts by feature: hardened & heat-treated, precision ground, threaded, corrosion-resistant, lightweight, high-precision, quick-turn prototypes, and no-MOQ small batch."
+  currentPath="/features"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Parts by Feature', url: `${site.url}/features/` },
+  ])}
+>
+  <FunnelPageView stage="selection" label="features-index" />
+  <BreadcrumbHero
+    title="Parts by<br>Feature"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Features' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <nav class="resource-nav" aria-label="Features navigation">
+            <a href="/features/" class="resource-nav-link active" aria-current="page">
+              All features
+            </a>
+            <a href="/products/" class="resource-nav-link">Part types</a>
+            <a href="/applications/" class="resource-nav-link">Applications</a>
+            <a href="/capabilities/" class="resource-nav-link">Capabilities</a>
+            <a href="/compare/" class="resource-nav-link resource-nav-all">Comparisons</a>
+          </nav>
+
+          <p class="resource-intro">
+            Find CNC parts by the features that matter — hardness, precision grinding, corrosion resistance, lightweight design, and prototype-friendly MOQ.
+          </p>
+
+          <div class="resource-meta">
+            <span><strong>{features.length}</strong> feature paths</span>
+            <span>Linked to <strong>products</strong></span>
+            <span>No MOQ · Prototype OK</span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Note feature requirements on your RFQ — hardness, finish, thread class, or precision level — we confirm feasibility in the quote.</p>
+            <a href="/contact/?source=features" class="detail-rfq-link">Request a Quote</a>
+          </div>
+
+          <div class="hub-grid">
+            {features.map((feature) => (
+              <article class="hub-card">
+                <span class="hub-card-icon" set:html={featureIcons[feature.slug] ?? defaultFeatureIcon} />
+                <div class="hub-card-body">
+                  <h2 class="hub-card-title">
+                    <a href={`/features/${feature.slug}/`}>{feature.title}</a>
+                  </h2>
+                  <p class="hub-card-summary">{feature.summary}</p>
+                  <a href={`/features/${feature.slug}/`} class="hub-card-link">
+                    View feature guide →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="resource-note">
+            <strong>Engineer tip:</strong> Feature requirements drive process choice — use
+            <a href="/resources/cnc-tolerance-guide/">tolerance guide</a>
+            and
+            <a href="/compare/">comparisons</a>
+            to set realistic specs on your drawing.
+          </div>
+
+          <p class="resource-related">
+            <a href="/products/">Part types</a>
+            <span aria-hidden="true">·</span>
+            <a href="/applications/">Applications</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/cnc-tolerance-guide/">Tolerance guide</a>
+            <span aria-hidden="true">·</span>
+            <a href="/case-studies/">Case studies</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="selection"
+    topic="features-index"
+    title="Quote parts with your feature requirements"
+    text="Upload your drawing with hardness, finish, and tolerance callouts — we confirm process fit in the quotation response."
+    primaryLabel="Request a Quote"
+    primaryHref="/contact/?source=features"
+    primaryEvent="features_index_rfq"
+    secondaryLabel="Tolerance guide"
+    secondaryHref="/resources/cnc-tolerance-guide/"
+    secondaryEvent="features_index_tolerance"
+  />
+</BaseLayout>

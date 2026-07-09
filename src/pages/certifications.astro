@@ -1,0 +1,782 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import BlogCta from '../components/BlogCta.astro';
+import FunnelPageView from '../components/FunnelPageView.astro';
+import InspectionProcessMedia from '../components/InspectionProcessMedia.astro';
+import ProofMediaGallery from '../components/ProofMediaGallery.astro';
+import SocialProofStrip from '../components/SocialProofStrip.astro';
+import { getFeaturedCaseStudies, industryProof, verificationDocuments } from '../data/industry-proof';
+import { site, breadcrumbSchema, videoSchema } from '../data/site';
+import '../styles/resource-page.css';
+import '../styles/hub-list-page.css';
+import '../styles/blog-list-page.css';
+
+const certIcons: Record<string, string> = {
+  iso: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  automotive: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 16H9m10 0h1a1 1 0 001-1v-3.5a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.316.948V15a1 1 0 001 1h1M6 16H5a1 1 0 01-1-1v-3.5a1 1 0 01.684-.948l4.493-1.498a1 1 0 011.316.948V15a1 1 0 01-1 1h-1M6 11l1.5-4h9L18 11M6 16v2m12-2v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  medical: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v8M8 12h8M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  cmm: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  material: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+  dfm: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke="currentColor" stroke-width="1.5"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.5"/></svg>`,
+};
+
+const { quality } = site;
+const inspectionVideo = videoSchema({
+  name: 'CNC Machining Quality Inspection Process',
+  description:
+    'See incoming material verification, CMM inspection, and documented QC gates on every CNC machining order.',
+  thumbnailUrl: 'https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg',
+  embedUrl: 'https://www.youtube.com/embed/M7uJEbDD-_8',
+  uploadDate: '2023-06-01',
+});
+const iso9001Title = quality.iso9001CertNumber
+  ? `ISO 9001:2015 — Certificate ${quality.iso9001CertNumber}`
+  : quality.iso9001Label;
+const iso9001Body = quality.iso9001CertNumber
+  ? `${quality.iso9001Description} Certificate body: ${quality.iso9001CertBody || 'on file'}.`
+  : `${quality.iso9001Description} ${quality.iso9001VerificationNote}`;
+
+const pageUrl = `${site.url}/certifications/`;
+const featuredCaseStudies = getFeaturedCaseStudies();
+
+const qualityCommitments = [
+  {
+    title: iso9001Title,
+    description: iso9001Body,
+    iconKey: 'iso',
+  },
+  {
+    title: 'IATF 16949-Aligned Automotive Programs',
+    description:
+      'Automotive customers can request IATF 16949-aligned process documentation, controlled traveler records, and PPAP-style first-article packages. We coordinate with partner facilities that support automotive quality workflows — specify your APQP or PPAP level when requesting a quote.',
+    iconKey: 'automotive',
+  },
+  {
+    title: 'ISO 13485-Aligned Medical Documentation',
+    description:
+      'Medical device projects can receive ISO 13485-aligned documentation: lot traceability, material certs by heat number, first-article inspection reports, and clean machining notes for patient-contact surfaces. Discuss your DHF or supplier qualification checklist on the RFQ.',
+    iconKey: 'medical',
+  },
+  {
+    title: 'CMM Inspection — 100% of Orders',
+    description:
+      'Every order ships with a dimensional inspection report at no extra cost. We use a coordinate measuring machine (CMM) accurate to 0.001mm, plus digital micrometers, height gauges, surface roughness testers, and thread gauges. We do not charge extra for inspection reports — they are part of our standard process.',
+    iconKey: 'cmm',
+  },
+  {
+    title: 'Material Traceability (EN 10204 3.1)',
+    description:
+      'Material certificates per EN 10204 3.1 are available on request for stainless steel, alloy steel, titanium, aluminum, and specialty alloys. Every batch of raw material is verified against its mill certificate before machining begins. Full lot traceability from mill to finished part.',
+    iconKey: 'material',
+  },
+  {
+    title: 'DFM Review — Free with Every Quote',
+    description:
+      'Before we quote, our engineers review your drawing for manufacturability. If we spot changes that could reduce cost, improve quality, or shorten lead time, we will tell you — even if it means a lower-priced quote. This is the most valuable free service you will get from any machining supplier.',
+    iconKey: 'dfm',
+  },
+];
+
+const equipment = [
+  { name: '5-Axis CNC Machining Centers', qty: 'Multiple', capability: 'Complex geometries, single-setup precision' },
+  { name: '3-Axis & 4-Axis CNC Mills', qty: 'Multiple', capability: 'Prismatic parts, pockets, drilling, tapping' },
+  { name: 'CNC Lathes with Live Tooling', qty: 'Multiple', capability: 'Cylindrical parts, mill-turn capability' },
+  { name: 'Precision Surface Grinders', qty: 'Multiple', capability: 'Flatness to ±0.002mm, Ra 0.1µm finish' },
+  { name: 'Wire EDM Machines', qty: 'Multiple', capability: 'Hardened materials, sharp internal corners' },
+  { name: 'CMM (Coordinate Measuring Machine)', qty: 'In-house', capability: 'Dimensional inspection to 0.001mm' },
+  { name: 'Surface Roughness Tester', qty: 'In-house', capability: 'Ra, Rz, Rq measurement' },
+  { name: 'Optical Comparator', qty: 'In-house', capability: 'Thread and profile inspection' },
+];
+
+const inspectionSteps = [
+  'Incoming material verification against mill certificate',
+  'First-article inspection (FAI) — full dimensional report on first piece',
+  'In-process inspection at operator-specified intervals',
+  'Final 100% dimensional inspection on critical features',
+  'Surface finish verification on specified surfaces',
+  'Thread gauge check (go/no-go) on all threaded features',
+  'Visual inspection for burrs, surface defects, and cosmetic quality',
+  'Packaging inspection before shipment',
+];
+---
+
+<BaseLayout
+  title="Quality & Inspection — ISO 9001 Partner CNC Machining | Machining Supplier"
+  description="CNC machining through ISO 9001:2015 partner facilities. Documented inspection on every order. EN 10204 3.1 material certificates available. Free DFM review with every quote."
+  currentPath="/certifications"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Certifications', url: pageUrl },
+    ]),
+    inspectionVideo,
+  ]}
+>
+  <FunnelPageView stage="signing" event="cert_page_view" label="certifications" />
+  <BreadcrumbHero title="Quality & Certifications" current="Certifications" variant="5" />
+
+  <section class="blog-details-section detail-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block blog-index-page cert-page fade-in">
+          <nav class="resource-nav blog-index-top-nav" aria-label="Quality navigation">
+            <a href="/certifications/" class="resource-nav-link active" aria-current="page">
+              QC & certifications
+            </a>
+            <a href="/resources/inspection-samples/" class="resource-nav-link">Inspection samples</a>
+            <a href="/standards/" class="resource-nav-link">Standards</a>
+            <a href="/case-studies/" class="resource-nav-link">Case studies</a>
+            <a href="/resources/material-certificates/" class="resource-nav-link resource-nav-all">
+              Material certs
+            </a>
+          </nav>
+
+          <header class="blog-index-hero cert-hero">
+            <p class="blog-index-kicker">Documented QC · RFQ-ready</p>
+            <p class="blog-index-intro">
+              Documented inspection on every CNC order — through ISO 9001:2015 partner facilities. Specify the certs, FAI depth, and traceability your incoming QA team needs on the RFQ.
+            </p>
+            <div class="blog-index-stats" role="list">
+              <span class="blog-index-stat" role="listitem">
+                <strong>ISO 9001</strong>
+                <span>partner facilities</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>100%</strong>
+                <span>CMM on orders</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>EN 10204</strong>
+                <span>3.1 on request</span>
+              </span>
+            </div>
+          </header>
+
+          <div class="blog-index-rfq-strip detail-rfq-strip">
+            <p>List required documentation on your RFQ — CMM layout, material cert level, FAI depth, or CoC. We confirm inspection scope in the quote response.</p>
+            <a href="/contact/?source=certifications" class="blog-index-rfq-btn detail-rfq-link">Request Documentation Scope</a>
+          </div>
+
+          <nav class="hub-list-jump-nav cert-jump" aria-label="On this page">
+            <a href="#quality-commitments" class="hub-list-jump-link">
+              Commitments
+              <span class="hub-list-jump-count">{qualityCommitments.length}</span>
+            </a>
+            <a href="#inspection-process" class="hub-list-jump-link">Inspection process</a>
+            <a href="#equipment" class="hub-list-jump-link">Equipment</a>
+            <a href="#compliance-paths" class="hub-list-jump-link">Compliance paths</a>
+            <a href="#documentation" class="hub-list-jump-link">Documentation</a>
+            <a href="#project-proof" class="hub-list-jump-link">Project proof</a>
+          </nav>
+
+          <section id="quality-commitments" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Quality commitments</h2>
+                <p>What we document on every order — and what regulated programs can request on the RFQ.</p>
+              </div>
+            </header>
+            <div class="cert-grid">
+              {qualityCommitments.map((c) => (
+                <div class="cert-card">
+                  <span class="cert-icon" set:html={certIcons[c.iconKey]} />
+                  <h3 class="cert-title">{c.title}</h3>
+                  <p class="cert-desc">{c.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="cert-media-section">
+            <InspectionProcessMedia />
+            <ProofMediaGallery
+              title="QC proof photos buyers can request"
+              intro="Ask for matching CMM, packing, and sample photos on your RFQ so the document package matches the actual parts being shipped."
+              categories={['inspection', 'packaging', 'samples']}
+              limit={6}
+              compact
+            />
+          </section>
+
+          <section id="inspection-process" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Our inspection process</h2>
+                <p>Eight documented QC gates from incoming material through packaging.</p>
+              </div>
+            </header>
+            <div class="inspection-list">
+              {inspectionSteps.map((step, i) => (
+                <div class="inspection-step">
+                  <span class="inspection-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="inspection-text">{step}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="equipment" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Equipment &amp; capabilities</h2>
+                <p>In-house and partner equipment supporting CNC machining and dimensional inspection.</p>
+              </div>
+            </header>
+            <div class="equip-table-wrap">
+              <table class="equip-table">
+                <caption class="equip-table-caption">In-house and partner equipment supporting CNC and inspection</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Equipment</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Capability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {equipment.map((e) => (
+                    <tr>
+                      <td class="equip-name">{e.name}</td>
+                      <td class="equip-qty">{e.qty}</td>
+                      <td class="equip-cap">{e.capability}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="compliance-paths" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Industry compliance paths</h2>
+                <p>Regulated work organized by standard — each path links to requirements, comparison tools, and project proof.</p>
+              </div>
+            </header>
+            <div class="industry-proof-grid">
+              {industryProof.map((item) => (
+                <article class="industry-proof-card">
+                  <h3 class="industry-proof-title">
+                    <a href={`/standards/${item.standardSlug}/`}>{item.standardTitle}</a>
+                  </h3>
+                  <p class="industry-proof-meta">{item.caseStudySlugs.length} verified case {item.caseStudySlugs.length === 1 ? 'study' : 'studies'}</p>
+                  <ul class="industry-proof-links">
+                    <li><a href={`/standards/${item.standardSlug}/`}>Standard requirements →</a></li>
+                    {item.auditBlogSlug && (
+                      <li><a href={`/blog/${item.auditBlogSlug}/`}>Supplier audit guide →</a></li>
+                    )}
+                    {item.caseStudySlugs.slice(0, 1).map((slug) => (
+                      <li><a href={`/case-studies/${slug}/`}>Project proof →</a></li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="documentation" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Documentation buyers can request</h2>
+                <p>Specify which items you need on your RFQ — we scope inspection and certs to your drawing and industry.</p>
+              </div>
+            </header>
+            <div class="verify-doc-grid">
+              {verificationDocuments.map((doc) => (
+                <div class="verify-doc-card">
+                  <h3 class="verify-doc-label">{doc.label}</h3>
+                  <p class="verify-doc-detail">{doc.detail}</p>
+                  {doc.sampleId && (
+                    <a href={`/resources/inspection-samples/#${doc.sampleId}`} class="verify-doc-sample">
+                      View redacted sample →
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+            <p class="cert-cta-row">
+              <a href="/resources/inspection-samples/">Inspection report samples</a>
+              <span aria-hidden="true">·</span>
+              <a href="/resources/material-certificates/">Material certificates guide</a>
+              <span aria-hidden="true">·</span>
+              <a href="/blog/how-to-read-cnc-inspection-report/">How to read CMM reports</a>
+              <span aria-hidden="true">·</span>
+              <a href="/contact/?source=certifications">Request documentation scope →</a>
+            </p>
+          </section>
+
+          <section id="project-proof" class="blog-index-section cert-section">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>Project proof by industry</h2>
+                <p>Anonymized case studies with tolerances, inspection scope, and measurable outcomes.</p>
+              </div>
+            </header>
+            <div class="featured-proof-grid">
+              {featuredCaseStudies.map((study) => (
+                <a href={`/case-studies/${study.slug}/`} class="featured-proof-card">
+                  <span class="featured-proof-industry">{study.industry}</span>
+                  <span class="featured-proof-title">{study.title}</span>
+                  <span class="featured-proof-spec">{study.tolerance} · {study.quantity}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <footer class="hub-list-footer-links blog-index-footer">
+            <a href="/terms/payment/">Payment terms</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms/shipping/">Shipping &amp; logistics</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms/samples/">Sample &amp; FAI policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="/case-studies/">Customer case studies</a>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <SocialProofStrip
+    heading="What buyers say about our documentation"
+    showCaseStudies={false}
+    showTestimonial
+    testimonialIndex={2}
+  />
+
+  <BlogCta
+    stage="signing"
+    topic="certifications"
+    title="Confirm documentation scope on your quote"
+    text="Upload your drawing and list required reports — CMM, material cert, FAI, or CoC. We confirm inspection scope in the quotation response."
+    primaryLabel="Request Documentation Scope"
+    primaryHref="/contact/?source=certifications"
+    primaryEvent="cert_page_rfq"
+    secondaryLabel="Inspection samples"
+    secondaryHref="/resources/inspection-samples/"
+    secondaryEvent="cert_page_inspection"
+  />
+</BaseLayout>
+
+<style>
+  .cert-page .cert-hero {
+    margin-bottom: 8px;
+  }
+
+  .cert-jump {
+    margin-bottom: 36px;
+  }
+
+  .cert-section {
+    scroll-margin-top: 120px;
+  }
+
+  .cert-media-section {
+    margin-bottom: 40px;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cert-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .cert-card:hover {
+    border-color: rgba(20, 110, 245, 0.38);
+    box-shadow: 0 8px 28px rgba(20, 110, 245, 0.08);
+  }
+
+  .cert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .cert-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-title);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .cert-desc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .inspection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--color-white);
+  }
+
+  .inspection-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--color-stroke);
+  }
+
+  .inspection-step:last-child {
+    border-bottom: none;
+  }
+
+  .inspection-num {
+    font-family: var(--font-title);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-primary);
+    min-width: 32px;
+    flex-shrink: 0;
+  }
+
+  .inspection-text {
+    font-size: 16px;
+    color: var(--color-title);
+    line-height: 1.5;
+  }
+
+  .equip-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    background: var(--color-white);
+  }
+
+  .equip-table-caption {
+    padding: 14px 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--color-title);
+    caption-side: top;
+  }
+
+  .equip-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .equip-table th,
+  .equip-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--color-stroke);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .equip-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .equip-table tbody tr {
+    transition: background-color 0.2s ease;
+  }
+
+  .equip-table tbody tr:hover {
+    background: rgba(20, 110, 245, 0.04);
+  }
+
+  .equip-table thead tr {
+    background: var(--color-background);
+  }
+
+  .equip-table th {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-title);
+  }
+
+  .equip-name {
+    font-weight: 600;
+    color: var(--color-title);
+    font-size: 15px;
+  }
+
+  .equip-qty {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .equip-cap {
+    color: #475569;
+    font-size: 14px;
+  }
+
+  .industry-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .industry-proof-card {
+    padding: 20px 22px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    border-left: 4px solid var(--color-primary);
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .industry-proof-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 6px 20px rgba(20, 110, 245, 0.08);
+  }
+
+  .industry-proof-title {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .industry-proof-title a {
+    color: var(--color-title);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .industry-proof-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .industry-proof-meta {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .industry-proof-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .industry-proof-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .industry-proof-links a:hover {
+    text-decoration: underline;
+  }
+
+  .verify-doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .verify-doc-card {
+    padding: 18px 20px;
+    background: var(--color-background);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .verify-doc-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  }
+
+  .verify-doc-label {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .verify-doc-detail {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  .verify-doc-sample {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .verify-doc-sample:hover {
+    text-decoration: underline;
+  }
+
+  .cert-cta-row {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-body-text);
+  }
+
+  .cert-cta-row a {
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .cert-cta-row a:hover {
+    text-decoration: underline;
+  }
+
+  .cert-cta-row span {
+    margin: 0 8px;
+    opacity: 0.45;
+  }
+
+  .featured-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .featured-proof-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .featured-proof-card:hover {
+    border-color: rgba(20, 110, 245, 0.4);
+    box-shadow: 0 8px 28px rgba(20, 110, 245, 0.1);
+  }
+
+  .featured-proof-industry {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .featured-proof-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-title);
+    line-height: 1.35;
+  }
+
+  .featured-proof-spec {
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .hub-list-jump-link:focus-visible,
+  .detail-rfq-link:focus-visible,
+  .industry-proof-title a:focus-visible,
+  .industry-proof-links a:focus-visible,
+  .verify-doc-sample:focus-visible,
+  .cert-cta-row a:focus-visible,
+  .hub-list-footer-links a:focus-visible,
+  .featured-proof-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .hub-list-jump-link:focus-visible {
+    border-radius: 999px;
+  }
+
+  .featured-proof-card:focus-visible {
+    border-radius: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .equip-table th,
+    .equip-table td {
+      padding: 14px 16px;
+    }
+
+    .inspection-step {
+      padding: 16px 18px;
+      gap: 14px;
+    }
+
+    .inspection-text {
+      font-size: 15px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cert-card,
+    .industry-proof-card,
+    .verify-doc-card,
+    .featured-proof-card,
+    .equip-table tbody tr {
+      transition: none;
+    }
+  }
+</style>

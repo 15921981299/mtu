@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { glossaryTerms } from '../../data/glossary';
+import { isGlossaryNoindex } from '../../data/glossary-quality';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+const indexedTerms = glossaryTerms.filter((term) => !isGlossaryNoindex(term.slug));
+
+const grouped = indexedTerms.reduce<Record<string, typeof indexedTerms>>((acc, term) => {
+  const letter = term.term[0].toUpperCase();
+  if (!acc[letter]) acc[letter] = [];
+  acc[letter].push(term);
+  return acc;
+}, {});
+const letters = Object.keys(grouped).sort();
+const termCount = indexedTerms.length;
+---
+
+<BaseLayout
+  title="CNC Machining Glossary — Terms & Definitions for Engineers"
+  description="CNC machining glossary: DFM, ISO 2768, CMM, Ra, GD&T, anodizing, Incoterms, and 20+ terms engineers search during RFQ preparation."
+  currentPath="/glossary"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Glossary', url: `${site.url}/glossary/` },
+  ])}
+>
+  <FunnelPageView stage="awareness" label="glossary-index" />
+  <BreadcrumbHero
+    title="CNC Machining<br>Glossary"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Glossary' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <nav class="resource-nav" aria-label="Glossary navigation">
+            <a href="/glossary/" class="resource-nav-link active" aria-current="page">
+              All terms
+            </a>
+            <a href="/compare/" class="resource-nav-link">Comparisons</a>
+            <a href="/standards/" class="resource-nav-link">Standards</a>
+            <a href="/resources/" class="resource-nav-link">Resources</a>
+            <a href="/blog/guides/" class="resource-nav-link resource-nav-all">Guide hubs</a>
+          </nav>
+
+          <p class="resource-intro">
+            Quick definitions for CNC buyers and design engineers — each term links to deeper guides, comparisons, and resources.
+          </p>
+
+          <div class="resource-meta">
+            <span><strong>{termCount}</strong> glossary terms</span>
+            <span><strong>{letters.length}</strong> A–Z sections</span>
+            <span>Use before <strong>RFQ</strong></span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Not sure which term applies to your drawing? Upload the RFQ — we confirm tolerances, finishes, and compliance language in the quote.</p>
+            <a href="/contact/?source=glossary" class="detail-rfq-link">Request a Quote</a>
+          </div>
+
+          <nav class="resource-nav hub-jump-nav" aria-label="Glossary letters">
+            {letters.map((letter) => (
+              <a href={`#glossary-${letter}`} class="resource-nav-link hub-jump-link">
+                {letter}
+                <span class="hub-jump-count">{grouped[letter].length}</span>
+              </a>
+            ))}
+          </nav>
+
+          {letters.map((letter) => (
+            <section id={`glossary-${letter}`} class="glossary-letter-group">
+              <h2 class="glossary-letter">{letter}</h2>
+              <ul class="glossary-list">
+                {grouped[letter].map((term) => (
+                  <li>
+                    <a href={`/glossary/${term.slug}/`} class="glossary-term-link">
+                      <strong>{term.term}</strong>
+                      <span>{term.shortDefinition}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          <p class="resource-related">
+            <a href="/resources/dfm-checklist/">DFM checklist</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/cnc-tolerance-guide/">Tolerance guide</a>
+            <span aria-hidden="true">·</span>
+            <a href="/compare/">Comparisons</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=glossary">Request a quote</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="awareness"
+    topic="glossary-index"
+    title="Turn definitions into a scoped quote"
+    text="Upload your drawing — we confirm tolerances, finishes, and compliance terms in the quotation response."
+    primaryLabel="Request a Quote"
+    primaryHref="/contact/?source=glossary"
+    primaryEvent="glossary_index_rfq"
+    secondaryLabel="Tolerance guide"
+    secondaryHref="/resources/cnc-tolerance-guide/"
+    secondaryEvent="glossary_index_tolerance"
+  />
+</BaseLayout>
+
+<style>
+  .glossary-letter-group {
+    margin-bottom: 36px;
+    scroll-margin-top: 120px;
+  }
+  .glossary-letter {
+    font-size: 22px;
+    color: var(--color-title);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-stroke);
+    text-transform: none;
+  }
+  .glossary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .glossary-term-link {
+    display: block;
+    padding: 16px 18px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    background: var(--color-background);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .glossary-term-link:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 4px 16px rgba(20, 110, 245, 0.06);
+  }
+  .glossary-term-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+  .glossary-term-link strong {
+    display: block;
+    color: var(--color-title);
+    margin-bottom: 4px;
+  }
+  .glossary-term-link span {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glossary-term-link {
+      transition: none;
+    }
+  }
+</style>

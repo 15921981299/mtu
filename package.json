@@ -1,0 +1,34 @@
+{
+  "name": "machining-supplier-site",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "audit:encoding": "node scripts/audit-encoding.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "audit:indexable-blog": "node scripts/audit-indexable-blog.mjs",
+    "gen:blog-author-rules": "node scripts/gen-blog-author-rules.mjs",
+    "export:keywords": "node scripts/export-page-keywords.mjs",
+    "export:keywords:ke": "node scripts/export-page-keywords.mjs --with-ke",
+    "export:related-keywords": "node scripts/export-related-keywords.mjs",
+    "export:competitor-gap": "node scripts/export-competitor-gap.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@fontsource/inter-tight": "^5.2.5",
+    "@fontsource/urbanist": "^5.2.5",
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/sitemap": "^3.6.1",
+    "exceljs": "^4.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

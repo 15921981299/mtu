@@ -1,0 +1,23 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pl-white" x1="8" y1="12" x2="24" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F4F8"/>
+      <stop offset="1" stop-color="#C8D0DC"/>
+    </linearGradient>
+    <linearGradient id="pl-amber" x1="22" y1="18" x2="38" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C878"/>
+      <stop offset="1" stop-color="#C89440"/>
+    </linearGradient>
+    <linearGradient id="pl-black" x1="18" y1="24" x2="34" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4A5564"/>
+      <stop offset="1" stop-color="#1E2530"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 18L18 12V30L8 36V18Z" fill="url(#pl-white)" stroke="#9AA8BC" stroke-width="0.8"/>
+  <path d="M18 12L28 18V36L18 30V12Z" fill="#E8EDF4" stroke="#9AA8BC" stroke-width="0.8"/>
+  <path d="M18 12L28 18L18 24L8 18L18 12Z" fill="#FFFFFF"/>
+  <path d="M22 20L34 14V32L22 38V20Z" fill="url(#pl-amber)" stroke="#A67A30" stroke-width="0.8"/>
+  <path d="M22 20L34 14L28 11L18 17L22 20Z" fill="#F8DCA0"/>
+  <path d="M24 26L36 20V34L24 40V26Z" fill="url(#pl-black)" stroke="#141A22" stroke-width="0.8"/>
+  <path d="M24 26L36 20L30 17L20 23L24 26Z" fill="#5A6678"/>
+</svg>

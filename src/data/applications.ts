@@ -1,0 +1,108 @@
+type ApplicationItem = {
+  slug: string;
+  title: string;
+  seoTitle: string;
+  h1Title: string;
+  summary: string;
+  productSlugs: string[];
+  content: {
+    partOne: string;
+    partTwo: string;
+  };
+};
+
+const inquiryCta =
+  '<p><a href="/contact/" style="display:inline-block;background:#146ef5;color:#fff;padding:10px 20px;border-radius:4px;text-decoration:none;font-weight:600;">Send parts inquiry</a></p>';
+
+export const applications: ApplicationItem[] = [
+  {
+    slug: 'marine-propulsion-engines',
+    title: 'Marine Propulsion Engines',
+    seoTitle: 'Marine Propulsion Engine Parts | MTU, Detroit Diesel, Cummins',
+    h1Title: 'Marine Propulsion Engine Parts',
+    summary:
+      'Genuine and OEM manufacturer parts for marine propulsion engines used by vessels, ferries, yachts, coast guard fleets, and shipyards.',
+    productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
+    content: {
+      partOne:
+        '<h2>Marine Propulsion Parts Support</h2><p>Marine propulsion downtime is time-sensitive. Engine Family supports MTU, Detroit Diesel, Cummins, and related diesel engine parts inquiries for vessels, ferries, yachts, shipyards, and coastal service teams.</p><h3>Common Requests</h3><ul><li>Fuel pumps, injectors, pressure sensors, and control components</li><li>Filters, gaskets, seals, O-rings, and maintenance kits</li><li>Cooling, turbocharging, lubrication, and exhaust components</li><li>Overhaul parts for planned shipyard maintenance</li></ul>',
+      partTwo:
+        `<h2>What to Send</h2><p>Include the engine model, serial number, part numbers, quantity, vessel or yard location, and required delivery date. Nameplate photos help confirm the correct configuration.</p>${inquiryCta}`,
+    },
+  },
+  {
+    slug: 'auxiliary-generator-engines',
+    title: 'Auxiliary & Generator Engines',
+    seoTitle: 'Generator Engine Parts | MTU, Cummins, DEUTZ',
+    h1Title: 'Auxiliary & Generator Engine Parts',
+    summary:
+      'Service and repair parts for auxiliary engines and generator sets in marine, commercial, industrial, and standby power applications.',
+    productSlugs: ['mtu-2000-series-parts', 'mtu-4000-series-parts', 'cummins-parts', 'deutz-parts'],
+    content: {
+      partOne:
+        '<h2>Generator Engine Parts</h2><p>Generator engines need reliable service parts for planned maintenance and emergency power readiness. We support parts inquiries for MTU, Cummins, and DEUTZ generator engines used in vessels, facilities, power plants, and industrial sites.</p><h3>Typical Parts</h3><ul><li>Filters, belts, gaskets, seals, and service kits</li><li>Fuel injection, cooling, lubrication, and electrical sensors</li><li>Turbochargers, pumps, valves, and overhaul components</li></ul>',
+      partTwo:
+        `<h2>Fast Availability Checks</h2><p>Send part numbers, engine serial number, generator set model if available, quantity, and destination. We will check availability and shipping options.</p>${inquiryCta}`,
+    },
+  },
+  {
+    slug: 'industrial-equipment-engines',
+    title: 'Industrial Equipment Engines',
+    seoTitle: 'Industrial Equipment Diesel Engine Parts | Engine Family',
+    h1Title: 'Industrial Equipment Engine Parts',
+    summary:
+      'Diesel engine parts for pumps, compressors, heavy machinery, oilfield units, construction equipment, and industrial power systems.',
+    productSlugs: ['cummins-parts', 'deutz-parts', 'mtu-spare-parts'],
+    content: {
+      partOne:
+        '<h2>Industrial Engine Parts</h2><p>Industrial equipment owners need practical sourcing for engines in pumps, compressors, construction machines, oilfield units, and power packages. We help buyers identify parts from engine plates, old part photos, and part lists.</p><h3>Supported Needs</h3><ul><li>Breakdown repair and urgent replacement parts</li><li>Scheduled service kits and filters</li><li>Fuel, cooling, lubrication, and control components</li><li>Overhaul list checking and consolidated shipment</li></ul>',
+      partTwo:
+        `<h2>Reduce Downtime</h2><p>For urgent breakdowns, send the failure part photo, engine model, serial number, destination, and deadline in the first message.</p>${inquiryCta}`,
+    },
+  },
+  {
+    slug: 'rail-engine-parts',
+    title: 'Rail Engine Parts',
+    seoTitle: 'Rail Diesel Engine Parts | MTU Engine Parts Supplier',
+    h1Title: 'Rail Diesel Engine Parts',
+    summary:
+      'MTU and diesel engine parts support for rail maintenance teams, locomotive service providers, and transit operators.',
+    productSlugs: ['mtu-spare-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
+    content: {
+      partOne:
+        '<h2>Rail Engine Parts Support</h2><p>Rail maintenance schedules require correct parts and dependable logistics. Engine Family supports MTU and diesel engine parts inquiries for rail equipment, locomotive service, and transit maintenance programs.</p><h3>Common Rail Requests</h3><ul><li>Fuel-system, cooling, lubrication, and filtration parts</li><li>Sensors, control components, and electrical items</li><li>Maintenance kits and overhaul components</li></ul>',
+      partTwo:
+        `<h2>Planned Maintenance Lists</h2><p>Send parts lists early for line-by-line availability checks, replacement confirmation, and shipment planning.</p>${inquiryCta}`,
+    },
+  },
+  {
+    slug: 'shipyard-repair-overhaul',
+    title: 'Shipyard Repair & Overhaul',
+    seoTitle: 'Shipyard Engine Parts and Overhaul Support | Engine Family',
+    h1Title: 'Shipyard Repair & Overhaul Parts',
+    summary:
+      'Parts-list checking, consolidated shipment, and urgent sourcing support for shipyards and marine repair companies.',
+    productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts'],
+    content: {
+      partOne:
+        '<h2>Shipyard Parts Coordination</h2><p>Shipyard repair work often involves long parts lists, changing deadlines, and multiple engine configurations. We support line-by-line checks for MTU and related engine parts, including routine service items and major overhaul components.</p><h3>How We Help</h3><ul><li>Part-number and serial-number verification</li><li>Availability checks across complete overhaul lists</li><li>Export packing and shipment coordination</li><li>Urgent follow-up for missing or delayed items</li></ul>',
+      partTwo:
+        `<h2>Send Excel Lists</h2><p>For overhaul work, send your list in Excel or email format with part number, quantity, engine model, and deadline. Photos can be attached for unclear items.</p>${inquiryCta}`,
+    },
+  },
+  {
+    slug: 'energy-power-plant-engines',
+    title: 'Energy & Power Plant Engines',
+    seoTitle: 'Power Plant Diesel Engine Parts | Engine Family',
+    h1Title: 'Energy & Power Plant Engine Parts',
+    summary:
+      'Diesel engine parts for energy suppliers, standby power systems, independent power plants, and industrial generator operations.',
+    productSlugs: ['mtu-4000-series-parts', 'cummins-parts', 'deutz-parts'],
+    content: {
+      partOne:
+        '<h2>Power Plant Engine Parts</h2><p>Energy and power generation users need reliable spare-parts planning to keep standby and continuous-duty engines available. We support MTU, Cummins, and DEUTZ parts inquiries for generator and power plant applications.</p><h3>Common Needs</h3><ul><li>Maintenance kits, filters, belts, and consumables</li><li>Sensors, pumps, injectors, and fuel-system parts</li><li>Cooling, lubrication, turbocharging, and overhaul components</li></ul>',
+      partTwo:
+        `<h2>Maintenance Planning</h2><p>Share the service schedule and parts list in advance so availability and shipping can be planned before the maintenance window.</p>${inquiryCta}`,
+    },
+  },
+] as const;

@@ -1,0 +1,203 @@
+---
+import { getProofForComparison } from '../data/industry-proof';
+import type { ComparisonCategory } from '../data/comparisons';
+
+interface Props {
+  compareSlug: string;
+  category: ComparisonCategory;
+}
+
+const { compareSlug, category } = Astro.props;
+const proofContexts = getProofForComparison(compareSlug);
+const showVerification =
+  proofContexts.length > 0 || category === 'quality' || category === 'sourcing';
+---
+
+{showVerification && (
+  <aside class="compare-proof fade-in">
+    <p class="compare-proof-kicker">Verify before you quote</p>
+    <h2 class="compare-proof-title">Project proof &amp; documentation</h2>
+    <p class="compare-proof-desc">
+      Use these resources to validate supplier capability after you pick an option — not generic marketing claims.
+    </p>
+
+    {proofContexts.map((ctx) => (
+      <div class="compare-proof-group">
+        {ctx.standardSlug ? (
+          <a href={`/standards/${ctx.standardSlug}/`} class="compare-proof-standard">
+            {ctx.standardTitle} compliance path →
+          </a>
+        ) : (
+          <p class="compare-proof-group-label">{ctx.standardTitle}</p>
+        )}
+        {ctx.caseStudies.length > 0 && (
+          <ul class="compare-proof-list">
+            {ctx.caseStudies.map((study) => (
+              <li>
+                <a href={`/case-studies/${study.slug}/`}>
+                  <span class="compare-proof-case-title">{study.title}</span>
+                  <span class="compare-proof-case-meta">{study.tolerance} · {study.quantity}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+        {ctx.auditBlogSlug && (
+          <a href={`/blog/${ctx.auditBlogSlug}/`} class="compare-proof-audit">
+            {ctx.auditBlogLabel ?? 'Supplier audit guide for this industry →'}
+          </a>
+        )}
+      </div>
+    ))}
+
+    <div class="compare-proof-docs">
+      <a href="/resources/inspection-samples/">Redacted CMM &amp; cert samples</a>
+      <span aria-hidden="true">·</span>
+      <a href="/certifications/">QC process &amp; equipment</a>
+      {(category === 'sourcing' || category === 'quality') && (
+        <>
+          <span aria-hidden="true">·</span>
+          <a href="/resources/by-role/quality/">Quality buyer hub</a>
+        </>
+      )}
+    </div>
+  </aside>
+)}
+
+<style>
+  .compare-proof {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: var(--color-background);
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+  }
+
+  .compare-proof-kicker {
+    margin: 0 0 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .compare-proof-title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+
+  .compare-proof-desc {
+    margin: 0 0 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-body-text);
+  }
+
+  .compare-proof-group {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-stroke);
+  }
+
+  .compare-proof-group:last-of-type {
+    margin-bottom: 12px;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .compare-proof-standard {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .compare-proof-standard:hover {
+    text-decoration: underline;
+  }
+
+  .compare-proof-group-label {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .compare-proof-list {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  .compare-proof-list a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .compare-proof-list a:hover {
+    border-color: rgba(20, 110, 245, 0.4);
+  }
+
+  .compare-proof-case-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .compare-proof-case-meta {
+    font-size: 12px;
+    color: var(--color-body-text);
+    opacity: 0.85;
+  }
+
+  .compare-proof-audit {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    text-decoration: none;
+  }
+
+  .compare-proof-audit:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .compare-proof-docs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .compare-proof-docs a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .compare-proof-docs a:hover {
+    text-decoration: underline;
+  }
+
+  .compare-proof-docs span {
+    color: var(--color-body-text);
+    opacity: 0.5;
+  }
+</style>

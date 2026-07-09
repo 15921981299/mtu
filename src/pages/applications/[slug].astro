@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import ApplicationSidebar from '../../components/ApplicationSidebar.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import DetailPageShell from '../../components/DetailPageShell.astro';
+import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import SubpageLinks from '../../components/SubpageLinks.astro';
+import { applications } from '../../data/applications';
+import { industries } from '../../data/industries';
+import { products } from '../../data/products';
+import { breadcrumbSchema, serviceSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return applications.map((a) => ({ params: { slug: a.slug }, props: { app: a } }));
+}
+
+const { app } = Astro.props;
+const pageUrl = `${site.url}/applications/${app.slug}/`;
+const quoteHref = `/contact/?source=application-${app.slug}`;
+const productSlugs = app.productSlugs as readonly string[];
+const linkedProducts = products.filter((p) => productSlugs.includes(p.slug));
+
+const applicationIndustryMap: Record<string, string[]> = {
+  'motor-drive-components': ['industrial-automation', 'automotive'],
+  'fluid-handling-components': ['oil-gas', 'industrial-automation'],
+  'structural-mounting-components': ['industrial-automation', 'aerospace'],
+  'enclosure-housing-components': ['consumer-electronics', 'semiconductor-electronics'],
+  'wear-bearing-components': ['industrial-automation', 'robotics'],
+  'ev-battery-components': ['automotive', 'renewable-energy'],
+  'medical-instrument-components': ['medical-devices'],
+  'aerospace-structural-components': ['aerospace', 'defense-military'],
+  'robotics-automation-components': ['robotics', 'industrial-automation'],
+  'semiconductor-equipment-components': ['semiconductor-electronics'],
+};
+const relatedIndustries = (applicationIndustryMap[app.slug] ?? [])
+  .map((slug) => industries.find((i) => i.slug === slug))
+  .filter((i): i is (typeof industries)[number] => Boolean(i))
+  .map((i) => ({ href: `/industries/${i.slug}/`, title: i.title, summary: i.summary }));
+const heroProduct = linkedProducts[0];
+const heroImage = heroProduct?.mainImage ?? '/images/precision-cnc-machined-parts-collection.jpg';
+const inlineImage =
+  heroProduct?.secondImage ??
+  linkedProducts[1]?.mainImage ??
+  '/images/cnc-milling-precision-metal-parts.jpg';
+---
+
+<BaseLayout
+  title={app.seoTitle}
+  description={app.summary}
+  currentPath="/applications"
+  image={heroImage}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Parts by Application', url: `${site.url}/applications/` },
+      { name: app.title, url: pageUrl },
+    ]),
+    serviceSchema({
+      name: app.title,
+      description: app.summary,
+      url: pageUrl,
+      image: `${site.url}${heroImage}`,
+    }),
+  ]}
+>
+  <FunnelPageView stage="selection" label={`application-${app.slug}`} />
+  <BreadcrumbHero
+    title={app.h1Title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Applications', href: '/applications/' },
+      { label: app.title },
+    ]}
+    variant="2"
+  />
+
+  <DetailPageShell intro={app.summary}>
+    <img
+      slot="hero"
+      src={heroImage}
+      alt={`CNC ${app.title}`}
+      width="1400"
+      height="692"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+
+    <div class="resource-meta">
+      <span><strong>Part types</strong> {linkedProducts.length} linked guides</span>
+      <span><strong>DFM review</strong> Free with quote</span>
+      <span><strong>Lead time</strong> 7–15 days typical</span>
+      <span><strong>MOQ</strong> No minimum</span>
+    </div>
+
+    <DetailRfqStrip
+      quoteHref={quoteHref}
+      title={`Quote ${app.title.toLowerCase()}`}
+      text="Upload your drawing for application-specific DFM feedback, tolerance guidance, and a quote within 24 hours."
+    />
+
+    {linkedProducts.length > 0 && (
+      <>
+        <p class="detail-quick-label">Related part types</p>
+        <nav class="resource-nav detail-quick-nav" aria-label="Related part types for this application">
+          {linkedProducts.map((product) => (
+            <a href={`/products/${product.slug}/`} class="resource-nav-link">
+              {product.title}
+            </a>
+          ))}
+        </nav>
+      </>
+    )}
+
+    <div set:html={app.content.partOne} />
+    <figure class="detail-page-figure">
+      <img
+        src={inlineImage}
+        alt={`${app.title} — CNC machined examples`}
+        width="1200"
+        height="662"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+    <div set:html={app.content.partTwo} />
+
+    {linkedProducts.length > 0 && (
+      <section class="application-related" aria-labelledby="application-related-heading">
+        <h2 id="application-related-heading" class="hub-faq-heading">Related part type guides</h2>
+        <div class="hub-grid">
+          {linkedProducts.map((product) => (
+            <article class="hub-card">
+              <a href={`/products/${product.slug}/`} class="hub-card-image">
+                <img
+                  src={product.mainImage}
+                  alt={product.title}
+                  width="400"
+                  height="250"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <div class="hub-card-body">
+                <h3 class="hub-card-title">
+                  <a href={`/products/${product.slug}/`}>{product.title}</a>
+                </h3>
+                <p class="hub-card-summary">{product.summary}</p>
+                <a href={`/products/${product.slug}/`} class="hub-card-link">
+                  View part type
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <SubpageLinks title="Industries for this application" items={relatedIndustries} />
+
+    <p class="resource-note detail-page-back">
+      <a href="/applications/">All applications</a>
+      ·
+      <a href="/products/">Part types</a>
+      ·
+      <a href="/compare/">Comparisons</a>
+      ·
+      <a href="/resources/dfm-checklist/">DFM checklist</a>
+      ·
+      <a href={quoteHref}>Request a quote</a>
+    </p>
+
+    <ApplicationSidebar slot="sidebar" activeSlug={app.slug} quoteHref={quoteHref} />
+  </DetailPageShell>
+
+  <BlogCta
+    stage="selection"
+    topic={app.slug}
+    title={`Quote ${app.title.toLowerCase()}`}
+    text="Upload your drawing with application context — we confirm process fit and respond within 24 hours."
+    primaryLabel="Request a Quote"
+    primaryHref={quoteHref}
+    primaryEvent={`application_${app.slug}_rfq`}
+    secondaryLabel="DFM checklist"
+    secondaryHref="/resources/dfm-checklist/"
+    secondaryEvent="application_dfm_checklist"
+  />
+</BaseLayout>
+
+<style>
+  .application-related {
+    margin-top: 32px;
+  }
+
+  .application-related .hub-grid {
+    margin-top: 16px;
+  }
+
+  .application-related .hub-card-body {
+    margin-top: 0;
+    padding: 16px 18px 18px;
+  }
+</style>

@@ -1,0 +1,1363 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import TrustBadges from "../components/TrustBadges.astro";
+import HomeRoleGuide from "../components/HomeRoleGuide.astro";
+import BlogCta from "../components/BlogCta.astro";
+import SocialProofStrip from "../components/SocialProofStrip.astro";
+import FunnelPageView from "../components/FunnelPageView.astro";
+import { services } from "../data/services";
+import { industries } from "../data/industries";
+import { caseStudies } from "../data/case-studies";
+import { testimonials } from "../data/testimonials";
+import { getPopularGuidePosts, getIndexableBlogPosts, getPostAuthorKey, authors } from "../data/blog";
+
+const popularGuides = getPopularGuidePosts();
+const recentPosts = getIndexableBlogPosts().slice(0, 3);
+import { site, videoSchema } from "../data/site";
+
+const homepageVideos = [
+  videoSchema({
+    name: "CNC Machining Workshop Tour",
+    description:
+      "Tour our CNC machining workshop — multi-axis milling, turning, and in-process quality inspection.",
+    thumbnailUrl: "https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg",
+    embedUrl: "https://www.youtube.com/embed/M7uJEbDD-_8",
+    uploadDate: "2023-06-01",
+  }),
+  videoSchema({
+    name: "CNC Factory Production Process",
+    description:
+      "Behind-the-scenes look at CNC milling and turning production for precision machined parts.",
+    thumbnailUrl: `${site.url}/videos/cnc-machining-factory-poster.jpg`,
+    contentUrl: `${site.url}/videos/cnc-machining-factory-process.mp4`,
+  }),
+];
+
+const workflowSteps = [
+  {
+    image: "/images/upload-cad-drawing-step.webp",
+    step: "01",
+    title: "Send Engine & Part Details",
+    summary:
+      "Send engine brand, model, serial number, part number, quantity, destination, and any nameplate or old-part photos.",
+  },
+  {
+    image: "/images/dfm-review-and-quote-step.webp",
+    step: "02",
+    title: "Part Verification & Quote",
+    summary:
+      "We verify fitment, check stock or sourcing options, and send pricing, lead time, and shipping route as quickly as possible.",
+  },
+  {
+    image: "/images/cnc-production-and-qc-step.webp",
+    step: "03",
+    title: "Packing & Export Prep",
+    summary:
+      "Your parts are prepared with export packing, documentation, and shipment tracking for maintenance teams worldwide.",
+  },
+  {
+    image: "/images/global-delivery-shipping-step.webp",
+    step: "04",
+    title: "Fast Global Delivery",
+    summary:
+      "We ship by express courier, air freight, or sea freight depending on urgency, part size, and destination.",
+  },
+];
+
+const keyFeatures = [
+  { icon: "/images/engineer-led-dfm-icon.svg", title: "Engine-Part Identification" },
+  {
+    icon: "/images/high-precision-tolerance-icon.svg",
+    title: "Genuine & OEM Parts",
+  },
+  { icon: "/images/no-minimum-order-icon.svg", title: "Fast Global Delivery" },
+];
+
+const engineBrands = [
+  {
+    href: "/products/mtu-spare-parts/",
+    title: "MTU",
+    summary: "183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series parts.",
+  },
+  {
+    href: "/products/detroit-diesel-parts/",
+    title: "Detroit Diesel",
+    summary: "Parts support for legacy and related MTU engine applications.",
+  },
+  {
+    href: "/products/cummins-parts/",
+    title: "Cummins",
+    summary: "Diesel engine parts for generator, industrial, marine, and equipment service.",
+  },
+  {
+    href: "/products/deutz-parts/",
+    title: "DEUTZ",
+    summary: "Replacement parts for construction, pump, compressor, and industrial engines.",
+  },
+  {
+    href: "/capabilities/genuine-oem-parts/",
+    title: "Genuine OEM Parts",
+    summary: "Original and OEM manufacturer parts from O-rings to crankshafts.",
+  },
+  {
+    href: "/contact/",
+    title: "Part Identification",
+    summary: "Send a nameplate photo, old-part marking, or serial number for verification.",
+  },
+];
+
+const stats = [
+  { upper: ["1", "5"], lower: ["0", "1", "2", "3", "4", "5"], suffix: "+" },
+  { upper: ["0", "5"], lower: ["0", "1", "2", "3", "4", "5"], suffix: "k+" },
+  {
+    upper: ["9", "6", "9"],
+    lower: ["9", "1", "2", "3", "4", "8"],
+    suffix: "%",
+  },
+  {
+    upper: ["2", "6", "4"],
+    lower: ["0", "1", "2", "3", "4", "0"],
+    suffix: "h",
+  },
+];
+const statLabels = [
+  "Years Experience",
+  "Parts Supplied",
+  "Supplier Focus",
+  "Response Target",
+];
+---
+
+<BaseLayout
+  title="MTU Engine Parts Specialist | Engine Family"
+  description="Engine Family supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts with part-number verification, Shanghai stock support, and fast global delivery."
+  currentPath="/"
+  jsonLd={homepageVideos}
+>
+  <FunnelPageView stage="selection" label="homepage" />
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-content-block">
+          <div class="hero-subtitle-block fade-in">
+            <img
+              src="/images/precision-manufacturing-badge-icon.svg"
+              alt="Precision manufacturing icon"
+              class="hero-subtitle-icon"
+              width="24"
+              height="24"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="hero-subtitle-text">
+              {site.tagline}
+            </div>
+          </div>
+          <div class="hero-title-block">
+            <h1 class="hero-title fade-in">
+              MTU Engine Parts Specialist<br />Genuine Parts, Fast Global Delivery
+            </h1>
+          </div>
+          <!-- <div class="hero-video-block">
+            <button type="button" class="hero-video" data-lightbox-trigger="https://www.youtube.com/watch?v=-Mwa7wtDejU" aria-label="Watch machining video">
+              <img
+                src="/videos/Transio-Hero-Video-1-poster-00001.jpg"
+                alt=""
+                class="hero-video-poster"
+                width="800"
+                height="450"
+                loading="eager"
+                decoding="async"
+              />
+              <video class="hero-video-element" autoplay loop muted playsinline poster="/videos/Transio-Hero-Video-1-poster-00001.jpg">
+                <source src="/videos/Transio-Hero-Video-1-transcode.mp4" type="video/mp4" />
+                <source src="/videos/Transio-Hero-Video-1-transcode.webm" type="video/webm" />
+              </video>
+              <span class="video-control-block" aria-hidden="true">
+                <img src="/images/video-play-button-icon.svg" alt="" class="video-play-icon" width="16" height="16" loading="eager" decoding="async" />
+              </span>
+            </button>
+          </div> -->
+          <div class="hero-bottom-content-block">
+            <div class="hero-summary-block">
+              <p class="hero-summary">
+                Engine Family supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ
+                engine parts for marine, industrial, rail, and power generation users.
+                Send your engine model, serial number, and part list for fast verification.
+              </p>
+            </div>
+            <div class="hero-button-block">
+              <div class="hero-cta-row">
+                <a href="/contact/?source=homepage" class="secondary-button hero">
+                  <div class="button-content-block">
+                    <div class="button-text">Request Parts</div>
+                    <div class="button-text">Request Parts</div>
+                  </div>
+                </a>
+                <a href="/products/mtu-spare-parts/" class="hero-secondary-cta">MTU Spare Parts</a>
+              </div>
+              <ul class="hero-trust-row" aria-label="Key service guarantees">
+                <li>MTU full-series support</li>
+                <li>Genuine OEM sourcing</li>
+                <li>Worldwide shipping</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-block">
+          <img
+            src="/images/precision-cnc-machined-parts-hero.webp"
+            alt="Diesel engine spare parts"
+            class="hero-image"
+            width="800"
+            height="649"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <div class="hero-image-overlay image-overlay fade-in"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-trust-section" aria-label="Quality and compliance">
+    <div class="container">
+      <TrustBadges />
+    </div>
+  </section>
+
+  <HomeRoleGuide />
+
+  <!-- ═══ KEY FEATURES ═══ -->
+  <section class="key-feature-section">
+    <div class="container">
+      <div class="key-feature-wrapper">
+        {
+          keyFeatures.map((f) => (
+            <div class="key-feature-block fade-in">
+              <div class="key-feature-content-block">
+                <div class="key-feature-icon-block">
+                  <img
+                    src={f.icon}
+                    alt={f.title}
+                    class="key-feature-icon"
+                    width="50"
+                    height="50"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="key-feature-title-block">
+                  <h3 class="key-feature-title">{f.title}</h3>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+        <div class="feature-highlight-block fade-in">
+          <div class="feature-highlight-info-block">
+            <p class="feature-highlight-text">
+              From part identification to global delivery, see how we support engine uptime.
+            </p>
+          </div>
+          <div class="feature-highlight-video-block">
+            <button
+              type="button"
+              class="feature-highlight-video feature-highlight-video--interactive"
+              data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8"
+              aria-label="Watch CNC machining factory tour"
+            >
+              <img
+                src="/videos/cnc-machining-factory-poster.jpg"
+                alt=""
+                aria-hidden="true"
+                class="feature-highlight-poster"
+                width="640"
+                height="360"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="feature-highlight-play" aria-hidden="true">
+                <img src="/images/video-play-button-icon.svg" alt="" width="20" height="20" />
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CAPABILITIES ═══ -->
+  <section class="service-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div class="service-wrapper">
+          <SectionHeading
+            title="Engine Parts & Service Support"
+            subtitle="What We Supply"
+          />
+          <div class="service-bottom-block fade-in">
+            <p class="service-bottom-text service-bottom-hint">
+              Not sure which part number fits your engine? <a
+                href="/contact/"
+                class="service-bottom-link"
+                >send your engine details</a> and we will help verify the replacement before shipment.
+            </p>
+          </div>
+          <div class="service-card-sticky-block fade-in">
+            {
+              services.map((service) => (
+                <div class="service-card-item-block">
+                  <a
+                    href={`/capabilities/${service.slug}/`}
+                    class="service-card-image-block"
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      class="service-card-image"
+                      width="400"
+                      height="441"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div class="service-card-image-overlay">
+                      <div class="service-card-icon-block">
+                        <div class="service-hover-icon">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 1.02211V16.5472C24 17.1117 23.5424 17.5693 22.9779 17.5693C22.4134 17.5693 21.9558 17.1117 21.9558 16.5472V3.48989L1.74492 23.7007C1.54528 23.9002 1.28377 24 1.02216 24C0.760547 24 0.499031 23.9002 0.299391 23.7007C-0.0997969 23.3015 -0.0997969 22.6543 0.299391 22.2551L20.5103 2.04422H7.4528C6.88833 2.04422 6.43069 1.58658 6.43069 1.02211C6.43069 0.457641 6.88833 0 7.4528 0H22.9779C23.5424 0 24 0.457641 24 1.02211Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="service-card-content-block">
+                    <div class="service-card-text-block">
+                      <a
+                        href={`/capabilities/${service.slug}/`}
+                        class="service-title-link-block"
+                      >
+                        <h3 class="service-card-title">{service.title}</h3>
+                      </a>
+                      <p class="service-card-summary">{service.summary}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT + STATS ═══ -->
+  <section class="about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div class="about-wrapper">
+          <SectionHeading
+            title="More Than a Parts Seller"
+            subtitle="About Us"
+          />
+          <div class="about-image-block fade-in">
+            <div class="about-lightbox-block">
+              <button
+                type="button"
+                class="lightbox-link-block"
+                data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s"
+                aria-label="Play about video"
+              >
+                <div class="lightbox-inner-block">
+                  <img
+                    src="/images/video-play-icon.svg"
+                    alt=""
+                    class="lightbox-play-icon"
+                    width="20"
+                    height="20"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="lightbox-circle-one"></div>
+                <div class="lightbox-circle-two"></div>
+              </button>
+            </div>
+            <div class="about-text-block">
+              <div class="about-text fade-in">
+                We support engine users with practical parts identification,
+                genuine sourcing, export packing, and logistics. When downtime
+                matters, we help you confirm the right item before it ships.
+              </div>
+              <div class="about-button-block fade-in">
+                <a href="/about/" class="primary-button primary-hover">
+                  <div class="button-content-block">
+                    <div class="button-text">More About Engine Family</div><div
+                      class="button-text"
+                    >
+                      More About Engine Family
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="about-content-block">
+            {
+              stats.map((stat, i) => (
+                <div class="stat-card-block fade-in" aria-label={`${statLabels[i]}: ${["15+", "50k+", "96.9%", "24h"][i]}`}>
+                  <div class="stat-number-block">
+                    <div class="stat-number-chain upper-movement">
+                      {stat.upper.map((n) => (
+                        <div class="chain-character">{n}</div>
+                      ))}
+                    </div>
+                    <div class="stat-number-chain lower-movement">
+                      {stat.lower.map((n) => (
+                        <div class="chain-character">{n}</div>
+                      ))}
+                    </div>
+                    {stat.suffix && (
+                      <div class="chain-character">{stat.suffix}</div>
+                    )}
+                  </div>
+                  <p class="stat-text">{statLabels[i]}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WORKFLOW ═══ -->
+  <section class="booking-steps-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div class="booking-steps-wrapper">
+          <SectionHeading
+            title="How It Works"
+            subtitle="From Part Number to Delivery"
+          />
+          <div class="booking-steps-content-block fade-in">
+            <div class="booking-steps-sticky-block">
+              {
+                workflowSteps.map((item, i) => (
+                  <div class:list={["booking-step-card-block", `is-${i + 1}`]}>
+                    <div class="booking-step-image-block">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        class="booking-step-image"
+                        width="400"
+                        height="251"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div class="booking-step-card-text-block">
+                      <span class="booking-step-number" aria-hidden="true">{item.step}</span>
+                      <h3 class="booking-step-title">{item.title}</h3>
+                      <p class="booking-step-summary">{item.summary}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MATERIALS ═══ -->
+  <section class="pricing-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading
+          title="Engine Brands We Support"
+          subtitle="Brand Coverage"
+        />
+        <div class="materials-grid fade-in">
+          {
+            engineBrands.map((m) => (
+              <a
+                href={m.href}
+                class="material-card material-card-link"
+              >
+                <h3 class="material-name">{m.title}</h3>
+                <p class="material-grades">{m.summary}</p>
+              </a>
+            ))
+          }
+        </div>
+        <p class="materials-note">
+          Need another engine family? <a href="/contact/">Send the model and part list</a>
+          so we can check sourcing options and replacement availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INDUSTRIES ═══ -->
+  <section class="map-section">
+    <div class="section-gap map map-section--flush">
+      <div class="container">
+        <SectionHeading title="Applications We Serve" subtitle="Your Sector" />
+        <div class="industries-grid fade-in">
+          {
+            industries.map((ind) => (
+              <a
+                href={`/industries/${ind.slug}/`}
+                class="industry-card industry-card-link"
+              >
+                <div class="industry-icon">
+                  <img
+                    src={ind.icon}
+                    alt=""
+                    aria-hidden="true"
+                    class="industry-icon-image"
+                    width="148"
+                    height="148"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="industry-name">{ind.title}</div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASE STUDIES ═══ -->
+  <section class="case-studies-home-section">
+    <div class="section-gap bottom case-studies-home-section--compact">
+      <div class="container">
+        <SectionHeading title="Engine Parts Supply Stories" subtitle="Case Studies" />
+        <div class="case-studies-home-grid fade-in">
+          {
+            caseStudies
+              .slice(0, 3)
+              .map((study) => (
+                <CaseStudyCard
+                  slug={study.slug}
+                  title={study.title}
+                  image={study.image}
+                  industry={study.industry}
+                  material={study.material}
+                  process={study.process}
+                  tolerance={study.tolerance}
+                  quantity={study.quantity}
+                  outcomeMetric={study.proof.outcomeMetric}
+                />
+              ))
+          }
+        </div>
+        <p class="case-studies-home-link">
+          <a href="/case-studies/">View all case studies →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonial-section">
+    <div class="section-gap testimonial-section--flush">
+      <div class="container">
+        <div class="testimonial-wrapper">
+          <SectionHeading title="What We Deliver" subtitle="Our Promise" />
+          <p class="testimonial-anonymity-note fade-in">
+            Names and titles are anonymized composites for client confidentiality. Quotes are paraphrased from buyer interviews — see linked case studies for measured outcomes.
+          </p>
+          <div class="testimonial-content-block fade-in">
+            {
+              [0].map(() => (
+                <div class="testimonial-card-block">
+                  {testimonials.map((t, i) => (
+                    <>
+                      <div class="testimonial-single-card-block">
+                        <div class="testimonial-author-block">
+                          <div class="testimonial-author-avatar-block">
+                            <img
+                              src={t.avatar}
+                              alt={t.name}
+                              class="testimonial-author-avatar"
+                              width="64"
+                              height="64"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+                          <div class="testimonial-author-info-block">
+                            <div class="testimonial-author-name">{t.name}</div>
+                            <p class="author-designation">{t.role}</p>
+                          </div>
+                        </div>
+                        <div class="testimonial-text-block">
+                          <h3 class="testimonial-title">{t.title}</h3>
+                          <div class="testimonial-summary">"{t.quote}"</div>
+                          <a href={`/case-studies/${t.caseStudySlug}/`} class="testimonial-case-link">
+                            Read project case study →
+                          </a>
+                        </div>
+                        <div class="testimonial-brand-logo-block">
+                          <img
+                            src={t.brand}
+                            alt={`${t.name} company`}
+                            class="testimonial-brand-logo"
+                            width="120"
+                            height="24"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                      </div>
+                      {i < testimonials.length - 1 && (
+                        <div class="testimonial-liner" />
+                      )}
+                    </>
+                  ))}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ POPULAR GUIDES ═══ -->
+  <section class="service-section">
+    <div class="section-gap">
+      <div class="container">
+        <SectionHeading title="Start Here" subtitle="Popular Guides" />
+        <div class="guides-grid">
+          {
+            popularGuides.map((guide) => (
+              <a href={`/blog/${guide.slug}/`} class="guide-card fade-in">
+                <h3 class="guide-card-title">{guide.title}</h3>
+                <p class="guide-card-excerpt">{guide.excerpt.slice(0, 100)}…</p>
+                <span class="guide-card-cta">Read guide →</span>
+              </a>
+            ))
+          }
+          <a href="/resources/cnc-tolerance-guide/" class="guide-card guide-card--featured fade-in">
+            <h3 class="guide-card-title">CNC Tolerance Guide</h3>
+            <p class="guide-card-excerpt">
+              ISO 2768, achievable limits, and cost trade-offs — free reference.
+            </p>
+            <span class="guide-card-cta">Open reference →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOG ═══ -->
+  <section class="blog-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading title="Machining Knowledge" subtitle="Technical Blog" />
+        <div class="blog-wrapper">
+          <div class="blog-content-wrapper">
+            {
+              recentPosts.map((post) => {
+                const authorKey = getPostAuthorKey(post.slug, post.author);
+                const author = authors[authorKey];
+                return (
+                <div class="blog-single-item-block fade-in">
+                  <div class="blog-card-item-inner-block">
+                    <div class="blog-item-image-block">
+                      <div class="blog-author-block">
+                        <>
+                          <span class="blog-author-name">By</span>
+                          <a
+                            href={`/blog/author/${author.slug}/`}
+                            class="blog-author-name hover"
+                          >
+                            {author.name}
+                          </a>
+                        </>
+                      </div>
+                      <a
+                        href={`/blog/${post.slug}/`}
+                        class="blog-item-image-link-block"
+                      >
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          class="blog-item-image"
+                          width="400"
+                          height="307"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div class="blog-image-cursor">
+                          <div class="blog-cursor-text">/Read</div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="blog-item-title-block">
+                    <a
+                      href={`/blog/${post.slug}/`}
+                      class="blog-item-title-link-block"
+                    >
+                      <h3 class="blog-item-title">{post.title}</h3>
+                    </a>
+                  </div>
+                </div>
+              );
+              })
+            }
+          </div>
+        </div>
+        <p class="blog-section-footer fade-in">
+          <a href="/blog/">View all articles →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <SocialProofStrip heading="Trusted by engineers and procurement teams worldwide" />
+
+  <section class="home-rfq-hub section-gap bottom" aria-labelledby="home-rfq-hub-heading">
+    <div class="container">
+      <div class="home-rfq-hub-card fade-in">
+        <h2 id="home-rfq-hub-heading" class="home-rfq-hub-title">Have a part number or engine plate?</h2>
+        <p class="home-rfq-hub-lead">
+          Send your MTU, Detroit Diesel, Cummins, or DEUTZ part list. We verify fitment, check stock or sourcing options, and quote shipment from Shanghai to your destination.
+        </p>
+        <div class="home-rfq-hub-actions">
+          <a href="/contact/?source=homepage-hub" class="secondary-button hero home-rfq-hub-primary">
+            <div class="button-content-block">
+              <div class="button-text">Request Parts</div>
+              <div class="button-text">Request Parts</div>
+            </div>
+          </a>
+          <a href="/products/mtu-spare-parts/" class="home-rfq-hub-secondary">MTU spare parts →</a>
+        </div>
+        <nav class="home-rfq-hub-links" aria-label="Popular comparison guides">
+          <span>Quick links:</span>
+          <a href="/products/mtu-2000-series-parts/">MTU 2000 Series</a>
+          <a href="/products/mtu-4000-series-parts/">MTU 4000 Series</a>
+          <a href="/products/cummins-parts/">Cummins Parts</a>
+          <a href="/products/deutz-parts/">DEUTZ Parts</a>
+          <a href="/capabilities/genuine-oem-parts/">Genuine OEM Parts</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="awareness"
+    topic="homepage"
+    primaryHref="/contact/?source=homepage"
+    secondaryLabel="MTU spare parts"
+    secondaryHref="/online-cnc-machining/"
+    secondaryEvent="homepage_online_cnc"
+  />
+</BaseLayout>
+
+<script>
+  import "../scripts/hero-video.ts";
+</script>
+
+<!-- ═══ INLINE STYLES ═══ -->
+<style>
+  /* ── Hero trust row ── */
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 20px;
+  }
+  .hero-secondary-cta {
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-decoration: none;
+    padding: 12px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .hero-secondary-cta:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+  .hero-secondary-cta:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .hero-trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 16px;
+    padding: 0;
+    list-style: none;
+  }
+  .hero-trust-row li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #475569;
+  }
+  .hero-trust-row li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+  }
+
+  /* ── Service hint ── */
+  .service-bottom-hint {
+    margin-top: -40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+  }
+
+  /* ── Section spacing overrides ── */
+  .map-section--flush {
+    padding-top: 0 !important;
+  }
+  .case-studies-home-section--compact {
+    padding-bottom: 60px !important;
+  }
+  .testimonial-section--flush {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* ── Key features polish ── */
+  .key-feature-section .key-feature-block {
+    border: 1px solid var(--color-stroke);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .key-feature-section .key-feature-block:hover {
+    border-color: rgba(20, 110, 245, 0.25);
+    box-shadow: 0 4px 16px rgba(20, 110, 245, 0.06);
+  }
+
+  /* ── Workflow cards ── */
+  .booking-steps-section .booking-step-card-block {
+    border: 1px solid var(--color-stroke);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .booking-steps-section .booking-step-card-block:hover {
+    border-color: rgba(20, 110, 245, 0.25);
+    box-shadow: 0 4px 20px rgba(20, 110, 245, 0.07);
+  }
+
+  /* ── Service cards ── */
+  .service-section .service-card-image-block,
+  .service-section .service-title-link-block {
+    cursor: pointer;
+  }
+  .service-section .service-card-image-block:focus-visible,
+  .service-section .service-title-link-block:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .service-section .service-card-item-block {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-section .service-card-item-block:hover {
+    border-color: rgba(20, 110, 245, 0.3);
+    box-shadow: 0 6px 24px rgba(20, 110, 245, 0.08);
+  }
+  .service-bottom-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ── Blog footer ── */
+  .blog-section-footer {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 15px;
+  }
+  .blog-section-footer a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .blog-section-footer a:hover {
+    text-decoration: underline;
+  }
+  .blog-section-footer a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .materials-note a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .lightbox-link-block:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 50%;
+  }
+
+  /* ── Workflow step numbers ── */
+  .booking-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  /* ── Popular guides grid ── */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1880px;
+    margin: 0 auto;
+  }
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 24px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+  .guide-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(20, 110, 245, 0.1);
+    transform: translateY(-2px);
+  }
+  .guide-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .guide-card-title {
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-title);
+    margin: 0;
+  }
+  .guide-card-excerpt {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0;
+  }
+  .guide-card-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 4px;
+  }
+  .guide-card--featured {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border-color: transparent;
+  }
+  .guide-card--featured:hover {
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.35);
+  }
+  .guide-card--featured .guide-card-title {
+    color: #fff;
+  }
+  .guide-card--featured .guide-card-excerpt {
+    color: #cbd5e1;
+  }
+  .guide-card--featured .guide-card-cta {
+    color: #38bdf8;
+  }
+
+  .hero-video-poster {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-video-poster.is-visible {
+    display: block;
+  }
+  .hero-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-studies-home-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+  @media (max-width: 991px) {
+    .case-studies-home-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .case-studies-home-link {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 15px;
+  }
+  .case-studies-home-link a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  .case-studies-home-link a:hover {
+    text-decoration: underline;
+  }
+  .case-studies-home-link a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .testimonial-case-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .testimonial-anonymity-note {
+    max-width: 720px;
+    margin: 0 auto 24px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748b;
+  }
+
+  .testimonial-case-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Materials grid ── */
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) {
+    .materials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .materials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .material-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 32px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    text-align: center;
+    background: var(--color-white);
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .material-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .material-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 16px rgba(20, 110, 245, 0.08);
+  }
+  .material-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .material-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 4px;
+    background: var(--color-body);
+  }
+  .material-icon-image {
+    width: 36px;
+    height: 36px;
+    display: block;
+    transition: transform 0.25s ease;
+  }
+  .material-card:hover .material-icon-image {
+    transform: scale(1.08);
+  }
+  .material-name {
+    font-family: var(--font-title);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-title);
+    margin-bottom: 6px;
+  }
+  .material-grades {
+    font-size: 14px;
+    color: var(--color-body-text);
+  }
+  .materials-note {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--color-body-text);
+  }
+  .materials-note a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  .materials-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Industries grid ── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 991px) {
+    .industries-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .industry-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 0px 0px 30px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    background: var(--color-white);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .industry-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 16px rgba(20, 110, 245, 0.08);
+  }
+  .industry-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .industry-icon {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--color-stroke);
+    background: var(--color-body);
+  }
+  .industry-icon-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+  }
+  .industry-card:hover .industry-icon-image {
+    transform: scale(1.06);
+  }
+  .industry-name {
+    font-family: var(--font-title);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-title);
+  }
+
+  .testimonial-case-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .feature-highlight-video--interactive:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
+  }
+
+  .secondary-button.hero:focus-visible,
+  .primary-button.primary-hover:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  /* ── RFQ hub (priority compare internal links) ── */
+  .home-rfq-hub-card {
+    padding: 32px 36px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .home-rfq-hub-title {
+    margin: 0 0 10px;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.25;
+    text-transform: none;
+  }
+
+  .home-rfq-hub-lead {
+    margin: 0;
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #475569;
+  }
+
+  .home-rfq-hub-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 20px;
+    margin-top: 22px;
+  }
+
+  .home-rfq-hub-secondary {
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .home-rfq-hub-secondary:hover {
+    text-decoration: underline;
+  }
+
+  .home-rfq-hub-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-stroke);
+    font-size: 14px;
+    color: #64748b;
+  }
+
+  .home-rfq-hub-links a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .home-rfq-hub-links a:hover {
+    text-decoration: underline;
+  }
+
+  .home-rfq-hub-secondary:focus-visible,
+  .home-rfq-hub-links a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 767px) {
+    .home-rfq-hub-card {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .guide-card:hover,
+    .material-card:hover .material-icon-image,
+    .industry-card:hover .industry-icon-image {
+      transform: none;
+    }
+    .guide-card {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .key-feature-section .key-feature-block:hover,
+    .booking-steps-section .booking-step-card-block:hover,
+    .service-section .service-card-item-block:hover {
+      box-shadow: none;
+    }
+  }
+</style>
+

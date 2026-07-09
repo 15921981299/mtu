@@ -1,0 +1,147 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  image: string;
+  industry: string;
+  material: string;
+  process: string;
+  tolerance?: string;
+  quantity?: string;
+  outcomeMetric?: string;
+}
+
+const { slug, title, image, industry, material, process, tolerance, quantity, outcomeMetric } = Astro.props;
+---
+
+<a href={`/case-studies/${slug}/`} class="case-study-card fade-in">
+  <div class="case-study-image-block">
+    <img src={image} alt={title} class="case-study-image" width="400" height="300" loading="lazy" decoding="async" />
+    <span class="case-study-industry">{industry}</span>
+  </div>
+  <div class="case-study-content">
+    <h3 class="case-study-title">{title}</h3>
+    {outcomeMetric && <p class="case-study-outcome">{outcomeMetric}</p>}
+    <ul class="case-study-meta">
+      <li><span class="meta-label">Material</span>{material}</li>
+      <li><span class="meta-label">Process</span>{process}</li>
+      {tolerance && <li><span class="meta-label">Tolerance</span>{tolerance}</li>}
+      {quantity && <li><span class="meta-label">Qty</span>{quantity}</li>}
+    </ul>
+    <span class="case-study-link">Read case study →</span>
+  </div>
+</a>
+
+<style>
+  .case-study-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-white);
+    box-shadow: 0 2px 8px rgba(8, 8, 8, 0.04);
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    cursor: pointer;
+  }
+  .case-study-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 12px 32px rgba(20, 110, 245, 0.12);
+    transform: translateY(-4px);
+  }
+  .case-study-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .case-study-image-block {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-background);
+  }
+  .case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .case-study-card:hover .case-study-image {
+    transform: scale(1.05);
+  }
+  .case-study-industry {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: rgba(8, 8, 8, 0.72);
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+  }
+  .case-study-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 22px 18px;
+  }
+  .case-study-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    margin: 0 0 8px;
+    line-height: 1.35;
+    text-transform: none;
+  }
+  .case-study-outcome {
+    margin: 0 0 12px;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(20, 110, 245, 0.08);
+    border: 1px solid rgba(20, 110, 245, 0.15);
+    border-radius: 4px;
+  }
+  .case-study-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    font-size: 14px;
+    color: var(--color-body-text);
+  }
+  .meta-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 6px;
+  }
+  .case-study-link {
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .case-study-card:hover .case-study-link {
+    color: #0d5ad4;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .case-study-card,
+    .case-study-image {
+      transition: none;
+    }
+    .case-study-card:hover {
+      transform: none;
+    }
+  }
+</style>

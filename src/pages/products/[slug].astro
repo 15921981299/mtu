@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import DetailPageShell from '../../components/DetailPageShell.astro';
+import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import ExperienceProofNote from '../../components/ExperienceProofNote.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import ProductSidebar from '../../components/ProductSidebar.astro';
+import QuoteRequirements from '../../components/QuoteRequirements.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import RelatedComparisons from '../../components/RelatedComparisons.astro';
+import SubpageLinks from '../../components/SubpageLinks.astro';
+import { getComparisonsForProduct } from '../../data/funnel-links';
+import { materials } from '../../data/materials';
+import { products } from '../../data/products';
+import { productSubpages } from '../../data/product-subpages';
+import { isSubpageNoindex } from '../../data/subpage-quality';
+import { productArticleMap } from '../../data/related-content';
+import { services } from '../../data/services';
+import { breadcrumbSchema, productSchema, serviceSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+
+const { product } = Astro.props;
+const pageUrl = `${site.url}/products/${product.slug}/`;
+const quoteHref = `/contact/?source=product-${product.slug}`;
+const materialSlugs = (product.materialSlugs ?? []) as readonly string[];
+const capabilitySlugs = (product.capabilitySlugs ?? []) as readonly string[];
+const linkedMaterials = materials.filter((m) => materialSlugs.includes(m.slug));
+const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slug));
+const relatedComparisons = getComparisonsForProduct(materialSlugs, capabilitySlugs);
+const relatedArticles = productArticleMap[product.slug] ?? [];
+const subpages = productSubpages
+  .filter((sp) => sp.productSlug === product.slug && !isSubpageNoindex(sp.productSlug, sp.slug))
+  .map((sp) => ({ href: `/products/${product.slug}/${sp.slug}/`, title: sp.title, summary: sp.summary }));
+---
+
+<BaseLayout
+  title={product.seoTitle}
+  description={product.summary}
+  currentPath="/products"
+  image={product.mainImage}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Products', url: `${site.url}/products/` },
+      { name: product.title, url: pageUrl },
+    ]),
+    serviceSchema({
+      name: product.title,
+      description: product.summary,
+      url: pageUrl,
+      image: `${site.url}${product.mainImage}`,
+    }),
+    productSchema({
+      name: product.title,
+      description: product.summary,
+      url: pageUrl,
+      image: `${site.url}${product.mainImage}`,
+      material: linkedMaterials.map((m) => m.title).join(', ') || undefined,
+    }),
+  ]}
+>
+  <FunnelPageView stage="selection" label={`product-${product.slug}`} />
+  <BreadcrumbHero
+    title={product.h1Title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Products', href: '/products/' },
+      { label: product.title },
+    ]}
+    variant="2"
+  />
+
+  <DetailPageShell intro={product.summary}>
+    <img
+      slot="hero"
+      src={product.mainImage}
+      alt={`${product.title} supply and identification support`}
+      width="1400"
+      height="692"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="resource-meta">
+      <span><strong>Verification</strong> {product.tolerance}</span>
+      <span><strong>Lead time</strong> {product.leadTime}</span>
+      <span><strong>Inquiry</strong> Part number or nameplate</span>
+      <span><strong>Delivery</strong> Global export shipping</span>
+    </div>
+
+    <DetailRfqStrip
+      quoteHref={quoteHref}
+      title={`Check ${product.title.toLowerCase()} availability`}
+      text="Send the part number, engine model, serial number, quantity, and destination. We verify compatibility before quotation."
+    />
+
+    <ExperienceProofNote context="product" />
+
+    <QuoteRequirements partType={product.title.toLowerCase()} />
+
+    {linkedMaterials.length > 0 && (
+      <>
+        <p class="detail-quick-label">Related reference groups</p>
+        <nav class="resource-nav detail-quick-nav" aria-label="Typical materials for this part">
+          {linkedMaterials.map((material) => (
+            <a href={`/materials/${material.slug}/`} class="resource-nav-link">
+              {material.title}
+            </a>
+          ))}
+        </nav>
+      </>
+    )}
+
+    {linkedCapabilities.length > 0 && (
+      <>
+        <p class="detail-quick-label">Related support</p>
+        <nav class="resource-nav detail-quick-nav" aria-label="Processes for this part">
+          {linkedCapabilities.map((capability) => (
+            <a href={`/capabilities/${capability.slug}/`} class="resource-nav-link">
+              {capability.title}
+            </a>
+          ))}
+        </nav>
+      </>
+    )}
+
+    <div set:html={product.content.partOne} />
+    <figure class="detail-page-figure">
+      <img
+        src={product.secondImage}
+        alt={`${product.title} identification and shipping support`}
+        width="1200"
+        height="662"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+    <div set:html={product.content.partTwo} />
+
+    <SubpageLinks title={`${product.title} guides`} items={subpages} />
+    {relatedArticles.length > 0 && (
+      <RelatedArticles slugs={relatedArticles} title={`Guides for ${product.title}`} />
+    )}
+    <RelatedComparisons
+      items={relatedComparisons}
+      title={`Compare options for ${product.title.toLowerCase()}`}
+    />
+
+    <p class="resource-note detail-page-back">
+      <a href="/products/">All products</a>
+      ·
+      <a href="/resources/">Parts guides</a>
+      ·
+      <a href="/products/mtu-spare-parts/">MTU parts</a>
+      ·
+      <a href={quoteHref}>Request a quote</a>
+    </p>
+
+    <ProductSidebar
+      slot="sidebar"
+      activeSlug={product.slug}
+      materialSlugs={materialSlugs}
+      capabilitySlugs={capabilitySlugs}
+      quoteHref={quoteHref}
+    />
+  </DetailPageShell>
+
+  <BlogCta
+    stage="selection"
+    topic={product.slug}
+    title={`Check ${product.title.toLowerCase()} availability`}
+    text="Share your part number, model plate, old part photo, and destination. We check stock, replacement options, and shipping route."
+    primaryLabel="Check Parts"
+    primaryHref={quoteHref}
+    primaryEvent={`product_${product.slug}_rfq`}
+    secondaryLabel="Parts guides"
+    secondaryHref="/resources/"
+    secondaryEvent="product_dfm_checklist"
+  />
+</BaseLayout>

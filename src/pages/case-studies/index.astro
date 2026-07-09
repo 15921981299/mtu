@@ -1,0 +1,422 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { caseStudies } from '../../data/case-studies';
+import { caseStudyDisclaimer } from '../../data/case-study-shared';
+import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
+import { testimonials } from '../../data/testimonials';
+import '../../styles/resource-page.css';
+
+const totalCount = caseStudies.length;
+const industryCount = new Set(caseStudies.map((study) => study.industry)).size;
+const pageUrl = `${site.url}/case-studies/`;
+
+function industryAnchor(industry: string) {
+  return industry
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+const grouped = [...new Set(caseStudies.map((study) => study.industry))]
+  .sort()
+  .map((industry) => ({
+    industry,
+    anchor: industryAnchor(industry),
+    items: caseStudies.filter((study) => study.industry === industry),
+  }));
+
+const listItems = caseStudies.map((study) => ({
+  name: study.title,
+  url: `${site.url}/case-studies/${study.slug}/`,
+}));
+
+const withOutcomes = caseStudies.filter(
+  (study) => 'proof' in study && study.proof.outcomeMetric,
+).length;
+---
+
+<BaseLayout
+  title="CNC Machining Case Studies — Real Parts, Real Results | Machining Supplier"
+  description="18 CNC machining case studies across aerospace, medical, oil & gas, semiconductor, renewable energy, and more — with materials, tolerances, and measurable outcomes."
+  currentPath="/case-studies"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Case Studies', url: pageUrl },
+    ]),
+    itemListSchema(listItems),
+  ]}
+>
+  <FunnelPageView stage="signing" label="case-studies-index" />
+  <BreadcrumbHero
+    title="Machined Parts<br>Case Studies"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Case Studies' },
+    ]}
+    variant="1"
+  />
+
+  <section class="blog-details-section detail-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <nav class="resource-nav" aria-label="Case studies navigation">
+            <a href="/case-studies/" class="resource-nav-link active" aria-current="page">
+              All case studies
+            </a>
+            <a href="/resources/inspection-samples/" class="resource-nav-link">Inspection samples</a>
+            <a href="/certifications/" class="resource-nav-link">QC process</a>
+            <a href="/resources/by-role/procurement/" class="resource-nav-link">Procurement hub</a>
+            <a href="/compare/" class="resource-nav-link resource-nav-all">Comparisons</a>
+          </nav>
+
+          <p class="resource-intro">
+            {totalCount} anonymized project narratives with buyer proof packages — tolerances, inspection scope, documentation, and measured outcomes you can verify before RFQ.
+          </p>
+
+          <div class="resource-meta case-studies-meta">
+            <span><strong>{totalCount}</strong> case studies</span>
+            <span><strong>{industryCount}</strong> industries</span>
+            <span><strong>{withOutcomes}</strong> with outcome metrics</span>
+            <span>Proof on <strong>every</strong> project</span>
+          </div>
+
+          <div class="detail-rfq-strip case-studies-rfq-strip">
+            <p>Need similar scope? Send your drawing — we will reference comparable projects in your DFM review.</p>
+            <a href="/contact/?source=case-study" class="detail-rfq-link">Request Similar Scope</a>
+          </div>
+
+          <aside class="resource-note case-studies-trust-note" aria-label="Case study disclaimer">
+            {caseStudyDisclaimer}
+          </aside>
+
+          <div class="resource-note case-studies-proof-tip">
+            <strong>What to look for:</strong> Each case includes a proof block with inspection scope and outcome metrics.
+            <a href="/resources/inspection-samples/">View redacted report samples</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/certifications/">QC process</a>
+          </div>
+
+          <nav class="case-studies-jump-nav resource-nav" aria-label="Case study industries">
+            {grouped.map((group) => (
+              <a href={`#cases-${group.anchor}`} class="resource-nav-link case-studies-jump-link">
+                {group.industry}
+                <span class="case-studies-jump-count">{group.items.length}</span>
+              </a>
+            ))}
+            <a href="#buyer-feedback" class="resource-nav-link case-studies-jump-link case-studies-jump-link--feedback">
+              Buyer feedback
+              <span class="case-studies-jump-count">{testimonials.length}</span>
+            </a>
+          </nav>
+
+          {grouped.map((group) => (
+            <section id={`cases-${group.anchor}`} class="case-studies-group">
+              <header class="case-studies-group-header">
+                <h2>{group.industry}</h2>
+                <p>
+                  {group.items.length} project{group.items.length === 1 ? '' : 's'} with materials, tolerances, and verified outcomes.
+                </p>
+              </header>
+              <div class="case-studies-grid">
+                {group.items.map((study) => (
+                  <CaseStudyCard
+                    slug={study.slug}
+                    title={study.title}
+                    image={study.image}
+                    industry={study.industry}
+                    material={study.material}
+                    process={study.process}
+                    tolerance={study.tolerance}
+                    quantity={study.quantity}
+                    outcomeMetric={'proof' in study ? study.proof.outcomeMetric : undefined}
+                  />
+                ))}
+              </div>
+            </section>
+          ))}
+
+          <section id="buyer-feedback" class="case-studies-testimonials" aria-labelledby="buyer-feedback-heading">
+            <header class="case-studies-group-header">
+              <h2 id="buyer-feedback-heading">Buyer feedback linked to projects</h2>
+              <p>Short quotes from procurement and engineering contacts — each tied to a full case study with specs and proof. Names are anonymized; quotes are paraphrased for confidentiality.</p>
+            </header>
+            <div class="case-studies-testimonials-grid">
+              {testimonials.map((item) => (
+                <article class="case-studies-testimonial-card" id={`testimonial-${item.slug}`}>
+                  <h3>{item.title}</h3>
+                  <blockquote>
+                    <p>&ldquo;{item.quote}&rdquo;</p>
+                  </blockquote>
+                  <p class="case-studies-testimonial-meta">
+                    — {item.name}, {item.role}
+                  </p>
+                  <a href={`/case-studies/${item.caseStudySlug}/`} class="case-studies-testimonial-link">
+                    Read full case study →
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <p class="resource-related">
+            <a href="/compare/">Comparison guides</a>
+            <span aria-hidden="true">·</span>
+            <a href="/standards/">Industry standards</a>
+            <span aria-hidden="true">·</span>
+            <a href="/resources/by-role/procurement/">Procurement hub</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=case-study">Request similar scope →</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="signing"
+    topic="case-studies-index"
+    primaryHref="/contact/?source=case-study"
+  />
+</BaseLayout>
+
+<style>
+  .case-studies-rfq-strip {
+    margin-bottom: 20px;
+  }
+
+  .case-studies-trust-note {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #64748b;
+    background: var(--color-white);
+    border-left-color: #94a3b8;
+  }
+
+  .case-studies-proof-tip {
+    margin-bottom: 24px;
+  }
+
+  .case-studies-jump-link--feedback {
+    margin-left: auto;
+  }
+
+  @media (max-width: 768px) {
+    .case-studies-jump-link--feedback {
+      margin-left: 0;
+    }
+  }
+
+  .case-studies-testimonials {
+    margin: 36px 0 28px;
+    scroll-margin-top: 100px;
+  }
+
+  .case-studies-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .case-studies-testimonial-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 22px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    background: var(--color-white);
+    border-left: 3px solid var(--color-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .case-studies-testimonial-card:hover {
+    border-color: rgba(20, 110, 245, 0.35);
+    box-shadow: 0 4px 18px rgba(20, 110, 245, 0.08);
+  }
+
+  .case-studies-testimonial-card h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+
+  .case-studies-testimonial-card blockquote {
+    margin: 0;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(20, 110, 245, 0.06);
+    background-image: none;
+    text-align: left;
+    text-transform: none;
+    color: inherit;
+  }
+
+  .case-studies-testimonial-card blockquote p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #334155;
+    font-style: italic;
+  }
+
+  .case-studies-testimonial-meta {
+    margin: 10px 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .case-studies-testimonial-link {
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .case-studies-testimonial-link:hover {
+    text-decoration: underline;
+  }
+
+  .case-studies-testimonial-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .case-studies-testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .case-studies-jump-nav {
+    margin-bottom: 28px;
+    position: sticky;
+    top: 72px;
+    z-index: 20;
+    padding: 4px 0 12px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-white) 0%,
+      rgba(255, 255, 255, 0.96) 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .case-studies-jump-link {
+    gap: 8px;
+  }
+
+  .case-studies-jump-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--color-background);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-body-text);
+    opacity: 0.85;
+  }
+
+  .case-studies-group {
+    scroll-margin-top: 120px;
+    margin-bottom: 32px;
+  }
+
+  .case-studies-group:last-of-type {
+    margin-bottom: 8px;
+  }
+
+  .case-studies-group-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-stroke);
+  }
+
+  .case-studies-group-header h2 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+
+  .case-studies-group-header p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-body-text);
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    .case-studies-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .case-studies-jump-nav {
+      top: 60px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .case-studies-jump-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .case-studies-jump-link {
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .case-studies-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .resource-nav-link:focus-visible,
+  .detail-rfq-link:focus-visible,
+  .resource-note a:focus-visible,
+  .resource-related a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-studies-testimonial-card {
+      transition: border-color 0.2s ease;
+    }
+    .case-studies-testimonial-card:hover {
+      box-shadow: none;
+    }
+  }
+</style>

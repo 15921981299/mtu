@@ -1,0 +1,99 @@
+---
+import { roleHubs } from '../data/role-hubs';
+---
+
+<section class="home-role-section" aria-labelledby="home-role-heading">
+  <div class="container">
+    <h2 id="home-role-heading" class="home-role-heading fade-in">Find What Your Role Needs</h2>
+    <p class="home-role-sub fade-in">
+      B2B CNC sourcing spans engineers, procurement, and quality — each with different questions. Start from your lane.
+    </p>
+    <div class="home-role-grid">
+      {roleHubs.map((hub) => (
+        <a href={`/resources/by-role/${hub.slug}/`} class="home-role-card fade-in">
+          <span class="home-role-card-label">{hub.title}</span>
+          <span class="home-role-card-headline">{hub.headline}</span>
+          <span class="home-role-card-desc">{hub.description}</span>
+          <span class="home-role-card-link">View guide hub →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-role-section {
+    margin: 48px 0 24px;
+    padding: 0 0 8px;
+  }
+  .home-role-heading {
+    font-family: var(--font-title);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 600;
+    color: var(--color-title);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .home-role-sub {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-body-text);
+  }
+  .home-role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 991px) {
+    .home-role-grid { grid-template-columns: 1fr; }
+  }
+  .home-role-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 22px 20px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    background: var(--color-white);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .home-role-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(20, 110, 245, 0.08);
+  }
+  .home-role-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .home-role-card-label {
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
+  }
+  .home-role-card-headline {
+    font-family: var(--font-title);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+  .home-role-card-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-body-text);
+    flex: 1;
+  }
+  .home-role-card-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-top: 4px;
+  }
+</style>

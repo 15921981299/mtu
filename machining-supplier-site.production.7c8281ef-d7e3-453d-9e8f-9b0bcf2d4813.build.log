@@ -1,0 +1,3 @@
+2026-06-12T14:38:22.546Z	Initializing build environment...
+2026-06-12T14:38:24.863Z	Success: Finished initializing build environment
+2026-06-12T14:39:07.156Z	Failed: The build token selected for this build has been deleted or rolled and cannot be used for this build. Please update your build token in the Worker Builds settings and retry the build.

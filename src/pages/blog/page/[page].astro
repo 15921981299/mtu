@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
+import BlogTagNav from '../../../components/BlogTagNav.astro';
+import BlogCta from '../../../components/BlogCta.astro';
+import FunnelPageView from '../../../components/FunnelPageView.astro';
+import BlogLatestCard from '../../../components/BlogLatestCard.astro';
+import BlogPagination from '../../../components/BlogPagination.astro';
+import { blogPosts, getBlogPostsForPage, getBlogTotalPages, getPostAuthorKey } from '../../../data/blog';
+import { breadcrumbSchema, site } from '../../../data/site';
+import '../../../styles/resource-page.css';
+import '../../../styles/hub-list-page.css';
+import '../../../styles/blog-list-page.css';
+
+export function getStaticPaths() {
+  const totalPages = getBlogTotalPages();
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => {
+    const page = i + 2;
+    return {
+      params: { page: String(page) },
+      props: { page, posts: getBlogPostsForPage(page) },
+    };
+  });
+}
+
+const { page, posts } = Astro.props;
+const pageNum = Number(page);
+const totalPages = getBlogTotalPages();
+const articleCount = blogPosts.length;
+---
+
+<BaseLayout
+  title={`CNC Machining Blog — Page ${pageNum} | Machining Supplier`}
+  description="Practical CNC machining guides — tolerances, materials, design tips, and process selection. Written by engineers for engineers and procurement professionals."
+  currentPath="/blog"
+  noindex
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Blog', url: `${site.url}/blog/` },
+    { name: `Page ${pageNum}`, url: `${site.url}/blog/page/${pageNum}/` },
+  ])}
+>
+  <FunnelPageView stage="awareness" label={`blog-page-${pageNum}`} />
+  <BreadcrumbHero
+    title="Machining Knowledge"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Blog', href: '/blog/' },
+      { label: `Page ${pageNum}` },
+    ]}
+    variant="3"
+  />
+
+  <BlogTagNav showAllPosts />
+
+  <section class="blog-details-section blog-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block blog-index-page fade-in">
+          <nav class="resource-nav blog-index-top-nav" aria-label="Blog navigation">
+            <a href="/blog/" class="resource-nav-link">All articles</a>
+            <a href="/blog/guides/" class="resource-nav-link">Guide hubs</a>
+            <a href="/compare/" class="resource-nav-link">Comparisons</a>
+            <a href="/glossary/" class="resource-nav-link">Glossary</a>
+            <a href="/resources/" class="resource-nav-link resource-nav-all">Resources</a>
+          </nav>
+
+          <header class="blog-index-hero">
+            <p class="blog-index-kicker">Engineer-written · RFQ-ready</p>
+            <p class="blog-index-intro">
+              Page {pageNum} of {totalPages} — practical CNC guides for engineers and procurement.
+            </p>
+            <div class="blog-index-stats" role="list">
+              <span class="blog-index-stat" role="listitem">
+                <strong>{articleCount}</strong>
+                <span>articles</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>{posts.length}</strong>
+                <span>on this page</span>
+              </span>
+              <span class="blog-index-stat" role="listitem">
+                <strong>Free</strong>
+                <span>DFM on every RFQ</span>
+              </span>
+            </div>
+          </header>
+
+          <div class="blog-index-rfq-strip detail-rfq-strip">
+            <p>Read the guides, then upload your drawing — free DFM feedback included on every RFQ.</p>
+            <a href="/contact/?source=blog" class="blog-index-rfq-btn detail-rfq-link">Request DFM Review</a>
+          </div>
+
+          <section class="hub-section blog-index-section blog-index-latest" aria-label="Blog articles">
+            <header class="blog-index-section-head">
+              <div>
+                <h2>All articles</h2>
+                <p>
+                  Engineer-reviewed guides — updated for RFQ and shop-floor decisions.
+                </p>
+              </div>
+              <span class="blog-index-latest-pager" aria-live="polite">
+                Page <strong>{pageNum}</strong> of {totalPages}
+              </span>
+            </header>
+            <ul class="blog-content-wrapper blog-index-latest-grid" role="list">
+              {posts.map((post, index) => (
+                <li class="blog-index-latest-item">
+                  <BlogLatestCard
+                    slug={post.slug}
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    image={post.image}
+                    publishedAt={post.publishedAt}
+                    tags={post.tags}
+                    authorKey={getPostAuthorKey(post.slug, post.author)}
+                    index={index}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div class="blog-index-pagination">
+              <BlogPagination currentPage={pageNum} />
+            </div>
+          </section>
+
+          <footer class="hub-list-footer-links blog-index-footer">
+            <a href="/blog/">Back to page 1</a>
+            <span aria-hidden="true">·</span>
+            <a href="/blog/guides/">Guide hubs</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=blog">Upload drawing for DFM review</a>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="awareness"
+    topic={`blog-page-${pageNum}`}
+    title="Turn guides into a scoped quote"
+    text="Upload your drawing after reading — we confirm process, tolerances, and inspection scope in the quote."
+    primaryLabel="Request a Quote"
+    primaryHref="/contact/?source=blog"
+    primaryEvent={`blog_page_${pageNum}_rfq`}
+    secondaryLabel="DFM checklist"
+    secondaryHref="/resources/dfm-checklist/"
+    secondaryEvent={`blog_page_${pageNum}_dfm`}
+  />
+</BaseLayout>

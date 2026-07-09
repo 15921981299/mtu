@@ -1,0 +1,50 @@
+# Engine Family — LLM / AI crawler index
+# https://engine-family.com
+
+> Diesel engine parts supplier based in Shanghai. Engine Family supplies MTU, Detroit Diesel, Cummins, and DEUTZ parts for marine, industrial, power generation, rail, shipyard, and repair customers. Buyers can inquire by part number, engine model, serial number, nameplate photo, old part photo, quantity, and destination.
+
+## Primary entry points
+
+- [Home](https://engine-family.com/)
+- [Products](https://engine-family.com/products/)
+- [MTU Spare Parts](https://engine-family.com/products/mtu-spare-parts/)
+- [MTU 2000 Series Parts](https://engine-family.com/products/mtu-2000-series-parts/)
+- [MTU 4000 Series Parts](https://engine-family.com/products/mtu-4000-series-parts/)
+- [Cummins Parts](https://engine-family.com/products/cummins-parts/)
+- [DEUTZ Parts](https://engine-family.com/products/deutz-parts/)
+- [Contact](https://engine-family.com/contact/)
+
+## Parts guides
+
+- [MTU Part Number Lookup](https://engine-family.com/products/mtu-spare-parts/mtu-part-number-lookup/)
+- [MTU Engine Series Guide](https://engine-family.com/products/mtu-spare-parts/mtu-engine-series-guide/)
+- [MTU 2000 Marine & Generator Parts](https://engine-family.com/products/mtu-2000-series-parts/marine-generator-service-parts/)
+- [MTU 4000 Overhaul Parts](https://engine-family.com/products/mtu-4000-series-parts/overhaul-parts/)
+- [Cummins Service Kits & Overhaul Parts](https://engine-family.com/products/cummins-parts/service-kits-and-overhaul-parts/)
+- [DEUTZ Industrial Equipment Parts](https://engine-family.com/products/deutz-parts/industrial-equipment-parts/)
+
+## Service and support
+
+- [MTU Engine Parts](https://engine-family.com/capabilities/mtu-engine-parts/)
+- [Cummins Engine Parts](https://engine-family.com/capabilities/cummins-engine-parts/)
+- [DEUTZ Engine Parts](https://engine-family.com/capabilities/deutz-engine-parts/)
+- [Marine Engine Service](https://engine-family.com/capabilities/marine-engine-service/)
+- [Industrial Engine Service](https://engine-family.com/capabilities/industrial-engine-service/)
+- [Genuine OEM Parts](https://engine-family.com/capabilities/genuine-oem-parts/)
+
+## Industries and applications
+
+- [Marine](https://engine-family.com/industries/marine/)
+- [Industrial Engines](https://engine-family.com/industries/industrial-engines/)
+- [Power Generation](https://engine-family.com/industries/power-generation/)
+- [Rail](https://engine-family.com/industries/rail/)
+- [Shipyards & Repair](https://engine-family.com/industries/shipyards-repair/)
+- [Energy Suppliers](https://engine-family.com/industries/energy-suppliers/)
+
+## Contact
+
+- Email: charles@engine-family.com
+- Phone: +862133282711
+- WhatsApp: +8618018620661
+- Legal name: Shanghai Diesel Engine Family Co., Ltd.
+- Address: Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District, Shanghai, 201112 China

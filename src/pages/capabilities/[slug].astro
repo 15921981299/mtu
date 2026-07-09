@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import DetailPageShell from '../../components/DetailPageShell.astro';
+import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import ServiceSidebar from '../../components/ServiceSidebar.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import RelatedComparisons from '../../components/RelatedComparisons.astro';
+import SubpageLinks from '../../components/SubpageLinks.astro';
+import { getComparisonsForCapability } from '../../data/funnel-links';
+import { services, getServiceDetailHtml } from '../../data/services';
+import { capabilitySubpages } from '../../data/capability-subpages';
+import { isSubpageNoindex } from '../../data/subpage-quality';
+import { capabilityArticleMap } from '../../data/related-content';
+import { breadcrumbSchema, serviceSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const content = getServiceDetailHtml(service.title);
+const pageUrl = `${site.url}/capabilities/${service.slug}/`;
+const quoteHref = `/contact/?source=capability-${service.slug}`;
+const relatedComparisons = getComparisonsForCapability(service.slug);
+const subpages = capabilitySubpages
+  .filter((sp) => sp.capabilitySlug === service.slug && !isSubpageNoindex(sp.capabilitySlug, sp.slug))
+  .map((sp) => ({ href: `/capabilities/${service.slug}/${sp.slug}/`, title: sp.title, summary: sp.summary }));
+---
+
+<BaseLayout
+  title={service.seoTitle}
+  description={service.summary}
+  currentPath="/capabilities"
+  image={service.mainImage}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Capabilities', url: `${site.url}/capabilities/` },
+      { name: service.title, url: pageUrl },
+    ]),
+    serviceSchema({
+      name: service.title,
+      description: service.summary,
+      url: pageUrl,
+      image: `${site.url}${service.mainImage}`,
+    }),
+  ]}
+>
+  <FunnelPageView stage="selection" label={`capability-${service.slug}`} />
+  <BreadcrumbHero
+    title={service.h1Title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Capabilities', href: '/capabilities/' },
+      { label: service.title },
+    ]}
+    variant="2"
+  />
+
+  <DetailPageShell intro={service.summary}>
+    <img
+      slot="hero"
+      src={service.mainImage}
+      alt={`${service.title} — CNC machining`}
+      width="1400"
+      height="692"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="resource-meta">
+      <span><strong>DFM review</strong> Included</span>
+      <span><strong>Inspection</strong> CMM on every order</span>
+      <span><strong>MOQ</strong> No minimum</span>
+    </div>
+
+    <DetailRfqStrip
+      quoteHref={quoteHref}
+      title="Quote this process"
+      text="Upload your drawing for process-fit review, tolerance feedback, and a quote within 24 hours."
+    />
+
+    <div set:html={content.partOne} />
+    <figure class="detail-page-figure">
+      <img src={service.secondImage} alt={`${service.title} — production examples`} width="1200" height="662" loading="lazy" decoding="async" />
+    </figure>
+    <div set:html={content.partTwo} />
+    <SubpageLinks title={`${service.title} guides`} items={subpages} />
+    <RelatedArticles slugs={capabilityArticleMap[service.slug] ?? []} />
+    <RelatedComparisons items={relatedComparisons} title="Process comparisons" />
+    <p class="resource-note detail-page-back">
+      <a href="/capabilities/">All capabilities</a>
+      ·
+      <a href="/resources/process-selection/">Process selection</a>
+      ·
+      <a href="/resources/dfm-checklist/">DFM checklist</a>
+      ·
+      <a href={quoteHref}>Request a quote</a>
+    </p>
+    <ServiceSidebar slot="sidebar" activeSlug={service.slug} quoteHref={quoteHref} />
+  </DetailPageShell>
+
+  <BlogCta
+    stage="selection"
+    topic={service.slug}
+    title="Quote this process"
+    text="Upload your drawing for process-fit review, tolerance feedback, and a quote within 24 hours."
+    primaryLabel="Request a Quote"
+    primaryHref={quoteHref}
+    primaryEvent={`capability_${service.slug}_rfq`}
+    secondaryLabel="Process selection guide"
+    secondaryHref="/resources/process-selection/"
+    secondaryEvent="capability_process_selection"
+  />
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+import type { CaseStudyBeforeAfter } from '../data/case-study-shared';
+
+interface Props {
+  rows: CaseStudyBeforeAfter[];
+}
+
+const { rows } = Astro.props;
+---
+
+<section class="case-before-after" aria-labelledby="before-after-heading">
+  <h2 id="before-after-heading" class="case-section-title">Before vs After</h2>
+  <div class="case-before-after-wrap">
+    <table class="case-before-after-table">
+      <thead>
+        <tr>
+          <th scope="col">Metric</th>
+          <th scope="col">Before</th>
+          <th scope="col">After</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            <th scope="row">{row.metric}</th>
+            <td>{row.before}</td>
+            <td class="is-after">{row.after}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .case-before-after {
+    margin-bottom: 28px;
+  }
+
+  .case-section-title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-title);
+    text-transform: none;
+  }
+
+  .case-before-after-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-stroke);
+    border-radius: 4px;
+    background: var(--color-white);
+  }
+
+  .case-before-after-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .case-before-after-table th,
+  .case-before-after-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-stroke);
+    vertical-align: top;
+  }
+
+  .case-before-after-table thead th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: var(--color-background);
+  }
+
+  .case-before-after-table tbody th {
+    font-weight: 600;
+    color: var(--color-title);
+    width: 28%;
+  }
+
+  .case-before-after-table td {
+    color: var(--color-body-text);
+    line-height: 1.5;
+    width: 36%;
+  }
+
+  .case-before-after-table td.is-after {
+    font-weight: 600;
+    color: var(--color-title);
+    background: rgba(20, 110, 245, 0.05);
+  }
+
+  .case-before-after-table tr:last-child th,
+  .case-before-after-table tr:last-child td {
+    border-bottom: none;
+  }
+</style>

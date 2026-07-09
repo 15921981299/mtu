@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import TermsNav from '../../components/TermsNav.astro';
+import { breadcrumbSchema, site } from '../../data/site';
+import '../../styles/terms-page.css';
+---
+
+<BaseLayout
+  title="Sample & First Article Policy — CNC Machining | Machining Supplier"
+  description="CNC machining sample order policy: first article inspection, paid prototypes, revision rounds, and path from sample to production."
+  currentPath="/terms/samples"
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: site.url },
+    { name: 'Sample Policy', url: `${site.url}/terms/samples/` },
+  ])}
+>
+  <FunnelPageView stage="signing" label="sample-policy" />
+  <BreadcrumbHero
+    title="Sample &amp; First Article Policy"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Sample Policy' },
+    ]}
+    variant="5"
+  />
+
+  <section class="blog-details-section terms-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block terms-page fade-in">
+          <TermsNav active="samples" />
+
+          <p class="terms-intro">
+            Samples and first-article inspection (FAI) de-risk production POs. This is our standard path from prototype to volume — scope and lead time are confirmed on your quotation.
+          </p>
+
+          <div class="terms-meta" aria-label="Sample policy overview">
+            <span><strong>Paid prototype</strong> 1–10 pcs</span>
+            <span><strong>FAI</strong> before balance runs</span>
+            <span>Golden sample retained for reorders</span>
+            <span><strong>7–15</strong> business day lead time</span>
+          </div>
+
+          <div class="terms-rfq-strip">
+            <p>Upload your drawing for a sample quote — we confirm piece count, inspection scope, and path to production pricing.</p>
+            <a href="/contact/?source=sample" class="terms-rfq-link">Request Sample Quote</a>
+          </div>
+
+          <div class="terms-table-wrap">
+            <table class="terms-table">
+              <caption class="terms-table-caption">Sample, FAI, and production transition stages</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Stage</th>
+                  <th scope="col">What's included</th>
+                  <th scope="col">Timing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Paid prototype / sample</strong></td>
+                  <td>1–10 pieces; CMM report on critical features; one DFM revision if issue is on our side</td>
+                  <td>7–15 business days depending on complexity</td>
+                </tr>
+                <tr>
+                  <td><strong>First article inspection (FAI)</strong></td>
+                  <td>First piece of each batch inspected 100% on critical dimensions; report before balance proceeds</td>
+                  <td>At production batch start</td>
+                </tr>
+                <tr>
+                  <td><strong>Sample → production</strong></td>
+                  <td>Approved sample becomes golden reference; tooling and fixtures retained for reorders</td>
+                  <td>Unit cost typically drops 30–60% at volume</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <nav class="terms-jump-nav" aria-label="On this page">
+            <a href="#paid-prototype" class="terms-jump-link">Paid prototype</a>
+            <a href="#fai" class="terms-jump-link">FAI</a>
+            <a href="#sample-to-production" class="terms-jump-link">Production transition</a>
+          </nav>
+
+          <h2 id="paid-prototype">Paid Prototype / Sample Orders</h2>
+          <ul class="terms-list">
+            <li><strong>100% prepayment</strong> before production — see <a href="/terms/payment/">payment terms →</a></li>
+            <li>Express shipping available for urgent validation runs</li>
+            <li>Material certificates and inspection report layout: <a href="/resources/inspection-samples/">redacted samples →</a></li>
+          </ul>
+
+          <h2 id="fai">First Article Inspection (FAI)</h2>
+          <ul class="terms-list">
+            <li>Customer sign-off on FAI recommended for aerospace, medical, and automotive programs</li>
+            <li>AS9102 form set available for aerospace production releases</li>
+            <li>FAI scope should match drawing criticality — specify on your PO</li>
+          </ul>
+
+          <h2 id="sample-to-production">Sample-to-Production Transition</h2>
+          <ul class="terms-list">
+            <li>No re-setup charge on repeat orders when tooling is retained</li>
+            <li>Dimensional drift monitored against golden sample on subsequent batches</li>
+            <li>Change orders after sample approval may reset FAI requirements</li>
+          </ul>
+
+          <div class="terms-note">
+            <strong>Quality tip:</strong> Request a redacted FAI or CMM sample before your first production PO — see our <a href="/resources/inspection-samples/">inspection report samples</a> to set the documentation standard your incoming QA team should expect.
+          </div>
+
+          <p class="terms-related">
+            <a href="/resources/inspection-samples/">Inspection report samples</a>
+            <span aria-hidden="true">·</span>
+            <a href="/certifications/">Quality process</a>
+            <span aria-hidden="true">·</span>
+            <a href="/case-studies/">Project proof</a>
+            <span aria-hidden="true">·</span>
+            <a href="/terms/payment/">Payment terms</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=sample">Request a sample quote →</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="signing"
+    topic="samples"
+    title="Start with a paid prototype"
+    text="Upload your drawing for a sample quote — we confirm piece count, inspection scope, lead time, and the path to production pricing."
+    primaryLabel="Request a Sample Quote"
+    primaryHref="/contact/?source=sample"
+    primaryEvent="sample_terms_rfq"
+    secondaryLabel="Inspection samples"
+    secondaryHref="/resources/inspection-samples/"
+    secondaryEvent="sample_terms_inspection"
+  />
+</BaseLayout>

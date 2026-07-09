@@ -1,0 +1,282 @@
+---
+import { authors, blogTagLabels, type AuthorSlug, type BlogTag } from '../data/blog';
+
+interface Props {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  publishedAt: string;
+  tags: readonly BlogTag[];
+  authorKey: AuthorSlug;
+  index?: number;
+}
+
+const { slug, title, excerpt, image, publishedAt, tags, authorKey, index } = Astro.props;
+const author = authors[authorKey];
+const href = `/blog/${slug}/`;
+const primaryTag = tags[0];
+const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<article class="blog-latest-card fade-in">
+  <a href={href} class="blog-latest-card-link">
+    <div class="blog-latest-media">
+      <img
+        src={image}
+        alt={title}
+        class="blog-latest-image"
+        width="480"
+        height="300"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="blog-latest-overlay" aria-hidden="true" />
+      {index !== undefined && (
+        <span class="blog-latest-index" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      )}
+    </div>
+    <div class="blog-latest-body">
+      <div class="blog-latest-meta">
+        {primaryTag && (
+          <span class="blog-latest-tag">{blogTagLabels[primaryTag]}</span>
+        )}
+        <time class="blog-latest-date" datetime={publishedAt}>{formattedDate}</time>
+      </div>
+      <h3 class="blog-latest-title">{title}</h3>
+      <p class="blog-latest-excerpt">{excerpt}</p>
+      <div class="blog-latest-footer">
+        <span class="blog-latest-author">
+          <img
+            src={author.avatarUrl}
+            alt={`${author.name} avatar`}
+            class="blog-latest-avatar"
+            width="28"
+            height="28"
+            loading="lazy"
+            decoding="async"
+          />
+          <span>{author.name}</span>
+        </span>
+        <span class="blog-latest-read">Read article</span>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-latest-card {
+    width: 100%;
+    height: 100%;
+  }
+
+  .blog-latest-card-link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    background: var(--color-white);
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      border-color 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .blog-latest-card-link:hover {
+    border-color: rgba(20, 110, 245, 0.38);
+    box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+  }
+
+  .blog-latest-card-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  .blog-latest-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--color-background);
+    overflow: hidden;
+  }
+
+  .blog-latest-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .blog-latest-card-link:hover .blog-latest-image {
+    transform: scale(1.03);
+  }
+
+  .blog-latest-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.28) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+    pointer-events: none;
+  }
+
+  .blog-latest-card-link:hover .blog-latest-overlay {
+    opacity: 1;
+  }
+
+  .blog-latest-index {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 9px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #475569;
+  }
+
+  .blog-latest-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+    padding: 16px 18px 18px;
+  }
+
+  .blog-latest-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .blog-latest-tag {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.08);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .blog-latest-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+  }
+
+  .blog-latest-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-title);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s ease;
+  }
+
+  .blog-latest-card-link:hover .blog-latest-title {
+    color: var(--color-primary);
+  }
+
+  .blog-latest-excerpt {
+    margin: 0;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-latest-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-stroke);
+  }
+
+  .blog-latest-author {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-title);
+  }
+
+  .blog-latest-author span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .blog-latest-avatar {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-background);
+  }
+
+  .blog-latest-read {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .blog-latest-card-link:hover .blog-latest-read,
+  .blog-latest-card-link:focus-visible .blog-latest-read {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-latest-card-link,
+    .blog-latest-image,
+    .blog-latest-overlay,
+    .blog-latest-read,
+    .blog-latest-title {
+      transition: none;
+    }
+
+    .blog-latest-card-link:hover .blog-latest-image {
+      transform: none;
+    }
+
+    .blog-latest-read {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
