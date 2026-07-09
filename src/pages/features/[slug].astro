@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -29,7 +29,7 @@ const featureCapabilityMap: Record<string, string[]> = {
   'threaded-parts': ['cnc-turning', 'cnc-milling'],
   'lightweight-parts': ['5-axis-machining'],
   'high-precision-parts': ['5-axis-machining', 'grinding', 'edm'],
-  'quick-turn-prototypes': ['cnc-milling', 'cnc-turning'],
+  'quick-turn-samples': ['cnc-milling', 'cnc-turning'],
   'no-moq-small-batch': ['cnc-milling', 'cnc-turning'],
 };
 const featureMaterialMap: Record<string, string[]> = {
@@ -39,7 +39,7 @@ const featureMaterialMap: Record<string, string[]> = {
   'corrosion-resistant-parts': ['stainless-steel', 'titanium', 'nickel-alloys'],
   'lightweight-parts': ['aluminum', 'magnesium', 'titanium'],
   'high-precision-parts': ['tool-steels'],
-  'quick-turn-prototypes': ['aluminum'],
+  'quick-turn-samples': ['aluminum'],
   'no-moq-small-batch': ['aluminum'],
 };
 const relatedCapabilities = (featureCapabilityMap[feature.slug] ?? [])
@@ -76,14 +76,14 @@ const relatedMaterials = (featureMaterialMap[feature.slug] ?? [])
   <DetailPageShell intro={feature.summary}>
     <div class="resource-meta">
       <span><strong>{linkedProducts.length}</strong> linked part types</span>
-      <span>Free <strong>DFM review</strong></span>
+      <span>Free <strong>parts verification</strong></span>
       <span><strong>No MOQ</strong></span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Quote ${feature.title.toLowerCase()}`}
-      text="Upload your drawing with feature callouts — hardness, finish, precision level, or prototype urgency — for a quote within 24 hours."
+      text="Send your part number with feature callouts — hardness, finish, precision level, or sample urgency — for a quote within 24 hours."
     />
 
     <div set:html={feature.content.partOne} />
@@ -132,7 +132,7 @@ const relatedMaterials = (featureMaterialMap[feature.slug] ?? [])
     stage="selection"
     topic={feature.slug}
     title={`Quote parts with ${feature.title.toLowerCase()}`}
-    text="Upload your drawing with feature requirements — we confirm process fit in the quotation response."
+    text="Send your part number with feature requirements — we confirm part fit in the quotation response."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`feature_${feature.slug}_rfq`}

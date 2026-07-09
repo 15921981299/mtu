@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import BlogCta from '../../components/BlogCta.astro';
+import DetailPageShell from '../../components/DetailPageShell.astro';
+import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import { getRelatedMtuParts, mtuParts } from '../../data/mtu-parts';
+import { breadcrumbSchema, productSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return mtuParts.map((part) => ({ params: { slug: part.slug }, props: { part } }));
+}
+
+const { part } = Astro.props;
+const pageUrl = `${site.url}/part-products/${part.slug}/`;
+const quoteHref = `/contact/?source=part-${part.slug}`;
+const relatedParts = getRelatedMtuParts(part, 4);
+const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
+---
+
+<BaseLayout
+  title={`${title} | Engine Family`}
+  description={`${part.summary} Check availability, replacement status, and global delivery from Shanghai.`}
+  currentPath="/products"
+  image={part.image}
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'MTU Parts Catalog', url: `${site.url}/part-products/` },
+      { name: `${part.partNumber} ${part.name}`, url: pageUrl },
+    ]),
+    productSchema({
+      name: `${part.partNumber} ${part.name}`,
+      description: part.summary,
+      url: pageUrl,
+      image: `${site.url}${part.image}`,
+      sku: part.partNumber,
+      model: part.series.join(', '),
+      brandName: 'MTU',
+      category: part.category,
+    }),
+  ]}
+>
+  <FunnelPageView stage="selection" label={`mtu-part-${part.slug}`} />
+  <BreadcrumbHero
+    title={`${part.partNumber}<br>${part.name}`}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'MTU Parts Catalog', href: '/part-products/' },
+      { label: part.partNumber },
+    ]}
+    variant="2"
+  />
+
+  <DetailPageShell intro={part.summary}>
+    <img
+      slot="hero"
+      src={part.image}
+      alt={`${part.partNumber} ${part.name} MTU spare part inquiry`}
+      width="1400"
+      height="692"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+
+    <div class="resource-meta">
+      <span><strong>Part No.</strong> {part.partNumber}</span>
+      <span><strong>Category</strong> {part.category}</span>
+      <span><strong>Series</strong> {part.series.join(', ')}</span>
+      <span><strong>Delivery</strong> Global shipping</span>
+    </div>
+
+    <DetailRfqStrip
+      quoteHref={quoteHref}
+      title={`Check ${part.partNumber} availability`}
+      text="Send engine model, serial number, nameplate photo, old part photo, quantity, destination, and required delivery date."
+      secondaryHref="/part-products/"
+      secondaryLabel="All MTU part numbers"
+    />
+
+    <h2>{part.partNumber} {part.name} Availability Check</h2>
+    <p>{part.availability}</p>
+    <p>
+      Engine Family verifies MTU spare parts by part number, engine model, serial number, application, and old-part
+      photos before quotation. This helps reduce wrong-part risk for urgent marine, generator, rail, and industrial
+      maintenance orders.
+    </p>
+
+    <h2>Common Applications</h2>
+    <ul>
+      {part.applications.map((application) => <li>{application}</li>)}
+    </ul>
+
+    <h2>Information to Send</h2>
+    <ul>
+      <li>Part number: {part.partNumber}</li>
+      <li>Engine model, rating, and serial number</li>
+      <li>Nameplate photo and old part photo when available</li>
+      <li>Quantity, destination country, and required delivery date</li>
+    </ul>
+
+    <h2>Verification Notes</h2>
+    <ul>
+      {part.notes.map((note) => <li>{note}</li>)}
+    </ul>
+
+    {relatedParts.length > 0 && (
+      <section class="hub-section">
+        <header class="hub-section-header">
+          <h2>Related MTU Parts</h2>
+          <p>Similar parts by series or category.</p>
+        </header>
+        <div class="hub-grid part-related-grid">
+          {relatedParts.map((related) => (
+            <article class="hub-card">
+              <div class="hub-card-body">
+                <p class="hub-card-meta">{related.category}</p>
+                <h3 class="hub-card-title">
+                  <a href={`/part-products/${related.slug}/`}>{related.partNumber} {related.name}</a>
+                </h3>
+                <p class="hub-card-summary">{related.summary}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <p class="resource-note detail-page-back">
+      <a href="/part-products/">All MTU part numbers</a>
+      ·
+      <a href="/products/mtu-spare-parts/">MTU spare parts</a>
+      ·
+      <a href={quoteHref}>Check this part</a>
+    </p>
+  </DetailPageShell>
+
+  <BlogCta
+    stage="selection"
+    topic={part.slug}
+    title={`Need ${part.partNumber}?`}
+    text="Send the part number, engine serial number, old part photo, quantity, and destination. We verify fitment before quotation."
+    primaryLabel="Check This Part"
+    primaryHref={quoteHref}
+    primaryEvent={`mtu_part_${part.slug}_rfq`}
+    secondaryLabel="Parts catalog"
+    secondaryHref="/part-products/"
+    secondaryEvent="mtu_part_catalog"
+  />
+</BaseLayout>
+
+<style>
+  .part-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    .part-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -22,7 +22,7 @@ const noindex = isGlossaryNoindex(term.slug);
 ---
 
 <BaseLayout
-  title={`${term.term} — CNC Machining Glossary`}
+  title={`${term.term} — Engine Parts Glossary`}
   description={term.shortDefinition}
   currentPath="/glossary"
   noindex={noindex}
@@ -57,7 +57,7 @@ const noindex = isGlossaryNoindex(term.slug);
     <DetailRfqStrip
       quoteHref={quoteHref}
       title="Apply this on your RFQ"
-      text="Upload your drawing and reference this term in notes — we confirm tolerances, finishes, and compliance language in the quote."
+      text="Send your part number and reference this term in notes — we confirm tolerances, finishes, and compliance language in the quote."
       label="Request a Quote"
     />
 
@@ -103,11 +103,11 @@ const noindex = isGlossaryNoindex(term.slug);
     stage="awareness"
     topic={term.slug}
     title="Turn this term into a scoped quote"
-    text="Upload your drawing — we confirm specs and feasibility in the quotation response."
+    text="Send your part number — we confirm specs and feasibility in the quotation response."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`glossary_${term.slug}_rfq`}
-    secondaryLabel="DFM checklist"
+    secondaryLabel="Inquiry checklist"
     secondaryHref="/resources/dfm-checklist/"
     secondaryEvent="glossary_dfm_checklist"
   />

@@ -1,4 +1,4 @@
-/** Non-CNC manufacturing processes — scope boundaries and comparison links for buyers. */
+﻿/** Non-CNC manufacturing processes — scope boundaries and comparison links for buyers. */
 export type NonCncProcess = {
   /** Display name */
   name: string;
@@ -17,7 +17,7 @@ export const nonCncProcesses: NonCncProcess[] = [
     name: 'High-pressure die casting',
     group: 'Casting',
     why: 'Dedicated molds, furnaces, and casting lines — different capital and QC model than subtractive CNC.',
-    instead: 'CNC from billet for prototypes and low volume; die casting when annual volume justifies tooling.',
+    instead: 'CNC from billet for samples and low volume; die casting when annual volume justifies tooling.',
     compareHref: '/compare/cnc-machining-vs-die-casting/',
   },
   {
@@ -31,14 +31,14 @@ export const nonCncProcesses: NonCncProcess[] = [
     name: 'Investment (lost-wax) casting',
     group: 'Casting',
     why: 'Wax tooling, shell building, and cast-to-machine datum planning require foundry partners.',
-    instead: 'CNC from solid for prototypes; investment cast + CNC finish on critical faces at higher volume.',
+    instead: 'CNC from solid for samples; investment cast + CNC finish on critical faces at higher volume.',
     compareHref: '/compare/investment-casting-vs-cnc/',
   },
   {
     name: 'Gravity die casting (permanent mold)',
     group: 'Casting',
     why: 'Tilt-pour metal molds and slower cycle than high-pressure die cast — separate foundry line.',
-    instead: 'CNC for prototypes and tight features; gravity die when wall thickness is moderate and volume is mid-range aluminum/brass.',
+    instead: 'CNC for samples and tight features; gravity die when wall thickness is moderate and volume is mid-range aluminum/brass.',
     compareHref: '/compare/cnc-machining-vs-gravity-die-casting/',
   },
   {
@@ -101,13 +101,13 @@ export const nonCncProcesses: NonCncProcess[] = [
     name: 'Injection molding',
     group: 'Molding',
     why: 'Steel mold tooling and polymer process control — outside our CNC workflow.',
-    instead: 'CNC machined plastic for prototypes and bridge runs; molding when design is frozen and volume is thousands+.',
+    instead: 'engine parts plastic for samples and bridge runs; molding when design is frozen and volume is thousands+.',
     compareHref: '/compare/cnc-machining-vs-injection-molding/',
   },
   {
     name: 'Vacuum / urethane casting',
     group: 'Molding',
-    why: 'Silicone molds and PU resin shrinkage — prototype casting, not production machining.',
+    why: 'Silicone molds and PU resin shrinkage — sample casting, not production machining.',
     instead: 'Vacuum cast 5–30 cosmetic plastic shells; CNC when tolerance, threads, or production-grade plastic is needed.',
     compareHref: '/compare/cnc-machining-vs-vacuum-casting/',
   },
@@ -115,7 +115,7 @@ export const nonCncProcesses: NonCncProcess[] = [
     name: 'Thermoforming & blow molding',
     group: 'Molding',
     why: 'Thermoform tooling and hollow-part blow molds — suited to thin-wall plastic enclosures at volume.',
-    instead: 'CNC machined housings for tight sealing faces; thermoform/blow mold when the shell is large, thin, and cosmetic.',
+    instead: 'engine parts housings for tight sealing faces; thermoform/blow mold when the shell is large, thin, and cosmetic.',
     compareHref: '/compare/cnc-machining-vs-thermoforming/',
   },
   {

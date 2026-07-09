@@ -16,9 +16,9 @@ const showVerification =
 {showVerification && (
   <aside class="compare-proof fade-in">
     <p class="compare-proof-kicker">Verify before you quote</p>
-    <h2 class="compare-proof-title">Project proof &amp; documentation</h2>
+    <h2 class="compare-proof-title">Parts proof &amp; documentation</h2>
     <p class="compare-proof-desc">
-      Use these resources to validate supplier capability after you pick an option — not generic marketing claims.
+      Use these resources to validate parts support after you pick an option — not generic marketing claims.
     </p>
 
     {proofContexts.map((ctx) => (
@@ -36,7 +36,7 @@ const showVerification =
               <li>
                 <a href={`/case-studies/${study.slug}/`}>
                   <span class="compare-proof-case-title">{study.title}</span>
-                  <span class="compare-proof-case-meta">{study.tolerance} · {study.quantity}</span>
+                  <span class="compare-proof-case-meta">{study.proof.inspection} · {study.quantity}</span>
                 </a>
               </li>
             ))}
@@ -51,9 +51,9 @@ const showVerification =
     ))}
 
     <div class="compare-proof-docs">
-      <a href="/resources/inspection-samples/">Redacted CMM &amp; cert samples</a>
+      <a href="/part-products/">MTU part numbers</a>
       <span aria-hidden="true">·</span>
-      <a href="/certifications/">QC process &amp; equipment</a>
+      <a href="/certifications/">Parts verification process</a>
       {(category === 'sourcing' || category === 'quality') && (
         <>
           <span aria-hidden="true">·</span>

@@ -1,4 +1,4 @@
-export const materials = [
+﻿export const materials = [
   {
     slug: "aluminum",
     title: "MTU Part Number Verification: MTU",
@@ -7,7 +7,7 @@ export const materials = [
     summary: "How Engine Family verifies MTU part numbers, engine serial numbers, supersessions, and old part photos before quotation.",
     grades: "MTU 2000 / MTU 4000",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/precision-cnc-machined-parts-collection.jpg",
+    image: "/images/engine-parts-hero.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>MTU Part Number Verification</h2><p>MTU spare parts should be checked against the part number, engine model, serial number, and nameplate photo before order confirmation. The same engine series can use different components depending on rating, application, and build configuration.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -22,7 +22,7 @@ export const materials = [
     summary: "Parts support for MTU 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.",
     grades: "MTU 396 / 595 / 956",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/cnc-machining-inspection-report.jpg",
+    image: "/images/engine-parts-verification-desk.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>MTU Full-Series Spare Parts</h2><p>Engine Family supports MTU full-series parts inquiries for marine propulsion, auxiliary generators, rail equipment, and industrial engines. Common requests include filters, seals, gaskets, fuel pumps, injectors, sensors, cooling parts, bearings, liners, and overhaul components.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -52,7 +52,7 @@ export const materials = [
     summary: "Service and repair parts for MTU 2000 series marine, generator, and industrial engine applications.",
     grades: "MTU 2000 / MTU 4000",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/cnc-machined-stainless-steel-parts.jpg",
+    image: "/images/engine-parts-sensors-catalog.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>MTU 2000 Series Parts</h2><p>MTU 2000 series inquiries often include service kits, fuel injection parts, cooling components, lubrication parts, electrical sensors, and overhaul items. Serial-number verification is important because configurations vary by application.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -67,7 +67,7 @@ export const materials = [
     summary: "Overhaul support for MTU 4000 series engines, including cylinder, valve-train, fuel, cooling, and lubrication parts.",
     grades: "MTU 396 / 595 / 956",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/cnc-parts-quality-inspection.jpg",
+    image: "/images/engine-parts-verification-desk.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>MTU 4000 Series Overhaul Parts</h2><p>For MTU 4000 overhauls, buyers can send an Excel list with part numbers, quantities, target maintenance window, and destination. Engine Family checks availability line by line and supports consolidated shipment.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -97,7 +97,7 @@ export const materials = [
     summary: "How to prepare an engine-parts inquiry for global express, air, or freight shipment from Shanghai.",
     grades: "MTU 2000 / MTU 4000",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/precision-cnc-machined-parts-collection.jpg",
+    image: "/images/engine-parts-hero.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>Global Engine Parts Delivery</h2><p>For urgent shipment, send destination country, city or port, required delivery date, part numbers, and quantities. Stock status, packing size, and customs documentation affect the practical delivery route.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -112,7 +112,7 @@ export const materials = [
     summary: "Parts inquiry guidance for Cummins and DEUTZ diesel engines in industrial, generator, and equipment service.",
     grades: "MTU 396 / 595 / 956",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/cnc-machining-inspection-report.jpg",
+    image: "/images/engine-parts-verification-desk.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>Cummins and DEUTZ Parts Support</h2><p>Cummins and DEUTZ requests should include engine model, serial number, CPL or equipment data when available, part numbers, quantities, and photos of old or unclear parts.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",
@@ -142,7 +142,7 @@ export const materials = [
     summary: "Parts support for MTU 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.",
     grades: "MTU 2000 / MTU 4000",
     icon: "/images/materials/cnc-stainless-steel-material-icon.svg",
-    image: "/images/cnc-machined-stainless-steel-parts.jpg",
+    image: "/images/engine-parts-sensors-catalog.png",
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: "<h2>MTU Full-Series Spare Parts</h2><p>Engine Family supports MTU full-series parts inquiries for marine propulsion, auxiliary generators, rail equipment, and industrial engines. Common requests include filters, seals, gaskets, fuel pumps, injectors, sensors, cooling parts, bearings, liners, and overhaul components.</p><h3>Information to Send</h3><ul><li>Part number and quantity</li><li>Engine brand, model, and serial number</li><li>Nameplate photo or old part photo when available</li><li>Destination country and required delivery date</li></ul>",

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -68,7 +68,7 @@ const subpages = materialSubpages
     <img
       slot="hero"
       src={heroImage}
-      alt={`CNC machined ${item.title}`}
+      alt={`engine parts ${item.title}`}
       width="1400"
       height="692"
       loading="eager"
@@ -77,14 +77,14 @@ const subpages = materialSubpages
     />
     <div class="resource-meta">
       <span><strong>Process</strong> In-house CNC</span>
-      <span><strong>Inspection</strong> CMM on every order</span>
+      <span><strong>Inspection</strong> supplier documents on every order</span>
       <span><strong>MOQ</strong> No minimum</span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
       title="Quote parts in this material"
-      text="Upload your drawing for a free DFM review and material suitability check within 24 hours."
+      text="Send your part number for a free parts verification and material suitability check within 24 hours."
     />
 
     <ExperienceProofNote context="material" />
@@ -115,7 +115,7 @@ const subpages = materialSubpages
     stage="comparison"
     topic={item.slug}
     title={`Quote ${item.title.replace(/ Parts$/, '').toLowerCase()} parts`}
-    text="Upload your drawing — we confirm material grade, process fit, and return a quote within 24 hours."
+    text="Send your part number — we confirm material grade, part fit, and return a quote within 24 hours."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`material_${item.slug}_rfq`}

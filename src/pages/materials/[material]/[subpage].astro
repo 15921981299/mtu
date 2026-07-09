@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
@@ -63,7 +63,7 @@ const noindex = isSubpageNoindex(subpage.materialSlug, subpage.slug);
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Quote ${parentTitle.toLowerCase()} parts`}
-      text="Upload your drawing with material grade and finish requirements — we confirm machinability and quote within 24 hours."
+      text="Send your part number with material grade and finish requirements — we confirm machinability and quote within 24 hours."
     />
 
     <div set:html={subpage.content.partOne} />
@@ -85,7 +85,7 @@ const noindex = isSubpageNoindex(subpage.materialSlug, subpage.slug);
     stage="comparison"
     topic={subpage.slug}
     title={`Quote ${parentTitle.toLowerCase()} machining`}
-    text="Upload your drawing — we confirm material grade, process fit, and return a quote within 24 hours."
+    text="Send your part number — we confirm material grade, part fit, and return a quote within 24 hours."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`material_sub_${subpage.slug}_rfq`}

@@ -3,24 +3,24 @@ interface Props {
   partType?: string;
 }
 
-const { partType = 'machined parts' } = Astro.props;
+const { partType = 'engine parts' } = Astro.props;
 
 const requirements = [
-  '2D drawing PDF with tolerances and revision number',
-  'STEP/STP file for geometry review and CAM planning',
-  'Material grade, condition, and any substitution limits',
-  'Quantity, target lead time, and destination country',
-  'Surface finish, heat treatment, coating, or plating needs',
-  'Critical dimensions, inspection report, and material cert requirements',
+  'MTU, Cummins, DEUTZ, or Detroit Diesel part number',
+  'Engine model, series, and serial number or nameplate photo',
+  'Old part photos showing markings, connector, ports, or flange shape',
+  'Quantity, target delivery date, and destination country',
+  'Genuine, OEM, replacement, repair, or kit preference',
+  'Documentation, packing, invoice, and freight requirements',
 ];
 ---
 
 <section class="quote-requirements" aria-labelledby="quote-requirements-title">
   <div class="quote-requirements-header">
-    <p class="quote-requirements-kicker">RFQ checklist</p>
+    <p class="quote-requirements-kicker">Parts inquiry checklist</p>
     <h2 id="quote-requirements-title">What to send for a reliable {partType} quote</h2>
     <p>
-      Clear RFQ details help us quote the right process, tolerance plan, inspection scope, and lead time without extra clarification emails.
+      Clear inquiry details help us verify the correct part, quote stock or sourcing route, and reduce extra clarification emails.
     </p>
   </div>
   <ul class="quote-requirements-list">

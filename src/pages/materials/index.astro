@@ -12,8 +12,8 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
 ---
 
 <BaseLayout
-  title="CNC Machining Materials — Aluminum, Steel, Titanium & Plastics | Machining Supplier"
-  description="Explore materials we CNC machine: aluminum, stainless steel, carbon steel, titanium, brass, copper, and engineering plastics. Free DFM feedback with every quote."
+  title="Engine Parts Reference Groups — MTU Series & Spare Parts | Engine Family"
+  description="Reference groups for MTU and diesel engine parts inquiries, including series coverage, part categories, verification details, and sourcing notes."
   currentPath="/materials"
   jsonLd={[
     breadcrumbSchema([
@@ -25,7 +25,7 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
 >
   <FunnelPageView stage="service" label="materials-index" />
   <BreadcrumbHero
-    title="Materials We Machine"
+    title="Engine Parts<br>Reference"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Materials' },
@@ -39,28 +39,28 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
         <article class="blog-details-content-block resource-page fade-in">
           <nav class="resource-nav" aria-label="Materials navigation">
             <a href="/materials/" class="resource-nav-link active" aria-current="page">
-              All materials
+              All references
             </a>
-            <a href="/materials/grades/" class="resource-nav-link">All grades</a>
-            <a href="/products/" class="resource-nav-link">Part types</a>
+            <a href="/part-products/" class="resource-nav-link">Part numbers</a>
+            <a href="/products/" class="resource-nav-link">Engine parts</a>
             <a href="/capabilities/" class="resource-nav-link">Capabilities</a>
-            <a href="/resources/material-certificates/" class="resource-nav-link">Material certs</a>
+            <a href="/products/mtu-spare-parts/mtu-part-number-lookup/" class="resource-nav-link">MTU lookup</a>
             <a href="/resources/" class="resource-nav-link resource-nav-all">Resources</a>
           </nav>
 
           <p class="resource-intro">
-            We machine aluminum, stainless steel, carbon steel, titanium, brass, copper, and engineering plastics — with certified material traceability and free DFM review on every RFQ.
+            These legacy reference pages now support engine-parts sourcing. Use them to navigate MTU series, part categories, verification notes, and inquiry preparation before contacting Engine Family.
           </p>
 
           <div class="resource-meta">
-            <span><strong>{materials.length}</strong> material families</span>
-            <span>EN 10204 3.1 · Heat-lot traceability</span>
-            <span>Free DFM · <strong>24h quote</strong></span>
+            <span><strong>{materials.length}</strong> reference groups</span>
+            <span>MTU series · part categories</span>
+            <span>Part checks before <strong>quotation</strong></span>
           </div>
 
           <div class="detail-rfq-strip">
-            <p>Specify material grade and cert level on your RFQ — we confirm EN 10204 traceability and machinability in the quote.</p>
-            <a href="/contact/?source=materials" class="detail-rfq-link">Request a Quote</a>
+            <p>Send part number, engine model, serial number, photos, quantity, and destination — we confirm availability and replacement options.</p>
+            <a href="/contact/?source=materials" class="detail-rfq-link">Check Parts</a>
           </div>
 
           <div class="hub-grid materials-hub-grid">
@@ -84,7 +84,7 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
                   <p class="hub-card-meta">{material.grades}</p>
                   <p class="hub-card-summary">{material.summary}</p>
                   <a href={`/materials/${material.slug}/`} class="hub-card-link">
-                    View material guide →
+                    View reference →
                   </a>
                 </div>
               </article>
@@ -92,12 +92,10 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
           </div>
 
           <div class="resource-note">
-            <strong>Quality tip:</strong> Request
-            <a href="/resources/material-certificates/">EN 10204 3.1 certificates</a>
-            on your first PO for metals — it sets the traceability bar before production ramps.
+            <strong>Verification tip:</strong> Include the engine nameplate and old-part photo when the part number is unclear.
           </div>
 
-          <h2 class="hub-faq-heading">Machining Materials FAQ</h2>
+          <h2 class="hub-faq-heading">Engine Parts Reference FAQ</h2>
           <div class="hub-faq-list">
             {materialFaqs.map((faq) => (
               <details class="hub-faq-item">
@@ -108,9 +106,9 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
           </div>
 
           <p class="resource-related">
-            <a href="/compare/">Process comparisons</a>
+            <a href="/compare/">Parts comparisons</a>
             <span aria-hidden="true">·</span>
-            <a href="/resources/cnc-tolerance-guide/">Tolerance guide</a>
+            <a href="/part-products/">MTU part numbers</a>
             <span aria-hidden="true">·</span>
             <a href="/case-studies/">Case studies</a>
             <span aria-hidden="true">·</span>
@@ -124,13 +122,13 @@ const featuredSlugs = new Set(['aluminum', 'stainless-steel']);
   <BlogCta
     stage="service"
     topic="materials-index"
-    title="Quote your material and grade"
-    text="Upload your drawing with exact alloy callout — we confirm machinability, cert level, and lead time in the quote response."
-    primaryLabel="Request a Quote"
+    title="Need a part checked?"
+    text="Send the part number, engine model, serial number, old-part photo, quantity, and destination. We verify before quotation."
+    primaryLabel="Check Parts"
     primaryHref="/contact/?source=materials"
     primaryEvent="materials_index_rfq"
-    secondaryLabel="Material certs guide"
-    secondaryHref="/resources/material-certificates/"
+    secondaryLabel="MTU part numbers"
+    secondaryHref="/part-products/"
     secondaryEvent="materials_index_certs"
   />
 </BaseLayout>

@@ -1,4 +1,4 @@
-/** Redacted structural samples — layout reference only, not live customer documents. */
+﻿/** Redacted structural samples — layout reference only, not live customer documents. */
 
 export type InspectionSampleRow = {
   balloon: string;
@@ -25,15 +25,15 @@ export const inspectionSampleDisclaimer =
 export const inspectionSamples: InspectionSample[] = [
   {
     id: 'cmm-report',
-    title: 'CMM Dimensional Report',
+    title: 'supplier documents Dimensional Report',
     subtitle: 'Ballooned layout · instrument traceability',
     summary:
       'Shows how critical features map to drawing balloons, instrument ID, and pass/fail per characteristic — the format quality teams use on incoming inspection.',
     headerFields: [
-      { label: 'Report ID', value: 'CMM-2026-████-001' },
+      { label: 'Report ID', value: 'supplier documents-2026-████-001' },
       { label: 'Drawing rev.', value: 'Rev C' },
       { label: 'Part / lot', value: 'Bracket housing · Lot ████' },
-      { label: 'CMM instrument', value: '████ CMM · Cal due ████-██-██' },
+      { label: 'supplier documents instrument', value: '████ supplier documents · Cal due ████-██-██' },
       { label: 'Inspector', value: 'QC inspector ID ████' },
     ],
     rows: [
@@ -97,7 +97,7 @@ export const inspectionSamples: InspectionSample[] = [
     ],
     bullets: [
       'Statement of conformity to drawing and specified standards',
-      'Reference to attached CMM report ID and material cert heat lot',
+      'Reference to attached supplier document report ID and material cert heat lot',
       'Authorized quality sign-off and shipment date',
       'Optional RoHS / REACH or PPAP cross-reference when on PO',
     ],

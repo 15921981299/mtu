@@ -19,39 +19,39 @@ import { site, videoSchema } from "../data/site";
 
 const homepageVideos = [
   videoSchema({
-    name: "CNC Machining Workshop Tour",
+    name: "Engine Family Parts Support Overview",
     description:
-      "Tour our CNC machining workshop — multi-axis milling, turning, and in-process quality inspection.",
+      "Overview of diesel engine parts identification, stock checking, packing, and global delivery support.",
     thumbnailUrl: "https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg",
     embedUrl: "https://www.youtube.com/embed/M7uJEbDD-_8",
     uploadDate: "2023-06-01",
   }),
   videoSchema({
-    name: "CNC Factory Production Process",
+    name: "Diesel Engine Parts Verification Process",
     description:
-      "Behind-the-scenes look at CNC milling and turning production for precision machined parts.",
-    thumbnailUrl: `${site.url}/videos/cnc-machining-factory-poster.jpg`,
-    contentUrl: `${site.url}/videos/cnc-machining-factory-process.mp4`,
+      "Behind-the-scenes look at part-number review, inquiry handling, packing, and shipment coordination.",
+    thumbnailUrl: `${site.url}/images/engine-parts-verification-desk.png`,
+    contentUrl: `${site.url}/images/engine-parts-verification-desk.png`,
   }),
 ];
 
 const workflowSteps = [
   {
-    image: "/images/upload-cad-drawing-step.webp",
+    image: "/images/engine-parts-verification-desk.png",
     step: "01",
     title: "Send Engine & Part Details",
     summary:
       "Send engine brand, model, serial number, part number, quantity, destination, and any nameplate or old-part photos.",
   },
   {
-    image: "/images/dfm-review-and-quote-step.webp",
+    image: "/images/engine-parts-verification-desk.png",
     step: "02",
     title: "Part Verification & Quote",
     summary:
       "We verify fitment, check stock or sourcing options, and send pricing, lead time, and shipping route as quickly as possible.",
   },
   {
-    image: "/images/cnc-production-and-qc-step.webp",
+    image: "/images/engine-parts-hero.png",
     step: "03",
     title: "Packing & Export Prep",
     summary:
@@ -209,7 +209,7 @@ const statLabels = [
         </div>
         <div class="hero-image-block">
           <img
-            src="/images/precision-cnc-machined-parts-hero.webp"
+            src="/images/engine-parts-hero.png"
             alt="Diesel engine spare parts"
             class="hero-image"
             width="800"
@@ -269,10 +269,10 @@ const statLabels = [
               type="button"
               class="feature-highlight-video feature-highlight-video--interactive"
               data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8"
-              aria-label="Watch CNC machining factory tour"
+              aria-label="Watch engine parts support overview"
             >
               <img
-                src="/videos/cnc-machining-factory-poster.jpg"
+                src="/images/engine-parts-verification-desk.png"
                 alt=""
                 aria-hidden="true"
                 class="feature-highlight-poster"
@@ -659,9 +659,9 @@ const statLabels = [
             ))
           }
           <a href="/resources/cnc-tolerance-guide/" class="guide-card guide-card--featured fade-in">
-            <h3 class="guide-card-title">CNC Tolerance Guide</h3>
+            <h3 class="guide-card-title">MTU Part Fitment Guide</h3>
             <p class="guide-card-excerpt">
-              ISO 2768, achievable limits, and cost trade-offs — free reference.
+              What to send for part-number verification, engine series matching, and replacement checks.
             </p>
             <span class="guide-card-cta">Open reference →</span>
           </a>
@@ -674,7 +674,7 @@ const statLabels = [
   <section class="blog-section">
     <div class="section-gap bottom">
       <div class="container">
-        <SectionHeading title="Machining Knowledge" subtitle="Technical Blog" />
+        <SectionHeading title="Engine Parts Knowledge" subtitle="Technical Blog" />
         <div class="blog-wrapper">
           <div class="blog-content-wrapper">
             {
@@ -771,8 +771,8 @@ const statLabels = [
     topic="homepage"
     primaryHref="/contact/?source=homepage"
     secondaryLabel="MTU spare parts"
-    secondaryHref="/online-cnc-machining/"
-    secondaryEvent="homepage_online_cnc"
+    secondaryHref="/products/mtu-spare-parts/"
+    secondaryEvent="homepage_mtu_parts"
   />
 </BaseLayout>
 

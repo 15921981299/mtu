@@ -67,10 +67,10 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
 
     <DetailRfqStrip
       quoteHref={quoteHref}
-      title="Quote after you decide"
-      text="Upload your drawing once you pick a process or material path — we confirm feasibility and quote within 24 hours."
-      secondaryHref={noindex ? undefined : '/online-cnc-machining/'}
-      secondaryLabel="Online CNC quote portal"
+      title="Check parts after you decide"
+      text="Send your part number, engine model, serial number, quantity, and destination — we confirm fitment and availability before quotation."
+      secondaryHref={noindex ? undefined : '/part-products/'}
+      secondaryLabel="MTU part numbers"
     />
 
     <nav class="resource-nav hub-jump-nav" aria-label="On this page">
@@ -166,10 +166,10 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
       <DetailRfqStrip
         quoteHref={quoteHref}
         title="Ready to quote this path"
-        text="Send your STEP or PDF with material, quantity, and finish notes — engineer-led DFM feedback included."
-        label="Upload drawing for RFQ"
-        secondaryHref="/online-cnc-machining/"
-        secondaryLabel="How online quoting works"
+        text="Send your part number, engine model, serial number, quantity, and destination — parts verification included before quotation."
+        label="Send parts inquiry"
+        secondaryHref="/part-products/"
+        secondaryLabel="Browse MTU part numbers"
       />
     )}
 
@@ -190,8 +190,8 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
       )}
       {!noindex && (
         <>
-          <li><a href="/online-cnc-machining/">Online CNC machining service</a></li>
-          <li><a href={quoteHref}>Request a quote for this decision</a></li>
+          <li><a href="/part-products/">MTU part number catalog</a></li>
+          <li><a href={quoteHref}>Request parts support for this decision</a></li>
         </>
       )}
     </ul>
@@ -199,7 +199,7 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
     <p class="resource-note detail-page-back">
       {!noindex && (
         <>
-          <a href="/online-cnc-machining/">Online CNC machining</a>
+          <a href="/part-products/">MTU part numbers</a>
           ·
         </>
       )}
@@ -224,13 +224,13 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
   <BlogCta
     stage="comparison"
     topic={item.slug}
-    title={`Quote your ${item.optionALabel} or ${item.optionBLabel} path`}
-    text="Upload your drawing after comparing options — we confirm process and material feasibility in the quote."
-    primaryLabel="Request a Quote"
+    title={`Check your ${item.optionALabel} or ${item.optionBLabel} path`}
+    text="Send part numbers and engine details after comparing options — we confirm fitment, availability, and shipping scope in the quote."
+    primaryLabel="Send Parts Inquiry"
     primaryHref={quoteHref}
     primaryEvent={`compare_${item.slug}_rfq`}
-    secondaryLabel={noindex ? 'Process selection' : 'Online CNC quote'}
-    secondaryHref={noindex ? '/resources/process-selection/' : '/online-cnc-machining/'}
+    secondaryLabel={noindex ? 'Part category guide' : 'MTU part numbers'}
+    secondaryHref={noindex ? '/resources/process-selection/' : '/part-products/'}
     secondaryEvent={noindex ? 'compare_process_selection' : `compare_${item.slug}_online`}
   />
 </BaseLayout>

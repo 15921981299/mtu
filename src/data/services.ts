@@ -17,9 +17,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Genuine MTU Engine Parts Supply',
     summary:
       'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with fast global delivery.',
-    image: '/images/cnc-machining-production-line.jpg',
-    mainImage: '/images/cnc-machined-stainless-steel-parts.jpg',
-    secondImage: '/images/precision-cnc-machined-parts-collection.jpg',
+    image: '/images/engine-parts-hero.png',
+    mainImage: '/images/engine-parts-sensors-catalog.png',
+    secondImage: '/images/engine-parts-verification-desk.png',
   },
   {
     slug: 'cummins-engine-parts',
@@ -28,9 +28,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
       'Supply support for Cummins diesel engines and genuine replacement parts for industrial, marine, generator, and equipment maintenance programs.',
-    image: '/images/cnc-machined-aluminum-parts.jpg',
-    mainImage: '/images/cnc-turning-cylindrical-parts.jpg',
-    secondImage: '/images/cnc-machining-quality-inspection.webp',
+    image: '/images/engine-parts-sensors-catalog.png',
+    mainImage: '/images/engine-parts-hero.png',
+    secondImage: '/images/engine-parts-verification-desk.png',
   },
   {
     slug: 'deutz-engine-parts',
@@ -39,9 +39,9 @@ export const services: ServiceItem[] = [
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:
       'DEUTZ replacement parts and engine support for construction machinery, power units, pumps, compressors, and industrial fleets.',
-    image: '/images/cnc-machined-brass-copper-parts.jpg',
-    mainImage: '/images/cnc-machined-titanium-parts.jpg',
-    secondImage: '/images/cnc-parts-quality-inspection.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
+    mainImage: '/images/engine-parts-verification-desk.png',
+    secondImage: '/images/engine-parts-hero.png',
   },
   {
     slug: 'industrial-engine-service',
@@ -50,9 +50,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Industrial Engine Service & Support',
     summary:
       'Parts sourcing and technical support for engines used in pumps, compressors, heavy equipment, oilfield units, and industrial power systems.',
-    image: '/images/precision-machining-workshop-factory.jpg',
-    mainImage: '/images/cnc-machining-center-factory-row.jpg',
-    secondImage: '/images/cnc-engineer-cad-cam-design.jpg',
+    image: '/images/engine-parts-verification-desk.png',
+    mainImage: '/images/engine-parts-hero.png',
+    secondImage: '/images/engine-parts-sensors-catalog.png',
   },
   {
     slug: 'marine-engine-service',
@@ -61,9 +61,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Marine Engine Parts & Service',
     summary:
       'Genuine spare parts for naval, coast guard, ferry, yacht, shipyard, and offshore MTU engine users with urgent global shipment support.',
-    image: '/images/industries/cnc-machining-oil-gas-industry.jpg',
-    mainImage: '/images/cnc-machined-stainless-steel-parts.jpg',
-    secondImage: '/images/cmm-coordinate-measuring-inspection.jpg',
+    image: '/images/engine-parts-hero.png',
+    mainImage: '/images/engine-parts-verification-desk.png',
+    secondImage: '/images/engine-parts-sensors-catalog.png',
   },
   {
     slug: 'genuine-oem-parts',
@@ -72,9 +72,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Genuine OEM Engine Parts',
     summary:
       'Original and OEM manufacturer parts from O-rings to crankshafts, prepared for reliable maintenance, overhaul, and long-term fleet operation.',
-    image: '/images/cnc-machining-inspection-report.jpg',
-    mainImage: '/images/precision-micrometer-measurement.jpg',
-    secondImage: '/images/material-sourcing-service.webp',
+    image: '/images/engine-parts-verification-desk.png',
+    mainImage: '/images/engine-parts-sensors-catalog.png',
+    secondImage: '/images/engine-parts-hero.png',
   },
 ];
 

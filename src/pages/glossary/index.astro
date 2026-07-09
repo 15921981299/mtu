@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -21,8 +21,8 @@ const termCount = indexedTerms.length;
 ---
 
 <BaseLayout
-  title="CNC Machining Glossary — Terms & Definitions for Engineers"
-  description="CNC machining glossary: DFM, ISO 2768, CMM, Ra, GD&T, anodizing, Incoterms, and 20+ terms engineers search during RFQ preparation."
+  title="Engine Parts Glossary — Terms & Definitions for Engineers"
+  description="engine parts glossary: inquiry prep, ISO 2768, supplier documents, Ra, GD&T, anodizing, Incoterms, and 20+ terms engineers search during RFQ preparation."
   currentPath="/glossary"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -31,7 +31,7 @@ const termCount = indexedTerms.length;
 >
   <FunnelPageView stage="awareness" label="glossary-index" />
   <BreadcrumbHero
-    title="CNC Machining<br>Glossary"
+    title="Engine Parts<br>Glossary"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Glossary' },
@@ -94,7 +94,7 @@ const termCount = indexedTerms.length;
           ))}
 
           <p class="resource-related">
-            <a href="/resources/dfm-checklist/">DFM checklist</a>
+            <a href="/resources/dfm-checklist/">Inquiry checklist</a>
             <span aria-hidden="true">·</span>
             <a href="/resources/cnc-tolerance-guide/">Tolerance guide</a>
             <span aria-hidden="true">·</span>
@@ -111,7 +111,7 @@ const termCount = indexedTerms.length;
     stage="awareness"
     topic="glossary-index"
     title="Turn definitions into a scoped quote"
-    text="Upload your drawing — we confirm tolerances, finishes, and compliance terms in the quotation response."
+    text="Send your part number — we confirm tolerances, finishes, and compliance terms in the quotation response."
     primaryLabel="Request a Quote"
     primaryHref="/contact/?source=glossary"
     primaryEvent="glossary_index_rfq"

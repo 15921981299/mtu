@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -72,7 +72,7 @@ const standardThemes: Record<string, { badges: string[] }> = {
 };
 
 const theme = standardThemes[std.slug] ?? {
-  badges: ['Traceability', 'CMM inspection', 'Material certs'],
+  badges: ['Traceability', 'documentation check', 'Material certs'],
 };
 ---
 
@@ -226,7 +226,7 @@ const theme = standardThemes[std.slug] ?? {
     stage="signing"
     topic={std.slug}
     title="Verify compliance before you quote"
-    text="Review our quality certifications and case studies for regulated industries — then send your drawing when you are ready."
+    text="Review our quality certifications and case studies for regulated industries — then send your part number when you are ready."
     primaryLabel="Request Compliance Quote"
     primaryHref={quoteHref}
     primaryEvent={`standard_${std.slug}_rfq`}

@@ -23,9 +23,9 @@ const certIcons: Record<string, string> = {
 
 const { quality } = site;
 const inspectionVideo = videoSchema({
-  name: 'CNC Machining Quality Inspection Process',
+  name: 'Engine Parts Verification and Packing Process',
   description:
-    'See incoming material verification, CMM inspection, and documented QC gates on every CNC machining order.',
+    'See how Engine Family checks part numbers, supplier documents, packing, and shipment details for engine parts inquiries.',
   thumbnailUrl: 'https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg',
   embedUrl: 'https://www.youtube.com/embed/M7uJEbDD-_8',
   uploadDate: '2023-06-01',
@@ -49,61 +49,59 @@ const qualityCommitments = [
   {
     title: 'IATF 16949-Aligned Automotive Programs',
     description:
-      'Automotive customers can request IATF 16949-aligned process documentation, controlled traveler records, and PPAP-style first-article packages. We coordinate with partner facilities that support automotive quality workflows — specify your APQP or PPAP level when requesting a quote.',
+      'Automotive and equipment buyers can request supplier documentation, packing photos, and traceability notes where applicable. Specify required documents when sending the part list.',
     iconKey: 'automotive',
   },
   {
     title: 'ISO 13485-Aligned Medical Documentation',
     description:
-      'Medical device projects can receive ISO 13485-aligned documentation: lot traceability, material certs by heat number, first-article inspection reports, and clean machining notes for patient-contact surfaces. Discuss your DHF or supplier qualification checklist on the RFQ.',
+      'For regulated or critical applications, tell us the documentation your internal QA process needs before order placement so the sourcing route can be checked early.',
     iconKey: 'medical',
   },
   {
-    title: 'CMM Inspection — 100% of Orders',
+    title: 'Part-Number and Photo Verification',
     description:
-      'Every order ships with a dimensional inspection report at no extra cost. We use a coordinate measuring machine (CMM) accurate to 0.001mm, plus digital micrometers, height gauges, surface roughness testers, and thread gauges. We do not charge extra for inspection reports — they are part of our standard process.',
+      'We check the requested part number against engine model, serial number, nameplate photo, old-part photo, and replacement notes whenever those details are available.',
     iconKey: 'cmm',
   },
   {
-    title: 'Material Traceability (EN 10204 3.1)',
+    title: 'Supplier and Packing Documents',
     description:
-      'Material certificates per EN 10204 3.1 are available on request for stainless steel, alloy steel, titanium, aluminum, and specialty alloys. Every batch of raw material is verified against its mill certificate before machining begins. Full lot traceability from mill to finished part.',
+      'For qualified inquiries, buyers can request available supplier documents, packing photos, shipment documents, and customs information before dispatch.',
     iconKey: 'material',
   },
   {
-    title: 'DFM Review — Free with Every Quote',
+    title: 'Inquiry Review — Free with Every Quote',
     description:
-      'Before we quote, our engineers review your drawing for manufacturability. If we spot changes that could reduce cost, improve quality, or shorten lead time, we will tell you — even if it means a lower-priced quote. This is the most valuable free service you will get from any machining supplier.',
+      'Before quotation, we review whether the inquiry has enough information to reduce wrong-part risk: part number, serial number, photos, quantity, destination, and delivery window.',
     iconKey: 'dfm',
   },
 ];
 
 const equipment = [
-  { name: '5-Axis CNC Machining Centers', qty: 'Multiple', capability: 'Complex geometries, single-setup precision' },
-  { name: '3-Axis & 4-Axis CNC Mills', qty: 'Multiple', capability: 'Prismatic parts, pockets, drilling, tapping' },
-  { name: 'CNC Lathes with Live Tooling', qty: 'Multiple', capability: 'Cylindrical parts, mill-turn capability' },
-  { name: 'Precision Surface Grinders', qty: 'Multiple', capability: 'Flatness to ±0.002mm, Ra 0.1µm finish' },
-  { name: 'Wire EDM Machines', qty: 'Multiple', capability: 'Hardened materials, sharp internal corners' },
-  { name: 'CMM (Coordinate Measuring Machine)', qty: 'In-house', capability: 'Dimensional inspection to 0.001mm' },
-  { name: 'Surface Roughness Tester', qty: 'In-house', capability: 'Ra, Rz, Rq measurement' },
-  { name: 'Optical Comparator', qty: 'In-house', capability: 'Thread and profile inspection' },
+  { name: 'MTU part-number database checks', qty: 'Ongoing', capability: 'Part number, replacement, and series matching' },
+  { name: 'Supplier document review', qty: 'On request', capability: 'Available documents checked before shipment' },
+  { name: 'Nameplate and old-part photo review', qty: 'Standard', capability: 'Reduces wrong-part risk before quotation' },
+  { name: 'Packing photo confirmation', qty: 'On request', capability: 'Photos before dispatch for urgent orders' },
+  { name: 'Export shipment coordination', qty: 'Global', capability: 'Express, air, and freight route planning' },
+  { name: 'Excel list line-item check', qty: 'Supported', capability: 'Overhaul and maintenance lists checked item by item' },
 ];
 
 const inspectionSteps = [
-  'Incoming material verification against mill certificate',
-  'First-article inspection (FAI) — full dimensional report on first piece',
-  'In-process inspection at operator-specified intervals',
-  'Final 100% dimensional inspection on critical features',
-  'Surface finish verification on specified surfaces',
-  'Thread gauge check (go/no-go) on all threaded features',
-  'Visual inspection for burrs, surface defects, and cosmetic quality',
-  'Packaging inspection before shipment',
+  'Receive part number, quantity, destination, and delivery deadline',
+  'Check engine model, serial number, and nameplate photo when available',
+  'Review old-part photos and markings for unclear or legacy items',
+  'Confirm stock, replacement, or sourcing route before quotation',
+  'Clarify supplier documentation and packing requirements',
+  'Quote delivery route by urgency, size, and destination',
+  'Prepare packing and shipment details before dispatch',
+  'Follow up with tracking and document support after shipment',
 ];
 ---
 
 <BaseLayout
-  title="Quality & Inspection — ISO 9001 Partner CNC Machining | Machining Supplier"
-  description="CNC machining through ISO 9001:2015 partner facilities. Documented inspection on every order. EN 10204 3.1 material certificates available. Free DFM review with every quote."
+  title="Quality Policy & Parts Verification | Engine Family"
+  description="Engine Family checks engine part numbers, serial numbers, supplier documents, packing requirements, and delivery routes before quotation and shipment."
   currentPath="/certifications"
   jsonLd={[
     breadcrumbSchema([
@@ -133,9 +131,10 @@ const inspectionSteps = [
           </nav>
 
           <header class="blog-index-hero cert-hero">
-            <p class="blog-index-kicker">Documented QC · RFQ-ready</p>
+            <p class="blog-index-kicker">Part verification · Shipment-ready</p>
             <p class="blog-index-intro">
-              Documented inspection on every CNC order — through ISO 9001:2015 partner facilities. Specify the certs, FAI depth, and traceability your incoming QA team needs on the RFQ.
+              Engine Family reduces wrong-part risk by checking part numbers, serial numbers, nameplates, old-part photos,
+              supplier documents, packing requirements, and delivery routes before quotation and shipment.
             </p>
             <div class="blog-index-stats" role="list">
               <span class="blog-index-stat" role="listitem">
@@ -144,18 +143,18 @@ const inspectionSteps = [
               </span>
               <span class="blog-index-stat" role="listitem">
                 <strong>100%</strong>
-                <span>CMM on orders</span>
+                <span>part checks</span>
               </span>
               <span class="blog-index-stat" role="listitem">
                 <strong>EN 10204</strong>
-                <span>3.1 on request</span>
+                <span>documents on request</span>
               </span>
             </div>
           </header>
 
           <div class="blog-index-rfq-strip detail-rfq-strip">
-            <p>List required documentation on your RFQ — CMM layout, material cert level, FAI depth, or CoC. We confirm inspection scope in the quote response.</p>
-            <a href="/contact/?source=certifications" class="blog-index-rfq-btn detail-rfq-link">Request Documentation Scope</a>
+            <p>List required documents with your parts inquiry — supplier documents, packing photos, customs paperwork, or delivery deadline. We confirm what is practical before order placement.</p>
+            <a href="/contact/?source=certifications" class="blog-index-rfq-btn detail-rfq-link">Request Parts Check</a>
           </div>
 
           <nav class="hub-list-jump-nav cert-jump" aria-label="On this page">
@@ -191,8 +190,8 @@ const inspectionSteps = [
           <section class="cert-media-section">
             <InspectionProcessMedia />
             <ProofMediaGallery
-              title="QC proof photos buyers can request"
-              intro="Ask for matching CMM, packing, and sample photos on your RFQ so the document package matches the actual parts being shipped."
+              title="Parts proof photos buyers can request"
+              intro="Ask for matching part photos, packing photos, and dispatch notes so the support package matches the actual parts being shipped."
               categories={['inspection', 'packaging', 'samples']}
               limit={6}
               compact
@@ -202,8 +201,8 @@ const inspectionSteps = [
           <section id="inspection-process" class="blog-index-section cert-section">
             <header class="blog-index-section-head">
               <div>
-                <h2>Our inspection process</h2>
-                <p>Eight documented QC gates from incoming material through packaging.</p>
+                <h2>Our parts verification process</h2>
+                <p>Eight documented steps from inquiry intake through packing and shipment support.</p>
               </div>
             </header>
             <div class="inspection-list">
@@ -219,17 +218,17 @@ const inspectionSteps = [
           <section id="equipment" class="blog-index-section cert-section">
             <header class="blog-index-section-head">
               <div>
-                <h2>Equipment &amp; capabilities</h2>
-                <p>In-house and partner equipment supporting CNC machining and dimensional inspection.</p>
+                <h2>Tools &amp; capabilities</h2>
+                <p>Internal and partner support for part-number checks, document review, packing, and export shipment.</p>
               </div>
             </header>
             <div class="equip-table-wrap">
               <table class="equip-table">
-                <caption class="equip-table-caption">In-house and partner equipment supporting CNC and inspection</caption>
+                <caption class="equip-table-caption">Tools supporting part verification and shipment release</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Equipment</th>
-                    <th scope="col">Quantity</th>
+                    <th scope="col">Support area</th>
+                    <th scope="col">Scope</th>
                     <th scope="col">Capability</th>
                   </tr>
                 </thead>
@@ -278,7 +277,7 @@ const inspectionSteps = [
             <header class="blog-index-section-head">
               <div>
                 <h2>Documentation buyers can request</h2>
-                <p>Specify which items you need on your RFQ — we scope inspection and certs to your drawing and industry.</p>
+                <p>Specify which items you need on your inquiry — we confirm available supplier documents, packing notes, and shipment documents before order placement.</p>
               </div>
             </header>
             <div class="verify-doc-grid">
@@ -295,11 +294,11 @@ const inspectionSteps = [
               ))}
             </div>
             <p class="cert-cta-row">
-              <a href="/resources/inspection-samples/">Inspection report samples</a>
+              <a href="/resources/inspection-samples/">Document samples</a>
               <span aria-hidden="true">·</span>
-              <a href="/resources/material-certificates/">Material certificates guide</a>
+              <a href="/resources/material-certificates/">MTU lookup guide</a>
               <span aria-hidden="true">·</span>
-              <a href="/blog/how-to-read-cnc-inspection-report/">How to read CMM reports</a>
+              <a href="/part-products/">MTU part numbers</a>
               <span aria-hidden="true">·</span>
               <a href="/contact/?source=certifications">Request documentation scope →</a>
             </p>
@@ -309,7 +308,7 @@ const inspectionSteps = [
             <header class="blog-index-section-head">
               <div>
                 <h2>Project proof by industry</h2>
-                <p>Anonymized case studies with tolerances, inspection scope, and measurable outcomes.</p>
+                <p>Anonymized case studies with part checks, documentation scope, and measurable outcomes.</p>
               </div>
             </header>
             <div class="featured-proof-grid">
@@ -317,7 +316,7 @@ const inspectionSteps = [
                 <a href={`/case-studies/${study.slug}/`} class="featured-proof-card">
                   <span class="featured-proof-industry">{study.industry}</span>
                   <span class="featured-proof-title">{study.title}</span>
-                  <span class="featured-proof-spec">{study.tolerance} · {study.quantity}</span>
+                  <span class="featured-proof-spec">{study.proof.inspection} · {study.quantity}</span>
                 </a>
               ))}
             </div>
@@ -348,13 +347,13 @@ const inspectionSteps = [
     stage="signing"
     topic="certifications"
     title="Confirm documentation scope on your quote"
-    text="Upload your drawing and list required reports — CMM, material cert, FAI, or CoC. We confirm inspection scope in the quotation response."
-    primaryLabel="Request Documentation Scope"
+    text="Send your part number, engine details, and required documents. We confirm practical documentation and packing scope in the quotation response."
+    primaryLabel="Request Parts Documentation"
     primaryHref="/contact/?source=certifications"
     primaryEvent="cert_page_rfq"
-    secondaryLabel="Inspection samples"
-    secondaryHref="/resources/inspection-samples/"
-    secondaryEvent="cert_page_inspection"
+    secondaryLabel="MTU part numbers"
+    secondaryHref="/part-products/"
+    secondaryEvent="cert_page_part_numbers"
   />
 </BaseLayout>
 

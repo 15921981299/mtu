@@ -1,4 +1,4 @@
-import type { CaseStudyEnrichment } from './case-study-shared';
+﻿import type { CaseStudyEnrichment } from './case-study-shared';
 
 /** Outcome-oriented titles, client context, quotes, and before/after metrics keyed by slug. */
 export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
@@ -12,15 +12,15 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'First production run on a new 7075 bracket with four-sided features',
     },
     decision:
-      'The team had quotes from two domestic 3-axis shops that required three setups. They chose us after a DFM call showed single-setup 5-axis could hold datum alignment and shave one setup risk from the traveler.',
+      'The team had quotes from two domestic 3-axis shops that required three setups. They chose us after a inquiry prep call showed single-setup 5-axis could hold datum alignment and shave one setup risk from the traveler.',
     customerQuote: {
-      text: 'We were nervous about four-sided features on 7075. The CMM report on every bore position is what let our quality lead sign the lot without a second source audit.',
+      text: 'We were nervous about four-sided features on 7075. The supplier document report on every bore position is what let our quality lead sign the lot without a second source audit.',
       attribution: 'Mechanical Engineer — UAV Structures, North America',
     },
     beforeAfter: [
       { metric: 'Critical bore position', before: '±0.01mm spec (3 setups quoted elsewhere)', after: '±0.008mm measured, single 5-axis setup' },
       { metric: 'Lead time', before: '18 days quoted (multi-setup)', after: '12 business days delivered' },
-      { metric: 'Unit cost', before: 'Baseline drawing', after: '18% lower after DFM tolerance relaxation' },
+      { metric: 'Unit cost', before: 'Baseline drawing', after: '18% lower after inquiry prep tolerance relaxation' },
     ],
     narrative: 'standard',
     documentedBy: 'wei-chen',
@@ -37,14 +37,14 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'Instrument housing for a regulated device entering design review',
     },
     decision:
-      'They had been burned by a low-cost shop that substituted 304 for 316 on a prototype. Our EN 10204 3.1 workflow and seal-surface Ra tracking matched their supplier questionnaire — and the engineer-led DFM call identified a collar wall that was unnecessarily tight.',
+      'They had been burned by a low-cost shop that substituted 304 for 316 on a sample. Our EN 10204 3.1 workflow and seal-surface Ra tracking matched their supplier questionnaire — and the engineer-led inquiry prep call identified a collar wall that was unnecessarily tight.',
     customerQuote: {
-      text: 'Their DFM feedback on our initial design identified three changes that reduced machining cost by 34% without affecting function. The engineer who reviewed our drawing clearly understood what we were building.',
+      text: 'Their parts verification feedback on our initial design identified three changes that reduced machining cost by 34% without affecting function. The engineer who reviewed our drawing clearly understood what we were building.',
       attribution: 'Sarah L., Product Designer — Medical Device Startup, USA',
       testimonialSlug: 'sarah-l-medical',
     },
     beforeAfter: [
-      { metric: 'Seal diameter Cpk', before: 'Unstable on first offshore prototype', after: '> 1.33 across 200 pcs' },
+      { metric: 'Seal diameter Cpk', before: 'Unstable on first offshore sample', after: '> 1.33 across 200 pcs' },
       { metric: 'Seal surface Ra', before: '0.8µm required', after: '0.6µm achieved' },
       { metric: 'Design review', before: 'Open DHF gaps on material traceability', after: 'FDA design review passed with our inspection data' },
     ],
@@ -59,13 +59,13 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
     clientProfile: {
       description: 'Robotics startup, pre-Series A, 12-person team',
       region: 'Canada',
-      scale: '10 prototypes → 500 production units',
+      scale: '10 samples → 500 production units',
       scenario: 'Gripper plate needed for trade-show demo with expected design revision',
     },
     decision:
-      'Local job shops quoted 3 weeks for prototypes. We committed to 8-day prototype delivery with an explicit revision path — that flexibility mattered more than the lowest unit price on the first 10 pcs.',
+      'Local job shops quoted 3 weeks for samples. We committed to 8-day sample delivery with an explicit revision path — that flexibility mattered more than the lowest unit price on the first 10 pcs.',
     customerQuote: {
-      text: 'We iterated through 12 design revisions on our robot end-effector. Every revision was quoted within 24 hours. When we finalized and ordered 500 units, production quality matched the prototypes perfectly.',
+      text: 'We iterated through 12 design revisions on our robot end-effector. Every revision was quoted within 24 hours. When we finalized and ordered 500 units, production quality matched the samples perfectly.',
       attribution: 'James T., Founder — Robotics Startup, Canada',
       testimonialSlug: 'james-t-robotics',
     },
@@ -115,11 +115,11 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
     decision:
       'The customer had only machined aluminum in-house and feared titanium cost. We ran a material trade study on the RFQ call — Grade 5 vs Grade 2 — and quoted cycle time with high-pressure coolant so they could compare total landed cost, not just $/kg.',
     customerQuote: {
-      text: 'We had never sourced titanium before. The quote broke out cycle time and material so we could defend the switch internally — 42g per mount vs our 60g aluminum prototype sold the program lead.',
+      text: 'We had never sourced titanium before. The quote broke out cycle time and material so we could defend the switch internally — 42g per mount vs our 60g aluminum sample sold the program lead.',
       attribution: 'Lead Structures Engineer — UAV OEM, USA',
     },
     beforeAfter: [
-      { metric: 'Part mass', before: '60g aluminum prototype', after: '42g Ti-6Al-4V (-30%)' },
+      { metric: 'Part mass', before: '60g aluminum sample', after: '42g Ti-6Al-4V (-30%)' },
       { metric: 'Bolt pull-out', before: 'Aluminum baseline', after: '2× pull-out strength' },
       { metric: 'Lead time', before: 'Unknown (first Ti run)', after: '14 business days' },
     ],
@@ -161,7 +161,7 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'H₂S-rated valve body with internal EDM passages',
     },
     decision:
-      'European casting lead times blew their field trial window. They shortlisted three CNC suppliers; we were the only one that included PMI records, heat-lot traceability, and sinker EDM on 1.2mm internal radii in the same quote package.',
+      'European casting lead times blew their field trial window. They shortlisted three engine parts suppliers; we were the only one that included PMI records, heat-lot traceability, and sinker EDM on 1.2mm internal radii in the same quote package.',
     customerQuote: {
       text: 'We require EN 10204 3.1 certificates on every order for pressure-containing components. Every batch has arrived with complete, verifiable mill certificates — confirmed by our own PMI testing.',
       attribution: 'David K., Procurement Manager — Oil & Gas Equipment, UK',
@@ -211,7 +211,7 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'Emergency bronze bushing lot inside a 3-week docking window',
     },
     decision:
-      'European foundry lead time exceeded the docking schedule. The contractor RFQ\'d four CNC suppliers with explicit "must fit first time" language — we showed a similar C932 bronze turning lot with honed ID Ra logs.',
+      'European foundry lead time exceeded the docking schedule. The contractor RFQ\'d four engine parts suppliers with explicit "must fit first time" language — we showed a similar C932 bronze turning lot with honed ID Ra logs.',
     customerQuote: {
       text: 'Dry dock does not wait. Every bushing fit first time — we finished the prop shaft work four days early and avoided penalty days on the berth.',
       attribution: 'Project Superintendent — Marine Refit Contractor, EU',
@@ -284,15 +284,15 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'Orthogonal bore pattern with field alignment drift on prior lots',
     },
     decision:
-      'Multi-setup suppliers produced alignment drift that failed field calibration. We quoted tombstone 5-axis with per-unit CMM serialization — their QA lead could map every bore to bench time.',
+      'Multi-setup suppliers produced alignment drift that failed field calibration. We quoted tombstone 5-axis with per-unit supplier documents serialization — their QA lead could map every bore to bench time.',
     customerQuote: {
-      text: 'Serialized CMM per mount cut our bench alignment time by 40%. We stopped shimming bores in the field — that was the win.',
+      text: 'Serialized supplier documents per mount cut our bench alignment time by 40%. We stopped shimming bores in the field — that was the win.',
       attribution: 'Optical Systems Engineer — Defense Subcontractor, USA',
     },
     beforeAfter: [
       { metric: 'Bench alignment time', before: 'Baseline multi-setup supplier', after: '40% reduction' },
       { metric: 'Bore alignment', before: 'Stack-up drift across setups', after: '±0.01mm in single setup' },
-      { metric: 'Traceability', before: 'Lot-level inspection only', after: 'Serialized CMM per unit' },
+      { metric: 'Traceability', before: 'Lot-level inspection only', after: 'Serialized supplier documents per unit' },
     ],
     narrative: 'standard',
     documentedBy: 'wei-chen',
@@ -328,7 +328,7 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
     clientProfile: {
       description: 'Orthopedic instrument company, clinical trial stage',
       region: 'EU',
-      scale: '15 patient-specific prototypes',
+      scale: '15 patient-specific samples',
       scenario: 'Implant-grade PEEK guides with sterile packaging for trial',
     },
     decision:
@@ -357,14 +357,14 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'Billet bracket for high-temp exhaust zone with AMS 5663 aging',
     },
     decision:
-      'Casting could not meet grain-structure requirements. They selected us after reviewing a redacted AMS heat-treat chart and 100% bore CMM package from a similar Inconel job.',
+      'Casting could not meet grain-structure requirements. They selected us after reviewing a redacted AMS heat-treat chart and 100% bore supplier documents package from a similar Inconel job.',
     customerQuote: {
       text: 'Less than 0.02mm displacement after 100 thermal cycles — that is what our propulsion lead needed to freeze the bracket design for serial production.',
       attribution: 'Propulsion Engineer — UAV Manufacturer, USA',
     },
     beforeAfter: [
-      { metric: 'Thermal displacement', before: 'Casting prototype failed at 40 cycles', after: '<0.02mm after 100 cycles' },
-      { metric: 'Bore reporting', before: 'Sample inspection only', after: '100% CMM bore position' },
+      { metric: 'Thermal displacement', before: 'Casting sample failed at 40 cycles', after: '<0.02mm after 100 cycles' },
+      { metric: 'Bore reporting', before: 'Sample inspection only', after: '100% supplier documents bore position' },
       { metric: 'Lead time', before: '12+ weeks (casting + rework)', after: '20 business days from billet' },
     ],
     narrative: 'standard',
@@ -381,15 +381,15 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
       scenario: 'Module-to-chassis alignment within 0.05mm for busbar routing',
     },
     decision:
-      'First prototype build took 3 hours per vehicle due to busbar binding. They RFQ\'d plates with gauge fit-check — we included gauge correlation photos on the first article.',
+      'First sample build took 3 hours per vehicle due to busbar binding. They RFQ\'d plates with gauge fit-check — we included gauge correlation photos on the first article.',
     customerQuote: {
       text: 'Module installation dropped from three hours to 45 minutes. Zero alignment rework across 80 plates — that is what let us scale builds.',
       attribution: 'Build Lead — EV Conversion Shop, UK',
     },
     beforeAfter: [
-      { metric: 'Install time per vehicle', before: '3 hours (prototype build)', after: '45 minutes' },
+      { metric: 'Install time per vehicle', before: '3 hours (sample build)', after: '45 minutes' },
       { metric: 'Alignment rework', before: '2 vehicles reworked', after: '0 across batch' },
-      { metric: 'Hardpoint alignment', before: '±0.1mm measured on prototype', after: 'Within 0.05mm spec' },
+      { metric: 'Hardpoint alignment', before: '±0.1mm measured on sample', after: 'Within 0.05mm spec' },
     ],
     narrative: 'standard',
     documentedBy: 'wei-chen',
@@ -425,19 +425,19 @@ export const caseStudyEnrichment: Record<string, CaseStudyEnrichment> = {
     clientProfile: {
       description: 'Collaborative robot startup, joint drivetrain R&D',
       region: 'USA',
-      scale: '8 prototype gears',
-      scenario: 'Custom tooth profile after heat treat — no hob tooling at prototype qty',
+      scale: '8 sample gears',
+      scenario: 'Custom tooth profile after heat treat — no hob tooling at sample qty',
     },
     decision:
       'Hob shops wanted $12k tooling for 8 pcs. Wire EDM after heat treat was the only economical path — we quoted DXF-driven erosion with backlash verification on the first article.',
     customerQuote: {
-      text: 'Backlash came in at 0.03mm against our 0.05mm limit. We froze the tooth profile for production tooling without another prototype loop.',
+      text: 'Backlash came in at 0.03mm against our 0.05mm limit. We froze the tooth profile for production tooling without another sample loop.',
       attribution: 'Drivetrain Engineer — Cobot Startup, USA',
     },
     beforeAfter: [
       { metric: 'Backlash', before: '0.05mm spec', after: '0.03mm measured' },
       { metric: 'Tooling cost', before: '$12k hob quote (8 pcs)', after: '$0 hob — wire EDM from DXF' },
-      { metric: 'Design status', before: 'Open prototype loop', after: 'Frozen for production tooling' },
+      { metric: 'Design status', before: 'Open sample loop', after: 'Frozen for production tooling' },
     ],
     narrative: 'iteration',
     documentedBy: 'wei-chen',

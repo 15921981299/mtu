@@ -1,4 +1,4 @@
-export const industrySubpages = [
+﻿export const industrySubpages = [
   {
     industrySlug: "marine",
     slug: "ev-battery-housing-machining",
@@ -73,7 +73,7 @@ export const industrySubpages = [
   },
   {
     industrySlug: "marine",
-    slug: "implant-prototype-machining",
+    slug: "implant-sample-machining",
     title: "Global Engine Parts Delivery: Implant MTU MTU",
     seoTitle: "Global Engine Parts Delivery: Implant MTU MTU | Engine Family",
     h1Title: "Global Engine Parts Delivery: Implant MTU MTU",

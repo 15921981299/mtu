@@ -10,25 +10,25 @@ const proofCopy: Record<string, ProofCopy> = {
     eyebrow: 'Editorial review',
     title: 'Engineer-reviewed before publishing',
     text:
-      'Our technical pages are checked against CNC machining, sourcing, and inspection practice before publication. AI assistance does not replace drawing-level DFM review; send your STEP or PDF for project-specific feedback.',
+      'Our technical pages are checked against engine parts sourcing, part-number review, and documentation practice before publication. AI assistance does not replace inquiry-level verification; send your part number and engine details for project-specific feedback.',
   },
   comparison: {
-    eyebrow: 'Shop-floor judgment',
-    title: 'Decision guidance from real RFQ review',
+    eyebrow: 'Parts sourcing judgment',
+    title: 'Decision guidance from real inquiry review',
     text:
-      'Each comparison is written for buyers choosing a process, material, or finish before quoting. We still confirm the final choice against your drawing, tolerance stack, quantity, and inspection requirement.',
+      'Each comparison is written for buyers choosing a sourcing path, brand option, or replacement route before quoting. We still confirm the final choice against your part number, engine model, serial number, quantity, and documentation requirement.',
   },
   product: {
     eyebrow: 'Supplier capability check',
-    title: 'Quoted with CNC, sourcing, and QC review',
+    title: 'Quoted with sourcing and verification review',
     text:
-      'Product pages describe the information we verify during RFQ review: geometry, material, tolerance, finish, inspection method, and lead time risk. Your drawing receives a project-specific DFM response.',
+      'Product pages describe the information we verify during inquiry review: part number, engine model, serial number, photos, stock route, documentation, and lead time risk.',
   },
   material: {
-    eyebrow: 'Material review',
-    title: 'Material guidance tied to machining and inspection',
+    eyebrow: 'Parts review',
+    title: 'Reference guidance tied to sourcing and shipment',
     text:
-      'Material pages are reviewed from machining, purchasing, and quality-control angles. We confirm grade, certificate needs, finish compatibility, and dimensional risk before quoting production parts.',
+      'Reference pages are reviewed from sourcing, purchasing, and documentation angles. We confirm fitment, supplier document needs, packing scope, and delivery risk before quoting engine parts.',
   },
 };
 
@@ -45,7 +45,7 @@ const copy = proofCopy[context] ?? proofCopy.blog;
   <nav class="experience-proof-note__links" aria-label="Trust resources">
     <a href="/about/">About our team</a>
     <a href="/certifications/">Quality system</a>
-    <a href="/resources/inspection-samples/">Inspection samples</a>
+    <a href="/part-products/">MTU part numbers</a>
   </nav>
 </section>
 

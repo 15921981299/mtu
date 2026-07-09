@@ -53,7 +53,7 @@ const profileSchema =
 ---
 
 <BaseLayout
-  title={`${author.name} — CNC Machining Author | Machining Supplier`}
+  title={`${author.name} — Engine Parts Author | Engine Family`}
   description={author.bio}
   currentPath="/blog"
   jsonLd={profileSchema}
@@ -85,13 +85,13 @@ const profileSchema =
           <div class="resource-meta" aria-label="Author profile">
             <span><strong>{posts.length}</strong> indexed articles</span>
             <span><strong>{author.yearsExperience}+</strong> years experience</span>
-            <span><strong>DFM review</strong> Free with quote</span>
+            <span><strong>Part checks</strong> before quote</span>
           </div>
 
           <DetailRfqStrip
             quoteHref={quoteHref}
             title="Ready to quote?"
-            text="Upload your drawing — articles by this author reflect the same DFM and tolerance guidance we apply during review."
+            text="Send your part number and engine details — articles by this author reflect the same parts verification guidance we apply during review."
           />
 
           <div class="author-bio-block">
@@ -157,7 +157,7 @@ const profileSchema =
             <span aria-hidden="true">·</span>
             <a href="/case-studies/">Case studies</a>
             <span aria-hidden="true">·</span>
-            <a href={quoteHref}>Upload drawing for DFM review</a>
+            <a href={quoteHref}>Send part number for review</a>
           </p>
         </article>
       </div>
@@ -168,7 +168,7 @@ const profileSchema =
     stage="awareness"
     topic={`author-${slug}`}
     title="Apply what you read on your next RFQ"
-    text="Upload your drawing — we apply the same DFM and tolerance guidance from our blog during engineer-led review."
+    text="Send your part number, engine model, serial number, quantity, and destination — we apply the same parts verification guidance from our blog during review."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`blog_author_${slug}_rfq`}

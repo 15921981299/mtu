@@ -1,4 +1,4 @@
-type IndustryItem = {
+﻿type IndustryItem = {
   slug: string;
   title: string;
   icon: string;
@@ -19,7 +19,7 @@ export const industries: IndustryItem[] = [
     slug: 'marine',
     title: 'Marine',
     icon: '/images/industries/cnc-machining-oil-gas-industry.jpg',
-    image: '/images/cnc-machined-stainless-steel-parts.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
     seoTitle: 'Marine Engine Parts & Service | Engine Family',
     h1Title: 'Marine Engine Parts & Service',
     summary:
@@ -48,7 +48,7 @@ export const industries: IndustryItem[] = [
     slug: 'industrial-engines',
     title: 'Industrial Engines',
     icon: '/images/industries/cnc-machining-industrial-automation.jpg',
-    image: '/images/cnc-machining-production-line.jpg',
+    image: '/images/engine-parts-hero.png',
     seoTitle: 'Industrial Engine Parts | Engine Family',
     h1Title: 'Industrial Engine Parts',
     summary:
@@ -77,7 +77,7 @@ export const industries: IndustryItem[] = [
     slug: 'power-generation',
     title: 'Power Generation',
     icon: '/images/industries/cnc-machining-renewable-energy.jpg',
-    image: '/images/cnc-machining-quality-inspection.webp',
+    image: '/images/engine-parts-verification-desk.png',
     seoTitle: 'Generator Engine Parts | Engine Family',
     h1Title: 'Power Generation Engine Parts',
     summary:
@@ -135,7 +135,7 @@ export const industries: IndustryItem[] = [
     slug: 'shipyards-repair',
     title: 'Shipyards & Repair',
     icon: '/images/industries/cnc-machining-medical-device-industry.jpg',
-    image: '/images/cmm-coordinate-measuring-inspection.jpg',
+    image: '/images/engine-parts-verification-desk.png',
     seoTitle: 'Shipyard Diesel Engine Parts | Engine Family',
     h1Title: 'Shipyard & Repair Engine Parts',
     summary:

@@ -15,12 +15,12 @@ const hasYoutube = showYoutube && Boolean(youtubeId);
 <section class:list={['inspection-media', { 'inspection-media--compact': compact }]}>
   <div class="inspection-media-grid">
     <div class="inspection-media-video-wrap">
-      <p class="inspection-media-kicker">Shop-floor process</p>
-      <h2 class="inspection-media-title">How parts are machined &amp; inspected</h2>
+      <p class="inspection-media-kicker">Parts support process</p>
+      <h2 class="inspection-media-title">How parts are checked &amp; released</h2>
       {!compact && (
         <p class="inspection-media-desc">
-          See in-process checks, finishing, and final QC before pack-out. Pair this with our
-          <a href="/resources/inspection-samples/">redacted report samples</a> to verify what you receive on PO release.
+          See part-number checks, documentation review, packing confirmation, and shipment release. Pair this with our
+          <a href="/part-products/">MTU part-number catalog</a> to prepare a cleaner inquiry.
         </p>
       )}
       <video
@@ -39,7 +39,7 @@ const hasYoutube = showYoutube && Boolean(youtubeId);
           <div class="inspection-media-youtube-embed">
             <iframe
               src={`https://www.youtube.com/embed/${youtubeId}`}
-              title="CNC machining factory process video"
+              title="Engine parts verification process video"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -49,28 +49,28 @@ const hasYoutube = showYoutube && Boolean(youtubeId);
       )}
     </div>
     <div class="inspection-media-steps">
-      <p class="inspection-media-kicker">QC workflow</p>
+      <p class="inspection-media-kicker">Verification workflow</p>
       <h3 class="inspection-media-steps-title">4 gates before shipment</h3>
       <ol class="inspection-media-step-list">
         <li>
-          <strong>Incoming material</strong>
-          <span>Mill cert matched to heat lot before machining starts.</span>
+          <strong>Inquiry intake</strong>
+          <span>Part number, engine model, serial number, quantity, and destination are logged.</span>
         </li>
         <li>
-          <strong>In-process check</strong>
-          <span>Critical features verified at operator-defined intervals.</span>
+          <strong>Fitment check</strong>
+          <span>Engine series, old-part photos, and supersession notes are reviewed.</span>
         </li>
         <li>
-          <strong>Final CMM / gauge</strong>
-          <span>Ballooned report on drawing-controlled characteristics.</span>
+          <strong>Documentation scope</strong>
+          <span>Available supplier documents, photos, and packing notes are confirmed.</span>
         </li>
         <li>
           <strong>Release package</strong>
-          <span>CoC + inspection report + certs bundled per PO scope.</span>
+          <span>Dispatch details, shipment route, and tracking are prepared per order scope.</span>
         </li>
       </ol>
-      <a href="/resources/inspection-samples/" class="inspection-media-samples-link">
-        View redacted document samples →
+      <a href="/part-products/" class="inspection-media-samples-link">
+        View MTU part numbers →
       </a>
     </div>
   </div>

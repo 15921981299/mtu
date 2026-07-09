@@ -1,4 +1,4 @@
-/* Fonts loaded via BaseLayout.astro for better bundling */
+﻿/* Fonts loaded via BaseLayout.astro for better bundling */
 
 :root {
     --color-body: #e9ecf2;
@@ -1388,7 +1388,7 @@ blockquote {
     grid-column-gap: 80px;
     grid-row-gap: 80px;
     background-color: var(--color-title);
-    background-image: linear-gradient(#0000, #000 96%), url(/images/dfm-design-review-service.webp);
+    background-image: linear-gradient(#0000, #000 96%), url(/images/engine-parts-verification-desk.png);
     background-position: 0 0, 50%;
     background-size: auto, cover;
     border-radius: 4px;

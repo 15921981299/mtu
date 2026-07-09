@@ -1,4 +1,4 @@
-import { comparisons, getComparison } from './comparisons';
+﻿import { comparisons, getComparison } from './comparisons';
 import { isComparisonNoindex } from './comparison-quality';
 import { getCompareSlugsForCaseStudy } from './industry-proof';
 
@@ -17,7 +17,7 @@ export const funnelNextStepsByStage: Record<
     {
       label: 'Request a quote',
       href: '/contact/?source=blog',
-      hint: 'Free DFM review in 24 hours',
+      hint: 'Free parts verification in 24 hours',
     },
     {
       label: 'Compare materials & processes',
@@ -25,7 +25,7 @@ export const funnelNextStepsByStage: Record<
       hint: 'Side-by-side decision tables',
     },
     {
-      label: 'DFM Checklist',
+      label: 'Inquiry Checklist',
       href: '/resources/dfm-checklist/',
       hint: 'Free engineering reference',
     },
@@ -37,14 +37,14 @@ export const funnelNextStepsByStage: Record<
   ],
   comparison: [
     {
-      label: 'How to choose a China CNC supplier',
+      label: 'How to choose a China engine parts supplier',
       href: '/blog/how-to-choose-cnc-machining-supplier-china/',
       hint: 'Evaluation checklist',
     },
     {
       label: 'Inspection report samples',
       href: '/resources/inspection-samples/',
-      hint: 'Redacted CMM & cert layouts',
+      hint: 'Redacted supplier documents & cert layouts',
     },
     {
       label: 'Customer case studies',
@@ -112,7 +112,7 @@ export const funnelNextStepsByStage: Record<
     {
       label: 'Request a quote',
       href: '/contact/?source=resource',
-      hint: 'Upload your drawing',
+      hint: 'Send your part number',
     },
     {
       label: 'Tolerance guide',
@@ -127,7 +127,7 @@ export const funnelNextStepsByStage: Record<
     {
       label: 'Inspection report samples',
       href: '/resources/inspection-samples/',
-      hint: 'Redacted CMM & cert layouts',
+      hint: 'Redacted supplier documents & cert layouts',
     },
   ],
 };
@@ -157,20 +157,20 @@ export const capabilityCompareMap: Record<string, string[]> = {
 export const caseStudyCompareMap: Record<string, string[]> = {
   'aerospace-aluminum-bracket': ['aluminum-6061-vs-7075', '3-axis-vs-5-axis', 'simultaneous-vs-positional-5-axis'],
   'medical-stainless-housing': ['stainless-304-vs-316', 'passivation-vs-electropolishing', 'cmm-vs-manual-inspection'],
-  'robotics-aluminum-end-effector': ['aluminum-6061-vs-7075', 'prototype-vs-production-machining', '6061-vs-5052-aluminum'],
+  'robotics-aluminum-end-effector': ['aluminum-6061-vs-7075', 'sample-vs-production-machining', '6061-vs-5052-aluminum'],
   'automotive-steel-shaft': ['4140-vs-1045-steel', 'case-hardening-vs-through-hardening', 'honing-vs-grinding'],
   'titanium-drone-motor-mount': ['grade-2-vs-grade-5-titanium', 'titanium-vs-aluminum', '3-axis-vs-5-axis'],
-  'industrial-pom-bushing': ['pom-vs-nylon', 'delrin-vs-peek', 'prototype-vs-production-machining'],
+  'industrial-pom-bushing': ['pom-vs-nylon', 'delrin-vs-peek', 'sample-vs-production-machining'],
   'oil-gas-inconel-valve-body': ['inconel-vs-stainless-steel', '316-vs-17-4ph-stainless', 'cnc-machining-vs-die-casting'],
   'semiconductor-vacuum-chamber-adapter': ['mic6-vs-extruded-aluminum', 'ra-vs-rz-surface-roughness', 'cmm-vs-manual-inspection'],
   'marine-bronze-propeller-bushing': ['bronze-vs-brass', 'brass-vs-copper', 'stainless-304-vs-316'],
   'renewable-energy-wind-coupling-hub': ['4140-vs-1018-steel', 'case-hardening-vs-through-hardening', 'hot-rolled-vs-cold-rolled-steel'],
   'food-beverage-sanitary-clamp-fitting': ['stainless-304-vs-316', 'passivation-vs-electropolishing', '303-vs-316-stainless'],
   'defense-aluminum-optics-mount': ['aluminum-6061-vs-7075', 'true-position-vs-concentricity', 'cmm-vs-manual-inspection'],
-  'consumer-electronics-aluminum-heatsink': ['aluminum-6061-vs-7075', 'anodizing-type-ii-vs-iii', 'prototype-vs-production-machining'],
+  'consumer-electronics-aluminum-heatsink': ['aluminum-6061-vs-7075', 'anodizing-type-ii-vs-iii', 'sample-vs-production-machining'],
   'medical-peek-surgical-guide': ['delrin-vs-peek', 'peek-vs-ptfe', 'cmm-vs-manual-inspection'],
   'aerospace-inconel-engine-bracket': ['inconel-vs-stainless-steel', 'grade-2-vs-grade-5-titanium', '3-axis-vs-5-axis'],
-  'automotive-ev-battery-mount': ['aluminum-6061-vs-7075', 'magnesium-vs-aluminum', 'prototype-vs-production-machining'],
+  'automotive-ev-battery-mount': ['aluminum-6061-vs-7075', 'magnesium-vs-aluminum', 'sample-vs-production-machining'],
   'industrial-automation-gantry-plate': ['hot-rolled-vs-cold-rolled-steel', '1045-vs-1018-steel', 'cnc-milling-vs-turning'],
   'robotics-wire-edm-drive-gear': ['wire-edm-vs-cnc-milling', 'sinker-edm-vs-wire-edm', 'carbide-vs-hss-tooling'],
 };
@@ -236,18 +236,18 @@ export function getComparisonsForProduct(
 }
 
 export const industryCompareMap: Record<string, string[]> = {
-  automotive: ['cpk-vs-ppk-capability', 'prototype-vs-production-machining', '4140-vs-1045-steel'],
+  automotive: ['cpk-vs-ppk-capability', 'sample-vs-production-machining', '4140-vs-1045-steel'],
   aerospace: ['3-axis-vs-5-axis', 'titanium-vs-aluminum', 'aluminum-6061-vs-7075'],
   'medical-devices': ['stainless-304-vs-316', 'cmm-vs-manual-inspection', 'passivation-vs-electropolishing'],
-  'industrial-automation': ['cnc-milling-vs-turning', 'hot-rolled-vs-cold-rolled-steel', 'prototype-vs-production-machining'],
-  robotics: ['aluminum-6061-vs-7075', '6061-vs-5052-aluminum', 'prototype-vs-production-machining'],
+  'industrial-automation': ['cnc-milling-vs-turning', 'hot-rolled-vs-cold-rolled-steel', 'sample-vs-production-machining'],
+  robotics: ['aluminum-6061-vs-7075', '6061-vs-5052-aluminum', 'sample-vs-production-machining'],
   'oil-gas': ['inconel-vs-stainless-steel', '316-vs-17-4ph-stainless', 'cnc-machining-vs-die-casting'],
   'semiconductor-electronics': ['mic6-vs-extruded-aluminum', 'ra-vs-rz-surface-roughness', 'cmm-vs-manual-inspection'],
   'marine-shipbuilding': ['bronze-vs-brass', 'stainless-304-vs-316', 'brass-vs-copper'],
   'renewable-energy': ['4140-vs-1018-steel', 'case-hardening-vs-through-hardening', 'hot-rolled-vs-cold-rolled-steel'],
   'food-beverage': ['stainless-304-vs-316', 'passivation-vs-electropolishing', '303-vs-316-stainless'],
   'defense-military': ['aluminum-6061-vs-7075', 'true-position-vs-concentricity', 'cmm-vs-manual-inspection'],
-  'consumer-electronics': ['aluminum-6061-vs-7075', 'anodizing-type-ii-vs-iii', 'prototype-vs-production-machining'],
+  'consumer-electronics': ['aluminum-6061-vs-7075', 'anodizing-type-ii-vs-iii', 'sample-vs-production-machining'],
 };
 
 export function getComparisonsForIndustry(industrySlug: string) {

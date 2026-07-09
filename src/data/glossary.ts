@@ -1,4 +1,4 @@
-export type GlossaryTerm = {
+﻿export type GlossaryTerm = {
   slug: string;
   term: string;
   shortDefinition: string;
@@ -10,19 +10,19 @@ export type GlossaryTerm = {
 export const glossaryTerms: GlossaryTerm[] = [
   {
     slug: 'dfm',
-    term: 'DFM (Design for Manufacturability)',
+    term: 'inquiry prep (Design for Manufacturability)',
     shortDefinition: 'Design practices that make a part easier, cheaper, and more reliable to machine.',
-    body: '<p>DFM reviews catch wall thickness, radii, thread depth, and tolerance issues before cutting metal. We include a free DFM review with every RFQ.</p>',
+    body: '<p>parts verifications catch wall thickness, radii, thread depth, and tolerance issues before cutting metal. We include a free parts verification with every RFQ.</p>',
     relatedLinks: [
-      { label: 'DFM Checklist', href: '/resources/dfm-checklist/' },
-      { label: 'DFM design guide', href: '/blog/cnc-machining-dfm-design-guide/' },
+      { label: 'Inquiry Checklist', href: '/resources/dfm-checklist/' },
+      { label: 'inquiry prep design guide', href: '/blog/cnc-machining-dfm-design-guide/' },
     ],
   },
   {
     slug: 'iso-2768',
     term: 'ISO 2768 General Tolerances',
     shortDefinition: 'Standard default tolerances for linear dimensions when not explicitly specified on a drawing.',
-    body: '<p>ISO 2768-m is the most common default for machined parts. Stating it on your drawing prevents ambiguity and surprise quotes.</p>',
+    body: '<p>ISO 2768-m is the most common default for engine parts. Stating it on your drawing prevents ambiguity and surprise quotes.</p>',
     relatedLinks: [
       { label: 'Tolerance guide', href: '/resources/cnc-tolerance-guide/' },
       { label: 'ISO 2768 explained', href: '/blog/iso-2768-tolerances-explained/' },
@@ -30,9 +30,9 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     slug: 'cmm',
-    term: 'CMM (Coordinate Measuring Machine)',
+    term: 'supplier documents (Coordinate Measuring Machine)',
     shortDefinition: 'Precision instrument that measures part dimensions to verify conformance to the drawing.',
-    body: '<p>CMM inspection reports document actual measured values vs. drawing requirements. We provide dimensional reports on every order.</p>',
+    body: '<p>documentation check reports document actual measured values vs. drawing requirements. We provide dimensional reports on every order.</p>',
     relatedLinks: [{ label: 'Quality & certifications', href: '/certifications/' }],
   },
   {
@@ -44,21 +44,21 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     slug: '5-axis-machining',
-    term: '5-Axis CNC Machining',
+    term: '5-Axis Engine Parts',
     shortDefinition: 'CNC where the tool or workpiece moves on five axes to reach compound angles in fewer setups.',
     body: '<p>5-axis reduces setup count and alignment error on aerospace brackets, impellers, and complex housings.</p>',
     relatedSlugs: ['3-axis-machining'],
     relatedLinks: [
-      { label: '5-axis capability', href: '/capabilities/5-axis-machining/' },
+      { label: 'MTU 4000 overhaul parts', href: '/products/mtu-4000-series-parts/overhaul-parts/' },
       { label: '3-axis vs 5-axis comparison', href: '/compare/3-axis-vs-5-axis/' },
     ],
   },
   {
     slug: '3-axis-machining',
-    term: '3-Axis CNC Machining',
+    term: '3-Axis Engine Parts',
     shortDefinition: 'Standard milling where the spindle moves in X, Y, and Z on prismatic parts.',
     body: '<p>Ideal for brackets, plates, and housings with features on one or two primary faces. Additional setups needed for more faces.</p>',
-    relatedLinks: [{ label: 'CNC milling', href: '/capabilities/cnc-milling/' }],
+    relatedLinks: [{ label: 'MTU spare parts', href: '/products/mtu-spare-parts/' }],
   },
   {
     slug: 'cnc-turning',
@@ -66,7 +66,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     shortDefinition: 'Lathe process where the workpiece rotates and a stationary tool removes material.',
     body: '<p>Best for shafts, bushings, fittings, and cylindrical bodies. Typically achieves tighter roundness than interpolated milling.</p>',
     relatedLinks: [
-      { label: 'CNC turning', href: '/capabilities/cnc-turning/' },
+      { label: 'MTU part numbers', href: '/part-products/' },
       { label: 'Milling vs turning', href: '/compare/cnc-milling-vs-turning/' },
     ],
   },
@@ -75,7 +75,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'Wire EDM',
     shortDefinition: 'Electrical discharge process that cuts conductive metals with a thin wire — no cutting force.',
     body: '<p>Used for hardened tooling, sharp internal corners, and thin walls where conventional milling would deflect the part.</p>',
-    relatedLinks: [{ label: 'Wire EDM capability', href: '/capabilities/edm/' }],
+    relatedLinks: [{ label: 'Parts identification support', href: '/capabilities/industrial-engine-service/' }],
   },
   {
     slug: 'en-10204-3-1',
@@ -125,7 +125,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'Passivation (Stainless Steel)',
     shortDefinition: 'Chemical treatment that removes free iron and restores corrosion-resistant oxide on stainless.',
     body: '<p>Common for 304/316 medical and food hardware after machining. Citric or nitric acid per ASTM A967.</p>',
-    relatedLinks: [{ label: 'Passivation guide', href: '/materials/stainless-steel/passivation-guide/' }],
+    relatedLinks: [{ label: 'Genuine OEM parts', href: '/capabilities/genuine-oem-parts/' }],
   },
   {
     slug: '6061-aluminum',
@@ -175,7 +175,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'moq',
     term: 'MOQ (Minimum Order Quantity)',
     shortDefinition: 'Smallest batch a supplier will run economically — setup cost drives MOQ on CNC parts.',
-    body: '<p>We accept prototype quantities (1 pc) through production runs. Unit cost drops as quantity increases.</p>',
+    body: '<p>We accept sample quantities (1 pc) through production runs. Unit cost drops as quantity increases.</p>',
     relatedLinks: [{ label: 'Pricing guide', href: '/resources/cnc-pricing-guide/' }],
   },
   {

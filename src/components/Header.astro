@@ -7,7 +7,7 @@ interface Props {
 
 const { currentPath = '/' } = Astro.props;
 const isActive = (path: string) => currentPath === path || (path !== '/' && currentPath.startsWith(path));
-const productsActive = isActive('/products');
+const productsActive = isActive('/products') || isActive('/part-products');
 const supportActive = isActive('/capabilities') || isActive('/industries');
 const companyActive = isActive('/about') || isActive('/certifications') || isActive('/case-studies');
 const resourcesActive = isActive('/resources') || isActive('/blog') || isActive('/compare') || isActive('/glossary');
@@ -58,6 +58,7 @@ const resourcesActive = isActive('/resources') || isActive('/blog') || isActive(
                       <a href="/products/mtu-spare-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Spare Parts</span></a>
                       <a href="/products/mtu-2000-series-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Series Parts</span></a>
                       <a href="/products/mtu-4000-series-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Series Parts</span></a>
+                      <a href="/part-products/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Part Numbers</span></a>
                       <a href="/products/detroit-diesel-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Detroit Diesel Parts</span></a>
                       <a href="/products/cummins-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Cummins Parts</span></a>
                       <a href="/products/deutz-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">DEUTZ Parts</span></a>

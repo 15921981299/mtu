@@ -28,22 +28,22 @@ const hubCount = blogPillars.length;
 const totalPages = getBlogTotalPages();
 
 const hubLabels: Record<string, string> = {
-  tolerances: 'Tolerances',
+  tolerances: 'Part Checks',
   sourcing: 'Sourcing',
-  dfm: 'DFM',
+  dfm: 'Inquiry Prep',
   materials: 'Materials',
   process: 'Process',
   'cost-leadtime': 'Cost',
   quality: 'Quality',
   finishes: 'Finishes',
-  drawings: 'Drawings',
+  drawings: 'Nameplates',
   'getting-started': 'Start',
 };
 ---
 
 <BaseLayout
-  title="CNC Machining Blog — Technical Articles & Design Guides | Machining Supplier"
-  description="Practical CNC machining guides — tolerances, materials, design tips, and process selection. Written by engineers for engineers and procurement professionals."
+  title="Engine Parts Blog — MTU Parts Guides & Sourcing Notes | Engine Family"
+  description="Practical MTU and diesel engine parts guides covering part-number checks, engine series, genuine OEM sourcing, stock checks, and global delivery."
   currentPath="/blog"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -52,7 +52,7 @@ const hubLabels: Record<string, string> = {
 >
   <FunnelPageView stage="awareness" label="blog-index" />
   <BreadcrumbHero
-    title="Machining Knowledge"
+    title="Engine Parts<br>Knowledge"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Blog' },
@@ -77,9 +77,9 @@ const hubLabels: Record<string, string> = {
           </nav>
 
           <header class="blog-index-hero">
-            <p class="blog-index-kicker">Engineer-written · RFQ-ready</p>
+            <p class="blog-index-kicker">Part-number focused · Inquiry-ready</p>
             <p class="blog-index-intro">
-              Practical CNC guides for engineers and procurement — tolerances, materials, DFM, supplier selection, and process trade-offs.
+              Practical MTU and diesel engine parts guides for maintenance, procurement, and service teams.
             </p>
             <div class="blog-index-stats" role="list">
               <span class="blog-index-stat" role="listitem">
@@ -92,14 +92,14 @@ const hubLabels: Record<string, string> = {
               </span>
               <span class="blog-index-stat" role="listitem">
                 <strong>Free</strong>
-                <span>DFM on every RFQ</span>
+                <span>part checks</span>
               </span>
             </div>
           </header>
 
           <div class="blog-index-rfq-strip detail-rfq-strip">
-            <p>Read the guides, then upload your drawing — free DFM feedback included on every RFQ.</p>
-            <a href="/contact/?source=blog" class="blog-index-rfq-btn detail-rfq-link">Request DFM Review</a>
+            <p>Read the guides, then send your part number, engine model, serial number, quantity, and destination.</p>
+            <a href="/contact/?source=blog" class="blog-index-rfq-btn detail-rfq-link">Check Parts</a>
           </div>
 
           <nav class="hub-list-jump-nav blog-index-jump" aria-label="On this page">
@@ -139,7 +139,7 @@ const hubLabels: Record<string, string> = {
             <p class="resource-note blog-index-more">
               <a href="/blog/guides/">View all {hubCount} guide hubs</a>
               <span aria-hidden="true">·</span>
-              <a href="/resources/dfm-checklist/">DFM checklist</a>
+              <a href="/resources/dfm-checklist/">Inquiry checklist</a>
             </p>
           </section>
 
@@ -213,7 +213,7 @@ const hubLabels: Record<string, string> = {
             <span aria-hidden="true">·</span>
             <a href="/resources/process-selection/">Process selection</a>
             <span aria-hidden="true">·</span>
-            <a href="/contact/?source=blog">Upload drawing for DFM review</a>
+            <a href="/contact/?source=blog">Send part number for review</a>
           </footer>
         </article>
       </div>
@@ -224,13 +224,13 @@ const hubLabels: Record<string, string> = {
     stage="awareness"
     topic="blog-index"
     title="Turn guides into a scoped quote"
-    text="Upload your drawing after reading — we confirm process, tolerances, and inspection scope in the quote."
+    text="Send your part number, engine model, serial number, quantity, and destination after reading — we confirm fitment and availability before quote."
     primaryLabel="Request a Quote"
     primaryHref="/contact/?source=blog"
     primaryEvent="blog_index_rfq"
-    secondaryLabel="DFM checklist"
+    secondaryLabel="Inquiry checklist"
     secondaryHref="/resources/dfm-checklist/"
-    secondaryEvent="blog_index_dfm"
+    secondaryEvent="blog_index_inquiry"
   />
 </BaseLayout>
 

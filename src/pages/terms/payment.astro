@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -9,8 +9,8 @@ import '../../styles/terms-page.css';
 ---
 
 <BaseLayout
-  title="Payment Terms — CNC Machining RFQ & Production Orders | Machining Supplier"
-  description="Payment terms for CNC machining orders: T/T wire transfer, PayPal for samples, L/C for large production POs, and invoice timing."
+  title="Payment Terms — Engine Parts RFQ & Production Orders | Machining Supplier"
+  description="Payment terms for engine parts orders: T/T wire transfer, PayPal for samples, L/C for large production POs, and invoice timing."
   currentPath="/terms/payment"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -123,7 +123,7 @@ import '../../styles/terms-page.css';
     stage="signing"
     topic="payment"
     title="Confirm payment terms on your quote"
-    text="Upload your drawing and note preferred payment structure — we confirm deposit, balance timing, and methods in the quotation response."
+    text="Send your part number and note preferred payment structure — we confirm deposit, balance timing, and methods in the quotation response."
     primaryLabel="Request a Quote"
     primaryHref="/contact/?source=payment-terms"
     primaryEvent="payment_terms_rfq"

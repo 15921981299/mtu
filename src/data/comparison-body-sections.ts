@@ -1,4 +1,4 @@
-export type ComparisonBodySection = {
+﻿export type ComparisonBodySection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
@@ -123,7 +123,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       heading: 'GD&T that shops can actually inspect',
       paragraphs: [
         'Total indicator runout (TIR / runout) measures surface variation as the part rotates relative to datums — what matters for bearings, seals, and rotating assemblies. It is checked on the shop floor with V-blocks, centers, and dial indicators in minutes.',
-        'Concentricity controls median points of features relative to a datum axis — a theoretical construct that requires CMM analysis and is difficult to hold on long shafts with form error. Many drawings over-spec concentricity where runout would control function at lower cost.',
+        'Concentricity controls median points of features relative to a datum axis — a theoretical construct that requires supplier documents analysis and is difficult to hold on long shafts with form error. Many drawings over-spec concentricity where runout would control function at lower cost.',
       ],
     },
     {
@@ -135,7 +135,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       bullets: [
         'Provide 2D drawing + STEP, datum references, and TIR or runout limit.',
         'State bearing or seal journal tolerances (h6, k6, etc.) separately from GD&T.',
-        'Note quantity and whether CMM report is required on every lot or FAI only.',
+        'Note quantity and whether supplier document report is required on every lot or FAI only.',
       ],
     },
   ],
@@ -236,7 +236,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       heading: 'General tolerances save drawing clutter — until they do not',
       paragraphs: [
         'ISO 2768 applies to dimensions without explicit tolerances. Medium class (m) is the industrial default for brackets and fabrication — linear tolerances of ±0.2 mm on 6–30 mm features are achievable in one CNC pass without special inspection.',
-        'Fine class (f) tightens those defaults (e.g. ±0.1 mm on the same range) and implies extra finish passes, slower feeds, and more CMM time. Using f-class globally when only two mating holes need tight tolerance adds 20–35% cost without functional gain.',
+        'Fine class (f) tightens those defaults (e.g. ±0.1 mm on the same range) and implies extra finish passes, slower feeds, and more supplier documents time. Using f-class globally when only two mating holes need tight tolerance adds 20–35% cost without functional gain.',
       ],
     },
     {
@@ -250,15 +250,15 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Potential vs actual performance',
       paragraphs: [
-        'Cpk measures how well a stable process fits inside specification limits using within-subgroup variation — the metric production contracts reference for ongoing SPC (typically Cpk ≥ 1.33, or 1.67 for critical aerospace characteristics).',
+        'Cpk measures how well a stable part fits inside specification limits using within-subgroup variation — the metric production contracts reference for ongoing SPC (typically Cpk ≥ 1.33, or 1.67 for critical aerospace characteristics).',
         'Ppk uses overall variation including batch-to-batch drift. It is what you see on first-article and pilot lots before the process is proven — often reported alongside Cpk on PPAP submissions.',
       ],
     },
     {
       heading: 'What to write on a machining PO',
       paragraphs: [
-        'Vague "capable process" language causes receiving disputes. State which characteristics require Cpk, sample size, measurement method (CMM vs manual), and whether Ppk on FAI is acceptable before production release.',
-        'Short runs under 30 pieces rarely produce meaningful Cpk — buyers should not demand production SPC metrics on prototype quantities without paying for extended qualification lots.',
+        'Vague "capable process" language causes receiving disputes. State which characteristics require Cpk, sample size, measurement method (supplier documents vs manual), and whether Ppk on FAI is acceptable before production release.',
+        'Short runs under 30 pieces rarely produce meaningful Cpk — buyers should not demand production SPC metrics on sample quantities without paying for extended qualification lots.',
       ],
     },
   ],
@@ -282,13 +282,13 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       heading: 'Unit cost vs iteration speed',
       paragraphs: [
         'China CNC partners typically win on unit price at production quantities and on low-MOQ runs where local shop minimums are high. Lead time includes shipping — plan 1–3 weeks ocean or 3–5 days express for samples.',
-        'Local job shops win on same-week design iteration, walk-in DFM discussions, and export-controlled programs (ITAR) that offshore partners cannot touch.',
+        'Local job shops win on same-week design iteration, walk-in inquiry prep discussions, and export-controlled programs (ITAR) that offshore partners cannot touch.',
       ],
     },
     {
       heading: 'Risk reduction checklist',
       paragraphs: [
-        'Paid FAI with CMM report before production PO, EN 10204 3.1 material certs when specified, clear INCOTERMS, and documented DFM acceptance on the first revision. Price without quality verification is not savings — it is deferred incoming QC cost.',
+        'Paid FAI with supplier document report before production PO, EN 10204 3.1 material certs when specified, clear INCOTERMS, and documented inquiry prep acceptance on the first revision. Price without quality verification is not savings — it is deferred incoming QC cost.',
       ],
     },
   ],
@@ -303,7 +303,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'When Swiss premium is not worth it',
       paragraphs: [
-        'Parts over ~32–40 mm diameter, low L/D ratios, or one-off prototypes rarely justify Swiss setup and programming premium. Conventional turning on chucked bar or plate is faster to quote and machine for large cylindrical hardware.',
+        'Parts over ~32–40 mm diameter, low L/D ratios, or one-off samples rarely justify Swiss setup and programming premium. Conventional turning on chucked bar or plate is faster to quote and machine for large cylindrical hardware.',
       ],
       bullets: [
         'State OD, length, L/D ratio, and milled feature count on the RFQ.',
@@ -312,12 +312,12 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       ],
     },
   ],
-  'prototype-vs-production-machining': [
+  'sample-vs-production-machining': [
     {
       heading: 'Different goals, different travelers',
       paragraphs: [
-        'Prototype machining optimizes time to first article: soft jaws, flexible fixturing, and DFM feedback while the design may still change. Production machining optimizes unit cost with dedicated fixtures, frozen programs, and batch sampling (SPC, Cpk) once the drawing is released.',
-        'Quoting prototype pricing on a rev-in-progress drawing is intentional — the first article may be scrapped when Rev B lands. Production quotes assume design freeze and repeat orders.',
+        'Prototype machining optimizes time to first article: soft jaws, flexible fixturing, and parts verification feedback while the design may still change. Production machining optimizes unit cost with dedicated fixtures, frozen programs, and batch sampling (SPC, Cpk) once the drawing is released.',
+        'Quoting sample pricing on a rev-in-progress drawing is intentional — the first article may be scrapped when Rev B lands. Production quotes assume design freeze and repeat orders.',
       ],
     },
     {
@@ -376,7 +376,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Volume and tolerance break-even',
       paragraphs: [
-        'Die casting amortizes tooling over thousands of parts — unit metal cost drops sharply at automotive-scale volume. CNC from bar or plate wins on prototypes, bridge tooling, and tolerances tighter than cast + trim + machine can hold without porosity at pressure faces.',
+        'Die casting amortizes tooling over thousands of parts — unit metal cost drops sharply at automotive-scale volume. CNC from bar or plate wins on samples, bridge tooling, and tolerances tighter than cast + trim + machine can hold without porosity at pressure faces.',
         'Hybrid parts (cast body, machined sealing faces) are common; the comparison is really whether the whole part should be cast or whether only a portion needs machining after casting.',
       ],
     },
@@ -391,8 +391,8 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Metal structure vs molded polymer',
       paragraphs: [
-        'Injection molding dominates high-volume plastic parts with uniform wall thickness and draft. CNC machining applies to metal parts, engineering plastics in low volume, and plastic prototypes before steel mold investment.',
-        'Machined POM, PC, or PEEK prototypes validate fit before mold cut — but production plastic at 10k+ pcs almost always shifts to molding unless the material must stay metal.',
+        'Injection molding dominates high-volume plastic parts with uniform wall thickness and draft. engine parts applies to metal parts, engineering plastics in low volume, and plastic samples before steel mold investment.',
+        'Machined POM, PC, or PEEK samples validate fit before mold cut — but production plastic at 10k+ pcs almost always shifts to molding unless the material must stay metal.',
       ],
     },
     {
@@ -406,7 +406,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Plate geometry vs formed sheet',
       paragraphs: [
-        'Sheet metal fabrication (laser/plasma cut, bend, weld) wins on enclosures, panels, and brackets made from gauge stock with bends and louvers. CNC machining wins on thick plate, precision pockets, threads, and tight flatness on monolithic parts.',
+        'Sheet metal fabrication (laser/plasma cut, bend, weld) wins on enclosures, panels, and brackets made from gauge stock with bends and louvers. engine parts wins on thick plate, precision pockets, threads, and tight flatness on monolithic parts.',
         'Drawings that show 1.5 mm formed sheet but specify milling tolerances on every edge often need process clarification — mixed BOMs are normal (fab shell + machined insert blocks).',
       ],
     },
@@ -421,7 +421,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Progressive die vs chip-making',
       paragraphs: [
-        'Stamping excels at high-volume thin-gauge parts — clips, brackets, shields — where tooling cost is amortized over 50k+ hits. CNC machining applies to thick stock, low volumes, and features stamping cannot form (deep pockets, internal threads, compound angles).',
+        'Stamping excels at high-volume thin-gauge parts — clips, brackets, shields — where tooling cost is amortized over 50k+ hits. engine parts applies to thick stock, low volumes, and features stamping cannot form (deep pockets, internal threads, compound angles).',
         'Prototype stamped parts are often laser or CNC cut first; do not compare production stamp piece price to 10-piece CNC without noting tooling NRE.',
       ],
     },
@@ -449,7 +449,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
   ],
   'cnc-machining-vs-vacuum-casting': [
     {
-      heading: 'Urethane prototypes vs metal production',
+      heading: 'Urethane samples vs metal production',
       paragraphs: [
         'Vacuum casting (urethane/silicone molds from a master pattern) produces 10–50 plastic or rubber-like parts quickly for fit and marketing photos. CNC metal or engineering plastic parts provide functional load, temperature, and tolerance validation vacuum casts cannot match.',
         'Use vacuum cast for industrial design iteration; use CNC when threads, bearings, or structural load must be tested before production tooling.',
@@ -496,7 +496,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Fit photos vs functional plastic parts',
       paragraphs: [
-        'FDM/SLA prototypes validate assembly fit quickly and cheaply. CNC in POM, PC, or nylon provides thread strength, bearing press fits, and temperature stability FDM cannot — even at quantity 5.',
+        'FDM/SLA samples validate assembly fit quickly and cheaply. CNC in POM, PC, or nylon provides thread strength, bearing press fits, and temperature stability FDM cannot — even at quantity 5.',
         'Do not accept printed parts as production equivalents unless the PO specifies additive process, material, and density — machined plastic quotes assume solid stock properties.',
       ],
     },
@@ -567,7 +567,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
     {
       heading: 'Heat treat on the drawing',
       paragraphs: [
-        'State hardness, case vs through, and which surfaces are pre- vs post-heat-treat machined. Quoting 1045 for a gear needing through-hardened teeth is a failure mode we flag in DFM review.',
+        'State hardness, case vs through, and which surfaces are pre- vs post-heat-treat machined. Quoting 1045 for a gear needing through-hardened teeth is a failure mode we flag in parts verification.',
       ],
     },
   ],
@@ -665,7 +665,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       heading: 'Solid B-rep vs legacy surfaces',
       paragraphs: [
         'STEP (AP214/AP242) carries solid models CAM can import reliably — our default for quoting milling, turning, and 5-axis. IGES surface files often fail on fillets, lose faces, or import as open shells, delaying quote until STEP arrives.',
-        'PDF drawings alone trigger DFM holds — attach STEP even when 2D print is contractually controlling.',
+        'PDF drawings alone trigger inquiry prep holds — attach STEP even when 2D print is contractually controlling.',
       ],
     },
     {
@@ -685,7 +685,7 @@ export const comparisonBodySections: Partial<Record<string, ComparisonBodySectio
       heading: 'What rush actually means on the floor',
       paragraphs: [
         'Express slots prioritize released CAM on common alloys (6061, 304, 1018) with frozen drawings — often 7–10 business days vs 15–20 standard. First-time 5-axis programs, Inconel, hard-coat anodize lots, or design revs in flight stay on standard lead even with rush fee.',
-        'Paying express on an unreleased drawing does not compress DFM iteration — freeze Rev before paying premium.',
+        'Paying express on an unreleased drawing does not compress inquiry prep iteration — freeze Rev before paying premium.',
       ],
     },
     {

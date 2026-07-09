@@ -11,64 +11,64 @@ export type BlogTagMeta = {
 export const blogTagMeta: Record<BlogTag, BlogTagMeta> = {
   process: {
     intro:
-      'Guides on CNC milling, turning, 5-axis, EDM, grinding, and when to pick each process for your part geometry and tolerance needs. Start with the process pillar hub, then drill into focused articles below.',
+      'Guides on MTU part-number checks, engine-series identification, replacement notes, and how to prepare a usable parts inquiry.',
     description:
-      'CNC process selection guides — milling vs turning, 3-axis vs 5-axis, wire EDM, Swiss turning, and grinding. Written for engineers choosing the right machining method.',
+      'MTU parts identification guides for buyers checking part numbers, serial numbers, photos, and replacement options.',
     pillarSlug: 'cnc-milling-vs-turning-whats-the-difference',
   },
   materials: {
     intro:
-      'Alloy selection, machinability trade-offs, and material-specific tolerances for aluminum, stainless, titanium, plastics, and more. Use the materials hub as your starting point.',
+      'Reference notes for engine series, spare-parts categories, and the information needed to verify fit before quotation.',
     description:
-      'CNC machining material guides — 6061 vs 7075 aluminum, 304 vs 316 stainless, titanium, PEEK, and alloy selection for RFQs.',
+      'Engine-series and parts-category guides for MTU, Detroit Diesel, Cummins, and DEUTZ inquiries.',
     pillarSlug: 'aluminum-6061-vs-7075-cnc-machining',
   },
   design: {
     intro:
-      'Design for manufacturability (DFM), drawing preparation, wall thickness, threads, and RFQ-ready CAD packages. Reduce rework before you quote.',
+      'Inquiry-preparation guides for engine model, serial number, nameplate, old-part photos, quantities, and delivery deadlines.',
     description:
-      'CNC DFM and design guides — drawing prep, tolerancing on prints, thin walls, threads, and cost-saving design changes before machining.',
+      'Parts inquiry checklists for procurement teams preparing MTU and diesel engine spare-parts requests.',
     pillarSlug: 'cnc-machining-dfm-design-guide',
   },
   quality: {
     intro:
-      'Inspection reports, surface finish specs, ISO 9001 expectations, and what quality teams should verify before production release.',
+      'Genuine, OEM manufacturer, compatible replacement, packing, and documentation notes for engine-parts buyers.',
     description:
-      'CNC quality and inspection guides — CMM reports, Ra/Rz surface finish, ISO 9001, FAI, and incoming QA checklists for machined parts.',
+      'Engine-parts sourcing and documentation guides for buyers who need reliable replacement components.',
     pillarSlug: 'cnc-machining-surface-roughness-guide',
   },
   industries: {
     intro:
-      'Application-specific machining notes for aerospace, medical, automotive, oil & gas, robotics, and other regulated or high-reliability industries.',
+      'Application-specific notes for marine, generator, rail, shipyard, industrial, power plant, and energy users.',
     description:
-      'Industry CNC machining articles — aerospace, medical devices, automotive, oil & gas, semiconductor, and robotics part requirements.',
+      'Engine-parts articles for marine, power generation, industrial, rail, and shipyard maintenance buyers.',
   },
   sourcing: {
     intro:
-      'How to vet CNC suppliers, audit quality before first PO, compare China vs local partners, and communicate specs that prevent costly misunderstandings.',
+      'How to source MTU, Detroit Diesel, Cummins, and DEUTZ parts with fewer wrong-part risks and clearer delivery expectations.',
     description:
-      'CNC supplier sourcing guides — vet China partners, pre-award audits, MOQ reality, communication checklists, and RFQ best practices.',
+      'Engine-parts sourcing guides covering part-number verification, stock checks, replacements, and global delivery.',
     pillarSlug: 'how-to-choose-cnc-machining-supplier-china',
   },
   tolerances: {
     intro:
-      'ISO 2768, achievable CNC limits, cost impact of tight tolerances, and how to specify dimensions on drawings without overpaying.',
+      'Part-number and fitment verification notes for MTU spare parts, supersessions, old parts, and engine serial numbers.',
     description:
-      'CNC tolerance guides — ISO 2768, linear and geometric tolerances, achievable limits, and how tolerance choice affects machining cost.',
+      'MTU part-number verification guides for reducing wrong-part risk before quotation and shipment.',
     pillarSlug: 'cnc-machining-tolerances-complete-guide',
   },
   prototyping: {
     intro:
-      'Rapid prototypes, revision cycles, low-volume runs, and when to move from prototype to production with the same supplier.',
+      'Service-kit, overhaul, and urgent maintenance guides for buyers who need a practical parts response quickly.',
     description:
-      'CNC prototyping guides — quick-turn aluminum parts, iteration after trade shows, and scaling from prototype to production batches.',
+      'MTU service-kit and urgent spare-parts guides for planned and emergency maintenance.',
     pillarSlug: 'cnc-machining-for-beginners-guide',
   },
   cost: {
     intro:
-      'Unit price drivers, MOQ and setup costs, lead time trade-offs, and practical ways to reduce per-piece cost without sacrificing critical specs.',
+      'Availability, lead time, stock status, shipping, and replacement-route notes for engine-parts quotations.',
     description:
-      'CNC machining cost and lead time guides — MOQ, setup charges, tolerance-driven pricing, and how to shorten quote-to-ship cycles.',
+      'Engine-parts availability and lead-time guides for global MTU, Cummins, DEUTZ, and Detroit Diesel buyers.',
     pillarSlug: 'how-to-reduce-cnc-machining-cost',
   },
 };

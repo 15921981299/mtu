@@ -1,4 +1,4 @@
-type ProductItem = {
+﻿type ProductItem = {
   slug: string;
   title: string;
   image: string;
@@ -21,9 +21,9 @@ export const products: ProductItem[] = [
   {
     slug: 'mtu-spare-parts',
     title: 'MTU Spare Parts',
-    image: '/images/cnc-machined-stainless-steel-parts.jpg',
-    mainImage: '/images/precision-cnc-machined-parts-collection.jpg',
-    secondImage: '/images/cnc-machining-inspection-report.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
+    mainImage: '/images/engine-parts-hero.png',
+    secondImage: '/images/engine-parts-verification-desk.png',
     seoTitle: 'MTU Spare Parts Supplier | Engine Family',
     h1Title: 'MTU Spare Parts',
     summary:
@@ -53,8 +53,8 @@ export const products: ProductItem[] = [
   {
     slug: 'mtu-2000-series-parts',
     title: 'MTU 2000 Series Parts',
-    image: '/images/cnc-turning-cylindrical-parts.jpg',
-    mainImage: '/images/cnc-machined-stainless-steel-parts.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
+    mainImage: '/images/engine-parts-sensors-catalog.png',
     secondImage: '/images/precision-micrometer-measurement.jpg',
     seoTitle: 'MTU 2000 Series Parts | Engine Family',
     h1Title: 'MTU 2000 Series Engine Parts',
@@ -85,9 +85,9 @@ export const products: ProductItem[] = [
   {
     slug: 'mtu-4000-series-parts',
     title: 'MTU 4000 Series Parts',
-    image: '/images/5-axis-cnc-complex-parts.jpg',
-    mainImage: '/images/cnc-machining-quality-inspection.webp',
-    secondImage: '/images/cmm-coordinate-measuring-inspection.jpg',
+    image: '/images/engine-parts-hero.png',
+    mainImage: '/images/engine-parts-verification-desk.png',
+    secondImage: '/images/engine-parts-verification-desk.png',
     seoTitle: 'MTU 4000 Series Parts | Engine Family',
     h1Title: 'MTU 4000 Series Engine Parts',
     summary:
@@ -117,8 +117,8 @@ export const products: ProductItem[] = [
   {
     slug: 'detroit-diesel-parts',
     title: 'Detroit Diesel Parts',
-    image: '/images/cnc-machined-aluminum-parts.jpg',
-    mainImage: '/images/cnc-machined-brass-copper-parts.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
+    mainImage: '/images/engine-parts-sensors-catalog.png',
     secondImage: '/images/material-sourcing-service.webp',
     seoTitle: 'Detroit Diesel Parts Supplier | Engine Family',
     h1Title: 'Detroit Diesel Engine Parts',
@@ -149,9 +149,9 @@ export const products: ProductItem[] = [
   {
     slug: 'cummins-parts',
     title: 'Cummins Parts',
-    image: '/images/precision-cnc-machined-parts-collection.jpg',
-    mainImage: '/images/cnc-turning-cylindrical-parts.jpg',
-    secondImage: '/images/cnc-machining-quality-vision.webp',
+    image: '/images/engine-parts-hero.png',
+    mainImage: '/images/engine-parts-sensors-catalog.png',
+    secondImage: '/images/engine-parts-verification-desk.png',
     seoTitle: 'Cummins Parts Supplier | Engine Family',
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
@@ -181,9 +181,9 @@ export const products: ProductItem[] = [
   {
     slug: 'deutz-parts',
     title: 'DEUTZ Parts',
-    image: '/images/cnc-machined-brass-copper-parts.jpg',
+    image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/precision-grinding-service-capability.webp',
-    secondImage: '/images/cnc-parts-quality-inspection.jpg',
+    secondImage: '/images/engine-parts-verification-desk.png',
     seoTitle: 'DEUTZ Parts Supplier | Engine Family',
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:

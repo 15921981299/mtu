@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -9,8 +9,8 @@ import '../../styles/terms-page.css';
 ---
 
 <BaseLayout
-  title="Sample & First Article Policy — CNC Machining | Machining Supplier"
-  description="CNC machining sample order policy: first article inspection, paid prototypes, revision rounds, and path from sample to production."
+  title="Sample & First Article Policy — Engine Parts | Machining Supplier"
+  description="engine parts sample order policy: first article inspection, paid samples, revision rounds, and path from sample to production."
   currentPath="/terms/samples"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -34,18 +34,18 @@ import '../../styles/terms-page.css';
           <TermsNav active="samples" />
 
           <p class="terms-intro">
-            Samples and first-article inspection (FAI) de-risk production POs. This is our standard path from prototype to volume — scope and lead time are confirmed on your quotation.
+            Samples and first-article inspection (FAI) de-risk production POs. This is our standard path from sample to volume — scope and lead time are confirmed on your quotation.
           </p>
 
           <div class="terms-meta" aria-label="Sample policy overview">
-            <span><strong>Paid prototype</strong> 1–10 pcs</span>
+            <span><strong>Paid sample</strong> 1–10 pcs</span>
             <span><strong>FAI</strong> before balance runs</span>
             <span>Golden sample retained for reorders</span>
             <span><strong>7–15</strong> business day lead time</span>
           </div>
 
           <div class="terms-rfq-strip">
-            <p>Upload your drawing for a sample quote — we confirm piece count, inspection scope, and path to production pricing.</p>
+            <p>Send your part number for a sample quote — we confirm piece count, inspection scope, and path to production pricing.</p>
             <a href="/contact/?source=sample" class="terms-rfq-link">Request Sample Quote</a>
           </div>
 
@@ -61,8 +61,8 @@ import '../../styles/terms-page.css';
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Paid prototype / sample</strong></td>
-                  <td>1–10 pieces; CMM report on critical features; one DFM revision if issue is on our side</td>
+                  <td><strong>Paid sample / sample</strong></td>
+                  <td>1–10 pieces; supplier document report on critical features; one inquiry prep revision if issue is on our side</td>
                   <td>7–15 business days depending on complexity</td>
                 </tr>
                 <tr>
@@ -80,12 +80,12 @@ import '../../styles/terms-page.css';
           </div>
 
           <nav class="terms-jump-nav" aria-label="On this page">
-            <a href="#paid-prototype" class="terms-jump-link">Paid prototype</a>
+            <a href="#paid-sample" class="terms-jump-link">Paid sample</a>
             <a href="#fai" class="terms-jump-link">FAI</a>
             <a href="#sample-to-production" class="terms-jump-link">Production transition</a>
           </nav>
 
-          <h2 id="paid-prototype">Paid Prototype / Sample Orders</h2>
+          <h2 id="paid-sample">Paid Prototype / Sample Orders</h2>
           <ul class="terms-list">
             <li><strong>100% prepayment</strong> before production — see <a href="/terms/payment/">payment terms →</a></li>
             <li>Express shipping available for urgent validation runs</li>
@@ -107,7 +107,7 @@ import '../../styles/terms-page.css';
           </ul>
 
           <div class="terms-note">
-            <strong>Quality tip:</strong> Request a redacted FAI or CMM sample before your first production PO — see our <a href="/resources/inspection-samples/">inspection report samples</a> to set the documentation standard your incoming QA team should expect.
+            <strong>Quality tip:</strong> Request a redacted FAI or supplier documents sample before your first production PO — see our <a href="/resources/inspection-samples/">inspection report samples</a> to set the documentation standard your incoming QA team should expect.
           </div>
 
           <p class="terms-related">
@@ -129,8 +129,8 @@ import '../../styles/terms-page.css';
   <BlogCta
     stage="signing"
     topic="samples"
-    title="Start with a paid prototype"
-    text="Upload your drawing for a sample quote — we confirm piece count, inspection scope, lead time, and the path to production pricing."
+    title="Start with a paid sample"
+    text="Send your part number for a sample quote — we confirm piece count, inspection scope, lead time, and the path to production pricing."
     primaryLabel="Request a Sample Quote"
     primaryHref="/contact/?source=sample"
     primaryEvent="sample_terms_rfq"

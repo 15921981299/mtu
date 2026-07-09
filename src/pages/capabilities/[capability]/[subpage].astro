@@ -52,15 +52,15 @@ const noindex = isSubpageNoindex(subpage.capabilitySlug, subpage.slug);
 
   <DetailPageShell intro={subpage.summary}>
     <div class="resource-meta" aria-label="Capability subpage facts">
-      <span><strong>DFM review</strong> Included</span>
-      <span><strong>Inspection</strong> CMM available</span>
-      <span><strong>MOQ</strong> No minimum</span>
+      <span><strong>Part check</strong> Included</span>
+      <span><strong>Verification</strong> Engine and serial number</span>
+      <span><strong>Response</strong> Fast stock review</span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Quote ${parentTitle.toLowerCase()} parts`}
-      text="Upload your drawing for process-fit review, tolerance feedback, and a quote within 24 hours."
+      text="Send your part number, engine model, serial number, quantity, and destination for availability review."
     />
 
     <div set:html={subpage.content.partOne} />
@@ -81,11 +81,11 @@ const noindex = isSubpageNoindex(subpage.capabilitySlug, subpage.slug);
     stage="selection"
     topic={subpage.slug}
     title={`Quote ${parentTitle.toLowerCase()} parts`}
-    text="Upload your drawing — we confirm process fit and return a quote within 24 hours."
-    primaryLabel="Request a Quote"
+    text="Send your part number and engine details — we confirm fitment and return a parts quote."
+    primaryLabel="Send Parts Inquiry"
     primaryHref={quoteHref}
     primaryEvent={`capability_sub_${subpage.slug}_rfq`}
-    secondaryLabel="Process comparisons"
+    secondaryLabel="Parts comparisons"
     secondaryHref="/compare/"
     secondaryEvent="capability_sub_compare"
   />

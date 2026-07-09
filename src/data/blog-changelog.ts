@@ -1,4 +1,4 @@
-/** Public revision log for accountability (E-E-A-T trust signal). */
+﻿/** Public revision log for accountability (E-E-A-T trust signal). */
 export type BlogChangelogEntry = {
   updatedAt: string;
   note: string;
@@ -15,11 +15,11 @@ export const blogChangelog: Record<string, BlogChangelogEntry> = {
   },
   'cnc-machining-dfm-design-guide': {
     updatedAt: '2026-06-12',
-    note: 'Added titanium housing DFM case ($890→$340/part); removed duplicate story blocks site-wide.',
+    note: 'Added titanium housing inquiry prep case ($890→$340/part); removed duplicate story blocks site-wide.',
   },
   'how-to-prepare-a-drawing-for-cnc-rfq': {
     updatedAt: '2026-06-12',
-    note: 'Aligned checklist with DFM hub and /resources/dfm-checklist/; clarified ISO 2768-m default tolerance.',
+    note: 'Aligned checklist with inquiry prep hub and /resources/dfm-checklist/; clarified ISO 2768-m default tolerance.',
   },
   'aluminum-6061-vs-7075-cnc-machining': {
     updatedAt: '2026-06-12',

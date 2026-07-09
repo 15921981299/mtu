@@ -1,4 +1,4 @@
-import { caseStudies } from './case-studies';
+﻿import { caseStudies } from './case-studies';
 
 /** Maps regulated industry standards to verifiable on-site proof (case studies, audits). */
 export const industryProof = [
@@ -60,7 +60,7 @@ export const industryProof = [
     caseStudySlugs: ['automotive-steel-shaft', 'automotive-ev-battery-mount'],
     compareSlugs: [
       'cpk-vs-ppk-capability',
-      'prototype-vs-production-machining',
+      'sample-vs-production-machining',
       'cmm-vs-manual-inspection',
       'express-vs-standard-lead-time',
       '4140-vs-1045-steel',
@@ -107,7 +107,7 @@ export const comparisonDirectProof = {
     label: 'China sourcing validation',
     caseStudySlugs: ['robotics-aluminum-end-effector'],
     auditBlogSlug: 'how-to-choose-cnc-machining-supplier-china',
-    auditBlogLabel: 'How to choose a China CNC supplier →',
+    auditBlogLabel: 'How to choose a China engine parts supplier →',
   },
   'outsource-vs-in-house-machining': {
     label: 'Outsource decision context',
@@ -180,7 +180,7 @@ export const comparisonDirectProof = {
     caseStudySlugs: ['oil-gas-inconel-valve-body'],
   },
   'cnc-vs-manual-machining': {
-    label: 'Production vs manual prototypes',
+    label: 'Production vs manual samples',
     caseStudySlugs: ['marine-bronze-propeller-bushing'],
   },
   'magnesium-vs-aluminum': {
@@ -259,7 +259,7 @@ export const caseStudyAuditLinks = {
 
 export const verificationDocuments = [
   {
-    label: 'CMM dimensional report',
+    label: 'supplier documents dimensional report',
     detail: 'Ballooned drawing with instrument ID, measured values, and pass/fail per characteristic.',
     sampleId: 'cmm-report',
   },

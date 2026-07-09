@@ -1,4 +1,4 @@
-export const site = {
+﻿export const site = {
   name: 'Engine Family',
   company: {
     legalName: 'Shanghai Diesel Engine Family Co., Ltd.',
@@ -49,19 +49,19 @@ export const site = {
   quality: {
     iso9001Label: 'ISO 9001 Partner Facilities',
     iso9001Description:
-      'Production runs through audited ISO 9001:2015 manufacturing partners. We document inspection, material traceability, and DFM review on every RFQ — add your certificate ID here when issued to this entity.',
+      'Engine parts are sourced through reviewed suppliers and manufacturing partners. We document part-number checks, supplier communication, packing requirements, and shipment details for qualified inquiries.',
     iso9001CertNumber: '',
     iso9001CertBody: '',
     /** Shown on certifications when no direct cert number is on file. */
     iso9001VerificationNote:
-      'Partner-facility ISO 9001:2015 certificates and audit summaries are available on request for qualified RFQs.',
+      'Available supplier documents and quality notes can be requested for qualified parts inquiries.',
     /** Industry workflows we support — link to /standards/ pages, not cert claims we cannot verify. */
     industryPrograms: [
-      { label: 'Medical device traceability', href: '/standards/medical-grade-parts/' },
-      { label: 'Aerospace FAI & material certs', href: '/standards/aerospace-grade-parts/' },
-      { label: 'Automotive PPAP documentation', href: '/standards/automotive-ppap-parts/' },
-      { label: 'Oil & gas NACE sour service', href: '/standards/oil-gas-nace-parts/' },
-      { label: 'Food-grade hygienic design', href: '/standards/food-grade-parts/' },
+      { label: 'Marine engine service', href: '/industries/marine/' },
+      { label: 'Power generation parts', href: '/industries/power-generation/' },
+      { label: 'Industrial engine maintenance', href: '/industries/industrial-engines/' },
+      { label: 'Rail engine parts', href: '/industries/rail/' },
+      { label: 'Shipyard repair support', href: '/industries/shipyards-repair/' },
     ],
     /** Factory process video + optional YouTube tour (fills VideoObject on proof pages). */
     inspectionMedia: {
@@ -144,7 +144,7 @@ export function serviceSchema(service: {
   };
 }
 
-/** schema.org Product markup for custom machined parts (quote-based, no list price). */
+/** schema.org Product markup for engine parts and quote-based spare-parts inquiries. */
 export function productSchema(product: {
   name: string;
   description: string;
@@ -153,9 +153,11 @@ export function productSchema(product: {
   material?: string;
   sku?: string;
   model?: string;
+  brandName?: string;
+  category?: string;
 }) {
   const description = product.material
-    ? `${product.description} Materials: ${product.material}.`
+    ? `${product.description} Reference groups: ${product.material}.`
     : product.description;
   const sku = product.sku ?? product.model;
   return {
@@ -167,8 +169,9 @@ export function productSchema(product: {
     image: product.image,
     brand: {
       '@type': 'Brand',
-      name: site.name,
+      name: product.brandName ?? site.name,
     },
+    ...(product.category ? { category: product.category } : {}),
     manufacturer: {
       '@type': 'Organization',
       name: site.name,
@@ -181,7 +184,7 @@ export function productSchema(product: {
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       description:
-        'Custom quote based on drawing, material, quantity, tolerance, finish, and inspection requirements.',
+        'Quote based on part number, engine model, serial number, quantity, stock status, and shipping destination.',
       seller: {
         '@type': 'Organization',
         name: site.name,
@@ -297,7 +300,7 @@ export function caseStudySchema(study: {
     articleSection: study.industry,
     about: {
       '@type': 'Thing',
-      name: `${study.industry} CNC machining`,
+      name: `${study.industry} engine parts`,
     },
     author: {
       '@type': 'Person',

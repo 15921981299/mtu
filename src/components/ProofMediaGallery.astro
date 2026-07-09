@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Shop-floor proof media',
-  intro = 'Factory, inspection, packaging, sample, and RFQ workflow visuals buyers can review before sending a drawing.',
+  title = 'Parts sourcing proof media',
+  intro = 'Parts verification, packing, sample, and inquiry workflow visuals buyers can review before sending a part number.',
   categories,
   limit,
   compact = false,
@@ -22,7 +22,7 @@ const media = getProofMedia(categories).slice(0, limit ?? undefined);
 
 <section class:list={['proof-media', { 'proof-media--compact': compact }]}>
   <div class="proof-media__header">
-    <p class="proof-media__kicker">Supplier proof</p>
+    <p class="proof-media__kicker">Parts supplier proof</p>
     <h2>{title}</h2>
     <p>{intro}</p>
   </div>

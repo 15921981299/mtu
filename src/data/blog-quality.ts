@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Content quality governance (Panda / HCU / AI Mode).
  * - Pillars: hub pages that anchor topic clusters (Hub & Spoke).
  * - blogIndexWhitelist: ~40 curated URLs for index + sitemap; all other blog posts are noindex, follow.
@@ -16,9 +16,9 @@ export type BlogPillar = {
 export const blogPillars: BlogPillar[] = [
   {
     id: 'tolerances',
-    title: 'CNC Tolerances & Specifications',
+    title: 'MTU Part Number Verification',
     slug: 'cnc-machining-tolerances-complete-guide',
-    description: 'Standard vs precision tolerances, ISO 2768, cost trade-offs, and how to specify on drawings.',
+    description: 'How to check part numbers, serial numbers, supersessions, photos, and fitment before ordering.',
     spokes: [
       'iso-2768-tolerances-explained',
       'how-to-specify-tolerances-on-cnc-drawings',
@@ -29,9 +29,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'sourcing',
-    title: 'Choosing & Auditing CNC Suppliers',
+    title: 'Engine Parts Sourcing',
     slug: 'how-to-choose-cnc-machining-supplier-china',
-    description: 'Vet China CNC partners, spot trading companies, and run pre-award quality audits.',
+    description: 'How to source MTU, Cummins, DEUTZ, and Detroit Diesel parts with clearer stock and delivery checks.',
     spokes: [
       'china-vs-local-cnc-machining-supplier',
       'how-to-audit-cnc-supplier-quality-before-first-order',
@@ -45,9 +45,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'dfm',
-    title: 'Design for Manufacturability (DFM)',
+    title: 'Parts Inquiry Preparation',
     slug: 'cnc-machining-dfm-design-guide',
-    description: 'Design rules that cut cost and rework — cavities, walls, threads, and setup minimization.',
+    description: 'What to send with an RFQ: part number, engine model, serial number, photos, quantity, and destination.',
     spokes: [
       'how-to-prepare-a-drawing-for-cnc-rfq',
       'what-is-dfm-design-for-manufacturing',
@@ -58,9 +58,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'materials',
-    title: 'CNC Machining Materials',
+    title: 'Engine Series and Part Categories',
     slug: 'aluminum-6061-vs-7075-cnc-machining',
-    description: 'Alloy selection, machinability, and when to upgrade from 6061 to 7075, stainless, or titanium.',
+    description: 'Series, applications, and common spare-parts categories for diesel engine buyers.',
     spokes: [
       'stainless-steel-304-vs-316-cnc-machining',
       'titanium-cnc-machining-guide',
@@ -72,9 +72,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'process',
-    title: 'CNC Processes & Machine Selection',
+    title: 'MTU Parts Identification',
     slug: 'cnc-milling-vs-turning-whats-the-difference',
-    description: 'Pick milling, turning, 5-axis, EDM, or grinding based on geometry and tolerance needs.',
+    description: 'Use part numbers, nameplates, old-part photos, and engine ratings to identify the right item.',
     spokes: [
       'what-is-5-axis-cnc-machining',
       '3-axis-vs-5-axis-cnc-machining',
@@ -86,9 +86,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'cost-leadtime',
-    title: 'Cost, MOQ & Lead Time',
+    title: 'Availability, Cost and Lead Time',
     slug: 'how-to-reduce-cnc-machining-cost',
-    description: 'Tolerance-driven cost, MOQ reality, and how to shorten quote-to-ship cycles.',
+    description: 'How stock status, replacement route, packing, and shipping destination affect quotation timing.',
     spokes: [
       'cnc-machining-lead-time-guide',
       'how-to-reduce-cnc-machining-lead-time',
@@ -99,9 +99,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'quality',
-    title: 'Inspection & Quality Control',
+    title: 'Genuine and OEM Parts',
     slug: 'cnc-machining-surface-roughness-guide',
-    description: 'Ra/Rz specs, CMM reports, FAI, and what to verify before production release.',
+    description: 'How to compare genuine, OEM manufacturer, compatible, and replacement options before purchase.',
     spokes: [
       'how-to-read-cnc-inspection-report',
       'what-is-iso-9001-cnc-machining',
@@ -113,9 +113,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'finishes',
-    title: 'Surface Finishes & Coatings',
+    title: 'Service Kits and Consumables',
     slug: 'surface-finishes-for-cnc-machined-parts',
-    description: 'Anodize, powder coat, passivation, and how finish choice affects lead time.',
+    description: 'Filters, oils, coolants, seals, gaskets, and routine maintenance parts for MTU engines.',
     spokes: [
       'anodizing-vs-powder-coating-cnc-parts',
       'how-to-select-cnc-surface-finish',
@@ -124,9 +124,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'drawings',
-    title: 'Drawings, GD&T & Standards',
+    title: 'Documentation and Nameplates',
     slug: 'how-to-read-cnc-machining-drawing',
-    description: 'Read machining drawings, GD&T callouts, and ISO vs ANSI conventions.',
+    description: 'How to use manuals, nameplates, part photos, and shipping documents during spare-parts sourcing.',
     spokes: [
       'iso-vs-ansi-drawing-standards-cnc',
       'understanding-gdt-symbols-cnc-parts',
@@ -136,9 +136,9 @@ export const blogPillars: BlogPillar[] = [
   },
   {
     id: 'getting-started',
-    title: 'CNC Machining Basics',
+    title: 'Engine Parts Basics',
     slug: 'cnc-machining-for-beginners-guide',
-    description: 'Start here if you are new to RFQs, processes, and supplier communication.',
+    description: 'Start here if you are preparing MTU or diesel engine parts inquiries for the first time.',
     spokes: [
       'cnc-machining-terminology-50-terms',
       'understanding-cnc-machine-types',
@@ -206,7 +206,7 @@ export function isBlogIndexWhitelisted(slug: string): boolean {
 /** DTC-style best/top listicles and thin industry supplier templates — noindex, follow. */
 export const blogLowIntentSupplierSlugs = new Set([
   'top-cnc-machining-companies-for-aerospace-parts',
-  'best-cnc-shops-for-aluminum-prototypes',
+  'best-cnc-shops-for-aluminum-samples',
   'best-cnc-machining-companies-china-comparison-guide',
   'top-10-materials-for-cnc-machined-parts',
   'cnc-turning-suppliers-for-precision-shafts',

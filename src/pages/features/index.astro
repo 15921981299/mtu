@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -14,7 +14,7 @@ const featureIcons: Record<string, string> = {
   'corrosion-resistant-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   'lightweight-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.5 4.5H18l-3.5 2.5 1.5 4.5L12 12l-4 2.5 1.5-4.5L6 7.5h4.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
   'high-precision-parts': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
-  'quick-turn-prototypes': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  'quick-turn-samples': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   'no-moq-small-batch': `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 
@@ -23,7 +23,7 @@ const defaultFeatureIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" h
 
 <BaseLayout
   title="CNC Parts by Feature — Hardened, Precision Ground, Threaded & More | Machining Supplier"
-  description="Browse CNC machined parts by feature: hardened & heat-treated, precision ground, threaded, corrosion-resistant, lightweight, high-precision, quick-turn prototypes, and no-MOQ small batch."
+  description="Browse diesel engine parts by feature: hardened & heat-treated, precision ground, threaded, corrosion-resistant, lightweight, high-precision, quick-turn samples, and no-MOQ small batch."
   currentPath="/features"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -55,7 +55,7 @@ const defaultFeatureIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" h
           </nav>
 
           <p class="resource-intro">
-            Find CNC parts by the features that matter — hardness, precision grinding, corrosion resistance, lightweight design, and prototype-friendly MOQ.
+            Find CNC parts by the features that matter — hardness, precision grinding, corrosion resistance, lightweight design, and sample-friendly MOQ.
           </p>
 
           <div class="resource-meta">
@@ -112,7 +112,7 @@ const defaultFeatureIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" h
     stage="selection"
     topic="features-index"
     title="Quote parts with your feature requirements"
-    text="Upload your drawing with hardness, finish, and tolerance callouts — we confirm process fit in the quotation response."
+    text="Send your part number with hardness, finish, and tolerance callouts — we confirm part fit in the quotation response."
     primaryLabel="Request a Quote"
     primaryHref="/contact/?source=features"
     primaryEvent="features_index_rfq"

@@ -65,7 +65,7 @@ const subpages = capabilitySubpages
     <img
       slot="hero"
       src={service.mainImage}
-      alt={`${service.title} — CNC machining`}
+      alt={`${service.title} engine parts support`}
       width="1400"
       height="692"
       loading="eager"
@@ -73,20 +73,20 @@ const subpages = capabilitySubpages
       decoding="async"
     />
     <div class="resource-meta">
-      <span><strong>DFM review</strong> Included</span>
-      <span><strong>Inspection</strong> CMM on every order</span>
-      <span><strong>MOQ</strong> No minimum</span>
+      <span><strong>Part check</strong> Included</span>
+      <span><strong>Verification</strong> Part number and serial number</span>
+      <span><strong>Response</strong> Fast stock review</span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
-      title="Quote this process"
-      text="Upload your drawing for process-fit review, tolerance feedback, and a quote within 24 hours."
+      title="Quote this parts scope"
+      text="Send your part number, engine model, serial number, quantity, and destination for availability review."
     />
 
     <div set:html={content.partOne} />
     <figure class="detail-page-figure">
-      <img src={service.secondImage} alt={`${service.title} — production examples`} width="1200" height="662" loading="lazy" decoding="async" />
+      <img src={service.secondImage} alt={`${service.title} parts examples`} width="1200" height="662" loading="lazy" decoding="async" />
     </figure>
     <div set:html={content.partTwo} />
     <SubpageLinks title={`${service.title} guides`} items={subpages} />
@@ -95,9 +95,9 @@ const subpages = capabilitySubpages
     <p class="resource-note detail-page-back">
       <a href="/capabilities/">All capabilities</a>
       ·
-      <a href="/resources/process-selection/">Process selection</a>
+      <a href="/resources/process-selection/">Part category guide</a>
       ·
-      <a href="/resources/dfm-checklist/">DFM checklist</a>
+      <a href="/resources/dfm-checklist/">Inquiry checklist</a>
       ·
       <a href={quoteHref}>Request a quote</a>
     </p>
@@ -107,12 +107,12 @@ const subpages = capabilitySubpages
   <BlogCta
     stage="selection"
     topic={service.slug}
-    title="Quote this process"
-    text="Upload your drawing for process-fit review, tolerance feedback, and a quote within 24 hours."
-    primaryLabel="Request a Quote"
+    title="Quote this parts scope"
+    text="Send your part number, engine model, serial number, quantity, and destination for availability review."
+    primaryLabel="Send Parts Inquiry"
     primaryHref={quoteHref}
     primaryEvent={`capability_${service.slug}_rfq`}
-    secondaryLabel="Process selection guide"
+    secondaryLabel="Part category guide"
     secondaryHref="/resources/process-selection/"
     secondaryEvent="capability_process_selection"
   />

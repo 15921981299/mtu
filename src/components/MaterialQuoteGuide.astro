@@ -10,30 +10,30 @@ const materialLabel = materialName.toLowerCase();
 
 <section class="material-quote-guide" aria-labelledby={`material-quote-guide-${materialLabel.replace(/[^a-z0-9]+/g, '-')}`}>
   <div class="material-quote-guide__header">
-    <p class="material-quote-guide__eyebrow">RFQ decision guide</p>
+    <p class="material-quote-guide__eyebrow">Parts inquiry guide</p>
     <h2 id={`material-quote-guide-${materialLabel.replace(/[^a-z0-9]+/g, '-')}`}>How to specify {materialLabel} parts for a clean quote</h2>
     <p>
-      A material page should not leave buyers guessing. Send these details with your drawing and we can confirm grade,
-      process route, finishing, inspection scope, and cost drivers before quoting.
+      A reference page should not leave buyers guessing. Send these details with your part number and engine information so we can confirm fitment,
+      sourcing route, documentation scope, and delivery risk before quoting.
     </p>
   </div>
   <div class="material-quote-guide__grid">
     <article>
-      <h3>Grade and condition</h3>
-      <p>Specify the exact grade and temper when it matters. Common options here: {grades || 'standard stocked grades'}.</p>
+      <h3>Part number and engine</h3>
+      <p>Specify the exact part number, engine model, serial number, and application when it matters. Common reference group: {grades || 'standard engine part categories'}.</p>
     </article>
     <article>
-      <h3>Functional surfaces</h3>
-      <p>Mark bearing fits, sealing faces, threaded holes, cosmetic faces, and any areas where burrs or tool marks are unacceptable.</p>
+      <h3>Photos and markings</h3>
+      <p>Send nameplate photos, old-part markings, connector views, port orientation, and installed position when available.</p>
     </article>
     <article>
-      <h3>Finish and documentation</h3>
-      <p>Tell us if you need anodizing, plating, passivation, heat treatment, CMM report, material certificate, CoC, or shipment photos.</p>
+      <h3>Documents and shipment</h3>
+      <p>Tell us if you need supplier documents, packing photos, invoice details, customs notes, or shipment photos.</p>
     </article>
   </div>
   <div class="material-quote-guide__footer">
     <strong>Best first email:</strong>
-    2D PDF + STEP file + quantity + material grade + finish + target lead time + destination country.
+    Part number + engine model + serial number + quantity + target delivery date + destination country.
   </div>
 </section>
 

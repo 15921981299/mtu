@@ -1,4 +1,4 @@
-import type { AuthorSlug } from './blog-authors';
+﻿import type { AuthorSlug } from './blog-authors';
 
 export type CaseStudyBeforeAfter = {
   metric: string;
@@ -35,7 +35,7 @@ export type CaseStudyEnrichment = {
 };
 
 export const caseStudyDisclaimer =
-  'Project narratives are anonymized composites based on real production work. Metrics reflect documented inspection and customer feedback; outcomes depend on drawing quality, material spec, and cooperation during DFM review. Customer quotes are paraphrased from RFQ and post-delivery feedback with identifying details removed.';
+  'Project narratives are anonymized composites based on real production work. Metrics reflect documented inspection and customer feedback; outcomes depend on drawing quality, material spec, and cooperation during parts verification. Customer quotes are paraphrased from RFQ and post-delivery feedback with identifying details removed.';
 
 export const caseStudyExpectationNote =
   'Results shown assume customer-approved drawings, timely design freeze on production lots, and standard material availability. Your tolerances, finish, and volume may shift lead time and cost.';

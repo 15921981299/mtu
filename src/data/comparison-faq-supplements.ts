@@ -1,23 +1,23 @@
-/** Extra FAQs appended to indexed comparison pages (target 4 total per whitelist slug). */
+﻿/** Extra FAQs appended to indexed comparison pages (target 4 total per whitelist slug). */
 export const comparisonFaqSupplements: Partial<
   Record<string, { question: string; answer: string }[]>
 > = {
   // +3 each (had 1 FAQ)
-  'prototype-vs-production-machining': [
+  'sample-vs-production-machining': [
     {
-      question: 'When should I switch from prototype to production pricing?',
+      question: 'When should I switch from sample to production pricing?',
       answer:
         'After FAI approval and before ordering 50+ identical pieces — production quotes assume frozen drawings, dedicated fixtures, and batch sampling.',
     },
     {
-      question: 'Do prototype parts need the same material certs as production?',
+      question: 'Do sample parts need the same material certs as production?',
       answer:
-        'Only if you are validating cert traceability or PPAP path — otherwise prototype lots often use the same alloy without full EN 10204 until production PO.',
+        'Only if you are validating cert traceability or PPAP path — otherwise sample lots often use the same alloy without full EN 10204 until production PO.',
     },
     {
-      question: 'Can I expect the same unit price on prototype and production lots?',
+      question: 'Can I expect the same unit price on sample and production lots?',
       answer:
-        'No. Prototype pricing includes flexible setup and DFM iteration; production spreads fixture and program cost across quantity — unit price typically drops 30–60% at 100+ pcs.',
+        'No. Prototype pricing includes flexible setup and inquiry prep iteration; production spreads fixture and program cost across quantity — unit price typically drops 30–60% at 100+ pcs.',
     },
   ],
   'turning-vs-milling-cost': [
@@ -75,7 +75,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'At what volume does die casting beat CNC on unit cost?',
       answer:
-        'Often above 1,000–5,000 pcs depending on part size and die cost — prototypes and bridge quantities stay on CNC until volume amortizes tooling.',
+        'Often above 1,000–5,000 pcs depending on part size and die cost — samples and bridge quantities stay on CNC until volume amortizes tooling.',
     },
     {
       question: 'What tolerances force CNC instead of as-cast?',
@@ -267,12 +267,12 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'When should I keep machining local instead of offshore?',
       answer:
-        'Same-week design iteration, ITAR/export-controlled programs, and walk-in DFM — local shops win on speed and compliance, not always on unit price.',
+        'Same-week design iteration, ITAR/export-controlled programs, and walk-in inquiry prep — local shops win on speed and compliance, not always on unit price.',
     },
     {
       question: 'What documents reduce offshore supplier risk?',
       answer:
-        'Paid FAI with CMM report, EN 10204 3.1 when specified, clear INCOTERMS, and frozen drawing revision before production PO.',
+        'Paid FAI with supplier document report, EN 10204 3.1 when specified, clear INCOTERMS, and frozen drawing revision before production PO.',
     },
   ],
   'step-file-vs-iges': [
@@ -284,7 +284,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'Is PDF enough for a CNC quote?',
       answer:
-        'No for complex 3D — PDF alone triggers DFM holds. Attach STEP solid plus PDF with tolerances, finishes, and notes.',
+        'No for complex 3D — PDF alone triggers inquiry prep holds. Attach STEP solid plus PDF with tolerances, finishes, and notes.',
     },
     {
       question: 'Which STEP version should I export?',
@@ -306,7 +306,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'Should I freeze the drawing before requesting express?',
       answer:
-        'Yes — express on a rev-in-progress drawing does not compress DFM iteration; freeze Rev before paying premium.',
+        'Yes — express on a rev-in-progress drawing does not compress inquiry prep iteration; freeze Rev before paying premium.',
     },
   ],
   'carbide-vs-hss-tooling': [
@@ -330,7 +330,7 @@ export const comparisonFaqSupplements: Partial<
   // +2 each (had 2 FAQs)
   'cnc-machining-vs-injection-molding': [
     {
-      question: 'Can CNC plastic parts replace injection molding prototypes?',
+      question: 'Can CNC plastic parts replace injection molding samples?',
       answer:
         'Yes — machined POM, PC, or PEEK validates fit before steel mold investment; production at 10k+ pcs shifts to molding unless metal is required.',
     },
@@ -361,7 +361,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'Should I compare stamp piece price to 10-piece CNC?',
       answer:
-        'No — include stamping die NRE and amortize over annual volume; prototype stamped parts are often laser or CNC cut first.',
+        'No — include stamping die NRE and amortize over annual volume; sample stamped parts are often laser or CNC cut first.',
     },
   ],
   'cnc-machining-vs-extrusion': [
@@ -380,7 +380,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'Are vacuum cast parts interchangeable with CNC metal?',
       answer:
-        'No — urethane/silicone molds produce plastic-like prototypes for fit and photos; CNC metal validates load, temperature, and tolerance.',
+        'No — urethane/silicone molds produce plastic-like samples for fit and photos; CNC metal validates load, temperature, and tolerance.',
     },
     {
       question: 'How many parts does vacuum casting produce per mold?',
@@ -454,7 +454,7 @@ export const comparisonFaqSupplements: Partial<
     {
       question: 'How do I know if my part needs 5-axis from the drawing alone?',
       answer:
-        'Look for features on three or more faces with tight positional tolerances — upload STEP and we confirm setup count in DFM notes.',
+        'Look for features on three or more faces with tight positional tolerances — upload STEP and we confirm setup count in inquiry prep notes.',
     },
   ],
   'wire-edm-vs-cnc-milling': [

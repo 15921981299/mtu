@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -75,15 +75,15 @@ const subpages = industrySubpages
       decoding="async"
     />
     <div class="resource-meta">
-      <span><strong>DFM review</strong> Free with quote</span>
+      <span><strong>parts verification</strong> Free with quote</span>
       <span><strong>Lead time</strong> 7–15 days typical</span>
-      <span><strong>Inspection</strong> CMM reports included</span>
+      <span><strong>Inspection</strong> supplier document reports included</span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Quote ${item.title.toLowerCase()} parts`}
-      text="Upload your drawing for industry-specific DFM feedback, compliance notes, and a quote within 24 hours."
+      text="Send your part number for industry-specific parts verification feedback, compliance notes, and a quote within 24 hours."
     />
 
     <div set:html={item.content.partOne} />
@@ -114,7 +114,7 @@ const subpages = industrySubpages
     stage="selection"
     topic={item.slug}
     title={`Quote ${item.title.toLowerCase()} machining`}
-    text="Upload your drawing with industry and compliance notes — we confirm scope and respond within 24 hours."
+    text="Send your part number with industry and compliance notes — we confirm scope and respond within 24 hours."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`industry_${item.slug}_rfq`}

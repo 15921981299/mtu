@@ -126,7 +126,7 @@ const primaryTag = post.tags[0];
           )}
 
           <div class="resource-meta" aria-label="Buyer resources">
-            <span><strong>DFM review</strong> Free with quote</span>
+            <span><strong>Part check</strong> Free with quote</span>
             <span><strong>Response</strong> Within 24 hours</span>
             {comparison && <span><strong>Compare</strong> Decision table linked</span>}
           </div>
@@ -137,7 +137,7 @@ const primaryTag = post.tags[0];
             <DetailRfqStrip
               quoteHref={quoteHref}
               title="Ready to quote?"
-              text="Upload your drawing — we apply the guidance from this article during DFM review and return an engineer-led quote."
+              text="Send your part number and engine details — we apply the guidance from this article during review and return a parts quote."
             />
           </div>
 
@@ -198,12 +198,12 @@ const primaryTag = post.tags[0];
   <BlogCta
     post={post}
     title="Turn this guide into a scoped quote"
-    text="Upload your drawing — we confirm process, tolerances, and inspection scope in the quote."
+    text="Send your part number, engine model, serial number, quantity, and destination — we confirm fitment, stock route, and documentation scope in the quote."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`blog_${post.slug}_rfq`}
-    secondaryLabel="DFM checklist"
+    secondaryLabel="Inquiry checklist"
     secondaryHref="/resources/dfm-checklist/"
-    secondaryEvent={`blog_${post.slug}_dfm`}
+    secondaryEvent={`blog_${post.slug}_inquiry`}
   />
 </BaseLayout>

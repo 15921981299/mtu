@@ -1,4 +1,4 @@
-export const features = [
+﻿export const features = [
   {
     slug: "hardened-parts",
     title: "MTU Part Number Verification: Hardened Parts",
@@ -84,7 +84,7 @@ export const features = [
     },
   },
   {
-    slug: "quick-turn-prototypes",
+    slug: "quick-turn-samples",
     title: "Global Engine Parts Delivery: Quick Turn MTUs",
     seoTitle: "Global Engine Parts Delivery: Quick Turn MTUs | Engine Family",
     h1Title: "Global Engine Parts Delivery: Quick Turn MTUs",

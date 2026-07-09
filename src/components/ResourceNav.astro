@@ -25,23 +25,23 @@ const { active } = Astro.props;
 
 const guides = [
   { id: 'by-role', label: 'By Role', href: '/resources/by-role/' },
-  { id: 'dfm-checklist', label: 'DFM Checklist', href: '/resources/dfm-checklist/' },
-  { id: 'cnc-tolerance-guide', label: 'Tolerance', href: '/resources/cnc-tolerance-guide/' },
-  { id: 'material-certificates', label: 'Material Certs', href: '/resources/material-certificates/' },
-  { id: 'inspection-samples', label: 'Inspection Samples', href: '/resources/inspection-samples/' },
-  { id: 'cnc-pricing-guide', label: 'Pricing', href: '/resources/cnc-pricing-guide/' },
-  { id: 'process-selection', label: 'Process', href: '/resources/process-selection/' },
+  { id: 'dfm-checklist', label: 'Inquiry Checklist', href: '/resources/dfm-checklist/' },
+  { id: 'cnc-tolerance-guide', label: 'Part Fitment', href: '/resources/cnc-tolerance-guide/' },
+  { id: 'material-certificates', label: 'MTU Lookup', href: '/resources/material-certificates/' },
+  { id: 'inspection-samples', label: 'Series Guide', href: '/resources/inspection-samples/' },
+  { id: 'cnc-pricing-guide', label: 'Lead Time', href: '/resources/cnc-pricing-guide/' },
+  { id: 'process-selection', label: 'Part Category', href: '/resources/process-selection/' },
 ] as const;
 
 const tools = [
-  { id: 'surface-finish-converter', label: 'Finish Converter', href: '/resources/surface-finish-converter/' },
-  { id: 'tolerance-fits-calculator', label: 'Fits Calculator', href: '/resources/tolerance-fits-calculator/' },
-  { id: 'tap-drill-chart', label: 'Tap & Drill Chart', href: '/resources/tap-drill-chart/' },
-  { id: 'hardness-conversion-chart', label: 'Hardness Chart', href: '/resources/hardness-conversion-chart/' },
-  { id: 'metal-weight-calculator', label: 'Weight Calculator', href: '/resources/metal-weight-calculator/' },
-  { id: 'feeds-and-speeds-calculator', label: 'Feeds & Speeds', href: '/resources/feeds-and-speeds-calculator/' },
-  { id: 'bolt-circle-calculator', label: 'Bolt Circle', href: '/resources/bolt-circle-calculator/' },
-  { id: 'cnc-cost-calculator', label: 'Cost Calculator', href: '/resources/cnc-cost-calculator/' },
+  { id: 'surface-finish-converter', label: 'Gasket Notes', href: '/resources/surface-finish-converter/' },
+  { id: 'tolerance-fits-calculator', label: 'Sensor Notes', href: '/resources/tolerance-fits-calculator/' },
+  { id: 'tap-drill-chart', label: 'Fuel Parts', href: '/resources/tap-drill-chart/' },
+  { id: 'hardness-conversion-chart', label: 'Overhaul Parts', href: '/resources/hardness-conversion-chart/' },
+  { id: 'metal-weight-calculator', label: 'Freight Planning', href: '/resources/metal-weight-calculator/' },
+  { id: 'feeds-and-speeds-calculator', label: 'Stock Check', href: '/resources/feeds-and-speeds-calculator/' },
+  { id: 'bolt-circle-calculator', label: 'Pump Fitment', href: '/resources/bolt-circle-calculator/' },
+  { id: 'cnc-cost-calculator', label: 'Parts Cost', href: '/resources/cnc-cost-calculator/' },
 ] as const;
 ---
 
@@ -62,8 +62,8 @@ const tools = [
   </div>
 
   <div class="resource-nav-group">
-    <span class="resource-nav-group-label">Calculators &amp; Tools</span>
-    <nav class="resource-nav" aria-label="Engineering calculators and tools">
+    <span class="resource-nav-group-label">Reference Topics</span>
+    <nav class="resource-nav" aria-label="Engine parts reference topics">
       {tools.map((item) => (
         <a
           href={item.href}

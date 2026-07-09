@@ -1,4 +1,4 @@
-import type { BlogIntent } from './blog';
+﻿import type { BlogIntent } from './blog';
 
 /** Six-stage B2B inquiry funnel (article stages 1–6 mapped to site page types). */
 export type FunnelStage =
@@ -49,17 +49,17 @@ export type FunnelCtaConfig = {
 export const funnelCtaByStage: Record<FunnelStage, FunnelCtaConfig> = {
   awareness: {
     title: 'Have a Real Part to Source?',
-    text: 'Send a drawing-ready RFQ for engineer-led DFM review within 24 hours - or use our checklist first if the specification is not ready.',
+    text: 'Send a drawing-ready RFQ for engineer-led parts verification within 24 hours - or use our checklist first if the specification is not ready.',
     primaryLabel: 'Request a Quote',
     primaryHref: '/contact/?source=blog',
     primaryEvent: 'rfq_cta_click',
-    secondaryLabel: 'DFM Checklist',
+    secondaryLabel: 'Inquiry Checklist',
     secondaryHref: '/resources/dfm-checklist/',
     secondaryEvent: 'resource_download',
   },
   comparison: {
     title: 'Need a Supplier Who Will Challenge the Drawing?',
-    text: 'Send your drawing - we recommend the right process, material, or finish, and we will push back when a requirement adds cost without function.',
+    text: 'Send your part number - we recommend the right process, material, or finish, and we will push back when a requirement adds cost without function.',
     primaryLabel: 'Request Engineering Review',
     primaryHref: '/contact/?source=comparison',
     primaryEvent: 'consultation_request',
@@ -69,7 +69,7 @@ export const funnelCtaByStage: Record<FunnelStage, FunnelCtaConfig> = {
   },
   selection: {
     title: 'Bring Us a Serious RFQ',
-    text: 'Tell us your industry, material, tolerance, and quantity - we respond with an engineer-led quote when the project is technically and commercially clear.',
+    text: 'Tell us your industry, material, tolerance, and quantity - we respond with an parts quote when the project is technically and commercially clear.',
     primaryLabel: 'Submit Qualified RFQ',
     primaryHref: '/contact/?source=selection',
     primaryEvent: 'selection_consult_request',
@@ -79,7 +79,7 @@ export const funnelCtaByStage: Record<FunnelStage, FunnelCtaConfig> = {
   },
   quote: {
     title: 'Ready for a Professional Quote?',
-    text: 'Upload your CAD drawing for DFM review and pricing. We prioritize clear specs, serious buyers, and projects where quality matters.',
+    text: 'Send your engine details for parts verification and pricing. We prioritize clear specs, serious buyers, and projects where quality matters.',
     primaryLabel: 'Request a Quote',
     primaryHref: '/contact/',
     primaryEvent: 'rfq_cta_click',
@@ -96,7 +96,7 @@ export const funnelCtaByStage: Record<FunnelStage, FunnelCtaConfig> = {
   },
   service: {
     title: 'Drawing Ready? Send a Qualified RFQ',
-    text: 'Upload your CAD for engineer-led DFM feedback - or review inspection report samples before deciding whether we are the right supplier.',
+    text: 'Send your part number for engineer-led parts verification feedback - or review inspection report samples before deciding whether we are the right supplier.',
     primaryLabel: 'Request a Quote',
     primaryHref: '/contact/?source=resource',
     primaryEvent: 'rfq_cta_click',

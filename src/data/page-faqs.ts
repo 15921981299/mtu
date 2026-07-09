@@ -1,4 +1,4 @@
-export const productFaqs = [
+﻿export const productFaqs = [
   {
     question: 'Which diesel engine parts can you supply?',
     answer:
@@ -33,9 +33,9 @@ export const productFaqs = [
 
 export const materialFaqs = [
   {
-    question: 'Which aluminum grades do you recommend for machined parts?',
+    question: 'Which aluminum grades do you recommend for engine parts?',
     answer:
-      '6061-T6 is the default for general structural parts — good machinability and anodize response. 7075-T6 is used when higher strength is required. 5052 works well for sheet-style parts and weldments. We will confirm grade fit during DFM review.',
+      '6061-T6 is the default for general structural parts — good machinability and anodize response. 7075-T6 is used when higher strength is required. 5052 works well for sheet-style parts and weldments. We will confirm grade fit during parts verification.',
   },
   {
     question: 'Can you supply material certificates with my order?',
@@ -60,7 +60,7 @@ export const materialFaqs = [
   {
     question: 'How does material choice affect machining cost?',
     answer:
-      'Material affects both unit cost and cycle time. Stainless and titanium can cost 2–4× more to machine than 6061 aluminum for the same geometry. Our DFM review often suggests grade changes that reduce cost without sacrificing function.',
+      'Material affects both unit cost and cycle time. Stainless and titanium can cost 2–4× more to machine than 6061 aluminum for the same geometry. Our parts verification often suggests grade changes that reduce cost without sacrificing function.',
   },
 ] as const;
 

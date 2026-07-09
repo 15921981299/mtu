@@ -1,4 +1,4 @@
-/** Shop-floor editorial notes for comparisons missing inline editorialNote (E-E-A-T). */
+﻿/** Shop-floor editorial notes for comparisons missing inline editorialNote (E-E-A-T). */
 export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'grade-2-vs-grade-5-titanium':
     'Non-structural chemical hardware and welded assemblies default to Grade 2 — we quote Ti-6Al-4V only when the drawing calls out UTS or fatigue above CP limits; Grade 5 adds 30–50% cycle time on the same feature set.',
@@ -11,7 +11,7 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'peek-vs-ptfe':
     'Continuous-use temps above 150 °C or structural load push us to PEEK — PTFE wins on pure friction and chemical soak but creeps under bolt preload; we ask for clamp load before quoting PTFE structural parts.',
   'sinker-edm-vs-wire-edm':
-    'Blind pockets and sharp internal corners go to sinker EDM — wire EDM is our default for through-profiles in hardened stock above HRC 45; quoting mill-only on 0.3 mm internal radii is a rework trap we call out in DFM.',
+    'Blind pockets and sharp internal corners go to sinker EDM — wire EDM is our default for through-profiles in hardened stock above HRC 45; quoting mill-only on 0.3 mm internal radii is a rework trap we call out in inquiry prep.',
   'simultaneous-vs-positional-5-axis':
     'Sculpted impeller and blade surfaces need simultaneous — for prismatic parts with indexed holes we quote 3+2 first; simultaneous CAM premium only pays when more than ~30% of cycle is on compound surfaces.',
   '4140-vs-1018-steel':
@@ -19,11 +19,11 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'magnesium-vs-aluminum':
     'We only quote AZ31 when weight savings beat fire-handling cost — shop rules require dedicated tooling and chip control; for most brackets 6061 still wins on cost and anodize cosmetics unless density is the primary spec.',
   'cnc-vs-manual-machining':
-    'Prototype brackets with six or fewer holes sometimes go manual in partner shops — above ~20 identical parts or any CMM balloon map we quote CNC; manual quotes do not include the same ±0.02 mm repeatability.',
+    'Prototype brackets with six or fewer holes sometimes go manual in partner shops — above ~20 identical parts or any supplier documents balloon map we quote CNC; manual quotes do not include the same ±0.02 mm repeatability.',
   'turning-vs-milling-cost':
     'Round stock with turned OD/ID is quoted on lathe first — if milled features exceed ~40% of cycle we re-quote as mill-turn; buyers comparing "milling only" on a shaft often see 25–40% savings after we move it to turning.',
   'concentricity-vs-runout':
-    'We inspect runout on live round features every day — concentricity to datums not on the same setup needs CMM and adds cost; if the drawing only needs "spins true," runout to a machined shoulder is what we recommend on RFQ review.',
+    'We inspect runout on live round features every day — concentricity to datums not on the same setup needs supplier documents and adds cost; if the drawing only needs "spins true," runout to a machined shoulder is what we recommend on RFQ review.',
   'honing-vs-grinding':
     'Hydraulic bores and H8/H7 fits get hone after pre-bore — surface grinding is for flatness and seal faces; quoting grind on a 40 mm ID is usually the wrong process and we flag it before PO.',
   'iso-vs-ansi-drawing-standards':
@@ -53,19 +53,19 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   '1045-vs-1018-steel':
     '1018 for low-stress pins and soft assemblies — 1045 when slightly higher strength or induction-hardened surfaces appear; we rarely stock 1045 for weldments because weld zone hardness jumps complicate fixture design.',
   'true-position-vs-concentricity':
-    'Mating bolt circles get true position with MMC on clearance holes — concentricity is reserved when a single bore must run true to a datum bore on one setup; over-using concentricity doubles CMM time on our FAI.',
+    'Mating bolt circles get true position with MMC on clearance holes — concentricity is reserved when a single bore must run true to a datum bore on one setup; over-using concentricity doubles supplier documents time on our FAI.',
   '303-vs-316-stainless':
     '303 is never our answer for marine or chloride — even when machinability is tight; we quote 316L and accept longer cycle rather than substitute 303 on coastal or food equipment drawings.',
   'inconel-vs-stainless-steel':
     'Sour service and elevated temp force Inconel review — 316L carries most corrosive duty at one-third cycle cost; we ask for partial pressure class before quoting Inconel because PMI and tool life change the whole traveler.',
   'bronze-vs-brass':
-    'Bearings and wear pads default to bronze alloys — brass for fittings and low-load bushings; we quote C932 bearing bronze when impact load appears; brass galling under high PV gets flagged in DFM.',
+    'Bearings and wear pads default to bronze alloys — brass for fittings and low-load bushings; we quote C932 bearing bronze when impact load appears; brass galling under high PV gets flagged in inquiry prep.',
   'nickel-plating-vs-zinc-plating':
     'Corrosion-critical or cosmetic bright steel gets nickel — zinc is standard on indoor hardware; we note nickel adds 2–4 days and thickness affects thread class; masked threads are specified on PO for both.',
   'carburizing-vs-nitriding':
     'Low-distortion thin cases on finished bores lean nitriding — carburize when deep case and grind allowance exist; we hold nitrided parts under 0.002 mm stock removal on critical diameters per traveler note.',
   'iso-2768-m-vs-f':
-    'ISO 2768-m is our default general tolerance on RFQ unless precision holes are ballooned — f-class on every dimension adds 20–35% without functional gain; we suggest m + local critical callouts on prototype quotes.',
+    'ISO 2768-m is our default general tolerance on RFQ unless precision holes are ballooned — f-class on every dimension adds 20–35% without functional gain; we suggest m + local critical callouts on sample quotes.',
   'thread-milling-vs-tapping':
     'Blind holes in 304 and Inconel get thread mill — tapping stays on through holes in aluminum and 1018; we thread-mill anything under M3 in stainless because tap breakage scrap rate is too high on production lots.',
   'delrin-vs-peek':
@@ -73,11 +73,11 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'bead-blast-vs-as-machined':
     'Cosmetic external faces get bead blast per stated mesh — sealing faces stay as-machined unless Ra is called; we mask bores before blast because Al2O3 media in threads causes galling on stainless assemblies.',
   'flatness-vs-parallelism':
-    'Vacuum plate and fixture bases need flatness first — parallelism matters when mounting to a known reference face; we CMM flatness on cast plate parts before quoting parallel to an unmachined datum.',
+    'Vacuum plate and fixture bases need flatness first — parallelism matters when mounting to a known reference face; we supplier documents flatness on cast plate parts before quoting parallel to an unmachined datum.',
   'step-file-vs-iges':
     'STEP AP214/AP242 is required for our CAM import — IGES surfaces fail on fillets often enough that we hold quote until STEP arrives; mixed PDF-only RFQs get 24 h delay for solid reconstruction.',
   'cmm-vs-manual-inspection':
-    'PO language "100% critical on CMM balloon map" triggers full CMM report — "inspect per drawing" defaults to caliper and go/no-go on production lots; the quote delta is 15–25% when buyers assume CMM without writing it.',
+    'PO language "100% critical on supplier documents balloon map" triggers full supplier document report — "inspect per drawing" defaults to caliper and go/no-go on production lots; the quote delta is 15–25% when buyers assume supplier documents without writing it.',
   '4340-vs-4140-steel':
     'Higher core toughness and larger sections push 4340 — 4140 remains default for shafts under 80 mm and gears; we confirm heat treat spec because 4340 quench distortion needs extra grind stock on long shafts.',
   'nylon-vs-ptfe':
@@ -105,7 +105,7 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'cnc-machining-vs-metal-injection-molding':
     'MIM tooling needs five-figure annual qty to beat CNC on small stainless parts — below ~5k pcs we quote bar stock and tell buyers the MIM break-even honestly rather than push machining margin.',
   'cnc-machining-vs-thermoforming':
-    'Thermoformed shrouds over 400 mm belong on a forming line — we CNC the insert blocks, hinge pins, and sealed sub-housings that bolt to the shell; full-block PC for a thin cover is a cost mistake we call in DFM.',
+    'Thermoformed shrouds over 400 mm belong on a forming line — we CNC the insert blocks, hinge pins, and sealed sub-housings that bolt to the shell; full-block PC for a thin cover is a cost mistake we call in inquiry prep.',
   'cnc-machining-vs-gravity-die-casting':
     'Permanent-mold cast flanges need cast drawing plus machine allowance — we will not quote finish machining from a solid-model-only RFQ without draft or parting line noted.',
   'cnc-machining-vs-powder-metallurgy':
@@ -115,5 +115,5 @@ export const comparisonEditorialNotes: Partial<Record<string, string>> = {
   'cnc-machining-vs-welding-fabrication':
     'Large welded frames get post-machined mounting faces only — full monolithic CNC on a 1.5 m bracket drawing is a red flag we resolve before PO, not after warp at first article.',
   'cnc-machining-vs-compression-molding':
-    'Rigid PTFE or POM prototypes of seal grooves are fine — production elastomer seals belong on a mold PO; we never quote machined rubber and mean PTFE substitute without saying so.',
+    'Rigid PTFE or POM samples of seal grooves are fine — production elastomer seals belong on a mold PO; we never quote machined rubber and mean PTFE substitute without saying so.',
 };

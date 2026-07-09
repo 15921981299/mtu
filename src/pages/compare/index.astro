@@ -13,8 +13,8 @@ const allComparisonCount = comparisons.length;
 ---
 
 <BaseLayout
-  title="CNC Machining Comparisons — Process, Material & RFQ Decision Guides"
-  description={`${totalCount} side-by-side comparison guides for CNC buyers — process, material, finish, and sourcing tables with FAQ schema. Pick your path, then upload CAD for a 24h quote.`}
+  title="Engine Parts Comparisons — MTU Sourcing & Fitment Guides"
+  description={`${totalCount} side-by-side guides for engine-parts buyers comparing genuine/OEM options, part-number checks, series coverage, stock routes, and delivery decisions.`}
   currentPath="/compare"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -23,7 +23,7 @@ const allComparisonCount = comparisons.length;
 >
   <FunnelPageView stage="comparison" label="compare-index" />
   <BreadcrumbHero
-    title="CNC Machining<br>Comparisons"
+    title="Engine Parts<br>Comparisons"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Comparisons' },
@@ -46,7 +46,7 @@ const allComparisonCount = comparisons.length;
           </nav>
 
           <p class="resource-intro">
-            {totalCount} decision-stage guides with side-by-side tables and clear recommendations — built for engineers comparing processes, materials, finishes, and sourcing options.
+            {totalCount} decision-stage guides with side-by-side tables and clear recommendations — built for buyers comparing part verification, genuine/OEM sourcing, replacement options, and delivery routes.
             {allComparisonCount > totalCount && (
               <> Long-tail comparisons remain available via <a href="/resources/process-selection/">process selection</a> and parent hub pages.</>
             )}
@@ -55,33 +55,30 @@ const allComparisonCount = comparisons.length;
           <div class="resource-meta">
             <span><strong>{totalCount}</strong> comparison guides</span>
             <span><strong>{grouped.length}</strong> categories</span>
-            <span>Verify before <strong>RFQ</strong></span>
+            <span>Verify before <strong>PO</strong></span>
           </div>
 
           <div class="detail-rfq-strip">
-            <p>After you pick a process or material, upload your drawing — we confirm feasibility and quote within 24 hours.</p>
+            <p>After you identify the part route, send the part number, engine serial number, photos, quantity, and destination.</p>
             <div class="detail-rfq-actions-inline">
-              <a href="/contact/?source=comparison" class="detail-rfq-link">Request a Quote</a>
-              <a href="/online-cnc-machining/" class="detail-rfq-link detail-rfq-link-secondary">Online CNC quote</a>
+              <a href="/contact/?source=comparison" class="detail-rfq-link">Check Parts</a>
+              <a href="/part-products/" class="detail-rfq-link detail-rfq-link-secondary">MTU Part Numbers</a>
             </div>
           </div>
 
           <nav class="compare-priority-nav" aria-label="High-traffic comparison guides">
             <span class="compare-priority-label">Popular guides:</span>
-            <a href="/compare/ra-vs-rz-surface-roughness/">Ra vs Rz</a>
-            <a href="/compare/cnc-milling-vs-turning/">Milling vs turning</a>
-            <a href="/compare/sinker-edm-vs-wire-edm/">Sinker vs wire EDM</a>
-            <a href="/compare/magnesium-vs-aluminum/">Magnesium vs aluminum</a>
-            <a href="/compare/concentricity-vs-runout/">Concentricity vs runout</a>
-            <a href="/compare/iso-2768-m-vs-f/">ISO 2768 m vs f</a>
-            <a href="/compare/cpk-vs-ppk-capability/">Cpk vs Ppk</a>
+            <a href="/products/mtu-spare-parts/mtu-part-number-lookup/">Part-number lookup</a>
+            <a href="/products/mtu-spare-parts/mtu-engine-series-guide/">MTU series guide</a>
+            <a href="/products/mtu-2000-series-parts/">MTU 2000</a>
+            <a href="/products/mtu-4000-series-parts/">MTU 4000</a>
+            <a href="/capabilities/genuine-oem-parts/">Genuine OEM parts</a>
+            <a href="/part-products/">Part numbers</a>
           </nav>
 
           <div class="resource-note">
-            <strong>After you choose:</strong> Verify supplier capability with
-            <a href="/resources/inspection-samples/">redacted inspection samples</a>
-            and
-            <a href="/case-studies/">project proof by industry</a>.
+            <strong>Before you order:</strong> Verify the part number against engine model, serial number, nameplate photo,
+            and old-part photos whenever available.
           </div>
 
           <nav class="resource-nav hub-jump-nav" aria-label="Comparison categories">
@@ -119,9 +116,9 @@ const allComparisonCount = comparisons.length;
           ))}
 
           <p class="resource-related">
-            <a href="/standards/">Industry standards</a>
+            <a href="/products/mtu-spare-parts/">MTU spare parts</a>
             <span aria-hidden="true">·</span>
-            <a href="/resources/by-role/engineers/">Engineer hub</a>
+            <a href="/part-products/">MTU part numbers</a>
             <span aria-hidden="true">·</span>
             <a href="/blog/guides/">Guide hubs</a>
             <span aria-hidden="true">·</span>
@@ -135,13 +132,13 @@ const allComparisonCount = comparisons.length;
   <BlogCta
     stage="comparison"
     topic="compare-index"
-    title="Ready to quote your chosen process?"
-    text="Upload your drawing after comparing options — we confirm material, finish, and tolerance feasibility in the quote."
-    primaryLabel="Request a Quote"
+    title="Ready to check an engine part?"
+    text="Send the part number, engine model, serial number, old-part photo, quantity, and destination for an availability check."
+    primaryLabel="Check Parts"
     primaryHref="/contact/?source=comparison"
     primaryEvent="compare_index_rfq"
-    secondaryLabel="Online CNC quote"
-    secondaryHref="/online-cnc-machining/"
+    secondaryLabel="Part numbers"
+    secondaryHref="/part-products/"
     secondaryEvent="compare_index_online"
   />
 </BaseLayout>

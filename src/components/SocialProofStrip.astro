@@ -30,10 +30,10 @@ const testimonial = showTestimonial ? testimonials[testimonialIndex] : null;
       </div>
       {showCaseStudies && (
         <p class="social-proof-intro">
-          Real tolerance, material, and inspection scope from shipped projects —
+          Real part-number checks, delivery scope, and documentation notes from engine parts inquiries —
           <a href="/certifications/">quality &amp; certifications</a>
           ·
-          <a href="/resources/inspection-samples/">report samples</a>
+          <a href="/part-products/">MTU part numbers</a>
         </p>
       )}
     </div>
@@ -45,7 +45,7 @@ const testimonial = showTestimonial ? testimonials[testimonialIndex] : null;
             <a href={`/case-studies/${study.slug}/`} class="social-proof-card">
               <span class="social-proof-industry">{study.industry}</span>
               <span class="social-proof-title">{study.title}</span>
-              <span class="social-proof-spec">{study.tolerance} · {study.quantity}</span>
+              <span class="social-proof-spec">{study.proof.inspection} · {study.quantity}</span>
             </a>
           ))}
         </div>
@@ -53,7 +53,7 @@ const testimonial = showTestimonial ? testimonials[testimonialIndex] : null;
         <p class="social-proof-footer fade-in">
           <a href="/case-studies/">All case studies</a>
           <span aria-hidden="true">·</span>
-          <a href="/certifications/">ISO 9001 &amp; inspection process</a>
+          <a href="/certifications/">parts verification process</a>
         </p>
       </>
     )}

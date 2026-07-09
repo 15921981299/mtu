@@ -24,7 +24,7 @@ const otherHubs = roleHubs.filter((item) => item.slug !== hub.slug);
 ---
 
 <BaseLayout
-  title={`${hub.title} — CNC Machining Resources | Machining Supplier`}
+  title={`${hub.title} — Engine Parts Resources | Engine Family`}
   description={hub.description}
   currentPath="/resources/by-role"
   jsonLd={breadcrumbSchema([
@@ -57,17 +57,17 @@ const otherHubs = roleHubs.filter((item) => item.slug !== hub.slug);
           <div class="resource-meta">
             <span><strong>{hub.headline}</strong></span>
             <span><strong>{hub.links.length}</strong> curated guides</span>
-            <span><strong>{hub.rfqPackage.length}</strong> RFQ package items</span>
+            <span><strong>{hub.rfqPackage.length}</strong> inquiry package items</span>
           </div>
 
           <div class="detail-rfq-strip">
-            <p>Send the RFQ package below with your drawing — we confirm scope and respond within 24 hours.</p>
+            <p>Send the parts inquiry package below so we can verify fitment, availability, documentation, and delivery route faster.</p>
             <a href={hub.ctaHref} class="detail-rfq-link">{hub.ctaLabel}</a>
           </div>
 
           <section class="resource-note" aria-labelledby="rfq-package-heading">
             <h2 id="rfq-package-heading" class="role-section-title">{hub.rfqPackageTitle}</h2>
-            <p>Send these items with your drawing — we respond faster and your quote matches audit expectations.</p>
+            <p>Send these items with your part list — we respond faster and reduce wrong-part risk.</p>
             <ul class="role-rfq-list">
               {hub.rfqPackage.map((item) => (
                 <li>

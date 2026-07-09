@@ -12,8 +12,8 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
 ---
 
 <BaseLayout
-  title="CNC Resources by Buyer Role — Engineers, Procurement & Quality | Machining Supplier"
-  description="B2B CNC machining resources organized by buyer role: technical guides for engineers, supplier vetting for procurement, and inspection standards for quality teams."
+  title="Engine Parts Resources by Buyer Role | Engine Family"
+  description="MTU and diesel engine parts resources for maintenance engineers, procurement teams, and quality/documentation buyers."
   currentPath="/resources/by-role"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -39,7 +39,7 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
           <ResourceNav active="by-role" />
 
           <p class="resource-intro">
-            Industrial CNC buyers rarely decide alone. Pick the path that matches your job — technical specs, supplier audit, or compliance documentation.
+            Engine parts orders often involve maintenance engineers, procurement, and quality teams. Pick the path that matches your role and send the right information first.
           </p>
 
           <div class="resource-meta">
@@ -49,8 +49,8 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
           </div>
 
           <div class="detail-rfq-strip">
-            <p>Pick your role path below — each hub includes an RFQ package checklist so your first quote matches audit expectations.</p>
-            <a href="/contact/?source=role-hubs" class="detail-rfq-link">Request a Quote</a>
+            <p>Pick your role path below — each hub includes a parts inquiry checklist so Engine Family can verify fitment, stock, documents, and delivery faster.</p>
+            <a href="/contact/?source=role-hubs" class="detail-rfq-link">Send Parts Inquiry</a>
           </div>
 
           <div class="resource-checklist-grid">
@@ -80,13 +80,13 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
           </div>
 
           <div class="resource-note">
-            <strong>Buyer tip:</strong> Each role hub includes an RFQ package checklist — send the right documents with your drawing and your first quote matches audit expectations.
+            <strong>Buyer tip:</strong> Send part numbers, engine serial numbers, old-part photos, quantity, destination, and required delivery date in the first message.
           </div>
 
           <p class="resource-related">
-            <a href="/resources/">All engineering resources</a>
+            <a href="/resources/">All parts resources</a>
             <span aria-hidden="true">·</span>
-            <a href="/resources/dfm-checklist/">DFM checklist</a>
+            <a href="/part-products/">MTU part numbers</a>
             <span aria-hidden="true">·</span>
             <a href="/resources/inspection-samples/">Inspection samples</a>
             <span aria-hidden="true">·</span>
@@ -100,13 +100,13 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
   <BlogCta
     stage="service"
     topic="role-hubs-index"
-    title="Send the right RFQ package for your role"
-    text="Upload your drawing with the checklist from your role hub — engineers, procurement, and quality paths included."
-    primaryLabel="Request a Quote"
+    title="Send the right parts inquiry package"
+    text="Use the checklist from your role hub: part number, engine details, photos, quantity, destination, and documents needed."
+    primaryLabel="Send Inquiry"
     primaryHref="/contact/?source=role-hubs"
     primaryEvent="role_hubs_rfq"
-    secondaryLabel="DFM checklist"
-    secondaryHref="/resources/dfm-checklist/"
+    secondaryLabel="MTU part numbers"
+    secondaryHref="/part-products/"
     secondaryEvent="role_hubs_dfm"
   />
 </BaseLayout>

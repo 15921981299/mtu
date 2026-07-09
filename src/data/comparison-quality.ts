@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Comparison index governance — keep high-intent decision pages indexed;
  * noindex long-tail material/finish/quality pairs that overlap hubs or /compare/ winners.
  */
@@ -10,7 +10,7 @@ export const comparisonIndexCore = new Set([
   '3-axis-vs-5-axis',
   'wire-edm-vs-cnc-milling',
   'swiss-vs-conventional-turning',
-  'prototype-vs-production-machining',
+  'sample-vs-production-machining',
   'turning-vs-milling-cost',
   'laser-cutting-vs-cnc-milling',
   'investment-casting-vs-cnc',

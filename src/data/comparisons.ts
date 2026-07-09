@@ -1,4 +1,4 @@
-import { isComparisonNoindex } from './comparison-quality';
+﻿import { isComparisonNoindex } from './comparison-quality';
 
 export type ComparisonCategory = 'process' | 'materials' | 'finishes' | 'quality' | 'sourcing';
 export type ComparisonRow = { dimension: string; optionA: string; optionB: string };
@@ -498,7 +498,7 @@ export const comparisonsData: ComparisonGuide[] = [
     editorialNote: 'For MTU parts, verification before quotation is more valuable than a fast but uncertain price.',
   },
   {
-    slug: "prototype-vs-production-machining",
+    slug: "sample-vs-production-machining",
     category: "quality" as ComparisonCategory,
     title: "Marine MTU Engine Parts: MTU Vs Production MTU",
     seoTitle: "Marine MTU Engine Parts: MTU Vs Production MTU | Engine Family",

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -123,7 +123,7 @@ const groups: Group[] = [
       { grade: 'Nylon (PA6 / PA66)', note: 'Tough, wear-resistant; gears, bushings' },
       { grade: 'PC (Polycarbonate)', note: 'Impact-resistant, clear; covers, guards' },
       { grade: 'PMMA (Acrylic)', note: 'Optical clarity; windows, light pipes' },
-      { grade: 'ABS', note: 'Tough, low-cost; prototypes, housings' },
+      { grade: 'ABS', note: 'Tough, low-cost; samples, housings' },
       { grade: 'PP (Polypropylene)', note: 'Chemical-resistant; fluid handling, hinges' },
       { grade: 'HDPE / UHMW', note: 'Low friction, wear; guides, rollers' },
       { grade: 'PET-P (Ertalyte)', note: 'Stiff, stable; bearings, pump parts' },
@@ -138,8 +138,8 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
 ---
 
 <BaseLayout
-  title="CNC Machining Materials & Grades — Aluminum, Steel, Stainless, Titanium, Plastics | Machining Supplier"
-  description="Full list of CNC machining material grades we machine: aluminum (6061, 7075, 2024, 5052, 5083), stainless (303, 304, 316, 17-4PH, 440C), steel, titanium, copper, brass, bronze, nickel alloys, and engineering plastics."
+  title="Engine Parts Materials & Grades — Aluminum, Steel, Stainless, Titanium, Plastics | Machining Supplier"
+  description="Full list of engine parts material grades we machine: aluminum (6061, 7075, 2024, 5052, 5083), stainless (303, 304, 316, 17-4PH, 440C), steel, titanium, copper, brass, bronze, nickel alloys, and engineering plastics."
   currentPath="/materials"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -149,7 +149,7 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
 >
   <FunnelPageView stage="selection" label="material-grades" />
   <BreadcrumbHero
-    title="CNC Machining Material Grades"
+    title="Engine Parts Material Grades"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Materials', href: '/materials/' },
@@ -164,7 +164,7 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
         <article class="blog-details-content-block resource-page fade-in">
           <p class="resource-intro">
             The full list of metal and plastic grades we CNC machine — {totalGrades}+ grades across {groups.length} material
-            families. Not sure which grade fits? Send your drawing and we recommend one in free DFM review.
+            families. Not sure which grade fits? Send your part number and we recommend one in free parts verification.
           </p>
 
           <div class="resource-meta" aria-label="Material grade facts">
@@ -174,7 +174,7 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
           </div>
 
           <div class="detail-rfq-strip">
-            <p>Upload your drawing with a target grade (or ask for a recommendation) — quote within 24 hours.</p>
+            <p>Send your part number with a target grade (or ask for a recommendation) — quote within 24 hours.</p>
             <a href={quoteHref} class="detail-rfq-link">Request a Quote</a>
           </div>
 
@@ -192,7 +192,7 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
               </h2>
               <div class="resource-table-wrap">
                 <table class="resource-table mg-table">
-                  <caption class="resource-table-caption">{group.family} grades for CNC machining</caption>
+                  <caption class="resource-table-caption">{group.family} grades for engine parts</caption>
                   <thead>
                     <tr>
                       <th scope="col">Grade</th>
@@ -235,7 +235,7 @@ const totalGrades = groups.reduce((sum, g) => sum + g.grades.length, 0);
     stage="selection"
     topic="material-grades"
     title="Not sure which grade to spec?"
-    text="Upload your drawing — we recommend the right material grade for your function and budget in free DFM review."
+    text="Send your part number — we recommend the right material grade for your function and budget in free parts verification."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent="material_grades_rfq"

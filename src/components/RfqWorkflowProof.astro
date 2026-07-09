@@ -2,26 +2,26 @@
 const steps = [
   {
     label: '01',
-    title: 'Drawing received',
-    body: 'STEP/PDF/DWG, quantity, material, tolerance, finish, and destination are logged for review.',
-    meta: 'RFQ intake',
+    title: 'Part inquiry received',
+    body: 'Part number, engine model, serial number, quantity, urgency, and destination are logged for review.',
+    meta: 'Inquiry intake',
   },
   {
     label: '02',
-    title: 'Engineering review',
-    body: 'We check process fit, tolerance risk, tool access, material availability, and inspection scope.',
-    meta: 'DFM notes',
+    title: 'Fitment verification',
+    body: 'We check engine series, old part photos, supersession status, stock route, and shipping constraints.',
+    meta: 'Parts check',
   },
   {
     label: '03',
     title: 'Quote package',
-    body: 'Buyer receives unit price, lead time, assumptions, documentation scope, and open questions.',
+    body: 'Buyer receives price, lead time, stock status, replacement notes, documentation scope, and open questions.',
     meta: '24h target',
   },
   {
     label: '04',
     title: 'PO to shipment',
-    body: 'Production, in-process checks, final report, part photos, packing confirmation, and tracking.',
+    body: 'Order confirmation, item photos when available, export packing, dispatch note, and tracking.',
     meta: 'Traceable release',
   },
 ];
@@ -29,21 +29,21 @@ const steps = [
 
 <section class="rfq-workflow-proof" aria-labelledby="rfq-workflow-proof-title">
   <div class="rfq-workflow-proof__copy">
-    <p class="rfq-workflow-proof__kicker">RFQ workflow screenshot</p>
-    <h2 id="rfq-workflow-proof-title">What happens after a buyer sends a drawing</h2>
+    <p class="rfq-workflow-proof__kicker">Parts inquiry workflow</p>
+    <h2 id="rfq-workflow-proof-title">What happens after a buyer sends a part number</h2>
     <p>
-      This workflow mirrors the way we process incoming RFQs: drawing intake, DFM review, quote assumptions,
-      documentation scope, and shipment release. Replace this with a real CRM/email screenshot once customer data is safely redacted.
+      This workflow mirrors the way we process incoming engine parts inquiries: part-number intake, fitment check,
+      stock route, quote assumptions, documentation scope, and shipment release.
     </p>
-    <a href="/contact/?source=rfq-workflow-proof">Start an RFQ</a>
+    <a href="/contact/?source=rfq-workflow-proof">Send a parts inquiry</a>
   </div>
 
-  <div class="rfq-workflow-proof__screen" aria-label="RFQ workflow example screen">
+  <div class="rfq-workflow-proof__screen" aria-label="Parts inquiry workflow example screen">
     <div class="rfq-workflow-proof__topbar">
       <span></span>
       <span></span>
       <span></span>
-      <strong>RFQ-2026-REDACTED</strong>
+      <strong>PARTS-2026-REDACTED</strong>
     </div>
     <div class="rfq-workflow-proof__rows">
       {steps.map((step) => (
