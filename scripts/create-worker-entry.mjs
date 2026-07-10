@@ -7,7 +7,7 @@ const assetsIgnore = resolve('dist/.assetsignore');
 
 await mkdir(workerDir, { recursive: true });
 await copyFile(resolve('cloudflare-worker.js'), workerEntry);
-await writeFile(assetsIgnore, '_worker.js\n', 'utf8');
+await writeFile(assetsIgnore, '', 'utf8');
 
 console.log(`Created ${workerEntry}`);
 console.log(`Created ${assetsIgnore}`);
