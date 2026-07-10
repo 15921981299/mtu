@@ -3,9 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FaqSection from '../components/FaqSection.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
-import QualifiedCustomerNote from '../components/QualifiedCustomerNote.astro';
-import RfqWorkflowProof from '../components/RfqWorkflowProof.astro';
-import SocialProofStrip from '../components/SocialProofStrip.astro';
 import { faqs } from '../data/faqs';
 import { breadcrumbSchema, faqSchema, site } from '../data/site';
 
@@ -36,11 +33,11 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
   />
 
   <nav class="contact-resource-links fade-in" aria-label="Helpful resources before you quote">
-    <a href="/online-cnc-machining/?source=contact">MTU spare parts</a>
-    <a href="/compare/">Engine applications</a>
-    <a href="/case-studies/">Client stories</a>
+    <a href="/products/mtu-spare-parts/?source=contact">MTU spare parts</a>
+    <a href="/part-products/">MTU part numbers</a>
+    <a href="/products/">Engine parts</a>
     <a href="/certifications/">Quality policy</a>
-    <a href="/blog/guides/">News & articles</a>
+    <a href="/resources/">Parts guides</a>
   </nav>
 
   <section class="contact-form-section">
@@ -66,7 +63,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                     <li>Export packing and documentation notes for international shipment.</li>
                   </ul>
                 </div>
-                <QualifiedCustomerNote compact />
               </div>
               <form class="contact-form" id="rfq-form" data-endpoint="/api/rfq" data-fallback-email={site.email}>
                 <div class="contact-form-column">
@@ -100,12 +96,11 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                   <label class="contact-field-label" for="rfq-material">Engine Brand</label>
                   <select name="material" id="rfq-material" class="contact-form-input-field is-2">
                     <option value="">Engine Brand</option>
-                    <option value="Aluminum">MTU</option>
-                    <option value="Stainless Steel">Detroit Diesel</option>
-                    <option value="Carbon Steel">Cummins</option>
-                    <option value="Titanium">DEUTZ</option>
-                    <option value="Brass">Other diesel engine</option>
-                    <option value="Plastic">Not sure</option>
+                    <option value="MTU">MTU</option>
+                    <option value="Detroit Diesel">Detroit Diesel</option>
+                    <option value="Cummins">Cummins</option>
+                    <option value="DEUTZ">DEUTZ</option>
+                    <option value="Other diesel engine">Other diesel engine</option>
                     <option value="Not Sure">Not sure — need identification help</option>
                   </select>
                 </div>
@@ -242,14 +237,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
     </div>
   </section>
 
-  <section class="contact-workflow-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <RfqWorkflowProof />
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Info -->
   <section class="contact-info-section">
     <div class="section-gap bottom">
@@ -282,12 +269,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
       </div>
     </div>
   </section>
-
-  <SocialProofStrip
-    heading="Engine parts supply trusted by global buyers"
-    showTestimonial
-    testimonialIndex={1}
-  />
 
   <FaqSection />
 </BaseLayout>

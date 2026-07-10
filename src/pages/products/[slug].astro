@@ -1,22 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
-import BlogCta from '../../components/BlogCta.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
-import ExperienceProofNote from '../../components/ExperienceProofNote.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import ProductSidebar from '../../components/ProductSidebar.astro';
-import QuoteRequirements from '../../components/QuoteRequirements.astro';
-import RelatedArticles from '../../components/RelatedArticles.astro';
-import RelatedComparisons from '../../components/RelatedComparisons.astro';
-import SubpageLinks from '../../components/SubpageLinks.astro';
-import { getComparisonsForProduct } from '../../data/funnel-links';
 import { materials } from '../../data/materials';
 import { products } from '../../data/products';
-import { productSubpages } from '../../data/product-subpages';
-import { isSubpageNoindex } from '../../data/subpage-quality';
-import { productArticleMap } from '../../data/related-content';
 import { services } from '../../data/services';
 import { breadcrumbSchema, productSchema, serviceSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
@@ -32,11 +22,6 @@ const materialSlugs = (product.materialSlugs ?? []) as readonly string[];
 const capabilitySlugs = (product.capabilitySlugs ?? []) as readonly string[];
 const linkedMaterials = materials.filter((m) => materialSlugs.includes(m.slug));
 const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slug));
-const relatedComparisons = getComparisonsForProduct(materialSlugs, capabilitySlugs);
-const relatedArticles = productArticleMap[product.slug] ?? [];
-const subpages = productSubpages
-  .filter((sp) => sp.productSlug === product.slug && !isSubpageNoindex(sp.productSlug, sp.slug))
-  .map((sp) => ({ href: `/products/${product.slug}/${sp.slug}/`, title: sp.title, summary: sp.summary }));
 ---
 
 <BaseLayout
@@ -100,10 +85,6 @@ const subpages = productSubpages
       text="Send the part number, engine model, serial number, quantity, and destination. We verify compatibility before quotation."
     />
 
-    <ExperienceProofNote context="product" />
-
-    <QuoteRequirements partType={product.title.toLowerCase()} />
-
     {linkedMaterials.length > 0 && (
       <>
         <p class="detail-quick-label">Related reference groups</p>
@@ -143,15 +124,6 @@ const subpages = productSubpages
     </figure>
     <div set:html={product.content.partTwo} />
 
-    <SubpageLinks title={`${product.title} guides`} items={subpages} />
-    {relatedArticles.length > 0 && (
-      <RelatedArticles slugs={relatedArticles} title={`Guides for ${product.title}`} />
-    )}
-    <RelatedComparisons
-      items={relatedComparisons}
-      title={`Compare options for ${product.title.toLowerCase()}`}
-    />
-
     <p class="resource-note detail-page-back">
       <a href="/products/">All products</a>
       ·
@@ -170,17 +142,4 @@ const subpages = productSubpages
       quoteHref={quoteHref}
     />
   </DetailPageShell>
-
-  <BlogCta
-    stage="selection"
-    topic={product.slug}
-    title={`Check ${product.title.toLowerCase()} availability`}
-    text="Share your part number, model plate, old part photo, and destination. We check stock, replacement options, and shipping route."
-    primaryLabel="Check Parts"
-    primaryHref={quoteHref}
-    primaryEvent={`product_${product.slug}_rfq`}
-    secondaryLabel="Parts guides"
-    secondaryHref="/resources/"
-    secondaryEvent="product_dfm_checklist"
-  />
 </BaseLayout>

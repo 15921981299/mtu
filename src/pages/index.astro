@@ -1,20 +1,9 @@
 ﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import CaseStudyCard from "../components/CaseStudyCard.astro";
-import TrustBadges from "../components/TrustBadges.astro";
-import HomeRoleGuide from "../components/HomeRoleGuide.astro";
-import BlogCta from "../components/BlogCta.astro";
-import SocialProofStrip from "../components/SocialProofStrip.astro";
 import FunnelPageView from "../components/FunnelPageView.astro";
 import { services } from "../data/services";
 import { industries } from "../data/industries";
-import { caseStudies } from "../data/case-studies";
-import { testimonials } from "../data/testimonials";
-import { getPopularGuidePosts, getIndexableBlogPosts, getPostAuthorKey, authors } from "../data/blog";
-
-const popularGuides = getPopularGuidePosts();
-const recentPosts = getIndexableBlogPosts().slice(0, 3);
 import { site, videoSchema } from "../data/site";
 
 const homepageVideos = [
@@ -66,15 +55,6 @@ const workflowSteps = [
   },
 ];
 
-const keyFeatures = [
-  { icon: "/images/engineer-led-dfm-icon.svg", title: "Engine-Part Identification" },
-  {
-    icon: "/images/high-precision-tolerance-icon.svg",
-    title: "Genuine & OEM Parts",
-  },
-  { icon: "/images/no-minimum-order-icon.svg", title: "Fast Global Delivery" },
-];
-
 const engineBrands = [
   {
     href: "/products/mtu-spare-parts/",
@@ -108,26 +88,6 @@ const engineBrands = [
   },
 ];
 
-const stats = [
-  { upper: ["1", "5"], lower: ["0", "1", "2", "3", "4", "5"], suffix: "+" },
-  { upper: ["0", "5"], lower: ["0", "1", "2", "3", "4", "5"], suffix: "k+" },
-  {
-    upper: ["9", "6", "9"],
-    lower: ["9", "1", "2", "3", "4", "8"],
-    suffix: "%",
-  },
-  {
-    upper: ["2", "6", "4"],
-    lower: ["0", "1", "2", "3", "4", "0"],
-    suffix: "h",
-  },
-];
-const statLabels = [
-  "Years Experience",
-  "Parts Supplied",
-  "Supplier Focus",
-  "Response Target",
-];
 ---
 
 <BaseLayout
@@ -224,73 +184,6 @@ const statLabels = [
     </div>
   </section>
 
-  <section class="home-trust-section" aria-label="Quality and compliance">
-    <div class="container">
-      <TrustBadges />
-    </div>
-  </section>
-
-  <HomeRoleGuide />
-
-  <!-- ═══ KEY FEATURES ═══ -->
-  <section class="key-feature-section">
-    <div class="container">
-      <div class="key-feature-wrapper">
-        {
-          keyFeatures.map((f) => (
-            <div class="key-feature-block fade-in">
-              <div class="key-feature-content-block">
-                <div class="key-feature-icon-block">
-                  <img
-                    src={f.icon}
-                    alt={f.title}
-                    class="key-feature-icon"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="key-feature-title-block">
-                  <h3 class="key-feature-title">{f.title}</h3>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-        <div class="feature-highlight-block fade-in">
-          <div class="feature-highlight-info-block">
-            <p class="feature-highlight-text">
-              From part identification to global delivery, see how we support engine uptime.
-            </p>
-          </div>
-          <div class="feature-highlight-video-block">
-            <button
-              type="button"
-              class="feature-highlight-video feature-highlight-video--interactive"
-              data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8"
-              aria-label="Watch engine parts support overview"
-            >
-              <img
-                src="/images/engine-parts-verification-desk.png"
-                alt=""
-                aria-hidden="true"
-                class="feature-highlight-poster"
-                width="640"
-                height="360"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="feature-highlight-play" aria-hidden="true">
-                <img src="/images/video-play-button-icon.svg" alt="" width="20" height="20" />
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ CAPABILITIES ═══ -->
   <section class="service-section">
     <div class="section-gap bottom">
@@ -355,86 +248,6 @@ const statLabels = [
                       <p class="service-card-summary">{service.summary}</p>
                     </div>
                   </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ ABOUT + STATS ═══ -->
-  <section class="about-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <div class="about-wrapper">
-          <SectionHeading
-            title="More Than a Parts Seller"
-            subtitle="About Us"
-          />
-          <div class="about-image-block fade-in">
-            <div class="about-lightbox-block">
-              <button
-                type="button"
-                class="lightbox-link-block"
-                data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s"
-                aria-label="Play about video"
-              >
-                <div class="lightbox-inner-block">
-                  <img
-                    src="/images/video-play-icon.svg"
-                    alt=""
-                    class="lightbox-play-icon"
-                    width="20"
-                    height="20"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div class="lightbox-circle-one"></div>
-                <div class="lightbox-circle-two"></div>
-              </button>
-            </div>
-            <div class="about-text-block">
-              <div class="about-text fade-in">
-                We support engine users with practical parts identification,
-                genuine sourcing, export packing, and logistics. When downtime
-                matters, we help you confirm the right item before it ships.
-              </div>
-              <div class="about-button-block fade-in">
-                <a href="/about/" class="primary-button primary-hover">
-                  <div class="button-content-block">
-                    <div class="button-text">More About Engine Family</div><div
-                      class="button-text"
-                    >
-                      More About Engine Family
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="about-content-block">
-            {
-              stats.map((stat, i) => (
-                <div class="stat-card-block fade-in" aria-label={`${statLabels[i]}: ${["15+", "50k+", "96.9%", "24h"][i]}`}>
-                  <div class="stat-number-block">
-                    <div class="stat-number-chain upper-movement">
-                      {stat.upper.map((n) => (
-                        <div class="chain-character">{n}</div>
-                      ))}
-                    </div>
-                    <div class="stat-number-chain lower-movement">
-                      {stat.lower.map((n) => (
-                        <div class="chain-character">{n}</div>
-                      ))}
-                    </div>
-                    {stat.suffix && (
-                      <div class="chain-character">{stat.suffix}</div>
-                    )}
-                  </div>
-                  <p class="stat-text">{statLabels[i]}</p>
                 </div>
               ))
             }
@@ -546,198 +359,6 @@ const statLabels = [
     </div>
   </section>
 
-  <!-- ═══ CASE STUDIES ═══ -->
-  <section class="case-studies-home-section">
-    <div class="section-gap bottom case-studies-home-section--compact">
-      <div class="container">
-        <SectionHeading title="Engine Parts Supply Stories" subtitle="Case Studies" />
-        <div class="case-studies-home-grid fade-in">
-          {
-            caseStudies
-              .slice(0, 3)
-              .map((study) => (
-                <CaseStudyCard
-                  slug={study.slug}
-                  title={study.title}
-                  image={study.image}
-                  industry={study.industry}
-                  material={study.material}
-                  process={study.process}
-                  tolerance={study.tolerance}
-                  quantity={study.quantity}
-                  outcomeMetric={study.proof.outcomeMetric}
-                />
-              ))
-          }
-        </div>
-        <p class="case-studies-home-link">
-          <a href="/case-studies/">View all case studies →</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ TESTIMONIALS ═══ -->
-  <section class="testimonial-section">
-    <div class="section-gap testimonial-section--flush">
-      <div class="container">
-        <div class="testimonial-wrapper">
-          <SectionHeading title="What We Deliver" subtitle="Our Promise" />
-          <p class="testimonial-anonymity-note fade-in">
-            Names and titles are anonymized composites for client confidentiality. Quotes are paraphrased from buyer interviews — see linked case studies for measured outcomes.
-          </p>
-          <div class="testimonial-content-block fade-in">
-            {
-              [0].map(() => (
-                <div class="testimonial-card-block">
-                  {testimonials.map((t, i) => (
-                    <>
-                      <div class="testimonial-single-card-block">
-                        <div class="testimonial-author-block">
-                          <div class="testimonial-author-avatar-block">
-                            <img
-                              src={t.avatar}
-                              alt={t.name}
-                              class="testimonial-author-avatar"
-                              width="64"
-                              height="64"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </div>
-                          <div class="testimonial-author-info-block">
-                            <div class="testimonial-author-name">{t.name}</div>
-                            <p class="author-designation">{t.role}</p>
-                          </div>
-                        </div>
-                        <div class="testimonial-text-block">
-                          <h3 class="testimonial-title">{t.title}</h3>
-                          <div class="testimonial-summary">"{t.quote}"</div>
-                          <a href={`/case-studies/${t.caseStudySlug}/`} class="testimonial-case-link">
-                            Read project case study →
-                          </a>
-                        </div>
-                        <div class="testimonial-brand-logo-block">
-                          <img
-                            src={t.brand}
-                            alt={`${t.name} company`}
-                            class="testimonial-brand-logo"
-                            width="120"
-                            height="24"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
-                      </div>
-                      {i < testimonials.length - 1 && (
-                        <div class="testimonial-liner" />
-                      )}
-                    </>
-                  ))}
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ POPULAR GUIDES ═══ -->
-  <section class="service-section">
-    <div class="section-gap">
-      <div class="container">
-        <SectionHeading title="Start Here" subtitle="Popular Guides" />
-        <div class="guides-grid">
-          {
-            popularGuides.map((guide) => (
-              <a href={`/blog/${guide.slug}/`} class="guide-card fade-in">
-                <h3 class="guide-card-title">{guide.title}</h3>
-                <p class="guide-card-excerpt">{guide.excerpt.slice(0, 100)}…</p>
-                <span class="guide-card-cta">Read guide →</span>
-              </a>
-            ))
-          }
-          <a href="/resources/cnc-tolerance-guide/" class="guide-card guide-card--featured fade-in">
-            <h3 class="guide-card-title">MTU Part Fitment Guide</h3>
-            <p class="guide-card-excerpt">
-              What to send for part-number verification, engine series matching, and replacement checks.
-            </p>
-            <span class="guide-card-cta">Open reference →</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ BLOG ═══ -->
-  <section class="blog-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <SectionHeading title="Engine Parts Knowledge" subtitle="Technical Blog" />
-        <div class="blog-wrapper">
-          <div class="blog-content-wrapper">
-            {
-              recentPosts.map((post) => {
-                const authorKey = getPostAuthorKey(post.slug, post.author);
-                const author = authors[authorKey];
-                return (
-                <div class="blog-single-item-block fade-in">
-                  <div class="blog-card-item-inner-block">
-                    <div class="blog-item-image-block">
-                      <div class="blog-author-block">
-                        <>
-                          <span class="blog-author-name">By</span>
-                          <a
-                            href={`/blog/author/${author.slug}/`}
-                            class="blog-author-name hover"
-                          >
-                            {author.name}
-                          </a>
-                        </>
-                      </div>
-                      <a
-                        href={`/blog/${post.slug}/`}
-                        class="blog-item-image-link-block"
-                      >
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          class="blog-item-image"
-                          width="400"
-                          height="307"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div class="blog-image-cursor">
-                          <div class="blog-cursor-text">/Read</div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blog-item-title-block">
-                    <a
-                      href={`/blog/${post.slug}/`}
-                      class="blog-item-title-link-block"
-                    >
-                      <h3 class="blog-item-title">{post.title}</h3>
-                    </a>
-                  </div>
-                </div>
-              );
-              })
-            }
-          </div>
-        </div>
-        <p class="blog-section-footer fade-in">
-          <a href="/blog/">View all articles →</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <SocialProofStrip heading="Trusted by engineers and procurement teams worldwide" />
-
   <section class="home-rfq-hub section-gap bottom" aria-labelledby="home-rfq-hub-heading">
     <div class="container">
       <div class="home-rfq-hub-card fade-in">
@@ -766,14 +387,6 @@ const statLabels = [
     </div>
   </section>
 
-  <BlogCta
-    stage="awareness"
-    topic="homepage"
-    primaryHref="/contact/?source=homepage"
-    secondaryLabel="MTU spare parts"
-    secondaryHref="/products/mtu-spare-parts/"
-    secondaryEvent="homepage_mtu_parts"
-  />
 </BaseLayout>
 
 <script>

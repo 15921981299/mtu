@@ -1,12 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
-import BlogCta from '../components/BlogCta.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
-import InspectionProcessMedia from '../components/InspectionProcessMedia.astro';
-import ProofMediaGallery from '../components/ProofMediaGallery.astro';
-import SocialProofStrip from '../components/SocialProofStrip.astro';
-import { getFeaturedCaseStudies, industryProof, verificationDocuments } from '../data/industry-proof';
+import { verificationDocuments } from '../data/industry-proof';
 import { site, breadcrumbSchema, videoSchema } from '../data/site';
 import '../styles/resource-page.css';
 import '../styles/hub-list-page.css';
@@ -38,7 +34,6 @@ const iso9001Body = quality.iso9001CertNumber
   : `${quality.iso9001Description} ${quality.iso9001VerificationNote}`;
 
 const pageUrl = `${site.url}/certifications/`;
-const featuredCaseStudies = getFeaturedCaseStudies();
 
 const qualityCommitments = [
   {
@@ -164,9 +159,7 @@ const inspectionSteps = [
             </a>
             <a href="#inspection-process" class="hub-list-jump-link">Inspection process</a>
             <a href="#equipment" class="hub-list-jump-link">Equipment</a>
-            <a href="#compliance-paths" class="hub-list-jump-link">Compliance paths</a>
             <a href="#documentation" class="hub-list-jump-link">Documentation</a>
-            <a href="#project-proof" class="hub-list-jump-link">Project proof</a>
           </nav>
 
           <section id="quality-commitments" class="blog-index-section cert-section">
@@ -185,17 +178,6 @@ const inspectionSteps = [
                 </div>
               ))}
             </div>
-          </section>
-
-          <section class="cert-media-section">
-            <InspectionProcessMedia />
-            <ProofMediaGallery
-              title="Parts proof photos buyers can request"
-              intro="Ask for matching part photos, packing photos, and dispatch notes so the support package matches the actual parts being shipped."
-              categories={['inspection', 'packaging', 'samples']}
-              limit={6}
-              compact
-            />
           </section>
 
           <section id="inspection-process" class="blog-index-section cert-section">
@@ -245,34 +227,6 @@ const inspectionSteps = [
             </div>
           </section>
 
-          <section id="compliance-paths" class="blog-index-section cert-section">
-            <header class="blog-index-section-head">
-              <div>
-                <h2>Industry compliance paths</h2>
-                <p>Regulated work organized by standard — each path links to requirements, comparison tools, and project proof.</p>
-              </div>
-            </header>
-            <div class="industry-proof-grid">
-              {industryProof.map((item) => (
-                <article class="industry-proof-card">
-                  <h3 class="industry-proof-title">
-                    <a href={`/standards/${item.standardSlug}/`}>{item.standardTitle}</a>
-                  </h3>
-                  <p class="industry-proof-meta">{item.caseStudySlugs.length} verified case {item.caseStudySlugs.length === 1 ? 'study' : 'studies'}</p>
-                  <ul class="industry-proof-links">
-                    <li><a href={`/standards/${item.standardSlug}/`}>Standard requirements →</a></li>
-                    {item.auditBlogSlug && (
-                      <li><a href={`/blog/${item.auditBlogSlug}/`}>Supplier audit guide →</a></li>
-                    )}
-                    {item.caseStudySlugs.slice(0, 1).map((slug) => (
-                      <li><a href={`/case-studies/${slug}/`}>Project proof →</a></li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </section>
-
           <section id="documentation" class="blog-index-section cert-section">
             <header class="blog-index-section-head">
               <div>
@@ -304,24 +258,6 @@ const inspectionSteps = [
             </p>
           </section>
 
-          <section id="project-proof" class="blog-index-section cert-section">
-            <header class="blog-index-section-head">
-              <div>
-                <h2>Project proof by industry</h2>
-                <p>Anonymized case studies with part checks, documentation scope, and measurable outcomes.</p>
-              </div>
-            </header>
-            <div class="featured-proof-grid">
-              {featuredCaseStudies.map((study) => (
-                <a href={`/case-studies/${study.slug}/`} class="featured-proof-card">
-                  <span class="featured-proof-industry">{study.industry}</span>
-                  <span class="featured-proof-title">{study.title}</span>
-                  <span class="featured-proof-spec">{study.proof.inspection} · {study.quantity}</span>
-                </a>
-              ))}
-            </div>
-          </section>
-
           <footer class="hub-list-footer-links blog-index-footer">
             <a href="/terms/payment/">Payment terms</a>
             <span aria-hidden="true">·</span>
@@ -329,32 +265,12 @@ const inspectionSteps = [
             <span aria-hidden="true">·</span>
             <a href="/terms/samples/">Sample &amp; FAI policy</a>
             <span aria-hidden="true">·</span>
-            <a href="/case-studies/">Customer case studies</a>
+            <a href="/part-products/">MTU part numbers</a>
           </footer>
         </article>
       </div>
     </div>
   </section>
-
-  <SocialProofStrip
-    heading="What buyers say about our documentation"
-    showCaseStudies={false}
-    showTestimonial
-    testimonialIndex={2}
-  />
-
-  <BlogCta
-    stage="signing"
-    topic="certifications"
-    title="Confirm documentation scope on your quote"
-    text="Send your part number, engine details, and required documents. We confirm practical documentation and packing scope in the quotation response."
-    primaryLabel="Request Parts Documentation"
-    primaryHref="/contact/?source=certifications"
-    primaryEvent="cert_page_rfq"
-    secondaryLabel="MTU part numbers"
-    secondaryHref="/part-products/"
-    secondaryEvent="cert_page_part_numbers"
-  />
 </BaseLayout>
 
 <style>

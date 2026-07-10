@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
-import BlogCta from '../../components/BlogCta.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { productFaqs } from '../../data/page-faqs';
 import { products } from '../../data/products';
@@ -126,18 +125,6 @@ const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-
     </div>
   </section>
 
-  <BlogCta
-    stage="service"
-    topic="products-index"
-    title="Need a part-number availability check?"
-    text="Send the part number, engine model, serial number, quantity, and destination. We verify compatibility before quotation."
-    primaryLabel="Check Parts"
-    primaryHref="/contact/?source=products"
-    primaryEvent="products_index_rfq"
-    secondaryLabel="Parts guides"
-    secondaryHref="/resources/"
-    secondaryEvent="products_index_dfm"
-  />
 </BaseLayout>
 
 <style>

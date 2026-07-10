@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
-import BlogCta from '../../components/BlogCta.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
@@ -81,13 +80,8 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
       secondaryLabel="All MTU part numbers"
     />
 
-    <h2>{part.partNumber} {part.name} Availability Check</h2>
+    <h2>{part.partNumber} {part.name} Availability</h2>
     <p>{part.availability}</p>
-    <p>
-      Engine Family verifies MTU spare parts by part number, engine model, serial number, application, and old-part
-      photos before quotation. This helps reduce wrong-part risk for urgent marine, generator, rail, and industrial
-      maintenance orders.
-    </p>
 
     <h2>Common Applications</h2>
     <ul>
@@ -137,19 +131,6 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
       <a href={quoteHref}>Check this part</a>
     </p>
   </DetailPageShell>
-
-  <BlogCta
-    stage="selection"
-    topic={part.slug}
-    title={`Need ${part.partNumber}?`}
-    text="Send the part number, engine serial number, old part photo, quantity, and destination. We verify fitment before quotation."
-    primaryLabel="Check This Part"
-    primaryHref={quoteHref}
-    primaryEvent={`mtu_part_${part.slug}_rfq`}
-    secondaryLabel="Parts catalog"
-    secondaryHref="/part-products/"
-    secondaryEvent="mtu_part_catalog"
-  />
 </BaseLayout>
 
 <style>

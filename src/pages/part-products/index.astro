@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
-import BlogCta from '../../components/BlogCta.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { mtuPartCategories, mtuParts, mtuPartSeries } from '../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
@@ -83,26 +82,12 @@ const pageUrl = `${site.url}/part-products/`;
           </section>
 
           <div class="resource-note">
-            <strong>Part-number tip:</strong> MTU replacement fit can vary by rating, application, and build configuration.
-            Confirm with serial number and old-part photos before purchase.
+            Confirm MTU replacement parts with serial number and old-part photos before purchase.
           </div>
         </article>
       </div>
     </div>
   </section>
-
-  <BlogCta
-    stage="selection"
-    topic="part-products"
-    title="Need a part number checked?"
-    text="Send your MTU part number, engine model, serial number, quantity, and destination. We verify fitment and quote availability."
-    primaryLabel="Check Availability"
-    primaryHref="/contact/?source=part-products"
-    primaryEvent="part_products_rfq"
-    secondaryLabel="MTU spare parts"
-    secondaryHref="/products/mtu-spare-parts/"
-    secondaryEvent="part_products_mtu"
-  />
 </BaseLayout>
 
 <style>

@@ -1,10 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
-import BlogCta from '../components/BlogCta.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
-import ProofMediaGallery from '../components/ProofMediaGallery.astro';
-import QualifiedCustomerNote from '../components/QualifiedCustomerNote.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { breadcrumbSchema, site, videoSchema } from '../data/site';
 
@@ -65,11 +62,9 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
           </div>
 
           <nav class="about-jump-nav" aria-label="On this page">
-            <a href="#about-mission" class="about-jump-link">Mission & vision</a>
-            <a href="#about-stats" class="about-jump-link">By the numbers</a>
-            <a href="#about-different" class="about-jump-link">Why us</a>
+            <a href="#about-mission" class="about-jump-link">Company focus</a>
+            <a href="#about-different" class="about-jump-link">Verification</a>
             <a href="#about-factory" class="about-jump-link">Global delivery</a>
-            <a href="#about-team" class="about-jump-link">Parts knowledge</a>
           </nav>
 
           <div class="mission-and-vision-content">
@@ -99,53 +94,6 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
               <div class="vision-image-block">
                 <img src="/images/engine-parts-verification-desk.png" alt="Engine parts verification and quality check" class="vision-image" width="850" height="753" loading="lazy" decoding="async" />
                 <div class="image-overlay"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Who We Are: Your background story -->
-  <section id="about-stats" class="who-we-are-section about-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <div class="who-we-are-wrapper">
-          <div class="who-we-are-content-block fade-in">
-            <div class="who-we-are-text">Engine Family is focused on diesel engine spare parts for MTU, Detroit Diesel, Cummins, and DEUTZ users. We help marine operators, shipyards, repair companies, generator owners, and industrial maintenance teams turn unclear part requests into verified quotations with the right engine details attached.</div>
-          </div>
-          <div class="funfact-wrapper about-metrics-grid fade-in">
-            <div class="funfact-single-block">
-              <div class="funfact-number-block"><div class="chain-character">15+</div></div>
-              <div class="funfact-text-block">
-                <h3 class="funfact-title">MTU Series Covered</h3>
-                <p class="funfact-summary">Parts support for classic and current MTU 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.</p>
-              </div>
-            </div>
-            <div class="funfact-separtion-liner"></div>
-            <div class="funfact-single-block">
-              <div class="funfact-number-block"><div class="chain-character">4</div></div>
-              <div class="funfact-text-block">
-                <h3 class="funfact-title">Core Brands</h3>
-                <p class="funfact-summary">MTU, Detroit Diesel, Cummins, and DEUTZ spare parts for marine, industrial, power generation, and rail users.</p>
-              </div>
-            </div>
-            <div class="funfact-separtion-liner"></div>
-            <div class="funfact-single-block">
-              <div class="funfact-number-block"><div class="chain-character">Global</div></div>
-              <div class="funfact-text-block">
-                <h3 class="funfact-title">Delivery Support</h3>
-                <p class="funfact-summary">Express and freight shipment from Shanghai for urgent downtime and planned maintenance orders.</p>
-              </div>
-            </div>
-
-            <div class="funfact-separtion-liner"></div>
-            <div class="funfact-single-block">
-              <div class="funfact-number-block"><div class="chain-character">24h</div></div>
-              <div class="funfact-text-block">
-                <h3 class="funfact-title">Fast Response</h3>
-                <p class="funfact-summary">Availability checks are faster when buyers send part numbers, engine serial numbers, photos, quantity, and destination together.</p>
               </div>
             </div>
           </div>
@@ -215,61 +163,6 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
       </div>
     </div>
   </section>
-
-  <section class="about-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <QualifiedCustomerNote />
-      </div>
-    </div>
-  </section>
-
-  <section class="about-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <ProofMediaGallery
-          title="Parts verification, packaging, and sample proof"
-          intro="Visual proof helps buyers verify that the supplier behind the website can support real part-number checks, packing, delivery, and sample review before the first order."
-          categories={['factory', 'inspection', 'packaging', 'samples']}
-          limit={8}
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Editorial team -->
-  <section id="about-team" class="who-we-are-section about-section">
-    <div class="section-gap bottom">
-      <div class="container">
-        <SectionHeading title="Parts Knowledge Behind the Guides" subtitle="Editorial Team" />
-        <div class="editorial-team-grid fade-in">
-          <article class="editorial-team-card">
-            <h3 class="editorial-team-name"><a href="/blog/author/wei-chen/">Wei Chen</a></h3>
-            <p class="editorial-team-role">Engine Parts Identification Lead</p>
-            <p class="editorial-team-bio">Supports part-number checks, nameplate review, and engine-series matching for MTU and related diesel engine inquiries.</p>
-          </article>
-          <article class="editorial-team-card">
-            <h3 class="editorial-team-name"><a href="/blog/author/lisa-huang/">Lisa Huang</a></h3>
-            <p class="editorial-team-role">Global Sourcing & Logistics Lead</p>
-            <p class="editorial-team-bio">Coordinates availability checks, export packing, and international shipment options for urgent and planned parts orders.</p>
-          </article>
-        </div>
-        <p class="editorial-team-note">
-          Every guide is reviewed for practical inquiry accuracy. See <a href="/resources/">parts guides</a> and <a href="/products/">engine parts hubs</a>.
-          <span aria-hidden="true"> · </span>
-          <a href="/contact/">Send parts inquiry</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <BlogCta
-    stage="awareness"
-    topic="about"
-    title="Ready to Check Engine Parts Availability?"
-    primaryHref="/contact/?source=about"
-  />
 </BaseLayout>
 <style>
   .about-section {
