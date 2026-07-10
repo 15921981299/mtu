@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import DetailPageShell from '../components/DetailPageShell.astro';
+import DetailRfqStrip from '../components/DetailRfqStrip.astro';
+import { importedEngineFamilyPages } from '../data/imported-engine-family-pages';
+import { breadcrumbSchema, site } from '../data/site';
+import '../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return importedEngineFamilyPages.map((page) => ({
+    params: { importedPage: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const pageUrl = `${site.url}/${page.slug}/`;
+const quoteHref = `/contact/?source=${page.slug.replace(/[^a-z0-9]+/gi, '-')}`;
+---
+
+<BaseLayout
+  title={page.seoTitle}
+  description={`${page.summary} Request availability, replacement checks, and global shipping support from Shanghai.`}
+  currentPath="/products"
+  image="/images/engine-parts-hero.png"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: page.section, url: pageUrl },
+      { name: page.title, url: pageUrl },
+    ]),
+  ]}
+>
+  <BreadcrumbHero
+    title={page.title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: page.section },
+      { label: page.title },
+    ]}
+    variant="3"
+  />
+
+  <DetailPageShell intro={page.summary}>
+    <img
+      slot="hero"
+      src="/images/engine-parts-hero.png"
+      alt={`${page.title} engine parts inquiry`}
+      width="1400"
+      height="692"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+
+    <div class="resource-meta">
+      <span><strong>Section</strong> {page.section}</span>
+      <span><strong>Support</strong> Parts inquiry</span>
+      <span><strong>Verification</strong> Model and serial number</span>
+      <span><strong>Delivery</strong> Global shipping</span>
+    </div>
+
+    <DetailRfqStrip
+      quoteHref={quoteHref}
+      title={`Request ${page.title} support`}
+      text="Send engine model, serial number, part numbers, quantity, destination, and required delivery date."
+      secondaryHref="/products/"
+      secondaryLabel="Browse engine parts"
+    />
+
+    <h2>{page.title} Sourcing Support</h2>
+    <p>
+      This page helps buyers organize engine parts inquiries related to {page.title}. Engine Family checks part
+      references, engine details, replacement status, stock route, and shipping options before quotation.
+    </p>
+
+    <h2>What We Can Check</h2>
+    <ul>
+      <li>Engine model, rating, serial number, and application details</li>
+      <li>Part numbers, replacement references, photos, and quantity</li>
+      <li>Stock availability, lead time, packing, and international shipment route</li>
+    </ul>
+
+    <h2>Useful Links</h2>
+    <ul>
+      <li><a href="/products/">Engine parts catalog</a></li>
+      <li><a href="/part-products/">MTU part numbers</a></li>
+      <li><a href="/contact/">Send parts inquiry</a></li>
+    </ul>
+  </DetailPageShell>
+</BaseLayout>
