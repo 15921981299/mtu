@@ -5,7 +5,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { getRelatedMtuParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
-import { breadcrumbSchema, productSchema, site } from '../../data/site';
+import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 export function getStaticPaths() {
@@ -16,11 +16,44 @@ const { part } = Astro.props;
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
-const title = `${part.partNumber} ${part.name} — MTU ${part.series[0]?.replace('MTU ', '') ?? 'Engine'} Part`;
+const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
+const seriesText = part.series.length > 0
+  ? part.series.join(', ')
+  : hasSpecificEngineType
+    ? part.engineType!
+    : part.applicableEngines ?? 'MTU engine';
+const title = `${part.partNumber} ${part.name} - ${seriesText} Part`;
 const metaStock = part.stockStatus ?? 'Availability checked after inquiry';
-const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${(part.series.length > 0 ? part.series : ['MTU']).join(', ')} engines. ${part.summary}`;
-/** Truncate at last complete word, never cut mid-word or mid-number. */
-const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace(/\s+\S*$/, '') + '…';
+const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${seriesText}. Engine type, dimensions, weight, HS code, and fitment checked before quote.`;
+const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+const partFaqs = part.faqs ?? [];
+const quoteChecklist = part.quoteChecklist ?? [
+  `Part number: ${part.partNumber}`,
+  'Engine model, rating, and serial number',
+  'Nameplate photo and old part photo when available',
+  'Quantity, destination country, and required delivery date',
+];
+
+const specRows = [
+  ['Part No.', part.partNumber],
+  ['Name', part.name],
+  ['Category', part.category],
+  ['Engine Type', part.engineType ?? seriesText],
+  ['Series', seriesText],
+  ['Dimensions', part.dimensions],
+  ['Unit Weight', part.weightKg],
+  ['HS Code', part.hsCode],
+  ['NATO No.', part.natoNumber],
+  ['Lead Time', part.leadTime],
+].filter(([, value]) => value != null && String(value).trim() !== '');
+const browseCatalogLinks = Array.from(
+  new Map(
+    [
+      ...mtuCatalogHubs.filter((hub) => hub.partFilter(part)),
+      ...mtuCatalogHubs,
+    ].map((hub) => [hub.slug, hub]),
+  ).values(),
+).slice(0, 12);
 ---
 
 <BaseLayout
@@ -40,10 +73,11 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       url: pageUrl,
       image: `${site.url}${part.image}`,
       sku: part.partNumber,
-      model: part.series.join(', '),
+      model: seriesText,
       brandName: 'MTU',
       category: part.category,
     }),
+    ...(partFaqs.length > 0 ? [faqSchema(partFaqs)] : []),
   ]}
 >
   <FunnelPageView stage="selection" label={`mtu-part-${part.slug}`} />
@@ -61,7 +95,7 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
     <img
       slot="hero"
       src={part.image}
-      alt={`${part.partNumber} ${part.name} — MTU ${part.category} spare part`}
+      alt={part.imageAlt ?? `${part.partNumber} ${part.name} - MTU ${part.category} spare part`}
       width="1400"
       height="692"
       loading="eager"
@@ -69,21 +103,16 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       decoding="async"
     />
 
-    <!-- Part at-a-glance data table -->
     <div class="resource-meta" aria-label="Part specifications">
-      <span><strong>Part No.</strong> {part.partNumber}</span>
-      <span><strong>Name</strong> {part.name}</span>
-      <span><strong>Category</strong> {part.category}</span>
-      <span><strong>Series</strong> {part.series.length > 0 ? part.series.join(', ') : 'Verify by engine serial number'}</span>
-      {part.weightKg != null && <span><strong>Weight</strong> {part.weightKg}</span>}
-      {part.hsCode != null && <span><strong>HS Code</strong> {part.hsCode}</span>}
+      {specRows.slice(0, 8).map(([label, value]) => (
+        <span><strong>{label}</strong> {value}</span>
+      ))}
       <span><strong>Delivery</strong> Global shipping</span>
     </div>
 
-    <!-- Stock status callout -->
     <div class="stock-status-bar">
       <span class="stock-indicator"></span>
-      <span>{part.stockStatus ?? "Stock status confirmed after inquiry"}</span>
+      <span>{part.stockStatus ?? 'Stock status confirmed after inquiry'}</span>
     </div>
 
     <DetailRfqStrip
@@ -94,11 +123,23 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       secondaryLabel="All MTU part numbers"
     />
 
-    <!-- Part description -->
-    <h2>About {part.partNumber} — {part.name}</h2>
+    <h2>{part.partNumber} Specification</h2>
+    <div class="part-spec-table">
+      {specRows.map(([label, value]) => (
+        <div>
+          <dt>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+      <div>
+        <dt>Availability</dt>
+        <dd>{part.availability}</dd>
+      </div>
+    </div>
+
+    <h2>About {part.partNumber} - {part.name}</h2>
     <p>{part.description ?? part.summary}</p>
 
-    <!-- Applicable engines -->
     {part.applicableEngines && (
       <>
         <h2>Applicable Engine Models</h2>
@@ -106,7 +147,6 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       </>
     )}
 
-    <!-- Common failure scenarios -->
     {part.commonFailureScenarios && part.commonFailureScenarios.length > 0 && (
       <>
         <h2>Common Replacement Scenarios</h2>
@@ -117,35 +157,30 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       </>
     )}
 
-    <!-- Replacement / cross-reference -->
-    {(part.replacementFor && part.replacementFor.length > 0) && (
+    {part.replacementFor && part.replacementFor.length > 0 && (
       <>
-        <h2>Cross-Reference & Superseded Part Numbers</h2>
-        <p>May replace the following OEM references (verify by engine serial number):</p>
+        <h2>Cross-Reference and Superseded Part Numbers</h2>
+        <p>May replace or relate to the following references. Final fitment is verified by engine serial number.</p>
         <ul>
-          {part.replacementFor?.map((ref) => <li><strong>{ref}</strong></li>)}
+          {part.replacementFor.map((ref) => <li><strong>{ref}</strong></li>)}
         </ul>
       </>
     )}
 
-    <!-- Applications -->
     <h2>Common Applications</h2>
     <ul>
       {part.applications.map((application) => <li>{application}</li>)}
     </ul>
 
-    <!-- What to send -->
     <h2>Information to Send for Quotation</h2>
     <ul>
-      <li><strong>Part number:</strong> {part.partNumber}</li>
-      <li><strong>Engine model, rating, and serial number</strong></li>
-      <li><strong>Nameplate photo</strong> and <strong>old part photo</strong> when available</li>
-      <li><strong>Quantity</strong>, <strong>destination country</strong>, and <strong>required delivery date</strong></li>
+      {quoteChecklist.map((item) => <li>{item}</li>)}
+      {part.dimensions && <li><strong>Dimensions reference:</strong> {part.dimensions}</li>}
       {part.weightKg && <li><strong>Approximate shipping weight:</strong> {part.weightKg}</li>}
       {part.hsCode && <li><strong>HS code for customs reference:</strong> {part.hsCode}</li>}
+      {part.natoNumber && <li><strong>NATO number:</strong> {part.natoNumber}</li>}
     </ul>
 
-    <!-- Ordering notes -->
     {part.orderingNotes && (
       <>
         <h2>Ordering Notes</h2>
@@ -153,18 +188,30 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       </>
     )}
 
-    <!-- Notes -->
+    {partFaqs.length > 0 && (
+      <>
+        <h2>{part.partNumber} FAQ</h2>
+        <div class="part-faq-list">
+          {partFaqs.map((faq) => (
+            <article>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </>
+    )}
+
     <h2>Verification Notes</h2>
     <ul>
       {part.notes.map((note) => <li>{note}</li>)}
     </ul>
 
-    <!-- Related parts -->
     {relatedParts.length > 0 && (
       <section class="hub-section">
         <header class="hub-section-header">
           <h2>Related MTU Parts</h2>
-          <p>Similar parts by series or category.</p>
+          <p>Similar parts by engine series or category.</p>
         </header>
         <div class="hub-grid part-related-grid">
           {relatedParts.map((related) => (
@@ -182,22 +229,21 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
       </section>
     )}
 
-    <!-- Browse more catalogs -->
     <section style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-stroke);">
       <h2 style="font-size: 18px; margin-bottom: 12px;">Browse More MTU Parts</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px;">
-        {mtuCatalogHubs.slice(0, 12).map((hub) => (
+        {browseCatalogLinks.map((hub) => (
           <a href={`/part-products/catalog/${hub.slug}/`} style="color: var(--color-primary); text-decoration: none;">{hub.h1Title}</a>
         ))}
-        <a href="/part-products/" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">All catalogs →</a>
+        <a href="/part-products/" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">All catalogs -></a>
       </div>
     </section>
 
     <p class="resource-note detail-page-back">
       <a href="/part-products/">All MTU part numbers</a>
-      ·
+      /
       <a href="/products/mtu-spare-parts/">MTU spare parts</a>
-      ·
+      /
       <a href={quoteHref}>Check this part</a>
     </p>
   </DetailPageShell>
@@ -206,6 +252,67 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
 <style>
   .part-related-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .part-spec-table {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 16px 0 28px;
+  }
+
+  .part-spec-table div {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.55fr) minmax(0, 1fr);
+    border-bottom: 1px solid var(--color-stroke);
+  }
+
+  .part-spec-table div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .part-spec-table dt,
+  .part-spec-table dd {
+    margin: 0;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .part-spec-table dt {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+  }
+
+  .part-spec-table dd {
+    color: #0f172a;
+  }
+
+  .part-faq-list {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0 28px;
+  }
+
+  .part-faq-list article {
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    padding: 16px;
+    background: #fff;
+  }
+
+  .part-faq-list h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .part-faq-list p {
+    margin: 0;
+    color: #475569;
   }
 
   .stock-status-bar {
@@ -232,8 +339,14 @@ const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace
   }
 
   @media (max-width: 700px) {
-    .part-related-grid {
+    .part-related-grid,
+    .part-spec-table {
       grid-template-columns: 1fr;
+    }
+
+    .part-spec-table div,
+    .part-spec-table div:nth-last-child(-n + 2) {
+      border-bottom: 1px solid var(--color-stroke);
     }
   }
 </style>

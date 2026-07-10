@@ -11,7 +11,6 @@ import BlogPostMeta from '../../components/BlogPostMeta.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import BlogPillarBanner from '../../components/BlogPillarBanner.astro';
 import BlogPillarProof from '../../components/BlogPillarProof.astro';
-import { isBlogNoindex } from '../../data/blog-quality';
 import { getComparisonByBlogSlug } from '../../data/comparisons';
 import { getPostFunnelStage } from '../../data/funnel';
 import { mergeBlogDates } from '../../data/blog-changelog';
@@ -33,7 +32,7 @@ const author = authors[authorKey];
 const dates = mergeBlogDates(post.slug, post.publishedAt, 'updatedAt' in post ? post.updatedAt : undefined);
 const funnelStage = getPostFunnelStage(post);
 const comparison = getComparisonByBlogSlug(post.slug);
-const noindex = isBlogNoindex(post.slug);
+const noindex = true;
 const quoteHref = `/contact/?source=blog-${post.slug}`;
 const primaryTag = post.tags[0];
 ---

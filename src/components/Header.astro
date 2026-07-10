@@ -9,8 +9,8 @@ const { currentPath = '/' } = Astro.props;
 const isActive = (path: string) => currentPath === path || (path !== '/' && currentPath.startsWith(path));
 const productsActive = isActive('/products') || isActive('/part-products');
 const supportActive = isActive('/capabilities') || isActive('/industries');
-const companyActive = isActive('/about') || isActive('/certifications') || isActive('/case-studies');
-const resourcesActive = isActive('/resources') || isActive('/blog') || isActive('/compare') || isActive('/glossary');
+const companyActive = isActive('/about') || isActive('/certifications');
+const resourcesActive = isActive('/resources') || isActive('/part-products/catalog');
 ---
 
 <header class="header">
@@ -97,7 +97,7 @@ const resourcesActive = isActive('/resources') || isActive('/blog') || isActive(
             <li class="nav-menu-list">
               <div class="nav-dropdown">
                 <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                  <span class="nav-menu-link" class:list={['nav-menu-link', { active: resourcesActive }]}>Resources</span>
+                  <span class="nav-menu-link" class:list={['nav-menu-link', { active: resourcesActive }]}>Catalogs</span>
                   <svg class="nav-dropdown-icon" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 1C13 1 8.581 7 7 7C5.419 7 1 1 1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                   </svg>
@@ -105,10 +105,12 @@ const resourcesActive = isActive('/resources') || isActive('/blog') || isActive(
                 </button>
                 <div class="nav-dropdown-list nav-dropdown-list--grid">
                   <div class="nav-dropdown-panel">
-                    <a href="/resources/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Guides & Tools</span></a>
-                    <a href="/blog/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">News & Articles</span></a>
-                    <a href="/compare/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Comparisons</span></a>
-                    <a href="/glossary/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Engine Glossary</span></a>
+                    <a href="/part-products/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All MTU Part Numbers</span></a>
+                    <a href="/part-products/catalog/mtu-2000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Catalog</span></a>
+                    <a href="/part-products/catalog/mtu-4000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Catalog</span></a>
+                    <a href="/part-products/catalog/mtu-injectors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Fuel System Parts</span></a>
+                    <a href="/part-products/catalog/mtu-filters/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Filters</span></a>
+                    <a href="/part-products/catalog/mtu-sensors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Sensors</span></a>
                   </div>
                 </div>
               </div>
@@ -128,7 +130,7 @@ const resourcesActive = isActive('/resources') || isActive('/blog') || isActive(
                   <div class="nav-dropdown-panel">
                     <a href="/about/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Company</span></a>
                     <a href="/certifications/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Quality Policy</span></a>
-                    <a href="/case-studies/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Client Stories</span></a>
+                    <a href="/contact/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Parts Inquiry</span></a>
                   </div>
                 </div>
               </div>

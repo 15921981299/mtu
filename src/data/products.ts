@@ -12106,18 +12106,49 @@ const productCatalog: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Spare Parts Supply</h2>
-        <p>Engine Family specializes in MTU engine spare parts for marine, industrial, rail, and power generation users. We support both routine service orders and urgent downtime requests.</p>
-        <h3>Common Requests</h3>
+        <p>Engine Family supplies MTU engine spare parts for marine, industrial, rail, and power generation users. We support both routine service orders and urgent downtime requests with part-number verification, stock checking, and global delivery from Shanghai.</p>
+        <h3>Browse by Part Category</h3>
         <ul>
-          <li>Filters, seals, gaskets, O-rings, and maintenance kits</li>
-          <li>Injectors, fuel pumps, sensors, valves, guides, and cooling parts</li>
-          <li>Pistons, liners, bearings, crankshafts, and overhaul components</li>
+          <li><a href="/part-products/catalog/mtu-filters/">MTU Filters — oil, fuel, air, coolant</a></li>
+          <li><a href="/part-products/catalog/mtu-injectors/">MTU Injectors & fuel system parts</a></li>
+          <li><a href="/part-products/catalog/mtu-turbocharger-parts/">MTU Turbocharger parts</a></li>
+          <li><a href="/part-products/catalog/mtu-sensors/">MTU Sensors & electrical components</a></li>
+          <li><a href="/part-products/catalog/mtu-gasket-kits/">MTU Gaskets, seals & O-rings</a></li>
+          <li><a href="/part-products/catalog/mtu-pistons-liners/">MTU Pistons, liners & rings</a></li>
+          <li><a href="/part-products/catalog/mtu-valve-train/">MTU Valve train components</a></li>
+          <li><a href="/part-products/catalog/mtu-bearings/">MTU Engine bearings</a></li>
+          <li><a href="/part-products/catalog/mtu-cooling-system/">MTU Cooling system parts</a></li>
         </ul>
+        <h3>Browse by Engine Series</h3>
+        <ul>
+          <li><a href="/part-products/catalog/mtu-2000-series/">MTU 2000 Series parts</a></li>
+          <li><a href="/part-products/catalog/mtu-4000-series/">MTU 4000 Series parts</a></li>
+          <li><a href="/part-products/catalog/mtu-396-series/">MTU 396 Series parts</a></li>
+          <li><a href="/part-products/catalog/mtu-595-series/">MTU 595 Series parts</a></li>
+          <li><a href="/part-products/catalog/mtu-956-series/">MTU 956 Series parts</a></li>
+          <li><a href="/part-products/catalog/mtu-1163-series/">MTU 1163 Series parts</a></li>
+        </ul>
+        <h3>Frequently Requested Part Numbers</h3>
+        <ul>
+          <li><a href="/part-products/5240113410-cylinder-liner-size-0/">5240113410 — Cylinder Liner Size 0 (MTU 4000)</a></li>
+          <li><a href="/part-products/x53507500012-injector/">X53507500012 — Injector (MTU 2000)</a></li>
+          <li><a href="/part-products/ex52407500064-injector/">EX52407500064 — Injector (MTU 4000)</a></li>
+          <li><a href="/part-products/5110804420-turbine-wheel/">5110804420 — Turbine Wheel (MTU 4000)</a></li>
+          <li><a href="/part-products/5410160920-cylinder-head-gasket/">5410160920 — Cylinder Head Gasket (MTU 2000)</a></li>
+          <li><a href="/part-products/0020940204-filter-cartridge/">0020940204 — Filter Cartridge (MTU 956)</a></li>
+          <li><a href="/part-products/0031845201-oil-filter-spin-on/">0031845201 — Oil Filter Spin-On (MTU 2000/4000)</a></li>
+          <li><a href="/part-products/x57508300091-fuel-filter-spin-on/">X57508300091 — Fuel Filter Spin-On (MTU 4000)</a></li>
+          <li><a href="/part-products/0005358233-speed-sensor/">0005358233 — Speed Sensor (MTU 2000/4000)</a></li>
+          <li><a href="/part-products/5240530301-inlet-valve/">5240530301 — Inlet Valve (MTU 4000)</a></li>
+          <li><a href="/part-products/5240380471-conrod-bolt/">5240380471 — Conrod Bolt (MTU 4000)</a></li>
+          <li><a href="/part-products/5502003201-seawater-pump/">5502003201 — Seawater Pump (MTU 2000)</a></li>
+        </ul>
+        <p><a href="/part-products/">Browse all 300+ MTU part numbers →</a></p>
       `,
       partTwo: `
         <h2>How We Verify MTU Parts</h2>
-        <p>Send the part number, engine series, engine serial number, and photos when available. We confirm the correct item before quotation and shipment.</p>
-        <p><a href="/contact/">Request MTU spare parts</a></p>
+        <p>Send the part number, engine series, engine serial number, and photos when available. We confirm the correct item — including superseded part numbers and size grades — before quotation and shipment.</p>
+        <p><a href="/contact/">Request MTU spare parts →</a></p>
       `,
     },
   },

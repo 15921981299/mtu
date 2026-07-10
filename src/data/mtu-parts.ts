@@ -23,6 +23,20 @@ export type MtuPart = {
   commonFailureScenarios?: string[];
   /** Ordering notes for procurement */
   orderingNotes?: string;
+  /** Typical lead time after order confirmation */
+  leadTime?: string;
+  /** Package or unit dimensions (L x W x H or diam) */
+  dimensions?: string;
+  /** Engine type shown in public parts references */
+  engineType?: string;
+  /** NATO stock/version number when available */
+  natoNumber?: string;
+  /** RFQ checklist tailored to this part */
+  quoteChecklist?: string[];
+  /** FAQ content for priority part pages */
+  faqs?: { question: string; answer: string }[];
+  /** More descriptive alt text for part-page hero image */
+  imageAlt?: string;
 };
 
 const partImage = '/images/mtu-2000-series-parts.webp';
@@ -62,6 +76,36 @@ const popularPartImages: Record<string, string> = {
   '5240380471-conrod-bolt': '/images/engine-parts-verification-desk.png',
   '5502003201-seawater-pump': '/images/marine-diesel-engine-parts.webp',
   'x00022524-impeller': '/images/marine-diesel-engine-parts.webp',
+  '5240780824-conn-fuel-rail-rear': '/images/engine-parts-hero.png',
+  'x54707700072-relief-valve-for-4-cyl-hp-pump': '/images/engine-parts-hero.png',
+  '8495340000-solenoid-valve': '/images/engine-parts-sensors-catalog.png',
+  '0005342732-valve-block-electric': '/images/engine-parts-sensors-catalog.png',
+  '5840980257-2-2-way-solenoid-valve': '/images/engine-parts-sensors-catalog.png',
+  '0005357933-speed-sensor': '/images/engine-parts-sensors-catalog.png',
+  '0035352731-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
+  '0035351731-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
+  '0035352931-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
+  '0005355303-level-monitor': '/images/engine-parts-sensors-catalog.png',
+  '0002000001-coolant-pump': '/images/marine-diesel-engine-parts.webp',
+  '0012040100-seawater-pump': '/images/marine-diesel-engine-parts.webp',
+  '5410100163-oil-separator': '/images/engine-parts-hero.png',
+  '0021882301-29-oil-cooler': '/images/engine-parts-hero.png',
+  '5240510110-bearing-camshaft-std': '/images/mtu-4000-series-overhaul-parts.webp',
+  'x00016024-crankshaft-bearing-size-0-0': '/images/mtu-4000-series-overhaul-parts.webp',
+  '5240336602-crankshaft-bearing-lower-half': '/images/mtu-4000-series-overhaul-parts.webp',
+  'x52403100003-crankshaft-bearing-size-0-1': '/images/mtu-4000-series-overhaul-parts.webp',
+  '5240336702-crankshaft-bearing-size-0-1': '/images/mtu-4000-series-overhaul-parts.webp',
+  'x00009806-rectangular-section-ring': '/images/generator-engine-parts.webp',
+  '0090375019-taper-face-compression-ring': '/images/generator-engine-parts.webp',
+  '0120373618-oil-control-ring': '/images/generator-engine-parts.webp',
+  'x52404200037-gasket-for-cylinder-head': '/images/engine-parts-verification-desk.png',
+  'x52404100226-inlet-valve': '/images/industrial-diesel-engine-parts.webp',
+  '5240530805-exhaust-valve': '/images/industrial-diesel-engine-parts.webp',
+  '5240530122-valve-spring-inner': '/images/industrial-diesel-engine-parts.webp',
+  '0030947404-air-filter-element': '/images/engine-parts-sensors-catalog.png',
+  '0030948104-air-filter-element': '/images/engine-parts-sensors-catalog.png',
+  '0020921901-fuel-filter-spin-on': '/images/engine-parts-sensors-catalog.png',
+  '0000925105-filter-element': '/images/engine-parts-sensors-catalog.png',
 };
 
 /** Category-specific defaults — keeps each category feeling different */
@@ -193,22 +237,70 @@ const slugifyPart = (value: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 
-const createCatalogPart = (part: {
+type CatalogPartSeed = {
   partNumber: string;
   name: string;
-  series: string[];
+  series: readonly string[];
   category: string;
   /** Optional: override the category-default stock status */
   stockStatus?: string;
   /** Optional: extra cross-reference OEM numbers */
-  replacementFor?: string[];
-}): MtuPart => {
+  replacementFor?: readonly string[];
+  engineType?: string;
+  dimensions?: string;
+  weightKg?: string;
+  hsCode?: string;
+  natoNumber?: string;
+  leadTime?: string;
+  applicableEngines?: string;
+};
+
+const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
+  '5110804420': { engineType: 'MTU 4000', dimensions: 'ATL ZR175/082', weightKg: '3.850 KG', hsCode: '84149000', natoNumber: '2950123856295' },
+  '0020940204': { engineType: 'MTU 956', dimensions: 'TKZ.45 940 55 124 S. INT. VERM.', weightKg: '16.00 KG', hsCode: '84219990', natoNumber: 'N/A' },
+  '8490740063': { engineType: 'MTU 956/1163', dimensions: 'N/A', weightKg: '3.086 KG', hsCode: '84139100', natoNumber: '2910123890394' },
+  'EX52407500064': { engineType: 'MTU 4000', dimensions: 'N/A', weightKg: '1.873 KG', hsCode: '84099900', natoNumber: 'N/A' },
+  'X53507500012': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.298 KG', hsCode: '84099900', natoNumber: '2910123804421' },
+  'X57508300091': { engineType: 'MTU 4000', dimensions: 'N/A', weightKg: '1.288 KG', hsCode: '84212300', natoNumber: '2910124051513' },
+  '8495340000': { engineType: 'MTU 956/1163', dimensions: 'For valve block 0005342732', weightKg: '0.650 KG', hsCode: '84812090', natoNumber: '4810123693952' },
+  '0005342732': { engineType: 'MTU 956/1163', dimensions: 'N/A', weightKg: '6.234 KG', hsCode: '84811005', natoNumber: '4810123604998' },
+  '5840300917': { engineType: 'MTU 1163', dimensions: 'N/A', weightKg: '28.888 KG', hsCode: '84099900', natoNumber: '2805124101245' },
+  '0080375619': { engineType: 'MTU 1163', dimensions: 'N/A', weightKg: '0.210 KG', hsCode: '84099900', natoNumber: '2815123580495' },
+  '0080370018': { engineType: 'MTU 1163', dimensions: 'N/A', weightKg: '0.240 KG', hsCode: '84099900', natoNumber: '2815123349274' },
+  '5410500227': {
+    engineType: 'MTU 2000',
+    dimensions: '45 degree',
+    weightKg: '0.142 KG',
+    hsCode: '84099900',
+    natoNumber: '2815123583600',
+    replacementFor: ['4570500127', '5410500127', '23527979', 'A5410500227', 'DDE A5410500227'],
+  },
+  '5320100130': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '2.100 KG', hsCode: '84099900', natoNumber: '2815123859406' },
+  '5090200512': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.155 KG', hsCode: '84833080', natoNumber: '3130123845856' },
+  '5090250141': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.899 KG', hsCode: '84149000', natoNumber: '5330123855185' },
+  '5090200071': { engineType: 'MTU 2000', dimensions: 'M10X1.25 LH', weightKg: '0.037 KG', hsCode: '73181631', natoNumber: 'N/A' },
+  'XT1310100012': { engineType: 'MTU 2000', dimensions: 'M10X1.25 LH', weightKg: '0.037 KG', hsCode: '73181631', natoNumber: 'N/A' },
+  '5090251301': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.420 KG', hsCode: '84149000', natoNumber: '2950123736701' },
+  '0000180680': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.003 KG', hsCode: '40169300', natoNumber: '5330123733969' },
+};
+
+const inferEngineType = (series: readonly string[]) =>
+  series.length > 0 ? series.map((item) => item.replace(/^MTU\s*/i, 'MTU ')).join('/') : 'Verify by engine serial number';
+
+const inferLeadTime = (category: string) =>
+  category === 'Filters' || category === 'Gaskets and seals'
+    ? 'Common references are usually checked fastest'
+    : 'Quoted by stock, replacement route, and destination';
+
+const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
   const cat = categoryDefaults[part.category] ?? categoryDefaults['Engine components'];
+  const spec = publicPartSpecs[part.partNumber] ?? {};
+  const replacementFor = [...(part.replacementFor ?? spec.replacementFor ?? [])];
   return {
     slug: `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`,
     partNumber: part.partNumber,
     name: part.name,
-    series: part.series,
+    series: [...part.series],
     category: part.category,
     summary: cat.summary,
     description: cat.description,
@@ -220,9 +312,14 @@ const createCatalogPart = (part: {
       'Confirm engine model, serial number, required quantity, and destination before ordering.',
       'Send old part photos or nameplate details when markings or replacement status are unclear.',
     ],
-    replacementFor: part.replacementFor ?? [],
-    weightKg: cat.weightKg,
-    hsCode: cat.hsCode,
+    replacementFor,
+    weightKg: part.weightKg ?? spec.weightKg ?? cat.weightKg,
+    hsCode: part.hsCode ?? spec.hsCode ?? cat.hsCode,
+    leadTime: part.leadTime ?? spec.leadTime ?? inferLeadTime(part.category),
+    dimensions: part.dimensions ?? spec.dimensions ?? 'Confirm by part number, old-part photo, or catalog drawing',
+    engineType: part.engineType ?? spec.engineType ?? inferEngineType(part.series),
+    natoNumber: part.natoNumber ?? spec.natoNumber ?? 'N/A',
+    applicableEngines: part.applicableEngines ?? spec.applicableEngines ?? inferEngineType(part.series),
   };
 };
 
@@ -231,23 +328,25 @@ const expandedMtuParts = [
   { partNumber: '0020940204', name: 'Filter Cartridge', series: ['MTU 956'], category: 'Filters' },
   { partNumber: '8490740063', name: 'Flange', series: ['MTU 956', 'MTU 1163'], category: 'Cooling system' },
   { partNumber: 'EX52407500064', name: 'Injector', series: ['MTU 4000'], category: 'Fuel system' },
+  { partNumber: '5240780824', name: 'Conn Fuel Rail Rear', series: ['MTU 4000'], category: 'Fuel system' },
   { partNumber: 'X53507500012', name: 'Injector', series: ['MTU 2000'], category: 'Fuel system' },
   { partNumber: 'X57508300091', name: 'Fuel Filter Spin-On', series: ['MTU 4000'], category: 'Filters' },
   { partNumber: '8495340000', name: 'Solenoid Valve', series: ['MTU 956', 'MTU 1163'], category: 'Sensors and electrical' },
   { partNumber: '0005342732', name: 'Valve Block Electric', series: ['MTU 956', 'MTU 1163'], category: 'Sensors and electrical' },
   { partNumber: '5840900595', name: '2/2-Way Solenoid Valve', series: ['MTU 595'], category: 'Sensors and electrical' },
   { partNumber: '5840980257', name: '2/2-Way Solenoid Valve', series: ['MTU 595'], category: 'Sensors and electrical' },
-  { partNumber: '5840300917', name: 'Piston', series: ['MTU 595'], category: 'Pistons and liners' },
-  { partNumber: '0080375619', name: 'Rectangular-Section Ring', series: ['MTU 595', 'MTU 956'], category: 'Pistons and liners' },
-  { partNumber: '0080370018', name: 'Oil Control Ring', series: ['MTU 595', 'MTU 956'], category: 'Pistons and liners' },
-  { partNumber: '5410500227', name: 'Exhaust Valve', series: ['MTU 396'], category: 'Valve train' },
-  { partNumber: '5320100130', name: 'Cylinder Head Cover', series: ['MTU 396'], category: 'Cylinder head' },
-  { partNumber: '5090200512', name: 'Thrust Bearing', series: ['MTU 396', 'MTU 4000'], category: 'Bearings' },
-  { partNumber: '5090250141', name: 'Retaining Ring', series: ['MTU 396', 'MTU 4000'], category: 'Drive components' },
-  { partNumber: '5090200071', name: 'Magnetic Nut', series: ['MTU 396'], category: 'Drive components' },
-  { partNumber: 'XT1310100012', name: 'Magnetic Nut', series: ['MTU 396'], category: 'Drive components' },
-  { partNumber: '5090251301', name: 'Compressor Wheel', series: ['MTU 396', 'MTU 956'], category: 'Turbocharging' },
-  { partNumber: '0000180680', name: 'Gasket', series: ['MTU 396', 'MTU 4000'], category: 'Gaskets and seals' },
+  { partNumber: '5840300917', name: 'Piston', series: ['MTU 1163'], category: 'Pistons and liners' },
+  { partNumber: '0080375619', name: 'Rectangular-Section Ring', series: ['MTU 1163'], category: 'Pistons and liners' },
+  { partNumber: '0080370018', name: 'Oil Control Ring', series: ['MTU 1163'], category: 'Pistons and liners' },
+  { partNumber: '5410500227', name: 'Exhaust Valve', series: ['MTU 2000'], category: 'Valve train' },
+  { partNumber: '5320100130', name: 'Cylinder Head Cover Lower Part', series: ['MTU 2000'], category: 'Engine components' },
+  { partNumber: '5090200512', name: 'Thrust Bearing', series: ['MTU 2000'], category: 'Bearings' },
+  { partNumber: '5090250141', name: 'Retaining Ring', series: ['MTU 2000'], category: 'Drive components' },
+  { partNumber: '5090200071', name: 'Magnetic Nut', series: ['MTU 2000'], category: 'Drive components' },
+  { partNumber: 'XT1310100012', name: 'Magnetic Nut', series: ['MTU 2000'], category: 'Drive components' },
+  { partNumber: '5090251301', name: 'Compressor Wheel', series: ['MTU 2000'], category: 'Turbocharging' },
+  { partNumber: '0000180680', name: 'Gasket', series: ['MTU 2000'], category: 'Gaskets and seals' },
+  { partNumber: 'X54707700072', name: 'Relief Valve for 4 Cyl HP Pump', series: ['MTU 4000'], category: 'Fuel system' },
   { partNumber: 'X00012160', name: 'Wiring Harness to Injector', series: [], category: 'Sensors and electrical' },
   { partNumber: 'X00011800', name: 'Wiring Harness for Sensor', series: [], category: 'Sensors and electrical' },
   { partNumber: '0005358233', name: 'Speed Sensor', series: [], category: 'Sensors and electrical' },
@@ -1074,6 +1173,7 @@ const sitemapMtuParts = [
 
 
 const mtuPartsRaw: MtuPart[] = [
+  ...sitemapMtuParts,
   {
     slug: '5840530229-valve-guide-inlet-size-1',
     partNumber: '5840530229',
@@ -1379,7 +1479,7 @@ const mtuPartsRaw: MtuPart[] = [
   // ═══════════════════════════════════════════════
   ...([
     // ── MTU 4000 Overhaul Parts ──
-    { partNumber: '5240113410', name: 'Cylinder Liner Size 0', series: [], category: 'Pistons and liners', stockStatus: 'Standard grade — common stock item, confirmed after engine serial check', replacementFor: ['5240113510', '5240114210'], weightKg: 'Approx 45 kg', hsCode: '8409.99', applicableEngines: '12V 4000 M70, 16V 4000 M90, 20V 4000 M93', commonFailureScenarios: ['Cavitation erosion on water-jacket side', 'Wear ridge at top ring travel — check at 24,000 hour overhaul', 'Scuffing from coolant contamination'], orderingNotes: 'Always verify size grade (0/1/2) via engine serial number before ordering. Replace liner, piston rings, and sealing rings as a set.' },
+    { partNumber: '5240113410', name: 'Cylinder Liner Size 0', series: [], category: 'Pistons and liners', stockStatus: 'Standard grade — common stock item, confirmed after engine serial check', replacementFor: ['5240113510', '5240114210'], weightKg: 'Approx 45 kg', hsCode: '8409.99', applicableEngines: '12V 4000 M70, 16V 4000 M90, 20V 4000 M93', commonFailureScenarios: ['Cavitation erosion on water-jacket side', 'Wear ridge at top ring travel — check at 24,000 hour overhaul', 'Scuffing from coolant contamination'], orderingNotes: 'Always verify size grade (0/1/2) via engine serial number before ordering. Replace liner, piston rings, and sealing rings as a set.', leadTime: 'Standard grade: 3-5 working days. Special grade: 2-4 weeks.', dimensions: 'Approx 350mm OD x 650mm L' },
     { partNumber: '5240103420', name: 'Cylinder Head Assembly', series: [], category: 'Engine components', stockStatus: 'Checked by engine variant — OEM and alternative options quoted', replacementFor: [], weightKg: 'Approx 85 kg', hsCode: '8409.91' },
     { partNumber: '5240161580', name: 'Cylinder Head Gasket', series: [], category: 'Gaskets and seals', stockStatus: 'Common service item — typically in stock', replacementFor: ['5240160380'], weightKg: '0.5 kg', hsCode: '8484.10', applicableEngines: '12V/16V/20V 4000 series — all variants', commonFailureScenarios: ['External coolant leak at cylinder head joint', 'Combustion gas blow-by into cooling system', 'Oil contamination in coolant from failed gasket'], orderingNotes: 'Replace as a complete set (one per cylinder). Always replace head bolts at the same time.' },
     { partNumber: '5240303917', name: 'Piston Assembly', series: [], category: 'Pistons and liners', stockStatus: 'Quoted by size grade — OEM and alternative grades available', replacementFor: [], weightKg: 'Approx 12 kg', hsCode: '8409.99' },
@@ -1644,40 +1744,318 @@ const mtuPartsRaw: MtuPart[] = [
     { partNumber: '0080370018', name: 'Oil Control Ring', series: [], category: 'Pistons and liners', stockStatus: 'Standard ring set item', replacementFor: [], weightKg: '0.15 kg', hsCode: '8409.99' },
     { partNumber: '0002040479', name: 'Cup Seal', series: [], category: 'Gaskets and seals', stockStatus: 'Small consumable', replacementFor: [], weightKg: '0.02 kg', hsCode: '8484.10' },
   ] as const).map((p) => {
-    const cat = categoryDefaults[p.category] ?? categoryDefaults['Engine components'];
+    const seed = p as CatalogPartSeed & { commonFailureScenarios?: string[]; orderingNotes?: string };
+    const cat = categoryDefaults[seed.category] ?? categoryDefaults['Engine components'];
+    const spec = publicPartSpecs[seed.partNumber] ?? {};
+    const replacementFor = seed.replacementFor && seed.replacementFor.length > 0 ? [...seed.replacementFor] : [...(spec.replacementFor ?? [])];
     return {
-      slug: `${slugifyPart(p.partNumber)}-${slugifyPart(p.name)}`,
-      partNumber: p.partNumber,
-      name: p.name,
-      series: p.series,
-      category: p.category,
+      slug: `${slugifyPart(seed.partNumber)}-${slugifyPart(seed.name)}`,
+      partNumber: seed.partNumber,
+      name: seed.name,
+      series: [...seed.series],
+      category: seed.category,
       summary: cat.summary,
       description: cat.description,
-      image: popularPartImages[`${slugifyPart(p.partNumber)}-${slugifyPart(p.name)}`] ?? categoryImages[p.category] ?? defaultPartImage,
+      image: popularPartImages[`${slugifyPart(seed.partNumber)}-${slugifyPart(seed.name)}`] ?? categoryImages[seed.category] ?? defaultPartImage,
       availability: 'Stock, replacement status, lead time, and shipping route confirmed after inquiry.',
-      stockStatus: p.stockStatus,
+      stockStatus: seed.stockStatus ?? cat.stockStatus,
       applications: cat.applications,
       notes: [
         'Confirm engine model, serial number, required quantity, and destination before ordering.',
         'Send old part photos or nameplate details when markings or replacement status are unclear.',
       ],
-      replacementFor: p.replacementFor,
-      weightKg: p.weightKg,
-      hsCode: p.hsCode,
-      commonFailureScenarios: p.commonFailureScenarios ?? undefined,
-      orderingNotes: p.orderingNotes ?? undefined,
-      applicableEngines: p.applicableEngines ?? undefined,
+      replacementFor,
+      weightKg: spec.weightKg ?? seed.weightKg ?? cat.weightKg,
+      hsCode: spec.hsCode ?? seed.hsCode ?? cat.hsCode,
+      commonFailureScenarios: seed.commonFailureScenarios ?? undefined,
+      orderingNotes: seed.orderingNotes ?? undefined,
+      applicableEngines: spec.applicableEngines ?? seed.applicableEngines ?? inferEngineType(seed.series),
+      leadTime: spec.leadTime ?? seed.leadTime ?? inferLeadTime(seed.category),
+      dimensions: spec.dimensions ?? seed.dimensions ?? 'Confirm by part number, old-part photo, or catalog drawing',
+      engineType: spec.engineType ?? seed.engineType ?? inferEngineType(seed.series),
+      natoNumber: spec.natoNumber ?? seed.natoNumber ?? 'N/A',
     } satisfies MtuPart;
   }),
   ...expandedMtuParts,
-  /** sitemapMtuParts removed: all 571 entries had unverified series. */
 ];
 
-/** Deduplicate by partNumber+name slug — last occurrence wins (expanded > enriched > sitemap). */
+/** Deduplicate by partNumber+name slug — last occurrence wins (expanded > enriched > sitemap imports). */
+const highValuePartNumbers = new Set<string>([
+  '5240113410', '5240103420', '5240161580', '5240303917', '5240372525',
+  '5240300215', '0120370618', '0120370819', '0080375819', '5240383710',
+  '5240382711', '5240380471', '5240334901', '5240335602', '5240332730',
+  '5240332630', '5240530301', '5240530305', '5240530152', '5240530120',
+  '0000534335', '0000530926', '5240160069', '5240160153', '5240500930',
+  '5110804420', '5110803201', '5110850060', 'EX52407500064', 'X57508300091',
+  '5062000601', '5582040406', '5240980281', '5241840501', '0031845201',
+  '0020922801', '5241420780', '5241870380', '5241880180', 'X52404200052',
+  '5410160920', '5310160021', '5419970645', '5501871280', '5220980080',
+  '5411420180', '5410530020', '5500530401', '5410500227', '5410540505',
+  '5419900304', 'X53507500012', 'X53508200001', 'E0060704101', '5360900250',
+  '5360702032', '5501801015', '0030176421', '0010175412', 'X00022524',
+  '5502003201', '5502002002', '5502040906', '5502030060', '5501800016',
+  '0010928801', '0030944304', '0180944502', '0170942502', '5360900001',
+  '5500511710', '4420302240', '5700510150', '5500100061', '4221880001',
+  '4231801101', '5361800515', '0005358233', '0035352531', '0005356430',
+  '0005355103', '5205304531', '0045426917', '0001536132', '5205304131',
+  '5310900337', '5120850560', '5361420025', '5610105420', '5500100330',
+  '5500530232', '5592001001/31', '5100200212', '5500706932', '5500110559',
+  '5550160071', '5590981585', '5562030980', '0002036946', '23504304',
+  '23523615', '000625900175', '0005330760', 'XP52807300012', '0009922130',
+  '0020371319', '0002040479', '5840111810', '5840300917', '5840300020-42',
+  '5840300615', '5840371625', '5840530129', '5840900595', '5840900054',
+  '5840700632-87', '5840782802', '5841400344', '5841800175', '5842040714',
+  '5842032780', '5842040180', '5550105141', '5550161420', '5550302160',
+  '5550307540', '5550530105', '5550100051', '5552010005', '5592010007',
+  '8490740063', '5551800015', '5550101251', '5551800122', '5552030388',
+  '700429260000', '700429050003', '8699970213', '700429021000', 'XP51529700004',
+  'XP51529700005', '007603016105', '0000530826', '0000530361', '3669900240',
+  '8699970499', '0009953502', '5311550215', '5360320014', '5500160597',
+  'X00027830', '5240530830', '5240382550', '4471870180', '0000160119',
+  '4420160420', '4420150060', '4420110059', '5030210580', '5532031280',
+  '5541870180', '5700150380', '5362030180', '5502010280', '5760550180',
+  '5760550280', '5730110180', '0001536720', '5205304069', '5255380580',
+  '5501800106', '5272010505', '5502040176', '5502010276', '5760110062',
+  '5360330262', '5802040072', '5769900619', '5249900605', '0031845301',
+  '0020940204', '5240780824', '8495340000', '0005342732', '5840980257',
+  '0080375619', '0080370018', '5090200512', '5090250141', '0000180680',
+  'X54707700072', 'X00012160', 'X00011800', '0005357933', '0035352731',
+  '0035351731', '0035352931', '0005355303', '5410100163', 'XP52229700007',
+  'X00028154', '8699970497', 'X00E50201022', 'X00028031', '5320700246',
+  '8699970498', '5240510110', 'X00016024', '5240336602', 'X52403100003',
+  '5240336702', 'X00009806', '0090375019', '0120373618', 'X52404200037',
+  'X52404100226', '5240530805', '5240530122', 'X52405400013', 'X52499100259',
+  '5320530020', '4570530001', '0000530126', '0000533235', '0000533635',
+  '0000911128', '0000925105', '0000943268', '0000981465', '0000981565',
+  '0000982780', '0000983080', '0000983180', '0002000001', '0002017519',
+  '0002030181', '0002032088', '0002033288', '0002041116', '0005351733',
+  '0005357333', '0005357633', '0005357833', '0005358033', '0005358133',
+  '0005358333', '0012040100', '0020921901', '0021882301', '0030947404',
+  '0030948104', '0035352231', '0035364610', '0039978648', '0040175021',
+  '0059812225', '0070372419', '007603014104', '007603033100', '0079977247',
+]);
+
+const highValueScenarios: Record<string, string[]> = {
+  'Fuel system': [
+    'fuel pressure is unstable, injector balance is poor, or the engine shows hard-start symptoms',
+    'the old part number is superseded and the correct replacement route needs confirmation',
+    'fleet operators need a verified spare before scheduled engine service',
+  ],
+  'Filters': [
+    'oil, fuel, or air filter intervals are due and bulk replenishment is required',
+    'filter restriction, water contamination, or pressure drop is found during service',
+    'mixed filter lists need line-by-line confirmation before dispatch',
+  ],
+  'Sensors and electrical': [
+    'alarm history points to a speed, pressure, temperature, or level signal fault',
+    'connector type, signal range, or ECU version must be matched before replacement',
+    'a vessel or generator set needs an urgent electrical spare to reduce downtime',
+  ],
+  'Gaskets and seals': [
+    'oil, coolant, or exhaust leakage is found during inspection',
+    'the engine is opened for overhaul and one-time-use seals must be replaced',
+    'material grade, thickness, or sealing position must be confirmed before order',
+  ],
+  'Cooling system': [
+    'coolant temperature is high, seawater flow is weak, or pump wear is visible',
+    'pump, impeller, flange, or cooler parts are needed for scheduled maintenance',
+    'marine and generator installations require the correct cooling-system variant',
+  ],
+  'Pistons and liners': [
+    'compression loss, liner wear, scoring, or high oil consumption is reported',
+    'size grade must match the engine overhaul specification',
+    'a major overhaul list needs matched piston, ring, liner, and bearing references',
+  ],
+  'Bearings': [
+    'crankshaft, conrod, camshaft, or thrust bearing clearance is outside service limits',
+    'standard or size-grade selection must be checked before quoting',
+    'major overhaul parts are being purchased as a matched set',
+  ],
+  'Valve train': [
+    'compression loss, valve-seat wear, or abnormal exhaust temperature is found',
+    'cylinder-head overhaul requires matched valves, guides, springs, and collets',
+    'installation position and engine series must be confirmed before dispatch',
+  ],
+  'Turbocharging': [
+    'boost pressure, exhaust temperature, or turbocharger vibration is outside normal range',
+    'wheel, seal, bearing, or housing compatibility must be checked against turbo model',
+    'a reman or replacement turbo route is being evaluated for urgent downtime',
+  ],
+  'Lubrication': [
+    'oil pressure, oil temperature, or lube-system contamination requires service',
+    'pump, cooler, nozzle, or separator references must be verified by engine model',
+    'overhaul buyers need lubrication items quoted with the main parts list',
+  ],
+  'Drive components': [
+    'bolts, clamps, washers, couplings, or small hardware are replaced during assembly',
+    'single-use fasteners need confirmation by assembly position',
+    'service teams need small parts included with the main overhaul shipment',
+  ],
+  'Engine components': [
+    'the part is part of a scheduled overhaul or urgent downtime repair',
+    'the old number, engine serial number, and installation position need cross-checking',
+    'buyers need a verified replacement option before arranging international shipping',
+  ],
+};
+
+const highValueQuoteChecklist = (part: MtuPart, seriesText: string) => [
+  `Exact part number: ${part.partNumber}`,
+  `Part name or assembly position: ${part.name}`,
+  `Engine model / series: ${seriesText}`,
+  'Engine serial number from nameplate',
+  'Old-part photo showing number, connector, port, or size marking',
+  'Required quantity and whether partial shipment is acceptable',
+  'Destination country, delivery deadline, and preferred shipping method',
+];
+
+const highValueFaqs = (part: MtuPart, seriesText: string, scenarios: string[]) => {
+  const replacementText = part.replacementFor && part.replacementFor.length > 0
+    ? `${part.partNumber} may relate to ${part.replacementFor.join(', ')}. Final replacement status is checked against the engine serial number before quote.`
+    : `${part.partNumber} is checked for supersession before quote. If there is a newer or reman route, we confirm it with the engine serial number and old-part photo.`;
+
+  return [
+    {
+      question: `Does ${part.partNumber} fit ${seriesText}?`,
+      answer: `${part.partNumber} ${part.name} is checked against ${seriesText}. Final fitment depends on the engine serial number, rating, and installation position.`,
+    },
+    {
+      question: `What information is needed to quote ${part.partNumber}?`,
+      answer: `Send the part number, engine model, engine serial number, old-part photo, quantity, destination country, and required delivery date. This lets us confirm stock route, packing, and shipping options.`,
+    },
+    {
+      question: `Can you check alternatives or superseded numbers for ${part.partNumber}?`,
+      answer: replacementText,
+    },
+    {
+      question: `When is ${part.partNumber} usually replaced?`,
+      answer: scenarios.join('; ') + '.',
+    },
+  ];
+};
+
+const inferHighValueApplication = (part: MtuPart): string => {
+  const partNumber = part.partNumber.toUpperCase();
+  const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
+
+  if (part.series.length > 0) return part.series.join(', ');
+  if (hasSpecificEngineType) return part.engineType!;
+  if (part.applicableEngines) return part.applicableEngines;
+  if (partNumber.startsWith('524') || partNumber.startsWith('X524') || partNumber.startsWith('EX524') || partNumber.startsWith('X547')) {
+    return 'MTU 4000 series applications';
+  }
+  if (
+    partNumber.startsWith('541') ||
+    partNumber.startsWith('550') ||
+    partNumber.startsWith('536') ||
+    partNumber.startsWith('531') ||
+    partNumber.startsWith('532') ||
+    partNumber.startsWith('X535') ||
+    partNumber.startsWith('E006')
+  ) {
+    return 'MTU 2000 series applications';
+  }
+  if (partNumber.startsWith('555') || partNumber.startsWith('556') || partNumber.startsWith('558') || partNumber.startsWith('559') || partNumber.startsWith('849')) {
+    return 'MTU 956 / 1163 series applications';
+  }
+  if (partNumber.startsWith('584')) return 'MTU 595 / 1163 series applications';
+  if (
+    partNumber.startsWith('000535') ||
+    partNumber.startsWith('003535') ||
+    partNumber.startsWith('520530') ||
+    partNumber.startsWith('004542') ||
+    partNumber.startsWith('000153')
+  ) {
+    return 'MTU electronic monitoring applications';
+  }
+
+  return 'MTU engine serial-number verified applications';
+};
+
+const inferNameSpecificScenarios = (part: MtuPart, fallback: string[]) => {
+  const name = part.name.toLowerCase();
+
+  if (name.includes('filter') || name.includes('strainer')) {
+    return [
+      'scheduled service interval is due and the filter list needs line-by-line confirmation',
+      'restriction, contamination, or pressure-drop alarms point to filter replacement',
+      'fleet buyers need the same filter reference packed for repeated maintenance jobs',
+    ];
+  }
+  if (name.includes('sensor') || name.includes('monitor') || name.includes('tachometer') || name.includes('actuator') || name.includes('solenoid')) {
+    return [
+      'ECU alarms, unstable signal readings, or intermittent shutdown events require electrical diagnosis',
+      'connector, voltage, signal range, and installation position must match the old part',
+      'urgent replacement is needed to restore engine monitoring or control functions',
+    ];
+  }
+  if (name.includes('gasket') || name.includes('seal') || name.includes('o ring') || name.includes('o-ring') || name.includes('ring sealing')) {
+    return [
+      'oil, coolant, air, or exhaust leakage is found during inspection',
+      'the engine is opened for overhaul and one-time-use sealing parts must be replaced',
+      'material, section shape, and sealing position need confirmation from the old part or catalog drawing',
+    ];
+  }
+  if (name.includes('bearing')) {
+    return [
+      'bearing clearance, surface scoring, or abnormal crankshaft/camshaft wear is found during overhaul',
+      'standard or size-grade selection must be confirmed before shipment',
+      'buyers need matched bearing references for the same overhaul kit',
+    ];
+  }
+  if (name.includes('valve') || name.includes('nozzle') || name.includes('injector')) {
+    return [
+      'combustion quality, fuel delivery, compression, or exhaust temperature is outside normal range',
+      'installation position and matched mating parts must be checked before replacement',
+      'overhaul buyers need verified valve, nozzle, injector, or pump references before dispatch',
+    ];
+  }
+  if (name.includes('pump') || name.includes('impeller') || name.includes('cooler')) {
+    return [
+      'coolant, seawater, fuel, or oil flow is weak or temperature is above normal range',
+      'flange, port, drive, and installation variant must match the existing assembly',
+      'scheduled marine or generator maintenance requires a verified replacement route',
+    ];
+  }
+  if (name.includes('ring') || name.includes('liner') || name.includes('piston')) {
+    return [
+      'compression loss, liner scoring, high blow-by, or oil consumption is reported',
+      'size grade and matched cylinder components must be confirmed for the overhaul scope',
+      'a major overhaul list needs piston, ring, liner, and bearing references checked together',
+    ];
+  }
+
+  return fallback;
+};
+
+const enrichHighValuePart = (part: MtuPart): MtuPart => {
+  if (!highValuePartNumbers.has(part.partNumber)) return part;
+
+  const seriesText = inferHighValueApplication(part);
+  const scenarios = inferNameSpecificScenarios(part, highValueScenarios[part.category] ?? highValueScenarios['Engine components']);
+  const applicationText = part.applicableEngines ?? `${seriesText}; final fitment is confirmed by engine serial number and parts-catalog position.`;
+
+  return {
+    ...part,
+    summary: `${part.partNumber} ${part.name} for ${seriesText}. High-priority MTU spare part with fitment, stock route, and export details checked before quotation.`,
+    description: `${part.partNumber} ${part.name} is treated as a priority MTU parts inquiry because it is commonly requested for overhaul, fleet maintenance, or downtime repair. Known public fields on this page include engine type (${part.engineType ?? seriesText}), application (${applicationText}), replacement references (${part.replacementFor && part.replacementFor.length > 0 ? part.replacementFor.join(', ') : 'checked before quote'}), weight (${part.weightKg ?? 'confirmed before shipment'}), HS code (${part.hsCode ?? 'confirmed before export'}), and lead time (${part.leadTime ?? 'checked per inquiry'}). We verify the part number against the engine model, serial number, installation position, and any superseded reference before quoting.`,
+    commonFailureScenarios: part.commonFailureScenarios ?? scenarios,
+    orderingNotes: part.orderingNotes ?? `For ${part.partNumber}, send the engine model, serial number, quantity, old-part photo, and destination country. We will confirm whether the item is OEM, OEM-alternative, reman, or superseded before quotation.`,
+    applicableEngines: applicationText,
+    leadTime: part.leadTime ?? 'Priority stock check; fastest available OEM, OEM-alternative, or reman route quoted per inquiry',
+    quoteChecklist: part.quoteChecklist ?? highValueQuoteChecklist(part, seriesText),
+    faqs: part.faqs ?? highValueFaqs(part, seriesText, part.commonFailureScenarios ?? scenarios),
+    imageAlt: part.imageAlt ?? `${part.partNumber} ${part.name} for ${seriesText} - MTU ${part.category} spare part with serial-number verification`,
+    notes: Array.from(new Set([
+      ...part.notes,
+      'Priority item: part number, supersession, and export packing details are checked before quote.',
+    ])),
+  };
+};
+
 const dedupedParts = new Map<string, MtuPart>();
 for (const part of mtuPartsRaw) {
   const key = `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`;
-  dedupedParts.set(key, part); // last write wins: expandedMtuParts override enriched
+  dedupedParts.set(key, enrichHighValuePart(part)); // last write wins: expandedMtuParts override enriched
 }
 
 export const mtuPartsDeduped: MtuPart[] = Array.from(dedupedParts.values());
@@ -1719,7 +2097,7 @@ export interface MtuCatalogHub {
   partFilter: (part: MtuPart) => boolean;
 }
 
-export const mtuCatalogHubs: MtuCatalogHub[] = [
+const manualMtuCatalogHubs: MtuCatalogHub[] = [
   // ── Series Hubs ──
   {
     slug: 'mtu-2000-series',
@@ -1813,6 +2191,13 @@ export const mtuCatalogHubs: MtuCatalogHub[] = [
     h1Title: 'MTU Injectors & Fuel System Components',
     summary: 'MTU fuel system parts — injectors, nozzle holders, fuel pumps, pressure valves, and fuel lines.',
     description: 'Fuel system parts directly affect combustion quality and fuel economy. We supply injectors, high and low-pressure pumps, nozzle holders, relief valves, and fuel lines for MTU 2000, 4000, 396, 595, and 956 series engines. New and remanufactured options available.',
+    longDescription: `MTU common-rail and unit-pump fuel systems operate at extreme pressures — up to 2,200 bar on 4000 series engines. Injector performance directly determines combustion efficiency, exhaust emissions compliance, and fuel consumption. A single underperforming injector can cause cylinder imbalance, increased exhaust temperatures, and accelerated wear on piston rings and liners.
+
+    Our fuel system parts catalog covers the complete injection chain: injectors and nozzle holders, high-pressure pumps (HPFP), low-pressure feed pumps, pressure relief and limiting valves, fuel lines, and associated sealing elements. We supply new OEM, OEM-alternative, and professionally remanufactured injectors. Reman options follow standardized procedures including ultrasonic cleaning, new nozzle tips, and bench testing to verify spray pattern and opening pressure.
+
+    High-demand injectors include EX52407500064 for MTU 4000 series, X53507500012 for MTU 2000 series, and the L'Orange/Bosch variants used across multiple engine families. For injectors, always send the complete part number stamped on the injector body — not just the engine serial number — because multiple injector variants can exist within the same engine series depending on power rating and emissions certification.
+
+    Fuel pumps and pressure valves are also listed here. The X53508200001 low-pressure pump and E0060704101 high-pressure pump are common requests for 2000 series marine and generator applications. Pressure relief valves (5501801015, 5361800515) are critical for maintaining correct rail pressure and should always be verified by engine serial number before ordering.`,
     type: 'category',
     partFilter: (p) => p.category === 'Fuel system',
   },
@@ -1879,4 +2264,60 @@ export const mtuCatalogHubs: MtuCatalogHub[] = [
     type: 'category',
     partFilter: (p) => p.category === 'Cooling system',
   },
+];
+
+const seriesCatalogTargets = ['MTU 2000', 'MTU 4000', 'MTU 396', 'MTU 595', 'MTU 956', 'MTU 1163'] as const;
+const categoryCatalogTargets = [
+  'Fuel system',
+  'Filters',
+  'Gaskets and seals',
+  'Pistons and liners',
+  'Valve train',
+  'Bearings',
+  'Turbocharging',
+  'Cooling system',
+  'Sensors and electrical',
+] as const;
+
+const categoryTitleMap: Record<string, string> = {
+  'Fuel system': 'Fuel System',
+  'Filters': 'Filters',
+  'Gaskets and seals': 'Gaskets and Seals',
+  'Pistons and liners': 'Pistons, Liners and Rings',
+  'Valve train': 'Valve Train',
+  'Bearings': 'Engine Bearings',
+  'Turbocharging': 'Turbocharger Parts',
+  'Cooling system': 'Cooling System',
+  'Sensors and electrical': 'Sensors and Electrical',
+};
+
+const generatedSeriesCategoryHubs: MtuCatalogHub[] = seriesCatalogTargets.flatMap((series) =>
+  categoryCatalogTargets
+    .map((category) => ({
+      series,
+      category,
+      count: mtuParts.filter((part) => part.series.includes(series) && part.category === category).length,
+    }))
+    .filter(({ count }) => count >= 2)
+    .map(({ series, category, count }) => {
+      const seriesSlug = slugifyPart(series.replace('MTU ', 'mtu-'));
+      const categorySlug = slugifyPart(category);
+      const categoryTitle = categoryTitleMap[category] ?? category;
+      const cleanSeries = series.replace('MTU ', '');
+      return {
+        slug: `${seriesSlug}-${categorySlug}-parts`,
+        title: `${series} ${categoryTitle} Parts Catalog`,
+        h1Title: `${series} ${categoryTitle} Parts`,
+        summary: `${count} ${series} ${categoryTitle.toLowerCase()} part numbers for RFQ, availability checks, and serial-number verification.`,
+        description: `Browse ${series} ${categoryTitle.toLowerCase()} part numbers. This catalog page groups exact part-number pages by engine series and category so buyers can prepare cleaner RFQs for ${cleanSeries} service, overhaul, and maintenance work.`,
+        longDescription: `${series} ${categoryTitle.toLowerCase()} parts are checked by exact part number, engine serial number, replacement status, and shipping destination before quotation.\n\nUse this page when your inquiry is narrower than the full ${series} catalog but broader than one single part number. The representative list below helps procurement teams compare available references, weight and HS code data, and related part pages before sending a consolidated request.`,
+        type: 'category',
+        partFilter: (part: MtuPart) => part.series.includes(series) && part.category === category,
+      } satisfies MtuCatalogHub;
+    })
+);
+
+export const mtuCatalogHubs: MtuCatalogHub[] = [
+  ...manualMtuCatalogHubs,
+  ...generatedSeriesCategoryHubs,
 ];

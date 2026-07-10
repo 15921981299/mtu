@@ -56,6 +56,63 @@ const workflowSteps = [
   },
 ];
 
+const catalogHubs = [
+  {
+    href: "/part-products/catalog/mtu-filters/",
+    title: "MTU Filters",
+    subtitle: "Oil, fuel & air filter cartridges",
+    image: "/images/engine-parts-sensors-catalog.png",
+  },
+  {
+    href: "/part-products/catalog/mtu-injectors/",
+    title: "MTU Injectors",
+    subtitle: "Fuel injectors & delivery components",
+    image: "/images/engine-parts-hero.png",
+  },
+  {
+    href: "/part-products/catalog/mtu-2000-series/",
+    title: "MTU 2000 Parts",
+    subtitle: "Full engine series coverage",
+    image: "/images/mtu-2000-series-parts.webp",
+  },
+  {
+    href: "/part-products/catalog/mtu-4000-series/",
+    title: "MTU 4000 Parts",
+    subtitle: "Overhaul & replacement parts",
+    image: "/images/mtu-4000-series-overhaul-parts.webp",
+  },
+  {
+    href: "/part-products/catalog/mtu-gasket-kits/",
+    title: "MTU Gasket Kits",
+    subtitle: "Cylinder head & seal kits",
+    image: "/images/engine-parts-verification-desk.png",
+  },
+  {
+    href: "/part-products/catalog/mtu-turbocharger-parts/",
+    title: "MTU Turbocharger",
+    subtitle: "Turbine wheels & turbo components",
+    image: "/images/industrial-diesel-engine-parts.webp",
+  },
+  {
+    href: "/part-products/catalog/mtu-4000-fuel-system-parts/",
+    title: "MTU 4000 Fuel System",
+    subtitle: "Injectors, pumps & fuel lines",
+    image: "/images/engine-parts-hero.png",
+  },
+  {
+    href: "/part-products/catalog/mtu-cooling-system/",
+    title: "MTU Cooling Parts",
+    subtitle: "Pumps, impellers & coolers",
+    image: "/images/marine-diesel-engine-parts.webp",
+  },
+  {
+    href: "/part-products/catalog/mtu-sensors/",
+    title: "MTU Sensors",
+    subtitle: "Speed, pressure & temperature",
+    image: "/images/engine-parts-sensors-catalog.png",
+  },
+];
+
 const engineBrands = [
   {
     href: "/products/mtu-spare-parts/",
@@ -122,26 +179,6 @@ const engineBrands = [
               MTU Engine Parts Specialist<br />Genuine Parts, Fast Global Delivery
             </h1>
           </div>
-          <!-- <div class="hero-video-block">
-            <button type="button" class="hero-video" data-lightbox-trigger="https://www.youtube.com/watch?v=-Mwa7wtDejU" aria-label="Watch machining video">
-              <img
-                src="/videos/Transio-Hero-Video-1-poster-00001.jpg"
-                alt=""
-                class="hero-video-poster"
-                width="800"
-                height="450"
-                loading="eager"
-                decoding="async"
-              />
-              <video class="hero-video-element" autoplay loop muted playsinline poster="/videos/Transio-Hero-Video-1-poster-00001.jpg">
-                <source src="/videos/Transio-Hero-Video-1-transcode.mp4" type="video/mp4" />
-                <source src="/videos/Transio-Hero-Video-1-transcode.webm" type="video/webm" />
-              </video>
-              <span class="video-control-block" aria-hidden="true">
-                <img src="/images/video-play-button-icon.svg" alt="" class="video-play-icon" width="16" height="16" loading="eager" decoding="async" />
-              </span>
-            </button>
-          </div> -->
           <div class="hero-bottom-content-block">
             <div class="hero-summary-block">
               <p class="hero-summary">
@@ -368,7 +405,7 @@ const engineBrands = [
         subtitle="Most Requested"
       />
       <p class="popular-parts-intro">
-        These part numbers are frequently requested by marine, power generation, and industrial customers. Click any part number for full details, cross-references, and availability check.
+        <strong>{mtuParts.length}+ MTU part numbers</strong> indexed by engine series and part category — from turbocharger turbine wheels to oil filter spin-on elements. Click any part number for cross-references, applicable engine models, and availability check.
       </p>
       <div class="popular-parts-grid">
         {[
@@ -418,14 +455,37 @@ const engineBrands = [
           </a>
           <a href="/products/mtu-spare-parts/" class="home-rfq-hub-secondary">MTU spare parts →</a>
         </div>
-        <nav class="home-rfq-hub-links" aria-label="Popular comparison guides">
-          <span>Quick links:</span>
-          <a href="/products/mtu-2000-series-parts/">MTU 2000 Series</a>
-          <a href="/products/mtu-4000-series-parts/">MTU 4000 Series</a>
-          <a href="/products/cummins-parts/">Cummins Parts</a>
-          <a href="/products/deutz-parts/">DEUTZ Parts</a>
-          <a href="/capabilities/genuine-oem-parts/">Genuine OEM Parts</a>
-        </nav>
+        <div class="home-rfq-hub-catalog">
+          <div class="home-rfq-hub-catalog-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Browse Parts Catalog
+          </div>
+          <div class="home-rfq-hub-catalog-grid" role="list">
+            {catalogHubs.map((hub) => (
+              <a href={hub.href} class="catalog-hub-card" role="listitem">
+                <div class="catalog-hub-card-media">
+                  <img
+                    src={hub.image}
+                    alt=""
+                    aria-hidden="true"
+                    class="catalog-hub-card-img"
+                    width="400"
+                    height="240"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="catalog-hub-card-body">
+                  <h3 class="catalog-hub-card-title">{hub.title}</h3>
+                  <p class="catalog-hub-card-subtitle">{hub.subtitle}</p>
+                </div>
+                <span class="catalog-hub-card-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -964,31 +1024,143 @@ const engineBrands = [
     text-decoration: underline;
   }
 
-  .home-rfq-hub-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 16px;
+  .home-rfq-hub-catalog {
     margin-top: 22px;
-    padding-top: 20px;
+    padding-top: 24px;
     border-top: 1px solid var(--color-stroke);
-    font-size: 14px;
-    color: #64748b;
   }
 
-  .home-rfq-hub-links a {
-    color: var(--color-primary);
+  .home-rfq-hub-catalog-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-family: var(--font-title);
+    font-size: 13px;
     font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .home-rfq-hub-catalog-label svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  .home-rfq-hub-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  @media (max-width: 991px) {
+    .home-rfq-hub-catalog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .home-rfq-hub-catalog-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+
+  /* Catalog hub card */
+  .catalog-hub-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
     text-decoration: none;
+    color: inherit;
     cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .home-rfq-hub-links a:hover {
-    text-decoration: underline;
+  .catalog-hub-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(20, 110, 245, 0.12);
+    transform: translateY(-2px);
   }
 
-  .home-rfq-hub-secondary:focus-visible,
-  .home-rfq-hub-links a:focus-visible {
+  .catalog-hub-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .catalog-hub-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-stroke);
+    background: var(--color-body);
+  }
+
+  .catalog-hub-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .catalog-hub-card:hover .catalog-hub-card-img {
+    transform: scale(1.06);
+  }
+
+  .catalog-hub-card-body {
+    flex: 1;
+    padding: 14px 16px 16px;
+  }
+
+  .catalog-hub-card-title {
+    font-family: var(--font-title);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-title);
+    margin: 0 0 4px;
+    text-transform: none;
+  }
+
+  .catalog-hub-card-subtitle {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+  }
+
+  .catalog-hub-card-arrow {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    color: var(--color-primary);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .catalog-hub-card:hover .catalog-hub-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .home-rfq-hub-secondary:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
     border-radius: 2px;
@@ -1013,7 +1185,7 @@ const engineBrands = [
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    max-width: 1100px;
+    max-width: 1880px;
     margin: 0 auto;
   }
   @media (max-width: 991px) {
@@ -1076,6 +1248,17 @@ const engineBrands = [
     }
     .guide-card {
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .catalog-hub-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .catalog-hub-card:hover .catalog-hub-card-img {
+      transform: none;
+    }
+    .catalog-hub-card:hover .catalog-hub-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
     }
     .key-feature-section .key-feature-block:hover,
     .booking-steps-section .booking-step-card-block:hover,

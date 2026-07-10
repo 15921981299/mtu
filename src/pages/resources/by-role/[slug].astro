@@ -27,6 +27,7 @@ const otherHubs = roleHubs.filter((item) => item.slug !== hub.slug);
   title={`${hub.title} — Engine Parts Resources | Engine Family`}
   description={hub.description}
   currentPath="/resources/by-role"
+  noindex
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
     { name: 'Resources', url: `${site.url}/resources/` },

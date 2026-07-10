@@ -3,6 +3,7 @@ Allow: /
 Disallow: /404/
 Disallow: /thank-you/
 Disallow: /blog/tag/
+Disallow: /blog/
 Disallow: /blog/what-is-
 Disallow: /blog/cnc-machining-shipping-to-
 Disallow: /blog/how-to-design-
@@ -10,7 +11,11 @@ Disallow: /blog/top-
 Disallow: /blog/best-
 Disallow: /online-cnc-machining/
 Disallow: /materials/
+Disallow: /compare/
+Disallow: /glossary/
+Disallow: /case-studies/
 Disallow: /compare/cnc-
+Disallow: /resources/
 Disallow: /resources/cnc-
 Disallow: /resources/dfm-checklist/
 Disallow: /resources/feeds-and-speeds-calculator/

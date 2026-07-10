@@ -16,16 +16,50 @@ const parts = mtuParts.filter(hub.partFilter);
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
 
-// Group parts by sub-category for display
+// For series hubs: group by category. For category hubs: group by engine series.
 const categoryGroups = new Map<string, typeof parts>();
 for (const part of parts) {
-  const key = part.category;
-  if (!categoryGroups.has(key)) categoryGroups.set(key, []);
-  categoryGroups.get(key)!.push(part);
+  const groupKeys = hub.type === 'series'
+    ? [part.category]
+    : part.series.length > 0
+      ? part.series
+      : [part.engineType ?? 'Verify by engine serial number'];
+
+  for (const key of groupKeys) {
+    if (!categoryGroups.has(key)) categoryGroups.set(key, []);
+    categoryGroups.get(key)!.push(part);
+  }
 }
 
-// For series hubs: group by category. For category hubs: group by series.
 const groupLabel = hub.type === 'series' ? 'category' : 'series';
+const featuredParts = [...parts]
+  .sort((a, b) => Number(Boolean(b.engineType && b.dimensions && b.weightKg && b.hsCode)) - Number(Boolean(a.engineType && a.dimensions && a.weightKg && a.hsCode)))
+  .slice(0, 10);
+const partSlugSet = new Set(parts.map((part) => part.slug));
+const relatedCatalogHubs = mtuCatalogHubs
+  .filter((h) => h.slug !== hub.slug)
+  .map((h) => ({
+    hub: h,
+    overlap: mtuParts.filter(h.partFilter).filter((part) => partSlugSet.has(part.slug)).length,
+    crossTypeBoost: h.type === hub.type ? 0 : 1,
+  }))
+  .sort((a, b) => b.overlap - a.overlap || b.crossTypeBoost - a.crossTypeBoost || a.hub.h1Title.localeCompare(b.hub.h1Title))
+  .slice(0, 12)
+  .map(({ hub }) => hub);
+const catalogSeries = Array.from(new Set(parts.flatMap((part) => part.series.length > 0 ? part.series : [part.engineType ?? 'serial-number verified']))).slice(0, 8);
+const catalogCategories = Array.from(new Set(parts.map((part) => part.category))).slice(0, 8);
+const catalogScope = hub.type === 'series'
+  ? `${hub.h1Title} covers ${catalogCategories.join(', ')} and related service references.`
+  : `${hub.h1Title} covers ${catalogSeries.join(', ')} and serial-number verified applications.`;
+const quoteChecklist = [
+  'Exact part number and quantity',
+  'Engine model, rating, and serial number',
+  'Nameplate photo or old-part photo when the marking is unclear',
+  'Destination country, delivery deadline, and preferred shipping method',
+];
+const catalogUseCases = hub.type === 'series'
+  ? ['Preventive maintenance list by engine serial number', 'Major overhaul quotation by category', 'Urgent downtime replacement for one confirmed part number', 'Fleet replenishment across several engines in the same series']
+  : ['Bulk replenishment for repeated service items', 'Cross-series part-number verification', 'Old-stock replacement and supersession checks', 'Mixed RFQ lists from service companies or shipyards'];
 ---
 
 <BaseLayout
@@ -82,6 +116,64 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
             </div>
           )}
 
+          <section class="catalog-depth-section">
+            <h2>Catalog Scope and Fitment Method</h2>
+            <p>{catalogScope} We do not treat a part number as interchangeable until the engine serial number, installation position, and any superseded reference have been checked.</p>
+            <div class="catalog-info-grid">
+              <article>
+                <h3>Included engine coverage</h3>
+                <p>{catalogSeries.join(', ')}</p>
+              </article>
+              <article>
+                <h3>Included part categories</h3>
+                <p>{catalogCategories.join(', ')}</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-depth-section">
+            <h2>Representative Part Data</h2>
+            <p>These examples show the type of fields checked before quotation: engine type, dimensions, unit weight, HS code, and stock route.</p>
+            <div class="catalog-spec-table" role="table" aria-label={`${hub.h1Title} representative part data`}>
+              <div class="catalog-spec-head" role="row">
+                <span role="columnheader">Part No.</span>
+                <span role="columnheader">Name</span>
+                <span role="columnheader">Engine</span>
+                <span role="columnheader">Weight</span>
+                <span role="columnheader">HS Code</span>
+              </div>
+              {featuredParts.map((part) => (
+                <a class="catalog-spec-row" role="row" href={`/part-products/${part.slug}/`}>
+                  <span role="cell">{part.partNumber}</span>
+                  <span role="cell">{part.name}</span>
+                  <span role="cell">{part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Verify')}</span>
+                  <span role="cell">{part.weightKg ?? 'Quote check'}</span>
+                  <span role="cell">{part.hsCode ?? 'Quote check'}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section class="catalog-depth-section">
+            <h2>What We Verify Before Quoting</h2>
+            <div class="catalog-info-grid catalog-check-grid">
+              {quoteChecklist.map((item) => (
+                <article>
+                  <h3>{item}</h3>
+                  <p>Checked against part-number history, engine application, stock status, and export shipping requirements.</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="catalog-depth-section">
+            <h2>Common RFQ Scenarios</h2>
+            <ul>
+              {catalogUseCases.map((item) => <li>{item}</li>)}
+            </ul>
+            <p>For mixed lists, send the spreadsheet as-is. We return line-by-line availability, replacement notes, and practical shipping options instead of a generic catalog reply.</p>
+          </section>
+
           {
             Array.from(categoryGroups.entries()).map(([groupKey, groupParts]) => (
               <section style="margin-bottom: 32px;">
@@ -95,8 +187,8 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
                           <a href={`/part-products/${part.slug}/`}>{part.name}</a>
                         </h4>
                         <p class="hub-card-summary" style="font-size: 13px;">
-                          {part.series.join(', ')}
-                          {part.stockStatus && ` — ${part.stockStatus.slice(0, 60)}`}
+                          {part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Serial-number verified')}
+                          {part.stockStatus && ` - ${part.stockStatus.slice(0, 60)}`}
                         </p>
                       </div>
                     </article>
@@ -116,10 +208,7 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
           <hr style="margin: 36px 0 24px; border-color: var(--color-stroke);" />
           <h2>Browse More MTU Parts Catalogs</h2>
           <div class="hub-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 16px;">
-            {mtuCatalogHubs
-              .filter((h) => h.slug !== hub.slug)
-              .slice(0, 12)
-              .map((h) => (
+            {relatedCatalogHubs.map((h) => (
                 <article class="hub-card">
                   <div class="hub-card-body">
                     <p class="hub-card-meta" style="text-transform: uppercase; font-size: 11px;">{h.type === 'series' ? 'Engine Series' : 'Parts Category'}</p>
@@ -134,9 +223,9 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
 
           <p class="resource-note detail-page-back" style="margin-top: 28px;">
             <a href="/part-products/">All MTU part numbers</a>
-            ·
+            /
             <a href="/products/mtu-spare-parts/">MTU spare parts</a>
-            ·
+            /
             <a href={quoteHref}>Request parts inquiry</a>
           </p>
         </article>
@@ -192,5 +281,106 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
   }
   .detail-rfq-link:hover {
     background: #0d5ad4;
+  }
+
+  .catalog-depth-section {
+    margin: 30px 0;
+  }
+
+  .catalog-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .catalog-info-grid article {
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    padding: 16px;
+    background: #fff;
+  }
+
+  .catalog-info-grid h3 {
+    font-size: 15px;
+    margin: 0 0 8px;
+  }
+
+  .catalog-info-grid p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0;
+  }
+
+  .catalog-check-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .catalog-spec-table {
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+
+  .catalog-spec-head,
+  .catalog-spec-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.45fr 1.1fr 0.9fr 0.8fr;
+    gap: 0;
+  }
+
+  .catalog-spec-head {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .catalog-spec-row {
+    color: #0f172a;
+    text-decoration: none;
+    border-top: 1px solid var(--color-stroke);
+  }
+
+  .catalog-spec-row:hover {
+    background: #f8fafc;
+  }
+
+  .catalog-spec-head span,
+  .catalog-spec-row span {
+    padding: 11px 12px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .catalog-check-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .catalog-spec-head {
+      display: none;
+    }
+
+    .catalog-spec-row {
+      grid-template-columns: 1fr;
+      padding: 10px 0;
+    }
+
+    .catalog-spec-row span {
+      padding: 4px 12px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .catalog-info-grid,
+    .catalog-check-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

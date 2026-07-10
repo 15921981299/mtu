@@ -9,7 +9,6 @@ import RelatedArticles from '../../../components/RelatedArticles.astro';
 import RelatedComparisons from '../../../components/RelatedComparisons.astro';
 import { getComparisonsForMaterialSubpage } from '../../../data/funnel-links';
 import { materialSubpages } from '../../../data/material-subpages';
-import { isSubpageNoindex } from '../../../data/subpage-quality';
 import { materials } from '../../../data/materials';
 import { materialArticleMap } from '../../../data/related-content';
 import { breadcrumbSchema, site } from '../../../data/site';
@@ -26,7 +25,7 @@ const pageUrl = `${site.url}/materials/${subpage.materialSlug}/${subpage.slug}/`
 const relatedComparisons = getComparisonsForMaterialSubpage(subpage.slug);
 const funnelLabel = `material-sub-${subpage.slug}`;
 const quoteHref = `/contact/?source=${funnelLabel}`;
-const noindex = isSubpageNoindex(subpage.materialSlug, subpage.slug);
+const noindex = true;
 ---
 
 <BaseLayout

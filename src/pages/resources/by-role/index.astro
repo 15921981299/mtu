@@ -15,6 +15,7 @@ const totalLinks = roleHubs.reduce((sum, hub) => sum + hub.links.length, 0);
   title="Engine Parts Resources by Buyer Role | Engine Family"
   description="MTU and diesel engine parts resources for maintenance engineers, procurement teams, and quality/documentation buyers."
   currentPath="/resources/by-role"
+  noindex
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
     { name: 'Resources', url: `${site.url}/resources/` },
