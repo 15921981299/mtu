@@ -1,5 +1,16 @@
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+    const isRfqRoute = url.pathname === '/api/rfq' || url.pathname === '/api/rfq/';
+
+    if (!isRfqRoute) {
+      if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
+        return env.ASSETS.fetch(request);
+      }
+
+      return new Response('Not found', { status: 404 });
+    }
+
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         status: 204,
@@ -48,7 +59,7 @@ export default {
           console.log(`File stored: ${key} (${fileSizeKB} KB)`);
         } else {
           drawingInfo = `${drawing.name} (${fileSizeKB} KB) [R2 not configured]`;
-          console.log('R2 not bound — file not stored');
+          console.log('R2 not bound - file not stored');
         }
       }
 
@@ -89,7 +100,7 @@ export default {
         body: JSON.stringify({
           from: 'Engine Family <rfq@engine-family.com>',
           to: 'charles@engine-family.com',
-          subject: `New RFQ: ${name} — ${material} / ${quantity}`,
+          subject: `New RFQ: ${name} - ${material} / ${quantity}`,
           text: emailBody,
         }),
       });
@@ -112,7 +123,7 @@ export default {
           '- MTU part numbers: https://engine-family.com/part-products/',
           '- Engine parts catalog: https://engine-family.com/products/',
           '',
-          'Questions before we reply? Email charles@engine-family.com — we respond within one business day.',
+          'Questions before we reply? Email charles@engine-family.com - we respond within one business day.',
           '',
           'Best regards,',
           'Engine Family Parts Team',
@@ -128,7 +139,7 @@ export default {
             from: 'Engine Family <rfq@engine-family.com>',
             to: email,
             reply_to: 'charles@engine-family.com',
-            subject: 'We received your engine parts inquiry — Engine Family',
+            subject: 'We received your engine parts inquiry - Engine Family',
             text: autoReplyBody,
           }),
         });
