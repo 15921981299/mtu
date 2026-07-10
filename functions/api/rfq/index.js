@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Accept',
 };
 
-const SITE_URL = 'https://engine-family.com';
+const SITE_URL = 'https://dieselpartsrfq.com';
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -102,13 +102,13 @@ export async function onRequest(context) {
     if (!resendKey) {
       console.error('RESEND_API_KEY not configured');
       return new Response(
-        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@engine-family.com' }),
+        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsrfq.com' }),
         { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
 
     await sendResendEmail(resendKey, {
-      to: 'charles@engine-family.com',
+      to: 'charles@dieselpartsrfq.com',
       subject: `New RFQ: ${name} — ${material} / ${quantity}`,
       text: emailBody,
     });
@@ -119,7 +119,7 @@ export async function onRequest(context) {
           to: email,
           subject: 'We received your engine parts inquiry — Engine Family',
           text: buildCustomerAutoReply({ name, siteUrl: SITE_URL }),
-          replyTo: 'charles@engine-family.com',
+          replyTo: 'charles@dieselpartsrfq.com',
         });
       } catch (autoReplyErr) {
         console.error('Customer auto-reply failed:', autoReplyErr.message);
@@ -166,7 +166,7 @@ export async function onRequest(context) {
     });
   } catch (err) {
     console.error('RFQ Error:', err.message);
-    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@engine-family.com' }), {
+    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsrfq.com' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });

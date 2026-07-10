@@ -16,4 +16,4 @@ Disallow: /resources/dfm-checklist/
 Disallow: /resources/feeds-and-speeds-calculator/
 Disallow: /resources/tolerance-fits-calculator/
 
-Sitemap: https://engine-family.com/sitemap-index.xml
+Sitemap: https://dieselpartsrfq.com/sitemap-index.xml

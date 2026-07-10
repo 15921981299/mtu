@@ -1,4 +1,4 @@
-const FROM = 'Engine Family <rfq@engine-family.com>';
+const FROM = 'Engine Family <rfq@dieselpartsrfq.com>';
 
 export async function sendResendEmail(resendKey, { to, subject, text, replyTo }) {
   const payload = {
@@ -43,7 +43,7 @@ export function buildCustomerAutoReply({ name, siteUrl }) {
     `- MTU part numbers: ${siteUrl}/part-products/`,
     `- Engine parts catalog: ${siteUrl}/products/`,
     '',
-    'Questions before we reply? Email charles@engine-family.com — we respond within one business day.',
+    'Questions before we reply? Email charles@dieselpartsrfq.com — we respond within one business day.',
     '',
     'Best regards,',
     'Engine Family Parts Team',

@@ -30,9 +30,9 @@ export const funnelNextStepsByStage: Record<
       hint: 'Free engineering reference',
     },
     {
-      label: 'CNC Glossary',
+      label: 'Engine Parts Glossary',
       href: '/glossary/',
-      hint: 'Terms for RFQ drawings',
+      hint: 'Terms for parts inquiries',
     },
   ],
   comparison: [
@@ -52,8 +52,8 @@ export const funnelNextStepsByStage: Record<
       hint: 'Real tolerances achieved',
     },
     {
-      label: 'CNC pricing guide',
-      href: '/resources/cnc-pricing-guide/',
+      label: 'Parts pricing guide',
+      href: '/resources/process-selection/',
       hint: 'Quote cost drivers',
     },
   ],
@@ -115,8 +115,8 @@ export const funnelNextStepsByStage: Record<
       hint: 'Send your part number',
     },
     {
-      label: 'Tolerance guide',
-      href: '/resources/cnc-tolerance-guide/',
+      label: 'Parts verification guide',
+      href: '/resources/inspection-samples/',
       hint: 'ISO 2768 & GD&T basics',
     },
     {

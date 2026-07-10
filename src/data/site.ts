@@ -4,15 +4,15 @@
     legalName: 'Shanghai Diesel Engine Family Co., Ltd.',
     legalNameEn: 'Shanghai Diesel Engine Family Co., Ltd.',
   },
-  url: 'https://engine-family.com',
-  email: 'charles@engine-family.com',
+  url: 'https://dieselpartsrfq.com',
+  email: 'charles@dieselpartsrfq.com',
   phone: '+862133282711',
   whatsapp: '+8618018620661',
   tagline: 'Genuine Engine Parts | Fast Global Delivery',
   logo: {
-    default: '/images/engine-family-logo.svg',
-    compact: '/images/engine-family-logo-compact.svg',
-    icon: '/images/engine-family-logo-icon.svg',
+    default: '/images/dieselpartsrfq-logo.svg',
+    compact: '/images/dieselpartsrfq-logo-compact.svg',
+    icon: '/images/dieselpartsrfq-logo-icon.svg',
     width: 223,
     height: 32,
   },
@@ -76,7 +76,7 @@
     'Engine Family supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
 };
 
-const organizationLogoUrl = `${site.url}/images/engine-family-logo.svg`;
+const organizationLogoUrl = `${site.url}/images/dieselpartsrfq-logo.svg`;
 
 export const organizationSchema = {
   '@context': 'https://schema.org',

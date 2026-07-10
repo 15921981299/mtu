@@ -124,7 +124,7 @@ blockquote {
     color: var(--color-white);
     text-align: center;
     text-transform: capitalize;
-    background-image: url(/images/Blog-Quote-Icon.svg), linear-gradient(#146ef575 42%, #146ef5cc);
+    background-image: url(/images/blog-quote-icon.svg), linear-gradient(#146ef575 42%, #146ef5cc);
     background-position: 50% 24px, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;
@@ -4158,7 +4158,7 @@ blockquote {
 
 .block-quote-wrapper blockquote {
     background-color: var(--color-title);
-    background-image: url(/images/Blog-Quote-Icon.svg), linear-gradient(180deg, #000 42%, #146ef5cc);
+    background-image: url(/images/blog-quote-icon.svg), linear-gradient(180deg, #000 42%, #146ef5cc);
     color: var(--color-white);
     text-align: center;
     background-position: 50% 24px, 0 0;
@@ -4662,7 +4662,7 @@ blockquote {
     color: var(--color-white);
     text-align: center;
     text-transform: capitalize;
-    background-image: url(/images/Blog-Quote-Icon.svg), linear-gradient(#000 42%, #146ef5cc);
+    background-image: url(/images/blog-quote-icon.svg), linear-gradient(#000 42%, #146ef5cc);
     background-position: 50% 24px, 0 0;
     background-repeat: no-repeat, repeat;
     background-size: auto, auto;

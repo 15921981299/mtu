@@ -24,7 +24,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     shortDefinition: 'Standard default tolerances for linear dimensions when not explicitly specified on a drawing.',
     body: '<p>ISO 2768-m is the most common default for engine parts. Stating it on your drawing prevents ambiguity and surprise quotes.</p>',
     relatedLinks: [
-      { label: 'Tolerance guide', href: '/resources/cnc-tolerance-guide/' },
+      { label: 'Tolerance guide', href: '/resources/inspection-samples/' },
       { label: 'ISO 2768 explained', href: '/blog/iso-2768-tolerances-explained/' },
     ],
   },
@@ -176,7 +176,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'MOQ (Minimum Order Quantity)',
     shortDefinition: 'Smallest batch a supplier will run economically — setup cost drives MOQ on CNC parts.',
     body: '<p>We accept sample quantities (1 pc) through production runs. Unit cost drops as quantity increases.</p>',
-    relatedLinks: [{ label: 'Pricing guide', href: '/resources/cnc-pricing-guide/' }],
+    relatedLinks: [{ label: 'Pricing guide', href: '/resources/process-selection/' }],
   },
   {
     slug: 'live-tooling',

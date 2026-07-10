@@ -1,9 +1,0 @@
-<svg width="132" height="40" viewBox="0 0 132 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lichao Technology">
-  <g transform="translate(0, 4)">
-    <path d="M16 1.5L29.5 9.25V22.75L16 30.5L2.5 22.75V9.25L16 1.5Z" fill="#146EF5"/>
-    <path d="M11 9.5H15.25V22.5H11V9.5Z" fill="#FFFFFF"/>
-    <path d="M11 9.5H20.5V13.25H11V9.5Z" fill="#FFFFFF"/>
-    <circle cx="21.75" cy="10.25" r="1.35" fill="#FFFFFF"/>
-  </g>
-  <text x="44" y="24" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" font-weight="600" fill="#080808">&#21033;&#26190;&#31185;&#25216;</text>
-</svg>

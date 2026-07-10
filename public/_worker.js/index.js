@@ -85,7 +85,7 @@ export default {
       const resendKey = env.RESEND_API_KEY;
       if (!resendKey) {
         console.error('RESEND_API_KEY not configured');
-        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@engine-family.com' }), {
+        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsrfq.com' }), {
           status: 503,
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
         });
@@ -98,8 +98,8 @@ export default {
           Authorization: `Bearer ${resendKey}`,
         },
         body: JSON.stringify({
-          from: 'Engine Family <rfq@engine-family.com>',
-          to: 'charles@engine-family.com',
+          from: 'Engine Family <rfq@dieselpartsrfq.com>',
+          to: 'charles@dieselpartsrfq.com',
           subject: `New RFQ: ${name} - ${material} / ${quantity}`,
           text: emailBody,
         }),
@@ -120,10 +120,10 @@ export default {
           '3. Follow-up if replacement or compatibility details need confirmation',
           '',
           'Helpful resources:',
-          '- MTU part numbers: https://engine-family.com/part-products/',
-          '- Engine parts catalog: https://engine-family.com/products/',
+          '- MTU part numbers: https://dieselpartsrfq.com/part-products/',
+          '- Engine parts catalog: https://dieselpartsrfq.com/products/',
           '',
-          'Questions before we reply? Email charles@engine-family.com - we respond within one business day.',
+          'Questions before we reply? Email charles@dieselpartsrfq.com - we respond within one business day.',
           '',
           'Best regards,',
           'Engine Family Parts Team',
@@ -136,9 +136,9 @@ export default {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: 'Engine Family <rfq@engine-family.com>',
+            from: 'Engine Family <rfq@dieselpartsrfq.com>',
             to: email,
-            reply_to: 'charles@engine-family.com',
+            reply_to: 'charles@dieselpartsrfq.com',
             subject: 'We received your engine parts inquiry - Engine Family',
             text: autoReplyBody,
           }),
@@ -153,7 +153,7 @@ export default {
 
     } catch (err) {
       console.error('RFQ Error:', err.message);
-      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@engine-family.com' }), {
+      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsrfq.com' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

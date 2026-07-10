@@ -1,9 +1,9 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const sitemapPath = 'engine-family-sitemap.xml';
+const sitemapPath = 'dieselpartsrfq-sitemap.xml';
 const mtuPartsPath = 'src/data/mtu-parts.ts';
 const productsPath = 'src/data/products.ts';
-const importedPagesPath = 'src/data/imported-engine-family-pages.ts';
+const importedPagesPath = 'src/data/imported-dieselpartsrfq-pages.ts';
 
 const titleCase = (value) =>
   value
@@ -36,7 +36,7 @@ const readSitemap = async () => {
     if (error.code !== 'ENOENT') throw error;
   }
 
-  const response = await fetch('https://engine-family.com/sitemap.xml');
+  const response = await fetch('https://dieselpartsrfq.com/sitemap.xml');
   if (!response.ok) {
     throw new Error(`Failed to fetch sitemap: ${response.status} ${response.statusText}`);
   }
