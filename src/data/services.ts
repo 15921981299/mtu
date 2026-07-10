@@ -17,9 +17,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Genuine MTU Engine Parts Supply',
     summary:
       'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with fast global delivery.',
-    image: '/images/engine-parts-hero.png',
-    mainImage: '/images/engine-parts-sensors-catalog.png',
-    secondImage: '/images/engine-parts-verification-desk.png',
+    image: '/images/mtu-engine-parts-hero.webp',
+    mainImage: '/images/mtu-2000-series-parts.webp',
+    secondImage: '/images/mtu-part-number-verification.webp',
   },
   {
     slug: 'cummins-engine-parts',
@@ -28,9 +28,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
       'Supply support for Cummins diesel engines and genuine replacement parts for industrial, marine, generator, and equipment maintenance programs.',
-    image: '/images/engine-parts-sensors-catalog.png',
-    mainImage: '/images/engine-parts-hero.png',
-    secondImage: '/images/engine-parts-verification-desk.png',
+    image: '/images/industrial-diesel-engine-parts.webp',
+    mainImage: '/images/generator-engine-parts.webp',
+    secondImage: '/images/mtu-part-number-verification.webp',
   },
   {
     slug: 'deutz-engine-parts',
@@ -39,9 +39,9 @@ export const services: ServiceItem[] = [
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:
       'DEUTZ replacement parts and engine support for construction machinery, power units, pumps, compressors, and industrial fleets.',
-    image: '/images/engine-parts-sensors-catalog.png',
-    mainImage: '/images/engine-parts-verification-desk.png',
-    secondImage: '/images/engine-parts-hero.png',
+    image: '/images/industrial-diesel-engine-parts.webp',
+    mainImage: '/images/mtu-part-number-verification.webp',
+    secondImage: '/images/global-engine-parts-delivery.webp',
   },
   {
     slug: 'industrial-engine-service',
@@ -50,9 +50,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Industrial Engine Service & Support',
     summary:
       'Parts sourcing and technical support for engines used in pumps, compressors, heavy equipment, oilfield units, and industrial power systems.',
-    image: '/images/engine-parts-verification-desk.png',
-    mainImage: '/images/engine-parts-hero.png',
-    secondImage: '/images/engine-parts-sensors-catalog.png',
+    image: '/images/industrial-diesel-engine-parts.webp',
+    mainImage: '/images/generator-engine-parts.webp',
+    secondImage: '/images/mtu-part-number-verification.webp',
   },
   {
     slug: 'marine-engine-service',
@@ -61,9 +61,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Marine Engine Parts & Service',
     summary:
       'Genuine spare parts for naval, coast guard, ferry, yacht, shipyard, and offshore MTU engine users with urgent global shipment support.',
-    image: '/images/engine-parts-hero.png',
-    mainImage: '/images/engine-parts-verification-desk.png',
-    secondImage: '/images/engine-parts-sensors-catalog.png',
+    image: '/images/marine-diesel-engine-parts.webp',
+    mainImage: '/images/mtu-engine-parts-hero.webp',
+    secondImage: '/images/global-engine-parts-delivery.webp',
   },
   {
     slug: 'genuine-oem-parts',
@@ -72,9 +72,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Genuine OEM Engine Parts',
     summary:
       'Original and OEM manufacturer parts from O-rings to crankshafts, prepared for reliable maintenance, overhaul, and long-term fleet operation.',
-    image: '/images/engine-parts-verification-desk.png',
-    mainImage: '/images/engine-parts-sensors-catalog.png',
-    secondImage: '/images/engine-parts-hero.png',
+    image: '/images/mtu-4000-series-overhaul-parts.webp',
+    mainImage: '/images/mtu-engine-parts-hero.webp',
+    secondImage: '/images/mtu-part-number-verification.webp',
   },
 ];
 

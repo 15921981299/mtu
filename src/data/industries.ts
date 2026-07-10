@@ -18,8 +18,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'marine',
     title: 'Marine',
-    icon: '/images/industries/cnc-machining-oil-gas-industry.jpg',
-    image: '/images/engine-parts-sensors-catalog.png',
+    icon: '/images/marine-diesel-engine-parts.webp',
+    image: '/images/marine-diesel-engine-parts.webp',
     seoTitle: 'Marine Engine Parts & Service | Engine Family',
     h1Title: 'Marine Engine Parts & Service',
     summary:
@@ -47,8 +47,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'industrial-engines',
     title: 'Industrial Engines',
-    icon: '/images/industries/cnc-machining-industrial-automation.jpg',
-    image: '/images/engine-parts-hero.png',
+    icon: '/images/industrial-diesel-engine-parts.webp',
+    image: '/images/industrial-diesel-engine-parts.webp',
     seoTitle: 'Industrial Engine Parts | Engine Family',
     h1Title: 'Industrial Engine Parts',
     summary:
@@ -76,8 +76,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'power-generation',
     title: 'Power Generation',
-    icon: '/images/industries/cnc-machining-renewable-energy.jpg',
-    image: '/images/engine-parts-verification-desk.png',
+    icon: '/images/generator-engine-parts.webp',
+    image: '/images/generator-engine-parts.webp',
     seoTitle: 'Generator Engine Parts | Engine Family',
     h1Title: 'Power Generation Engine Parts',
     summary:
@@ -105,8 +105,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'rail',
     title: 'Rail',
-    icon: '/images/industries/cnc-machining-automotive-industry.jpg',
-    image: '/images/cnc-turning-service-capability.webp',
+    icon: '/images/mtu-4000-series-overhaul-parts.webp',
+    image: '/images/mtu-4000-series-overhaul-parts.webp',
     seoTitle: 'Rail Diesel Engine Parts | Engine Family',
     h1Title: 'Rail Diesel Engine Parts',
     summary:
@@ -134,8 +134,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'shipyards-repair',
     title: 'Shipyards & Repair',
-    icon: '/images/industries/cnc-machining-medical-device-industry.jpg',
-    image: '/images/engine-parts-verification-desk.png',
+    icon: '/images/marine-diesel-engine-parts.webp',
+    image: '/images/mtu-part-number-verification.webp',
     seoTitle: 'Shipyard Diesel Engine Parts | Engine Family',
     h1Title: 'Shipyard & Repair Engine Parts',
     summary:
@@ -163,8 +163,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'energy-suppliers',
     title: 'Energy Suppliers',
-    icon: '/images/industries/cnc-machining-robotics-industry.jpg',
-    image: '/images/material-sourcing-service.webp',
+    icon: '/images/generator-engine-parts.webp',
+    image: '/images/global-engine-parts-delivery.webp',
     seoTitle: 'Engine Parts for Energy Suppliers | Engine Family',
     h1Title: 'Engine Parts for Energy Suppliers',
     summary:
