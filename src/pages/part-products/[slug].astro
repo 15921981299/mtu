@@ -17,11 +17,17 @@ const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
+const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
+const shortApplicableEngines = hasSpecificApplicableEngines
+  ? part.applicableEngines!.split(';')[0].replace(/\.$/, '')
+  : undefined;
 const seriesText = part.series.length > 0
   ? part.series.join(', ')
   : hasSpecificEngineType
     ? part.engineType!
-    : part.applicableEngines ?? 'MTU engine';
+    : hasSpecificApplicableEngines
+      ? shortApplicableEngines!
+      : 'MTU engine serial-number verified applications';
 const title = `${part.partNumber} ${part.name} - ${seriesText} Part`;
 const metaStock = part.stockStatus ?? 'Availability checked after inquiry';
 const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${seriesText}. Engine type, dimensions, weight, HS code, and fitment checked before quote.`;
@@ -38,7 +44,7 @@ const specRows = [
   ['Part No.', part.partNumber],
   ['Name', part.name],
   ['Category', part.category],
-  ['Engine Type', part.engineType ?? seriesText],
+  ['Engine Type', hasSpecificEngineType ? part.engineType : seriesText],
   ['Series', seriesText],
   ['Dimensions', part.dimensions],
   ['Unit Weight', part.weightKg],

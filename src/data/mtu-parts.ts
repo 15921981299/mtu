@@ -1936,10 +1936,11 @@ const highValueFaqs = (part: MtuPart, seriesText: string, scenarios: string[]) =
 const inferHighValueApplication = (part: MtuPart): string => {
   const partNumber = part.partNumber.toUpperCase();
   const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
+  const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 
   if (part.series.length > 0) return part.series.join(', ');
   if (hasSpecificEngineType) return part.engineType!;
-  if (part.applicableEngines) return part.applicableEngines;
+  if (hasSpecificApplicableEngines) return part.applicableEngines!;
   if (partNumber.startsWith('524') || partNumber.startsWith('X524') || partNumber.startsWith('EX524') || partNumber.startsWith('X547')) {
     return 'MTU 4000 series applications';
   }
@@ -2032,12 +2033,17 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
 
   const seriesText = inferHighValueApplication(part);
   const scenarios = inferNameSpecificScenarios(part, highValueScenarios[part.category] ?? highValueScenarios['Engine components']);
-  const applicationText = part.applicableEngines ?? `${seriesText}; final fitment is confirmed by engine serial number and parts-catalog position.`;
+  const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
+  const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
+  const applicationText = hasSpecificApplicableEngines
+    ? part.applicableEngines!
+    : `${seriesText}; final fitment is confirmed by engine serial number and parts-catalog position.`;
+  const engineTypeText = hasSpecificEngineType ? part.engineType! : seriesText;
 
   return {
     ...part,
     summary: `${part.partNumber} ${part.name} for ${seriesText}. High-priority MTU spare part with fitment, stock route, and export details checked before quotation.`,
-    description: `${part.partNumber} ${part.name} is treated as a priority MTU parts inquiry because it is commonly requested for overhaul, fleet maintenance, or downtime repair. Known public fields on this page include engine type (${part.engineType ?? seriesText}), application (${applicationText}), replacement references (${part.replacementFor && part.replacementFor.length > 0 ? part.replacementFor.join(', ') : 'checked before quote'}), weight (${part.weightKg ?? 'confirmed before shipment'}), HS code (${part.hsCode ?? 'confirmed before export'}), and lead time (${part.leadTime ?? 'checked per inquiry'}). We verify the part number against the engine model, serial number, installation position, and any superseded reference before quoting.`,
+    description: `${part.partNumber} ${part.name} is treated as a priority MTU parts inquiry because it is commonly requested for overhaul, fleet maintenance, or downtime repair. Known public fields on this page include engine type (${engineTypeText}), application (${applicationText}), replacement references (${part.replacementFor && part.replacementFor.length > 0 ? part.replacementFor.join(', ') : 'checked before quote'}), weight (${part.weightKg ?? 'confirmed before shipment'}), HS code (${part.hsCode ?? 'confirmed before export'}), and lead time (${part.leadTime ?? 'checked per inquiry'}). We verify the part number against the engine model, serial number, installation position, and any superseded reference before quoting.`,
     commonFailureScenarios: part.commonFailureScenarios ?? scenarios,
     orderingNotes: part.orderingNotes ?? `For ${part.partNumber}, send the engine model, serial number, quantity, old-part photo, and destination country. We will confirm whether the item is OEM, OEM-alternative, reman, or superseded before quotation.`,
     applicableEngines: applicationText,
