@@ -6,7 +6,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Accept',
 };
 
-const SITE_URL = 'https://machiningsupplier.com';
+const SITE_URL = 'https://engine-family.com';
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -102,13 +102,13 @@ export async function onRequest(context) {
     if (!resendKey) {
       console.error('RESEND_API_KEY not configured');
       return new Response(
-        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at info@machiningsupplier.com' }),
+        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@engine-family.com' }),
         { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
 
     await sendResendEmail(resendKey, {
-      to: 'info@machiningsupplier.com',
+      to: 'charles@engine-family.com',
       subject: `New RFQ: ${name} — ${material} / ${quantity}`,
       text: emailBody,
     });
@@ -117,9 +117,9 @@ export async function onRequest(context) {
       try {
         await sendResendEmail(resendKey, {
           to: email,
-          subject: 'We received your CNC machining quote request — Machining Supplier',
+          subject: 'We received your engine parts inquiry — Engine Family',
           text: buildCustomerAutoReply({ name, siteUrl: SITE_URL }),
-          replyTo: 'info@machiningsupplier.com',
+          replyTo: 'charles@engine-family.com',
         });
       } catch (autoReplyErr) {
         console.error('Customer auto-reply failed:', autoReplyErr.message);
@@ -166,7 +166,7 @@ export async function onRequest(context) {
     });
   } catch (err) {
     console.error('RFQ Error:', err.message);
-    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at info@machiningsupplier.com' }), {
+    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@engine-family.com' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });

@@ -1,4 +1,4 @@
-const FROM = 'Machining Supplier <rfq@machiningsupplier.com>';
+const FROM = 'Engine Family <rfq@engine-family.com>';
 
 export async function sendResendEmail(resendKey, { to, subject, text, replyTo }) {
   const payload = {
@@ -30,22 +30,22 @@ export function buildCustomerAutoReply({ name, siteUrl }) {
   return [
     `Hi ${name},`,
     '',
-    'Thank you for submitting your CNC machining quote request to Machining Supplier.',
+    'Thank you for submitting your engine parts inquiry to Engine Family.',
     '',
-    'We have received your inquiry. Our engineering team will review your drawing for manufacturability and send a detailed quotation within 24 hours.',
+    'We have received your inquiry. Our parts team will review your part number, engine details, photos, quantity, and destination before quotation.',
     '',
     'What happens next:',
-    '1. DFM review of your drawing and specifications',
-    '2. Detailed quote with lead time, unit price, and tooling cost (if any)',
-    '3. Engineering follow-up if we spot cost-saving design opportunities',
+    '1. Part-number, engine model, and serial-number review',
+    '2. Availability, lead time, unit price, and shipping route check',
+    '3. Follow-up if replacement or compatibility details need confirmation',
     '',
     'Helpful resources:',
-    `- CNC Tolerance Guide: ${siteUrl}/resources/cnc-tolerance-guide/`,
-    `- Drawing preparation tips: ${siteUrl}/blog/how-to-prepare-a-drawing-for-cnc-rfq/`,
+    `- MTU part numbers: ${siteUrl}/part-products/`,
+    `- Engine parts catalog: ${siteUrl}/products/`,
     '',
-    'Questions before we reply? Email info@machiningsupplier.com — we respond within one business day.',
+    'Questions before we reply? Email charles@engine-family.com — we respond within one business day.',
     '',
     'Best regards,',
-    'Machining Supplier Engineering Team',
+    'Engine Family Parts Team',
   ].join('\n');
 }

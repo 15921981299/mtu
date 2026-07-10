@@ -74,7 +74,7 @@ export default {
       const resendKey = env.RESEND_API_KEY;
       if (!resendKey) {
         console.error('RESEND_API_KEY not configured');
-        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at info@machiningsupplier.com' }), {
+        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@engine-family.com' }), {
           status: 503,
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
         });
@@ -87,8 +87,8 @@ export default {
           Authorization: `Bearer ${resendKey}`,
         },
         body: JSON.stringify({
-          from: 'Machining Supplier <rfq@machiningsupplier.com>',
-          to: 'info@machiningsupplier.com',
+          from: 'Engine Family <rfq@engine-family.com>',
+          to: 'charles@engine-family.com',
           subject: `New RFQ: ${name} — ${material} / ${quantity}`,
           text: emailBody,
         }),
@@ -99,23 +99,23 @@ export default {
         const autoReplyBody = [
           `Hi ${name},`,
           '',
-          'Thank you for submitting your CNC machining quote request to Machining Supplier.',
+          'Thank you for submitting your engine parts inquiry to Engine Family.',
           '',
-          'We have received your inquiry. Our engineering team will review your drawing for manufacturability and send a detailed quotation within 24 hours.',
+          'We have received your inquiry. Our parts team will review your part number, engine details, photos, quantity, and destination before quotation.',
           '',
           'What happens next:',
-          '1. DFM review of your drawing and specifications',
-          '2. Detailed quote with lead time, unit price, and tooling cost (if any)',
-          '3. Engineering follow-up if we spot cost-saving design opportunities',
+          '1. Part-number, engine model, and serial-number review',
+          '2. Availability, lead time, unit price, and shipping route check',
+          '3. Follow-up if replacement or compatibility details need confirmation',
           '',
           'Helpful resources:',
-          '- CNC Tolerance Guide: https://machiningsupplier.com/resources/cnc-tolerance-guide/',
-          '- Drawing preparation tips: https://machiningsupplier.com/blog/how-to-prepare-a-drawing-for-cnc-rfq/',
+          '- MTU part numbers: https://engine-family.com/part-products/',
+          '- Engine parts catalog: https://engine-family.com/products/',
           '',
-          'Questions before we reply? Email info@machiningsupplier.com — we respond within one business day.',
+          'Questions before we reply? Email charles@engine-family.com — we respond within one business day.',
           '',
           'Best regards,',
-          'Machining Supplier Engineering Team',
+          'Engine Family Parts Team',
         ].join('\n');
 
         const autoReplyResp = await fetch('https://api.resend.com/emails', {
@@ -125,10 +125,10 @@ export default {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: 'Machining Supplier <rfq@machiningsupplier.com>',
+            from: 'Engine Family <rfq@engine-family.com>',
             to: email,
-            reply_to: 'info@machiningsupplier.com',
-            subject: 'We received your CNC machining quote request — Machining Supplier',
+            reply_to: 'charles@engine-family.com',
+            subject: 'We received your engine parts inquiry — Engine Family',
             text: autoReplyBody,
           }),
         });
@@ -142,7 +142,7 @@ export default {
 
     } catch (err) {
       console.error('RFQ Error:', err.message);
-      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at info@machiningsupplier.com' }), {
+      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@engine-family.com' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

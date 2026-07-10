@@ -61,7 +61,7 @@ export default {
     } catch (err) {
       return new Response(JSON.stringify({
         ok: false,
-        message: 'Something went wrong. Please email us at info@machiningsupplier.com',
+        message: 'Something went wrong. Please email us at charles@engine-family.com',
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders },

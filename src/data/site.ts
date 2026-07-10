@@ -10,9 +10,9 @@
   whatsapp: '+8618018620661',
   tagline: 'Genuine Engine Parts | Fast Global Delivery',
   logo: {
-    default: '/images/machining-supplier-logo.svg',
-    compact: '/images/machining-supplier-logo-compact.svg',
-    icon: '/images/machining-supplier-logo-icon.svg',
+    default: '/images/engine-family-logo.svg',
+    compact: '/images/engine-family-logo-compact.svg',
+    icon: '/images/engine-family-logo-icon.svg',
     width: 223,
     height: 32,
   },
@@ -76,7 +76,7 @@
     'Engine Family supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
 };
 
-const organizationLogoUrl = `${site.url}/images/machining-supplier-logo.svg`;
+const organizationLogoUrl = `${site.url}/images/engine-family-logo.svg`;
 
 export const organizationSchema = {
   '@context': 'https://schema.org',

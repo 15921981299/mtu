@@ -1,6 +1,6 @@
-# Machining Supplier
+# Engine Family
 
-Precision CNC machining supplier website built with [Astro](https://astro.build). Live site: [machiningsupplier.com](https://machiningsupplier.com).
+Diesel engine parts supplier website built with [Astro](https://astro.build). Live site: [engine-family.com](https://engine-family.com).
 
 ## Setup
 
@@ -24,13 +24,13 @@ npm run preview
 | Path | Description |
 |------|-------------|
 | `/` | Homepage |
-| `/capabilities/` | CNC machining capabilities |
-| `/materials/` | Machinable materials |
+| `/capabilities/` | Engine parts support capabilities |
+| `/materials/` | Engine parts reference materials |
 | `/industries/` | Industry applications |
 | `/case-studies/` | Project case studies |
 | `/blog/` | Technical articles |
 | `/about/` | About us |
-| `/contact/` | RFQ form (Cloudflare Worker `/api/rfq`) |
+| `/contact/` | Parts inquiry form (Cloudflare Worker `/api/rfq`) |
 | `/thank-you/` | Post-submission confirmation |
 
 ## Configuration

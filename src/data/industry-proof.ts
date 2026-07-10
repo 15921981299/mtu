@@ -253,7 +253,7 @@ export const caseStudyAuditLinks = {
   },
   'titanium-drone-motor-mount': {
     auditBlogSlug: 'titanium-machining-suppliers-how-to-compare',
-    auditBlogLabel: 'Titanium machining supplier guide →',
+    auditBlogLabel: 'Titanium sourcing guide →',
   },
 } as const satisfies Record<string, { auditBlogSlug: string; auditBlogLabel: string }>;
 
