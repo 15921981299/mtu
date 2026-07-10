@@ -4,7 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { getRelatedMtuParts, mtuParts } from '../../data/mtu-parts';
+import { getRelatedMtuParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { breadcrumbSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -16,12 +16,16 @@ const { part } = Astro.props;
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
-const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
+const title = `${part.partNumber} ${part.name} — MTU ${part.series[0]?.replace('MTU ', '') ?? 'Engine'} Part`;
+const metaStock = part.stockStatus ?? 'Availability checked after inquiry';
+const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${(part.series.length > 0 ? part.series : ['MTU']).join(', ')} engines. ${part.summary}`;
+/** Truncate at last complete word, never cut mid-word or mid-number. */
+const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace(/\s+\S*$/, '') + '…';
 ---
 
 <BaseLayout
-  title={`${title} | Engine Family`}
-  description={`${part.summary} Check availability, replacement status, and global delivery from Shanghai.`}
+  title={title}
+  description={metaDesc}
   currentPath="/products"
   image={part.image}
   jsonLd={[
@@ -57,7 +61,7 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
     <img
       slot="hero"
       src={part.image}
-      alt={`${part.partNumber} ${part.name} MTU spare part inquiry`}
+      alt={`${part.partNumber} ${part.name} — MTU ${part.category} spare part`}
       width="1400"
       height="692"
       loading="eager"
@@ -65,11 +69,21 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
       decoding="async"
     />
 
-    <div class="resource-meta">
+    <!-- Part at-a-glance data table -->
+    <div class="resource-meta" aria-label="Part specifications">
       <span><strong>Part No.</strong> {part.partNumber}</span>
+      <span><strong>Name</strong> {part.name}</span>
       <span><strong>Category</strong> {part.category}</span>
-      <span><strong>Series</strong> {part.series.join(', ')}</span>
+      <span><strong>Series</strong> {part.series.length > 0 ? part.series.join(', ') : 'Verify by engine serial number'}</span>
+      {part.weightKg != null && <span><strong>Weight</strong> {part.weightKg}</span>}
+      {part.hsCode != null && <span><strong>HS Code</strong> {part.hsCode}</span>}
       <span><strong>Delivery</strong> Global shipping</span>
+    </div>
+
+    <!-- Stock status callout -->
+    <div class="stock-status-bar">
+      <span class="stock-indicator"></span>
+      <span>{part.stockStatus ?? "Stock status confirmed after inquiry"}</span>
     </div>
 
     <DetailRfqStrip
@@ -80,27 +94,72 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
       secondaryLabel="All MTU part numbers"
     />
 
-    <h2>{part.partNumber} {part.name} Availability</h2>
-    <p>{part.availability}</p>
+    <!-- Part description -->
+    <h2>About {part.partNumber} — {part.name}</h2>
+    <p>{part.description ?? part.summary}</p>
 
+    <!-- Applicable engines -->
+    {part.applicableEngines && (
+      <>
+        <h2>Applicable Engine Models</h2>
+        <p>{part.applicableEngines}</p>
+      </>
+    )}
+
+    <!-- Common failure scenarios -->
+    {part.commonFailureScenarios && part.commonFailureScenarios.length > 0 && (
+      <>
+        <h2>Common Replacement Scenarios</h2>
+        <p>This part is commonly replaced when:</p>
+        <ul>
+          {part.commonFailureScenarios.map((s) => <li>{s}</li>)}
+        </ul>
+      </>
+    )}
+
+    <!-- Replacement / cross-reference -->
+    {(part.replacementFor && part.replacementFor.length > 0) && (
+      <>
+        <h2>Cross-Reference & Superseded Part Numbers</h2>
+        <p>May replace the following OEM references (verify by engine serial number):</p>
+        <ul>
+          {part.replacementFor?.map((ref) => <li><strong>{ref}</strong></li>)}
+        </ul>
+      </>
+    )}
+
+    <!-- Applications -->
     <h2>Common Applications</h2>
     <ul>
       {part.applications.map((application) => <li>{application}</li>)}
     </ul>
 
-    <h2>Information to Send</h2>
+    <!-- What to send -->
+    <h2>Information to Send for Quotation</h2>
     <ul>
-      <li>Part number: {part.partNumber}</li>
-      <li>Engine model, rating, and serial number</li>
-      <li>Nameplate photo and old part photo when available</li>
-      <li>Quantity, destination country, and required delivery date</li>
+      <li><strong>Part number:</strong> {part.partNumber}</li>
+      <li><strong>Engine model, rating, and serial number</strong></li>
+      <li><strong>Nameplate photo</strong> and <strong>old part photo</strong> when available</li>
+      <li><strong>Quantity</strong>, <strong>destination country</strong>, and <strong>required delivery date</strong></li>
+      {part.weightKg && <li><strong>Approximate shipping weight:</strong> {part.weightKg}</li>}
+      {part.hsCode && <li><strong>HS code for customs reference:</strong> {part.hsCode}</li>}
     </ul>
 
+    <!-- Ordering notes -->
+    {part.orderingNotes && (
+      <>
+        <h2>Ordering Notes</h2>
+        <p>{part.orderingNotes}</p>
+      </>
+    )}
+
+    <!-- Notes -->
     <h2>Verification Notes</h2>
     <ul>
       {part.notes.map((note) => <li>{note}</li>)}
     </ul>
 
+    <!-- Related parts -->
     {relatedParts.length > 0 && (
       <section class="hub-section">
         <header class="hub-section-header">
@@ -123,6 +182,17 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
       </section>
     )}
 
+    <!-- Browse more catalogs -->
+    <section style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-stroke);">
+      <h2 style="font-size: 18px; margin-bottom: 12px;">Browse More MTU Parts</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px;">
+        {mtuCatalogHubs.slice(0, 12).map((hub) => (
+          <a href={`/part-products/catalog/${hub.slug}/`} style="color: var(--color-primary); text-decoration: none;">{hub.h1Title}</a>
+        ))}
+        <a href="/part-products/" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">All catalogs →</a>
+      </div>
+    </section>
+
     <p class="resource-note detail-page-back">
       <a href="/part-products/">All MTU part numbers</a>
       ·
@@ -136,6 +206,29 @@ const title = `${part.partNumber} ${part.name} | MTU Spare Part`;
 <style>
   .part-related-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stock-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #166534;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .stock-indicator {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
   }
 
   @media (max-width: 700px) {

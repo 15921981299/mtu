@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
+import BlogCta from '../../../components/BlogCta.astro';
+import FunnelPageView from '../../../components/FunnelPageView.astro';
+import { mtuCatalogHubs, mtuParts, type MtuCatalogHub } from '../../../data/mtu-parts';
+import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
+import '../../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return mtuCatalogHubs.map((hub) => ({ params: { slug: hub.slug }, props: { hub } }));
+}
+
+const { hub } = Astro.props as { hub: MtuCatalogHub };
+const parts = mtuParts.filter(hub.partFilter);
+const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
+const quoteHref = `/contact/?source=catalog-${hub.slug}`;
+
+// Group parts by sub-category for display
+const categoryGroups = new Map<string, typeof parts>();
+for (const part of parts) {
+  const key = part.category;
+  if (!categoryGroups.has(key)) categoryGroups.set(key, []);
+  categoryGroups.get(key)!.push(part);
+}
+
+// For series hubs: group by category. For category hubs: group by series.
+const groupLabel = hub.type === 'series' ? 'category' : 'series';
+---
+
+<BaseLayout
+  title={hub.title}
+  description={hub.summary}
+  currentPath="/products"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'MTU Parts Catalog', url: `${site.url}/part-products/` },
+      { name: hub.h1Title, url: pageUrl },
+    ]),
+    itemListSchema(
+      parts.slice(0, 50).map((p) => ({
+        name: `${p.partNumber} ${p.name}`,
+        url: `${site.url}/part-products/${p.slug}/`,
+      })),
+    ),
+  ]}
+>
+  <FunnelPageView stage="selection" label={`catalog-${hub.slug}`} />
+  <BreadcrumbHero
+    title={hub.h1Title}
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'MTU Parts Catalog', href: '/part-products/' },
+      { label: hub.type === 'series' ? hub.h1Title.replace(' Engine Parts', '') : hub.h1Title.replace('MTU ', '').replace(' & Seal Kits', '') },
+    ]}
+    variant="2"
+  />
+
+  <section class="blog-details-section resource-page-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <article class="blog-details-content-block resource-page fade-in">
+          <div class="resource-meta">
+            <span><strong>{parts.length}</strong> part numbers</span>
+            <span><strong>{categoryGroups.size}</strong> {groupLabel === 'series' ? 'categories' : 'engine series'}</span>
+            <span><strong>MOQ</strong> No minimum</span>
+            <span><strong>Delivery</strong> Global shipping</span>
+          </div>
+
+          <div class="detail-rfq-strip">
+            <p>Send part numbers, engine model, serial number, quantity, and destination. We check compatibility, stock, and shipping options.</p>
+            <a href={quoteHref} class="detail-rfq-link">Request Parts Inquiry</a>
+          </div>
+
+          <h2>{hub.type === 'series' ? 'Parts by Category' : 'Parts by Engine Series'}</h2>
+          <p>{hub.description}</p>
+
+          {hub.longDescription && (
+            <div class="catalog-long-description">
+              {hub.longDescription.split('\n\n').map((p) => <p>{p.trim()}</p>)}
+            </div>
+          )}
+
+          {
+            Array.from(categoryGroups.entries()).map(([groupKey, groupParts]) => (
+              <section style="margin-bottom: 32px;">
+                <h3 style="font-size: 20px; margin-bottom: 12px;">{groupKey} <span style="font-weight: 400; font-size: 15px; color: #64748b;">({groupParts.length} parts)</span></h3>
+                <div class="hub-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                  {groupParts.slice(0, 12).map((part) => (
+                    <article class="hub-card">
+                      <div class="hub-card-body">
+                        <p class="hub-card-meta">{part.partNumber}</p>
+                        <h4 class="hub-card-title" style="font-size: 15px;">
+                          <a href={`/part-products/${part.slug}/`}>{part.name}</a>
+                        </h4>
+                        <p class="hub-card-summary" style="font-size: 13px;">
+                          {part.series.join(', ')}
+                          {part.stockStatus && ` — ${part.stockStatus.slice(0, 60)}`}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+                {groupParts.length > 12 && (
+                  <p style="margin-top: 8px; font-size: 14px; color: #64748b;">
+                    + {groupParts.length - 12} more {groupKey.toLowerCase()} parts —
+                    <a href={quoteHref} style="color: var(--color-primary);">send a part list for full catalog</a>
+                  </p>
+                )}
+              </section>
+            ))
+          }
+
+          <!-- Related catalog hubs -->
+          <hr style="margin: 36px 0 24px; border-color: var(--color-stroke);" />
+          <h2>Browse More MTU Parts Catalogs</h2>
+          <div class="hub-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 16px;">
+            {mtuCatalogHubs
+              .filter((h) => h.slug !== hub.slug)
+              .slice(0, 12)
+              .map((h) => (
+                <article class="hub-card">
+                  <div class="hub-card-body">
+                    <p class="hub-card-meta" style="text-transform: uppercase; font-size: 11px;">{h.type === 'series' ? 'Engine Series' : 'Parts Category'}</p>
+                    <h4 class="hub-card-title" style="font-size: 15px;">
+                      <a href={`/part-products/catalog/${h.slug}/`}>{h.h1Title}</a>
+                    </h4>
+                    <p class="hub-card-summary">{h.summary}</p>
+                  </div>
+                </article>
+              ))}
+          </div>
+
+          <p class="resource-note detail-page-back" style="margin-top: 28px;">
+            <a href="/part-products/">All MTU part numbers</a>
+            ·
+            <a href="/products/mtu-spare-parts/">MTU spare parts</a>
+            ·
+            <a href={quoteHref}>Request parts inquiry</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <BlogCta
+    stage="selection"
+    topic={`catalog-${hub.slug}`}
+    title="Ready to check engine parts?"
+    text="Send part numbers, engine model, serial number, quantity, and destination. We confirm availability before quotation."
+    primaryLabel="Send Parts Inquiry"
+    primaryHref={quoteHref}
+    primaryEvent={`catalog_${hub.slug}_rfq`}
+    secondaryLabel="All part numbers"
+    secondaryHref="/part-products/"
+    secondaryEvent="catalog_all_parts"
+  />
+</BaseLayout>
+
+<style>
+  .detail-rfq-strip {
+    background: #f8fafc;
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+  .detail-rfq-strip p {
+    flex: 1;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #334155;
+  }
+  .detail-rfq-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--color-primary, #146ef5);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .detail-rfq-link:hover {
+    background: #0d5ad4;
+  }
+</style>

@@ -2,7 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { mtuPartCategories, mtuParts, mtuPartSeries } from '../../data/mtu-parts';
+import { mtuPartCategories, mtuParts, mtuPartSeries, mtuCatalogHubs } from '../../data/mtu-parts';
+
+const seriesHubs = mtuCatalogHubs.filter((h) => h.type === 'series');
+const categoryHubs = mtuCatalogHubs.filter((h) => h.type === 'category');
 import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -36,34 +39,63 @@ const pageUrl = `${site.url}/part-products/`;
       <div class="container">
         <article class="blog-details-content-block resource-page fade-in">
           <nav class="resource-nav" aria-label="Parts catalog navigation">
-            <a href="/part-products/" class="resource-nav-link active" aria-current="page">Part numbers</a>
-            <a href="/products/mtu-spare-parts/" class="resource-nav-link">MTU spare parts</a>
-            <a href="/products/mtu-2000-series-parts/" class="resource-nav-link">MTU 2000</a>
-            <a href="/products/mtu-4000-series-parts/" class="resource-nav-link">MTU 4000</a>
-            <a href="/contact/" class="resource-nav-link resource-nav-all">Check availability</a>
+            <a href="/part-products/" class="resource-nav-link active" aria-current="page">All Part Numbers</a>
+            <a href="/products/mtu-spare-parts/" class="resource-nav-link">MTU Spare Parts</a>
+            <a href="/contact/" class="resource-nav-link resource-nav-all">Check Availability →</a>
           </nav>
 
           <p class="resource-intro">
-            Searchable MTU part-number pages help procurement teams move from a loose request to a verified quotation.
-            Send the part number, engine model, serial number, nameplate photo, quantity, destination, and required
-            delivery date so Engine Family can check compatibility before shipment.
+            Browse MTU parts by engine series, part category, or individual part number. Each part page includes cross-references, applicable engine models, stock status, and ordering notes. Send your part list for line-by-line availability check and quotation.
           </p>
 
           <div class="resource-meta">
-            <span><strong>{mtuParts.length}</strong> MTU part-number pages</span>
-            <span><strong>{mtuPartCategories.length}</strong> part categories</span>
-            <span>{mtuPartSeries.join(' · ')}</span>
+            <span><strong>{mtuParts.length}</strong> part numbers</span>
+            <span><strong>{seriesHubs.length}</strong> engine series</span>
+            <span><strong>{categoryHubs.length}</strong> part categories</span>
           </div>
 
-          <div class="detail-rfq-strip">
+          <!-- Browse by Engine Series -->
+          <h2 style="margin-top: 36px;">Browse by Engine Series</h2>
+          <div class="hub-grid part-products-grid">
+            {seriesHubs.map((hub) => (
+              <article class="hub-card">
+                <div class="hub-card-body">
+                  <h3 class="hub-card-title">
+                    <a href={`/part-products/catalog/${hub.slug}/`}>{hub.h1Title}</a>
+                  </h3>
+                  <p class="hub-card-summary">{hub.summary}</p>
+                  <a href={`/part-products/catalog/${hub.slug}/`} class="hub-card-link">Browse parts →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <!-- Browse by Category -->
+          <h2 style="margin-top: 36px;">Browse by Part Category</h2>
+          <div class="hub-grid part-products-grid">
+            {categoryHubs.map((hub) => (
+              <article class="hub-card">
+                <div class="hub-card-body">
+                  <h3 class="hub-card-title">
+                    <a href={`/part-products/catalog/${hub.slug}/`}>{hub.h1Title}</a>
+                  </h3>
+                  <p class="hub-card-summary">{hub.summary}</p>
+                  <a href={`/part-products/catalog/${hub.slug}/`} class="hub-card-link">Browse parts →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="detail-rfq-strip" style="margin-top: 36px;">
             <p>Have an Excel list? Send all part numbers together. We check availability line by line and quote practical shipping from Shanghai.</p>
             <a href="/contact/?source=part-products" class="detail-rfq-link">Send Parts List</a>
           </div>
 
-          <section class="hub-section">
+          <!-- All Part Numbers -->
+          <section class="hub-section" style="margin-top: 36px;">
             <header class="hub-section-header">
-              <h2>MTU Part Numbers</h2>
-              <p>Sensors, fuel-system parts, gaskets, cooling parts, turbocharging parts, repair kits, and overhaul components.</p>
+              <h2>All MTU Part Numbers (A-Z)</h2>
+              <p>Complete index of {mtuParts.length} part number pages across {mtuPartCategories.length} categories and {mtuPartSeries.length} engine series.</p>
             </header>
             <div class="hub-grid part-products-grid">
               {mtuParts.map((part) => (
