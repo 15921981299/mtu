@@ -1,23 +1,26 @@
 /** Curated blog slugs for capability and material hub/subpages. */
+import { blogPosts } from './blog';
 import { isBlogNoindex } from './blog-quality';
 
 const HUB_ARTICLE_FALLBACKS = [
-  'how-to-choose-cnc-machining-supplier-china',
-  'cnc-machining-dfm-design-guide',
-  'how-to-prepare-a-drawing-for-cnc-rfq',
-  'cnc-machining-tolerances-complete-guide',
+  'iso-2768-tolerances-explained',
+  'how-to-maintain-tight-tolerances-across-batches',
+  'how-to-verify-material-authenticity-china',
+  'what-quality-teams-verify-before-production-release',
 ] as const;
+
+const existingBlogSlugs = new Set(blogPosts.map((post) => post.slug));
 
 /** Return indexable blog slugs only — avoids linking hub pages to noindex posts (crawl + cannibalization). */
 export function resolveHubArticles(slugs: string[], max = 3): string[] {
   const picked: string[] = [];
   for (const slug of slugs) {
-    if (!isBlogNoindex(slug) && !picked.includes(slug)) picked.push(slug);
+    if (existingBlogSlugs.has(slug) && !isBlogNoindex(slug) && !picked.includes(slug)) picked.push(slug);
     if (picked.length >= max) return picked;
   }
   for (const slug of HUB_ARTICLE_FALLBACKS) {
     if (picked.length >= max) break;
-    if (!picked.includes(slug)) picked.push(slug);
+    if (existingBlogSlugs.has(slug) && !picked.includes(slug)) picked.push(slug);
   }
   return picked.slice(0, max);
 }

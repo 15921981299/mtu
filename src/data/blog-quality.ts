@@ -203,6 +203,10 @@ export function isBlogIndexWhitelisted(slug: string): boolean {
   return blogIndexWhitelist.has(slug);
 }
 
+export function isLegacyCncBlogSlug(slug: string): boolean {
+  return /cnc|machining|milling|turning|edm|dfm|gdt|anodizing|powder-coating|aluminum|stainless|titanium|brass|copper|peek|delrin/i.test(slug);
+}
+
 /** DTC-style best/top listicles and thin industry supplier templates — noindex, follow. */
 export const blogLowIntentSupplierSlugs = new Set([
   'top-cnc-machining-companies-for-aerospace-parts',
@@ -297,6 +301,9 @@ export function isLowIntentSupplierPost(slug: string): boolean {
 }
 
 export function isBlogNoindex(slug: string): boolean {
+  if (isLegacyCncBlogSlug(slug)) {
+    return true;
+  }
   return !isBlogIndexWhitelisted(slug);
 }
 

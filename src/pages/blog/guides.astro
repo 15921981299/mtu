@@ -10,8 +10,9 @@ import { breadcrumbSchema, site } from '../../data/site';
 import '../../styles/hub-list-page.css';
 
 const postBySlug = new Map(blogPosts.map((p) => [p.slug, p]));
-const hubCount = blogPillars.length;
-const spokeCount = blogPillars.reduce(
+const availablePillars = blogPillars.filter((pillar) => postBySlug.has(pillar.slug));
+const hubCount = availablePillars.length;
+const spokeCount = availablePillars.reduce(
   (sum, pillar) => sum + pillar.spokes.filter(isBlogIndexWhitelisted).length,
   0,
 );
@@ -69,7 +70,7 @@ const hubLabels: Record<string, string> = {
         </p>
 
         <nav class="hub-list-jump-nav fade-in" aria-label="Guide hub topics">
-          {blogPillars.map((pillar) => (
+          {availablePillars.map((pillar) => (
             <a href={`#hub-${pillar.id}`} class="hub-list-jump-link">
               {hubLabels[pillar.id] ?? pillar.id}
               <span class="hub-list-jump-count">{pillar.spokes.length}</span>
@@ -78,7 +79,7 @@ const hubLabels: Record<string, string> = {
         </nav>
 
         <div class="guides-grid">
-          {blogPillars.map((pillar, index) => (
+          {availablePillars.map((pillar, index) => (
             <article id={`hub-${pillar.id}`} class="guide-card fade-in">
               <header class="guide-card-header">
                 <span class="guide-card-kicker">Hub {String(index + 1).padStart(2, '0')}</span>

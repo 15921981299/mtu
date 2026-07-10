@@ -23,8 +23,10 @@ import '../../styles/blog-list-page.css';
 const featured = getFeaturedBlogPost();
 const featuredAuthor = authors[getPostAuthorKey(featured.slug, featured.author)];
 const pagePosts = getBlogPostsForPage(1);
+const postSlugSet = new Set(blogPosts.map((post) => post.slug));
+const availablePillars = blogPillars.filter((pillar) => postSlugSet.has(pillar.slug));
 const articleCount = blogPosts.length;
-const hubCount = blogPillars.length;
+const hubCount = availablePillars.length;
 const totalPages = getBlogTotalPages();
 
 const hubLabels: Record<string, string> = {
@@ -123,7 +125,7 @@ const hubLabels: Record<string, string> = {
               <a href="/blog/guides/" class="blog-index-section-link">All {hubCount} hubs →</a>
             </header>
             <div class="blog-pillar-grid">
-              {blogPillars.slice(0, 6).map((pillar, index) => (
+              {availablePillars.slice(0, 6).map((pillar, index) => (
                 <a href={`/blog/${pillar.slug}/`} class="blog-pillar-card">
                   <div class="blog-pillar-card-top">
                     <span class="blog-pillar-kicker">Hub {String(index + 1).padStart(2, '0')}</span>

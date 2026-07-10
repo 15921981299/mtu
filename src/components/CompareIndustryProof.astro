@@ -1,5 +1,6 @@
 ---
 import { getProofForComparison } from '../data/industry-proof';
+import { blogPosts } from '../data/blog';
 import type { ComparisonCategory } from '../data/comparisons';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 
 const { compareSlug, category } = Astro.props;
 const proofContexts = getProofForComparison(compareSlug);
+const existingBlogSlugs = new Set(blogPosts.map((post) => post.slug));
 const showVerification =
   proofContexts.length > 0 || category === 'quality' || category === 'sourcing';
 ---
@@ -42,7 +44,7 @@ const showVerification =
             ))}
           </ul>
         )}
-        {ctx.auditBlogSlug && (
+        {ctx.auditBlogSlug && existingBlogSlugs.has(ctx.auditBlogSlug) && (
           <a href={`/blog/${ctx.auditBlogSlug}/`} class="compare-proof-audit">
             {ctx.auditBlogLabel ?? 'Supplier audit guide for this industry →'}
           </a>

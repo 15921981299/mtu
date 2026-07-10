@@ -5,7 +5,7 @@ import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCard from '../../../components/BlogCard.astro';
 import BlogCta from '../../../components/BlogCta.astro';
 import FunnelPageView from '../../../components/FunnelPageView.astro';
-import { blogTagLabels, blogTags, getPostsByTag, getPostAuthorKey, type BlogTag } from '../../../data/blog';
+import { blogPosts, blogTagLabels, blogTags, getPostsByTag, getPostAuthorKey, type BlogTag } from '../../../data/blog';
 import { blogTagMeta, getPillarForTag } from '../../../data/blog-tags';
 import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
 import '../../../styles/resource-page.css';
@@ -19,6 +19,7 @@ const posts = getPostsByTag(tag);
 const label = blogTagLabels[tag];
 const meta = blogTagMeta[tag];
 const pillar = getPillarForTag(tag);
+const pillarPost = pillar ? blogPosts.find((post) => post.slug === pillar.slug) : undefined;
 const pageUrl = `${site.url}/blog/tag/${tag}/`;
 
 const jsonLd = [
@@ -76,7 +77,7 @@ const jsonLd = [
             <span><strong>Part-number checks</strong> before quotation</span>
           </div>
 
-          {pillar && (
+          {pillar && pillarPost && (
             <aside class="tag-pillar-banner fade-in">
               <span class="tag-pillar-kicker">Start with the guide hub</span>
               <h2 class="tag-pillar-title">

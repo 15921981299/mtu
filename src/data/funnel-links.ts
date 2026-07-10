@@ -38,7 +38,7 @@ export const funnelNextStepsByStage: Record<
   comparison: [
     {
       label: 'How to choose a China engine parts supplier',
-      href: '/blog/how-to-choose-cnc-machining-supplier-china/',
+      href: '/blog/',
       hint: 'Evaluation checklist',
     },
     {
@@ -70,7 +70,7 @@ export const funnelNextStepsByStage: Record<
     },
     {
       label: 'Prepare your RFQ drawing',
-      href: '/blog/how-to-prepare-a-drawing-for-cnc-rfq/',
+      href: '/resources/dfm-checklist/',
       hint: 'What suppliers need',
     },
   ],

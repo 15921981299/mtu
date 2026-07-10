@@ -6,6 +6,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import StandardsSidebar from '../../components/StandardsSidebar.astro';
+import { blogPosts } from '../../data/blog';
 import { getCaseStudiesForStandard, getIndustryProof } from '../../data/industry-proof';
 import { industries } from '../../data/industries';
 import { materials } from '../../data/materials';
@@ -31,6 +32,9 @@ const linkedMaterials = materials.filter((m) => materialSlugs.includes(m.slug));
 
 const linkedCaseStudies = getCaseStudiesForStandard(std.slug);
 const industryProofEntry = getIndustryProof(std.slug);
+const hasAuditBlog = industryProofEntry?.auditBlogSlug
+  ? blogPosts.some((post) => post.slug === industryProofEntry.auditBlogSlug)
+  : false;
 
 const standardIndustryMap: Record<string, string[]> = {
   'food-grade-parts': ['food-beverage'],
@@ -133,7 +137,7 @@ const theme = standardThemes[std.slug] ?? {
         <a href="/terms/shipping/">Shipping</a>
         <span aria-hidden="true">·</span>
         <a href="/resources/material-certificates/">Material certs</a>
-        {industryProofEntry?.auditBlogSlug && (
+        {hasAuditBlog && industryProofEntry?.auditBlogSlug && (
           <>
             <span aria-hidden="true">·</span>
             <a href={`/blog/${industryProofEntry.auditBlogSlug}/`}>Supplier audit guide</a>

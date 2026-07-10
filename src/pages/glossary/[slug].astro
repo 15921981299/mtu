@@ -5,6 +5,7 @@ import BlogCta from '../../components/BlogCta.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
+import { blogPosts } from '../../data/blog';
 import { getRelatedGlossaryTerms, glossaryTerms } from '../../data/glossary';
 import { isGlossaryNoindex } from '../../data/glossary-quality';
 import { breadcrumbSchema, site } from '../../data/site';
@@ -19,6 +20,11 @@ const pageUrl = `${site.url}/glossary/${term.slug}/`;
 const quoteHref = `/contact/?source=glossary-${term.slug}`;
 const related = getRelatedGlossaryTerms(term);
 const noindex = isGlossaryNoindex(term.slug);
+const existingBlogSlugs = new Set(blogPosts.map((post) => post.slug));
+const relatedLinks = term.relatedLinks?.filter((link) => {
+  const blogMatch = link.href.match(/^\/blog\/([^/]+)\/$/);
+  return !blogMatch || existingBlogSlugs.has(blogMatch[1]);
+}) ?? [];
 ---
 
 <BaseLayout
@@ -46,8 +52,8 @@ const noindex = isGlossaryNoindex(term.slug);
   <DetailPageShell intro={term.shortDefinition}>
     <div class="resource-meta">
       <span>Glossary term</span>
-      {term.relatedLinks && term.relatedLinks.length > 0 && (
-        <span><strong>{term.relatedLinks.length}</strong> deep-dive links</span>
+      {relatedLinks.length > 0 && (
+        <span><strong>{relatedLinks.length}</strong> deep-dive links</span>
       )}
       {related.length > 0 && (
         <span><strong>{related.length}</strong> related terms</span>
@@ -63,11 +69,11 @@ const noindex = isGlossaryNoindex(term.slug);
 
     <div set:html={term.body} />
 
-    {term.relatedLinks && term.relatedLinks.length > 0 && (
+    {relatedLinks.length > 0 && (
       <>
         <h2>Learn more</h2>
         <ul class="resource-list">
-          {term.relatedLinks.map((link) => (
+          {relatedLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>

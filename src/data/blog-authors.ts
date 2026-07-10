@@ -98,9 +98,6 @@ const pillarAuthorById: Record<string, AuthorSlug> = {
 
 /** Explicit overrides for high-traffic posts outside pillar clusters. */
 const postAuthorOverrides: Partial<Record<string, AuthorSlug>> = {
-  'cnc-milling-vs-turning-whats-the-difference': 'wei-chen',
-  'how-to-reduce-cnc-machining-cost': 'wei-chen',
-  'aluminum-6061-vs-7075-cnc-machining': 'lisa-huang',
   'asme-y14-5-gdt-standard': 'wei-chen',
   'bearing-journal-tolerances-h6-h7': 'wei-chen',
   'iso-286-tolerances-fits-explained': 'wei-chen',

@@ -8,6 +8,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import ExperienceProofNote from '../../components/ExperienceProofNote.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
+import { blogPosts } from '../../data/blog';
 import { comparisons, getComparisonCategory, comparisonCategoryMeta, getRelatedIndexableComparisons } from '../../data/comparisons';
 import { isComparisonNoindex } from '../../data/comparison-quality';
 import { breadcrumbSchema, faqSchema, site } from '../../data/site';
@@ -25,6 +26,12 @@ const categoryLabel = comparisonCategoryMeta.find((c) => c.id === categoryId)?.l
 const noindex = isComparisonNoindex(item.slug);
 const hasRelatedComparisons = getRelatedIndexableComparisons(item.slug, 1).length > 0;
 const hasBodySections = (item.bodySections?.length ?? 0) > 0;
+const existingBlogSlugs = new Set(blogPosts.map((post) => post.slug));
+const relatedLinks = item.relatedLinks.filter((link) => {
+  const blogMatch = link.href.match(/^\/blog\/([^/]+)\/$/);
+  return !blogMatch || existingBlogSlugs.has(blogMatch[1]);
+});
+const hasBlogArticle = item.blogSlug ? existingBlogSlugs.has(item.blogSlug) : false;
 ---
 
 <BaseLayout
@@ -179,13 +186,13 @@ const hasBodySections = (item.bodySections?.length ?? 0) > 0;
 
     <h2 id="related-resources">Related Resources</h2>
     <ul class="resource-list">
-      {item.relatedLinks.map((link) => (
+      {relatedLinks.map((link) => (
         <li><a href={link.href}>{link.label}</a></li>
       ))}
       {item.deepLink && (
         <li><a href={item.deepLink.href}>{item.deepLink.label} →</a></li>
       )}
-      {item.blogSlug && (
+      {hasBlogArticle && item.blogSlug && (
         <li><a href={`/blog/${item.blogSlug}/`}>Full in-depth article →</a></li>
       )}
       {!noindex && (

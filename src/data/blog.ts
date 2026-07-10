@@ -1,4 +1,4 @@
-﻿import { getPillarForPost, isBlogNoindex } from './blog-quality';
+﻿import { getPillarForPost, isBlogNoindex, isLegacyCncBlogSlug } from './blog-quality';
 import { authors, getResolvedAuthorKey, type AuthorSlug } from './blog-authors';
 
 export {
@@ -41,7 +41,12 @@ export const blogTagLabels: Record<BlogTag, string> = {
   cost: 'Availability & Lead Time',
 };
 
-export const popularGuideSlugs = ["cnc-milling-vs-turning-whats-the-difference","cnc-machining-tolerances-complete-guide","aluminum-6061-vs-7075-cnc-machining","what-is-5-axis-cnc-machining","how-to-reduce-cnc-machining-cost","surface-finishes-for-cnc-machined-parts"] as const;
+export const popularGuideSlugs = [
+  'iso-2768-tolerances-explained',
+  'how-to-maintain-tight-tolerances-across-batches',
+  'how-to-verify-material-authenticity-china',
+  'what-quality-teams-verify-before-production-release',
+] as const;
 
 export function getPopularGuidePosts() {
   return popularGuideSlugs
@@ -3568,7 +3573,7 @@ function resolveBlogImages(post: BlogPost): Pick<BlogPost, 'image' | 'mainImage'
 export const blogPosts: BlogPost[] = blogPostRecords.map((post) => ({
   ...post,
   ...resolveBlogImages(post),
-}));
+})).filter((post) => !isLegacyCncBlogSlug(post.slug));
 
 export function getIndexableBlogPosts() {
   return blogPosts.filter((post) => !isBlogNoindex(post.slug));

@@ -22,6 +22,54 @@ const materialSlugs = (product.materialSlugs ?? []) as readonly string[];
 const capabilitySlugs = (product.capabilitySlugs ?? []) as readonly string[];
 const linkedMaterials = materials.filter((m) => materialSlugs.includes(m.slug));
 const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slug));
+const productText = `${product.slug} ${product.title} ${product.summary} ${product.content.partOne}`.toLowerCase();
+const productIdentityText = `${product.slug} ${product.title} ${product.h1Title}`.toLowerCase();
+const isGeneratedModelPage = /is listed under .* inquiry support/i.test(product.content.partTwo);
+const isCoreIndexProduct = new Set([
+  'mtu-spare-parts',
+  'mtu-2000-series-parts',
+  'mtu-4000-series-parts',
+  'detroit-diesel-parts',
+  'cummins-parts',
+  'deutz-parts',
+]).has(product.slug);
+const isMtuLongTail = /\bmtu\b|mtu-|2000|4000|1163|8000|396|183|538|595|956/.test(productIdentityText);
+const shouldNoindex = isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail;
+
+const brand = productText.includes('cummins')
+  ? 'Cummins'
+  : productText.includes('deutz')
+    ? 'DEUTZ'
+    : productText.includes('detroit')
+      ? 'Detroit Diesel'
+      : 'MTU';
+const applicationFocus = productText.includes('marine') || productText.includes('vessel') || productText.includes('ship')
+  ? 'marine propulsion and shipyard maintenance'
+  : productText.includes('g-drive') || productText.includes('generator') || productText.includes('genset') || productText.includes('power')
+    ? 'generator sets and standby power maintenance'
+    : productText.includes('industrial') || productText.includes('construction') || productText.includes('compressor') || productText.includes('pump')
+      ? 'industrial equipment and field service'
+      : 'fleet maintenance, repair, and spare-parts planning';
+const seriesFocus = productText.includes('4000') || productText.includes('8000')
+  ? 'large-bore overhaul, fuel, cooling, and control-system items'
+  : productText.includes('2000')
+    ? 'compact high-speed service parts, sensors, injectors, and maintenance kits'
+    : productText.includes('g-drive')
+      ? 'G-drive engine service parts for generator applications'
+      : 'service, wear, and replacement components confirmed by engine reference';
+const partFocus = productText.includes('overhaul') || productText.includes('piston') || productText.includes('liner') || productText.includes('bearing') || productText.includes('valve')
+  ? ['piston, liner, bearing, valve-train, and cylinder-head items', 'turbocharging, fuel, cooling, and lubrication parts', 'consolidated overhaul lists with quantity and maintenance-window checks']
+  : productText.includes('filter') || productText.includes('gasket') || productText.includes('seal')
+    ? ['filters, gaskets, seals, O-rings, and scheduled service items', 'coolant, oil, and lubrication-related consumables', 'small parts that need photos or markings checked before shipment']
+    : productText.includes('sensor') || productText.includes('injector') || productText.includes('pump')
+      ? ['injectors, pumps, sensors, connectors, and control components', 'fuel-system items checked against rating and engine serial number', 'replacement references where superseded part numbers may exist']
+      : ['filters, seals, gaskets, sensors, pumps, and service items', 'fuel, cooling, lubrication, turbocharging, and electrical components', 'overhaul or replacement assemblies checked before quotation'];
+const verificationFocus = [
+  `${brand} model, rating, and serial number`,
+  'part number, old-part photo, or nameplate photo',
+  `application details for ${applicationFocus}`,
+  'quantity, destination, and required delivery date',
+];
 ---
 
 <BaseLayout
@@ -29,6 +77,7 @@ const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slu
   description={product.summary}
   currentPath="/products"
   image={product.mainImage}
+  noindex={shouldNoindex}
   jsonLd={[
     breadcrumbSchema([
       { name: 'Home', url: site.url },
@@ -112,6 +161,24 @@ const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slu
     )}
 
     <div set:html={product.content.partOne} />
+    <section class="detail-differentiation-block">
+      <h2>{product.title} Buying Context</h2>
+      <p>
+        This page is focused on {brand} parts used in {applicationFocus}. For {product.title}, the practical sourcing
+        question is not only whether a part name matches, but whether the requested item fits the exact engine build,
+        rating, and service situation.
+      </p>
+      <h3>Typical fitment focus</h3>
+      <p>{seriesFocus} are reviewed before quotation so the buyer can compare availability, replacement notes, and shipping route in one request.</p>
+      <h3>Common inquiry lines</h3>
+      <ul>
+        {partFocus.map((item) => <li>{item}</li>)}
+      </ul>
+      <h3>Information that makes this page different</h3>
+      <ul>
+        {verificationFocus.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
     <figure class="detail-page-figure">
       <img
         src={product.secondImage}

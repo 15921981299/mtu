@@ -9,6 +9,7 @@ interface Props {
 const { slug } = Astro.props;
 const pillar = getPillarForPost(slug);
 const isPillar = pillar?.slug === slug;
+const pillarPost = pillar ? blogPosts.find((post) => post.slug === pillar.slug) : undefined;
 const hub = isPillar ? getPillarBySlug(slug) : undefined;
 const spokePosts = hub
   ? hub.spokes
@@ -18,7 +19,7 @@ const spokePosts = hub
 ---
 
 {
-  pillar && (
+  pillar && (isPillar || pillarPost) && (
     <div class="blog-pillar-banner fade-in">
       {isPillar ? (
         <>
