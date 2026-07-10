@@ -11,7 +11,7 @@ export type MtuPart = {
   notes: string[];
 };
 
-const partImage = '/images/engine-parts-sensors-catalog.png';
+const partImage = '/images/mtu-2000-series-parts.webp';
 
 const slugifyPart = (value: string) =>
   value

@@ -48,7 +48,7 @@ const {
 
 const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image ?? '/images/og-default.jpg', Astro.site);
+const ogImage = new URL(image ?? '/images/og-mtu-engine-parts.jpg', Astro.site);
 const schemas = [
   organizationSchema,
   {

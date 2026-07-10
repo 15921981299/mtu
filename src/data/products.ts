@@ -12088,7 +12088,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
 ];
 // END ENGINE FAMILY SITEMAP PRODUCTS
 
-export const products: ProductItem[] = [
+const productCatalog: ProductItem[] = [
   {
     slug: 'mtu-spare-parts',
     title: 'MTU Spare Parts',
@@ -12283,6 +12283,37 @@ export const products: ProductItem[] = [
   },
   ...importedEngineFamilyProducts,
 ];
+
+function resolveProductImages(product: ProductItem): Pick<ProductItem, 'image' | 'mainImage' | 'secondImage'> {
+  const searchText = `${product.slug} ${product.title} ${product.h1Title} ${product.summary}`.toLowerCase();
+  let image = '/images/mtu-engine-parts-hero.webp';
+
+  if (/\b(marine|vessel|yacht|ship|seawater|propulsion)\b/.test(searchText)) {
+    image = '/images/marine-diesel-engine-parts.webp';
+  } else if (/\b(generator|g-drive|genset|power|standby)\b/.test(searchText)) {
+    image = '/images/generator-engine-parts.webp';
+  } else if (/\b(cummins|deutz|detroit|industrial|compressor|construction|pump)\b/.test(searchText)) {
+    image = '/images/industrial-diesel-engine-parts.webp';
+  } else if (/\b(4000|8000|overhaul|cylinder|piston|liner|bearing|valve|crankshaft|turbo)\b/.test(searchText)) {
+    image = '/images/mtu-4000-series-overhaul-parts.webp';
+  } else if (/\b(2000|183|331|396|493|538|595|956|1163|injector|sensor|filter|gasket|seal)\b/.test(searchText)) {
+    image = '/images/mtu-2000-series-parts.webp';
+  }
+
+  return {
+    image,
+    mainImage: image,
+    secondImage:
+      image === '/images/global-engine-parts-delivery.webp'
+        ? '/images/mtu-part-number-verification.webp'
+        : '/images/global-engine-parts-delivery.webp',
+  };
+}
+
+export const products: ProductItem[] = productCatalog.map((product) => ({
+  ...product,
+  ...resolveProductImages(product),
+}));
 
 export function getProductCards() {
   return products.map((p) => ({ slug: p.slug, title: p.title, image: p.image, summary: p.summary }));

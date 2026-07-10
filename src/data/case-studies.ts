@@ -820,7 +820,30 @@ const caseStudyRecords = [
   }
 ] as const;
 
+function resolveCaseStudyImage(study: (typeof caseStudyRecords)[number]): string {
+  const searchText = `${study.slug} ${study.title} ${study.industry} ${study.summary}`.toLowerCase();
+
+  if (/\b(marine|vessel|yacht|ship|propulsion)\b/.test(searchText)) {
+    return '/images/marine-diesel-engine-parts.webp';
+  }
+  if (/\b(generator|power|genset)\b/.test(searchText)) {
+    return '/images/generator-engine-parts.webp';
+  }
+  if (/\b(delivery|shipping|export)\b/.test(searchText)) {
+    return '/images/global-engine-parts-delivery.webp';
+  }
+  if (/\b(4000|overhaul|cylinder|piston|liner|bearing|valve|turbo)\b/.test(searchText)) {
+    return '/images/mtu-4000-series-overhaul-parts.webp';
+  }
+  if (/\b(2000|service|industrial)\b/.test(searchText)) {
+    return '/images/industrial-diesel-engine-parts.webp';
+  }
+
+  return '/images/mtu-part-number-verification.webp';
+}
+
 export const caseStudies: CaseStudyRecord[] = caseStudyRecords.map((study) => ({
   ...study,
+  image: resolveCaseStudyImage(study),
   beforeAfter: [...study.beforeAfter],
 }));

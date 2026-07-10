@@ -96,7 +96,7 @@ export type BlogPost = {
   };
 };
 
-export const blogPosts: BlogPost[] = [
+const blogPostRecords: BlogPost[] = [
   {
     slug: "cnc-milling-vs-turning-whats-the-difference",
     title: "MTU Part Number Verification: MTU MTU Vs MTU Whats The Difference",
@@ -3538,6 +3538,37 @@ export const blogPosts: BlogPost[] = [
     },
   }
 ] ;
+
+function resolveBlogImages(post: BlogPost): Pick<BlogPost, 'image' | 'mainImage' | 'secondaryImage'> {
+  const searchText = `${post.slug} ${post.title} ${post.excerpt} ${post.tags.join(' ')}`.toLowerCase();
+  let image = '/images/mtu-engine-parts-hero.webp';
+
+  if (/\b(marine|vessel|yacht|ship|seawater|propulsion)\b/.test(searchText)) {
+    image = '/images/marine-diesel-engine-parts.webp';
+  } else if (/\b(generator|g-drive|genset|power|standby)\b/.test(searchText)) {
+    image = '/images/generator-engine-parts.webp';
+  } else if (/\b(delivery|shipping|export|sourcing)\b/.test(searchText)) {
+    image = '/images/global-engine-parts-delivery.webp';
+  } else if (/\b(4000|8000|overhaul|cylinder|piston|liner|bearing|valve|crankshaft|turbo)\b/.test(searchText)) {
+    image = '/images/mtu-4000-series-overhaul-parts.webp';
+  } else if (/\b(2000|183|331|396|493|538|595|956|1163|injector|sensor|filter|gasket|seal|identification|check)\b/.test(searchText)) {
+    image = '/images/mtu-2000-series-parts.webp';
+  }
+
+  return {
+    image,
+    mainImage: '/images/mtu-part-number-verification.webp',
+    secondaryImage:
+      image === '/images/global-engine-parts-delivery.webp'
+        ? '/images/mtu-engine-parts-hero.webp'
+        : '/images/global-engine-parts-delivery.webp',
+  };
+}
+
+export const blogPosts: BlogPost[] = blogPostRecords.map((post) => ({
+  ...post,
+  ...resolveBlogImages(post),
+}));
 
 export function getIndexableBlogPosts() {
   return blogPosts.filter((post) => !isBlogNoindex(post.slug));

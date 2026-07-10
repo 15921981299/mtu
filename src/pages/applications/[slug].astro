@@ -40,11 +40,11 @@ const relatedIndustries = (applicationIndustryMap[app.slug] ?? [])
   .filter((i): i is (typeof industries)[number] => Boolean(i))
   .map((i) => ({ href: `/industries/${i.slug}/`, title: i.title, summary: i.summary }));
 const heroProduct = linkedProducts[0];
-const heroImage = heroProduct?.mainImage ?? '/images/engine-parts-hero.png';
+const heroImage = heroProduct?.mainImage ?? '/images/mtu-engine-parts-hero.webp';
 const inlineImage =
   heroProduct?.secondImage ??
   linkedProducts[1]?.mainImage ??
-  '/images/engine-parts-sensors-catalog.png';
+  '/images/mtu-part-number-verification.webp';
 ---
 
 <BaseLayout
