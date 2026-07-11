@@ -1,0 +1,82 @@
+engine-family.com 站点结构
+	首页 (/)
+		MTU Engine Parts Specialist — 品牌展示
+			热门零件号 (5110804420 / EX52407500064 / X53507500012...)
+			发动机识别符号说明
+			核电站应急柴油发电机组 (Series 4000 & 956)
+			服务能力 W4/W5/W6 等级
+	Parts by Engine Series 按系列
+		Classic 经典系列
+			099 Series
+			183 Series
+			331 Series
+			396 Series
+			493 Series
+			538 Series
+			595 Series
+			652 Series
+		Legacy 中速系列
+			956 Series
+			1163 Series
+			1600 Series
+		Modern 现代系列
+			1800 Series
+			2000 Series
+			4000 Series
+			8000 Series
+		Detroit Diesel
+			S60 Series
+	Parts by Category 按品类
+		Filters 滤清器
+			Oil Filters
+			Fuel Filters
+			Air Filters
+			Coolant Filters
+		Coolants 冷却液
+		Oils 润滑油
+	Part Detail Pages 零件详情页 (/part-product/)
+		5532031580 GASKET (MTU 396)
+		700429260000 O-RING
+		5592010307 IMPELLER (MTU 396)
+		5361420025 DIFFUSER EXHAUST (MTU 2000)
+		8699970213 O-RING (MTU 396)
+		5240382550 BUSHING CONROD (MTU 4000)
+		304个索引页面 (带supersession chain / C/N表)
+	Parts by Type 按类型
+		Genuine OEM Parts 原厂件
+		Remanufactured Parts 再制造件 (1年保修)
+		Inspected Used Parts 检测二手件
+		Consumables 耗材
+	Applications 应用场景
+		Marine 船用
+			Navy / Ferries / Yachts / Offshore
+		Industrial Engines 工业
+		Power Generation 发电
+			NPP Emergency Gensets
+		Rail 铁路
+		Land Defense 陆防
+		Gas Generator Sets 燃气发电
+		Hybrid Powerpack 混合动力
+	Categories 分类导航 (/categories/)
+		Cummins (ISB/ISDe/ISF/ISLe/ISM/QS...)
+		DEUTZ Diesel Engine
+		G-Drive (K19/K38/K50/M/N/QSZ)
+		Marine Engine (6B/6C/L/N/K38)
+		Automotive / Construction
+		B/C/K/L/M/N/QSB/QSL/QSZ Series
+	Support 服务
+		W6 大修/整机更换
+		QL4 预防性维护
+		技术咨询
+		零件识别
+		ValueCare 协议
+		Customer Warehousing 定制仓储
+	Stock 库存
+		实时库存信号 (Stock status: 1 unit)
+		全球发货
+	Company 公司
+		About
+		Contact (stella@ / +86-21-33282711 / 上海奉贤)
+		FAQ
+		Global
+	Digital Solutions

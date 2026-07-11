@@ -6,14 +6,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import IndustrySidebar from '../../components/IndustrySidebar.astro';
-import RelatedArticles from '../../components/RelatedArticles.astro';
-import RelatedComparisons from '../../components/RelatedComparisons.astro';
-import SubpageLinks from '../../components/SubpageLinks.astro';
-import { getComparisonsForIndustry } from '../../data/funnel-links';
 import { industries } from '../../data/industries';
-import { industrySubpages } from '../../data/industry-subpages';
-import { isSubpageNoindex } from '../../data/subpage-quality';
-import { industryArticleMap } from '../../data/related-content';
 import { breadcrumbSchema, serviceSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -26,11 +19,6 @@ const pageUrl = `${site.url}/industries/${item.slug}/`;
 const quoteHref = `/contact/?source=industry-${item.slug}`;
 const heroImage = item.image;
 const secondaryImage = item.image;
-const relatedComparisons = getComparisonsForIndustry(item.slug);
-const relatedArticles = industryArticleMap[item.slug] ?? [];
-const subpages = industrySubpages
-  .filter((sp) => sp.industrySlug === item.slug && !isSubpageNoindex(sp.industrySlug, sp.slug))
-  .map((sp) => ({ href: `/industries/${item.slug}/${sp.slug}/`, title: sp.title, summary: sp.summary }));
 ---
 
 <BaseLayout
@@ -67,7 +55,7 @@ const subpages = industrySubpages
     <img
       slot="hero"
       src={heroImage}
-      alt={`CNC parts for ${item.title}`}
+      alt={`${item.title} engine parts support`}
       width="1400"
       height="692"
       loading="eager"
@@ -88,22 +76,16 @@ const subpages = industrySubpages
 
     <div set:html={item.content.partOne} />
     <figure class="detail-page-figure">
-      <img src={secondaryImage} alt={`${item.title} — machined components`} width="1200" height="662" loading="lazy" decoding="async" />
+      <img src={secondaryImage} alt={`${item.title} engine parts examples`} width="1200" height="662" loading="lazy" decoding="async" />
     </figure>
     <div set:html={item.content.partTwo} />
-
-    <SubpageLinks title={`${item.title} machining guides`} items={subpages} />
-    {relatedArticles.length > 0 && (
-      <RelatedArticles slugs={relatedArticles} title={`Guides for ${item.title}`} />
-    )}
-    <RelatedComparisons items={relatedComparisons} title={`Compare options for ${item.title.toLowerCase()}`} />
 
     <p class="resource-note detail-page-back">
       <a href="/industries/">All industries</a>
       ·
-      <a href="/standards/">Compliance paths</a>
+      <a href="/certifications/">Compliance paths</a>
       ·
-      <a href="/case-studies/">Case studies</a>
+      <a href="/about/">Case studies</a>
       ·
       <a href={quoteHref}>Request a quote</a>
     </p>
@@ -113,13 +95,13 @@ const subpages = industrySubpages
   <BlogCta
     stage="selection"
     topic={item.slug}
-    title={`Quote ${item.title.toLowerCase()} machining`}
+    title={`Quote ${item.title.toLowerCase()} parts`}
     text="Send your part number with industry and compliance notes — we confirm scope and respond within 24 hours."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`industry_${item.slug}_rfq`}
     secondaryLabel="Case studies"
-    secondaryHref="/case-studies/"
+    secondaryHref="/about/"
     secondaryEvent="industry_case_studies"
   />
 </BaseLayout>

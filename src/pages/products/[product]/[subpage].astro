@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
@@ -68,7 +68,7 @@ const noindex = isSubpageNoindex(subpage.productSlug, subpage.slug);
       ·
       <a href="/products/">All products</a>
       ·
-      <a href="/resources/">Parts guides</a>
+      <a href="/part-products/">Parts guides</a>
       ·
       <a href={quoteHref}>Check availability</a>
     </p>
@@ -83,7 +83,7 @@ const noindex = isSubpageNoindex(subpage.productSlug, subpage.slug);
     primaryHref={quoteHref}
     primaryEvent={`product_sub_${subpage.slug}_rfq`}
     secondaryLabel="Parts guides"
-    secondaryHref="/resources/"
+    secondaryHref="/part-products/"
     secondaryEvent="product_sub_dfm"
   />
 </BaseLayout>

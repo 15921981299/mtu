@@ -1,12 +1,11 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
-import { verificationDocuments } from '../data/industry-proof';
 import { site, breadcrumbSchema, videoSchema } from '../data/site';
 import '../styles/resource-page.css';
 import '../styles/hub-list-page.css';
-import '../styles/blog-list-page.css';
+import '../styles/certification-page.css';
 
 const certIcons: Record<string, string> = {
   iso: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
@@ -92,6 +91,34 @@ const inspectionSteps = [
   'Prepare packing and shipment details before dispatch',
   'Follow up with tracking and document support after shipment',
 ];
+
+const verificationDocuments = [
+  {
+    label: 'Supplier availability confirmation',
+    detail: 'Line-item review for part number, quantity, replacement route, and expected delivery window.',
+    sampleId: null,
+  },
+  {
+    label: 'Nameplate and old-part photo check',
+    detail: 'Engine model, serial number, plate photo, casting mark, or old-part image review when the part number is unclear.',
+    sampleId: null,
+  },
+  {
+    label: 'Packing and shipment photos',
+    detail: 'Photo confirmation before dispatch for urgent orders, export packing, or high-value assemblies.',
+    sampleId: null,
+  },
+  {
+    label: 'Supplier documents on request',
+    detail: 'Available supplier documents, conformity notes, invoice, packing list, and export paperwork matched to the order scope.',
+    sampleId: null,
+  },
+  {
+    label: 'Customs and HS code support',
+    detail: 'HS code and shipment document support for engine parts orders when required by the destination country.',
+    sampleId: null,
+  },
+] as const;
 ---
 
 <BaseLayout
@@ -117,10 +144,10 @@ const inspectionSteps = [
             <a href="/certifications/" class="resource-nav-link active" aria-current="page">
               QC & certifications
             </a>
-            <a href="/resources/inspection-samples/" class="resource-nav-link">Inspection samples</a>
-            <a href="/standards/" class="resource-nav-link">Standards</a>
-            <a href="/case-studies/" class="resource-nav-link">Case studies</a>
-            <a href="/resources/material-certificates/" class="resource-nav-link resource-nav-all">
+            <a href="/certifications/" class="resource-nav-link">Inspection samples</a>
+            <a href="/certifications/" class="resource-nav-link">Standards</a>
+            <a href="/about/" class="resource-nav-link">Case studies</a>
+            <a href="/certifications/" class="resource-nav-link resource-nav-all">
               Material certs
             </a>
           </nav>
@@ -240,7 +267,7 @@ const inspectionSteps = [
                   <h3 class="verify-doc-label">{doc.label}</h3>
                   <p class="verify-doc-detail">{doc.detail}</p>
                   {doc.sampleId && (
-                    <a href={`/resources/inspection-samples/#${doc.sampleId}`} class="verify-doc-sample">
+                    <a href={`/certifications/#${doc.sampleId}`} class="verify-doc-sample">
                       View redacted sample →
                     </a>
                   )}
@@ -248,9 +275,9 @@ const inspectionSteps = [
               ))}
             </div>
             <p class="cert-cta-row">
-              <a href="/resources/inspection-samples/">Document samples</a>
+              <a href="/certifications/">Document samples</a>
               <span aria-hidden="true">·</span>
-              <a href="/resources/material-certificates/">MTU lookup guide</a>
+              <a href="/certifications/">MTU lookup guide</a>
               <span aria-hidden="true">·</span>
               <a href="/part-products/">MTU part numbers</a>
               <span aria-hidden="true">·</span>

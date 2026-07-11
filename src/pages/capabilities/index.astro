@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -58,7 +58,7 @@ const chevronIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
             <a href="/products/mtu-spare-parts/" class="resource-nav-link">MTU Parts</a>
             <a href="/products/cummins-parts/" class="resource-nav-link">Cummins</a>
             <a href="/products/deutz-parts/" class="resource-nav-link">DEUTZ</a>
-            <a href="/resources/" class="resource-nav-link resource-nav-all">Parts Guides</a>
+            <a href="/part-products/" class="resource-nav-link resource-nav-all">Parts Guides</a>
           </nav>
 
           <p class="resource-intro">
@@ -125,7 +125,7 @@ const chevronIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
             <div class="capabilities-addon-grid">
               {additionalServices.map((item) => (
                 <a
-                  href={additionalLinks[item.title] ?? '/resources/'}
+                  href={additionalLinks[item.title] ?? '/part-products/'}
                   class="capabilities-addon-card"
                 >
                   <span class="capabilities-addon-title">{item.title}</span>
@@ -164,7 +164,7 @@ const chevronIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="
           <p class="resource-related">
             <a href="/products/">Engine parts</a>
             <span aria-hidden="true">·</span>
-            <a href="/resources/">Parts guides</a>
+            <a href="/part-products/">Parts guides</a>
             <span aria-hidden="true">·</span>
             <a href="/terms/shipping/">Shipping</a>
             <span aria-hidden="true">·</span>

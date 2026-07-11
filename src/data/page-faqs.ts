@@ -31,39 +31,6 @@
   },
 ] as const;
 
-export const materialFaqs = [
-  {
-    question: 'Which aluminum grades do you recommend for engine parts?',
-    answer:
-      '6061-T6 is the default for general structural parts — good machinability and anodize response. 7075-T6 is used when higher strength is required. 5052 works well for sheet-style parts and weldments. We will confirm grade fit during parts verification.',
-  },
-  {
-    question: 'Can you supply material certificates with my order?',
-    answer:
-      'Yes. EN 10204 3.1 mill certificates are available on request for metals. Certificates are tied to heat lot numbers and included with shipment documentation for traceability.',
-  },
-  {
-    question: 'Do you machine titanium and Inconel?',
-    answer:
-      'We machine Ti-6Al-4V (Grade 5), commercially pure titanium, Inconel 625, and Inconel 718 for aerospace, medical, and oil & gas applications. Lead times are longer than aluminum due to tool wear and process controls.',
-  },
-  {
-    question: 'What engineering plastics can you machine?',
-    answer:
-      'POM (Delrin), PEEK, PTFE, Nylon, UHMW, and acrylic are common. Plastics require dedicated tooling strategies to avoid melting and burrs. Tell us the application (wear, chemical exposure, temperature) and we will recommend a grade.',
-  },
-  {
-    question: 'Can you source specialty alloys not listed on your site?',
-    answer:
-      'Yes. We source nickel alloys, tool steels, magnesium alloys, and bronze grades through certified mills. Include the material spec on your drawing or ask us to propose an equivalent.',
-  },
-  {
-    question: 'How does material choice affect machining cost?',
-    answer:
-      'Material affects both unit cost and cycle time. Stainless and titanium can cost 2–4× more to machine than 6061 aluminum for the same geometry. Our parts verification often suggests grade changes that reduce cost without sacrificing function.',
-  },
-] as const;
-
 export const industryFaqs = [
   {
     question: 'Which engine parts buyers do you serve most often?',

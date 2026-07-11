@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -6,14 +6,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import ServiceSidebar from '../../components/ServiceSidebar.astro';
-import RelatedArticles from '../../components/RelatedArticles.astro';
-import RelatedComparisons from '../../components/RelatedComparisons.astro';
-import SubpageLinks from '../../components/SubpageLinks.astro';
-import { getComparisonsForCapability } from '../../data/funnel-links';
 import { services, getServiceDetailHtml } from '../../data/services';
-import { capabilitySubpages } from '../../data/capability-subpages';
-import { isSubpageNoindex } from '../../data/subpage-quality';
-import { capabilityArticleMap } from '../../data/related-content';
 import { breadcrumbSchema, serviceSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -25,10 +18,6 @@ const { service } = Astro.props;
 const content = getServiceDetailHtml(service.title);
 const pageUrl = `${site.url}/capabilities/${service.slug}/`;
 const quoteHref = `/contact/?source=capability-${service.slug}`;
-const relatedComparisons = getComparisonsForCapability(service.slug);
-const subpages = capabilitySubpages
-  .filter((sp) => sp.capabilitySlug === service.slug && !isSubpageNoindex(sp.capabilitySlug, sp.slug))
-  .map((sp) => ({ href: `/capabilities/${service.slug}/${sp.slug}/`, title: sp.title, summary: sp.summary }));
 ---
 
 <BaseLayout
@@ -89,15 +78,12 @@ const subpages = capabilitySubpages
       <img src={service.secondImage} alt={`${service.title} parts examples`} width="1200" height="662" loading="lazy" decoding="async" />
     </figure>
     <div set:html={content.partTwo} />
-    <SubpageLinks title={`${service.title} guides`} items={subpages} />
-    <RelatedArticles slugs={capabilityArticleMap[service.slug] ?? []} />
-    <RelatedComparisons items={relatedComparisons} title="Process comparisons" />
     <p class="resource-note detail-page-back">
       <a href="/capabilities/">All capabilities</a>
       ·
-      <a href="/resources/process-selection/">Part category guide</a>
+      <a href="/part-products/">Part category guide</a>
       ·
-      <a href="/resources/dfm-checklist/">Inquiry checklist</a>
+      <a href="/contact/?source=parts-list">Inquiry checklist</a>
       ·
       <a href={quoteHref}>Request a quote</a>
     </p>
@@ -113,7 +99,7 @@ const subpages = capabilitySubpages
     primaryHref={quoteHref}
     primaryEvent={`capability_${service.slug}_rfq`}
     secondaryLabel="Part category guide"
-    secondaryHref="/resources/process-selection/"
+    secondaryHref="/part-products/"
     secondaryEvent="capability_process_selection"
   />
 </BaseLayout>

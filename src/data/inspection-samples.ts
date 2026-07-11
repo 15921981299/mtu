@@ -48,7 +48,7 @@ export const inspectionSamples: InspectionSample[] = [
     title: 'EN 10204 3.1 Material Certificate',
     subtitle: 'Mill test · heat-lot traceability',
     summary:
-      'Excerpt structure for alloy verification before machining — chemistry, mechanical properties, and heat number cross-reference to the traveler.',
+      'Excerpt structure for supplier document review: chemistry, mechanical properties, heat number, and order traceability fields.',
     headerFields: [
       { label: 'Certificate type', value: 'EN 10204 3.1' },
       { label: 'Material grade', value: '316L stainless (example)' },

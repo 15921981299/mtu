@@ -15,24 +15,17 @@ export type AttributionData = {
 
 function inferFunnelStage(path: string): string {
   if (path.startsWith('/contact')) return 'quote';
-  if (path.startsWith('/compare')) return 'comparison';
-  if (path.startsWith('/case-studies')) return 'signing';
   if (path.startsWith('/certifications')) return 'signing';
   if (path.startsWith('/terms')) return 'signing';
-  if (path.startsWith('/standards')) return 'selection';
   if (
     path.startsWith('/products') ||
-    path.startsWith('/materials') ||
     path.startsWith('/capabilities') ||
     path.startsWith('/industries') ||
     path.startsWith('/applications') ||
-    path.startsWith('/features')
+    path.startsWith('/part-products')
   ) {
     return 'selection';
   }
-  if (path.startsWith('/resources')) return 'service';
-  if (path.startsWith('/blog')) return 'awareness';
-  if (path === '/') return 'awareness';
   return 'awareness';
 }
 
@@ -87,7 +80,7 @@ export function getAttributionSnapshot(): AttributionData | null {
 }
 
 export function getTouchSummary(data: AttributionData): string {
-  return data.touches.map((t) => t.page).join(' → ');
+  return data.touches.map((t) => t.page).join(' -> ');
 }
 
 export function populateRfqAttributionFields(form: HTMLFormElement): void {

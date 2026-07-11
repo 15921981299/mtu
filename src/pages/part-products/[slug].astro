@@ -4,7 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { getRelatedMtuParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
+import { getFrequentlyPairedParts, getRelatedMtuParts, getSameCategoryParts, getSameSeriesParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -16,6 +16,9 @@ const { part } = Astro.props;
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
+const sameSeriesParts = getSameSeriesParts(part, 6);
+const sameCategoryParts = getSameCategoryParts(part, 4);
+const pairedParts = getFrequentlyPairedParts(part, 4);
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
 const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 const shortApplicableEngines = hasSpecificApplicableEngines
@@ -235,13 +238,81 @@ const browseCatalogLinks = Array.from(
       </section>
     )}
 
+    {/* Same Series cross-links */}
+    {sameSeriesParts.length > 0 && (
+      <section class="hub-section">
+        <header class="hub-section-header">
+          <h2>Same Engine Series</h2>
+          <p>Other parts for {part.series.join(', ')} engines.</p>
+        </header>
+        <div class="hub-grid part-related-grid">
+          {sameSeriesParts.map((p) => (
+            <article class="hub-card">
+              <div class="hub-card-body">
+                <p class="hub-card-meta">{p.category}</p>
+                <h3 class="hub-card-title">
+                  <a href={`/part-products/${p.slug}/`}>{p.partNumber} {p.name}</a>
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Same System cross-links */}
+    {sameCategoryParts.length > 0 && (
+      <section class="hub-section">
+        <header class="hub-section-header">
+          <h2>Same System — {part.category}</h2>
+          <p>Other {part.category.toLowerCase()} parts across different MTU engine series.</p>
+        </header>
+        <div class="hub-grid part-related-grid">
+          {sameCategoryParts.map((p) => (
+            <article class="hub-card">
+              <div class="hub-card-body">
+                <p class="hub-card-meta">{p.series.join(', ')}</p>
+                <h3 class="hub-card-title">
+                  <a href={`/part-products/${p.slug}/`}>{p.partNumber} {p.name}</a>
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Frequently Purchased Together */}
+    {pairedParts.length > 0 && (
+      <section class="hub-section">
+        <header class="hub-section-header">
+          <h2>Frequently Purchased Together</h2>
+          <p>Parts commonly ordered alongside {part.partNumber} {part.name}.</p>
+        </header>
+        <div class="hub-grid part-related-grid">
+          {pairedParts.map((p) => (
+            <article class="hub-card">
+              <div class="hub-card-body">
+                <p class="hub-card-meta">{p.category} / {p.series.join(', ')}</p>
+                <h3 class="hub-card-title">
+                  <a href={`/part-products/${p.slug}/`}>{p.partNumber} {p.name}</a>
+                </h3>
+                <p class="hub-card-summary">{p.summary}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Browse more catalogs */}
     <section style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-stroke);">
       <h2 style="font-size: 18px; margin-bottom: 12px;">Browse More MTU Parts</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px;">
         {browseCatalogLinks.map((hub) => (
           <a href={`/part-products/catalog/${hub.slug}/`} style="color: var(--color-primary); text-decoration: none;">{hub.h1Title}</a>
         ))}
-        <a href="/part-products/" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">All catalogs -></a>
+        <a href="/part-products/" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">All catalogs →</a>
       </div>
     </section>
 

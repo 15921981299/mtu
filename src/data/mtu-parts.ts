@@ -1,3 +1,5 @@
+import { engineFamilyPartDetailsByPartNumber, engineFamilyPartSeeds } from './engine-family-parts';
+
 export type MtuPart = {
   slug: string;
   partNumber: string;
@@ -116,6 +118,8 @@ const categoryDefaults: Record<string, {
   applications: string[];
   weightKg: string;
   hsCode: string;
+  leadTime: string;
+  dimensions: string;
 }> = {
   'Turbocharging': {
     summary: 'Turbocharger component for MTU engines — verified by part number and engine serial number before quotation.',
@@ -124,6 +128,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine propulsion', 'Power generation', 'Locomotive engines', 'Heavy equipment'],
     weightKg: '0.5 – 8.0 (varies by part)',
     hsCode: '8414.90',
+    leadTime: 'Stock: 3-7 working days. Special order: 2-4 weeks. Reman: quoted per core availability.',
+    dimensions: 'Varies by turbocharger model — quoted on inquiry with engine and turbo serial numbers',
   },
   'Filters': {
     summary: 'MTU filter element — oil, fuel, air, or coolant. Part-number verification confirms compatibility.',
@@ -132,6 +138,8 @@ const categoryDefaults: Record<string, {
     applications: ['Scheduled maintenance', 'Fleet service programs', 'Marine engine rooms', 'Generator servicing'],
     weightKg: '0.2 – 3.0 (varies by filter type)',
     hsCode: '8421.23',
+    leadTime: 'Common references: 2-5 working days. Bulk orders: 1-2 weeks.',
+    dimensions: 'Varies by filter type — spin-on cartridges typically 80-150mm OD x 150-300mm L',
   },
   'Fuel system': {
     summary: 'MTU fuel-system component — injectors, pumps, valves, lines. Verified by engine model and serial number.',
@@ -140,6 +148,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine diesel engines', 'Power generation sets', 'Rail traction engines', 'Industrial equipment'],
     weightKg: '0.1 – 12.0 (varies by component)',
     hsCode: '8413.30',
+    leadTime: 'New OEM: 5-10 working days. Reman exchange: 3-7 working days after core approval. OEM-alternative: 3-7 working days.',
+    dimensions: 'Injectors approx 30mm OD x 250mm L; pumps vary by model — quoted on inquiry',
   },
   'Sensors and electrical': {
     summary: 'MTU sensor, solenoid, or electrical component — verified by connector type and engine installation.',
@@ -148,6 +158,8 @@ const categoryDefaults: Record<string, {
     applications: ['Engine monitoring systems', 'Control panels', 'Retrofit and upgrade projects'],
     weightKg: '0.05 – 1.5 (varies by component)',
     hsCode: '9032.89',
+    leadTime: 'Common sensors: 3-7 working days. Special-range or legacy sensors: 1-3 weeks.',
+    dimensions: 'Sensors typically M12-M18 thread, 40-120mm length; solenoid valves vary — quoted on inquiry',
   },
   'Pistons and liners': {
     summary: 'MTU piston, liner, or ring set — size grade and engine series must match exactly.',
@@ -156,6 +168,8 @@ const categoryDefaults: Record<string, {
     applications: ['Major overhaul', 'In-frame rebuild', 'Marine engine service', 'Industrial engine repair'],
     weightKg: '2.0 – 25.0 (varies by component)',
     hsCode: '8409.99',
+    leadTime: 'Standard size grades: 5-10 working days. Non-standard grades: 2-6 weeks.',
+    dimensions: 'Liners approx 200-400mm OD x 400-700mm L; pistons approx 150-300mm OD — quoted on inquiry',
   },
   'Valve train': {
     summary: 'MTU valve-train component — valves, springs, guides, tappets. Part number and engine series verified.',
@@ -164,6 +178,8 @@ const categoryDefaults: Record<string, {
     applications: ['Cylinder-head overhaul', 'Marine engine maintenance', 'Power generation service'],
     weightKg: '0.05 – 2.0 (varies by component)',
     hsCode: '8409.91',
+    leadTime: 'Common valves/springs: 3-7 working days. Full kit quantities: 1-2 weeks.',
+    dimensions: 'Valves approx 8-14mm stem OD x 150-300mm L; springs approx 30-50mm OD x 60-100mm L',
   },
   'Bearings': {
     summary: 'MTU bearing — crankshaft, connecting rod, camshaft, or thrust. Size grade must match engine specification.',
@@ -172,6 +188,8 @@ const categoryDefaults: Record<string, {
     applications: ['Engine overhaul', 'Crankshaft service', 'Marine and industrial engines'],
     weightKg: '0.1 – 4.0 (varies by bearing type)',
     hsCode: '8483.30',
+    leadTime: 'Standard size grades: 3-7 working days. Undersize/oversize grades: 1-3 weeks.',
+    dimensions: 'Main bearings approx 100-250mm OD x 30-80mm W; conrod bearings approx 80-180mm OD',
   },
   'Gaskets and seals': {
     summary: 'MTU gasket or seal — cylinder head, exhaust, oil, water. Correct material grade confirmed before quotation.',
@@ -180,6 +198,8 @@ const categoryDefaults: Record<string, {
     applications: ['Overhaul kits', 'Marine service', 'Industrial maintenance', 'Generator repair'],
     weightKg: '0.01 – 1.0 (varies by part)',
     hsCode: '8484.10',
+    leadTime: 'Common gaskets/O-rings: 2-5 working days. Special material grades: 1-3 weeks.',
+    dimensions: 'Individual gaskets vary by application; complete kits quoted with full parts list',
   },
   'Cooling system': {
     summary: 'MTU cooling-system component — pumps, thermostats, hoses, flanges. Verified by engine model and installation.',
@@ -188,6 +208,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine cooling systems', 'Industrial radiator systems', 'Generator cooling'],
     weightKg: '0.3 – 15.0 (varies by component)',
     hsCode: '8419.50',
+    leadTime: 'Pumps: 5-15 working days depending on model. Impellers: 2-5 working days. Thermostats: 3-7 working days.',
+    dimensions: 'Pumps approx 200-400mm L x 150-300mm W; impellers 80-200mm OD — quoted on inquiry',
   },
   'Lubrication': {
     summary: 'MTU lubrication-system component — pumps, coolers, nozzles, separators. Part number and series verified.',
@@ -196,6 +218,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine engines', 'Industrial engines', 'Generator maintenance'],
     weightKg: '0.2 – 20.0 (varies by component)',
     hsCode: '8413.30',
+    leadTime: 'Oil pumps and coolers: 5-15 working days. Spray nozzles and separators: 3-7 working days.',
+    dimensions: 'Pumps approx 250-500mm L; oil coolers approx 300-600mm L — quoted on inquiry with engine model',
   },
   'Drive components': {
     summary: 'MTU drive component — bolts, nuts, washers, clamps, couplings. Verified by engine assembly position.',
@@ -204,6 +228,8 @@ const categoryDefaults: Record<string, {
     applications: ['Engine assembly', 'Marine propulsion', 'Industrial drives', 'Generator sets'],
     weightKg: '0.01 – 5.0 (varies by part)',
     hsCode: '7318.15',
+    leadTime: 'Common fasteners: 2-5 working days. Special bolts/couplings: 1-3 weeks.',
+    dimensions: 'Fasteners M6-M24 typical; couplings vary by shaft size — quoted on inquiry',
   },
   'Air and intake': {
     summary: 'MTU air and intake component — filters, hoses, manifolds. Verified by engine model.',
@@ -212,6 +238,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine engine rooms', 'Industrial sites', 'Generator enclosures'],
     weightKg: '0.1 – 8.0 (varies by part)',
     hsCode: '8421.31',
+    leadTime: 'Filter elements: 2-5 working days. Intake manifolds and hoses: 1-3 weeks.',
+    dimensions: 'Air filters approx 200-400mm OD x 300-600mm L; hoses vary by routing — quoted on inquiry',
   },
   'Engine components': {
     summary: 'MTU engine component — verified by part number, engine model, and serial number.',
@@ -220,6 +248,8 @@ const categoryDefaults: Record<string, {
     applications: ['Marine service', 'Industrial maintenance', 'Power generation', 'Rail traction'],
     weightKg: 'Varies by part — quoted on inquiry',
     hsCode: '8409.99',
+    leadTime: 'Quoted per part number after engine verification — typically 3-15 working days.',
+    dimensions: 'Varies by component — quoted on inquiry with part number and engine model',
   },
   'Control components': {
     summary: 'MTU engine control component — governor, actuator, or monitoring device. Verified by engine configuration.',
@@ -228,6 +258,8 @@ const categoryDefaults: Record<string, {
     applications: ['Engine control systems', 'Marine automation', 'Generator control panels'],
     weightKg: '0.2 – 5.0 (varies by component)',
     hsCode: '9032.89',
+    leadTime: 'Quoted per part number — typically 5-15 working days depending on configuration.',
+    dimensions: 'Governors and actuators vary by model — quoted on inquiry with engine serial number',
   },
 };
 
@@ -253,6 +285,10 @@ type CatalogPartSeed = {
   natoNumber?: string;
   leadTime?: string;
   applicableEngines?: string;
+  image?: string;
+  imageAlt?: string;
+  summary?: string;
+  description?: string;
 };
 
 const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
@@ -260,7 +296,6 @@ const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
   '0020940204': { engineType: 'MTU 956', dimensions: 'TKZ.45 940 55 124 S. INT. VERM.', weightKg: '16.00 KG', hsCode: '84219990', natoNumber: 'N/A' },
   '8490740063': { engineType: 'MTU 956/1163', dimensions: 'N/A', weightKg: '3.086 KG', hsCode: '84139100', natoNumber: '2910123890394' },
   'EX52407500064': { engineType: 'MTU 4000', dimensions: 'N/A', weightKg: '1.873 KG', hsCode: '84099900', natoNumber: 'N/A' },
-  'X53507500012': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.298 KG', hsCode: '84099900', natoNumber: '2910123804421' },
   'X57508300091': { engineType: 'MTU 4000', dimensions: 'N/A', weightKg: '1.288 KG', hsCode: '84212300', natoNumber: '2910124051513' },
   '8495340000': { engineType: 'MTU 956/1163', dimensions: 'For valve block 0005342732', weightKg: '0.650 KG', hsCode: '84812090', natoNumber: '4810123693952' },
   '0005342732': { engineType: 'MTU 956/1163', dimensions: 'N/A', weightKg: '6.234 KG', hsCode: '84811005', natoNumber: '4810123604998' },
@@ -282,6 +317,47 @@ const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
   'XT1310100012': { engineType: 'MTU 2000', dimensions: 'M10X1.25 LH', weightKg: '0.037 KG', hsCode: '73181631', natoNumber: 'N/A' },
   '5090251301': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.420 KG', hsCode: '84149000', natoNumber: '2950123736701' },
   '0000180680': { engineType: 'MTU 2000', dimensions: 'N/A', weightKg: '0.003 KG', hsCode: '40169300', natoNumber: '5330123733969' },
+  // ── MTU 4000 / 2000 overhaul & service parts ──
+  '5240113410': { engineType: 'MTU 4000', dimensions: '350mm OD x 650mm L', weightKg: '45.000 KG', hsCode: '84099900', natoNumber: 'N/A', replacementFor: ['5240113510', '5240114210'] },
+  '5240161580': { engineType: 'MTU 4000', dimensions: '1.5mm thick, cylinder-head footprint', weightKg: '0.500 KG', hsCode: '84841000', natoNumber: 'N/A' },
+  '5240380471': { engineType: 'MTU 4000', dimensions: 'M18x1.5 thread', weightKg: '0.400 KG', hsCode: '73181500', natoNumber: 'N/A' },
+  '5240530301': { engineType: 'MTU 4000', dimensions: '12mm stem OD x 280mm L', weightKg: '0.500 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  '5240530805': { engineType: 'MTU 4000', dimensions: '12mm stem OD x 280mm L', weightKg: '0.500 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  '5240334901': { engineType: 'MTU 4000', dimensions: '160mm OD x 40mm W', weightKg: '1.200 KG', hsCode: '84833080', natoNumber: 'N/A', leadTime: 'Standard grade: 3-7 days. Undersize: 1-3 weeks.' },
+  '5240383710': { engineType: 'MTU 4000', dimensions: '120mm OD x 35mm W', weightKg: '0.800 KG', hsCode: '84833080', natoNumber: 'N/A', leadTime: 'Standard grade: 3-7 days.' },
+  '5241840501': { engineType: 'MTU 4000', dimensions: 'Spin-on cartridge', weightKg: '1.200 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  'X53507500012': { engineType: 'MTU 2000', dimensions: '30mm OD x 250mm L', weightKg: '0.298 KG', hsCode: '84099900', natoNumber: '2910123804421', leadTime: 'New: 5-10 days. Reman: 3-7 days after core approval.' },
+  '5410160920': { engineType: 'MTU 2000', dimensions: 'Cylinder-head footprint, 1.2mm thick', weightKg: '0.400 KG', hsCode: '84841000', natoNumber: 'N/A' },
+  '4570530001': { engineType: 'MTU 396', dimensions: '10mm stem OD x 250mm L', weightKg: '0.400 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  '5320110110': { engineType: 'MTU 396', dimensions: '280mm OD x 550mm L', weightKg: '35.000 KG', hsCode: '84099900', natoNumber: 'N/A' },
+  '5321800001': { engineType: 'MTU 396', dimensions: '300mm L x 200mm W gear-type', weightKg: '5.000 KG', hsCode: '84133000', natoNumber: 'N/A' },
+  '5592010307': { engineType: 'MTU 396', dimensions: '140mm OD', weightKg: '1.377 KG', hsCode: '84139100', natoNumber: 'N/A', leadTime: 'Stock: 2-5 working days.' },
+  '5502003201': { engineType: 'MTU 2000', dimensions: '300mm L x 200mm W', weightKg: '12.000 KG', hsCode: '84137000', natoNumber: 'N/A', leadTime: 'New: 5-15 days. Reman: quoted per core.' },
+  'X00022524': { engineType: 'MTU 2000', dimensions: '120mm OD', weightKg: '0.700 KG', hsCode: '84139100', natoNumber: 'N/A', leadTime: 'Stock: 2-5 working days.' },
+  '5240530120': { engineType: 'MTU 4000', dimensions: '40mm OD x 80mm L', weightKg: '0.300 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  '5240530122': { engineType: 'MTU 4000', dimensions: '35mm OD x 70mm L', weightKg: '0.200 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  '5240103420': { engineType: 'MTU 4000', dimensions: 'Complete cylinder head assembly', weightKg: '85.000 KG', hsCode: '84099100', natoNumber: 'N/A', leadTime: 'Quoted by engine variant — 2-4 weeks typical.' },
+  '5240303917': { engineType: 'MTU 4000', dimensions: '170mm OD piston assembly', weightKg: '12.000 KG', hsCode: '84099900', natoNumber: 'N/A' },
+  // ── MTU 2000 fuel & cooling ──
+  'X53508200001': { engineType: 'MTU 2000', dimensions: 'LP fuel pump assembly', weightKg: '3.500 KG', hsCode: '84133000', natoNumber: 'N/A' },
+  'E0060704101': { engineType: 'MTU 2000', dimensions: 'HP fuel pump assembly', weightKg: '5.000 KG', hsCode: '84133000', natoNumber: 'N/A', leadTime: 'Quoted by engine serial — 1-3 weeks typical.' },
+  '5501800016': { engineType: 'MTU 2000', dimensions: 'Spin-on element', weightKg: '0.700 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  '0010928801': { engineType: 'MTU 2000', dimensions: 'Prefilter cartridge', weightKg: '0.500 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  '0030944304': { engineType: 'MTU 2000', dimensions: '300mm OD x 400mm L', weightKg: '2.000 KG', hsCode: '84213100', natoNumber: 'N/A' },
+  // ── MTU 595 / 956 / 1163 ──
+  '5840111810': { engineType: 'MTU 595', dimensions: '400mm OD x 800mm L', weightKg: '55.000 KG', hsCode: '84099900', natoNumber: 'N/A' },
+  '5550105141': { engineType: 'MTU 956/1163', dimensions: 'Complete cylinder head with valves', weightKg: '65.000 KG', hsCode: '84099100', natoNumber: 'N/A', leadTime: 'Quoted by engine variant — 2-6 weeks typical.' },
+  '5550161420': { engineType: 'MTU 956/1163', dimensions: 'Cylinder-head footprint, 2mm thick', weightKg: '0.500 KG', hsCode: '84841000', natoNumber: 'N/A' },
+  '5550307540': { engineType: 'MTU 956/1163', dimensions: '180mm OD x 50mm W', weightKg: '1.500 KG', hsCode: '84833080', natoNumber: 'N/A' },
+  '5550530105': { engineType: 'MTU 956/1163', dimensions: '14mm stem OD x 300mm L', weightKg: '0.600 KG', hsCode: '84099100', natoNumber: 'N/A' },
+  // ── Common consumables ──
+  '0031845201': { engineType: 'MTU 2000/4000', dimensions: 'Spin-on cartridge', weightKg: '0.800 KG', hsCode: '84212300', natoNumber: 'N/A', leadTime: 'Stock: 2-5 working days. Bulk: 1-2 weeks.' },
+  '0031845301': { engineType: 'MTU 2000/4000', dimensions: 'Spin-on cartridge', weightKg: '0.800 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  '0020922801': { engineType: 'MTU 2000/4000', dimensions: 'Spin-on cartridge', weightKg: '0.600 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  '700429260000': { engineType: 'MTU 2000/4000', dimensions: '260mm ID O-ring', weightKg: '0.010 KG', hsCode: '40169300', natoNumber: '5331121786280' },
+  '5532031580': { engineType: 'MTU 396', dimensions: 'Gasket, specific to 12V/16V 396', weightKg: '0.050 KG', hsCode: '84841000', natoNumber: 'N/A' },
+  '5361420025': { engineType: 'MTU 2000', dimensions: 'Exhaust diffuser', weightKg: '1.500 KG', hsCode: '84149000', natoNumber: '2990123768494' },
+  '8699970213': { engineType: 'MTU 396', dimensions: 'O-ring', weightKg: '0.010 KG', hsCode: '40169300', natoNumber: 'N/A' },
 };
 
 const inferEngineType = (series: readonly string[]) =>
@@ -302,9 +378,9 @@ const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
     name: part.name,
     series: [...part.series],
     category: part.category,
-    summary: cat.summary,
-    description: cat.description,
-    image: popularPartImages[`${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`] ?? categoryImages[part.category] ?? defaultPartImage,
+    summary: part.summary ?? cat.summary,
+    description: part.description ?? cat.description,
+    image: part.image ?? popularPartImages[`${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`] ?? categoryImages[part.category] ?? defaultPartImage,
     availability: 'Stock, replacement status, lead time, and shipping route confirmed after inquiry.',
     stockStatus: part.stockStatus ?? cat.stockStatus,
     applications: cat.applications,
@@ -320,6 +396,7 @@ const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
     engineType: part.engineType ?? spec.engineType ?? inferEngineType(part.series),
     natoNumber: part.natoNumber ?? spec.natoNumber ?? 'N/A',
     applicableEngines: part.applicableEngines ?? spec.applicableEngines ?? inferEngineType(part.series),
+    imageAlt: part.imageAlt,
   };
 };
 
@@ -1174,6 +1251,7 @@ const sitemapMtuParts = [
 
 const mtuPartsRaw: MtuPart[] = [
   ...sitemapMtuParts,
+  ...engineFamilyPartSeeds.map(createCatalogPart),
   {
     slug: '5840530229-valve-guide-inlet-size-1',
     partNumber: '5840530229',
@@ -2058,10 +2136,30 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
   };
 };
 
+const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
+  const detail = engineFamilyPartDetailsByPartNumber[part.partNumber.toUpperCase()];
+  if (!detail) return part;
+
+  const replacementFor = Array.from(new Set([...(part.replacementFor ?? []), ...detail.replacementFor]));
+  return {
+    ...part,
+    image: detail.image || part.image,
+    imageAlt: detail.imageAlt || part.imageAlt,
+    description: detail.sourceDescription || part.description,
+    engineType: detail.engineType || part.engineType,
+    applicableEngines: detail.applicableEngines || part.applicableEngines,
+    dimensions: detail.dimensions || part.dimensions,
+    weightKg: detail.weightKg || part.weightKg,
+    hsCode: detail.hsCode || part.hsCode,
+    natoNumber: detail.natoNumber || part.natoNumber,
+    replacementFor,
+  };
+};
+
 const dedupedParts = new Map<string, MtuPart>();
 for (const part of mtuPartsRaw) {
   const key = `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`;
-  dedupedParts.set(key, enrichHighValuePart(part)); // last write wins: expandedMtuParts override enriched
+  dedupedParts.set(key, applyEngineFamilyDetails(enrichHighValuePart(part))); // last write wins, then imported details refine specs/images
 }
 
 export const mtuPartsDeduped: MtuPart[] = Array.from(dedupedParts.values());
@@ -2071,6 +2169,47 @@ export const mtuPartSeries = Array.from(new Set(mtuPartsDeduped.flatMap((part) =
 
 export function getMtuPart(slug: string) {
   return mtuPartsDeduped.find((part) => part.slug === slug);
+}
+
+/** Same engine series — scored by how many series overlap. */
+export function getSameSeriesParts(part: MtuPart, limit = 6) {
+  if (part.series.length === 0) return [];
+  return mtuPartsDeduped
+    .filter((c) => c.slug !== part.slug && c.series.some((s) => part.series.includes(s)))
+    .sort((a, b) => {
+      const aOverlap = a.series.filter((s) => part.series.includes(s)).length;
+      const bOverlap = b.series.filter((s) => part.series.includes(s)).length;
+      return bOverlap - aOverlap || a.partNumber.localeCompare(b.partNumber);
+    })
+    .slice(0, limit);
+}
+
+/** Same system (category) — different series, same functional group. */
+export function getSameCategoryParts(part: MtuPart, limit = 6) {
+  return mtuPartsDeduped
+    .filter((c) => c.slug !== part.slug && c.category === part.category && !c.series.some((s) => part.series.includes(s)))
+    .slice(0, limit);
+}
+
+/** Frequently purchased together — parts commonly ordered alongside this one. */
+export function getFrequentlyPairedParts(part: MtuPart, limit = 4): MtuPart[] {
+  const pairs: Record<string, string[]> = {
+    'Pistons and liners': ['Gaskets and seals', 'Bearings', 'Lubrication'],
+    'Valve train': ['Gaskets and seals', 'Pistons and liners', 'Turbocharging'],
+    'Bearings': ['Pistons and liners', 'Lubrication', 'Gaskets and seals'],
+    'Turbocharging': ['Gaskets and seals', 'Lubrication', 'Air and intake'],
+    'Fuel system': ['Filters', 'Gaskets and seals', 'Sensors and electrical'],
+    'Filters': ['Fuel system', 'Lubrication', 'Cooling system'],
+    'Cooling system': ['Filters', 'Gaskets and seals', 'Lubrication'],
+    'Lubrication': ['Filters', 'Cooling system', 'Bearings'],
+    'Sensors and electrical': ['Fuel system', 'Control components', 'Engine components'],
+    'Gaskets and seals': ['Pistons and liners', 'Valve train', 'Cooling system'],
+  };
+  const pairedCategories = pairs[part.category] ?? ['Gaskets and seals', 'Filters'];
+  return mtuPartsDeduped
+    .filter((c) => c.slug !== part.slug && pairedCategories.includes(c.category))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, limit);
 }
 
 export function getRelatedMtuParts(part: MtuPart, limit = 4) {
@@ -2145,6 +2284,11 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 396 series parts including cylinder liners, pistons, bearings, valves, gaskets, fuel system, cooling, and turbocharger components. Legacy and superseded part numbers supported.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('396')),
+    longDescription: `The MTU 396 series is one of the most respected legacy high-speed diesel engine families, widely deployed in naval vessels, fast ferries, luxury yachts, and land-based power generation from the 1980s through the early 2000s. Available in 8V, 12V, and 16V configurations (TE54, TE74L, TE84, TE94, TB34, TC52/82/92 variants), these engines remain in active service worldwide — and their parts demand has not diminished.
+
+    Because the 396 series is now a legacy platform, genuine OEM parts availability can be inconsistent. This is where our verification process adds value: we check each part number against your engine serial number, confirm whether superseded references apply, and quote both OEM and OEM-alternative options with transparent lead times. Common 396 series requests include cylinder liners (5320110110), cylinder head covers (5320100130), exhaust valves (5410500227), inlet valves (4570530001), valve springs (5320530020), main and thrust bearings, oil pumps (5321800001), oil separators (5410100163), and turbocharger turbine wheels (5110800220/5110804420).
+
+    For major overhauls, we recommend sending a complete parts list organized by engine serial number. Legacy engines often have running changes that affect part number compatibility — our verification step catches these before shipment.`,
   },
   {
     slug: 'mtu-595-series',
@@ -2154,6 +2298,11 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 595 series parts: cylinder liners, pistons, connecting rods, gaskets, fuel lines, solenoid valves, cooling pumps, and turbocharger components.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('595')),
+    longDescription: `The MTU 595 series is a heavy-duty, high-output diesel engine platform designed for the most demanding marine and industrial applications. With bore sizes exceeding 200mm and power outputs per cylinder that place it firmly in the medium-speed engine category, the 595 series is found in naval combatants, large offshore supply vessels, and base-load power stations where reliability is non-negotiable.
+
+    Parts for the 595 series reflect its heavy engineering heritage: cylinder liners weighing over 50 kg, pistons with separate crowns and skirts (5840371625 crown, 5840300615 skirt), connecting rods built for extreme cylinder pressures, and fuel systems operating at high injection pressures with HP fuel lines (5840700632-87) and solenoid valves (5840900595, 5840980257). Every component is size-graded and serial-number-specific.
+
+    Because 595 series engines often serve in military or continuous-duty applications, parts traceability and documentation requirements can be stringent. We support part-number verification with engine serial numbers, provide HS codes and approximate weights for freight planning, and can quote with material certificates where required.`,
   },
   {
     slug: 'mtu-956-series',
@@ -2163,6 +2312,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 956 series parts: cylinder heads, gaskets, bearings, valves, injectors, cooling pumps, impellers, oil nozzles, and fuel system components.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('956')),
+    longDescription: `The MTU 956 series is a proven workhorse in the medium-speed diesel segment, powering naval vessels, commercial ships, and heavy industrial installations. It shares many design characteristics with the 1163 series, and parts frequently cross-reference between the two families. Cylinder heads (5550105141), gaskets (5550161420), bearings (5550302160, 5550307540), and cooling system components (5552010005) are among the most commonly requested parts.
+
+    For 956 series engines still in active duty, parts availability can vary by region and engine variant. We verify each part number against your engine serial number, check for supersessions, and quote both OEM and OEM-alternative options. Marine-specific components like seawater pump impellers (5592010007) and oil spray nozzles (5550101251) are high-demand items where we typically maintain stock references.`,
   },
   {
     slug: 'mtu-1163-series',
@@ -2172,6 +2324,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 1163 series parts: cylinder heads, bearings, valves, cooling system, fuel system, gaskets, and seals.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('1163')),
+    longDescription: `The MTU 1163 series represents the high-output end of MTU's medium-speed engine portfolio, with individual cylinder outputs significantly above the 956 series. Found in major naval programs, large commercial vessels, and heavy-duty power generation, 1163 engines demand parts that meet exacting specifications. Cylinder heads, main bearings (5550330130), connecting rod bearings (5550302160), and cooling pump shafts (5562010105) are high-value components where fitment must be confirmed before shipment.
+
+    Many 1163 series parts cross-reference with the 956 series, but running changes across production years mean that engine serial number verification is essential. We check each part number against the latest MTU electronic parts catalog revision for your specific engine, flag superseded numbers, and quote with lead times that reflect real stock availability.`,
   },
 
   // ── Category Hubs ──
@@ -2215,6 +2370,11 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Turbocharger components operate under high thermal and mechanical loads. We verify each part number against your turbocharger serial number. New, OEM-alternative, and remanufactured options quoted per inquiry for MTU 2000, 4000, and 396 series engines.',
     type: 'category',
     partFilter: (p) => p.category === 'Turbocharging',
+    longDescription: `MTU turbochargers are precision-rotating assemblies operating at speeds exceeding 100,000 RPM with exhaust gas inlet temperatures beyond 700 degrees Celsius. The turbine wheel, compressor wheel, bearing housing, and sealing rings form a balanced system where any component wear — even at the micron level — produces vibration, oil leakage, or efficiency loss that cascades into engine performance degradation.
+
+    Our turbocharger parts catalog covers the complete rotating assembly: turbine wheels (5110804420, 5110800220, 5110800420), compressor wheels (5090251301), bearing housings (5110803201), piston ring seals (5110850060, 5120850560), heat shields (5110812603, 5110820226), and diffusers (5361420025). We verify each part number against your turbocharger nameplate — not just the engine serial — because turbocharger variants within the same engine series can differ by application, power rating, and emissions certification.
+
+    Common failure modes include foreign-object damage to turbine blades from intake debris or exhaust manifold fragments, bearing housing bore wear causing radial play and oil leakage into the exhaust stream, and heat shield cracking from thermal cycling on engines with frequent start-stop duty cycles. We quote new OEM, OEM-alternative, and remanufactured options with transparent lead times.`,
   },
   {
     slug: 'mtu-sensors',
@@ -2224,6 +2384,11 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Electrical and sensor parts require precise matching — connector type, thread size, and signal range vary by engine installation. We cross-check part numbers against engine serial numbers for MTU 2000, 4000, 396, and 595 series.',
     type: 'category',
     partFilter: (p) => p.category === 'Sensors and electrical',
+    longDescription: `MTU engine sensors and electrical components form the nervous system of every engine installation — from crankcase speed pickups and rail pressure transducers to coolant temperature thermocouples and ECU memory modules. A failed sensor does not just produce a warning light; it can trigger a derate, an automatic shutdown, or in the worst case, allow a damaging condition to go undetected until catastrophic failure occurs.
+
+    Our sensor and electrical parts catalog covers speed sensors (0005358233, 0005357933, 0005357633), pressure sensors (0035352531, 0035352731, 5205304531), temperature sensors (0005356430), level monitors (0005355103), solenoid valves (8495340000, 5840900595), and wiring harnesses (X00012160, X00011800). Each sensor type has specific connector, thread, and signal-range variants that must match the engine ECU configuration — we verify by part number and engine serial number before quotation.
+
+    Common replacement triggers include intermittent signal faults during thermal cycling, connector corrosion in marine engine-room environments, and ECU-detected rationality errors during routine diagnostic checks. For fleet operators, we can quote sensor kits covering all critical monitoring points on a specific engine model.`,
   },
   {
     slug: 'mtu-gasket-kits',
@@ -2233,6 +2398,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Gaskets and seals are application-specific — material grade, thickness, and shape all vary by engine installation. We supply individual gaskets and complete gasket kits for overhaul projects. Common references in stock for MTU 2000, 4000, 396, 595, and 956 series.',
     type: 'category',
     partFilter: (p) => p.category === 'Gaskets and seals',
+    longDescription: `Gaskets, seals, and O-rings may be the smallest parts on an MTU engine by weight, but they are among the most consequential. A failed cylinder head gasket can pressurize the cooling system and cause overheating within minutes. A leaking turbocharger oil seal can empty the oil sump into the exhaust. A deteriorated O-ring on a fuel injector sleeve can allow combustion gas into the fuel return circuit. Every gasket and seal in this catalog has been selected because it serves a critical containment function.
+
+    Our gasket and seal catalog covers cylinder head gaskets (5240161580, 5410160920, 5550161420), O-rings (700429260000, 700429050003), rotary and radial-lip shaft seals (8699970499, XP51529700004), copper sealing rings (007603016105), and valve stem seals (0000530361). We stock common references and can source application-specific material grades. For overhaul projects, we recommend complete gasket kits — they are more economical than ordering individual pieces and ensure every sealing surface is renewed.`,
   },
   {
     slug: 'mtu-pistons-liners',
@@ -2242,6 +2410,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Pistons, liners, and rings are size-graded components. Incorrect grade selection causes premature wear or seizure. We verify size code, engine series, and serial number before quotation. OEM and OEM-alternative grades available for MTU 2000, 4000, 396, and 595 series.',
     type: 'category',
     partFilter: (p) => p.category === 'Pistons and liners',
+    longDescription: `The piston-and-liner assembly is the heart of every MTU engine's combustion system. These are size-graded, precision-machined components where clearance between the piston skirt and cylinder liner is measured in hundredths of a millimeter. An incorrect size grade — even one step off — leads to scuffing, excessive oil consumption, or in severe cases, piston seizure. This is not a commodity part; it is an engineered assembly where the price of a mistake is measured in engine hours lost.
+
+    Our pistons and liners catalog covers cylinder liners (5240113410, 5320110110, 5840111810), piston assemblies with crowns and skirts (5240303917, 5840300917), compression and oil control rings (0120370618, 0090375019, 0080375819), piston pins (5410370220), and connecting rod bushings and bolts. For each inquiry, we verify the engine serial number to confirm the correct size grade — standard (0), first oversize (1), or second oversize (2) — before quotation. Both OEM and OEM-alternative grades are available.`,
   },
   {
     slug: 'mtu-valve-train',
@@ -2260,6 +2431,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Bearings are precision-graded components. Undersize, standard, and oversize grades available. We verify engine serial number to confirm the correct grade for MTU 2000, 4000, 396, 595, and 956 series engines.',
     type: 'category',
     partFilter: (p) => p.category === 'Bearings',
+    longDescription: `MTU engine bearings — crankshaft main bearings, connecting rod bearings, camshaft bearings, and thrust washers — are precision-graded components manufactured to tolerances that determine oil film thickness, load distribution, and ultimately engine life. A bearing set that is one size grade off will not "almost work"; it will wipe within the first hours of operation and take the crankshaft journal with it.
+
+    Our bearing catalog covers main bearings (5240334901/5240335602 upper/lower pairs, 5410330605), connecting rod bearings (5240383710/5240382711 upper/lower pairs, 5550302160), camshaft bearings (5240510110), thrust bearings (5090200512, 5110200412), and thrust washers (5360330262). Every bearing inquiry requires the engine serial number to confirm the correct size grade — standard (STD), 0.25mm undersize, 0.50mm undersize, or 0.75mm undersize. We stock standard grades for common MTU series and can source non-standard grades with transparent lead times.`,
   },
   {
     slug: 'mtu-cooling-system',
@@ -2269,6 +2443,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Cooling system parts vary by engine application — marine (raw-water or keel-cooled), industrial (radiator), or rail. We confirm the correct variant by engine model and serial number for MTU 2000, 4000, 396, 595, and 956 series.',
     type: 'category',
     partFilter: (p) => p.category === 'Cooling system',
+    longDescription: `MTU engine cooling systems are application-specific — a marine engine running on raw-water cooling through a keel cooler requires different pump and thermostat configurations than an industrial engine on a closed-loop radiator or a rail engine with split-circuit cooling. Ordering the wrong cooling-system variant is one of the most common parts-matching errors because the same engine series can have multiple cooling configurations.
+
+    Our cooling system catalog covers coolant pumps (5062000601, 5592001001/31), seawater pumps (5502003201), impellers (X00022524, 5582040406, 5592010007, 5592010307), thermostats (5841800175), coolant pump shafts (5552010005, 5842040714), flanges (8490740063), and sight glasses (5502030060). For each inquiry, we confirm the correct variant by engine model, serial number, and application type. Common replacement triggers include impeller wear from abrasive cooling water, pump shaft seal leakage, and thermostat sticking in the open or closed position.`,
   },
 ];
 

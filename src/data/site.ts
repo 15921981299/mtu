@@ -55,7 +55,7 @@
     /** Shown on certifications when no direct cert number is on file. */
     iso9001VerificationNote:
       'Available supplier documents and quality notes can be requested for qualified parts inquiries.',
-    /** Industry workflows we support — link to /standards/ pages, not cert claims we cannot verify. */
+    /** Industry workflows we support — link to /certifications/ pages, not cert claims we cannot verify. */
     industryPrograms: [
       { label: 'Marine engine service', href: '/industries/marine/' },
       { label: 'Power generation parts', href: '/industries/power-generation/' },
@@ -63,11 +63,8 @@
       { label: 'Rail engine parts', href: '/industries/rail/' },
       { label: 'Shipyard repair support', href: '/industries/shipyards-repair/' },
     ],
-    /** Factory process video + optional YouTube tour (fills VideoObject on proof pages). */
+    /** Optional YouTube tour (fills VideoObject on proof pages). */
     inspectionMedia: {
-      factoryVideoPoster: '/videos/cnc-machining-factory-poster.jpg',
-      factoryVideoMp4: '/videos/cnc-machining-factory-process.mp4',
-      factoryVideoWebm: '/videos/cnc-machining-factory-process.webm',
       /** YouTube video ID only (not full URL). Leave empty to hide embed. */
       youtubeVideoId: 'M7uJEbDD-_8',
     },
@@ -232,7 +229,7 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-/** schema.org ItemList for archive / collection pages (blog tags, etc.). */
+/** schema.org ItemList for collection pages. */
 export function itemListSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

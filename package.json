@@ -10,12 +10,6 @@
     "check:links": "node scripts/check-internal-links.mjs",
     "audit:encoding": "node scripts/audit-encoding.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "audit:indexable-blog": "node scripts/audit-indexable-blog.mjs",
-    "gen:blog-author-rules": "node scripts/gen-blog-author-rules.mjs",
-    "export:keywords": "node scripts/export-page-keywords.mjs",
-    "export:keywords:ke": "node scripts/export-page-keywords.mjs --with-ke",
-    "export:related-keywords": "node scripts/export-related-keywords.mjs",
-    "export:competitor-gap": "node scripts/export-competitor-gap.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
