@@ -17,8 +17,8 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 ---
 
 <BaseLayout
-  title="About Diesel Part Source — Genuine Diesel Engine Parts Supplier"
-  description="Diesel Part Source supplies MTU, Detroit Diesel, Cummins, and DEUTZ engine parts from Shanghai with part-number verification, genuine/OEM sourcing, and fast global delivery."
+  title="About Diesel Part Source — Diesel Engine Parts Supplier in Shanghai"
+  description="Diesel Part Source is a Shanghai-based diesel engine parts supplier for MTU, Detroit Diesel, Cummins, and DEUTZ buyers, with part-number verification, export packing, and global delivery support."
   currentPath="/about"
   jsonLd={[
     breadcrumbSchema([
@@ -30,7 +30,7 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 >
   <FunnelPageView stage="awareness" label="about" />
   <BreadcrumbHero
-    title="The Engine Parts Team Behind Your Supply"
+    title="Diesel Engine Parts Supplier Built for Urgent Sourcing"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'About Us' },
@@ -43,27 +43,46 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     <div class="section-gap">
       <div class="container">
         <div class="mission-and-vision-wrapper">
-          <SectionHeading title="We Speak Engine, Parts, and Urgency" subtitle="Who We Are" />
+          <SectionHeading title="A Practical Parts Desk for Diesel Engine Buyers" subtitle="Who We Are" />
 
           <div class="about-trust-meta" aria-label="Company credentials">
-            <span><strong>MTU</strong> full-series parts support</span>
-            <span>Genuine and OEM manufacturer parts</span>
-            <span>Part-number and serial-number checks</span>
-            <span><strong>Global</strong> express delivery</span>
+            <span><strong>Core brands:</strong> MTU, Detroit Diesel, Cummins, DEUTZ</span>
+            <span><strong>Requests:</strong> part number, serial number, photos, overhaul lists</span>
+            <span><strong>Use cases:</strong> marine, generator, industrial, rail, shipyard</span>
+            <span><strong>Export:</strong> Shanghai coordination and global delivery</span>
           </div>
 
           <div class="about-legal-block fade-in" aria-label="Legal entity">
             <p class="about-legal-name"><strong>{site.company.legalNameEn}</strong> · {site.company.legalName}</p>
             <p class="about-legal-detail">
-              Shanghai-based diesel engine parts supplier serving marine, industrial, generator, rail, and repair buyers worldwide —
+              Shanghai-based diesel engine parts supplier serving maintenance teams, repair companies, shipyards, generator operators, and fleet buyers worldwide —
               <a href="/certifications/">view QC & certification scope</a>.
               Contact: <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:${site.phone}`}>{site.phone}</a>
             </p>
           </div>
 
+          <div class="about-scope-grid fade-in" aria-label="Supply scope">
+            <div class="about-scope-card">
+              <span class="about-scope-kicker">Main Focus</span>
+              <strong>MTU full-series parts</strong>
+              <p>183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series inquiries.</p>
+            </div>
+            <div class="about-scope-card">
+              <span class="about-scope-kicker">Also Supported</span>
+              <strong>Detroit Diesel, Cummins, DEUTZ</strong>
+              <p>Engine parts, maintenance items, service components, and replacement references for mixed fleets.</p>
+            </div>
+            <div class="about-scope-card">
+              <span class="about-scope-kicker">Best Fit</span>
+              <strong>Part-number driven RFQs</strong>
+              <p>Single urgent parts, repeated service items, and Excel lists from overhaul or repair projects.</p>
+            </div>
+          </div>
+
           <nav class="about-jump-nav" aria-label="On this page">
             <a href="#about-mission" class="about-jump-link">Company focus</a>
             <a href="#about-different" class="about-jump-link">Verification</a>
+            <a href="#about-process" class="about-jump-link">RFQ process</a>
             <a href="#about-factory" class="about-jump-link">Global delivery</a>
           </nav>
 
@@ -72,8 +91,8 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
               <div class="mission-content-block">
                 <div class="mission-subtitle-block"><div class="mission-subtitle-text">Our Mission</div></div>
                 <div class="mission-text-block">
-                  <h3 class="mission-title">Correct Engine Parts, Verified Before Shipment</h3>
-                  <p class="mission-summary">Engine downtime is expensive, and a wrong spare part costs more than a slow quotation. Our mission is to help buyers identify genuine and OEM manufacturer parts by part number, engine model, serial number, and nameplate photos before the order ships.</p>
+                  <h3 class="mission-title">Correct Parts Start With Correct Identification</h3>
+                  <p class="mission-summary">A diesel engine spare part is rarely just a name. The same description can vary by engine series, serial number, application, and supersession history. We help buyers check the part number, engine model, serial number, and old-part photos before availability and pricing are confirmed.</p>
                   <a href="/products/" class="mission-link-button"><div class="link-button-text">Our Parts Range</div><div class="link-button-icon" set:html={linkArrow} /></a>
                 </div>
               </div>
@@ -86,8 +105,8 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
               <div class="vision-content-block">
                 <div class="vision-subtitle-block"><div class="vision-subtitle-text">Our Vision</div></div>
                 <div class="vision-text-block">
-                  <h3 class="vision-title">Be the Parts Partner Buyers Call First</h3>
-                  <p class="vision-summary">We are building Diesel Part Source around clear communication, accurate part verification, and practical global delivery. Whether the request is a single pressure sensor, a full overhaul list, or urgent marine downtime support, the process starts with identifying the correct part.</p>
+                  <h3 class="vision-title">Built for Buyers Who Need Clear Answers</h3>
+                  <p class="vision-summary">Diesel Part Source is designed as a sourcing desk for practical maintenance work: confirm the likely part, check available supply routes, prepare export packing, and keep communication clear. We do not describe ourselves as an official brand owner; brand names and part numbers are used to identify buyer requirements.</p>
                   <a href="/contact/?source=about" class="vision-link-button"><div class="link-button-text">Send Parts Inquiry</div><div class="link-button-icon" set:html={linkArrow} /></a>
                 </div>
               </div>
@@ -106,31 +125,65 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   <section id="about-different" class="who-we-are-section about-section">
     <div class="section-gap bottom">
       <div class="container">
-        <SectionHeading title="What Makes Diesel Part Source Different" subtitle="Why Choose Us" />
+        <SectionHeading title="What Makes Diesel Part Source Useful" subtitle="Why Choose Us" />
         <div class="funfact-wrapper about-differentiators-grid fade-in">
           <div class="funfact-single-block">
             <div class="funfact-number-block"><div class="chain-character">01</div></div>
             <div class="funfact-text-block">
-              <h3 class="funfact-title">We Verify Before We Quote</h3>
-              <p class="funfact-summary">Part number, engine series, model, serial number, and photos are checked together to reduce wrong-part risk.</p>
+              <h3 class="funfact-title">Verification Before Price</h3>
+              <p class="funfact-summary">We review part number, engine series, model, serial number, and photos together before treating an item as ready to quote.</p>
             </div>
           </div>
           <div class="funfact-separtion-liner"></div>
           <div class="funfact-single-block">
             <div class="funfact-number-block"><div class="chain-character">02</div></div>
             <div class="funfact-text-block">
-              <h3 class="funfact-title">Genuine and OEM Manufacturer Focus</h3>
-              <p class="funfact-summary">We prioritize reliable parts for maintenance, overhaul, and fleet operation, not vague substitute offers.</p>
+              <h3 class="funfact-title">Clear Replacement Discussion</h3>
+              <p class="funfact-summary">When an old number, supersession, or alternative route is involved, we ask for confirmation instead of hiding the risk.</p>
             </div>
           </div>
           <div class="funfact-separtion-liner"></div>
           <div class="funfact-single-block">
             <div class="funfact-number-block"><div class="chain-character">03</div></div>
             <div class="funfact-text-block">
-              <h3 class="funfact-title">Built for Global Maintenance Teams</h3>
-              <p class="funfact-summary">We support shipyards, fleets, generator operators, rail users, repair companies, and industrial equipment owners.</p>
+              <h3 class="funfact-title">Prepared for Export Orders</h3>
+              <p class="funfact-summary">We coordinate packing, shipping documents, and delivery options for buyers outside China after the part is confirmed.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RFQ process -->
+  <section id="about-process" class="who-we-are-section about-section">
+    <div class="section-gap bottom">
+      <div class="container">
+        <SectionHeading title="How We Handle a Parts Inquiry" subtitle="RFQ Process" />
+        <div class="about-process-layout fade-in">
+          <div class="about-process-card">
+            <span class="about-process-step">01</span>
+            <h3>Receive Part Details</h3>
+            <p>Send the part number, engine brand, model, serial number, quantity, destination, and any nameplate or old-part photos.</p>
+          </div>
+          <div class="about-process-card">
+            <span class="about-process-step">02</span>
+            <h3>Check Fitment and Supply Route</h3>
+            <p>We compare the request against engine series, description, replacement references, and available sourcing options.</p>
+          </div>
+          <div class="about-process-card">
+            <span class="about-process-step">03</span>
+            <h3>Quote With Practical Notes</h3>
+            <p>The reply may include availability, lead-time notes, packing approach, shipping method, and any details still needing buyer confirmation.</p>
+          </div>
+        </div>
+
+        <div class="about-rfq-note fade-in">
+          <div>
+            <h3>What helps us quote faster?</h3>
+            <p>Exact part numbers, engine serial numbers, old-part photos, and Excel lists reduce back-and-forth. For urgent downtime orders, include the required delivery country and deadline in the first message.</p>
+          </div>
+          <a href="/contact/?source=about-process" class="about-inline-cta">Send inquiry details →</a>
         </div>
       </div>
     </div>
@@ -144,6 +197,7 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
         <div class="who-we-are-wrapper fade-in">
           <div class="who-we-are-content-block">
             <p class="who-we-are-text">Diesel Part Source is based in Shanghai and supports international buyers with express, air, and freight shipment options. For urgent vessel, generator, or industrial downtime orders, share the destination and deadline in your first inquiry.</p>
+            <p class="who-we-are-text about-disclaimer">Diesel Part Source is an independent supplier. MTU, Detroit Diesel, Cummins, DEUTZ, and other names are used only to identify compatible engine parts requested by buyers.</p>
             <p class="about-factory-cta-row">
               <a href="/contact/?source=about-shipping" class="about-inline-cta">Send a parts inquiry →</a>
               <a href="/terms/shipping/" class="about-inline-cta about-inline-cta--secondary">Shipping terms</a>
@@ -222,6 +276,45 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   .about-legal-block a:hover {
     text-decoration: underline;
+  }
+
+  .about-scope-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 0 0 22px;
+  }
+
+  .about-scope-card {
+    min-height: 150px;
+    padding: 18px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .about-scope-kicker {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-scope-card strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-title);
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .about-scope-card p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .about-jump-nav {
@@ -313,6 +406,71 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     display: none;
   }
 
+  .about-process-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .about-process-card {
+    position: relative;
+    min-height: 220px;
+    padding: 28px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .about-process-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 22px;
+    color: var(--color-white);
+    background: var(--color-title);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .about-process-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-transform: none;
+  }
+
+  .about-process-card p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .about-rfq-note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 18px;
+    padding: 22px 24px;
+    background: rgba(20, 110, 245, 0.07);
+    border: 1px solid rgba(20, 110, 245, 0.16);
+    border-radius: 8px;
+  }
+
+  .about-rfq-note h3 {
+    margin-bottom: 6px;
+    font-size: 20px;
+    text-transform: none;
+  }
+
+  .about-rfq-note p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
   .about-factory-image {
     position: relative;
   }
@@ -343,6 +501,15 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   .about-inline-cta--secondary:hover {
     color: var(--color-primary);
+  }
+
+  .about-disclaimer {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--color-background);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 6px;
+    font-size: 15px;
   }
 
   .editorial-team-grid {
@@ -417,6 +584,11 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   }
 
   @media (max-width: 991px) {
+    .about-scope-grid,
+    .about-process-layout {
+      grid-template-columns: 1fr;
+    }
+
     .about-metrics-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -441,6 +613,11 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
     .about-differentiators-grid .funfact-single-block:last-child {
       border-bottom: none;
+    }
+
+    .about-rfq-note {
+      align-items: flex-start;
+      flex-direction: column;
     }
   }
 
