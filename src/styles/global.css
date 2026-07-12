@@ -3529,11 +3529,12 @@ blockquote {
 .mission-image,
 .vision-image {
     border-radius: 4px;
-    min-width: 550px;
-    width: 100%;
-    height: 100%;
+    /* min-width: 550px; */
+    /* width: 100%;
+    height: 100%; */
     object-fit: cover;
-    display: block
+    display: block;
+    max-height: 400px;
 }
 
 .who-we-are-section {
