@@ -15,6 +15,7 @@ const { hub } = Astro.props as { hub: MtuCatalogHub };
 const parts = mtuParts.filter(hub.partFilter);
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
+const hasRealPartImage = (image: string) => image.includes('/diesel-part-source-parts/');
 
 // For series hubs: group by category. For category hubs: group by engine series.
 const categoryGroups = new Map<string, typeof parts>();
@@ -33,8 +34,20 @@ for (const part of parts) {
 
 const groupLabel = hub.type === 'series' ? 'category' : 'series';
 const featuredParts = [...parts]
-  .sort((a, b) => Number(Boolean(b.engineType && b.dimensions && b.weightKg && b.hsCode)) - Number(Boolean(a.engineType && a.dimensions && a.weightKg && a.hsCode)))
-  .slice(0, 10);
+  .sort((a, b) => {
+    const bScore =
+      Number(hasRealPartImage(b.image)) * 4 +
+      Number(Boolean(b.engineType && b.dimensions && b.weightKg && b.hsCode)) * 3 +
+      Number(Boolean(b.replacementFor?.length)) * 2 +
+      Number(Boolean(b.applicableEngines));
+    const aScore =
+      Number(hasRealPartImage(a.image)) * 4 +
+      Number(Boolean(a.engineType && a.dimensions && a.weightKg && a.hsCode)) * 3 +
+      Number(Boolean(a.replacementFor?.length)) * 2 +
+      Number(Boolean(a.applicableEngines));
+    return bScore - aScore || a.partNumber.localeCompare(b.partNumber);
+  })
+  .slice(0, 20);
 const partSlugSet = new Set(parts.map((part) => part.slug));
 const relatedCatalogHubs = mtuCatalogHubs
   .filter((h) => h.slug !== hub.slug)
@@ -95,20 +108,58 @@ const catalogUseCases = hub.type === 'series'
     <div class="section-gap bottom">
       <div class="container">
         <article class="blog-details-content-block resource-page fade-in">
-          <div class="resource-meta">
-            <span><strong>{parts.length}</strong> part numbers</span>
-            <span><strong>{categoryGroups.size}</strong> {groupLabel === 'series' ? 'categories' : 'engine series'}</span>
-            <span><strong>MOQ</strong> No minimum</span>
-            <span><strong>Delivery</strong> Global shipping</span>
+          <!-- ── Stat bar ── -->
+          <div class="catalog-stat-bar">
+            <div class="catalog-stat-item">
+              <span class="catalog-stat-icon catalog-stat-icon--docs">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
+              <span class="catalog-stat-value">{parts.length}</span>
+              <span class="catalog-stat-label">Part Numbers</span>
+            </div>
+            <div class="catalog-stat-item">
+              <span class="catalog-stat-icon catalog-stat-icon--grid">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+              </span>
+              <span class="catalog-stat-value">{categoryGroups.size}</span>
+              <span class="catalog-stat-label">{groupLabel === 'series' ? 'Categories' : 'Series'}</span>
+            </div>
+            <div class="catalog-stat-item">
+              <span class="catalog-stat-icon catalog-stat-icon--moq">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </span>
+              <span class="catalog-stat-value">No Min</span>
+              <span class="catalog-stat-label">MOQ</span>
+            </div>
+            <div class="catalog-stat-item">
+              <span class="catalog-stat-icon catalog-stat-icon--globe">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </span>
+              <span class="catalog-stat-value">Global</span>
+              <span class="catalog-stat-label">Delivery</span>
+            </div>
           </div>
 
+          <!-- ── RFQ strip ── -->
           <div class="detail-rfq-strip">
-            <p>Send part numbers, engine model, serial number, quantity, and destination. We check compatibility, stock, and shipping options.</p>
-            <a href={quoteHref} class="detail-rfq-link">Request Parts Inquiry</a>
+            <span class="catalog-rfq-strip-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </span>
+            <p><strong>Send part numbers, engine model, serial number, quantity, and destination.</strong> We check compatibility, stock, and shipping options.</p>
+            <a
+              href={quoteHref}
+              class="detail-rfq-link"
+              data-rfq-modal
+              data-rfq-context={`${hub.h1Title} parts list inquiry`}
+              data-rfq-source={`catalog-${hub.slug}`}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              Request Parts Inquiry
+            </a>
           </div>
 
           <h2>{hub.type === 'series' ? 'Parts by Category' : 'Parts by Engine Series'}</h2>
-          <p>{hub.description}</p>
+          <p class="catalog-intro-text">{hub.description}</p>
 
           {hub.longDescription && (
             <div class="catalog-long-description">
@@ -116,21 +167,29 @@ const catalogUseCases = hub.type === 'series'
             </div>
           )}
 
+          <!-- ── Scope + coverage ── -->
           <section class="catalog-depth-section">
             <h2>Catalog Scope and Fitment Method</h2>
             <p>{catalogScope} We do not treat a part number as interchangeable until the engine serial number, installation position, and any superseded reference have been checked.</p>
             <div class="catalog-info-grid">
-              <article>
+              <article class="catalog-info-card">
+                <span class="catalog-info-card-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.45 2.09A10 10 0 0 0 2.05 8.5"/><path d="M12 2a10 10 0 0 1 10 10"/><circle cx="12" cy="12" r="10"/></svg>
+                </span>
                 <h3>Included engine coverage</h3>
                 <p>{catalogSeries.join(', ')}</p>
               </article>
-              <article>
+              <article class="catalog-info-card">
+                <span class="catalog-info-card-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                </span>
                 <h3>Included part categories</h3>
                 <p>{catalogCategories.join(', ')}</p>
               </article>
             </div>
           </section>
 
+          <!-- ── Spec table ── -->
           <section class="catalog-depth-section">
             <h2>Representative Part Data</h2>
             <p>These examples show the type of fields checked before quotation: engine type, dimensions, unit weight, HS code, and stock route.</p>
@@ -141,63 +200,92 @@ const catalogUseCases = hub.type === 'series'
                 <span role="columnheader">Engine</span>
                 <span role="columnheader">Weight</span>
                 <span role="columnheader">HS Code</span>
+                <span role="columnheader">Alt / NATO</span>
               </div>
               {featuredParts.map((part) => (
                 <a class="catalog-spec-row" role="row" href={`/part-products/${part.slug}/`}>
-                  <span role="cell">{part.partNumber}</span>
+                  <span role="cell" class="catalog-spec-cell-pn">{part.partNumber}</span>
                   <span role="cell">{part.name}</span>
                   <span role="cell">{part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Verify')}</span>
-                  <span role="cell">{part.weightKg ?? 'Quote check'}</span>
-                  <span role="cell">{part.hsCode ?? 'Quote check'}</span>
+                  <span role="cell">{part.weightKg ?? '—'}</span>
+                  <span role="cell">{part.hsCode ? <code class="catalog-hs-code">{part.hsCode}</code> : '—'}</span>
+                  <span role="cell">{part.replacementFor?.slice(0, 2).join(', ') || part.natoNumber || 'Serial check'}</span>
                 </a>
               ))}
             </div>
           </section>
 
+          <!-- ── Verification checklist ── -->
           <section class="catalog-depth-section">
             <h2>What We Verify Before Quoting</h2>
-            <div class="catalog-info-grid catalog-check-grid">
-              {quoteChecklist.map((item) => (
-                <article>
-                  <h3>{item}</h3>
-                  <p>Checked against part-number history, engine application, stock status, and export shipping requirements.</p>
+            <div class="catalog-checklist-grid">
+              {quoteChecklist.map((item, i) => (
+                <article class="catalog-checklist-card">
+                  <span class="catalog-checklist-step">{String(i + 1).padStart(2, '0')}</span>
+                  <div class="catalog-checklist-body">
+                    <h3>{item}</h3>
+                    <p>Checked against part-number history, engine application, stock status, and export shipping requirements.</p>
+                  </div>
                 </article>
               ))}
             </div>
           </section>
 
+          <!-- ── RFQ scenarios ── -->
           <section class="catalog-depth-section">
             <h2>Common RFQ Scenarios</h2>
-            <ul>
-              {catalogUseCases.map((item) => <li>{item}</li>)}
+            <ul class="catalog-scenarios-list">
+              {catalogUseCases.map((item) => (
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-            <p>For mixed lists, send the spreadsheet as-is. We return line-by-line availability, replacement notes, and practical shipping options instead of a generic catalog reply.</p>
+            <p class="catalog-scenarios-note">For mixed lists, send the spreadsheet as-is. We return line-by-line availability, replacement notes, and practical shipping options instead of a generic catalog reply.</p>
           </section>
 
+          <!-- ── Grouped part cards ── -->
           {
             Array.from(categoryGroups.entries()).map(([groupKey, groupParts]) => (
-              <section style="margin-bottom: 32px;">
-                <h3 style="font-size: 20px; margin-bottom: 12px;">{groupKey} <span style="font-weight: 400; font-size: 15px; color: #64748b;">({groupParts.length} parts)</span></h3>
-                <div class="hub-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+              <section class="catalog-group-section">
+                <h3 class="catalog-group-title">
+                  <span>{groupKey}</span>
+                  <span class="catalog-group-count">{groupParts.length} parts</span>
+                </h3>
+                <div class="hub-grid">
                   {groupParts.slice(0, 12).map((part) => (
-                    <article class="hub-card">
+                    <a href={`/part-products/${part.slug}/`} class="hub-card catalog-part-card">
+                      <div class="hub-card-image">
+                        <img
+                          src={part.image}
+                          alt={part.imageAlt ?? `${part.partNumber} ${part.name}`}
+                          width="320"
+                          height="200"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
                       <div class="hub-card-body">
                         <p class="hub-card-meta">{part.partNumber}</p>
-                        <h4 class="hub-card-title" style="font-size: 15px;">
-                          <a href={`/part-products/${part.slug}/`}>{part.name}</a>
-                        </h4>
-                        <p class="hub-card-summary" style="font-size: 13px;">
+                        <h4 class="hub-card-title">{part.name}</h4>
+                        <p class="hub-card-summary">
                           {part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Serial-number verified')}
                           {part.stockStatus && ` - ${part.stockStatus.slice(0, 60)}`}
                         </p>
                       </div>
-                    </article>
+                    </a>
                   ))}
                 </div>
                 {groupParts.length > 12 && (
-                  <p style="margin-top: 8px; font-size: 14px; color: #64748b;">
-                    + {groupParts.length - 12} more {groupKey.toLowerCase()} parts —
-                    <a href={quoteHref} style="color: var(--color-primary);">send a part list for full catalog</a>
+                  <p class="catalog-group-more">
+                    <span class="catalog-group-more-count">+{groupParts.length - 12}</span> more {groupKey.toLowerCase()} parts —
+                    <a
+                      href={quoteHref}
+                      data-rfq-modal
+                      data-rfq-context={`${hub.h1Title} full catalog list inquiry`}
+                      data-rfq-source={`catalog-${hub.slug}`}
+                    >send a part list for full catalog</a>
                   </p>
                 )}
               </section>
@@ -205,29 +293,37 @@ const catalogUseCases = hub.type === 'series'
           }
 
           <!-- Related catalog hubs -->
-          <hr style="margin: 36px 0 24px; border-color: var(--color-stroke);" />
+          <hr class="catalog-divider" />
           <h2>Browse More MTU Parts Catalogs</h2>
-          <div class="hub-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 16px;">
+          <div class="hub-grid">
             {relatedCatalogHubs.map((h) => (
-                <article class="hub-card">
+                <a href={`/part-products/catalog/${h.slug}/`} class="hub-card catalog-related-card">
                   <div class="hub-card-body">
-                    <p class="hub-card-meta" style="text-transform: uppercase; font-size: 11px;">{h.type === 'series' ? 'Engine Series' : 'Parts Category'}</p>
-                    <h4 class="hub-card-title" style="font-size: 15px;">
-                      <a href={`/part-products/catalog/${h.slug}/`}>{h.h1Title}</a>
-                    </h4>
+                    <span class="catalog-related-badge">{h.type === 'series' ? 'Engine Series' : 'Parts Category'}</span>
+                    <h4 class="hub-card-title">{h.h1Title}</h4>
                     <p class="hub-card-summary">{h.summary}</p>
                   </div>
-                </article>
+                </a>
               ))}
           </div>
 
-          <p class="resource-note detail-page-back" style="margin-top: 28px;">
-            <a href="/part-products/">All MTU part numbers</a>
-            /
-            <a href="/products/mtu-spare-parts/">MTU spare parts</a>
-            /
-            <a href={quoteHref}>Request parts inquiry</a>
-          </p>
+          <!-- ── Footer links ── -->
+          <div class="catalog-footer-links">
+            <a href="/part-products/" class="catalog-footer-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              All Part Numbers
+            </a>
+            <span class="catalog-footer-sep" aria-hidden="true">/</span>
+            <a href="/products/mtu-spare-parts/" class="catalog-footer-link">MTU Spare Parts</a>
+            <span class="catalog-footer-sep" aria-hidden="true">/</span>
+            <a
+              href={quoteHref}
+              class="catalog-footer-link catalog-footer-link--cta"
+              data-rfq-modal
+              data-rfq-context={`${hub.h1Title} parts inquiry`}
+              data-rfq-source={`catalog-${hub.slug}`}
+            >Request Parts Inquiry</a>
+          </div>
         </article>
       </div>
     </div>
@@ -241,6 +337,9 @@ const catalogUseCases = hub.type === 'series'
     primaryLabel="Send Parts Inquiry"
     primaryHref={quoteHref}
     primaryEvent={`catalog_${hub.slug}_rfq`}
+    useRfqModal
+    rfqContext={`${hub.h1Title} parts inquiry`}
+    rfqSource={`catalog-${hub.slug}`}
     secondaryLabel="All part numbers"
     secondaryHref="/part-products/"
     secondaryEvent="catalog_all_parts"
@@ -248,78 +347,435 @@ const catalogUseCases = hub.type === 'series'
 </BaseLayout>
 
 <style>
-  .detail-rfq-strip {
-    background: #f8fafc;
-    border: 1px solid var(--color-stroke);
-    border-radius: 6px;
-    padding: 18px 22px;
-    margin-bottom: 28px;
+  /* ── Stat bar ── */
+  .catalog-stat-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .catalog-stat-item {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 6px;
+    padding: 18px 12px 16px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    text-align: center;
   }
-  .detail-rfq-strip p {
-    flex: 1;
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.55;
-    color: #334155;
+
+  .catalog-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
   }
+
+  .catalog-stat-icon--docs { background: rgba(20, 110, 245, 0.08); color: var(--color-primary); }
+  .catalog-stat-icon--grid { background: rgba(16, 185, 129, 0.1); color: #059669; }
+  .catalog-stat-icon--moq { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+  .catalog-stat-icon--globe { background: rgba(139, 92, 246, 0.1); color: #7c3aed; }
+
+  .catalog-stat-value {
+    font-family: var(--font-title);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-title);
+  }
+
+  .catalog-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RFQ strip ── */
+  .detail-rfq-strip {
+    margin-bottom: 24px;
+  }
+
+  .catalog-rfq-strip-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(20, 110, 245, 0.12), rgba(20, 110, 245, 0.06));
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
   .detail-rfq-link {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
-    background: var(--color-primary, #146ef5);
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #146ef5, #0d5ad4);
     color: #fff;
     font-weight: 600;
     font-size: 14px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     white-space: nowrap;
-    transition: background 0.2s;
-  }
-  .detail-rfq-link:hover {
-    background: #0d5ad4;
+    transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 8px rgba(20, 110, 245, 0.2);
   }
 
+  .detail-rfq-link:hover {
+    opacity: 0.94;
+    box-shadow: 0 4px 16px rgba(20, 110, 245, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .detail-rfq-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  .catalog-intro-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0 0 8px;
+  }
+
+  /* ── Info cards (scope) ── */
   .catalog-depth-section {
-    margin: 30px 0;
+    margin: 32px 0;
   }
 
   .catalog-info-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
-    margin-top: 14px;
+    margin-top: 16px;
   }
 
-  .catalog-info-grid article {
+  .catalog-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px;
+    background: var(--color-white);
     border: 1px solid var(--color-stroke);
-    border-radius: 6px;
-    padding: 16px;
-    background: #fff;
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .catalog-info-grid h3 {
-    font-size: 15px;
-    margin: 0 0 8px;
+  .catalog-info-card:hover {
+    border-color: rgba(20, 110, 245, 0.25);
+    box-shadow: 0 2px 12px rgba(20, 110, 245, 0.06);
   }
 
-  .catalog-info-grid p {
+  .catalog-info-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(20, 110, 245, 0.07);
+    color: var(--color-primary);
+  }
+
+  .catalog-info-card h3 {
     font-size: 14px;
-    line-height: 1.55;
+    font-weight: 600;
+    color: var(--color-title);
+    margin: 0;
+    text-transform: none;
+  }
+
+  .catalog-info-card p {
+    font-size: 14px;
+    line-height: 1.6;
     color: #475569;
     margin: 0;
   }
 
-  .catalog-check-grid {
+  /* ── Checklist (step numbers) ── */
+  .catalog-checklist-grid {
+    display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
   }
 
+  .catalog-checklist-card {
+    display: flex;
+    gap: 14px;
+    padding: 20px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    transition: border-color 0.2s ease;
+  }
+
+  .catalog-checklist-card:hover {
+    border-color: rgba(20, 110, 245, 0.2);
+  }
+
+  .catalog-checklist-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(20, 110, 245, 0.08);
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .catalog-checklist-body h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-title);
+    margin: 0 0 4px;
+  }
+
+  .catalog-checklist-body p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* ── RFQ scenarios ── */
+  .catalog-scenarios-list {
+    list-style: none;
+    margin: 14px 0 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .catalog-scenarios-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-body-text);
+    transition: border-color 0.2s ease;
+  }
+
+  .catalog-scenarios-list li:hover {
+    border-color: rgba(20, 110, 245, 0.2);
+  }
+
+  .catalog-scenarios-list li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #10b981;
+  }
+
+  .catalog-scenarios-note {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748b;
+    padding: 14px 18px;
+    background: rgba(20, 110, 245, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(20, 110, 245, 0.1);
+    margin: 0;
+  }
+
+  /* ── Grouped part sections ── */
+  .catalog-group-section {
+    margin-bottom: 36px;
+  }
+
+  .catalog-group-section:last-child {
+    margin-bottom: 8px;
+  }
+
+  .catalog-group-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-title);
+    margin: 0 0 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--color-stroke);
+    text-transform: none;
+  }
+
+  .catalog-group-count {
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    padding: 4px 12px;
+    background: var(--color-background);
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .catalog-group-more {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #64748b;
+  }
+
+  .catalog-group-more-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 24px;
+    padding: 0 8px;
+    border-radius: 100px;
+    background: rgba(20, 110, 245, 0.08);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-title);
+  }
+
+  .catalog-group-more a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .catalog-group-more a:hover {
+    text-decoration: underline;
+  }
+
+  .catalog-group-more a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .catalog-divider {
+    margin: 40px 0 28px;
+    border: none;
+    border-top: 1px solid var(--color-stroke);
+  }
+
+  /* ── Part card with thumbnail ── */
+  .catalog-part-card {
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .catalog-part-card .hub-card-body {
+    padding: 16px;
+  }
+
+  .catalog-part-card .hub-card-title {
+    font-size: 15px;
+  }
+
+  .catalog-part-card .hub-card-summary {
+    font-size: 13px;
+  }
+
+  /* ── Related hub cards ── */
+  .catalog-related-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    background: rgba(20, 110, 245, 0.08);
+    border: 1px solid rgba(20, 110, 245, 0.12);
+    margin-bottom: 4px;
+  }
+
+  /* ── Footer links ── */
+  .catalog-footer-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--color-white);
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+  }
+
+  .catalog-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .catalog-footer-link:hover {
+    background: rgba(20, 110, 245, 0.06);
+  }
+
+  .catalog-footer-link--cta {
+    background: rgba(20, 110, 245, 0.08);
+    margin-left: auto;
+  }
+
+  .catalog-footer-link--cta:hover {
+    background: rgba(20, 110, 245, 0.14);
+  }
+
+  .catalog-footer-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  .catalog-footer-sep {
+    color: #cbd5e1;
+    font-size: 16px;
+    user-select: none;
+    margin: 0 2px;
+  }
+
+  /* ── Spec table ── */
   .catalog-spec-table {
     border: 1px solid var(--color-stroke);
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     margin-top: 16px;
   }
@@ -327,39 +783,73 @@ const catalogUseCases = hub.type === 'series'
   .catalog-spec-head,
   .catalog-spec-row {
     display: grid;
-    grid-template-columns: 1.1fr 1.45fr 1.1fr 0.9fr 0.8fr;
+    grid-template-columns: 1fr 1.35fr 1.05fr 0.8fr 0.72fr 1fr;
     gap: 0;
   }
 
   .catalog-spec-head {
     background: #f8fafc;
     color: #475569;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .catalog-spec-row {
     color: #0f172a;
     text-decoration: none;
-    border-top: 1px solid var(--color-stroke);
+    cursor: pointer;
+    border-top: 1px solid #f1f5f9;
+    transition: background-color 0.15s ease;
+  }
+
+  .catalog-spec-row:nth-child(even) {
+    background: #fafbfc;
   }
 
   .catalog-spec-row:hover {
-    background: #f8fafc;
+    background: #eff6ff;
+  }
+
+  .catalog-spec-row:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+    border-radius: 2px;
+    background: #eff6ff;
+  }
+
+  .catalog-spec-cell-pn {
+    font-family: var(--font-title);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .catalog-hs-code {
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: rgba(20, 110, 245, 0.06);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
   }
 
   .catalog-spec-head span,
   .catalog-spec-row span {
-    padding: 11px 12px;
+    padding: 12px 14px;
     min-width: 0;
     overflow-wrap: anywhere;
     font-size: 13px;
     line-height: 1.4;
   }
 
+  /* ── Responsive ── */
   @media (max-width: 900px) {
-    .catalog-check-grid {
+    .catalog-stat-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog-checklist-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -369,18 +859,62 @@ const catalogUseCases = hub.type === 'series'
 
     .catalog-spec-row {
       grid-template-columns: 1fr;
-      padding: 10px 0;
+      padding: 12px 0;
     }
 
     .catalog-spec-row span {
-      padding: 4px 12px;
+      padding: 5px 14px;
+    }
+
+    .catalog-spec-cell-pn {
+      font-size: 14px;
     }
   }
 
   @media (max-width: 640px) {
     .catalog-info-grid,
-    .catalog-check-grid {
+    .catalog-checklist-grid {
       grid-template-columns: 1fr;
+    }
+
+    .catalog-group-title {
+      font-size: 16px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-stat-item {
+      padding: 14px 10px 12px;
+    }
+
+    .catalog-stat-value {
+      font-size: 18px;
+    }
+
+    .catalog-footer-links {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .catalog-footer-link--cta {
+      margin-left: 0;
+      justify-content: center;
+    }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .catalog-spec-row,
+    .detail-rfq-link,
+    .catalog-group-more a,
+    .catalog-info-card,
+    .catalog-checklist-card,
+    .catalog-scenarios-list li,
+    .catalog-footer-link {
+      transition: none;
+    }
+
+    .detail-rfq-link:hover {
+      transform: none;
     }
   }
 </style>

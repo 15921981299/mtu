@@ -1,4 +1,4 @@
-const FROM = 'Engine Family <rfq@dieselpartsrfq.com>';
+const FROM = 'Diesel Part Source <rfq@dieselpartsource.com>';
 
 export async function sendResendEmail(resendKey, { to, subject, text, replyTo }) {
   const payload = {
@@ -30,7 +30,7 @@ export function buildCustomerAutoReply({ name, siteUrl }) {
   return [
     `Hi ${name},`,
     '',
-    'Thank you for submitting your engine parts inquiry to Engine Family.',
+    'Thank you for submitting your engine parts inquiry to Diesel Part Source.',
     '',
     'We have received your inquiry. Our parts team will review your part number, engine details, photos, quantity, and destination before quotation.',
     '',
@@ -43,9 +43,9 @@ export function buildCustomerAutoReply({ name, siteUrl }) {
     `- MTU part numbers: ${siteUrl}/part-products/`,
     `- Engine parts catalog: ${siteUrl}/products/`,
     '',
-    'Questions before we reply? Email charles@dieselpartsrfq.com — we respond within one business day.',
+    'Questions before we reply? Email charles@dieselpartsource.com — we respond within one business day.',
     '',
     'Best regards,',
-    'Engine Family Parts Team',
+    'Diesel Part Source Parts Team',
   ].join('\n');
 }

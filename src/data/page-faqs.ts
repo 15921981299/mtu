@@ -17,7 +17,7 @@
   {
     question: 'Do you offer genuine or OEM manufacturer parts?',
     answer:
-      'Yes. Engine Family focuses on genuine and OEM manufacturer parts for maintenance, overhaul, and fleet service programs. Availability depends on the exact part number and current stock.',
+      'Yes. Diesel Part Source focuses on genuine and OEM manufacturer parts for maintenance, overhaul, and fleet service programs. Availability depends on the exact part number and current stock.',
   },
   {
     question: 'Can you ship engine parts globally?',

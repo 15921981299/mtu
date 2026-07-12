@@ -64,7 +64,13 @@ const arrow = `<svg width="20" height="14" viewBox="0 0 18 12" fill="none" xmlns
 
   <div class="service-sidebar-inner">
     <div class="service-contact-info-block">
-      <a href={quoteHref} class="sidebar-rfq-link">Request quote for this part -&gt;</a>
+      <a
+        href={quoteHref}
+        class="sidebar-rfq-link"
+        data-rfq-modal
+        data-rfq-context={`Sidebar inquiry: ${activeSlug}`}
+        data-rfq-source={`sidebar-${activeSlug}`}
+      >Request quote for this part -&gt;</a>
       <div class="service-contact-info-title">Helpful references</div>
       <div class="service-contact-info-devider"></div>
       <div class="servoce-contact-link-block">

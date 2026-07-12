@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import { isSitemapExcluded } from './src/data/sitemap-exclude.ts';
 
 export default defineConfig({
-  site: 'https://dieselpartsrfq.com',
+  site: 'https://dieselpartsource.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({

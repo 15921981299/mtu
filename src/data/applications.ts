@@ -25,7 +25,7 @@ export const applications: ApplicationItem[] = [
     productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
     content: {
       partOne:
-        '<h2>Marine Propulsion Parts Support</h2><p>Marine propulsion downtime is time-sensitive. Engine Family supports MTU, Detroit Diesel, Cummins, and related diesel engine parts inquiries for vessels, ferries, yachts, shipyards, and coastal service teams.</p><h3>Common Requests</h3><ul><li>Fuel pumps, injectors, pressure sensors, and control components</li><li>Filters, gaskets, seals, O-rings, and maintenance kits</li><li>Cooling, turbocharging, lubrication, and exhaust components</li><li>Overhaul parts for planned shipyard maintenance</li></ul>',
+        '<h2>Marine Propulsion Parts Support</h2><p>Marine propulsion downtime is time-sensitive. Diesel Part Source supports MTU, Detroit Diesel, Cummins, and related diesel engine parts inquiries for vessels, ferries, yachts, shipyards, and coastal service teams.</p><h3>Common Requests</h3><ul><li>Fuel pumps, injectors, pressure sensors, and control components</li><li>Filters, gaskets, seals, O-rings, and maintenance kits</li><li>Cooling, turbocharging, lubrication, and exhaust components</li><li>Overhaul parts for planned shipyard maintenance</li></ul>',
       partTwo:
         `<h2>What to Send</h2><p>Include the engine model, serial number, part numbers, quantity, vessel or yard location, and required delivery date. Nameplate photos help confirm the correct configuration.</p>${inquiryCta}`,
     },
@@ -48,7 +48,7 @@ export const applications: ApplicationItem[] = [
   {
     slug: 'industrial-equipment-engines',
     title: 'Industrial Equipment Engines',
-    seoTitle: 'Industrial Equipment Diesel Engine Parts | Engine Family',
+    seoTitle: 'Industrial Equipment Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Industrial Equipment Engine Parts',
     summary:
       'Diesel engine parts for pumps, compressors, heavy machinery, oilfield units, construction equipment, and industrial power systems.',
@@ -70,7 +70,7 @@ export const applications: ApplicationItem[] = [
     productSlugs: ['mtu-spare-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
     content: {
       partOne:
-        '<h2>Rail Engine Parts Support</h2><p>Rail maintenance schedules require correct parts and dependable logistics. Engine Family supports MTU and diesel engine parts inquiries for rail equipment, locomotive service, and transit maintenance programs.</p><h3>Common Rail Requests</h3><ul><li>Fuel-system, cooling, lubrication, and filtration parts</li><li>Sensors, control components, and electrical items</li><li>Maintenance kits and overhaul components</li></ul>',
+        '<h2>Rail Engine Parts Support</h2><p>Rail maintenance schedules require correct parts and dependable logistics. Diesel Part Source supports MTU and diesel engine parts inquiries for rail equipment, locomotive service, and transit maintenance programs.</p><h3>Common Rail Requests</h3><ul><li>Fuel-system, cooling, lubrication, and filtration parts</li><li>Sensors, control components, and electrical items</li><li>Maintenance kits and overhaul components</li></ul>',
       partTwo:
         `<h2>Planned Maintenance Lists</h2><p>Send parts lists early for line-by-line availability checks, replacement confirmation, and shipment planning.</p>${inquiryCta}`,
     },
@@ -78,7 +78,7 @@ export const applications: ApplicationItem[] = [
   {
     slug: 'shipyard-repair-overhaul',
     title: 'Shipyard Repair & Overhaul',
-    seoTitle: 'Shipyard Engine Parts and Overhaul Support | Engine Family',
+    seoTitle: 'Shipyard Engine Parts and Overhaul Support | Diesel Part Source',
     h1Title: 'Shipyard Repair & Overhaul Parts',
     summary:
       'Parts-list checking, consolidated shipment, and urgent sourcing support for shipyards and marine repair companies.',
@@ -93,7 +93,7 @@ export const applications: ApplicationItem[] = [
   {
     slug: 'energy-power-plant-engines',
     title: 'Energy & Power Plant Engines',
-    seoTitle: 'Power Plant Diesel Engine Parts | Engine Family',
+    seoTitle: 'Power Plant Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Energy & Power Plant Engine Parts',
     summary:
       'Diesel engine parts for energy suppliers, standby power systems, independent power plants, and industrial generator operations.',

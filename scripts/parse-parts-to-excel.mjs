@@ -4,7 +4,7 @@ import ExcelJS from 'exceljs';
 const html = readFileSync('e:/claude/parts.txt', 'utf8');
 
 // Split into individual product blocks by finding <a href="...part-product/...">
-const blocks = html.split(/<a href="https:\/\/engine-family\.com\/part-product\//);
+const blocks = html.split(/<a href="https:\/\/diesel-part-source\.com\/part-product\//);
 const rows = [];
 
 for (let i = 1; i < blocks.length; i++) {
@@ -12,7 +12,7 @@ for (let i = 1; i < blocks.length; i++) {
 
   // href slug
   const hrefSlug = block.match(/^([^"']+)/)?.[1] || '';
-  const href = hrefSlug ? `https://engine-family.com/part-product/${hrefSlug}` : '';
+  const href = hrefSlug ? `https://diesel-part-source.com/part-product/${hrefSlug}` : '';
 
   // img src
   const imgMatch = block.match(/<img\s+src="([^"]+)"/);
@@ -52,7 +52,7 @@ console.log(`Parsed ${rows.length} product blocks`);
 
 // Create Excel workbook
 const wb = new ExcelJS.Workbook();
-const ws = wb.addWorksheet('engine-family-parts', {
+const ws = wb.addWorksheet('diesel-part-source-parts', {
   views: [{ state: 'frozen', ySplit: 1 }],
 });
 
@@ -89,7 +89,7 @@ for (let i = 2; i <= rows.length + 1; i++) {
   }
 }
 
-const outPath = 'e:/claude/engine-family-parts.xlsx';
+const outPath = 'e:/claude/diesel-part-source-parts.xlsx';
 await wb.xlsx.writeFile(outPath);
 console.log(`Written ${rows.length} rows to ${outPath}`);
 

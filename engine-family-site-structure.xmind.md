@@ -1,4 +1,4 @@
-engine-family.com 站点目录结构
+diesel-part-source.com 站点目录结构
 	首页 (/)
 		MTU Engine Parts Specialist — 品牌展示
 		热门零件号展示 (5110804420, 0020940204, EX52407500064, X53507500012...)
@@ -97,7 +97,7 @@ engine-family.com 站点目录结构
 	Company 公司信息
 		About (/about)
 		Contact (/contact)
-			stella@engine-family.com
+			stella@diesel-part-source.com
 			+86-21-33282711
 			上海奉贤区
 		FAQ (/faq)

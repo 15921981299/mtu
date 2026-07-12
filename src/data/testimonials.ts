@@ -18,7 +18,7 @@ export const testimonials = [
     role: 'Procurement Lead — Marine Service Company, USA',
     title: 'Fast verification for urgent marine spares',
     quote:
-      "For vessel downtime, the response speed matters. Engine Family checked the MTU part numbers, asked for the nameplate photo, and separated available items from longer-lead parts so we could make a practical purchase decision.",
+      "For vessel downtime, the response speed matters. Diesel Part Source checked the MTU part numbers, asked for the nameplate photo, and separated available items from longer-lead parts so we could make a practical purchase decision.",
     avatar: '/images/client-testimonial-avatar-2.webp',
     brand: '/images/client-testimonial-logo-2.svg',
     country: 'USA',

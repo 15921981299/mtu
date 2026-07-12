@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: 'What engine brands do you supply parts for?',
     answer:
-      'Engine Family supplies parts for MTU, Detroit Diesel, Cummins, and DEUTZ diesel engines. MTU full-series support is our core focus, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.',
+      'Diesel Part Source supplies parts for MTU, Detroit Diesel, Cummins, and DEUTZ diesel engines. MTU full-series support is our core focus, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.',
   },
   {
     question: 'Do you supply genuine OEM parts?',

@@ -373,8 +373,10 @@ blockquote {
 }
 
 .brand-logo {
+    width: 220px;
     height: auto;
-    width: auto
+    max-height: 82px;
+    object-fit: contain
 }
 
 .brand-logo.is-2 {
@@ -2633,8 +2635,10 @@ blockquote {
 }
 
 .footer-logo {
-    width: 180px;
-    height: auto
+    width: 220px;
+    height: auto;
+    max-height: 82px;
+    object-fit: contain
 }
 
 .footer-title {

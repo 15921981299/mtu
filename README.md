@@ -1,6 +1,6 @@
-# Engine Family
+# Diesel Part Source
 
-Diesel engine parts supplier website built with [Astro](https://astro.build). Live site: [dieselpartsrfq.com](https://dieselpartsrfq.com).
+Diesel engine parts supplier website built with [Astro](https://astro.build). Live site: [dieselpartsource.com](https://dieselpartsource.com).
 
 ## Setup
 

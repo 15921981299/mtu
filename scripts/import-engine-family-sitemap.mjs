@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const sitemapPath = 'dieselpartsrfq-sitemap.xml';
+const sitemapPath = 'dieselpartsource-sitemap.xml';
 const mtuPartsPath = 'src/data/mtu-parts.ts';
 const productsPath = 'src/data/products.ts';
 const importedPagesPath = 'src/data/imported-dieselpartsrfq-pages.ts';
@@ -36,7 +36,7 @@ const readSitemap = async () => {
     if (error.code !== 'ENOENT') throw error;
   }
 
-  const response = await fetch('https://dieselpartsrfq.com/sitemap.xml');
+  const response = await fetch('https://dieselpartsource.com/sitemap.xml');
   if (!response.ok) {
     throw new Error(`Failed to fetch sitemap: ${response.status} ${response.statusText}`);
   }
@@ -104,7 +104,7 @@ const createProductEntry = (sourceSlug) => {
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '${title.replace(/'/g, "\\'")} Parts | Engine Family',
+    seoTitle: '${title.replace(/'/g, "\\'")} Parts | Diesel Part Source',
     h1Title: '${title.replace(/'/g, "\\'")} Engine Parts',
     summary: '${brand} ${title.replace(/'/g, "\\'")} engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -114,7 +114,7 @@ const createProductEntry = (sourceSlug) => {
     content: {
       partOne: \`
         <h2>${title} Parts Support</h2>
-        <p>Engine Family supports ${brand} ${title} engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports ${brand} ${title} engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -147,7 +147,7 @@ const createImportedPageEntry = (path) => {
   return `  {
     slug: '${normalizedPath}',
     title: '${title.replace(/'/g, "\\'")}',
-    seoTitle: '${title.replace(/'/g, "\\'")} | Engine Family',
+    seoTitle: '${title.replace(/'/g, "\\'")} | Diesel Part Source',
     section: '${sectionTitle.replace(/'/g, "\\'")}',
     summary: '${summary.replace(/'/g, "\\'")}',
   },`;

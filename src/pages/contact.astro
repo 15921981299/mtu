@@ -10,8 +10,8 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
 ---
 
 <BaseLayout
-  title="Contact Engine Family | Diesel Engine Parts Inquiry"
-  description="Contact Engine Family for MTU, Detroit Diesel, Cummins, and DEUTZ engine parts. Send engine model, serial number, part number, and destination for fast support."
+  title="Contact Diesel Part Source | Diesel Engine Parts Inquiry"
+  description="Contact Diesel Part Source for MTU, Detroit Diesel, Cummins, and DEUTZ engine parts. Send engine model, serial number, part number, and destination for fast support."
   currentPath="/contact"
   hideFloatingCta
   jsonLd={[
@@ -48,7 +48,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
             <div class="contact-form-block">
               <div class="contact-form-title-block">
                 <h2 class="contact-form-title">Send an Engine Parts Inquiry</h2>
-                <p class="contact-form-lead">Share your engine brand, model, serial number, part number, quantity, and destination. We verify the part and respond with availability, lead time, and shipping options.</p>
+                <p class="contact-form-lead">Send a part number, old-part photo, or parts list. If the exact number is unclear, add the engine model or serial number and we will help verify it.</p>
                 <ul class="contact-trust-badges" aria-label="Quote guarantees">
                   <li><span class="contact-trust-check" set:html={checkIcon} />Fast inquiry response</li>
                   <li><span class="contact-trust-check" set:html={checkIcon} />Part-number verification</li>
@@ -60,7 +60,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                   <ul>
                     <li>Part-number confirmation and replacement notes when available.</li>
                     <li>Unit price, stock status, lead time, and shipping route.</li>
-                    <li>Export packing and documentation notes for international shipment.</li>
+                    <li>Export packing notes for international shipment.</li>
                   </ul>
                 </div>
               </div>
@@ -74,65 +74,19 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                   <input class="contact-form-input-field" type="email" id="rfq-email" name="email" placeholder="jane@company.com" autocomplete="email" required />
                 </div>
                 <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-company">Company Name</label>
-                  <input class="contact-form-input-field" type="text" id="rfq-company" name="company" placeholder="Company Inc." autocomplete="organization" />
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-phone">Phone / WhatsApp *</label>
-                  <input class="contact-form-input-field" type="tel" id="rfq-phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel" required />
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-role">Your Role</label>
-                  <select name="role" id="rfq-role" class="contact-form-input-field is-2">
-                    <option value="">Your Role</option>
-                    <option value="Engineer">Fleet / Vessel Operator</option>
-                    <option value="Purchaser">Purchasing / Procurement</option>
-                    <option value="Quality">Maintenance / Service</option>
-                    <option value="Founder">Shipyard / Repair Company</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-material">Engine Brand</label>
-                  <select name="material" id="rfq-material" class="contact-form-input-field is-2">
-                    <option value="">Engine Brand</option>
-                    <option value="MTU">MTU</option>
-                    <option value="Detroit Diesel">Detroit Diesel</option>
-                    <option value="Cummins">Cummins</option>
-                    <option value="DEUTZ">DEUTZ</option>
-                    <option value="Other diesel engine">Other diesel engine</option>
-                    <option value="Not Sure">Not sure — need identification help</option>
-                  </select>
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-quantity">Quantity</label>
-                  <select name="quantity" id="rfq-quantity" class="contact-form-input-field is-2">
-                    <option value="">Quantity</option>
-                    <option value="1-10">1-5 pcs</option>
-                    <option value="10-100">6-20 pcs</option>
-                    <option value="100-1000">21-100 pcs</option>
-                    <option value="1000+">100+ pcs / stock order</option>
-                    <option value="Not Sure">Not Sure Yet</option>
-                  </select>
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-tolerance">Engine Model / Serial Number</label>
-                  <input class="contact-form-input-field" type="text" id="rfq-tolerance" name="tolerance" placeholder="e.g. MTU 16V4000, engine serial number" />
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-finish">Part Number(s)</label>
-                  <input class="contact-form-input-field" type="text" id="rfq-finish" name="surface_finish" placeholder="e.g. X00E50207217 pressure sensor" />
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-deadline">Target Delivery</label>
-                  <input class="contact-form-input-field" type="text" id="rfq-deadline" name="deadline" placeholder="Date or lead time needed" />
+                  <label class="contact-field-label" for="rfq-phone">WhatsApp / Phone</label>
+                  <input class="contact-form-input-field" type="tel" id="rfq-phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel" />
                 </div>
                 <div class="contact-form-column">
                   <label class="contact-field-label" for="rfq-country">Destination Country</label>
                   <input class="contact-form-input-field" type="text" id="rfq-country" name="country" placeholder="e.g. United States, Germany, Australia" autocomplete="country-name" />
                 </div>
+                <div class="contact-form-column contact-form-column--full">
+                  <label class="contact-field-label" for="rfq-message">Part Number / Inquiry Details *</label>
+                  <textarea id="rfq-message" placeholder="Paste part numbers, engine model or serial number, quantity, destination, or describe the old part." name="message" class="contact-form-input-field large" required></textarea>
+                </div>
                 <div class="contact-form-column file-upload-column">
-                  <span class="contact-field-label" id="rfq-drawing-label">Upload Nameplate / Part Photo</span>
+                  <span class="contact-field-label" id="rfq-drawing-label">Upload Photo / Parts List</span>
                   <label class="file-upload-label" for="drawing-upload" aria-labelledby="rfq-drawing-label">
                     <input
                       type="file"
@@ -148,56 +102,20 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                       </svg>
                     </span>
                     <span class="file-upload-content">
-                      <span class="file-upload-title">Upload Nameplate / Part Photo</span>
-                      <span class="file-upload-hint">PDF, Excel, JPG, PNG, or part-list file · Max 50MB</span>
+                      <span class="file-upload-title">Upload Photo / Parts List (Optional)</span>
+                      <span class="file-upload-hint">JPG, PNG, PDF, Excel, or CSV · Max 50MB</span>
                       <span class="file-upload-filename" data-placeholder="No file selected">No file selected</span>
                     </span>
                   </label>
                 </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-message">Parts Details *</label>
-                  <textarea id="rfq-message" placeholder="Engine model, serial number, part numbers, quantity, destination, and delivery deadline" name="message" class="contact-form-input-field large" required></textarea>
-                </div>
-                <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-source">How Did You Find Us?</label>
-                  <select name="source" id="rfq-source" class="contact-form-input-field is-2">
-                    <option value="">How Did You Find Us?</option>
-                    <option value="Google Search">Google Search</option>
-                    <option value="Technical Blog">Technical Blog / Guide</option>
-                    <option value="Case Study">Case Study</option>
-                    <option value="Comparison Page">Comparison Page</option>
-                    <option value="Referral">Referral / Word of Mouth</option>
-                    <option value="LinkedIn">LinkedIn</option>
-                    <option value="Trade Show">Trade Show / Event</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div class="contact-form-column contact-form-column--full">
-                  <p class="contact-field-label">Support Needed</p>
-                  <div class="contact-checkbox-grid">
-                    <label class="contact-form-checkbox" for="rfq-inspection-report">
-                      <input type="checkbox" id="rfq-inspection-report" name="inspection_report" />
-                      <span class="checkbox-label">Part-number verification</span>
-                    </label>
-                    <label class="contact-form-checkbox" for="rfq-material-cert">
-                      <input type="checkbox" id="rfq-material-cert" name="material_certificate" />
-                      <span class="checkbox-label">Genuine / OEM documentation if available</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="contact-form-column contact-form-column--full">
-                  <label class="contact-form-checkbox" for="rfq-nda">
-                    <input type="checkbox" id="rfq-nda" name="nda" />
-                    <span class="checkbox-label">I need confidentiality before sharing engine or fleet details</span>
-                  </label>
-                </div>
+                <input type="hidden" name="source" id="rfq-source" value="Contact form" />
                 <div class="hp-field" aria-hidden="true">
                   <label for="rfq-website">Leave this field empty</label>
                   <input type="text" id="rfq-website" name="website" tabindex="-1" autocomplete="off" />
                 </div>
                 <div class="contact-form-button-block">
                   <button type="submit" class="contact-form-button">Send Parts Inquiry →</button>
-                  <p class="contact-form-submit-note">Typical response within one business day. No spam — parts support only.</p>
+                  <p class="contact-form-submit-note">Only email and part details are required. We will ask follow-up questions if needed.</p>
                 </div>
                 <div class="form-result" aria-live="polite"></div>
               </form>
@@ -214,7 +132,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
                 <div class="process-steps">
                   <div class="process-step">
                     <span class="step-number">1</span>
-                    <p class="contact-form-summary">You send engine and part details</p>
+                    <p class="contact-form-summary">You send a part number, photo, or parts list</p>
                   </div>
                   <div class="process-step">
                     <span class="step-number">2</span>
@@ -367,12 +285,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
     cursor: not-allowed;
   }
 
-  .contact-form-checkbox:focus-within {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
   .contact-info-single-block {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
@@ -447,12 +359,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
     grid-column: 1 / -1;
   }
 
-  .contact-checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 16px;
-  }
-
   .file-upload-label {
     position: relative;
     display: flex;
@@ -465,12 +371,6 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
     background-color: var(--color-white);
     cursor: pointer;
     transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
-  }
-
-  @media (max-width: 720px) {
-    .contact-checkbox-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   .file-upload-label:hover,
@@ -620,7 +520,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
     const params = new URLSearchParams(window.location.search);
     const urlSource = params.get('source');
     if (urlSource) {
-      const sourceSelect = form.querySelector<HTMLSelectElement>('select[name="source"]');
+      const sourceInput = form.querySelector<HTMLInputElement>('input[name="source"]');
       const sourceMap: Record<string, string> = {
         comparison: 'Google Search',
         compare: 'Google Search',
@@ -665,7 +565,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
              urlSource.startsWith('product-sub-')
             ? 'Google Search'
             : '');
-      if (sourceSelect && mapped) sourceSelect.value = mapped;
+      if (sourceInput && mapped) sourceInput.value = mapped;
     }
   }
 
@@ -715,44 +615,31 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
       });
 
       if (res.ok) {
-        const role = formData.get('role')?.toString() ?? '';
         const source = formData.get('source')?.toString() ?? '';
-        const material = formData.get('material')?.toString() ?? '';
-        const quantity = formData.get('quantity')?.toString() ?? '';
-        const surfaceFinish = formData.get('surface_finish')?.toString() ?? '';
         const country = formData.get('country')?.toString() ?? '';
-        const inspectionReport = formData.get('inspection_report') ? 'yes' : 'no';
-        const materialCertificate = formData.get('material_certificate') ? 'yes' : 'no';
+        const message = formData.get('message')?.toString() ?? '';
+        const attachment = formData.get('drawing');
+        const hasAttachment = attachment instanceof File && attachment.size > 0 ? 'yes' : 'no';
         const urlSource = formData.get('url_source')?.toString() ?? new URLSearchParams(window.location.search).get('source') ?? '';
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'rfq_form_submit', {
             event_category: 'Funnel',
             event_label: 'contact_form',
             funnel_stage: 'quote',
-            buyer_role: role || 'unspecified',
             lead_source: source || 'unspecified',
             url_source: urlSource || 'unspecified',
-            material: material || 'unspecified',
-            quantity: quantity || 'unspecified',
-            surface_finish: surfaceFinish || 'unspecified',
             destination_country: country || 'unspecified',
-            inspection_report: inspectionReport,
-            material_certificate: materialCertificate,
+            has_attachment: hasAttachment,
+            inquiry_length: message.length,
           });
           window.gtag('event', 'generate_lead', {
             event_category: 'RFQ',
             event_label: source || 'contact_form',
-            buyer_role: role || 'unspecified',
             url_source: urlSource || 'unspecified',
-            material: material || 'unspecified',
-            quantity: quantity || 'unspecified',
-            surface_finish: surfaceFinish || 'unspecified',
             destination_country: country || 'unspecified',
-            inspection_report: inspectionReport,
-            material_certificate: materialCertificate,
+            has_attachment: hasAttachment,
           });
           fireAttributionLeadEvent({
-            buyer_role: role || 'unspecified',
             lead_source: source || 'unspecified',
             url_source: urlSource || 'unspecified',
           });
@@ -764,7 +651,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14
       }
     } catch (err) {
       resultEl.className = 'form-result is-visible is-error';
-      resultEl.innerHTML = `<p>Something went wrong. Please email us directly at <a href="mailto:${form.dataset.fallbackEmail ?? 'charles@dieselpartsrfq.com'}">${form.dataset.fallbackEmail ?? 'charles@dieselpartsrfq.com'}</a>.</p>`;
+      resultEl.innerHTML = `<p>Something went wrong. Please email us directly at <a href="mailto:${form.dataset.fallbackEmail ?? 'charles@dieselpartsource.com'}">${form.dataset.fallbackEmail ?? 'charles@dieselpartsource.com'}</a>.</p>`;
     }
 
     submitBtn.disabled = false;

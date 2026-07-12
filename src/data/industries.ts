@@ -20,7 +20,7 @@ export const industries: IndustryItem[] = [
     title: 'Marine',
     icon: '/images/marine-diesel-engine-parts.webp',
     image: '/images/marine-diesel-engine-parts.webp',
-    seoTitle: 'Marine Engine Parts & Service | Engine Family',
+    seoTitle: 'Marine Engine Parts & Service | Diesel Part Source',
     h1Title: 'Marine Engine Parts & Service',
     summary:
       'Genuine MTU and diesel engine parts for navy, coast guard, ferries, yachts, shipyards, and offshore vessels.',
@@ -29,7 +29,7 @@ export const industries: IndustryItem[] = [
     content: {
       partOne: `
         <h2>Marine Engine Parts</h2>
-        <p>Engine Family supplies engine parts for vessel operators and marine service companies that need correct parts, fast communication, and reliable delivery.</p>
+        <p>Diesel Part Source supplies engine parts for vessel operators and marine service companies that need correct parts, fast communication, and reliable delivery.</p>
         <h3>Marine Users</h3>
         <ul>
           <li>Navy and coast guard fleets</li>
@@ -49,7 +49,7 @@ export const industries: IndustryItem[] = [
     title: 'Industrial Engines',
     icon: '/images/industrial-diesel-engine-parts.webp',
     image: '/images/industrial-diesel-engine-parts.webp',
-    seoTitle: 'Industrial Engine Parts | Engine Family',
+    seoTitle: 'Industrial Engine Parts | Diesel Part Source',
     h1Title: 'Industrial Engine Parts',
     summary:
       'Parts sourcing for diesel engines used in pumps, compressors, heavy machinery, oilfield units, and industrial power systems.',
@@ -78,7 +78,7 @@ export const industries: IndustryItem[] = [
     title: 'Power Generation',
     icon: '/images/generator-engine-parts.webp',
     image: '/images/generator-engine-parts.webp',
-    seoTitle: 'Generator Engine Parts | Engine Family',
+    seoTitle: 'Generator Engine Parts | Diesel Part Source',
     h1Title: 'Power Generation Engine Parts',
     summary:
       'Diesel engine spare parts for generator sets, standby power, prime power, and power plant maintenance programs.',
@@ -107,7 +107,7 @@ export const industries: IndustryItem[] = [
     title: 'Rail',
     icon: '/images/mtu-4000-series-overhaul-parts.webp',
     image: '/images/mtu-4000-series-overhaul-parts.webp',
-    seoTitle: 'Rail Diesel Engine Parts | Engine Family',
+    seoTitle: 'Rail Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Rail Diesel Engine Parts',
     summary:
       'Engine parts support for rail traction, locomotive auxiliary systems, and fleet maintenance programs.',
@@ -116,7 +116,7 @@ export const industries: IndustryItem[] = [
     content: {
       partOne: `
         <h2>Rail Engine Parts</h2>
-        <p>Engine Family supports rail-related engine parts inquiries for operators and maintenance contractors handling scheduled fleet service and urgent repairs.</p>
+        <p>Diesel Part Source supports rail-related engine parts inquiries for operators and maintenance contractors handling scheduled fleet service and urgent repairs.</p>
         <h3>Support Scope</h3>
         <ul>
           <li>MTU and Detroit Diesel related rail engine parts</li>
@@ -136,7 +136,7 @@ export const industries: IndustryItem[] = [
     title: 'Shipyards & Repair',
     icon: '/images/marine-diesel-engine-parts.webp',
     image: '/images/mtu-part-number-verification.webp',
-    seoTitle: 'Shipyard Diesel Engine Parts | Engine Family',
+    seoTitle: 'Shipyard Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Shipyard & Repair Engine Parts',
     summary:
       'Consolidated spare-parts sourcing for shipyards, engine repair companies, and overhaul contractors.',
@@ -165,7 +165,7 @@ export const industries: IndustryItem[] = [
     title: 'Energy Suppliers',
     icon: '/images/generator-engine-parts.webp',
     image: '/images/global-engine-parts-delivery.webp',
-    seoTitle: 'Engine Parts for Energy Suppliers | Engine Family',
+    seoTitle: 'Engine Parts for Energy Suppliers | Diesel Part Source',
     h1Title: 'Engine Parts for Energy Suppliers',
     summary:
       'Spare-parts sourcing for energy companies operating diesel engines in remote, standby, offshore, and industrial power environments.',

@@ -128,6 +128,8 @@ const verificationFocus = [
       quoteHref={quoteHref}
       title={`Check ${product.title.toLowerCase()} availability`}
       text="Send the part number, engine model, serial number, quantity, and destination. We verify compatibility before quotation."
+      modalContext={`${product.title} - ${brand} parts inquiry`}
+      modalSource={`product-${product.slug}`}
     />
 
     {linkedCapabilities.length > 0 && (
@@ -181,7 +183,12 @@ const verificationFocus = [
       ·
       <a href="/products/mtu-spare-parts/">MTU parts</a>
       ·
-      <a href={quoteHref}>Request a quote</a>
+      <a
+        href={quoteHref}
+        data-rfq-modal
+        data-rfq-context={`${product.title} - ${brand} parts inquiry`}
+        data-rfq-source={`product-${product.slug}`}
+      >Request a quote</a>
     </p>
 
     <ProductSidebar

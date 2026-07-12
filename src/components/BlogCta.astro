@@ -18,6 +18,9 @@ interface Props {
   secondaryLabel?: string;
   secondaryHref?: string;
   secondaryEvent?: string;
+  useRfqModal?: boolean;
+  rfqContext?: string;
+  rfqSource?: string;
 }
 
 const {
@@ -32,6 +35,9 @@ const {
   secondaryLabel,
   secondaryHref,
   secondaryEvent,
+  useRfqModal = false,
+  rfqContext,
+  rfqSource,
 } = Astro.props;
 const stage = stageProp ?? (post ? getPostFunnelStage(post) : 'quote');
 const baseCta = funnelCtaByStage[stage];
@@ -61,6 +67,9 @@ const eventLabel = topic ?? post?.slug ?? stage;
           data-funnel-event={cta.primaryEvent}
           data-funnel-stage={stage}
           data-funnel-label={eventLabel}
+          data-rfq-modal={useRfqModal ? true : undefined}
+          data-rfq-context={useRfqModal ? (rfqContext ?? cta.title) : undefined}
+          data-rfq-source={useRfqModal ? (rfqSource ?? eventLabel) : undefined}
         >
           <div class="button-content-block">
             <div class="button-text">{cta.primaryLabel}</div>

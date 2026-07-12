@@ -1,50 +1,50 @@
-# Engine Family — LLM / AI crawler index
-# https://dieselpartsrfq.com
+# Diesel Part Source — LLM / AI crawler index
+# https://dieselpartsource.com
 
-> Diesel engine parts supplier based in Shanghai. Engine Family supplies MTU, Detroit Diesel, Cummins, and DEUTZ parts for marine, industrial, power generation, rail, shipyard, and repair customers. Buyers can inquire by part number, engine model, serial number, nameplate photo, old part photo, quantity, and destination.
+> Diesel engine parts supplier based in Shanghai. Diesel Part Source supplies MTU, Detroit Diesel, Cummins, and DEUTZ parts for marine, industrial, power generation, rail, shipyard, and repair customers. Buyers can inquire by part number, engine model, serial number, nameplate photo, old part photo, quantity, and destination.
 
 ## Primary entry points
 
-- [Home](https://dieselpartsrfq.com/)
-- [Products](https://dieselpartsrfq.com/products/)
-- [MTU Spare Parts](https://dieselpartsrfq.com/products/mtu-spare-parts/)
-- [MTU 2000 Series Parts](https://dieselpartsrfq.com/products/mtu-2000-series-parts/)
-- [MTU 4000 Series Parts](https://dieselpartsrfq.com/products/mtu-4000-series-parts/)
-- [Cummins Parts](https://dieselpartsrfq.com/products/cummins-parts/)
-- [DEUTZ Parts](https://dieselpartsrfq.com/products/deutz-parts/)
-- [Contact](https://dieselpartsrfq.com/contact/)
+- [Home](https://dieselpartsource.com/)
+- [Products](https://dieselpartsource.com/products/)
+- [MTU Spare Parts](https://dieselpartsource.com/products/mtu-spare-parts/)
+- [MTU 2000 Series Parts](https://dieselpartsource.com/products/mtu-2000-series-parts/)
+- [MTU 4000 Series Parts](https://dieselpartsource.com/products/mtu-4000-series-parts/)
+- [Cummins Parts](https://dieselpartsource.com/products/cummins-parts/)
+- [DEUTZ Parts](https://dieselpartsource.com/products/deutz-parts/)
+- [Contact](https://dieselpartsource.com/contact/)
 
 ## Parts guides
 
-- [MTU Part Number Lookup](https://dieselpartsrfq.com/products/mtu-spare-parts/mtu-part-number-lookup/)
-- [MTU Engine Series Guide](https://dieselpartsrfq.com/products/mtu-spare-parts/mtu-engine-series-guide/)
-- [MTU 2000 Marine & Generator Parts](https://dieselpartsrfq.com/products/mtu-2000-series-parts/marine-generator-service-parts/)
-- [MTU 4000 Overhaul Parts](https://dieselpartsrfq.com/products/mtu-4000-series-parts/overhaul-parts/)
-- [Cummins Service Kits & Overhaul Parts](https://dieselpartsrfq.com/products/cummins-parts/service-kits-and-overhaul-parts/)
-- [DEUTZ Industrial Equipment Parts](https://dieselpartsrfq.com/products/deutz-parts/industrial-equipment-parts/)
+- [MTU Part Number Lookup](https://dieselpartsource.com/products/mtu-spare-parts/mtu-part-number-lookup/)
+- [MTU Engine Series Guide](https://dieselpartsource.com/products/mtu-spare-parts/mtu-engine-series-guide/)
+- [MTU 2000 Marine & Generator Parts](https://dieselpartsource.com/products/mtu-2000-series-parts/marine-generator-service-parts/)
+- [MTU 4000 Overhaul Parts](https://dieselpartsource.com/products/mtu-4000-series-parts/overhaul-parts/)
+- [Cummins Service Kits & Overhaul Parts](https://dieselpartsource.com/products/cummins-parts/service-kits-and-overhaul-parts/)
+- [DEUTZ Industrial Equipment Parts](https://dieselpartsource.com/products/deutz-parts/industrial-equipment-parts/)
 
 ## Service and support
 
-- [MTU Engine Parts](https://dieselpartsrfq.com/capabilities/mtu-engine-parts/)
-- [Cummins Engine Parts](https://dieselpartsrfq.com/capabilities/cummins-engine-parts/)
-- [DEUTZ Engine Parts](https://dieselpartsrfq.com/capabilities/deutz-engine-parts/)
-- [Marine Engine Service](https://dieselpartsrfq.com/capabilities/marine-engine-service/)
-- [Industrial Engine Service](https://dieselpartsrfq.com/capabilities/industrial-engine-service/)
-- [Genuine OEM Parts](https://dieselpartsrfq.com/capabilities/genuine-oem-parts/)
+- [MTU Engine Parts](https://dieselpartsource.com/capabilities/mtu-engine-parts/)
+- [Cummins Engine Parts](https://dieselpartsource.com/capabilities/cummins-engine-parts/)
+- [DEUTZ Engine Parts](https://dieselpartsource.com/capabilities/deutz-engine-parts/)
+- [Marine Engine Service](https://dieselpartsource.com/capabilities/marine-engine-service/)
+- [Industrial Engine Service](https://dieselpartsource.com/capabilities/industrial-engine-service/)
+- [Genuine OEM Parts](https://dieselpartsource.com/capabilities/genuine-oem-parts/)
 
 ## Industries and applications
 
-- [Marine](https://dieselpartsrfq.com/industries/marine/)
-- [Industrial Engines](https://dieselpartsrfq.com/industries/industrial-engines/)
-- [Power Generation](https://dieselpartsrfq.com/industries/power-generation/)
-- [Rail](https://dieselpartsrfq.com/industries/rail/)
-- [Shipyards & Repair](https://dieselpartsrfq.com/industries/shipyards-repair/)
-- [Energy Suppliers](https://dieselpartsrfq.com/industries/energy-suppliers/)
+- [Marine](https://dieselpartsource.com/industries/marine/)
+- [Industrial Engines](https://dieselpartsource.com/industries/industrial-engines/)
+- [Power Generation](https://dieselpartsource.com/industries/power-generation/)
+- [Rail](https://dieselpartsource.com/industries/rail/)
+- [Shipyards & Repair](https://dieselpartsource.com/industries/shipyards-repair/)
+- [Energy Suppliers](https://dieselpartsource.com/industries/energy-suppliers/)
 
 ## Contact
 
-- Email: charles@dieselpartsrfq.com
+- Email: charles@dieselpartsource.com
 - Phone: +862133282711
 - WhatsApp: +8618018620661
-- Legal name: Shanghai Diesel Engine Family Co., Ltd.
+- Legal name: Shanghai Diesel Diesel Part Source Co., Ltd.
 - Address: Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District, Shanghai, 201112 China

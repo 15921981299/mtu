@@ -14278,3 +14278,7 @@ export const engineFamilyPartSeeds = engineFamilyParts.map((part) => ({
 export const engineFamilyPartDetailsByPartNumber = Object.fromEntries(
   engineFamilyParts.map((part) => [part.partNumber.toUpperCase(), part]),
 ) as Record<string, EngineFamilyPartImport>;
+
+export const engineFamilyPartDetailsBySlug = Object.fromEntries(
+  engineFamilyParts.map((part) => [part.slug, part]),
+) as Record<string, EngineFamilyPartImport>;

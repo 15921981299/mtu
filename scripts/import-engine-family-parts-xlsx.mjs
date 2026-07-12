@@ -4,8 +4,8 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const workbookPath = process.argv[2] ?? 'E:/claude/parts.xlsx';
-const outputPath = 'src/data/engine-family-parts.ts';
-const imageDir = 'public/images/engine-family-parts';
+const outputPath = 'src/data/diesel-part-source-parts.ts';
+const imageDir = 'public/images/diesel-part-source-parts';
 
 const titleCase = (value) =>
   value
@@ -131,7 +131,7 @@ const downloadImage = async (url, slug) => {
   const ext = path.extname(new URL(url).pathname) || '.webp';
   const filename = `${slug}${ext.toLowerCase()}`;
   const localPath = path.join(imageDir, filename);
-  const publicPath = `/images/engine-family-parts/${filename}`;
+  const publicPath = `/images/diesel-part-source-parts/${filename}`;
   if (existsSync(localPath)) return publicPath;
 
   let lastError;

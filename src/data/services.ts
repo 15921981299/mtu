@@ -13,7 +13,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'mtu-engine-parts',
     title: 'MTU Engine Parts',
-    seoTitle: 'MTU Engine Parts Supplier | Engine Family',
+    seoTitle: 'MTU Engine Parts Supplier | Diesel Part Source',
     h1Title: 'Genuine MTU Engine Parts Supply',
     summary:
       'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with fast global delivery.',
@@ -24,7 +24,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'cummins-engine-parts',
     title: 'Cummins Engine Parts',
-    seoTitle: 'Cummins Engine Parts Supplier | Engine Family',
+    seoTitle: 'Cummins Engine Parts Supplier | Diesel Part Source',
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
       'Supply support for Cummins diesel engines and genuine replacement parts for industrial, marine, generator, and equipment maintenance programs.',
@@ -35,7 +35,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'deutz-engine-parts',
     title: 'DEUTZ Engine Parts',
-    seoTitle: 'DEUTZ Engine Parts Supplier | Engine Family',
+    seoTitle: 'DEUTZ Engine Parts Supplier | Diesel Part Source',
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:
       'DEUTZ replacement parts and engine support for construction machinery, power units, pumps, compressors, and industrial fleets.',
@@ -46,7 +46,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'industrial-engine-service',
     title: 'Industrial Engine Service',
-    seoTitle: 'Industrial Diesel Engine Service & Parts | Engine Family',
+    seoTitle: 'Industrial Diesel Engine Service & Parts | Diesel Part Source',
     h1Title: 'Industrial Engine Service & Support',
     summary:
       'Parts sourcing and technical support for engines used in pumps, compressors, heavy equipment, oilfield units, and industrial power systems.',
@@ -57,7 +57,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'marine-engine-service',
     title: 'Marine Engine Service',
-    seoTitle: 'Marine Diesel Engine Parts & Service | Engine Family',
+    seoTitle: 'Marine Diesel Engine Parts & Service | Diesel Part Source',
     h1Title: 'Marine Engine Parts & Service',
     summary:
       'Genuine spare parts for naval, coast guard, ferry, yacht, shipyard, and offshore MTU engine users with urgent global shipment support.',
@@ -68,7 +68,7 @@ export const services: ServiceItem[] = [
   {
     slug: 'genuine-oem-parts',
     title: 'Genuine OEM Parts',
-    seoTitle: 'Genuine OEM Diesel Engine Parts | Engine Family',
+    seoTitle: 'Genuine OEM Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Genuine OEM Engine Parts',
     summary:
       'Original and OEM manufacturer parts from O-rings to crankshafts, prepared for reliable maintenance, overhaul, and long-term fleet operation.',
@@ -83,7 +83,7 @@ export function getServiceDetailHtml(title: string) {
     'MTU Engine Parts': {
       partOne: `
         <h2>MTU Full-Series Spare Parts</h2>
-        <p>Engine Family specializes in supplying MTU engine parts for classic and current engine families, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines. We support maintenance teams that need genuine parts, clear identification, and fast shipment.</p>
+        <p>Diesel Part Source specializes in supplying MTU engine parts for classic and current engine families, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines. We support maintenance teams that need genuine parts, clear identification, and fast shipment.</p>
         <h3>Typical MTU Parts</h3>
         <ul>
           <li>Filters, seals, O-rings, gaskets, and overhaul kits</li>
@@ -120,7 +120,7 @@ export function getServiceDetailHtml(title: string) {
     'DEUTZ Engine Parts': {
       partOne: `
         <h2>DEUTZ Engine Parts</h2>
-        <p>Engine Family supports DEUTZ diesel engines used in construction machinery, compressors, pumps, and industrial equipment. We help buyers identify parts and consolidate orders for scheduled maintenance or urgent repair.</p>
+        <p>Diesel Part Source supports DEUTZ diesel engines used in construction machinery, compressors, pumps, and industrial equipment. We help buyers identify parts and consolidate orders for scheduled maintenance or urgent repair.</p>
         <h3>Supply Scope</h3>
         <ul>
           <li>Filters, belts, seals, gaskets, and service kits</li>
@@ -171,7 +171,7 @@ export function getServiceDetailHtml(title: string) {
     'Genuine OEM Parts': {
       partOne: `
         <h2>Genuine and OEM Manufacturer Parts</h2>
-        <p>From O-rings to crankshafts, Engine Family supplies new and repaired genuine parts and original manufacturer parts for MTU, Detroit Diesel, Cummins, and DEUTZ engines.</p>
+        <p>From O-rings to crankshafts, Diesel Part Source supplies new and repaired genuine parts and original manufacturer parts for MTU, Detroit Diesel, Cummins, and DEUTZ engines.</p>
         <h3>Why Genuine Parts Matter</h3>
         <ul>
           <li>Correct fit and reliable service life</li>
@@ -188,7 +188,7 @@ export function getServiceDetailHtml(title: string) {
   };
 
   return details[title] || {
-    partOne: `<h2>${title}</h2><p>Engine Family supplies diesel engine parts and service support for global marine and industrial users.</p>`,
+    partOne: `<h2>${title}</h2><p>Diesel Part Source supplies diesel engine parts and service support for global marine and industrial users.</p>`,
     partTwo: `<h3>Get Support</h3><p><a href="/contact/">Contact us with your engine model and part number</a>.</p>`,
   };
 }

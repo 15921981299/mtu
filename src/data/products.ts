@@ -27,7 +27,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4b3 9 G1 G Drive Parts | Engine Family',
+    seoTitle: '4b3 9 G1 G Drive Parts | Diesel Part Source',
     h1Title: '4b3 9 G1 G Drive Engine Parts',
     summary: 'MTU 4b3 9 G1 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -37,7 +37,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4b3 9 G1 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 4b3 9 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4b3 9 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -59,7 +59,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4b3 9 G2 G Drive Parts | Engine Family',
+    seoTitle: '4b3 9 G2 G Drive Parts | Diesel Part Source',
     h1Title: '4b3 9 G2 G Drive Engine Parts',
     summary: 'MTU 4b3 9 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -69,7 +69,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4b3 9 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 4b3 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4b3 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -91,7 +91,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4bt3 9 G1 Parts | Engine Family',
+    seoTitle: '4bt3 9 G1 Parts | Diesel Part Source',
     h1Title: '4bt3 9 G1 Engine Parts',
     summary: 'MTU 4bt3 9 G1 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -101,7 +101,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4bt3 9 G1 Parts Support</h2>
-        <p>Engine Family supports MTU 4bt3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4bt3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -123,7 +123,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4bt3 9 G1 G Parts | Engine Family',
+    seoTitle: '4bt3 9 G1 G Parts | Diesel Part Source',
     h1Title: '4bt3 9 G1 G Engine Parts',
     summary: 'MTU 4bt3 9 G1 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -133,7 +133,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4bt3 9 G1 G Parts Support</h2>
-        <p>Engine Family supports MTU 4bt3 9 G1 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4bt3 9 G1 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -155,7 +155,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4bt3 9 G1 G Drive Parts | Engine Family',
+    seoTitle: '4bt3 9 G1 G Drive Parts | Diesel Part Source',
     h1Title: '4bt3 9 G1 G Drive Engine Parts',
     summary: 'MTU 4bt3 9 G1 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -165,7 +165,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4bt3 9 G1 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 4bt3 9 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4bt3 9 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -187,7 +187,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C100 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C100 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C100 Engine Parts',
     summary: 'MTU 4btaa3 9 C100 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -197,7 +197,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C100 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C100 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C100 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -219,7 +219,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C110 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C110 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C110 Engine Parts',
     summary: 'MTU 4btaa3 9 C110 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -229,7 +229,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C110 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C110 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C110 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -251,7 +251,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C115 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C115 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C115 Engine Parts',
     summary: 'MTU 4btaa3 9 C115 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -261,7 +261,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C115 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C115 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C115 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -283,7 +283,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C125 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C125 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C125 Engine Parts',
     summary: 'MTU 4btaa3 9 C125 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -293,7 +293,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C125 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -315,7 +315,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C130 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C130 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C130 Engine Parts',
     summary: 'MTU 4btaa3 9 C130 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -325,7 +325,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C130 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -347,7 +347,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '4btaa3 9 C80 Parts | Engine Family',
+    seoTitle: '4btaa3 9 C80 Parts | Diesel Part Source',
     h1Title: '4btaa3 9 C80 Engine Parts',
     summary: 'MTU 4btaa3 9 C80 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -357,7 +357,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>4btaa3 9 C80 Parts Support</h2>
-        <p>Engine Family supports MTU 4btaa3 9 C80 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 4btaa3 9 C80 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -379,7 +379,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C115 Parts | Engine Family',
+    seoTitle: '6bt5 9 C115 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C115 Engine Parts',
     summary: 'MTU 6bt5 9 C115 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -389,7 +389,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C115 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C115 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C115 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -411,7 +411,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C120 Parts | Engine Family',
+    seoTitle: '6bt5 9 C120 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C120 Engine Parts',
     summary: 'MTU 6bt5 9 C120 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -421,7 +421,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C120 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C120 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C120 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -443,7 +443,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C125 Parts | Engine Family',
+    seoTitle: '6bt5 9 C125 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C125 Engine Parts',
     summary: 'MTU 6bt5 9 C125 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -453,7 +453,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C125 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -475,7 +475,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C130 Parts | Engine Family',
+    seoTitle: '6bt5 9 C130 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C130 Engine Parts',
     summary: 'MTU 6bt5 9 C130 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -485,7 +485,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C130 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -507,7 +507,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C135 Parts | Engine Family',
+    seoTitle: '6bt5 9 C135 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C135 Engine Parts',
     summary: 'MTU 6bt5 9 C135 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -517,7 +517,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C135 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C135 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C135 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -539,7 +539,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bt5 9 C150 Parts | Engine Family',
+    seoTitle: '6bt5 9 C150 Parts | Diesel Part Source',
     h1Title: '6bt5 9 C150 Engine Parts',
     summary: 'MTU 6bt5 9 C150 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -549,7 +549,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bt5 9 C150 Parts Support</h2>
-        <p>Engine Family supports MTU 6bt5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bt5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -571,7 +571,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C125 Parts | Engine Family',
+    seoTitle: '6bta5 9 C125 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C125 Engine Parts',
     summary: 'MTU 6bta5 9 C125 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -581,7 +581,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C125 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C125 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -603,7 +603,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C130 Parts | Engine Family',
+    seoTitle: '6bta5 9 C130 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C130 Engine Parts',
     summary: 'MTU 6bta5 9 C130 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -613,7 +613,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C130 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -635,7 +635,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C150 Parts | Engine Family',
+    seoTitle: '6bta5 9 C150 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C150 Engine Parts',
     summary: 'MTU 6bta5 9 C150 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -645,7 +645,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C150 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -667,7 +667,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C155 Parts | Engine Family',
+    seoTitle: '6bta5 9 C155 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C155 Engine Parts',
     summary: 'MTU 6bta5 9 C155 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -677,7 +677,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C155 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C155 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C155 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -699,7 +699,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C170 Parts | Engine Family',
+    seoTitle: '6bta5 9 C170 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C170 Engine Parts',
     summary: 'MTU 6bta5 9 C170 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -709,7 +709,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C170 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C170 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C170 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -731,7 +731,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C175 Parts | Engine Family',
+    seoTitle: '6bta5 9 C175 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C175 Engine Parts',
     summary: 'MTU 6bta5 9 C175 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -741,7 +741,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C175 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C175 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C175 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -763,7 +763,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 C180 Parts | Engine Family',
+    seoTitle: '6bta5 9 C180 Parts | Diesel Part Source',
     h1Title: '6bta5 9 C180 Engine Parts',
     summary: 'MTU 6bta5 9 C180 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -773,7 +773,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 C180 Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -795,7 +795,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6bta5 9 G2 G Drive Parts | Engine Family',
+    seoTitle: '6bta5 9 G2 G Drive Parts | Diesel Part Source',
     h1Title: '6bta5 9 G2 G Drive Engine Parts',
     summary: 'MTU 6bta5 9 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -805,7 +805,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6bta5 9 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 6bta5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6bta5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -827,7 +827,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C130 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C130 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C130 Engine Parts',
     summary: 'MTU 6btaa5 9 C130 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -837,7 +837,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C130 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C130 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -859,7 +859,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C150 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C150 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C150 Engine Parts',
     summary: 'MTU 6btaa5 9 C150 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -869,7 +869,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C150 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C150 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -891,7 +891,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C160 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C160 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C160 Engine Parts',
     summary: 'MTU 6btaa5 9 C160 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -901,7 +901,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C160 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C160 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C160 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -923,7 +923,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C180 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C180 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C180 Engine Parts',
     summary: 'MTU 6btaa5 9 C180 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -933,7 +933,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C180 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -955,7 +955,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C190 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C190 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C190 Engine Parts',
     summary: 'MTU 6btaa5 9 C190 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -965,7 +965,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C190 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C190 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C190 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -987,7 +987,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C195 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C195 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C195 Engine Parts',
     summary: 'MTU 6btaa5 9 C195 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -997,7 +997,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C195 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C195 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C195 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1019,7 +1019,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 C205 Parts | Engine Family',
+    seoTitle: '6btaa5 9 C205 Parts | Diesel Part Source',
     h1Title: '6btaa5 9 C205 Engine Parts',
     summary: 'MTU 6btaa5 9 C205 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1029,7 +1029,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 C205 Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 C205 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 C205 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1051,7 +1051,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6btaa5 9 G2 G Drive Parts | Engine Family',
+    seoTitle: '6btaa5 9 G2 G Drive Parts | Diesel Part Source',
     h1Title: '6btaa5 9 G2 G Drive Engine Parts',
     summary: 'MTU 6btaa5 9 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1061,7 +1061,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6btaa5 9 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 6btaa5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6btaa5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1083,7 +1083,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C145 Parts | Engine Family',
+    seoTitle: '6cta8 3 C145 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C145 Engine Parts',
     summary: 'MTU 6cta8 3 C145 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1093,7 +1093,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C145 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C145 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C145 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1115,7 +1115,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C175 Parts | Engine Family',
+    seoTitle: '6cta8 3 C175 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C175 Engine Parts',
     summary: 'MTU 6cta8 3 C175 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1125,7 +1125,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C175 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C175 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C175 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1147,7 +1147,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C180 Parts | Engine Family',
+    seoTitle: '6cta8 3 C180 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C180 Engine Parts',
     summary: 'MTU 6cta8 3 C180 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1157,7 +1157,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C180 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C180 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1179,7 +1179,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C195 Parts | Engine Family',
+    seoTitle: '6cta8 3 C195 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C195 Engine Parts',
     summary: 'MTU 6cta8 3 C195 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1189,7 +1189,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C195 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C195 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C195 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1211,7 +1211,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C205 Parts | Engine Family',
+    seoTitle: '6cta8 3 C205 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C205 Engine Parts',
     summary: 'MTU 6cta8 3 C205 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1221,7 +1221,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C205 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C205 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C205 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1243,7 +1243,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C215 Parts | Engine Family',
+    seoTitle: '6cta8 3 C215 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C215 Engine Parts',
     summary: 'MTU 6cta8 3 C215 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1253,7 +1253,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C215 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C215 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C215 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1275,7 +1275,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C230 Parts | Engine Family',
+    seoTitle: '6cta8 3 C230 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C230 Engine Parts',
     summary: 'MTU 6cta8 3 C230 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1285,7 +1285,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C230 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C230 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C230 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1307,7 +1307,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C240 Parts | Engine Family',
+    seoTitle: '6cta8 3 C240 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C240 Engine Parts',
     summary: 'MTU 6cta8 3 C240 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1317,7 +1317,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C240 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1339,7 +1339,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 C260 Parts | Engine Family',
+    seoTitle: '6cta8 3 C260 Parts | Diesel Part Source',
     h1Title: '6cta8 3 C260 Engine Parts',
     summary: 'MTU 6cta8 3 C260 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1349,7 +1349,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 C260 Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1371,7 +1371,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6cta8 3 G1 G Drive Parts | Engine Family',
+    seoTitle: '6cta8 3 G1 G Drive Parts | Diesel Part Source',
     h1Title: '6cta8 3 G1 G Drive Engine Parts',
     summary: 'MTU 6cta8 3 G1 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1381,7 +1381,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6cta8 3 G1 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 6cta8 3 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6cta8 3 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1403,7 +1403,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ctaa8 3 C215 Parts | Engine Family',
+    seoTitle: '6ctaa8 3 C215 Parts | Diesel Part Source',
     h1Title: '6ctaa8 3 C215 Engine Parts',
     summary: 'MTU 6ctaa8 3 C215 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1413,7 +1413,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ctaa8 3 C215 Parts Support</h2>
-        <p>Engine Family supports MTU 6ctaa8 3 C215 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ctaa8 3 C215 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1435,7 +1435,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ctaa8 3 C260 Parts | Engine Family',
+    seoTitle: '6ctaa8 3 C260 Parts | Diesel Part Source',
     h1Title: '6ctaa8 3 C260 Engine Parts',
     summary: 'MTU 6ctaa8 3 C260 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1445,7 +1445,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ctaa8 3 C260 Parts Support</h2>
-        <p>Engine Family supports MTU 6ctaa8 3 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ctaa8 3 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1467,7 +1467,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ctaa8 3 G2 G Drive Parts | Engine Family',
+    seoTitle: '6ctaa8 3 G2 G Drive Parts | Diesel Part Source',
     h1Title: '6ctaa8 3 G2 G Drive Engine Parts',
     summary: 'MTU 6ctaa8 3 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1477,7 +1477,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ctaa8 3 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 6ctaa8 3 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ctaa8 3 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1499,7 +1499,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C220 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C220 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C220 Engine Parts',
     summary: 'MTU 6ltaa8 9 C220 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1509,7 +1509,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C220 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1531,7 +1531,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C240 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C240 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C240 Engine Parts',
     summary: 'MTU 6ltaa8 9 C240 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1541,7 +1541,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C240 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1563,7 +1563,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C260 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C260 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C260 Engine Parts',
     summary: 'MTU 6ltaa8 9 C260 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1573,7 +1573,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C260 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1595,7 +1595,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C300 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C300 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C300 Engine Parts',
     summary: 'MTU 6ltaa8 9 C300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1605,7 +1605,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C300 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1627,7 +1627,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C325 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C325 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C325 Engine Parts',
     summary: 'MTU 6ltaa8 9 C325 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1637,7 +1637,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C325 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C325 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C325 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1659,7 +1659,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C340 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C340 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C340 Engine Parts',
     summary: 'MTU 6ltaa8 9 C340 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1669,7 +1669,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C340 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1691,7 +1691,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 C360 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 C360 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 C360 Engine Parts',
     summary: 'MTU 6ltaa8 9 C360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1701,7 +1701,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 C360 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1723,7 +1723,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 G3 Parts | Engine Family',
+    seoTitle: '6ltaa8 9 G3 Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 G3 Engine Parts',
     summary: 'MTU 6ltaa8 9 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1733,7 +1733,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 G3 Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1755,7 +1755,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: '6ltaa8 9 G3 G Drive Parts | Engine Family',
+    seoTitle: '6ltaa8 9 G3 G Drive Parts | Diesel Part Source',
     h1Title: '6ltaa8 9 G3 G Drive Engine Parts',
     summary: 'MTU 6ltaa8 9 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1765,7 +1765,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>6ltaa8 9 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU 6ltaa8 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU 6ltaa8 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1787,7 +1787,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Agri F 3 L 912 G Parts | Engine Family',
+    seoTitle: 'Agri F 3 L 912 G Parts | Diesel Part Source',
     h1Title: 'Agri F 3 L 912 G Engine Parts',
     summary: 'MTU Agri F 3 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1797,7 +1797,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Agri F 3 L 912 G Parts Support</h2>
-        <p>Engine Family supports MTU Agri F 3 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Agri F 3 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1819,7 +1819,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Agri F 4 L 912 G Parts | Engine Family',
+    seoTitle: 'Agri F 4 L 912 G Parts | Diesel Part Source',
     h1Title: 'Agri F 4 L 912 G Engine Parts',
     summary: 'MTU Agri F 4 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1829,7 +1829,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Agri F 4 L 912 G Parts Support</h2>
-        <p>Engine Family supports MTU Agri F 4 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Agri F 4 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1851,7 +1851,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Agri F 6 L 912 G Parts | Engine Family',
+    seoTitle: 'Agri F 6 L 912 G Parts | Diesel Part Source',
     h1Title: 'Agri F 6 L 912 G Engine Parts',
     summary: 'MTU Agri F 6 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1861,7 +1861,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Agri F 6 L 912 G Parts Support</h2>
-        <p>Engine Family supports MTU Agri F 6 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Agri F 6 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1883,7 +1883,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B125 33 Parts | Engine Family',
+    seoTitle: 'B125 33 Parts | Diesel Part Source',
     h1Title: 'B125 33 Engine Parts',
     summary: 'MTU B125 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1893,7 +1893,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B125 33 Parts Support</h2>
-        <p>Engine Family supports MTU B125 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B125 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1915,7 +1915,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B140 33 Parts | Engine Family',
+    seoTitle: 'B140 33 Parts | Diesel Part Source',
     h1Title: 'B140 33 Engine Parts',
     summary: 'MTU B140 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1925,7 +1925,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B140 33 Parts Support</h2>
-        <p>Engine Family supports MTU B140 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B140 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1947,7 +1947,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B160 33 Parts | Engine Family',
+    seoTitle: 'B160 33 Parts | Diesel Part Source',
     h1Title: 'B160 33 Engine Parts',
     summary: 'MTU B160 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1957,7 +1957,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B160 33 Parts Support</h2>
-        <p>Engine Family supports MTU B160 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B160 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -1979,7 +1979,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B170 33 Parts | Engine Family',
+    seoTitle: 'B170 33 Parts | Diesel Part Source',
     h1Title: 'B170 33 Engine Parts',
     summary: 'MTU B170 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -1989,7 +1989,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B170 33 Parts Support</h2>
-        <p>Engine Family supports MTU B170 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B170 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2011,7 +2011,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B180 33 Parts | Engine Family',
+    seoTitle: 'B180 33 Parts | Diesel Part Source',
     h1Title: 'B180 33 Engine Parts',
     summary: 'MTU B180 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2021,7 +2021,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B180 33 Parts Support</h2>
-        <p>Engine Family supports MTU B180 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B180 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2043,7 +2043,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B190 33 Parts | Engine Family',
+    seoTitle: 'B190 33 Parts | Diesel Part Source',
     h1Title: 'B190 33 Engine Parts',
     summary: 'MTU B190 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2053,7 +2053,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B190 33 Parts Support</h2>
-        <p>Engine Family supports MTU B190 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B190 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2075,7 +2075,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'B210 33 Parts | Engine Family',
+    seoTitle: 'B210 33 Parts | Diesel Part Source',
     h1Title: 'B210 33 Engine Parts',
     summary: 'MTU B210 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2085,7 +2085,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>B210 33 Parts Support</h2>
-        <p>Engine Family supports MTU B210 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU B210 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2107,7 +2107,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 12 L 413 F Parts | Engine Family',
+    seoTitle: 'BF 12 L 413 F Parts | Diesel Part Source',
     h1Title: 'BF 12 L 413 F Engine Parts',
     summary: 'DEUTZ BF 12 L 413 F engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2117,7 +2117,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 12 L 413 F Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 12 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 12 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2139,7 +2139,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 12 L 413 Fc Parts | Engine Family',
+    seoTitle: 'BF 12 L 413 Fc Parts | Diesel Part Source',
     h1Title: 'BF 12 L 413 Fc Engine Parts',
     summary: 'DEUTZ BF 12 L 413 Fc engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2149,7 +2149,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 12 L 413 Fc Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 12 L 413 Fc engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 12 L 413 Fc engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2171,7 +2171,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 12 L 513 C Parts | Engine Family',
+    seoTitle: 'BF 12 L 513 C Parts | Diesel Part Source',
     h1Title: 'BF 12 L 513 C Engine Parts',
     summary: 'DEUTZ BF 12 L 513 C engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2181,7 +2181,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 12 L 513 C Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 12 L 513 C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 12 L 513 C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2203,7 +2203,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 8 L 413 F C Parts | Engine Family',
+    seoTitle: 'BF 8 L 413 F C Parts | Diesel Part Source',
     h1Title: 'BF 8 L 413 F C Engine Parts',
     summary: 'DEUTZ BF 8 L 413 F C engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2213,7 +2213,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 8 L 413 F C Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 8 L 413 F C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 8 L 413 F C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2235,7 +2235,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 8 L 513 Parts | Engine Family',
+    seoTitle: 'BF 8 L 513 Parts | Diesel Part Source',
     h1Title: 'BF 8 L 513 Engine Parts',
     summary: 'DEUTZ BF 8 L 513 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2245,7 +2245,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 8 L 513 Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 8 L 513 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 8 L 513 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2267,7 +2267,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'BF 8 L 513 C Parts | Engine Family',
+    seoTitle: 'BF 8 L 513 C Parts | Diesel Part Source',
     h1Title: 'BF 8 L 513 C Engine Parts',
     summary: 'DEUTZ BF 8 L 513 C engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2277,7 +2277,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>BF 8 L 513 C Parts Support</h2>
-        <p>Engine Family supports DEUTZ BF 8 L 513 C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ BF 8 L 513 C engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2299,7 +2299,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C230 20 Parts | Engine Family',
+    seoTitle: 'C230 20 Parts | Diesel Part Source',
     h1Title: 'C230 20 Engine Parts',
     summary: 'MTU C230 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2309,7 +2309,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C230 20 Parts Support</h2>
-        <p>Engine Family supports MTU C230 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C230 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2331,7 +2331,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C230 33 Parts | Engine Family',
+    seoTitle: 'C230 33 Parts | Diesel Part Source',
     h1Title: 'C230 33 Engine Parts',
     summary: 'MTU C230 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2341,7 +2341,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C230 33 Parts Support</h2>
-        <p>Engine Family supports MTU C230 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C230 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2363,7 +2363,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C245 20 Parts | Engine Family',
+    seoTitle: 'C245 20 Parts | Diesel Part Source',
     h1Title: 'C245 20 Engine Parts',
     summary: 'MTU C245 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2373,7 +2373,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C245 20 Parts Support</h2>
-        <p>Engine Family supports MTU C245 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C245 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2395,7 +2395,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C245 33 Parts | Engine Family',
+    seoTitle: 'C245 33 Parts | Diesel Part Source',
     h1Title: 'C245 33 Engine Parts',
     summary: 'MTU C245 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2405,7 +2405,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C245 33 Parts Support</h2>
-        <p>Engine Family supports MTU C245 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C245 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2427,7 +2427,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C260 20 Parts | Engine Family',
+    seoTitle: 'C260 20 Parts | Diesel Part Source',
     h1Title: 'C260 20 Engine Parts',
     summary: 'MTU C260 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2437,7 +2437,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C260 20 Parts Support</h2>
-        <p>Engine Family supports MTU C260 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C260 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2459,7 +2459,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C260 33 Parts | Engine Family',
+    seoTitle: 'C260 33 Parts | Diesel Part Source',
     h1Title: 'C260 33 Engine Parts',
     summary: 'MTU C260 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2469,7 +2469,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C260 33 Parts Support</h2>
-        <p>Engine Family supports MTU C260 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C260 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2491,7 +2491,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C280 20 Parts | Engine Family',
+    seoTitle: 'C280 20 Parts | Diesel Part Source',
     h1Title: 'C280 20 Engine Parts',
     summary: 'MTU C280 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2501,7 +2501,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C280 20 Parts Support</h2>
-        <p>Engine Family supports MTU C280 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C280 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2523,7 +2523,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C280 33 Parts | Engine Family',
+    seoTitle: 'C280 33 Parts | Diesel Part Source',
     h1Title: 'C280 33 Engine Parts',
     summary: 'MTU C280 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2533,7 +2533,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C280 33 Parts Support</h2>
-        <p>Engine Family supports MTU C280 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C280 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2555,7 +2555,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C300 20 Parts | Engine Family',
+    seoTitle: 'C300 20 Parts | Diesel Part Source',
     h1Title: 'C300 20 Engine Parts',
     summary: 'MTU C300 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2565,7 +2565,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C300 20 Parts Support</h2>
-        <p>Engine Family supports MTU C300 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C300 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2587,7 +2587,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'C300 33 Parts | Engine Family',
+    seoTitle: 'C300 33 Parts | Diesel Part Source',
     h1Title: 'C300 33 Engine Parts',
     summary: 'MTU C300 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2597,7 +2597,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>C300 33 Parts Support</h2>
-        <p>Engine Family supports MTU C300 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU C300 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2619,7 +2619,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ Agri BF 6 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ Agri BF 6 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ Agri BF 6 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ Agri BF 6 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2629,7 +2629,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ Agri BF 6 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ Agri BF 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ Agri BF 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2651,7 +2651,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ Agri F 4 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ Agri F 4 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ Agri F 4 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ Agri F 4 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2661,7 +2661,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ Agri F 4 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ Agri F 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ Agri F 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2683,7 +2683,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 4 L 913 D Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 4 L 913 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 4 L 913 D Engine Parts',
     summary: 'DEUTZ DEUTZ BF 4 L 913 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2693,7 +2693,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 4 L 913 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 4 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 4 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2715,7 +2715,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 4 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 4 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 4 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ BF 4 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2725,7 +2725,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 4 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2747,7 +2747,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 6 L 913 Cd Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 6 L 913 Cd Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 6 L 913 Cd Engine Parts',
     summary: 'DEUTZ DEUTZ BF 6 L 913 Cd engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2757,7 +2757,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 6 L 913 Cd Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 6 L 913 Cd engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 6 L 913 Cd engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2779,7 +2779,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 6 L 913 Cg Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 6 L 913 Cg Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 6 L 913 Cg Engine Parts',
     summary: 'DEUTZ DEUTZ BF 6 L 913 Cg engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2789,7 +2789,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 6 L 913 Cg Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 6 L 913 Cg engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 6 L 913 Cg engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2811,7 +2811,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 6 L 913 D Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 6 L 913 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 6 L 913 D Engine Parts',
     summary: 'DEUTZ DEUTZ BF 6 L 913 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2821,7 +2821,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 6 L 913 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 6 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 6 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2843,7 +2843,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 6 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 6 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 6 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ BF 6 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2853,7 +2853,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 6 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2875,7 +2875,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ BF 8 L 513 Parts | Engine Family',
+    seoTitle: 'DEUTZ BF 8 L 513 Parts | Diesel Part Source',
     h1Title: 'DEUTZ BF 8 L 513 Engine Parts',
     summary: 'DEUTZ DEUTZ BF 8 L 513 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2885,7 +2885,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ BF 8 L 513 Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ BF 8 L 513 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ BF 8 L 513 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2907,7 +2907,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 2 L 912 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 2 L 912 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 2 L 912 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 2 L 912 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2917,7 +2917,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 2 L 912 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 2 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 2 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2939,7 +2939,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 2 L 912 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 2 L 912 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 2 L 912 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 2 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2949,7 +2949,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 2 L 912 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 2 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 2 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -2971,7 +2971,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 3 L 912 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 3 L 912 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 3 L 912 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 3 L 912 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -2981,7 +2981,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 3 L 912 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 3 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 3 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3003,7 +3003,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 3 L 912 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 3 L 912 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 3 L 912 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 3 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3013,7 +3013,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 3 L 912 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 3 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 3 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3035,7 +3035,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 4 L 912 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 4 L 912 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 4 L 912 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 4 L 912 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3045,7 +3045,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 4 L 912 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 4 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 4 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3067,7 +3067,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 4 L 912 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 4 L 912 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 4 L 912 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 4 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3077,7 +3077,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 4 L 912 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 4 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 4 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3099,7 +3099,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 4 L 912 Td Parts | Engine Family',
+    seoTitle: 'DEUTZ F 4 L 912 Td Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 4 L 912 Td Engine Parts',
     summary: 'DEUTZ DEUTZ F 4 L 912 Td engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3109,7 +3109,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 4 L 912 Td Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 4 L 912 Td engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 4 L 912 Td engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3131,7 +3131,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 4 L 913 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 4 L 913 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 4 L 913 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 4 L 913 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3141,7 +3141,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 4 L 913 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 4 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 4 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3163,7 +3163,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 4 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 4 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 4 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 4 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3173,7 +3173,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 4 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 4 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3195,7 +3195,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 5 L 912 Parts | Engine Family',
+    seoTitle: 'DEUTZ F 5 L 912 Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 5 L 912 Engine Parts',
     summary: 'DEUTZ DEUTZ F 5 L 912 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3205,7 +3205,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 5 L 912 Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 5 L 912 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 5 L 912 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3227,7 +3227,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 6 L 912 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 6 L 912 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 6 L 912 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 6 L 912 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3237,7 +3237,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 6 L 912 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 6 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 6 L 912 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3259,7 +3259,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 6 L 912 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 6 L 912 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 6 L 912 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 6 L 912 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3269,7 +3269,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 6 L 912 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 6 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 6 L 912 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3291,7 +3291,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 6 L 912 Td Parts | Engine Family',
+    seoTitle: 'DEUTZ F 6 L 912 Td Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 6 L 912 Td Engine Parts',
     summary: 'DEUTZ DEUTZ F 6 L 912 Td engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3301,7 +3301,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 6 L 912 Td Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 6 L 912 Td engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 6 L 912 Td engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3323,7 +3323,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 6 L 913 D Parts | Engine Family',
+    seoTitle: 'DEUTZ F 6 L 913 D Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 6 L 913 D Engine Parts',
     summary: 'DEUTZ DEUTZ F 6 L 913 D engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3333,7 +3333,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 6 L 913 D Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 6 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 6 L 913 D engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3355,7 +3355,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ F 6 L 913 G Parts | Engine Family',
+    seoTitle: 'DEUTZ F 6 L 913 G Parts | Diesel Part Source',
     h1Title: 'DEUTZ F 6 L 913 G Engine Parts',
     summary: 'DEUTZ DEUTZ F 6 L 913 G engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3365,7 +3365,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>DEUTZ F 6 L 913 G Parts Support</h2>
-        <p>Engine Family supports DEUTZ DEUTZ F 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports DEUTZ DEUTZ F 6 L 913 G engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3387,7 +3387,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Eqb125 20 Parts | Engine Family',
+    seoTitle: 'Eqb125 20 Parts | Diesel Part Source',
     h1Title: 'Eqb125 20 Engine Parts',
     summary: 'MTU Eqb125 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3397,7 +3397,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Eqb125 20 Parts Support</h2>
-        <p>Engine Family supports MTU Eqb125 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Eqb125 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3419,7 +3419,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Eqb140 20 Parts | Engine Family',
+    seoTitle: 'Eqb140 20 Parts | Diesel Part Source',
     h1Title: 'Eqb140 20 Engine Parts',
     summary: 'MTU Eqb140 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3429,7 +3429,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Eqb140 20 Parts Support</h2>
-        <p>Engine Family supports MTU Eqb140 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Eqb140 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3451,7 +3451,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Eqb210 20 Parts | Engine Family',
+    seoTitle: 'Eqb210 20 Parts | Diesel Part Source',
     h1Title: 'Eqb210 20 Engine Parts',
     summary: 'MTU Eqb210 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3461,7 +3461,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Eqb210 20 Parts Support</h2>
-        <p>Engine Family supports MTU Eqb210 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Eqb210 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3483,7 +3483,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 10 L 413 F Parts | Engine Family',
+    seoTitle: 'F 10 L 413 F Parts | Diesel Part Source',
     h1Title: 'F 10 L 413 F Engine Parts',
     summary: 'MTU F 10 L 413 F engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3493,7 +3493,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 10 L 413 F Parts Support</h2>
-        <p>Engine Family supports MTU F 10 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 10 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3515,7 +3515,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 12 L 413 F Parts | Engine Family',
+    seoTitle: 'F 12 L 413 F Parts | Diesel Part Source',
     h1Title: 'F 12 L 413 F Engine Parts',
     summary: 'MTU F 12 L 413 F engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3525,7 +3525,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 12 L 413 F Parts Support</h2>
-        <p>Engine Family supports MTU F 12 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 12 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3547,7 +3547,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 4 L 413 Fr Parts | Engine Family',
+    seoTitle: 'F 4 L 413 Fr Parts | Diesel Part Source',
     h1Title: 'F 4 L 413 Fr Engine Parts',
     summary: 'MTU F 4 L 413 Fr engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3557,7 +3557,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 4 L 413 Fr Parts Support</h2>
-        <p>Engine Family supports MTU F 4 L 413 Fr engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 4 L 413 Fr engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3579,7 +3579,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 6 L 413 F Parts | Engine Family',
+    seoTitle: 'F 6 L 413 F Parts | Diesel Part Source',
     h1Title: 'F 6 L 413 F Engine Parts',
     summary: 'MTU F 6 L 413 F engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3589,7 +3589,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 6 L 413 F Parts Support</h2>
-        <p>Engine Family supports MTU F 6 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 6 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3611,7 +3611,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 6 L 413 Fw Parts | Engine Family',
+    seoTitle: 'F 6 L 413 Fw Parts | Diesel Part Source',
     h1Title: 'F 6 L 413 Fw Engine Parts',
     summary: 'MTU F 6 L 413 Fw engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3621,7 +3621,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 6 L 413 Fw Parts Support</h2>
-        <p>Engine Family supports MTU F 6 L 413 Fw engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 6 L 413 Fw engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3643,7 +3643,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F 8 L 413 F Parts | Engine Family',
+    seoTitle: 'F 8 L 413 F Parts | Diesel Part Source',
     h1Title: 'F 8 L 413 F Engine Parts',
     summary: 'MTU F 8 L 413 F engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3653,7 +3653,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F 8 L 413 F Parts Support</h2>
-        <p>Engine Family supports MTU F 8 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F 8 L 413 F engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3675,7 +3675,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F4 5ns6b190 Parts | Engine Family',
+    seoTitle: 'F4 5ns6b190 Parts | Diesel Part Source',
     h1Title: 'F4 5ns6b190 Engine Parts',
     summary: 'MTU F4 5ns6b190 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3685,7 +3685,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F4 5ns6b190 Parts Support</h2>
-        <p>Engine Family supports MTU F4 5ns6b190 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F4 5ns6b190 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3707,7 +3707,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'F4 5ns6b220 Parts | Engine Family',
+    seoTitle: 'F4 5ns6b220 Parts | Diesel Part Source',
     h1Title: 'F4 5ns6b220 Engine Parts',
     summary: 'MTU F4 5ns6b220 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3717,7 +3717,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>F4 5ns6b220 Parts Support</h2>
-        <p>Engine Family supports MTU F4 5ns6b220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU F4 5ns6b220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3739,7 +3739,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 4b3 9 G1 Parts | Engine Family',
+    seoTitle: 'G Drive 4b3 9 G1 Parts | Diesel Part Source',
     h1Title: 'G Drive 4b3 9 G1 Engine Parts',
     summary: 'MTU G Drive 4b3 9 G1 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3749,7 +3749,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 4b3 9 G1 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 4b3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 4b3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3771,7 +3771,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 4b3 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive 4b3 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive 4b3 9 G2 Engine Parts',
     summary: 'MTU G Drive 4b3 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3781,7 +3781,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 4b3 9 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 4b3 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 4b3 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3803,7 +3803,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 4bt3 9 G1 Parts | Engine Family',
+    seoTitle: 'G Drive 4bt3 9 G1 Parts | Diesel Part Source',
     h1Title: 'G Drive 4bt3 9 G1 Engine Parts',
     summary: 'MTU G Drive 4bt3 9 G1 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3813,7 +3813,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 4bt3 9 G1 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 4bt3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 4bt3 9 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3835,7 +3835,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 6bta5 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive 6bta5 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive 6bta5 9 G2 Engine Parts',
     summary: 'MTU G Drive 6bta5 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3845,7 +3845,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 6bta5 9 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 6bta5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 6bta5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3867,7 +3867,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 6btaa5 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive 6btaa5 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive 6btaa5 9 G2 Engine Parts',
     summary: 'MTU G Drive 6btaa5 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3877,7 +3877,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 6btaa5 9 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 6btaa5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 6btaa5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3899,7 +3899,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 6ctaa8 3 G2 Parts | Engine Family',
+    seoTitle: 'G Drive 6ctaa8 3 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive 6ctaa8 3 G2 Engine Parts',
     summary: 'MTU G Drive 6ctaa8 3 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3909,7 +3909,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 6ctaa8 3 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 6ctaa8 3 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 6ctaa8 3 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3931,7 +3931,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive 6ltaa8 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive 6ltaa8 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive 6ltaa8 9 G2 Engine Parts',
     summary: 'MTU G Drive 6ltaa8 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3941,7 +3941,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive 6ltaa8 9 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive 6ltaa8 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive 6ltaa8 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3963,7 +3963,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kt38 Ga Parts | Engine Family',
+    seoTitle: 'G Drive Kt38 Ga Parts | Diesel Part Source',
     h1Title: 'G Drive Kt38 Ga Engine Parts',
     summary: 'MTU G Drive Kt38 Ga engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -3973,7 +3973,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kt38 Ga Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Kt38 Ga engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Kt38 Ga engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -3995,7 +3995,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 Engine Parts',
     summary: 'Cummins G Drive Kta38 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4005,7 +4005,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4027,7 +4027,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G2 Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G2 Engine Parts',
     summary: 'Cummins G Drive Kta38 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4037,7 +4037,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G2 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4059,7 +4059,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G4 Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G4 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G4 Engine Parts',
     summary: 'Cummins G Drive Kta38 G4 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4069,7 +4069,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G4 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4091,7 +4091,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G5 Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G5 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G5 Engine Parts',
     summary: 'Cummins G Drive Kta38 G5 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4101,7 +4101,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G5 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4123,7 +4123,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G5e Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G5e Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G5e Engine Parts',
     summary: 'Cummins G Drive Kta38 G5e engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4133,7 +4133,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G5e Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G5e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G5e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4155,7 +4155,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G9 Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G9 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G9 Engine Parts',
     summary: 'Cummins G Drive Kta38 G9 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4165,7 +4165,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G9 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4187,7 +4187,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta38 G9e Parts | Engine Family',
+    seoTitle: 'G Drive Kta38 G9e Parts | Diesel Part Source',
     h1Title: 'G Drive Kta38 G9e Engine Parts',
     summary: 'Cummins G Drive Kta38 G9e engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4197,7 +4197,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta38 G9e Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta38 G9e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta38 G9e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4219,7 +4219,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G12 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G12 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G12 Engine Parts',
     summary: 'Cummins G Drive Kta50 G12 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4229,7 +4229,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G12 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G12 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G12 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4251,7 +4251,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G15 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G15 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G15 Engine Parts',
     summary: 'Cummins G Drive Kta50 G15 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4261,7 +4261,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G15 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G15 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G15 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4283,7 +4283,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G16 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G16 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G16 Engine Parts',
     summary: 'Cummins G Drive Kta50 G16 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4293,7 +4293,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G16 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G16 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G16 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4315,7 +4315,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G3 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G3 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G3 Engine Parts',
     summary: 'Cummins G Drive Kta50 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4325,7 +4325,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G3 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4347,7 +4347,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G3e Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G3e Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G3e Engine Parts',
     summary: 'Cummins G Drive Kta50 G3e engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4357,7 +4357,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G3e Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G3e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G3e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4379,7 +4379,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G7e Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G7e Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G7e Engine Parts',
     summary: 'Cummins G Drive Kta50 G7e engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4389,7 +4389,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G7e Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G7e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G7e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4411,7 +4411,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G8 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G8 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G8 Engine Parts',
     summary: 'Cummins G Drive Kta50 G8 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4421,7 +4421,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G8 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G8 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G8 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4443,7 +4443,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 G9 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 G9 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 G9 Engine Parts',
     summary: 'Cummins G Drive Kta50 G9 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4453,7 +4453,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 G9 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4475,7 +4475,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Kta50 Gs8 Parts | Engine Family',
+    seoTitle: 'G Drive Kta50 Gs8 Parts | Diesel Part Source',
     h1Title: 'G Drive Kta50 Gs8 Engine Parts',
     summary: 'Cummins G Drive Kta50 Gs8 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4485,7 +4485,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Kta50 Gs8 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Kta50 Gs8 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Kta50 Gs8 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4507,7 +4507,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Ktaa19 G6a Parts | Engine Family',
+    seoTitle: 'G Drive Ktaa19 G6a Parts | Diesel Part Source',
     h1Title: 'G Drive Ktaa19 G6a Engine Parts',
     summary: 'Cummins G Drive Ktaa19 G6a engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4517,7 +4517,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Ktaa19 G6a Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Ktaa19 G6a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Ktaa19 G6a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4539,7 +4539,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Ktaa38 G9 Parts | Engine Family',
+    seoTitle: 'G Drive Ktaa38 G9 Parts | Diesel Part Source',
     h1Title: 'G Drive Ktaa38 G9 Engine Parts',
     summary: 'Cummins G Drive Ktaa38 G9 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4549,7 +4549,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Ktaa38 G9 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Ktaa38 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Ktaa38 G9 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4571,7 +4571,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Mtaa11 G2 Parts | Engine Family',
+    seoTitle: 'G Drive Mtaa11 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive Mtaa11 G2 Engine Parts',
     summary: 'MTU G Drive Mtaa11 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4581,7 +4581,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Mtaa11 G2 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Mtaa11 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Mtaa11 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4603,7 +4603,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Mtaa11 G3 Parts | Engine Family',
+    seoTitle: 'G Drive Mtaa11 G3 Parts | Diesel Part Source',
     h1Title: 'G Drive Mtaa11 G3 Engine Parts',
     summary: 'MTU G Drive Mtaa11 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4613,7 +4613,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Mtaa11 G3 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Mtaa11 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Mtaa11 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4635,7 +4635,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb3 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb3 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb3 9 G2 Engine Parts',
     summary: 'Cummins G Drive Qsb3 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4645,7 +4645,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb3 9 G2 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb3 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb3 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4667,7 +4667,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb3 9 G3 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb3 9 G3 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb3 9 G3 Engine Parts',
     summary: 'Cummins G Drive Qsb3 9 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4677,7 +4677,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb3 9 G3 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb3 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb3 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4699,7 +4699,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb5 9 G2 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb5 9 G2 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb5 9 G2 Engine Parts',
     summary: 'Cummins G Drive Qsb5 9 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4709,7 +4709,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb5 9 G2 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb5 9 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4731,7 +4731,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb5 9 G3 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb5 9 G3 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb5 9 G3 Engine Parts',
     summary: 'Cummins G Drive Qsb5 9 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4741,7 +4741,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb5 9 G3 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb5 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb5 9 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4763,7 +4763,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb6 7 G3 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb6 7 G3 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb6 7 G3 Engine Parts',
     summary: 'Cummins G Drive Qsb6 7 G3 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4773,7 +4773,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb6 7 G3 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb6 7 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb6 7 G3 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4795,7 +4795,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsb6 7 G4 Parts | Engine Family',
+    seoTitle: 'G Drive Qsb6 7 G4 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsb6 7 G4 Engine Parts',
     summary: 'Cummins G Drive Qsb6 7 G4 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4805,7 +4805,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsb6 7 G4 Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsb6 7 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsb6 7 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4827,7 +4827,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G11 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G11 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G11 Engine Parts',
     summary: 'MTU G Drive Qsk19 G11 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4837,7 +4837,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G11 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G11 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G11 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4859,7 +4859,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G12 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G12 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G12 Engine Parts',
     summary: 'MTU G Drive Qsk19 G12 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4869,7 +4869,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G12 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G12 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G12 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4891,7 +4891,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G14 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G14 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G14 Engine Parts',
     summary: 'MTU G Drive Qsk19 G14 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4901,7 +4901,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G14 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G14 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G14 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4923,7 +4923,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G3a Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G3a Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G3a Engine Parts',
     summary: 'MTU G Drive Qsk19 G3a engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4933,7 +4933,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G3a Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G3a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G3a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4955,7 +4955,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G3b Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G3b Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G3b Engine Parts',
     summary: 'MTU G Drive Qsk19 G3b engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4965,7 +4965,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G3b Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G3b engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G3b engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -4987,7 +4987,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G4a Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G4a Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G4a Engine Parts',
     summary: 'MTU G Drive Qsk19 G4a engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -4997,7 +4997,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G4a Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G4a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G4a engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5019,7 +5019,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G4b Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G4b Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G4b Engine Parts',
     summary: 'MTU G Drive Qsk19 G4b engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5029,7 +5029,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G4b Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G4b engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G4b engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5051,7 +5051,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk19 G5 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk19 G5 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk19 G5 Engine Parts',
     summary: 'MTU G Drive Qsk19 G5 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5061,7 +5061,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk19 G5 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk19 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk19 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5083,7 +5083,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk38 G1 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk38 G1 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk38 G1 Engine Parts',
     summary: 'MTU G Drive Qsk38 G1 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5093,7 +5093,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk38 G1 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk38 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk38 G1 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5115,7 +5115,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk38 G4 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk38 G4 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk38 G4 Engine Parts',
     summary: 'MTU G Drive Qsk38 G4 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5125,7 +5125,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk38 G4 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk38 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk38 G4 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5147,7 +5147,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk38 G5 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk38 G5 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk38 G5 Engine Parts',
     summary: 'MTU G Drive Qsk38 G5 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5157,7 +5157,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk38 G5 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk38 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk38 G5 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5179,7 +5179,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsk50 G7 Parts | Engine Family',
+    seoTitle: 'G Drive Qsk50 G7 Parts | Diesel Part Source',
     h1Title: 'G Drive Qsk50 G7 Engine Parts',
     summary: 'MTU G Drive Qsk50 G7 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5189,7 +5189,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsk50 G7 Parts Support</h2>
-        <p>Engine Family supports MTU G Drive Qsk50 G7 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU G Drive Qsk50 G7 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5211,7 +5211,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsktaa19 G3 Nr2 A Parts | Engine Family',
+    seoTitle: 'G Drive Qsktaa19 G3 Nr2 A Parts | Diesel Part Source',
     h1Title: 'G Drive Qsktaa19 G3 Nr2 A Engine Parts',
     summary: 'Cummins G Drive Qsktaa19 G3 Nr2 A engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5221,7 +5221,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsktaa19 G3 Nr2 A Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsktaa19 G3 Nr2 A engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsktaa19 G3 Nr2 A engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5243,7 +5243,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'G Drive Qsktaa19 G3 Nr2 B Parts | Engine Family',
+    seoTitle: 'G Drive Qsktaa19 G3 Nr2 B Parts | Diesel Part Source',
     h1Title: 'G Drive Qsktaa19 G3 Nr2 B Engine Parts',
     summary: 'Cummins G Drive Qsktaa19 G3 Nr2 B engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5253,7 +5253,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>G Drive Qsktaa19 G3 Nr2 B Parts Support</h2>
-        <p>Engine Family supports Cummins G Drive Qsktaa19 G3 Nr2 B engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins G Drive Qsktaa19 G3 Nr2 B engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5275,7 +5275,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb125 30 Parts | Engine Family',
+    seoTitle: 'Isb125 30 Parts | Diesel Part Source',
     h1Title: 'Isb125 30 Engine Parts',
     summary: 'Cummins Isb125 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5285,7 +5285,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb125 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb125 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb125 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5307,7 +5307,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb140 30 Parts | Engine Family',
+    seoTitle: 'Isb140 30 Parts | Diesel Part Source',
     h1Title: 'Isb140 30 Engine Parts',
     summary: 'Cummins Isb140 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5317,7 +5317,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb140 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb140 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb140 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5339,7 +5339,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb160 30 Parts | Engine Family',
+    seoTitle: 'Isb160 30 Parts | Diesel Part Source',
     h1Title: 'Isb160 30 Engine Parts',
     summary: 'Cummins Isb160 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5349,7 +5349,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb160 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5371,7 +5371,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb170 40 Parts | Engine Family',
+    seoTitle: 'Isb170 40 Parts | Diesel Part Source',
     h1Title: 'Isb170 40 Engine Parts',
     summary: 'Cummins Isb170 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5381,7 +5381,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb170 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb170 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb170 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5403,7 +5403,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb170 50 Parts | Engine Family',
+    seoTitle: 'Isb170 50 Parts | Diesel Part Source',
     h1Title: 'Isb170 50 Engine Parts',
     summary: 'Cummins Isb170 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5413,7 +5413,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb170 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb170 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb170 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5435,7 +5435,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb180 40 Parts | Engine Family',
+    seoTitle: 'Isb180 40 Parts | Diesel Part Source',
     h1Title: 'Isb180 40 Engine Parts',
     summary: 'Cummins Isb180 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5445,7 +5445,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb180 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb180 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb180 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5467,7 +5467,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb180 50 Parts | Engine Family',
+    seoTitle: 'Isb180 50 Parts | Diesel Part Source',
     h1Title: 'Isb180 50 Engine Parts',
     summary: 'Cummins Isb180 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5477,7 +5477,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb180 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb180 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb180 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5499,7 +5499,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb190 40 Parts | Engine Family',
+    seoTitle: 'Isb190 40 Parts | Diesel Part Source',
     h1Title: 'Isb190 40 Engine Parts',
     summary: 'Cummins Isb190 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5509,7 +5509,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb190 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb190 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb190 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5531,7 +5531,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb190 50 Parts | Engine Family',
+    seoTitle: 'Isb190 50 Parts | Diesel Part Source',
     h1Title: 'Isb190 50 Engine Parts',
     summary: 'Cummins Isb190 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5541,7 +5541,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb190 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb190 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb190 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5563,7 +5563,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb210 40 Parts | Engine Family',
+    seoTitle: 'Isb210 40 Parts | Diesel Part Source',
     h1Title: 'Isb210 40 Engine Parts',
     summary: 'Cummins Isb210 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5573,7 +5573,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb210 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb210 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb210 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5595,7 +5595,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb210 50 Parts | Engine Family',
+    seoTitle: 'Isb210 50 Parts | Diesel Part Source',
     h1Title: 'Isb210 50 Engine Parts',
     summary: 'Cummins Isb210 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5605,7 +5605,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb210 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb210 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb210 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5627,7 +5627,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb220 40 Parts | Engine Family',
+    seoTitle: 'Isb220 40 Parts | Diesel Part Source',
     h1Title: 'Isb220 40 Engine Parts',
     summary: 'Cummins Isb220 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5637,7 +5637,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb220 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb220 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb220 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5659,7 +5659,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb220 50 Parts | Engine Family',
+    seoTitle: 'Isb220 50 Parts | Diesel Part Source',
     h1Title: 'Isb220 50 Engine Parts',
     summary: 'Cummins Isb220 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5669,7 +5669,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb220 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb220 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb220 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5691,7 +5691,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isb235 40 Parts | Engine Family',
+    seoTitle: 'Isb235 40 Parts | Diesel Part Source',
     h1Title: 'Isb235 40 Engine Parts',
     summary: 'Cummins Isb235 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5701,7 +5701,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isb235 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isb235 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isb235 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5723,7 +5723,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde140 Parts | Engine Family',
+    seoTitle: 'Isde140 Parts | Diesel Part Source',
     h1Title: 'Isde140 Engine Parts',
     summary: 'Cummins Isde140 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5733,7 +5733,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde140 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde140 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde140 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5755,7 +5755,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde140 31 Parts | Engine Family',
+    seoTitle: 'Isde140 31 Parts | Diesel Part Source',
     h1Title: 'Isde140 31 Engine Parts',
     summary: 'Cummins Isde140 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5765,7 +5765,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde140 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde140 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde140 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5787,7 +5787,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde140 40 Parts | Engine Family',
+    seoTitle: 'Isde140 40 Parts | Diesel Part Source',
     h1Title: 'Isde140 40 Engine Parts',
     summary: 'Cummins Isde140 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5797,7 +5797,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde140 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde140 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde140 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5819,7 +5819,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde140 50 Parts | Engine Family',
+    seoTitle: 'Isde140 50 Parts | Diesel Part Source',
     h1Title: 'Isde140 50 Engine Parts',
     summary: 'Cummins Isde140 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5829,7 +5829,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde140 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde140 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde140 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5851,7 +5851,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde160 30 Parts | Engine Family',
+    seoTitle: 'Isde160 30 Parts | Diesel Part Source',
     h1Title: 'Isde160 30 Engine Parts',
     summary: 'Cummins Isde160 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5861,7 +5861,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde160 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5883,7 +5883,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde160 31 Parts | Engine Family',
+    seoTitle: 'Isde160 31 Parts | Diesel Part Source',
     h1Title: 'Isde160 31 Engine Parts',
     summary: 'Cummins Isde160 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5893,7 +5893,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde160 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde160 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde160 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5915,7 +5915,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde160 40 Parts | Engine Family',
+    seoTitle: 'Isde160 40 Parts | Diesel Part Source',
     h1Title: 'Isde160 40 Engine Parts',
     summary: 'Cummins Isde160 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5925,7 +5925,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde160 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde160 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde160 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5947,7 +5947,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde160 50 Parts | Engine Family',
+    seoTitle: 'Isde160 50 Parts | Diesel Part Source',
     h1Title: 'Isde160 50 Engine Parts',
     summary: 'Cummins Isde160 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5957,7 +5957,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde160 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde160 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde160 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -5979,7 +5979,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde180 30 Parts | Engine Family',
+    seoTitle: 'Isde180 30 Parts | Diesel Part Source',
     h1Title: 'Isde180 30 Engine Parts',
     summary: 'Cummins Isde180 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -5989,7 +5989,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde180 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde180 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde180 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6011,7 +6011,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde180 40 Parts | Engine Family',
+    seoTitle: 'Isde180 40 Parts | Diesel Part Source',
     h1Title: 'Isde180 40 Engine Parts',
     summary: 'Cummins Isde180 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6021,7 +6021,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde180 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde180 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde180 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6043,7 +6043,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde180 50 Parts | Engine Family',
+    seoTitle: 'Isde180 50 Parts | Diesel Part Source',
     h1Title: 'Isde180 50 Engine Parts',
     summary: 'Cummins Isde180 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6053,7 +6053,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde180 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde180 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde180 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6075,7 +6075,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde185 Parts | Engine Family',
+    seoTitle: 'Isde185 Parts | Diesel Part Source',
     h1Title: 'Isde185 Engine Parts',
     summary: 'Cummins Isde185 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6085,7 +6085,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde185 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde185 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde185 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6107,7 +6107,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde185 31 Parts | Engine Family',
+    seoTitle: 'Isde185 31 Parts | Diesel Part Source',
     h1Title: 'Isde185 31 Engine Parts',
     summary: 'Cummins Isde185 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6117,7 +6117,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde185 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde185 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde185 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6139,7 +6139,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde185 50 Parts | Engine Family',
+    seoTitle: 'Isde185 50 Parts | Diesel Part Source',
     h1Title: 'Isde185 50 Engine Parts',
     summary: 'Cummins Isde185 50 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6149,7 +6149,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde185 50 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde185 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde185 50 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6171,7 +6171,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde210 Parts | Engine Family',
+    seoTitle: 'Isde210 Parts | Diesel Part Source',
     h1Title: 'Isde210 Engine Parts',
     summary: 'Cummins Isde210 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6181,7 +6181,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde210 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde210 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde210 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6203,7 +6203,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde230 Parts | Engine Family',
+    seoTitle: 'Isde230 Parts | Diesel Part Source',
     h1Title: 'Isde230 Engine Parts',
     summary: 'Cummins Isde230 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6213,7 +6213,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde230 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde230 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde230 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6235,7 +6235,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde245 Parts | Engine Family',
+    seoTitle: 'Isde245 Parts | Diesel Part Source',
     h1Title: 'Isde245 Engine Parts',
     summary: 'Cummins Isde245 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6245,7 +6245,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde245 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde245 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde245 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6267,7 +6267,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde270 Parts | Engine Family',
+    seoTitle: 'Isde270 Parts | Diesel Part Source',
     h1Title: 'Isde270 Engine Parts',
     summary: 'Cummins Isde270 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6277,7 +6277,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde270 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde270 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde270 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6299,7 +6299,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde285 Parts | Engine Family',
+    seoTitle: 'Isde285 Parts | Diesel Part Source',
     h1Title: 'Isde285 Engine Parts',
     summary: 'Cummins Isde285 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6309,7 +6309,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde285 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde285 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde285 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6331,7 +6331,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isde300 40 Parts | Engine Family',
+    seoTitle: 'Isde300 40 Parts | Diesel Part Source',
     h1Title: 'Isde300 40 Engine Parts',
     summary: 'Cummins Isde300 40 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6341,7 +6341,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isde300 40 Parts Support</h2>
-        <p>Engine Family supports Cummins Isde300 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isde300 40 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6363,7 +6363,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf2 8s3129t Parts | Engine Family',
+    seoTitle: 'Isf2 8s3129t Parts | Diesel Part Source',
     h1Title: 'Isf2 8s3129t Engine Parts',
     summary: 'Cummins Isf2 8s3129t engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6373,7 +6373,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf2 8s3129t Parts Support</h2>
-        <p>Engine Family supports Cummins Isf2 8s3129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf2 8s3129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6395,7 +6395,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf2 8s3148t Parts | Engine Family',
+    seoTitle: 'Isf2 8s3148t Parts | Diesel Part Source',
     h1Title: 'Isf2 8s3148t Engine Parts',
     summary: 'Cummins Isf2 8s3148t engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6405,7 +6405,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf2 8s3148t Parts Support</h2>
-        <p>Engine Family supports Cummins Isf2 8s3148t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf2 8s3148t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6427,7 +6427,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf2 8s4129t Parts | Engine Family',
+    seoTitle: 'Isf2 8s4129t Parts | Diesel Part Source',
     h1Title: 'Isf2 8s4129t Engine Parts',
     summary: 'Cummins Isf2 8s4129t engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6437,7 +6437,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf2 8s4129t Parts Support</h2>
-        <p>Engine Family supports Cummins Isf2 8s4129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf2 8s4129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6459,7 +6459,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf2 8s4148t Parts | Engine Family',
+    seoTitle: 'Isf2 8s4148t Parts | Diesel Part Source',
     h1Title: 'Isf2 8s4148t Engine Parts',
     summary: 'Cummins Isf2 8s4148t engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6469,7 +6469,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf2 8s4148t Parts Support</h2>
-        <p>Engine Family supports Cummins Isf2 8s4148t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf2 8s4148t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6491,7 +6491,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf2 8s5129t Parts | Engine Family',
+    seoTitle: 'Isf2 8s5129t Parts | Diesel Part Source',
     h1Title: 'Isf2 8s5129t Engine Parts',
     summary: 'Cummins Isf2 8s5129t engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6501,7 +6501,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf2 8s5129t Parts Support</h2>
-        <p>Engine Family supports Cummins Isf2 8s5129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf2 8s5129t engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6523,7 +6523,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s3141 Parts | Engine Family',
+    seoTitle: 'Isf3 8s3141 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s3141 Engine Parts',
     summary: 'Cummins Isf3 8s3141 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6533,7 +6533,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s3141 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s3141 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s3141 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6555,7 +6555,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s3154 Parts | Engine Family',
+    seoTitle: 'Isf3 8s3154 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s3154 Engine Parts',
     summary: 'Cummins Isf3 8s3154 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6565,7 +6565,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s3154 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s3154 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s3154 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6587,7 +6587,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s3168 Parts | Engine Family',
+    seoTitle: 'Isf3 8s3168 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s3168 Engine Parts',
     summary: 'Cummins Isf3 8s3168 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6597,7 +6597,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s3168 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s3168 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s3168 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6619,7 +6619,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s4141 Parts | Engine Family',
+    seoTitle: 'Isf3 8s4141 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s4141 Engine Parts',
     summary: 'Cummins Isf3 8s4141 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6629,7 +6629,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s4141 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s4141 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s4141 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6651,7 +6651,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s4154 Parts | Engine Family',
+    seoTitle: 'Isf3 8s4154 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s4154 Engine Parts',
     summary: 'Cummins Isf3 8s4154 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6661,7 +6661,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s4154 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s4154 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s4154 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6683,7 +6683,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf3 8s4168 Parts | Engine Family',
+    seoTitle: 'Isf3 8s4168 Parts | Diesel Part Source',
     h1Title: 'Isf3 8s4168 Engine Parts',
     summary: 'Cummins Isf3 8s4168 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6693,7 +6693,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf3 8s4168 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf3 8s4168 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf3 8s4168 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6715,7 +6715,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isf4 5l210 Parts | Engine Family',
+    seoTitle: 'Isf4 5l210 Parts | Diesel Part Source',
     h1Title: 'Isf4 5l210 Engine Parts',
     summary: 'Cummins Isf4 5l210 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6725,7 +6725,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isf4 5l210 Parts Support</h2>
-        <p>Engine Family supports Cummins Isf4 5l210 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isf4 5l210 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6747,7 +6747,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle270 30 Parts | Engine Family',
+    seoTitle: 'Isle270 30 Parts | Diesel Part Source',
     h1Title: 'Isle270 30 Engine Parts',
     summary: 'Cummins Isle270 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6757,7 +6757,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle270 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle270 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle270 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6779,7 +6779,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle290 30 Parts | Engine Family',
+    seoTitle: 'Isle290 30 Parts | Diesel Part Source',
     h1Title: 'Isle290 30 Engine Parts',
     summary: 'Cummins Isle290 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6789,7 +6789,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle290 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle290 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle290 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6811,7 +6811,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle310 30 Parts | Engine Family',
+    seoTitle: 'Isle310 30 Parts | Diesel Part Source',
     h1Title: 'Isle310 30 Engine Parts',
     summary: 'Cummins Isle310 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6821,7 +6821,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle310 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle310 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle310 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6843,7 +6843,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle325 30 Parts | Engine Family',
+    seoTitle: 'Isle325 30 Parts | Diesel Part Source',
     h1Title: 'Isle325 30 Engine Parts',
     summary: 'Cummins Isle325 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6853,7 +6853,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle325 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle325 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle325 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6875,7 +6875,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle340 30 Parts | Engine Family',
+    seoTitle: 'Isle340 30 Parts | Diesel Part Source',
     h1Title: 'Isle340 30 Engine Parts',
     summary: 'Cummins Isle340 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6885,7 +6885,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle340 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6907,7 +6907,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isle375 30 Parts | Engine Family',
+    seoTitle: 'Isle375 30 Parts | Diesel Part Source',
     h1Title: 'Isle375 30 Engine Parts',
     summary: 'Cummins Isle375 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6917,7 +6917,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isle375 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Isle375 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isle375 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6939,7 +6939,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme308 Parts | Engine Family',
+    seoTitle: 'Isme308 Parts | Diesel Part Source',
     h1Title: 'Isme308 Engine Parts',
     summary: 'Cummins Isme308 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6949,7 +6949,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme308 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme308 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme308 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -6971,7 +6971,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme335 Parts | Engine Family',
+    seoTitle: 'Isme335 Parts | Diesel Part Source',
     h1Title: 'Isme335 Engine Parts',
     summary: 'Cummins Isme335 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -6981,7 +6981,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme335 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7003,7 +7003,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme340 Parts | Engine Family',
+    seoTitle: 'Isme340 Parts | Diesel Part Source',
     h1Title: 'Isme340 Engine Parts',
     summary: 'Cummins Isme340 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7013,7 +7013,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme340 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7035,7 +7035,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme345 Parts | Engine Family',
+    seoTitle: 'Isme345 Parts | Diesel Part Source',
     h1Title: 'Isme345 Engine Parts',
     summary: 'Cummins Isme345 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7045,7 +7045,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme345 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme345 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme345 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7067,7 +7067,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme360 Parts | Engine Family',
+    seoTitle: 'Isme360 Parts | Diesel Part Source',
     h1Title: 'Isme360 Engine Parts',
     summary: 'Cummins Isme360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7077,7 +7077,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme360 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7099,7 +7099,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme380 Parts | Engine Family',
+    seoTitle: 'Isme380 Parts | Diesel Part Source',
     h1Title: 'Isme380 Engine Parts',
     summary: 'Cummins Isme380 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7109,7 +7109,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme380 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7131,7 +7131,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme385 Parts | Engine Family',
+    seoTitle: 'Isme385 Parts | Diesel Part Source',
     h1Title: 'Isme385 Engine Parts',
     summary: 'Cummins Isme385 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7141,7 +7141,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme385 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme385 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme385 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7163,7 +7163,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme405 Parts | Engine Family',
+    seoTitle: 'Isme405 Parts | Diesel Part Source',
     h1Title: 'Isme405 Engine Parts',
     summary: 'Cummins Isme405 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7173,7 +7173,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme405 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme405 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme405 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7195,7 +7195,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme420 Parts | Engine Family',
+    seoTitle: 'Isme420 Parts | Diesel Part Source',
     h1Title: 'Isme420 Engine Parts',
     summary: 'Cummins Isme420 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7205,7 +7205,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme420 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme420 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme420 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7227,7 +7227,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Isme440 Parts | Engine Family',
+    seoTitle: 'Isme440 Parts | Diesel Part Source',
     h1Title: 'Isme440 Engine Parts',
     summary: 'Cummins Isme440 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7237,7 +7237,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Isme440 Parts Support</h2>
-        <p>Engine Family supports Cummins Isme440 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Isme440 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7259,7 +7259,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 C450 Parts | Engine Family',
+    seoTitle: 'Kta19 C450 Parts | Diesel Part Source',
     h1Title: 'Kta19 C450 Engine Parts',
     summary: 'Cummins Kta19 C450 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7269,7 +7269,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 C450 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 C450 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 C450 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7291,7 +7291,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 C525 Parts | Engine Family',
+    seoTitle: 'Kta19 C525 Parts | Diesel Part Source',
     h1Title: 'Kta19 C525 Engine Parts',
     summary: 'Cummins Kta19 C525 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7301,7 +7301,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 C525 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 C525 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 C525 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7323,7 +7323,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 C600 Parts | Engine Family',
+    seoTitle: 'Kta19 C600 Parts | Diesel Part Source',
     h1Title: 'Kta19 C600 Engine Parts',
     summary: 'Cummins Kta19 C600 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7333,7 +7333,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 C600 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 C600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 C600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7355,7 +7355,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Kta19 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta19 G2 G Drive Engine Parts',
     summary: 'Cummins Kta19 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7365,7 +7365,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7387,7 +7387,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 G3 G Drive Parts | Engine Family',
+    seoTitle: 'Kta19 G3 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta19 G3 G Drive Engine Parts',
     summary: 'Cummins Kta19 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7397,7 +7397,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7419,7 +7419,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 G3a G Drive Parts | Engine Family',
+    seoTitle: 'Kta19 G3a G Drive Parts | Diesel Part Source',
     h1Title: 'Kta19 G3a G Drive Engine Parts',
     summary: 'Cummins Kta19 G3a G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7429,7 +7429,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 G3a G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 G3a G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 G3a G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7451,7 +7451,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 G4 G Drive Parts | Engine Family',
+    seoTitle: 'Kta19 G4 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta19 G4 G Drive Engine Parts',
     summary: 'Cummins Kta19 G4 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7461,7 +7461,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 G4 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 G4 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 G4 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7483,7 +7483,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 G8 G Drive Parts | Engine Family',
+    seoTitle: 'Kta19 G8 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta19 G8 G Drive Engine Parts',
     summary: 'Cummins Kta19 G8 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7493,7 +7493,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 G8 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 G8 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 G8 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7515,7 +7515,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 P500 Parts | Engine Family',
+    seoTitle: 'Kta19 P500 Parts | Diesel Part Source',
     h1Title: 'Kta19 P500 Engine Parts',
     summary: 'Cummins Kta19 P500 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7525,7 +7525,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 P500 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 P500 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 P500 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7547,7 +7547,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 P600 Parts | Engine Family',
+    seoTitle: 'Kta19 P600 Parts | Diesel Part Source',
     h1Title: 'Kta19 P600 Engine Parts',
     summary: 'Cummins Kta19 P600 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7557,7 +7557,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 P600 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 P600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 P600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7579,7 +7579,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 P700 Parts | Engine Family',
+    seoTitle: 'Kta19 P700 Parts | Diesel Part Source',
     h1Title: 'Kta19 P700 Engine Parts',
     summary: 'Cummins Kta19 P700 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7589,7 +7589,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 P700 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 P700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 P700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7611,7 +7611,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta19 P750 Parts | Engine Family',
+    seoTitle: 'Kta19 P750 Parts | Diesel Part Source',
     h1Title: 'Kta19 P750 Engine Parts',
     summary: 'Cummins Kta19 P750 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7621,7 +7621,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta19 P750 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta19 P750 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta19 P750 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7643,7 +7643,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 G1 G Drive Parts | Engine Family',
+    seoTitle: 'Kta38 G1 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta38 G1 G Drive Engine Parts',
     summary: 'Cummins Kta38 G1 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7653,7 +7653,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 G1 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 G1 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7675,7 +7675,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Kta38 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta38 G2 G Drive Engine Parts',
     summary: 'Cummins Kta38 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7685,7 +7685,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7707,7 +7707,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 G7e Parts | Engine Family',
+    seoTitle: 'Kta38 G7e Parts | Diesel Part Source',
     h1Title: 'Kta38 G7e Engine Parts',
     summary: 'Cummins Kta38 G7e engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7717,7 +7717,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 G7e Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 G7e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 G7e engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7739,7 +7739,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 G9 G Drive Parts | Engine Family',
+    seoTitle: 'Kta38 G9 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta38 G9 G Drive Engine Parts',
     summary: 'Cummins Kta38 G9 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7749,7 +7749,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 G9 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 G9 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 G9 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7771,7 +7771,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 P1100 Parts | Engine Family',
+    seoTitle: 'Kta38 P1100 Parts | Diesel Part Source',
     h1Title: 'Kta38 P1100 Engine Parts',
     summary: 'Cummins Kta38 P1100 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7781,7 +7781,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 P1100 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 P1100 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 P1100 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7803,7 +7803,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 P1200 Parts | Engine Family',
+    seoTitle: 'Kta38 P1200 Parts | Diesel Part Source',
     h1Title: 'Kta38 P1200 Engine Parts',
     summary: 'Cummins Kta38 P1200 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7813,7 +7813,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 P1200 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 P1200 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 P1200 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7835,7 +7835,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 P1300 Parts | Engine Family',
+    seoTitle: 'Kta38 P1300 Parts | Diesel Part Source',
     h1Title: 'Kta38 P1300 Engine Parts',
     summary: 'Cummins Kta38 P1300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7845,7 +7845,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 P1300 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 P1300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 P1300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7867,7 +7867,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 P1400 Parts | Engine Family',
+    seoTitle: 'Kta38 P1400 Parts | Diesel Part Source',
     h1Title: 'Kta38 P1400 Engine Parts',
     summary: 'Cummins Kta38 P1400 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7877,7 +7877,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 P1400 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 P1400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 P1400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7899,7 +7899,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta38 P980 Parts | Engine Family',
+    seoTitle: 'Kta38 P980 Parts | Diesel Part Source',
     h1Title: 'Kta38 P980 Engine Parts',
     summary: 'Cummins Kta38 P980 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7909,7 +7909,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta38 P980 Parts Support</h2>
-        <p>Engine Family supports Cummins Kta38 P980 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta38 P980 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7931,7 +7931,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta50 G12 G Drive Parts | Engine Family',
+    seoTitle: 'Kta50 G12 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta50 G12 G Drive Engine Parts',
     summary: 'Cummins Kta50 G12 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7941,7 +7941,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta50 G12 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta50 G12 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta50 G12 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7963,7 +7963,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Kta50 G3 G Drive Parts | Engine Family',
+    seoTitle: 'Kta50 G3 G Drive Parts | Diesel Part Source',
     h1Title: 'Kta50 G3 G Drive Engine Parts',
     summary: 'Cummins Kta50 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -7973,7 +7973,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Kta50 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Kta50 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Kta50 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -7995,7 +7995,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Ktaa19 G5 G Drive Parts | Engine Family',
+    seoTitle: 'Ktaa19 G5 G Drive Parts | Diesel Part Source',
     h1Title: 'Ktaa19 G5 G Drive Engine Parts',
     summary: 'Cummins Ktaa19 G5 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8005,7 +8005,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Ktaa19 G5 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Ktaa19 G5 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Ktaa19 G5 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8027,7 +8027,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Ktaa19 G6 G Drive Parts | Engine Family',
+    seoTitle: 'Ktaa19 G6 G Drive Parts | Diesel Part Source',
     h1Title: 'Ktaa19 G6 G Drive Engine Parts',
     summary: 'Cummins Ktaa19 G6 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8037,7 +8037,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Ktaa19 G6 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Ktaa19 G6 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Ktaa19 G6 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8059,7 +8059,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Ktaa19 G7 G Drive Parts | Engine Family',
+    seoTitle: 'Ktaa19 G7 G Drive Parts | Diesel Part Source',
     h1Title: 'Ktaa19 G7 G Drive Engine Parts',
     summary: 'Cummins Ktaa19 G7 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8069,7 +8069,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Ktaa19 G7 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Ktaa19 G7 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Ktaa19 G7 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8091,7 +8091,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Ktta19 C700 Parts | Engine Family',
+    seoTitle: 'Ktta19 C700 Parts | Diesel Part Source',
     h1Title: 'Ktta19 C700 Engine Parts',
     summary: 'MTU Ktta19 C700 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8101,7 +8101,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Ktta19 C700 Parts Support</h2>
-        <p>Engine Family supports MTU Ktta19 C700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Ktta19 C700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8123,7 +8123,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L270 30 Parts | Engine Family',
+    seoTitle: 'L270 30 Parts | Diesel Part Source',
     h1Title: 'L270 30 Engine Parts',
     summary: 'MTU L270 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8133,7 +8133,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L270 30 Parts Support</h2>
-        <p>Engine Family supports MTU L270 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L270 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8155,7 +8155,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L290 30 Parts | Engine Family',
+    seoTitle: 'L290 30 Parts | Diesel Part Source',
     h1Title: 'L290 30 Engine Parts',
     summary: 'MTU L290 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8165,7 +8165,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L290 30 Parts Support</h2>
-        <p>Engine Family supports MTU L290 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L290 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8187,7 +8187,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L300 20 Parts | Engine Family',
+    seoTitle: 'L300 20 Parts | Diesel Part Source',
     h1Title: 'L300 20 Engine Parts',
     summary: 'MTU L300 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8197,7 +8197,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L300 20 Parts Support</h2>
-        <p>Engine Family supports MTU L300 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L300 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8219,7 +8219,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L315 30 Parts | Engine Family',
+    seoTitle: 'L315 30 Parts | Diesel Part Source',
     h1Title: 'L315 30 Engine Parts',
     summary: 'MTU L315 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8229,7 +8229,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L315 30 Parts Support</h2>
-        <p>Engine Family supports MTU L315 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L315 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8251,7 +8251,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L325 20 Parts | Engine Family',
+    seoTitle: 'L325 20 Parts | Diesel Part Source',
     h1Title: 'L325 20 Engine Parts',
     summary: 'MTU L325 20 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8261,7 +8261,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L325 20 Parts Support</h2>
-        <p>Engine Family supports MTU L325 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L325 20 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8283,7 +8283,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L340 30 Parts | Engine Family',
+    seoTitle: 'L340 30 Parts | Diesel Part Source',
     h1Title: 'L340 30 Engine Parts',
     summary: 'MTU L340 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8293,7 +8293,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L340 30 Parts Support</h2>
-        <p>Engine Family supports MTU L340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8315,7 +8315,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'L375 30 Parts | Engine Family',
+    seoTitle: 'L375 30 Parts | Diesel Part Source',
     h1Title: 'L375 30 Engine Parts',
     summary: 'MTU L375 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8325,7 +8325,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>L375 30 Parts Support</h2>
-        <p>Engine Family supports MTU L375 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU L375 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8347,7 +8347,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C225 Parts | Engine Family',
+    seoTitle: 'M11 C225 Parts | Diesel Part Source',
     h1Title: 'M11 C225 Engine Parts',
     summary: 'MTU M11 C225 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8357,7 +8357,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C225 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C225 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C225 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8379,7 +8379,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C290 Parts | Engine Family',
+    seoTitle: 'M11 C290 Parts | Diesel Part Source',
     h1Title: 'M11 C290 Engine Parts',
     summary: 'MTU M11 C290 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8389,7 +8389,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C290 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C290 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C290 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8411,7 +8411,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C300 Parts | Engine Family',
+    seoTitle: 'M11 C300 Parts | Diesel Part Source',
     h1Title: 'M11 C300 Engine Parts',
     summary: 'MTU M11 C300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8421,7 +8421,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C300 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8443,7 +8443,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C310 Parts | Engine Family',
+    seoTitle: 'M11 C310 Parts | Diesel Part Source',
     h1Title: 'M11 C310 Engine Parts',
     summary: 'MTU M11 C310 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8453,7 +8453,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C310 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C310 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C310 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8475,7 +8475,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C315 Parts | Engine Family',
+    seoTitle: 'M11 C315 Parts | Diesel Part Source',
     h1Title: 'M11 C315 Engine Parts',
     summary: 'MTU M11 C315 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8485,7 +8485,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C315 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C315 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C315 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8507,7 +8507,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C320 Parts | Engine Family',
+    seoTitle: 'M11 C320 Parts | Diesel Part Source',
     h1Title: 'M11 C320 Engine Parts',
     summary: 'MTU M11 C320 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8517,7 +8517,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C320 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C320 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C320 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8539,7 +8539,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C350 Parts | Engine Family',
+    seoTitle: 'M11 C350 Parts | Diesel Part Source',
     h1Title: 'M11 C350 Engine Parts',
     summary: 'MTU M11 C350 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8549,7 +8549,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C350 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C350 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C350 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8571,7 +8571,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'M11 C380 Parts | Engine Family',
+    seoTitle: 'M11 C380 Parts | Diesel Part Source',
     h1Title: 'M11 C380 Engine Parts',
     summary: 'MTU M11 C380 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8581,7 +8581,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>M11 C380 Parts Support</h2>
-        <p>Engine Family supports MTU M11 C380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU M11 C380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8603,7 +8603,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Mining F 4 L 912 W Parts | Engine Family',
+    seoTitle: 'Mining F 4 L 912 W Parts | Diesel Part Source',
     h1Title: 'Mining F 4 L 912 W Engine Parts',
     summary: 'MTU Mining F 4 L 912 W engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8613,7 +8613,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Mining F 4 L 912 W Parts Support</h2>
-        <p>Engine Family supports MTU Mining F 4 L 912 W engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Mining F 4 L 912 W engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8635,7 +8635,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Mining F 6 L 912 W Parts | Engine Family',
+    seoTitle: 'Mining F 6 L 912 W Parts | Diesel Part Source',
     h1Title: 'Mining F 6 L 912 W Engine Parts',
     summary: 'MTU Mining F 6 L 912 W engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8645,7 +8645,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Mining F 6 L 912 W Parts Support</h2>
-        <p>Engine Family supports MTU Mining F 6 L 912 W engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Mining F 6 L 912 W engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8667,7 +8667,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Mtaa11 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Mtaa11 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Mtaa11 G2 G Drive Engine Parts',
     summary: 'MTU Mtaa11 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8677,7 +8677,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Mtaa11 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU Mtaa11 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Mtaa11 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8699,7 +8699,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU 16V 396 Te74l Parts | Engine Family',
+    seoTitle: 'MTU 16V 396 Te74l Parts | Diesel Part Source',
     h1Title: 'MTU 16V 396 Te74l Engine Parts',
     summary: 'MTU MTU 16V 396 Te74l engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8709,7 +8709,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU 16V 396 Te74l Parts Support</h2>
-        <p>Engine Family supports MTU MTU 16V 396 Te74l engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU 16V 396 Te74l engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8731,7 +8731,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU 2000 Series Parts | Engine Family',
+    seoTitle: 'MTU 2000 Series Parts | Diesel Part Source',
     h1Title: 'MTU 2000 Series Engine Parts',
     summary: 'MTU MTU 2000 Series engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8741,7 +8741,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU 2000 Series Parts Support</h2>
-        <p>Engine Family supports MTU MTU 2000 Series engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU 2000 Series engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8763,7 +8763,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU 2000cr Series Parts | Engine Family',
+    seoTitle: 'MTU 2000cr Series Parts | Diesel Part Source',
     h1Title: 'MTU 2000cr Series Engine Parts',
     summary: 'MTU MTU 2000cr Series engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8773,7 +8773,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU 2000cr Series Parts Support</h2>
-        <p>Engine Family supports MTU MTU 2000cr Series engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU 2000cr Series engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8795,7 +8795,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Series 1163 Engines Parts | Engine Family',
+    seoTitle: 'MTU Series 1163 Engines Parts | Diesel Part Source',
     h1Title: 'MTU Series 1163 Engines Engine Parts',
     summary: 'MTU MTU Series 1163 Engines engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8805,7 +8805,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Series 1163 Engines Parts Support</h2>
-        <p>Engine Family supports MTU MTU Series 1163 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU Series 1163 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8827,7 +8827,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Series 2000 Gensets Parts | Engine Family',
+    seoTitle: 'MTU Series 2000 Gensets Parts | Diesel Part Source',
     h1Title: 'MTU Series 2000 Gensets Engine Parts',
     summary: 'MTU MTU Series 2000 Gensets engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8837,7 +8837,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Series 2000 Gensets Parts Support</h2>
-        <p>Engine Family supports MTU MTU Series 2000 Gensets engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU Series 2000 Gensets engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8859,7 +8859,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Series 4000 Engines Parts | Engine Family',
+    seoTitle: 'MTU Series 4000 Engines Parts | Diesel Part Source',
     h1Title: 'MTU Series 4000 Engines Engine Parts',
     summary: 'MTU MTU Series 4000 Engines engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8869,7 +8869,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Series 4000 Engines Parts Support</h2>
-        <p>Engine Family supports MTU MTU Series 4000 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU Series 4000 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8891,7 +8891,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Series 4000 Gensets Parts | Engine Family',
+    seoTitle: 'MTU Series 4000 Gensets Parts | Diesel Part Source',
     h1Title: 'MTU Series 4000 Gensets Engine Parts',
     summary: 'MTU MTU Series 4000 Gensets engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8901,7 +8901,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Series 4000 Gensets Parts Support</h2>
-        <p>Engine Family supports MTU MTU Series 4000 Gensets engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU Series 4000 Gensets engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8923,7 +8923,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Series 8000 Engines Parts | Engine Family',
+    seoTitle: 'MTU Series 8000 Engines Parts | Diesel Part Source',
     h1Title: 'MTU Series 8000 Engines Engine Parts',
     summary: 'MTU MTU Series 8000 Engines engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8933,7 +8933,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Series 8000 Engines Parts Support</h2>
-        <p>Engine Family supports MTU MTU Series 8000 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU MTU Series 8000 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8955,7 +8955,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nt855 C250 Parts | Engine Family',
+    seoTitle: 'Nt855 C250 Parts | Diesel Part Source',
     h1Title: 'Nt855 C250 Engine Parts',
     summary: 'MTU Nt855 C250 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8965,7 +8965,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nt855 C250 Parts Support</h2>
-        <p>Engine Family supports MTU Nt855 C250 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Nt855 C250 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -8987,7 +8987,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nt855 C280 Parts | Engine Family',
+    seoTitle: 'Nt855 C280 Parts | Diesel Part Source',
     h1Title: 'Nt855 C280 Engine Parts',
     summary: 'MTU Nt855 C280 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -8997,7 +8997,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nt855 C280 Parts Support</h2>
-        <p>Engine Family supports MTU Nt855 C280 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Nt855 C280 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9019,7 +9019,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 C310 Parts | Engine Family',
+    seoTitle: 'Nta855 C310 Parts | Diesel Part Source',
     h1Title: 'Nta855 C310 Engine Parts',
     summary: 'Cummins Nta855 C310 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9029,7 +9029,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 C310 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 C310 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 C310 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9051,7 +9051,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 C335 Parts | Engine Family',
+    seoTitle: 'Nta855 C335 Parts | Diesel Part Source',
     h1Title: 'Nta855 C335 Engine Parts',
     summary: 'Cummins Nta855 C335 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9061,7 +9061,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 C335 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 C335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 C335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9083,7 +9083,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 C360 Parts | Engine Family',
+    seoTitle: 'Nta855 C360 Parts | Diesel Part Source',
     h1Title: 'Nta855 C360 Engine Parts',
     summary: 'Cummins Nta855 C360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9093,7 +9093,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 C360 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9115,7 +9115,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 C400 Parts | Engine Family',
+    seoTitle: 'Nta855 C400 Parts | Diesel Part Source',
     h1Title: 'Nta855 C400 Engine Parts',
     summary: 'Cummins Nta855 C400 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9125,7 +9125,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 C400 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 C400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 C400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9147,7 +9147,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 P300 Parts | Engine Family',
+    seoTitle: 'Nta855 P300 Parts | Diesel Part Source',
     h1Title: 'Nta855 P300 Engine Parts',
     summary: 'Cummins Nta855 P300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9157,7 +9157,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 P300 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 P300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 P300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9179,7 +9179,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 P360 Parts | Engine Family',
+    seoTitle: 'Nta855 P360 Parts | Diesel Part Source',
     h1Title: 'Nta855 P360 Engine Parts',
     summary: 'Cummins Nta855 P360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9189,7 +9189,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 P360 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 P360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 P360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9211,7 +9211,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 P400 Parts | Engine Family',
+    seoTitle: 'Nta855 P400 Parts | Diesel Part Source',
     h1Title: 'Nta855 P400 Engine Parts',
     summary: 'Cummins Nta855 P400 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9221,7 +9221,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 P400 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 P400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 P400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9243,7 +9243,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Nta855 P470 Parts | Engine Family',
+    seoTitle: 'Nta855 P470 Parts | Diesel Part Source',
     h1Title: 'Nta855 P470 Engine Parts',
     summary: 'Cummins Nta855 P470 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9253,7 +9253,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Nta855 P470 Parts Support</h2>
-        <p>Engine Family supports Cummins Nta855 P470 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Nta855 P470 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9275,7 +9275,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C100 31 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C100 31 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C100 31 Engine Parts',
     summary: 'Cummins Qsb3 9 C100 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9285,7 +9285,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C100 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C100 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C100 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9307,7 +9307,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C110 30 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C110 30 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C110 30 Engine Parts',
     summary: 'Cummins Qsb3 9 C110 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9317,7 +9317,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C110 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C110 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C110 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9339,7 +9339,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C125 30 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C125 30 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C125 30 Engine Parts',
     summary: 'Cummins Qsb3 9 C125 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9349,7 +9349,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C125 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C125 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C125 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9371,7 +9371,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C130 30 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C130 30 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C130 30 Engine Parts',
     summary: 'Cummins Qsb3 9 C130 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9381,7 +9381,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C130 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9403,7 +9403,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C130 31 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C130 31 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C130 31 Engine Parts',
     summary: 'Cummins Qsb3 9 C130 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9413,7 +9413,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C130 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C130 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C130 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9435,7 +9435,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C80 30 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C80 30 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C80 30 Engine Parts',
     summary: 'Cummins Qsb3 9 C80 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9445,7 +9445,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C80 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C80 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C80 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9467,7 +9467,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 C80 31 Parts | Engine Family',
+    seoTitle: 'Qsb3 9 C80 31 Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 C80 31 Engine Parts',
     summary: 'Cummins Qsb3 9 C80 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9477,7 +9477,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 C80 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 C80 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 C80 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9499,7 +9499,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb3 9 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 G2 G Drive Engine Parts',
     summary: 'Cummins Qsb3 9 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9509,7 +9509,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9531,7 +9531,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb3 9 G3 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb3 9 G3 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb3 9 G3 G Drive Engine Parts',
     summary: 'Cummins Qsb3 9 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9541,7 +9541,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb3 9 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb3 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb3 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9563,7 +9563,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb4 5 C110 30 Parts | Engine Family',
+    seoTitle: 'Qsb4 5 C110 30 Parts | Diesel Part Source',
     h1Title: 'Qsb4 5 C110 30 Engine Parts',
     summary: 'Cummins Qsb4 5 C110 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9573,7 +9573,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb4 5 C110 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb4 5 C110 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb4 5 C110 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9595,7 +9595,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb4 5 C110 31 Parts | Engine Family',
+    seoTitle: 'Qsb4 5 C110 31 Parts | Diesel Part Source',
     h1Title: 'Qsb4 5 C110 31 Engine Parts',
     summary: 'Cummins Qsb4 5 C110 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9605,7 +9605,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb4 5 C110 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb4 5 C110 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb4 5 C110 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9627,7 +9627,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb4 5 C130 30 Parts | Engine Family',
+    seoTitle: 'Qsb4 5 C130 30 Parts | Diesel Part Source',
     h1Title: 'Qsb4 5 C130 30 Engine Parts',
     summary: 'Cummins Qsb4 5 C130 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9637,7 +9637,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb4 5 C130 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb4 5 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb4 5 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9659,7 +9659,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb4 5 C160 30 Parts | Engine Family',
+    seoTitle: 'Qsb4 5 C160 30 Parts | Diesel Part Source',
     h1Title: 'Qsb4 5 C160 30 Engine Parts',
     summary: 'Cummins Qsb4 5 C160 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9669,7 +9669,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb4 5 C160 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb4 5 C160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb4 5 C160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9691,7 +9691,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C130 30 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C130 30 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C130 30 Engine Parts',
     summary: 'Cummins Qsb5 9 C130 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9701,7 +9701,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C130 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9723,7 +9723,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C150 31 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C150 31 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C150 31 Engine Parts',
     summary: 'Cummins Qsb5 9 C150 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9733,7 +9733,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C150 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C150 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C150 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9755,7 +9755,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C160 30 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C160 30 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C160 30 Engine Parts',
     summary: 'Cummins Qsb5 9 C160 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9765,7 +9765,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C160 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C160 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9787,7 +9787,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C170 30 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C170 30 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C170 30 Engine Parts',
     summary: 'Cummins Qsb5 9 C170 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9797,7 +9797,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C170 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C170 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C170 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9819,7 +9819,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C180 31 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C180 31 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C180 31 Engine Parts',
     summary: 'Cummins Qsb5 9 C180 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9829,7 +9829,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C180 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C180 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C180 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9851,7 +9851,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C180 33 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C180 33 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C180 33 Engine Parts',
     summary: 'Cummins Qsb5 9 C180 33 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9861,7 +9861,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C180 33 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C180 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C180 33 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9883,7 +9883,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C180 34 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C180 34 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C180 34 Engine Parts',
     summary: 'Cummins Qsb5 9 C180 34 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9893,7 +9893,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C180 34 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C180 34 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C180 34 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9915,7 +9915,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C190 31 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C190 31 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C190 31 Engine Parts',
     summary: 'Cummins Qsb5 9 C190 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9925,7 +9925,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C190 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C190 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C190 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9947,7 +9947,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 C210 30 Parts | Engine Family',
+    seoTitle: 'Qsb5 9 C210 30 Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 C210 30 Engine Parts',
     summary: 'Cummins Qsb5 9 C210 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9957,7 +9957,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 C210 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 C210 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 C210 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -9979,7 +9979,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb5 9 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 G2 G Drive Engine Parts',
     summary: 'Cummins Qsb5 9 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -9989,7 +9989,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10011,7 +10011,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb5 9 G3 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb5 9 G3 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb5 9 G3 G Drive Engine Parts',
     summary: 'Cummins Qsb5 9 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10021,7 +10021,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb5 9 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb5 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb5 9 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10043,7 +10043,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C130 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C130 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C130 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C130 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10053,7 +10053,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C130 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C130 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10075,7 +10075,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C155 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C155 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C155 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C155 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10085,7 +10085,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C155 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C155 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C155 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10107,7 +10107,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C160 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C160 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C160 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C160 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10117,7 +10117,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C160 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C160 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C160 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10139,7 +10139,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C170 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C170 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C170 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C170 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10149,7 +10149,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C170 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C170 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C170 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10171,7 +10171,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C190 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C190 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C190 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C190 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10181,7 +10181,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C190 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C190 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C190 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10203,7 +10203,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C190 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C190 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C190 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C190 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10213,7 +10213,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C190 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C190 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C190 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10235,7 +10235,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C205 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C205 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C205 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C205 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10245,7 +10245,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C205 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C205 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C205 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10267,7 +10267,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C215 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C215 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C215 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C215 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10277,7 +10277,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C215 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C215 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C215 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10299,7 +10299,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C215 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C215 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C215 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C215 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10309,7 +10309,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C215 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C215 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C215 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10331,7 +10331,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C220 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C220 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C220 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C220 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10341,7 +10341,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C220 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C220 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C220 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10363,7 +10363,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C220 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C220 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C220 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C220 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10373,7 +10373,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C220 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C220 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C220 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10395,7 +10395,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C240 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C240 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C240 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C240 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10405,7 +10405,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C240 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C240 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C240 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10427,7 +10427,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C240 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C240 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C240 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C240 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10437,7 +10437,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C240 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C240 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C240 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10459,7 +10459,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C250 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C250 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C250 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C250 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10469,7 +10469,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C250 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C250 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C250 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10491,7 +10491,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C260 30 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C260 30 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C260 30 Engine Parts',
     summary: 'Cummins Qsb6 7 C260 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10501,7 +10501,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C260 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C260 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C260 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10523,7 +10523,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 C260 31 Parts | Engine Family',
+    seoTitle: 'Qsb6 7 C260 31 Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 C260 31 Engine Parts',
     summary: 'Cummins Qsb6 7 C260 31 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10533,7 +10533,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 C260 31 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 C260 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 C260 31 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10555,7 +10555,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 G3 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb6 7 G3 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 G3 G Drive Engine Parts',
     summary: 'Cummins Qsb6 7 G3 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10565,7 +10565,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 G3 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 G3 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10587,7 +10587,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsb6 7 G4 G Drive Parts | Engine Family',
+    seoTitle: 'Qsb6 7 G4 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsb6 7 G4 G Drive Engine Parts',
     summary: 'Cummins Qsb6 7 G4 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10597,7 +10597,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsb6 7 G4 G Drive Parts Support</h2>
-        <p>Engine Family supports Cummins Qsb6 7 G4 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsb6 7 G4 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10619,7 +10619,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsk19 C600 Parts | Engine Family',
+    seoTitle: 'Qsk19 C600 Parts | Diesel Part Source',
     h1Title: 'Qsk19 C600 Engine Parts',
     summary: 'MTU Qsk19 C600 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10629,7 +10629,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsk19 C600 Parts Support</h2>
-        <p>Engine Family supports MTU Qsk19 C600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsk19 C600 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10651,7 +10651,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsk19 G13 G Drive Parts | Engine Family',
+    seoTitle: 'Qsk19 G13 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsk19 G13 G Drive Engine Parts',
     summary: 'MTU Qsk19 G13 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10661,7 +10661,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsk19 G13 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU Qsk19 G13 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsk19 G13 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10683,7 +10683,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsktaa19 C700 Parts | Engine Family',
+    seoTitle: 'Qsktaa19 C700 Parts | Diesel Part Source',
     h1Title: 'Qsktaa19 C700 Engine Parts',
     summary: 'Cummins Qsktaa19 C700 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10693,7 +10693,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsktaa19 C700 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsktaa19 C700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsktaa19 C700 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10715,7 +10715,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsktaa19 C755 Parts | Engine Family',
+    seoTitle: 'Qsktaa19 C755 Parts | Diesel Part Source',
     h1Title: 'Qsktaa19 C755 Engine Parts',
     summary: 'Cummins Qsktaa19 C755 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10725,7 +10725,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsktaa19 C755 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsktaa19 C755 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsktaa19 C755 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10747,7 +10747,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C220 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C220 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C220 Engine Parts',
     summary: 'Cummins Qsl8 9 C220 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10757,7 +10757,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C220 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C220 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10779,7 +10779,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C220 32 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C220 32 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C220 32 Engine Parts',
     summary: 'Cummins Qsl8 9 C220 32 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10789,7 +10789,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C220 32 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C220 32 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C220 32 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10811,7 +10811,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C240 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C240 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C240 Engine Parts',
     summary: 'Cummins Qsl8 9 C240 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10821,7 +10821,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C240 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C240 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10843,7 +10843,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C260 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C260 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C260 Engine Parts',
     summary: 'Cummins Qsl8 9 C260 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10853,7 +10853,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C260 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C260 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10875,7 +10875,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C260 30 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C260 30 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C260 30 Engine Parts',
     summary: 'Cummins Qsl8 9 C260 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10885,7 +10885,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C260 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C260 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C260 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10907,7 +10907,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C280 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C280 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C280 Engine Parts',
     summary: 'Cummins Qsl8 9 C280 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10917,7 +10917,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C280 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C280 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C280 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10939,7 +10939,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C295 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C295 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C295 Engine Parts',
     summary: 'Cummins Qsl8 9 C295 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10949,7 +10949,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C295 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C295 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C295 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -10971,7 +10971,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C300 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C300 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C300 Engine Parts',
     summary: 'Cummins Qsl8 9 C300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -10981,7 +10981,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C300 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11003,7 +11003,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C325 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C325 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C325 Engine Parts',
     summary: 'Cummins Qsl8 9 C325 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11013,7 +11013,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C325 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C325 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C325 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11035,7 +11035,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C325 30 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C325 30 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C325 30 Engine Parts',
     summary: 'Cummins Qsl8 9 C325 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11045,7 +11045,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C325 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C325 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C325 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11067,7 +11067,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C340 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C340 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C340 Engine Parts',
     summary: 'Cummins Qsl8 9 C340 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11077,7 +11077,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C340 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C340 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11099,7 +11099,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C340 30 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C340 30 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C340 30 Engine Parts',
     summary: 'Cummins Qsl8 9 C340 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11109,7 +11109,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C340 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C340 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11131,7 +11131,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C360 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C360 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C360 Engine Parts',
     summary: 'Cummins Qsl8 9 C360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11141,7 +11141,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C360 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11163,7 +11163,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsl8 9 C360 30 Parts | Engine Family',
+    seoTitle: 'Qsl8 9 C360 30 Parts | Diesel Part Source',
     h1Title: 'Qsl8 9 C360 30 Engine Parts',
     summary: 'Cummins Qsl8 9 C360 30 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11173,7 +11173,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsl8 9 C360 30 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsl8 9 C360 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsl8 9 C360 30 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11195,7 +11195,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 300 Parts | Engine Family',
+    seoTitle: 'Qsm11 300 Parts | Diesel Part Source',
     h1Title: 'Qsm11 300 Engine Parts',
     summary: 'MTU Qsm11 300 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11205,7 +11205,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 300 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 300 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11227,7 +11227,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 335 Parts | Engine Family',
+    seoTitle: 'Qsm11 335 Parts | Diesel Part Source',
     h1Title: 'Qsm11 335 Engine Parts',
     summary: 'MTU Qsm11 335 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11237,7 +11237,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 335 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 335 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11259,7 +11259,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 350 Parts | Engine Family',
+    seoTitle: 'Qsm11 350 Parts | Diesel Part Source',
     h1Title: 'Qsm11 350 Engine Parts',
     summary: 'MTU Qsm11 350 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11269,7 +11269,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 350 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 350 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 350 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11291,7 +11291,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 360 Parts | Engine Family',
+    seoTitle: 'Qsm11 360 Parts | Diesel Part Source',
     h1Title: 'Qsm11 360 Engine Parts',
     summary: 'MTU Qsm11 360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11301,7 +11301,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 360 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11323,7 +11323,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 375 Parts | Engine Family',
+    seoTitle: 'Qsm11 375 Parts | Diesel Part Source',
     h1Title: 'Qsm11 375 Engine Parts',
     summary: 'MTU Qsm11 375 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11333,7 +11333,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 375 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 375 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 375 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11355,7 +11355,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 400 Parts | Engine Family',
+    seoTitle: 'Qsm11 400 Parts | Diesel Part Source',
     h1Title: 'Qsm11 400 Engine Parts',
     summary: 'MTU Qsm11 400 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11365,7 +11365,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 400 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 400 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11387,7 +11387,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 G2 Parts | Engine Family',
+    seoTitle: 'Qsm11 G2 Parts | Diesel Part Source',
     h1Title: 'Qsm11 G2 Engine Parts',
     summary: 'MTU Qsm11 G2 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11397,7 +11397,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 G2 Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 G2 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11419,7 +11419,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsm11 G2 G Drive Parts | Engine Family',
+    seoTitle: 'Qsm11 G2 G Drive Parts | Diesel Part Source',
     h1Title: 'Qsm11 G2 G Drive Engine Parts',
     summary: 'MTU Qsm11 G2 G Drive engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11429,7 +11429,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsm11 G2 G Drive Parts Support</h2>
-        <p>Engine Family supports MTU Qsm11 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU Qsm11 G2 G Drive engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11451,7 +11451,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C380 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C380 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C380 Ii Engine Parts',
     summary: 'Cummins Qsz13 C380 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11461,7 +11461,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C380 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C380 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C380 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11483,7 +11483,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C400 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C400 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C400 Ii Engine Parts',
     summary: 'Cummins Qsz13 C400 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11493,7 +11493,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C400 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C400 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C400 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11515,7 +11515,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C425 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C425 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C425 Ii Engine Parts',
     summary: 'Cummins Qsz13 C425 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11525,7 +11525,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C425 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C425 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C425 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11547,7 +11547,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C450 Parts | Engine Family',
+    seoTitle: 'Qsz13 C450 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C450 Engine Parts',
     summary: 'Cummins Qsz13 C450 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11557,7 +11557,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C450 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C450 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C450 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11579,7 +11579,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C450 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C450 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C450 Ii Engine Parts',
     summary: 'Cummins Qsz13 C450 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11589,7 +11589,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C450 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C450 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C450 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11611,7 +11611,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C475 Parts | Engine Family',
+    seoTitle: 'Qsz13 C475 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C475 Engine Parts',
     summary: 'Cummins Qsz13 C475 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11621,7 +11621,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C475 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C475 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C475 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11643,7 +11643,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C475 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C475 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C475 Ii Engine Parts',
     summary: 'Cummins Qsz13 C475 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11653,7 +11653,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C475 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C475 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C475 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11675,7 +11675,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C500 Parts | Engine Family',
+    seoTitle: 'Qsz13 C500 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C500 Engine Parts',
     summary: 'Cummins Qsz13 C500 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11685,7 +11685,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C500 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C500 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C500 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11707,7 +11707,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C500 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C500 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C500 Ii Engine Parts',
     summary: 'Cummins Qsz13 C500 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11717,7 +11717,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C500 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C500 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C500 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11739,7 +11739,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C525 Parts | Engine Family',
+    seoTitle: 'Qsz13 C525 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C525 Engine Parts',
     summary: 'Cummins Qsz13 C525 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11749,7 +11749,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C525 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C525 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C525 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11771,7 +11771,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C525 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C525 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C525 Ii Engine Parts',
     summary: 'Cummins Qsz13 C525 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11781,7 +11781,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C525 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C525 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C525 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11803,7 +11803,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C550 Parts | Engine Family',
+    seoTitle: 'Qsz13 C550 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C550 Engine Parts',
     summary: 'Cummins Qsz13 C550 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11813,7 +11813,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C550 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C550 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C550 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11835,7 +11835,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C550 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C550 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C550 Ii Engine Parts',
     summary: 'Cummins Qsz13 C550 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11845,7 +11845,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C550 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C550 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C550 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11867,7 +11867,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C575 Parts | Engine Family',
+    seoTitle: 'Qsz13 C575 Parts | Diesel Part Source',
     h1Title: 'Qsz13 C575 Engine Parts',
     summary: 'Cummins Qsz13 C575 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11877,7 +11877,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C575 Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C575 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C575 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11899,7 +11899,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Qsz13 C575 Ii Parts | Engine Family',
+    seoTitle: 'Qsz13 C575 Ii Parts | Diesel Part Source',
     h1Title: 'Qsz13 C575 Ii Engine Parts',
     summary: 'Cummins Qsz13 C575 Ii engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11909,7 +11909,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>Qsz13 C575 Ii Parts Support</h2>
-        <p>Engine Family supports Cummins Qsz13 C575 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports Cummins Qsz13 C575 Ii engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11931,7 +11931,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'X11ns6b320 Parts | Engine Family',
+    seoTitle: 'X11ns6b320 Parts | Diesel Part Source',
     h1Title: 'X11ns6b320 Engine Parts',
     summary: 'MTU X11ns6b320 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11941,7 +11941,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>X11ns6b320 Parts Support</h2>
-        <p>Engine Family supports MTU X11ns6b320 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU X11ns6b320 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11963,7 +11963,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'X11ns6b360 Parts | Engine Family',
+    seoTitle: 'X11ns6b360 Parts | Diesel Part Source',
     h1Title: 'X11ns6b360 Engine Parts',
     summary: 'MTU X11ns6b360 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -11973,7 +11973,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>X11ns6b360 Parts Support</h2>
-        <p>Engine Family supports MTU X11ns6b360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU X11ns6b360 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -11995,7 +11995,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'X12e5 510 Parts | Engine Family',
+    seoTitle: 'X12e5 510 Parts | Diesel Part Source',
     h1Title: 'X12e5 510 Engine Parts',
     summary: 'MTU X12e5 510 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -12005,7 +12005,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>X12e5 510 Parts Support</h2>
-        <p>Engine Family supports MTU X12e5 510 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU X12e5 510 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -12027,7 +12027,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'X12ns6b380 Parts | Engine Family',
+    seoTitle: 'X12ns6b380 Parts | Diesel Part Source',
     h1Title: 'X12ns6b380 Engine Parts',
     summary: 'MTU X12ns6b380 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -12037,7 +12037,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>X12ns6b380 Parts Support</h2>
-        <p>Engine Family supports MTU X12ns6b380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU X12ns6b380 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -12059,7 +12059,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'X12ns6b490 Parts | Engine Family',
+    seoTitle: 'X12ns6b490 Parts | Diesel Part Source',
     h1Title: 'X12ns6b490 Engine Parts',
     summary: 'MTU X12ns6b490 engine parts inquiry support for service, overhaul, and replacement planning.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
@@ -12069,7 +12069,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     content: {
       partOne: `
         <h2>X12ns6b490 Parts Support</h2>
-        <p>Engine Family supports MTU X12ns6b490 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
+        <p>Diesel Part Source supports MTU X12ns6b490 engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
         <h3>Typical Requests</h3>
         <ul>
           <li>Filters, gaskets, seals, belts, sensors, and service items</li>
@@ -12095,7 +12095,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-hero.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU Spare Parts Supplier | Engine Family',
+    seoTitle: 'MTU Spare Parts Supplier | Diesel Part Source',
     h1Title: 'MTU Spare Parts',
     summary:
       'Genuine MTU parts for 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.',
@@ -12106,7 +12106,7 @@ const productCatalog: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU Spare Parts Supply</h2>
-        <p>Engine Family supplies MTU engine spare parts for marine, industrial, rail, and power generation users. We support both routine service orders and urgent downtime requests with part-number verification, stock checking, and global delivery from Shanghai.</p>
+        <p>Diesel Part Source supplies MTU engine spare parts for marine, industrial, rail, and power generation users. We support both routine service orders and urgent downtime requests with part-number verification, stock checking, and global delivery from Shanghai.</p>
         <h3>Browse by Part Category</h3>
         <ul>
           <li><a href="/part-products/catalog/mtu-filters/">MTU Filters — oil, fuel, air, coolant</a></li>
@@ -12158,7 +12158,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-sensors-catalog.png',
     secondImage: '/images/precision-micrometer-measurement.jpg',
-    seoTitle: 'MTU 2000 Series Parts | Engine Family',
+    seoTitle: 'MTU 2000 Series Parts | Diesel Part Source',
     h1Title: 'MTU 2000 Series Engine Parts',
     summary:
       'Parts support for MTU 2000 series engines used in marine propulsion, generator sets, and industrial power units.',
@@ -12190,7 +12190,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-hero.png',
     mainImage: '/images/engine-parts-verification-desk.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'MTU 4000 Series Parts | Engine Family',
+    seoTitle: 'MTU 4000 Series Parts | Diesel Part Source',
     h1Title: 'MTU 4000 Series Engine Parts',
     summary:
       'Genuine MTU 4000 series parts for marine, generator, rail, and industrial engines, with worldwide shipment from Shanghai.',
@@ -12222,7 +12222,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/engine-parts-sensors-catalog.png',
     secondImage: '/images/material-sourcing-service.webp',
-    seoTitle: 'Detroit Diesel Parts Supplier | Engine Family',
+    seoTitle: 'Detroit Diesel Parts Supplier | Diesel Part Source',
     h1Title: 'Detroit Diesel Engine Parts',
     summary:
       'Detroit Diesel engine parts support for legacy and related MTU engine applications, maintenance, and overhaul programs.',
@@ -12233,7 +12233,7 @@ const productCatalog: ProductItem[] = [
     content: {
       partOne: `
         <h2>Detroit Diesel Parts</h2>
-        <p>Engine Family supports Detroit Diesel parts requests for maintenance teams handling older engine platforms and MTU-related applications.</p>
+        <p>Diesel Part Source supports Detroit Diesel parts requests for maintenance teams handling older engine platforms and MTU-related applications.</p>
         <h3>Inquiry Details</h3>
         <ul>
           <li>Engine model and serial number</li>
@@ -12254,7 +12254,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-hero.png',
     mainImage: '/images/engine-parts-sensors-catalog.png',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'Cummins Parts Supplier | Engine Family',
+    seoTitle: 'Cummins Parts Supplier | Diesel Part Source',
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
       'Cummins service parts, overhaul components, and replacement assemblies for generator, marine, and industrial engines.',
@@ -12286,7 +12286,7 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.png',
     mainImage: '/images/precision-grinding-service-capability.webp',
     secondImage: '/images/engine-parts-verification-desk.png',
-    seoTitle: 'DEUTZ Parts Supplier | Engine Family',
+    seoTitle: 'DEUTZ Parts Supplier | Diesel Part Source',
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:
       'DEUTZ replacement parts and maintenance support for construction equipment, industrial units, pumps, and compressors.',

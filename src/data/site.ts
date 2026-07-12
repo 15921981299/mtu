@@ -1,20 +1,20 @@
 ﻿export const site = {
-  name: 'Engine Family',
+  name: 'Diesel Part Source',
   company: {
-    legalName: 'Shanghai Diesel Engine Family Co., Ltd.',
-    legalNameEn: 'Shanghai Diesel Engine Family Co., Ltd.',
+    legalName: 'Shanghai Diesel Part Source Co., Ltd.',
+    legalNameEn: 'Shanghai Diesel Part Source Co., Ltd.',
   },
-  url: 'https://dieselpartsrfq.com',
-  email: 'charles@dieselpartsrfq.com',
+  url: 'https://dieselpartsource.com',
+  email: 'charles@dieselpartsource.com',
   phone: '+862133282711',
   whatsapp: '+8618018620661',
   tagline: 'Genuine Engine Parts | Fast Global Delivery',
   logo: {
-    default: '/images/dieselpartsrfq-logo.svg',
-    compact: '/images/dieselpartsrfq-logo-compact.svg',
-    icon: '/images/dieselpartsrfq-logo-icon.svg',
-    width: 223,
-    height: 32,
+    default: '/logo.png',
+    compact: '/logo.png',
+    icon: '/logo.png',
+    width: 2076,
+    height: 758,
   },
   /** Set your GA4 Measurement ID (e.g. G-XXXXXXXX) to enable analytics. Leave empty to disable. */
   gaMeasurementId: 'G-WFJ59G7FKN',
@@ -70,10 +70,10 @@
     },
   },
   defaultDescription:
-    'Engine Family supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
+    'Diesel Part Source supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
 };
 
-const organizationLogoUrl = `${site.url}/images/dieselpartsrfq-logo.svg`;
+const organizationLogoUrl = `${site.url}/logo.png`;
 
 export const organizationSchema = {
   '@context': 'https://schema.org',

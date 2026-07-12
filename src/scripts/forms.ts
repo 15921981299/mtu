@@ -28,7 +28,7 @@ async function handleQuote(form: HTMLFormElement) {
   }
 
   const endpoint = form.dataset.endpoint ?? '/api/rfq';
-  const fallbackEmail = form.dataset.fallbackEmail ?? 'charles@dieselpartsrfq.com';
+  const fallbackEmail = form.dataset.fallbackEmail ?? 'charles@dieselpartsource.com';
 
   setLoading(form, true);
 

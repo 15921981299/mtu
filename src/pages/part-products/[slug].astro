@@ -15,10 +15,10 @@ export function getStaticPaths() {
 const { part } = Astro.props;
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
-const relatedParts = getRelatedMtuParts(part, 4);
-const sameSeriesParts = getSameSeriesParts(part, 6);
-const sameCategoryParts = getSameCategoryParts(part, 4);
-const pairedParts = getFrequentlyPairedParts(part, 4);
+const relatedParts = getRelatedMtuParts(part, 8);
+const sameSeriesParts = getSameSeriesParts(part, 12);
+const sameCategoryParts = getSameCategoryParts(part, 8);
+const pairedParts = getFrequentlyPairedParts(part, 8);
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
 const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 const shortApplicableEngines = hasSpecificApplicableEngines
@@ -36,11 +36,24 @@ const metaStock = part.stockStatus ?? 'Availability checked after inquiry';
 const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${seriesText}. Engine type, dimensions, weight, HS code, and fitment checked before quote.`;
 const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
 const partFaqs = part.faqs ?? [];
+const replacementRefs = part.replacementFor?.filter((ref) => ref.trim() !== '') ?? [];
+const hasReplacementRefs = replacementRefs.length > 0;
+const replacementReviewText = hasReplacementRefs
+  ? `${part.partNumber} may replace, supersede, or cross-reference the numbers below. Final fitment is checked against the engine serial number and installation position before quotation.`
+  : `${part.partNumber} has no public alternative number listed in our current data. We still check old-part photos, engine serial number, and catalog position for supersession before quotation.`;
 const quoteChecklist = part.quoteChecklist ?? [
   `Part number: ${part.partNumber}`,
   'Engine model, rating, and serial number',
   'Nameplate photo and old part photo when available',
   'Quantity, destination country, and required delivery date',
+];
+const procurementChecks = [
+  ['Fitment basis', hasSpecificApplicableEngines ? part.applicableEngines : seriesText],
+  ['Replacement check', hasReplacementRefs ? replacementRefs.join(', ') : 'Checked by old part number, serial number, and catalog position'],
+  ['Failure context', part.commonFailureScenarios?.[0] ?? 'Describe alarm, leakage, wear, service interval, or downtime symptom'],
+  ['Export fields', [part.weightKg ? `Weight ${part.weightKg}` : undefined, part.hsCode ? `HS ${part.hsCode}` : undefined]
+    .filter(Boolean)
+    .join(' / ') || 'Confirmed before export quote'],
 ];
 
 const specRows = [
@@ -128,6 +141,8 @@ const browseCatalogLinks = Array.from(
       quoteHref={quoteHref}
       title={`Check ${part.partNumber} availability`}
       text="Send engine model, serial number, nameplate photo, old part photo, quantity, destination, and required delivery date."
+      modalContext={`${part.partNumber} ${part.name} - ${seriesText}`}
+      modalSource={`part-${part.slug}`}
       secondaryHref="/part-products/"
       secondaryLabel="All MTU part numbers"
     />
@@ -166,15 +181,28 @@ const browseCatalogLinks = Array.from(
       </>
     )}
 
-    {part.replacementFor && part.replacementFor.length > 0 && (
-      <>
-        <h2>Cross-Reference and Superseded Part Numbers</h2>
-        <p>May replace or relate to the following references. Final fitment is verified by engine serial number.</p>
-        <ul>
-          {part.replacementFor.map((ref) => <li><strong>{ref}</strong></li>)}
-        </ul>
-      </>
+    <h2>Cross-Reference and Superseded Part Numbers</h2>
+    <p>{replacementReviewText}</p>
+    {hasReplacementRefs ? (
+      <ul>
+        {replacementRefs.map((ref) => <li><strong>{ref}</strong></li>)}
+      </ul>
+    ) : (
+      <div class="part-verification-card">
+        <strong>Replacement status to verify:</strong>
+        <span>Send the old part marking, engine model, engine serial number, and installation photo. We check whether a newer, reman, or OEM-alternative route applies before quoting.</span>
+      </div>
     )}
+
+    <h2>Procurement Snapshot</h2>
+    <div class="part-procurement-grid">
+      {procurementChecks.map(([label, value]) => (
+        <div>
+          <dt>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </div>
 
     <h2>Common Applications</h2>
     <ul>
@@ -321,7 +349,12 @@ const browseCatalogLinks = Array.from(
       /
       <a href="/products/mtu-spare-parts/">MTU spare parts</a>
       /
-      <a href={quoteHref}>Check this part</a>
+      <a
+        href={quoteHref}
+        data-rfq-modal
+        data-rfq-context={`${part.partNumber} ${part.name} - ${seriesText}`}
+        data-rfq-source={`part-${part.slug}`}
+      >Check this part</a>
     </p>
   </DetailPageShell>
 </BaseLayout>
@@ -392,6 +425,59 @@ const browseCatalogLinks = Array.from(
     color: #475569;
   }
 
+  .part-verification-card {
+    display: grid;
+    gap: 6px;
+    margin: 12px 0 28px;
+    padding: 16px 18px;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: #1e3a8a;
+  }
+
+  .part-verification-card strong {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .part-verification-card span {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .part-procurement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0 28px;
+  }
+
+  .part-procurement-grid div {
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  .part-procurement-grid dt {
+    margin: 0 0 5px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .part-procurement-grid dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #0f172a;
+    overflow-wrap: anywhere;
+  }
+
   .stock-status-bar {
     display: flex;
     align-items: center;
@@ -417,7 +503,8 @@ const browseCatalogLinks = Array.from(
 
   @media (max-width: 700px) {
     .part-related-grid,
-    .part-spec-table {
+    .part-spec-table,
+    .part-procurement-grid {
       grid-template-columns: 1fr;
     }
 

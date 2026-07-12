@@ -1,4 +1,4 @@
-import { engineFamilyPartDetailsByPartNumber, engineFamilyPartSeeds } from './engine-family-parts';
+import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
 
 export type MtuPart = {
   slug: string;
@@ -2137,15 +2137,21 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
 };
 
 const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
-  const detail = engineFamilyPartDetailsByPartNumber[part.partNumber.toUpperCase()];
+  const detail = engineFamilyPartDetailsBySlug[part.slug] ?? engineFamilyPartDetailsByPartNumber[part.partNumber.toUpperCase()];
   if (!detail) return part;
 
   const replacementFor = Array.from(new Set([...(part.replacementFor ?? []), ...detail.replacementFor]));
+  const detailDescription = detail.sourceDescription?.trim();
+  const currentDescription = part.description?.trim();
+  const mergedDescription = detailDescription && currentDescription && !currentDescription.includes(detailDescription)
+    ? `${detailDescription} ${currentDescription}`
+    : detailDescription || currentDescription;
+
   return {
     ...part,
     image: detail.image || part.image,
     imageAlt: detail.imageAlt || part.imageAlt,
-    description: detail.sourceDescription || part.description,
+    description: mergedDescription,
     engineType: detail.engineType || part.engineType,
     applicableEngines: detail.applicableEngines || part.applicableEngines,
     dimensions: detail.dimensions || part.dimensions,

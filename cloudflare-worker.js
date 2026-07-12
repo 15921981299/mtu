@@ -85,7 +85,7 @@ export default {
       const resendKey = env.RESEND_API_KEY;
       if (!resendKey) {
         console.error('RESEND_API_KEY not configured');
-        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsrfq.com' }), {
+        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsource.com' }), {
           status: 503,
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
         });
@@ -98,8 +98,8 @@ export default {
           Authorization: `Bearer ${resendKey}`,
         },
         body: JSON.stringify({
-          from: 'Engine Family <rfq@dieselpartsrfq.com>',
-          to: 'charles@dieselpartsrfq.com',
+          from: 'Diesel Part Source <rfq@dieselpartsource.com>',
+          to: 'charles@dieselpartsource.com',
           subject: `New RFQ: ${name} - ${material} / ${quantity}`,
           text: emailBody,
         }),
@@ -110,7 +110,7 @@ export default {
         const autoReplyBody = [
           `Hi ${name},`,
           '',
-          'Thank you for submitting your engine parts inquiry to Engine Family.',
+          'Thank you for submitting your engine parts inquiry to Diesel Part Source.',
           '',
           'We have received your inquiry. Our parts team will review your part number, engine details, photos, quantity, and destination before quotation.',
           '',
@@ -120,13 +120,13 @@ export default {
           '3. Follow-up if replacement or compatibility details need confirmation',
           '',
           'Helpful resources:',
-          '- MTU part numbers: https://dieselpartsrfq.com/part-products/',
-          '- Engine parts catalog: https://dieselpartsrfq.com/products/',
+          '- MTU part numbers: https://dieselpartsource.com/part-products/',
+          '- Engine parts catalog: https://dieselpartsource.com/products/',
           '',
-          'Questions before we reply? Email charles@dieselpartsrfq.com - we respond within one business day.',
+          'Questions before we reply? Email charles@dieselpartsource.com - we respond within one business day.',
           '',
           'Best regards,',
-          'Engine Family Parts Team',
+          'Diesel Part Source Parts Team',
         ].join('\n');
 
         const autoReplyResp = await fetch('https://api.resend.com/emails', {
@@ -136,10 +136,10 @@ export default {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: 'Engine Family <rfq@dieselpartsrfq.com>',
+            from: 'Diesel Part Source <rfq@dieselpartsource.com>',
             to: email,
-            reply_to: 'charles@dieselpartsrfq.com',
-            subject: 'We received your engine parts inquiry - Engine Family',
+            reply_to: 'charles@dieselpartsource.com',
+            subject: 'We received your engine parts inquiry - Diesel Part Source',
             text: autoReplyBody,
           }),
         });
@@ -153,7 +153,7 @@ export default {
 
     } catch (err) {
       console.error('RFQ Error:', err.message);
-      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsrfq.com' }), {
+      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsource.com' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

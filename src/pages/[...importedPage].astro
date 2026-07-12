@@ -107,13 +107,13 @@ const uniqueAngle = isPartPage
       quoteHref={quoteHref}
       title={`Request ${page.title} support`}
       text="Send engine model, serial number, part numbers, quantity, destination, and required delivery date."
-      secondaryHref="/products/"
-      secondaryLabel="Browse engine parts"
+      secondaryHref="/part-products/"
+      secondaryLabel="Browse MTU part numbers"
     />
 
     <h2>{page.title} Sourcing Support</h2>
     <p>
-      This {pageKind} page helps buyers organize inquiries related to {page.title}. Engine Family checks part
+      This {pageKind} page helps buyers organize inquiries related to {page.title}. Diesel Part Source checks part
       references, engine details, replacement status, stock route, and shipping options before quotation.
     </p>
     <p>{uniqueAngle}</p>
@@ -138,8 +138,9 @@ const uniqueAngle = isPartPage
 
     <h2>Useful Links</h2>
     <ul>
-      <li><a href="/products/">Engine parts catalog</a></li>
       <li><a href="/part-products/">MTU part numbers</a></li>
+      <li><a href="/part-products/catalog/mtu-2000-series/">MTU 2000 series catalog</a></li>
+      <li><a href="/part-products/catalog/mtu-4000-series/">MTU 4000 series catalog</a></li>
       <li><a href="/contact/">Send parts inquiry</a></li>
     </ul>
   </DetailPageShell>

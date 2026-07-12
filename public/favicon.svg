@@ -1,7 +1,13 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#FFFFFF"/>
-  <path d="M16 3L27 9.5V22.5L16 29L5 22.5V9.5L16 3Z" fill="#146EF5"/>
-  <path d="M11 10.5H14.5V22H11V10.5Z" fill="#FFFFFF"/>
-  <path d="M11 10.5H19.5V13.5H11V10.5Z" fill="#FFFFFF"/>
-  <circle cx="21" cy="11" r="1.2" fill="#FFFFFF"/>
+  <defs>
+    <linearGradient id="dps-favicon-gradient" x1="4" y1="3" x2="28" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#146EF5"/>
+      <stop offset="1" stop-color="#0B3F8F"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#F7FAFF"/>
+  <path d="M16 2.8L27.7 9.5V22.5L16 29.2L4.3 22.5V9.5L16 2.8Z" fill="url(#dps-favicon-gradient)"/>
+  <path d="M12.2 9.2H16.2C20.4 9.2 23.1 11.8 23.1 16C23.1 20.2 20.4 22.8 16.2 22.8H12.2V19.8H16C18.2 19.8 19.6 18.4 19.6 16C19.6 13.6 18.2 12.2 16 12.2H12.2V9.2Z" fill="#FFFFFF"/>
+  <path d="M8.9 9.2H12V22.8H8.9V9.2Z" fill="#FFFFFF"/>
+  <path d="M24 6.6L25.7 7.6V9.5L24 10.5L22.3 9.5V7.6L24 6.6Z" fill="#9FD1FF"/>
 </svg>
