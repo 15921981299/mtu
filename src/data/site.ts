@@ -6,8 +6,8 @@
   },
   url: 'https://dieselpartsource.com',
   email: 'charles@dieselpartsource.com',
-  phone: '+862133282711',
-  whatsapp: '+8618018620661',
+  phone: '+8615921981299',
+  whatsapp: '+8615921981299',
   tagline: 'Genuine Engine Parts | Fast Global Delivery',
   logo: {
     default: '/logo.png',
@@ -225,6 +225,115 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       position: index + 1,
       name: item.name,
       item: item.url,
+    })),
+  };
+}
+
+/** schema.org AboutPage for the company / E-E-A-T landing page. */
+export function aboutPageSchema(page: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: page.name,
+    description: page.description,
+    url: page.url,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: site.name,
+      url: site.url,
+    },
+    mainEntity: {
+      '@type': 'Organization',
+      name: site.company.legalNameEn,
+      alternateName: [site.name, site.company.legalName],
+      url: site.url,
+      email: site.email,
+      telephone: site.phone,
+      description: site.defaultDescription,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District',
+        addressLocality: 'Shanghai',
+        addressRegion: 'Shanghai',
+        postalCode: '201112',
+        addressCountry: 'CN',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: site.email,
+        telephone: site.phone,
+        areaServed: 'Worldwide',
+        availableLanguage: ['English', 'Chinese'],
+      },
+    },
+  };
+}
+
+/** schema.org ContactPage for the RFQ / contact landing page. */
+export function contactPageSchema(page: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: page.name,
+    description: page.description,
+    url: page.url,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: site.name,
+      url: site.url,
+    },
+    about: {
+      '@type': 'Organization',
+      name: site.company.legalNameEn,
+      alternateName: [site.name, site.company.legalName],
+      url: site.url,
+      email: site.email,
+      telephone: site.phone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District',
+        addressLocality: 'Shanghai',
+        addressRegion: 'Shanghai',
+        postalCode: '201112',
+        addressCountry: 'CN',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: site.email,
+        telephone: site.phone,
+        areaServed: 'Worldwide',
+        availableLanguage: ['English', 'Chinese'],
+      },
+    },
+  };
+}
+
+/** schema.org HowTo for inquiry / fulfillment process steps. */
+export function howToSchema(howto: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howto.name,
+    description: howto.description,
+    step: howto.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
     })),
   };
 }

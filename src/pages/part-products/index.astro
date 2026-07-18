@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { mtuPartCategories, mtuParts, mtuPartSeries, mtuCatalogHubs } from '../../data/mtu-parts';
+import { isRealPartImage, mtuPartCategories, mtuParts, mtuPartSeries, mtuCatalogHubs } from '../../data/mtu-parts';
 
 const seriesHubs = mtuCatalogHubs.filter((h) => h.type === 'series');
 const categoryHubs = mtuCatalogHubs.filter((h) => h.type === 'category');
@@ -10,7 +10,6 @@ import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 const pageUrl = `${site.url}/part-products/`;
-const isRealPartImage = (image: string) => image.includes('/diesel-part-source-parts/');
 const priorityParts = [...mtuParts]
   .filter((part) => isRealPartImage(part.image) && part.weightKg && part.hsCode)
   .sort((a, b) => {

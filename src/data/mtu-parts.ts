@@ -1,4 +1,4 @@
-import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
+﻿import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
 
 export type MtuPart = {
   slug: string;
@@ -46,52 +46,55 @@ const partImage = '/images/mtu-2000-series-parts.webp';
 /** Each category gets its own image — avoids every part page showing the same picture. */
 const categoryImages: Record<string, string> = {
   'Turbocharging': '/images/industrial-diesel-engine-parts.webp',
-  'Filters': '/images/engine-parts-sensors-catalog.png',
-  'Fuel system': '/images/engine-parts-hero.png',
-  'Sensors and electrical': '/images/engine-parts-sensors-catalog.png',
+  'Filters': '/images/engine-parts-sensors-catalog.webp',
+  'Fuel system': '/images/engine-parts-hero.webp',
+  'Sensors and electrical': '/images/engine-parts-sensors-catalog.webp',
   'Pistons and liners': '/images/generator-engine-parts.webp',
   'Valve train': '/images/industrial-diesel-engine-parts.webp',
   'Bearings': '/images/mtu-2000-series-parts.webp',
-  'Gaskets and seals': '/images/engine-parts-verification-desk.png',
+  'Gaskets and seals': '/images/engine-parts-verification-desk.webp',
   'Cooling system': '/images/marine-diesel-engine-parts.webp',
-  'Lubrication': '/images/engine-parts-hero.png',
-  'Drive components': '/images/engine-parts-verification-desk.png',
+  'Lubrication': '/images/engine-parts-hero.webp',
+  'Drive components': '/images/engine-parts-verification-desk.webp',
   'Air and intake': '/images/mtu-2000-series-parts.webp',
   'Engine components': '/images/generator-engine-parts.webp',
-  'Control components': '/images/engine-parts-sensors-catalog.png',
+  'Control components': '/images/engine-parts-sensors-catalog.webp',
 };
 const defaultPartImage = '/images/mtu-2000-series-parts.webp';
+
+export const isRealPartImage = (image: string) =>
+  image.includes('/images/engine-family-parts/') || image.includes('/images/diesel-part-source-parts/');
 
 /** Popular/high-value parts get a more relevant image. */
 const popularPartImages: Record<string, string> = {
   '5240113410-cylinder-liner-size-0': '/images/generator-engine-parts.webp',
-  'x53507500012-injector': '/images/engine-parts-hero.png',
-  'ex52407500064-injector': '/images/engine-parts-hero.png',
+  'x53507500012-injector': '/images/engine-parts-hero.webp',
+  'ex52407500064-injector': '/images/engine-parts-hero.webp',
   '5110804420-turbine-wheel': '/images/industrial-diesel-engine-parts.webp',
-  '0020940204-filter-cartridge': '/images/engine-parts-sensors-catalog.png',
-  'x57508300091-fuel-filter-spin-on': '/images/engine-parts-sensors-catalog.png',
-  '0031845201-oil-filter-spin-on': '/images/engine-parts-sensors-catalog.png',
-  '5240161580-cylinder-head-gasket': '/images/engine-parts-verification-desk.png',
-  '5410160920-cylinder-head-gasket': '/images/engine-parts-verification-desk.png',
+  '0020940204-filter-cartridge': '/images/engine-parts-sensors-catalog.webp',
+  'x57508300091-fuel-filter-spin-on': '/images/engine-parts-sensors-catalog.webp',
+  '0031845201-oil-filter-spin-on': '/images/engine-parts-sensors-catalog.webp',
+  '5240161580-cylinder-head-gasket': '/images/engine-parts-verification-desk.webp',
+  '5410160920-cylinder-head-gasket': '/images/engine-parts-verification-desk.webp',
   '5240530301-inlet-valve': '/images/industrial-diesel-engine-parts.webp',
-  '0005358233-speed-sensor': '/images/engine-parts-sensors-catalog.png',
-  '5240380471-conrod-bolt': '/images/engine-parts-verification-desk.png',
+  '0005358233-speed-sensor': '/images/engine-parts-sensors-catalog.webp',
+  '5240380471-conrod-bolt': '/images/engine-parts-verification-desk.webp',
   '5502003201-seawater-pump': '/images/marine-diesel-engine-parts.webp',
   'x00022524-impeller': '/images/marine-diesel-engine-parts.webp',
-  '5240780824-conn-fuel-rail-rear': '/images/engine-parts-hero.png',
-  'x54707700072-relief-valve-for-4-cyl-hp-pump': '/images/engine-parts-hero.png',
-  '8495340000-solenoid-valve': '/images/engine-parts-sensors-catalog.png',
-  '0005342732-valve-block-electric': '/images/engine-parts-sensors-catalog.png',
-  '5840980257-2-2-way-solenoid-valve': '/images/engine-parts-sensors-catalog.png',
-  '0005357933-speed-sensor': '/images/engine-parts-sensors-catalog.png',
-  '0035352731-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
-  '0035351731-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
-  '0035352931-pressure-sensor': '/images/engine-parts-sensors-catalog.png',
-  '0005355303-level-monitor': '/images/engine-parts-sensors-catalog.png',
+  '5240780824-conn-fuel-rail-rear': '/images/engine-parts-hero.webp',
+  'x54707700072-relief-valve-for-4-cyl-hp-pump': '/images/engine-parts-hero.webp',
+  '8495340000-solenoid-valve': '/images/engine-parts-sensors-catalog.webp',
+  '0005342732-valve-block-electric': '/images/engine-parts-sensors-catalog.webp',
+  '5840980257-2-2-way-solenoid-valve': '/images/engine-parts-sensors-catalog.webp',
+  '0005357933-speed-sensor': '/images/engine-parts-sensors-catalog.webp',
+  '0035352731-pressure-sensor': '/images/engine-parts-sensors-catalog.webp',
+  '0035351731-pressure-sensor': '/images/engine-parts-sensors-catalog.webp',
+  '0035352931-pressure-sensor': '/images/engine-parts-sensors-catalog.webp',
+  '0005355303-level-monitor': '/images/engine-parts-sensors-catalog.webp',
   '0002000001-coolant-pump': '/images/marine-diesel-engine-parts.webp',
   '0012040100-seawater-pump': '/images/marine-diesel-engine-parts.webp',
-  '5410100163-oil-separator': '/images/engine-parts-hero.png',
-  '0021882301-29-oil-cooler': '/images/engine-parts-hero.png',
+  '5410100163-oil-separator': '/images/engine-parts-hero.webp',
+  '0021882301-29-oil-cooler': '/images/engine-parts-hero.webp',
   '5240510110-bearing-camshaft-std': '/images/mtu-4000-series-overhaul-parts.webp',
   'x00016024-crankshaft-bearing-size-0-0': '/images/mtu-4000-series-overhaul-parts.webp',
   '5240336602-crankshaft-bearing-lower-half': '/images/mtu-4000-series-overhaul-parts.webp',
@@ -100,14 +103,14 @@ const popularPartImages: Record<string, string> = {
   'x00009806-rectangular-section-ring': '/images/generator-engine-parts.webp',
   '0090375019-taper-face-compression-ring': '/images/generator-engine-parts.webp',
   '0120373618-oil-control-ring': '/images/generator-engine-parts.webp',
-  'x52404200037-gasket-for-cylinder-head': '/images/engine-parts-verification-desk.png',
+  'x52404200037-gasket-for-cylinder-head': '/images/engine-parts-verification-desk.webp',
   'x52404100226-inlet-valve': '/images/industrial-diesel-engine-parts.webp',
   '5240530805-exhaust-valve': '/images/industrial-diesel-engine-parts.webp',
   '5240530122-valve-spring-inner': '/images/industrial-diesel-engine-parts.webp',
-  '0030947404-air-filter-element': '/images/engine-parts-sensors-catalog.png',
-  '0030948104-air-filter-element': '/images/engine-parts-sensors-catalog.png',
-  '0020921901-fuel-filter-spin-on': '/images/engine-parts-sensors-catalog.png',
-  '0000925105-filter-element': '/images/engine-parts-sensors-catalog.png',
+  '0030947404-air-filter-element': '/images/engine-parts-sensors-catalog.webp',
+  '0030948104-air-filter-element': '/images/engine-parts-sensors-catalog.webp',
+  '0020921901-fuel-filter-spin-on': '/images/engine-parts-sensors-catalog.webp',
+  '0000925105-filter-element': '/images/engine-parts-sensors-catalog.webp',
 };
 
 /** Category-specific defaults — keeps each category feeling different */
@@ -291,6 +294,38 @@ type CatalogPartSeed = {
   description?: string;
 };
 
+const inferTextMatchedPartImage = (part: Pick<CatalogPartSeed, 'partNumber' | 'name' | 'category' | 'image'>) => {
+  if (part.image) return part.image;
+
+  const slug = `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`;
+  if (popularPartImages[slug]) return popularPartImages[slug];
+
+  const text = `${part.name} ${part.category}`.toLowerCase();
+  if (/(sensor|monitor|switch|actuator|solenoid|transistor|lamp|regulator|control|governor)/.test(text)) {
+    return '/images/engine-parts-sensors-catalog.webp';
+  }
+  if (/(filter|cartridge|prefilter|strainer|separator)/.test(text)) {
+    return '/images/engine-parts-sensors-catalog.webp';
+  }
+  if (/(injector|nozzle|fuel|pump|rail|delivery|pressure|valve)/.test(text)) {
+    return '/images/engine-parts-hero.webp';
+  }
+  if (/(gasket|seal|o-ring|ring|washer|plug|bushing|bolt|screw|nut|clamp)/.test(text)) {
+    return '/images/engine-parts-verification-desk.webp';
+  }
+  if (/(coolant|water|seawater|impeller|thermostat|cooler)/.test(text)) {
+    return '/images/marine-diesel-engine-parts.webp';
+  }
+  if (/(turbo|turbine|compressor|exhaust|charge air|intake)/.test(text)) {
+    return '/images/industrial-diesel-engine-parts.webp';
+  }
+  if (/(piston|liner|bearing|conrod|crankshaft|cylinder head|valve train)/.test(text)) {
+    return '/images/mtu-4000-series-overhaul-parts.webp';
+  }
+
+  return categoryImages[part.category] ?? defaultPartImage;
+};
+
 const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
   '5110804420': { engineType: 'MTU 4000', dimensions: 'ATL ZR175/082', weightKg: '3.850 KG', hsCode: '84149000', natoNumber: '2950123856295' },
   '0020940204': { engineType: 'MTU 956', dimensions: 'TKZ.45 940 55 124 S. INT. VERM.', weightKg: '16.00 KG', hsCode: '84219990', natoNumber: 'N/A' },
@@ -380,7 +415,7 @@ const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
     category: part.category,
     summary: part.summary ?? cat.summary,
     description: part.description ?? cat.description,
-    image: part.image ?? popularPartImages[`${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`] ?? categoryImages[part.category] ?? defaultPartImage,
+    image: inferTextMatchedPartImage(part),
     availability: 'Stock, replacement status, lead time, and shipping route confirmed after inquiry.',
     stockStatus: part.stockStatus ?? cat.stockStatus,
     applications: cat.applications,
@@ -1834,7 +1869,7 @@ const mtuPartsRaw: MtuPart[] = [
       category: seed.category,
       summary: cat.summary,
       description: cat.description,
-      image: popularPartImages[`${slugifyPart(seed.partNumber)}-${slugifyPart(seed.name)}`] ?? categoryImages[seed.category] ?? defaultPartImage,
+      image: inferTextMatchedPartImage(seed),
       availability: 'Stock, replacement status, lead time, and shipping route confirmed after inquiry.',
       stockStatus: seed.stockStatus ?? cat.stockStatus,
       applications: cat.applications,

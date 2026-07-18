@@ -5,7 +5,7 @@ import FunnelPageView from "../components/FunnelPageView.astro";
 import { services } from "../data/services";
 import { industries } from "../data/industries";
 import { itemListSchema, site, videoSchema } from "../data/site";
-import { mtuParts } from "../data/mtu-parts";
+import { isRealPartImage, mtuParts } from "../data/mtu-parts";
 
 const homepageVideos = [
   videoSchema({
@@ -61,13 +61,13 @@ const catalogHubs = [
     href: "/part-products/catalog/mtu-filters/",
     title: "MTU Filters",
     subtitle: "Oil, fuel & air filter cartridges",
-    image: "/images/engine-parts-sensors-catalog.png",
+    image: "/images/engine-parts-sensors-catalog.webp",
   },
   {
     href: "/part-products/catalog/mtu-injectors/",
     title: "MTU Injectors",
     subtitle: "Fuel injectors & delivery components",
-    image: "/images/engine-parts-hero.png",
+    image: "/images/engine-parts-hero.webp",
   },
   {
     href: "/part-products/catalog/mtu-2000-series/",
@@ -85,7 +85,7 @@ const catalogHubs = [
     href: "/part-products/catalog/mtu-gasket-kits/",
     title: "MTU Gasket Kits",
     subtitle: "Cylinder head & seal kits",
-    image: "/images/engine-parts-verification-desk.png",
+    image: "/images/engine-parts-verification-desk.webp",
   },
   {
     href: "/part-products/catalog/mtu-turbocharger-parts/",
@@ -97,7 +97,7 @@ const catalogHubs = [
     href: "/part-products/catalog/mtu-4000-fuel-system-parts/",
     title: "MTU 4000 Fuel System",
     subtitle: "Injectors, pumps & fuel lines",
-    image: "/images/engine-parts-hero.png",
+    image: "/images/engine-parts-hero.webp",
   },
   {
     href: "/part-products/catalog/mtu-cooling-system/",
@@ -109,7 +109,7 @@ const catalogHubs = [
     href: "/part-products/catalog/mtu-sensors/",
     title: "MTU Sensors",
     subtitle: "Speed, pressure & temperature",
-    image: "/images/engine-parts-sensors-catalog.png",
+    image: "/images/engine-parts-sensors-catalog.webp",
   },
 ];
 
@@ -175,7 +175,7 @@ const getHomepagePartEngine = (part: (typeof mtuParts)[number]) =>
 
 const homepageHotSlugs = new Set(homepageHotParts.map((part) => part.slug));
 const homepageFeaturedParts = [...mtuParts]
-  .filter((part) => part.image.includes('/diesel-part-source-parts/') && part.weightKg && part.hsCode && !homepageHotSlugs.has(part.slug))
+  .filter((part) => isRealPartImage(part.image) && part.weightKg && part.hsCode && !homepageHotSlugs.has(part.slug))
   .sort((a, b) => {
     const bScore =
       Number(Boolean(b.replacementFor?.length)) +

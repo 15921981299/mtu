@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
 import FunnelPageView from '../../../components/FunnelPageView.astro';
-import { mtuCatalogHubs, mtuParts, type MtuCatalogHub } from '../../../data/mtu-parts';
+import { isRealPartImage, mtuCatalogHubs, mtuParts, type MtuCatalogHub } from '../../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
 import '../../../styles/resource-page.css';
 
@@ -15,7 +15,6 @@ const { hub } = Astro.props as { hub: MtuCatalogHub };
 const parts = mtuParts.filter(hub.partFilter);
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
-const hasRealPartImage = (image: string) => image.includes('/diesel-part-source-parts/');
 
 // For series hubs: group by category. For category hubs: group by engine series.
 const categoryGroups = new Map<string, typeof parts>();
@@ -36,12 +35,12 @@ const groupLabel = hub.type === 'series' ? 'category' : 'series';
 const featuredParts = [...parts]
   .sort((a, b) => {
     const bScore =
-      Number(hasRealPartImage(b.image)) * 4 +
+      Number(isRealPartImage(b.image)) * 4 +
       Number(Boolean(b.engineType && b.dimensions && b.weightKg && b.hsCode)) * 3 +
       Number(Boolean(b.replacementFor?.length)) * 2 +
       Number(Boolean(b.applicableEngines));
     const aScore =
-      Number(hasRealPartImage(a.image)) * 4 +
+      Number(isRealPartImage(a.image)) * 4 +
       Number(Boolean(a.engineType && a.dimensions && a.weightKg && a.hsCode)) * 3 +
       Number(Boolean(a.replacementFor?.length)) * 2 +
       Number(Boolean(a.applicableEngines));

@@ -3,80 +3,166 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import { breadcrumbSchema, site, videoSchema } from '../data/site';
+import {
+  aboutPageSchema,
+  breadcrumbSchema,
+  howToSchema,
+  site,
+  videoSchema,
+} from '../data/site';
+
+const pageUrl = `${site.url}/about/`;
+const pageTitle = 'About Diesel Part Source | Shanghai Diesel Engine Parts Supplier';
+const pageDescription =
+  'Learn about Diesel Part Source — a Shanghai diesel engine parts supplier for MTU, Detroit Diesel, Cummins, and DEUTZ. Part-number verification, export packing, and worldwide delivery support.';
+
+const inquirySteps = [
+  {
+    name: 'Receive Part Details',
+    text: 'Send the part number, engine brand, model, serial number, quantity, destination, and any nameplate or old-part photos.',
+  },
+  {
+    name: 'Check Fitment and Supply Route',
+    text: 'We compare the request against engine series, description, replacement references, and available sourcing options.',
+  },
+  {
+    name: 'Quote With Practical Notes',
+    text: 'The reply may include availability, lead-time notes, packing approach, shipping method, and any details still needing buyer confirmation.',
+  },
+];
 
 const workshopVideo = videoSchema({
   name: 'Diesel Part Source Parts Support Overview',
-  description: 'See how Diesel Part Source supports diesel engine parts identification, stock checking, and global delivery.',
+  description:
+    'See how Diesel Part Source supports diesel engine parts identification, stock checking, and global delivery from Shanghai.',
   thumbnailUrl: 'https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg',
   embedUrl: 'https://www.youtube.com/embed/M7uJEbDD-_8',
   uploadDate: '2023-06-01',
 });
 
-const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0001 17L20 12L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
+const whatsappDigits = site.whatsapp.replace(/\D/g, '');
+const whatsappHref = `https://wa.me/${whatsappDigits}`;
+const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
+
+const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15.0001 17L20 12L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>`;
 ---
 
 <BaseLayout
-  title="About Diesel Part Source — Diesel Engine Parts Supplier in Shanghai"
-  description="Diesel Part Source is a Shanghai-based diesel engine parts supplier for MTU, Detroit Diesel, Cummins, and DEUTZ buyers, with part-number verification, export packing, and global delivery support."
+  title={pageTitle}
+  description={pageDescription}
   currentPath="/about"
+  image="/images/mtu-engine-parts-hero.webp"
   jsonLd={[
     breadcrumbSchema([
       { name: 'Home', url: site.url },
-      { name: 'About Us', url: `${site.url}/about/` },
+      { name: 'About Us', url: pageUrl },
     ]),
+    aboutPageSchema({
+      name: pageTitle,
+      description: pageDescription,
+      url: pageUrl,
+    }),
+    howToSchema({
+      name: 'How Diesel Part Source handles a diesel engine parts inquiry',
+      description:
+        'Send part details, get fitment and supply-route checks, then receive a practical quote with shipping notes from Shanghai.',
+      steps: inquirySteps,
+    }),
     workshopVideo,
   ]}
 >
   <FunnelPageView stage="awareness" label="about" />
   <BreadcrumbHero
-    title="Diesel Engine Parts Supplier Built for Urgent Sourcing"
+    title="About Diesel Part Source — Shanghai Diesel Engine Parts Supplier"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'About Us' },
     ]}
     variant="1"
+    image="/images/mtu-engine-parts-hero.webp"
   />
 
+  <section class="about-seo-intro fade-in" aria-labelledby="about-seo-intro-heading">
+    <div class="container about-seo-intro-inner">
+      <p class="about-seo-kicker">Shanghai · MTU · Multi-brand diesel parts</p>
+      <h2 id="about-seo-intro-heading" class="about-seo-intro-title">
+        A practical sourcing desk for diesel engine spare parts
+      </h2>
+      <p class="about-seo-intro-text">
+        Diesel Part Source helps marine, industrial, rail, and power-generation buyers source
+        <a href="/products/mtu-spare-parts/">MTU spare parts</a>,
+        <a href="/products/detroit-diesel-parts/">Detroit Diesel</a>,
+        <a href="/products/cummins-parts/">Cummins</a>, and
+        <a href="/products/deutz-parts/">DEUTZ</a> components with part-number verification and export packing from Shanghai.
+      </p>
+    </div>
+  </section>
+
+  <nav class="about-resource-links fade-in" aria-label="Related diesel parts resources">
+    <a href="/products/mtu-spare-parts/?source=about">MTU spare parts</a>
+    <a href="/part-products/?source=about">MTU part numbers</a>
+    <a href="/part-products/catalog/mtu-4000-series/?source=about">MTU 4000 catalog</a>
+    <a href="/industries/marine/?source=about">Marine applications</a>
+    <a href="/certifications/?source=about">Quality policy</a>
+    <a href="/contact/?source=about">Parts inquiry</a>
+  </nav>
+
   <!-- Mission: Who We Are -->
-  <section id="about-mission" class="mission-and-vision-section about-section">
+  <section id="about-mission" class="mission-and-vision-section about-section" aria-labelledby="about-mission-heading">
     <div class="section-gap">
       <div class="container">
         <div class="mission-and-vision-wrapper">
-          <SectionHeading title="A Practical Parts Desk for Diesel Engine Buyers" subtitle="Who We Are" />
-
-          <div class="about-trust-meta" aria-label="Company credentials">
-            <span><strong>Core brands:</strong> MTU, Detroit Diesel, Cummins, DEUTZ</span>
-            <span><strong>Requests:</strong> part number, serial number, photos, overhaul lists</span>
-            <span><strong>Use cases:</strong> marine, generator, industrial, rail, shipyard</span>
-            <span><strong>Export:</strong> Shanghai coordination and global delivery</span>
+          <div id="about-mission-heading">
+            <SectionHeading title="A Practical Parts Desk for Diesel Engine Buyers" subtitle="Who We Are" />
           </div>
 
-          <div class="about-legal-block fade-in" aria-label="Legal entity">
-            <p class="about-legal-name"><strong>{site.company.legalNameEn}</strong> · {site.company.legalName}</p>
+          <ul class="about-trust-meta" aria-label="Company credentials">
+            <li><strong>Core brands</strong> MTU, Detroit Diesel, Cummins, DEUTZ</li>
+            <li><strong>Requests</strong> Part number, serial number, photos, overhaul lists</li>
+            <li><strong>Use cases</strong> Marine, generator, industrial, rail, shipyard</li>
+            <li><strong>Export</strong> Shanghai coordination and global delivery</li>
+          </ul>
+
+          <div class="about-legal-block fade-in">
+            <p class="about-legal-kicker">Legal entity &amp; NAP</p>
+            <p class="about-legal-name">{site.company.legalNameEn}</p>
+            <p class="about-legal-aka">{site.company.legalName} · trading as {site.name}</p>
             <p class="about-legal-detail">
-              Shanghai-based diesel engine parts supplier serving maintenance teams, repair companies, shipyards, generator operators, and fleet buyers worldwide —
-              <a href="/certifications/">view QC & certification scope</a>.
-              Contact: <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:${site.phone}`}>{site.phone}</a>
+              Shanghai-based diesel engine parts supplier for maintenance teams, repair companies, shipyards, generator operators, and fleet buyers worldwide.
+              <a href="/certifications/">View QC &amp; certification scope</a>.
             </p>
+            <address class="about-nap">
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <span aria-hidden="true">·</span>
+              <a href={phoneHref}>{site.phone}</a>
+              <span aria-hidden="true">·</span>
+              <a href={whatsappHref} rel="noopener noreferrer" target="_blank">WhatsApp</a>
+              <span class="about-nap-address">
+                Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District, Shanghai, 201112, China
+              </span>
+            </address>
           </div>
 
-          <div class="about-scope-grid fade-in" aria-label="Supply scope">
-            <div class="about-scope-card">
+          <div class="about-scope-grid fade-in">
+            <article class="about-scope-card">
               <span class="about-scope-kicker">Main Focus</span>
-              <strong>MTU full-series parts</strong>
+              <h3 class="about-scope-title">
+                <a href="/products/mtu-spare-parts/">MTU full-series parts</a>
+              </h3>
               <p>183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series inquiries.</p>
-            </div>
-            <div class="about-scope-card">
+            </article>
+            <article class="about-scope-card">
               <span class="about-scope-kicker">Also Supported</span>
-              <strong>Detroit Diesel, Cummins, DEUTZ</strong>
+              <h3 class="about-scope-title">Detroit Diesel, Cummins, DEUTZ</h3>
               <p>Engine parts, maintenance items, service components, and replacement references for mixed fleets.</p>
-            </div>
-            <div class="about-scope-card">
+            </article>
+            <article class="about-scope-card">
               <span class="about-scope-kicker">Best Fit</span>
-              <strong>Part-number driven RFQs</strong>
+              <h3 class="about-scope-title">
+                <a href="/contact/?source=about-scope">Part-number driven RFQs</a>
+              </h3>
               <p>Single urgent parts, repeated service items, and Excel lists from overhaul or repair projects.</p>
-            </div>
+            </article>
           </div>
 
           <nav class="about-jump-nav" aria-label="On this page">
@@ -122,61 +208,57 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   </section>
 
   <!-- Why Different -->
-  <section id="about-different" class="who-we-are-section about-section">
+  <section id="about-different" class="who-we-are-section about-section" aria-labelledby="about-different-heading">
     <div class="section-gap bottom">
       <div class="container">
-        <SectionHeading title="What Makes Diesel Part Source Useful" subtitle="Why Choose Us" />
+        <div id="about-different-heading">
+          <SectionHeading title="What Makes Diesel Part Source Useful" subtitle="Why Choose Us" />
+        </div>
         <div class="funfact-wrapper about-differentiators-grid fade-in">
-          <div class="funfact-single-block">
-            <div class="funfact-number-block"><div class="chain-character">01</div></div>
+          <article class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character" aria-hidden="true">01</div></div>
             <div class="funfact-text-block">
               <h3 class="funfact-title">Verification Before Price</h3>
               <p class="funfact-summary">We review part number, engine series, model, serial number, and photos together before treating an item as ready to quote.</p>
             </div>
-          </div>
-          <div class="funfact-separtion-liner"></div>
-          <div class="funfact-single-block">
-            <div class="funfact-number-block"><div class="chain-character">02</div></div>
+          </article>
+          <div class="funfact-separtion-liner" aria-hidden="true"></div>
+          <article class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character" aria-hidden="true">02</div></div>
             <div class="funfact-text-block">
               <h3 class="funfact-title">Clear Replacement Discussion</h3>
               <p class="funfact-summary">When an old number, supersession, or alternative route is involved, we ask for confirmation instead of hiding the risk.</p>
             </div>
-          </div>
-          <div class="funfact-separtion-liner"></div>
-          <div class="funfact-single-block">
-            <div class="funfact-number-block"><div class="chain-character">03</div></div>
+          </article>
+          <div class="funfact-separtion-liner" aria-hidden="true"></div>
+          <article class="funfact-single-block">
+            <div class="funfact-number-block"><div class="chain-character" aria-hidden="true">03</div></div>
             <div class="funfact-text-block">
               <h3 class="funfact-title">Prepared for Export Orders</h3>
               <p class="funfact-summary">We coordinate packing, shipping documents, and delivery options for buyers outside China after the part is confirmed.</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
   <!-- RFQ process -->
-  <section id="about-process" class="who-we-are-section about-section">
+  <section id="about-process" class="who-we-are-section about-section" aria-labelledby="about-process-heading">
     <div class="section-gap bottom">
       <div class="container">
-        <SectionHeading title="How We Handle a Parts Inquiry" subtitle="RFQ Process" />
-        <div class="about-process-layout fade-in">
-          <div class="about-process-card">
-            <span class="about-process-step">01</span>
-            <h3>Receive Part Details</h3>
-            <p>Send the part number, engine brand, model, serial number, quantity, destination, and any nameplate or old-part photos.</p>
-          </div>
-          <div class="about-process-card">
-            <span class="about-process-step">02</span>
-            <h3>Check Fitment and Supply Route</h3>
-            <p>We compare the request against engine series, description, replacement references, and available sourcing options.</p>
-          </div>
-          <div class="about-process-card">
-            <span class="about-process-step">03</span>
-            <h3>Quote With Practical Notes</h3>
-            <p>The reply may include availability, lead-time notes, packing approach, shipping method, and any details still needing buyer confirmation.</p>
-          </div>
+        <div id="about-process-heading">
+          <SectionHeading title="How We Handle a Parts Inquiry" subtitle="RFQ Process" />
         </div>
+        <ol class="about-process-layout fade-in">
+          {inquirySteps.map((step, i) => (
+            <li class="about-process-card">
+              <span class="about-process-step" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{step.name}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
 
         <div class="about-rfq-note fade-in">
           <div>
@@ -190,23 +272,31 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   </section>
 
   <!-- Factory tour -->
-  <section id="about-factory" class="who-we-are-section about-section">
+  <section id="about-factory" class="who-we-are-section about-section" aria-labelledby="about-factory-heading">
     <div class="section-gap bottom">
       <div class="container">
-        <SectionHeading title="Global Delivery From Shanghai" subtitle="Shipping Support" />
+        <div id="about-factory-heading">
+          <SectionHeading title="Global Delivery From Shanghai" subtitle="Shipping Support" />
+        </div>
         <div class="who-we-are-wrapper fade-in">
           <div class="who-we-are-content-block">
-            <p class="who-we-are-text">Diesel Part Source is based in Shanghai and supports international buyers with express, air, and freight shipment options. For urgent vessel, generator, or industrial downtime orders, share the destination and deadline in your first inquiry.</p>
+            <p class="who-we-are-text">
+              Diesel Part Source is based in Shanghai and supports international buyers with express, air, and freight shipment options.
+              For urgent vessel, generator, or industrial downtime orders, share the destination and deadline in your first
+              <a href="/contact/?source=about-shipping">parts inquiry</a>.
+              See our <a href="/terms/shipping/">shipping terms</a> for packing and transit notes.
+            </p>
             <p class="who-we-are-text about-disclaimer">Diesel Part Source is an independent supplier. MTU, Detroit Diesel, Cummins, DEUTZ, and other names are used only to identify compatible engine parts requested by buyers.</p>
             <p class="about-factory-cta-row">
               <a href="/contact/?source=about-shipping" class="about-inline-cta">Send a parts inquiry →</a>
               <a href="/terms/shipping/" class="about-inline-cta about-inline-cta--secondary">Shipping terms</a>
+              <a href="/products/" class="about-inline-cta about-inline-cta--secondary">Browse engine brands</a>
             </p>
           </div>
           <div class="who-we-are-image-block about-factory-image">
-            <img src="/images/global-engine-parts-delivery.webp" alt="Global diesel engine parts export packing and air freight delivery" class="who-we-are-image" width="520" height="400" loading="lazy" decoding="async" />
+            <img src="/images/global-engine-parts-delivery.webp" alt="Global diesel engine parts export packing and air freight delivery from Shanghai" class="who-we-are-image" width="520" height="400" loading="lazy" decoding="async" />
             <div class="who-we-are-lightbox">
-              <button type="button" class="lightbox-link-block primary" data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s" aria-label="Play factory tour video">
+              <button type="button" class="lightbox-link-block primary" data-lightbox-trigger="https://www.youtube.com/watch?v=M7uJEbDD-_8&t=4s" aria-label="Play Diesel Part Source parts support video">
                 <div class="lightbox-inner-block primary"><img src="/images/video-play-icon.svg" alt="" aria-hidden="true" class="lightbox-play-icon primary" width="20" height="20" loading="lazy" decoding="async" /></div>
                 <div class="lightbox-circle-one primary"></div>
                 <div class="lightbox-circle-two primary"></div>
@@ -223,49 +313,162 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     scroll-margin-top: 100px;
   }
 
+  /* Crawlable intro — E-E-A-T / topical clarity */
+  .about-seo-intro {
+    margin: 0;
+    margin-top: 4rem;
+  }
+
+  .about-seo-intro-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 1.15rem;
+    text-align: center;
+  }
+
+  .about-seo-kicker {
+    margin: 0 0 0.45rem;
+    color: var(--color-primary);
+    font-family: var(--font-title);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .about-seo-intro-title {
+    margin: 0 0 0.55rem;
+    font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    text-transform: none;
+  }
+
+  .about-seo-intro-text {
+    margin: 0 auto;
+    max-width: 58ch;
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .about-seo-intro-text a {
+    color: var(--color-title);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(20, 110, 245, 0.35);
+    text-underline-offset: 0.15em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .about-seo-intro-text a:hover {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
+  }
+
+  .about-resource-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 920px;
+    margin: 0 auto .5rem;
+    padding: 0 20px;
+  }
+
+  .about-resource-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(20, 110, 245, 0.2);
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .about-resource-links a:hover {
+    background: rgba(20, 110, 245, 0.07);
+    border-color: rgba(20, 110, 245, 0.4);
+    color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(20, 110, 245, 0.08);
+  }
+
   .about-trust-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 20px;
-    margin: 0 0 20px;
-    padding: 12px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-body-text);
-    background: var(--color-background);
-    border: 1px solid var(--color-stroke);
-    border-radius: 8px;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
   }
 
-  .about-trust-meta span {
+  .about-trust-meta li {
     display: inline-flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: baseline;
     gap: 6px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 10px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #334155;
   }
 
   .about-trust-meta strong {
     color: var(--color-title);
+    font-weight: 700;
   }
 
   .about-legal-block {
     margin: 0 0 20px;
-    padding: 14px 18px;
-    font-size: 14px;
-    line-height: 1.55;
+    padding: 18px 20px;
     color: var(--color-body-text);
-    background: rgba(20, 110, 245, 0.06);
-    border: 1px solid rgba(20, 110, 245, 0.15);
-    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(20, 110, 245, 0.06), #fff);
+    border: 1px solid rgba(20, 110, 245, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  }
+
+  .about-legal-kicker {
+    margin: 0 0 6px;
+    color: var(--color-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .about-legal-name {
-    margin: 0 0 6px;
-    font-size: 15px;
+    margin: 0 0 4px;
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--color-title);
+    letter-spacing: -0.01em;
+  }
+
+  .about-legal-aka {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #64748b;
   }
 
   .about-legal-detail {
-    margin: 0;
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #334155;
   }
 
   .about-legal-block a {
@@ -276,6 +479,36 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   .about-legal-block a:hover {
     text-decoration: underline;
+  }
+
+  .about-nap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(20, 110, 245, 0.12);
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-title);
+  }
+
+  .about-nap a {
+    color: var(--color-title);
+  }
+
+  .about-nap a:hover {
+    color: var(--color-primary);
+  }
+
+  .about-nap-address {
+    flex: 1 1 100%;
+    margin-top: 4px;
+    font-weight: 500;
+    color: #475569;
   }
 
   .about-scope-grid {
@@ -290,7 +523,13 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     padding: 18px;
     background: var(--color-white);
     border: 1px solid var(--color-stroke);
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .about-scope-card:hover {
+    border-color: rgba(20, 110, 245, 0.3);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
   }
 
   .about-scope-kicker {
@@ -303,18 +542,29 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     text-transform: uppercase;
   }
 
-  .about-scope-card strong {
-    display: block;
-    margin-bottom: 8px;
+  .about-scope-title {
+    margin: 0 0 8px;
     color: var(--color-title);
     font-size: 18px;
+    font-weight: 700;
     line-height: 1.25;
+    text-transform: none;
+  }
+
+  .about-scope-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .about-scope-title a:hover {
+    color: var(--color-primary);
   }
 
   .about-scope-card p {
+    margin: 0;
     color: #475569;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .about-jump-nav {
@@ -325,6 +575,9 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   }
 
   .about-jump-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
     padding: 8px 16px;
     border-radius: 999px;
     border: 1px solid var(--color-stroke);
@@ -343,12 +596,15 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     color: var(--color-primary);
   }
 
+  .about-seo-intro-text a:focus-visible,
+  .about-resource-links a:focus-visible,
   .about-jump-link:focus-visible,
+  .about-legal-block a:focus-visible,
+  .about-scope-title a:focus-visible,
   .mission-link-button:focus-visible,
   .vision-link-button:focus-visible,
   .about-inline-cta:focus-visible,
-  .editorial-team-name a:focus-visible,
-  .editorial-team-note a:focus-visible,
+  .who-we-are-text a:focus-visible,
   .lightbox-link-block:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
@@ -360,41 +616,20 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     cursor: pointer;
   }
 
-  .about-metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0;
-    background: var(--color-body);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .about-metrics-grid .funfact-single-block {
-    max-width: none;
-    padding: 40px 28px;
-    border-right: 1px solid var(--color-stroke);
-  }
-
-  .about-metrics-grid .funfact-single-block:last-child {
-    border-right: none;
-  }
-
-  .about-metrics-grid .funfact-separtion-liner {
-    display: none;
-  }
-
   .about-differentiators-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
     background: var(--color-white);
-    border-radius: 8px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   }
 
   .about-differentiators-grid .funfact-single-block {
     max-width: none;
-    padding: 40px 28px;
+    padding: 36px 28px;
     border-right: 1px solid var(--color-stroke);
   }
 
@@ -406,10 +641,17 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     display: none;
   }
 
+  .about-differentiators-grid .funfact-title {
+    text-transform: none;
+  }
+
   .about-process-layout {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .about-process-card {
@@ -418,7 +660,13 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     padding: 28px;
     background: var(--color-white);
     border: 1px solid var(--color-stroke);
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .about-process-card:hover {
+    border-color: rgba(20, 110, 245, 0.28);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
   }
 
   .about-process-step {
@@ -437,11 +685,12 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   .about-process-card h3 {
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 20px;
     text-transform: none;
   }
 
   .about-process-card p {
+    margin: 0;
     color: #475569;
     font-size: 15px;
     line-height: 1.65;
@@ -456,7 +705,7 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     padding: 22px 24px;
     background: rgba(20, 110, 245, 0.07);
     border: 1px solid rgba(20, 110, 245, 0.16);
-    border-radius: 8px;
+    border-radius: 12px;
   }
 
   .about-rfq-note h3 {
@@ -466,9 +715,10 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   }
 
   .about-rfq-note p {
+    margin: 0;
     color: #475569;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .about-factory-image {
@@ -483,6 +733,9 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   }
 
   .about-inline-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 15px;
     font-weight: 600;
     color: var(--color-primary);
@@ -503,6 +756,18 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     color: var(--color-primary);
   }
 
+  .who-we-are-text a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(20, 110, 245, 0.35);
+    text-underline-offset: 0.15em;
+  }
+
+  .who-we-are-text a:hover {
+    text-decoration-color: var(--color-primary);
+  }
+
   .about-disclaimer {
     margin-top: 14px;
     padding: 12px 14px;
@@ -510,96 +775,14 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     border-left: 3px solid var(--color-primary);
     border-radius: 6px;
     font-size: 15px;
-  }
-
-  .editorial-team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .editorial-team-card {
-    padding: 24px;
-    background: var(--color-white);
-    border: 1px solid var(--color-stroke);
-    border-radius: 8px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .editorial-team-card:hover {
-    border-color: rgba(20, 110, 245, 0.35);
-    box-shadow: 0 4px 18px rgba(20, 110, 245, 0.08);
-  }
-
-  .editorial-team-name {
-    font-size: 20px;
-    margin: 0 0 6px;
-    text-transform: none;
-  }
-
-  .editorial-team-name a {
-    color: var(--color-title);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-
-  .editorial-team-name a:hover {
-    color: var(--color-primary);
-  }
-
-  .editorial-team-role {
-    color: var(--color-primary);
-    font-weight: 600;
-    font-size: 14px;
-    margin: 0 0 10px;
-  }
-
-  .editorial-team-bio {
-    color: #475569;
-    font-size: 14px;
     line-height: 1.65;
-    margin: 0;
-  }
-
-  .editorial-team-note {
-    text-align: center;
-    margin-top: 24px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #64748b;
-  }
-
-  .editorial-team-note a {
-    color: var(--color-primary);
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .editorial-team-note a:hover {
-    text-decoration: underline;
+    color: #334155;
   }
 
   @media (max-width: 991px) {
     .about-scope-grid,
     .about-process-layout {
       grid-template-columns: 1fr;
-    }
-
-    .about-metrics-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-metrics-grid .funfact-single-block:nth-child(2) {
-      border-right: none;
-    }
-
-    .about-metrics-grid .funfact-single-block:nth-child(1),
-    .about-metrics-grid .funfact-single-block:nth-child(2) {
-      border-bottom: 1px solid var(--color-stroke);
     }
 
     .about-differentiators-grid {
@@ -622,8 +805,17 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   }
 
   @media (max-width: 767px) {
-    .editorial-team-grid {
-      grid-template-columns: 1fr;
+    .about-seo-intro-inner {
+      text-align: left;
+    }
+
+    .about-resource-links {
+      justify-content: flex-start;
+    }
+
+    .about-resource-links a,
+    .about-jump-link {
+      min-height: 44px;
     }
 
     .about-jump-nav {
@@ -643,24 +835,20 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     }
   }
 
-  @media (max-width: 640px) {
-    .about-metrics-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .about-metrics-grid .funfact-single-block {
-      border-right: none;
-      border-bottom: 1px solid var(--color-stroke);
-    }
-
-    .about-metrics-grid .funfact-single-block:last-child {
-      border-bottom: none;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .editorial-team-card:hover {
+    .about-seo-intro-text a,
+    .about-resource-links a,
+    .about-jump-link,
+    .about-scope-card,
+    .about-process-card,
+    .about-inline-cta {
+      transition: none;
+    }
+
+    .about-scope-card:hover,
+    .about-process-card:hover {
       box-shadow: none;
     }
   }
 </style>
+
