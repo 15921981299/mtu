@@ -31,6 +31,28 @@ const inquirySteps = [
   },
 ];
 
+const companyStandards = [
+  'Every quote should identify the requested part number, supply route, lead-time basis, and any buyer confirmation still required.',
+  'OEM, OEM-alternative, reman, repaired, or replacement routes are labelled clearly when they apply.',
+  'Engine serial number, nameplate photo, old-part marking, quantity, and destination are treated as commercial risk-control information, not optional decoration.',
+  'Export packing, approximate weight, HS code, Incoterm discussion, and shipment route are checked before order release whenever the data is available.',
+];
+
+const buyerScenarios = [
+  {
+    title: 'Shipyards and repair companies',
+    text: 'Line-by-line RFQ review for overhaul lists, urgent missing items, and replacement references across MTU 2000, 4000, 396, 956, and related series.',
+  },
+  {
+    title: 'Generator and power operators',
+    text: 'Maintenance parts, filters, sensors, fuel-system parts, and downtime replacement requests with delivery deadline and destination notes.',
+  },
+  {
+    title: 'Fleet and industrial buyers',
+    text: 'Mixed-brand diesel engine parts support for repeated service items, old stock replacement, and consolidated export shipment from Shanghai.',
+  },
+];
+
 const workshopVideo = videoSchema({
   name: 'Diesel Part Source Parts Support Overview',
   description:
@@ -84,7 +106,7 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   <section class="about-seo-intro fade-in" aria-labelledby="about-seo-intro-heading">
     <div class="container about-seo-intro-inner">
-      <p class="about-seo-kicker">Shanghai · MTU · Multi-brand diesel parts</p>
+      <p class="about-seo-kicker">Shanghai - MTU - Multi-brand diesel parts</p>
       <h2 id="about-seo-intro-heading" class="about-seo-intro-title">
         A practical sourcing desk for diesel engine spare parts
       </h2>
@@ -168,6 +190,7 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
           <nav class="about-jump-nav" aria-label="On this page">
             <a href="#about-mission" class="about-jump-link">Company focus</a>
             <a href="#about-different" class="about-jump-link">Verification</a>
+            <a href="#about-standards" class="about-jump-link">Commercial standards</a>
             <a href="#about-process" class="about-jump-link">RFQ process</a>
             <a href="#about-factory" class="about-jump-link">Global delivery</a>
           </nav>
@@ -238,6 +261,32 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
               <p class="funfact-summary">We coordinate packing, shipping documents, and delivery options for buyers outside China after the part is confirmed.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-standards" class="who-we-are-section about-section" aria-labelledby="about-standards-heading">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div id="about-standards-heading">
+          <SectionHeading title="Commercial Standards for Parts Buyers" subtitle="How We Work" />
+        </div>
+        <div class="about-standards-layout fade-in">
+          <div class="about-standards-panel">
+            <h3>What a serious RFQ reply should make clear</h3>
+            <ul>
+              {companyStandards.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div class="about-buyer-scenarios">
+            {buyerScenarios.map((item) => (
+              <article>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -567,6 +616,61 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
     line-height: 1.65;
   }
 
+  .about-standards-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .about-standards-panel,
+  .about-buyer-scenarios article {
+    border: 1px solid rgba(20, 110, 245, 0.14);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+  }
+
+  .about-standards-panel {
+    padding: 24px;
+  }
+
+  .about-standards-panel h3,
+  .about-buyer-scenarios h3 {
+    margin: 0 0 12px;
+    color: var(--color-title);
+    font-size: 18px;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  .about-standards-panel ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .about-standards-panel li,
+  .about-buyer-scenarios p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .about-buyer-scenarios {
+    display: grid;
+    gap: 12px;
+  }
+
+  .about-buyer-scenarios article {
+    padding: 18px;
+  }
+
+  .about-buyer-scenarios p {
+    margin: 0;
+  }
+
   .about-jump-nav {
     display: flex;
     flex-wrap: wrap;
@@ -781,7 +885,8 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   @media (max-width: 991px) {
     .about-scope-grid,
-    .about-process-layout {
+    .about-process-layout,
+    .about-standards-layout {
       grid-template-columns: 1fr;
     }
 

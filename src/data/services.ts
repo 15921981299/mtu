@@ -14,9 +14,9 @@ export const services: ServiceItem[] = [
     slug: 'mtu-engine-parts',
     title: 'MTU Engine Parts',
     seoTitle: 'MTU Engine Parts Supplier | Diesel Part Source',
-    h1Title: 'Genuine MTU Engine Parts Supply',
+    h1Title: 'Verified MTU Engine Parts Supply',
     summary:
-      'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with fast global delivery.',
+      'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with verified sourcing routes and global delivery.',
     image: '/images/mtu-engine-parts-hero.webp',
     mainImage: '/images/mtu-2000-series-parts.webp',
     secondImage: '/images/mtu-part-number-verification.webp',
@@ -27,7 +27,7 @@ export const services: ServiceItem[] = [
     seoTitle: 'Cummins Engine Parts Supplier | Diesel Part Source',
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
-      'Supply support for Cummins diesel engines and genuine replacement parts for industrial, marine, generator, and equipment maintenance programs.',
+      'Supply support for Cummins diesel engines and verified replacement routes for industrial, marine, generator, and equipment maintenance programs.',
     image: '/images/industrial-diesel-engine-parts.webp',
     mainImage: '/images/generator-engine-parts.webp',
     secondImage: '/images/mtu-part-number-verification.webp',
@@ -60,18 +60,18 @@ export const services: ServiceItem[] = [
     seoTitle: 'Marine Diesel Engine Parts & Service | Diesel Part Source',
     h1Title: 'Marine Engine Parts & Service',
     summary:
-      'Genuine spare parts for naval, coast guard, ferry, yacht, shipyard, and offshore MTU engine users with urgent global shipment support.',
+      'Verified MTU spare-parts sourcing for naval, coast guard, ferry, yacht, shipyard, and offshore engine users with urgent global shipment support.',
     image: '/images/marine-diesel-engine-parts.webp',
     mainImage: '/images/mtu-engine-parts-hero.webp',
     secondImage: '/images/global-engine-parts-delivery.webp',
   },
   {
     slug: 'genuine-oem-parts',
-    title: 'Genuine OEM Parts',
-    seoTitle: 'Genuine OEM Diesel Engine Parts | Diesel Part Source',
-    h1Title: 'Genuine OEM Engine Parts',
+    title: 'Verified OEM Sourcing',
+    seoTitle: 'Verified OEM Diesel Engine Parts Sourcing | Diesel Part Source',
+    h1Title: 'Verified OEM Parts Sourcing',
     summary:
-      'Original and OEM manufacturer parts from O-rings to crankshafts, prepared for reliable maintenance, overhaul, and long-term fleet operation.',
+      'OEM, OEM-alternative, reman, and replacement sourcing routes from O-rings to crankshafts, clearly labelled for maintenance, overhaul, and fleet operation.',
     image: '/images/mtu-4000-series-overhaul-parts.webp',
     mainImage: '/images/mtu-engine-parts-hero.webp',
     secondImage: '/images/mtu-part-number-verification.webp',
@@ -83,7 +83,7 @@ export function getServiceDetailHtml(title: string) {
     'MTU Engine Parts': {
       partOne: `
         <h2>MTU Full-Series Spare Parts</h2>
-        <p>Diesel Part Source specializes in supplying MTU engine parts for classic and current engine families, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines. We support maintenance teams that need genuine parts, clear identification, and fast shipment.</p>
+        <p>Diesel Part Source specializes in supplying MTU engine parts for classic and current engine families, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines. We support maintenance teams that need clear identification, labelled sourcing routes, and fast shipment.</p>
         <h3>Typical MTU Parts</h3>
         <ul>
           <li>Filters, seals, O-rings, gaskets, and overhaul kits</li>
@@ -154,7 +154,7 @@ export function getServiceDetailHtml(title: string) {
     'Marine Engine Service': {
       partOne: `
         <h2>Marine Engine Parts & Service</h2>
-        <p>We supply genuine engine parts for naval vessels, coast guard fleets, ferries, yachts, shipyards, and offshore equipment. MTU 2000, 4000, 595, 956, 1163, and related series are common request areas.</p>
+        <p>We support verified MTU parts sourcing for naval vessels, coast guard fleets, ferries, yachts, shipyards, and offshore equipment. MTU 2000, 4000, 595, 956, 1163, and related series are common request areas.</p>
         <h3>Marine Buyers We Serve</h3>
         <ul>
           <li>Navy, coast guard, and law-enforcement vessel operators</li>
@@ -168,21 +168,21 @@ export function getServiceDetailHtml(title: string) {
         <p><a href="/contact/">Send a marine parts inquiry</a></p>
       `,
     },
-    'Genuine OEM Parts': {
+    'Verified OEM Sourcing': {
       partOne: `
-        <h2>Genuine and OEM Manufacturer Parts</h2>
-        <p>From O-rings to crankshafts, Diesel Part Source supplies new and repaired genuine parts and original manufacturer parts for MTU, Detroit Diesel, Cummins, and DEUTZ engines.</p>
-        <h3>Why Genuine Parts Matter</h3>
+        <h2>OEM and Replacement Route Review</h2>
+        <p>From O-rings to crankshafts, Diesel Part Source helps buyers compare practical supply routes for MTU, Detroit Diesel, Cummins, and DEUTZ engines. Quotes identify OEM, OEM-alternative, reman, repaired, or replacement routes when they apply.</p>
+        <h3>Why Route Clarity Matters</h3>
         <ul>
           <li>Correct fit and reliable service life</li>
           <li>Reduced risk during overhaul and fleet maintenance</li>
-          <li>Traceable supply and clearer replacement decisions</li>
+          <li>Clearer replacement decisions before payment or dispatch</li>
         </ul>
       `,
       partTwo: `
         <h2>How to Request Parts</h2>
-        <p>Provide the part number, engine model, nameplate photo, old part photo, and quantity. We will check stock, verify replacement options, and quote shipping.</p>
-        <p><a href="/contact/">Request genuine OEM parts</a></p>
+        <p>Provide the part number, engine model, nameplate photo, old part photo, and quantity. We check stock, verify replacement options, and quote shipping with clear notes on the available route.</p>
+        <p><a href="/contact/">Request verified parts sourcing</a></p>
       `,
     },
   };

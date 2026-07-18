@@ -21,7 +21,7 @@ export const applications: ApplicationItem[] = [
     seoTitle: 'Marine Propulsion Engine Parts | MTU, Detroit Diesel, Cummins',
     h1Title: 'Marine Propulsion Engine Parts',
     summary:
-      'Genuine and OEM manufacturer parts for marine propulsion engines used by vessels, ferries, yachts, coast guard fleets, and shipyards.',
+      'Verified OEM, OEM-alternative, reman, and replacement routes for marine propulsion engines used by vessels, ferries, yachts, coast guard fleets, and shipyards.',
     productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
     content: {
       partOne:

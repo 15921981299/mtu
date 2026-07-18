@@ -12169,7 +12169,7 @@ const productCatalog: ProductItem[] = [
     content: {
       partOne: `
         <h2>MTU 2000 Series Parts</h2>
-        <p>The MTU 2000 series is widely used in marine, power generation, and industrial applications. We help maintenance teams source genuine and OEM manufacturer parts for planned service and breakdown repair.</p>
+        <p>The MTU 2000 series is widely used in marine, power generation, and industrial applications. We help maintenance teams review OEM, OEM-alternative, reman, and replacement routes for planned service and breakdown repair.</p>
         <h3>Part Categories</h3>
         <ul>
           <li>Fuel injection and engine control components</li>

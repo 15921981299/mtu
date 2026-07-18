@@ -56,6 +56,25 @@ const workflowSteps = [
   },
 ];
 
+const quoteStandards = [
+  {
+    title: "Part-number verification",
+    body: "We check the requested number against engine series, serial-number context, old-part photos, and known replacement references before treating the item as ready to quote.",
+  },
+  {
+    title: "Clearly labelled supply route",
+    body: "Quotes identify the practical route when available: OEM, OEM-alternative, reman, repair route, or replacement reference. Unconfirmed substitutions are not presented as direct equivalents.",
+  },
+  {
+    title: "Export-ready quote fields",
+    body: "Buyer replies include price, stock route, lead time, approximate weight, HS code where available, packing notes, Incoterm discussion, and shipping options for the destination.",
+  },
+  {
+    title: "Before-shipment confirmation",
+    body: "For approved orders, we can confirm quantity, visible markings, label photos, packing method, and shipment tracking before dispatch from Shanghai.",
+  },
+];
+
 const catalogHubs = [
   {
     href: "/part-products/catalog/mtu-filters/",
@@ -279,15 +298,15 @@ const homepagePartNumberGroups = [
           </div>
           <div class="hero-title-block">
             <h1 class="hero-title fade-in">
-              MTU Engine Parts Specialist<br />Genuine Parts, Fast Global Delivery
+              MTU Engine Parts Sourcing<br />Verified Quotes, Global Delivery
             </h1>
           </div>
           <div class="hero-bottom-content-block">
             <div class="hero-summary-block">
               <p class="hero-summary">
-                MTU engine parts specialist — 800+ part numbers indexed by engine series
-                and part category. Send your engine model, serial number, and part list
-                for verification, stock check, and quotation within 24 hours.
+                Independent MTU parts sourcing desk with 800+ part numbers indexed by
+                engine series and category. Send your engine model, serial number, and
+                part list for fitment review, stock check, and export-ready quotation.
               </p>
             </div>
             <div class="hero-button-block">
@@ -302,7 +321,7 @@ const homepagePartNumberGroups = [
               </div>
               <ul class="hero-trust-row" aria-label="Key service guarantees">
                 <li>MTU full-series support</li>
-                <li>Genuine OEM sourcing</li>
+                <li>OEM / alternative route labelled</li>
                 <li>Worldwide shipping</li>
               </ul>
             </div>
@@ -435,6 +454,28 @@ const homepagePartNumberGroups = [
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUOTE STANDARD ═══ -->
+  <section class="quote-standard-section section-gap bottom" aria-labelledby="quote-standard-heading">
+    <div class="container">
+      <SectionHeading
+        title="Verification & Quotation Standard"
+        subtitle="How We Reduce Wrong-Part Risk"
+      />
+      <div class="quote-standard-grid fade-in">
+        {quoteStandards.map((item, i) => (
+          <article class="quote-standard-card">
+            <span class="quote-standard-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+      <p class="quote-standard-note">
+        Diesel Part Source is an independent supplier. Brand names and part numbers are used to identify buyer requirements; final quote notes clarify the available sourcing route and confirmation requirements.
+      </p>
     </div>
   </section>
 
@@ -733,6 +774,74 @@ const homepagePartNumberGroups = [
     border-radius: 50%;
     background: var(--color-primary);
     transform: translateY(-50%);
+  }
+
+  .quote-standard-section {
+    background: #f8fafc;
+  }
+
+  .quote-standard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .quote-standard-card {
+    min-height: 230px;
+    padding: 22px;
+    border: 1px solid rgba(20, 110, 245, 0.14);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+  }
+
+  .quote-standard-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 28px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .quote-standard-card h3 {
+    margin: 0 0 10px;
+    color: var(--color-title);
+    font-size: 17px;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  .quote-standard-card p,
+  .quote-standard-note {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .quote-standard-note {
+    max-width: 920px;
+    margin: 20px auto 0;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    .quote-standard-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .quote-standard-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ── Service hint ── */

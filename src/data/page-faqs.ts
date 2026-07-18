@@ -15,9 +15,9 @@
       'Yes. We handle MTU 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series inquiries. Part-number and serial-number checks help avoid mismatched replacements.',
   },
   {
-    question: 'Do you offer genuine or OEM manufacturer parts?',
+    question: 'Do you offer OEM or verified replacement routes?',
     answer:
-      'Yes. Diesel Part Source focuses on genuine and OEM manufacturer parts for maintenance, overhaul, and fleet service programs. Availability depends on the exact part number and current stock.',
+      'Yes. Diesel Part Source can quote OEM, OEM-alternative, reman, repaired, or replacement routes for maintenance, overhaul, and fleet service programs. Availability depends on the exact part number and current stock.',
   },
   {
     question: 'Can you ship engine parts globally?',

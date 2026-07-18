@@ -8,7 +8,7 @@
   email: 'charles@dieselpartsource.com',
   phone: '+8615921981299',
   whatsapp: '+8615921981299',
-  tagline: 'Genuine Engine Parts | Fast Global Delivery',
+  tagline: 'Verified Engine Parts | Fast Global Delivery',
   logo: {
     default: '/logo.png',
     compact: '/logo.png',
@@ -70,7 +70,7 @@
     },
   },
   defaultDescription:
-    'Diesel Part Source supplies genuine MTU, Detroit Diesel, Cummins, and DEUTZ engine parts for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
+    'Diesel Part Source supports verified MTU, Detroit Diesel, Cummins, and DEUTZ engine parts sourcing for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
 };
 
 const organizationLogoUrl = `${site.url}/logo.png`;

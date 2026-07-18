@@ -47,6 +47,12 @@ const quoteChecklist = part.quoteChecklist ?? [
   'Nameplate photo and old part photo when available',
   'Quantity, destination country, and required delivery date',
 ];
+const orderReleaseChecks = [
+  ['Supply route', 'Quote notes identify OEM, OEM-alternative, reman, repaired, or sourcing route when available.'],
+  ['Buyer confirmation', 'Serial number, old-part photo, installation position, or quantity questions are listed before order release.'],
+  ['Export handling', 'Approximate weight, HS code, packing route, and shipment method are confirmed when available.'],
+  ['Dispatch proof', 'Packing photos, visible label checks, or tracking details can be shared on request before shipment.'],
+];
 const procurementChecks = [
   ['Fitment basis', hasSpecificApplicableEngines ? part.applicableEngines : seriesText],
   ['Replacement check', hasReplacementRefs ? replacementRefs.join(', ') : 'Checked by old part number, serial number, and catalog position'],
@@ -217,6 +223,17 @@ const browseCatalogLinks = Array.from(
       {part.hsCode && <li><strong>HS code for customs reference:</strong> {part.hsCode}</li>}
       {part.natoNumber && <li><strong>NATO number:</strong> {part.natoNumber}</li>}
     </ul>
+
+    <h2>Order Release Standard</h2>
+    <p>For {part.partNumber} inquiries, the quote should make the sourcing route and remaining confirmation points clear before payment or shipment approval.</p>
+    <div class="part-release-grid">
+      {orderReleaseChecks.map(([label, value]) => (
+        <div>
+          <dt>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </div>
 
     {part.orderingNotes && (
       <>
@@ -478,6 +495,35 @@ const browseCatalogLinks = Array.from(
     overflow-wrap: anywhere;
   }
 
+  .part-release-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0 28px;
+  }
+
+  .part-release-grid div {
+    padding: 16px;
+    border: 1px solid rgba(20, 110, 245, 0.16);
+    border-radius: 6px;
+    background: #f8fafc;
+  }
+
+  .part-release-grid dt {
+    margin: 0 0 6px;
+    color: var(--color-title);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .part-release-grid dd {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
   .stock-status-bar {
     display: flex;
     align-items: center;
@@ -504,7 +550,8 @@ const browseCatalogLinks = Array.from(
   @media (max-width: 700px) {
     .part-related-grid,
     .part-spec-table,
-    .part-procurement-grid {
+    .part-procurement-grid,
+    .part-release-grid {
       grid-template-columns: 1fr;
     }
 

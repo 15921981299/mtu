@@ -5,9 +5,9 @@ export const faqs = [
       'Diesel Part Source supplies parts for MTU, Detroit Diesel, Cummins, and DEUTZ diesel engines. MTU full-series support is our core focus, including 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.',
   },
   {
-    question: 'Do you supply genuine OEM parts?',
+    question: 'Do you supply OEM or verified engine parts?',
     answer:
-      'Yes. We focus on genuine parts and original manufacturer parts. Send the engine model, serial number, part number, and photos so we can verify the correct replacement before quotation.',
+      'We quote OEM, OEM-alternative, reman, repaired, or replacement routes depending on availability and buyer requirements. Send the engine model, serial number, part number, and photos so the available route can be clearly identified before quotation.',
   },
   {
     question: 'What information should I include in an inquiry?',

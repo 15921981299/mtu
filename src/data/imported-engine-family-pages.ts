@@ -317,10 +317,10 @@ export const importedEngineFamilyPages: ImportedEngineFamilyPage[] = [
   },
   {
     slug: 'genuine-oem-parts',
-    title: 'Genuine OEM Parts',
-    seoTitle: 'Genuine OEM Parts | Diesel Part Source',
-    section: 'Genuine OEM Parts',
-    summary: 'Genuine OEM Parts information page for engine parts sourcing, service planning, and quotation support.',
+    title: 'Verified OEM Sourcing',
+    seoTitle: 'Verified OEM Sourcing | Diesel Part Source',
+    section: 'Verified OEM Sourcing',
+    summary: 'Verified OEM sourcing information page for engine parts sourcing, service planning, and quotation support.',
   },
   {
     slug: 'global',

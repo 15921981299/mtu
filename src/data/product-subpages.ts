@@ -48,7 +48,7 @@ export const productSubpages = [
     seoTitle: 'MTU 4000 Series Overhaul Parts | Diesel Part Source',
     h1Title: 'MTU 4000 Series Overhaul Parts',
     summary:
-      'Genuine and OEM manufacturer overhaul parts for MTU 4000 series engines in marine, generator, rail, and industrial service.',
+      'Verified OEM, OEM-alternative, reman, and replacement overhaul routes for MTU 4000 series engines in marine, generator, rail, and industrial service.',
     content: {
       partOne: `<h2>Overhaul Parts for MTU 4000</h2><p>MTU 4000 series engines are used where reliability and uptime matter. Diesel Part Source supports maintenance teams with parts for cylinder-head work, piston and liner replacement, valve-train service, bearings, gaskets, seals, cooling, and fuel systems.</p><h3>Common Overhaul Categories</h3><ul><li>Pistons, liners, rings, bearings, and gaskets</li><li>Valves, guides, seats, and cylinder-head parts</li><li>Fuel pumps, injectors, sensors, and control items</li><li>Cooling, lubrication, turbocharging, and filtration components</li></ul>`,
       partTwo: `<h2>Build a Consolidated Parts List</h2><p>Send your planned overhaul list in Excel or email format. We can check part-number availability line by line and help consolidate export packing for international shipment.</p>${cta('Request MTU 4000 overhaul parts')}`,
