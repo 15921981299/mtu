@@ -2,9 +2,12 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { isSitemapExcluded } from './src/data/sitemap-exclude.ts';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: 'https://dieselpartsource.com',
   trailingSlash: 'always',
+
   integrations: [
     sitemap({
       filter: (page) => {
@@ -17,4 +20,6 @@ export default defineConfig({
       },
     }),
   ],
+
+  adapter: cloudflare()
 });
