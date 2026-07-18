@@ -5,15 +5,18 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/create-worker-entry.mjs",
-    "preview": "astro preview",
+    "preview": "pnpm --filter dieselpartsource-site... run build && wrangler dev",
     "check": "astro check",
     "check:links": "node scripts/check-internal-links.mjs",
     "audit:encoding": "node scripts/audit-encoding.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "deploy": "pnpm --filter dieselpartsource-site... run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@fontsource/inter-tight": "^5.2.5",
     "@fontsource/urbanist": "^5.2.5",
     "astro": "^5.7.10"
@@ -23,6 +26,7 @@
     "@astrojs/sitemap": "^3.6.1",
     "exceljs": "^4.4.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "wrangler": "^4.112.0"
   }
 }
