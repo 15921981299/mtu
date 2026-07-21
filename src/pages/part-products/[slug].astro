@@ -5,6 +5,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { getFrequentlyPairedParts, getRelatedMtuParts, getSameCategoryParts, getSameSeriesParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
+import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -13,6 +14,13 @@ export function getStaticPaths() {
 }
 
 const { part } = Astro.props;
+const supply = partSupply[part.partNumber];
+const supplyBadgeLabel =
+  supply?.stockStatus === 'in-stock'
+    ? 'In stock'
+    : supply?.stockStatus === 'fast-order'
+      ? 'Fast order'
+      : 'Availability check';
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 8);
@@ -104,6 +112,7 @@ const browseCatalogLinks = Array.from(
       model: seriesText,
       brandName: 'MTU',
       category: part.category,
+      ...(supply ? { availability: supplyAvailabilitySchema[supply.stockStatus] } : {}),
     }),
     ...(partFaqs.length > 0 ? [faqSchema(partFaqs)] : []),
   ]}
@@ -166,6 +175,43 @@ const browseCatalogLinks = Array.from(
         <dd>{part.availability}</dd>
       </div>
     </div>
+
+    {supply && (
+      <>
+        <h2>Supply &amp; Availability</h2>
+        <div class="part-supply-card">
+          <div class="part-supply-head">
+            <span class={`part-supply-badge part-supply-badge--${supply.stockStatus}`}>{supplyBadgeLabel}</span>
+            <span class="part-supply-verified">Verified: {supply.lastVerified}</span>
+          </div>
+          <dl class="part-supply-grid">
+            <div>
+              <dt>Stock</dt>
+              <dd>{supply.stockNote}</dd>
+            </div>
+            <div>
+              <dt>Lead time</dt>
+              <dd>{supply.leadTime}</dd>
+            </div>
+          </dl>
+          {supply.realPhotos && supply.realPhotos.length > 0 && (
+            <div class="part-supply-photos">
+              {supply.realPhotos.map((photo) => (
+                <img
+                  src={photo}
+                  alt={`${part.partNumber} ${part.name} - real stock photo`}
+                  width="320"
+                  height="240"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ))}
+            </div>
+          )}
+          <p class="part-supply-note">Stock status is indicative — confirm current availability with your inquiry.</p>
+        </div>
+      </>
+    )}
 
     <h2>About {part.partNumber} - {part.name}</h2>
     <p>{part.description ?? part.summary}</p>
@@ -524,6 +570,112 @@ const browseCatalogLinks = Array.from(
     line-height: 1.55;
   }
 
+  .part-supply-card {
+    margin: 16px 0 28px;
+    padding: 18px 20px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  .part-supply-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 12px;
+    margin-bottom: 14px;
+  }
+
+  .part-supply-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-stroke);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .part-supply-badge--in-stock {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+  }
+
+  .part-supply-badge--fast-order {
+    background: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+  }
+
+  .part-supply-badge--check {
+    background: #f8fafc;
+    border-color: var(--color-stroke);
+    color: #475569;
+  }
+
+  .part-supply-verified {
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .part-supply-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+  }
+
+  .part-supply-grid div {
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    background: #f8fafc;
+  }
+
+  .part-supply-grid dt {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .part-supply-grid dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #0f172a;
+    overflow-wrap: anywhere;
+  }
+
+  .part-supply-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .part-supply-photos img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid var(--color-stroke);
+    border-radius: 6px;
+    background: #f8fafc;
+  }
+
+  .part-supply-note {
+    margin: 14px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #64748b;
+  }
+
   .stock-status-bar {
     display: flex;
     align-items: center;
@@ -551,7 +703,8 @@ const browseCatalogLinks = Array.from(
     .part-related-grid,
     .part-spec-table,
     .part-procurement-grid,
-    .part-release-grid {
+    .part-release-grid,
+    .part-supply-grid {
       grid-template-columns: 1fr;
     }
 

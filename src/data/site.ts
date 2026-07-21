@@ -1,4 +1,4 @@
-﻿export const site = {
+export const site = {
   name: 'Diesel Part Source',
   company: {
     legalName: 'Shanghai Diesel Part Source Co., Ltd.',
@@ -152,6 +152,8 @@ export function productSchema(product: {
   model?: string;
   brandName?: string;
   category?: string;
+  /** schema.org Offer availability URL; defaults to InStock when omitted. */
+  availability?: string;
 }) {
   const description = product.material
     ? `${product.description} Reference groups: ${product.material}.`
@@ -178,7 +180,7 @@ export function productSchema(product: {
       '@type': 'Offer',
       url: product.url,
       priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
+      availability: product.availability ?? 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       description:
         'Quote based on part number, engine model, serial number, quantity, stock status, and shipping destination.',

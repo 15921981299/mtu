@@ -1,0 +1,19 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "mtu"
+main = "dist/_worker.js/index.js"
+compatibility_date = "2026-07-18"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[assets]
+directory = "./dist"
+
+# Deployment flow:
+#   1. pnpm build        (astro build && node scripts/create-worker-entry.mjs)
+#   2. wrangler deploy   (uploads dist/_worker.js + changed assets)
+#
+# Notes:
+# - RESEND_API_KEY is a Worker secret, managed via `wrangler secret put`
+#   or the Cloudflare dashboard — it is NOT defined here and persists
+#   across deploys.
+# - Do not add observability/log settings here; current production
+#   settings are managed on the dashboard.
