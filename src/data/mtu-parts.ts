@@ -46,13 +46,13 @@ const partImage = '/images/mtu-2000-series-parts.webp';
 /** Each category gets its own image — avoids every part page showing the same picture. */
 const categoryImages: Record<string, string> = {
   'Turbocharging': '/images/industrial-diesel-engine-parts.webp',
-  'Filters': '/images/engine-parts-sensors-catalog.webp',
-  'Fuel system': '/images/engine-parts-hero.webp',
-  'Sensors and electrical': '/images/engine-parts-sensors-catalog.webp',
+  'Filters': '/images/diesel-filter-parts-category.jpg',
+  'Fuel system': '/images/diesel-fuel-system-parts-category.jpg',
+  'Sensors and electrical': '/images/diesel-sensors-electrical-parts-category.jpg',
   'Pistons and liners': '/images/generator-engine-parts.webp',
   'Valve train': '/images/industrial-diesel-engine-parts.webp',
   'Bearings': '/images/mtu-2000-series-parts.webp',
-  'Gaskets and seals': '/images/engine-parts-verification-desk.webp',
+  'Gaskets and seals': '/images/diesel-gaskets-seals-category.jpg',
   'Cooling system': '/images/marine-diesel-engine-parts.webp',
   'Lubrication': '/images/engine-parts-hero.webp',
   'Drive components': '/images/engine-parts-verification-desk.webp',
@@ -302,16 +302,16 @@ const inferTextMatchedPartImage = (part: Pick<CatalogPartSeed, 'partNumber' | 'n
 
   const text = `${part.name} ${part.category}`.toLowerCase();
   if (/(sensor|monitor|switch|actuator|solenoid|transistor|lamp|regulator|control|governor)/.test(text)) {
-    return '/images/engine-parts-sensors-catalog.webp';
+    return '/images/diesel-sensors-electrical-parts-category.jpg';
   }
   if (/(filter|cartridge|prefilter|strainer|separator)/.test(text)) {
-    return '/images/engine-parts-sensors-catalog.webp';
+    return '/images/diesel-filter-parts-category.jpg';
   }
   if (/(injector|nozzle|fuel|pump|rail|delivery|pressure|valve)/.test(text)) {
-    return '/images/engine-parts-hero.webp';
+    return '/images/diesel-fuel-system-parts-category.jpg';
   }
   if (/(gasket|seal|o-ring|ring|washer|plug|bushing|bolt|screw|nut|clamp)/.test(text)) {
-    return '/images/engine-parts-verification-desk.webp';
+    return '/images/diesel-gaskets-seals-category.jpg';
   }
   if (/(coolant|water|seawater|impeller|thermostat|cooler)/.test(text)) {
     return '/images/marine-diesel-engine-parts.webp';
@@ -2208,6 +2208,43 @@ export const mtuParts: MtuPart[] = mtuPartsDeduped;
 export const mtuPartCategories = Array.from(new Set(mtuPartsDeduped.map((part) => part.category))).sort();
 export const mtuPartSeries = Array.from(new Set(mtuPartsDeduped.flatMap((part) => part.series))).sort();
 
+const genericPartDescriptions = new Set(
+  Object.values(categoryDefaults).map((category) => category.description),
+);
+
+/**
+ * Keep thin, template-only part records out of the index until they have
+ * enough part-specific evidence to answer a buyer's query.
+ */
+export function isPartPageIndexable(part: MtuPart): boolean {
+  const hasSpecificDescription =
+    Boolean(part.description?.trim()) && !genericPartDescriptions.has(part.description!.trim());
+  const hasSpecificEngine =
+    Boolean(part.engineType?.trim()) && !/^Verify by engine serial number$/i.test(part.engineType!);
+  const hasSpecificFitment =
+    Boolean(part.applicableEngines?.trim()) &&
+    !/^Verify by engine serial number$/i.test(part.applicableEngines!);
+  const hasSpecificWeight =
+    Boolean(part.weightKg?.trim()) && !/varies|confirm|quoted/i.test(part.weightKg!);
+  const hasSpecificHsCode =
+    Boolean(part.hsCode?.trim()) && !/varies|confirm|quoted|n\/a/i.test(part.hsCode!);
+  const hasSpecificDimensions =
+    Boolean(part.dimensions?.trim()) && !/varies|confirm|quoted|n\/a/i.test(part.dimensions!);
+  const hasCrossReferences = Boolean(part.replacementFor?.length);
+
+  const evidenceScore =
+    (isRealPartImage(part.image) ? 2 : 0) +
+    (hasSpecificDescription ? 2 : 0) +
+    (hasSpecificEngine ? 1 : 0) +
+    (hasSpecificFitment ? 1 : 0) +
+    (hasSpecificWeight ? 1 : 0) +
+    (hasSpecificHsCode ? 1 : 0) +
+    (hasSpecificDimensions ? 1 : 0) +
+    (hasCrossReferences ? 1 : 0);
+
+  return evidenceScore >= 4;
+}
+
 export function getMtuPart(slug: string) {
   return mtuPartsDeduped.find((part) => part.slug === slug);
 }
@@ -2249,7 +2286,7 @@ export function getFrequentlyPairedParts(part: MtuPart, limit = 4): MtuPart[] {
   const pairedCategories = pairs[part.category] ?? ['Gaskets and seals', 'Filters'];
   return mtuPartsDeduped
     .filter((c) => c.slug !== part.slug && pairedCategories.includes(c.category))
-    .sort(() => 0.5 - Math.random())
+    .sort((a, b) => a.partNumber.localeCompare(b.partNumber))
     .slice(0, limit);
 }
 

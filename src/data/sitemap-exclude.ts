@@ -1,5 +1,6 @@
 import { products } from './products';
 import { importedEngineFamilyPages } from './imported-engine-family-pages';
+import { isPartPageIndexable, mtuParts } from './mtu-parts';
 
 /** Pathnames excluded from sitemap-index (must match trailingSlash: 'always'). */
 const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/']);
@@ -32,12 +33,19 @@ const NOINDEX_IMPORTED_PATHS = new Set(
   importedEngineFamilyPages.filter(isImportedPageNoindex).map((page) => `/${page.slug}/`)
 );
 
+const NOINDEX_PART_PATHS = new Set(
+  mtuParts
+    .filter((part) => !isPartPageIndexable(part))
+    .map((part) => `/part-products/${part.slug}/`)
+);
+
 export function isSitemapExcluded(pathname: string): boolean {
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
   return (
     STATIC_EXCLUDES.has(normalized) ||
     NOINDEX_PRODUCT_PATHS.has(normalized) ||
-    NOINDEX_IMPORTED_PATHS.has(normalized)
+    NOINDEX_IMPORTED_PATHS.has(normalized) ||
+    NOINDEX_PART_PATHS.has(normalized)
   );
 }
 
@@ -46,5 +54,10 @@ export const sitemapExcludeStats = {
   static: STATIC_EXCLUDES.size,
   noindexProducts: NOINDEX_PRODUCT_PATHS.size,
   noindexImported: NOINDEX_IMPORTED_PATHS.size,
-  total: STATIC_EXCLUDES.size + NOINDEX_PRODUCT_PATHS.size + NOINDEX_IMPORTED_PATHS.size,
+  noindexParts: NOINDEX_PART_PATHS.size,
+  total:
+    STATIC_EXCLUDES.size +
+    NOINDEX_PRODUCT_PATHS.size +
+    NOINDEX_IMPORTED_PATHS.size +
+    NOINDEX_PART_PATHS.size,
 };

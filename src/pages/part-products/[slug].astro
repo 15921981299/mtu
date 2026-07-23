@@ -4,7 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { getFrequentlyPairedParts, getRelatedMtuParts, getSameCategoryParts, getSameSeriesParts, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
+import { getFrequentlyPairedParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
@@ -15,6 +15,11 @@ export function getStaticPaths() {
 
 const { part } = Astro.props;
 const supply = partSupply[part.partNumber];
+const heroImageAlt =
+  part.imageAlt ??
+  (isRealPartImage(part.image)
+    ? `${part.partNumber} ${part.name} - MTU ${part.category} spare part`
+    : `Representative ${part.category.toLowerCase()} image for ${part.partNumber} ${part.name} sourcing`);
 const supplyBadgeLabel =
   supply?.stockStatus === 'in-stock'
     ? 'In stock'
@@ -23,10 +28,8 @@ const supplyBadgeLabel =
       : 'Availability check';
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
-const relatedParts = getRelatedMtuParts(part, 8);
-const sameSeriesParts = getSameSeriesParts(part, 12);
-const sameCategoryParts = getSameCategoryParts(part, 8);
-const pairedParts = getFrequentlyPairedParts(part, 8);
+const relatedParts = getRelatedMtuParts(part, 4);
+const pairedParts = getFrequentlyPairedParts(part, 4);
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
 const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 const shortApplicableEngines = hasSpecificApplicableEngines
@@ -89,7 +92,7 @@ const browseCatalogLinks = Array.from(
       ...mtuCatalogHubs,
     ].map((hub) => [hub.slug, hub]),
   ).values(),
-).slice(0, 12);
+).slice(0, 6);
 ---
 
 <BaseLayout
@@ -97,6 +100,7 @@ const browseCatalogLinks = Array.from(
   description={metaDesc}
   currentPath="/products"
   image={part.image}
+  noindex={!isPartPageIndexable(part)}
   jsonLd={[
     breadcrumbSchema([
       { name: 'Home', url: site.url },
@@ -132,7 +136,7 @@ const browseCatalogLinks = Array.from(
     <img
       slot="hero"
       src={part.image}
-      alt={part.imageAlt ?? `${part.partNumber} ${part.name} - MTU ${part.category} spare part`}
+      alt={heroImageAlt}
       width="1400"
       height="692"
       loading="eager"
@@ -182,7 +186,7 @@ const browseCatalogLinks = Array.from(
         <div class="part-supply-card">
           <div class="part-supply-head">
             <span class={`part-supply-badge part-supply-badge--${supply.stockStatus}`}>{supplyBadgeLabel}</span>
-            <span class="part-supply-verified">Verified: {supply.lastVerified}</span>
+            <span class="part-supply-verified">Listing reviewed: {supply.lastReviewed}</span>
           </div>
           <dl class="part-supply-grid">
             <div>
@@ -208,7 +212,7 @@ const browseCatalogLinks = Array.from(
               ))}
             </div>
           )}
-          <p class="part-supply-note">Stock status is indicative — confirm current availability with your inquiry.</p>
+          <p class="part-supply-note">Availability is confirmed for each quotation and may change before order release.</p>
         </div>
       </>
     )}
@@ -322,50 +326,6 @@ const browseCatalogLinks = Array.from(
                   <a href={`/part-products/${related.slug}/`}>{related.partNumber} {related.name}</a>
                 </h3>
                 <p class="hub-card-summary">{related.summary}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-    )}
-
-    {/* Same Series cross-links */}
-    {sameSeriesParts.length > 0 && (
-      <section class="hub-section">
-        <header class="hub-section-header">
-          <h2>Same Engine Series</h2>
-          <p>Other parts for {part.series.join(', ')} engines.</p>
-        </header>
-        <div class="hub-grid part-related-grid">
-          {sameSeriesParts.map((p) => (
-            <article class="hub-card">
-              <div class="hub-card-body">
-                <p class="hub-card-meta">{p.category}</p>
-                <h3 class="hub-card-title">
-                  <a href={`/part-products/${p.slug}/`}>{p.partNumber} {p.name}</a>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-    )}
-
-    {/* Same System cross-links */}
-    {sameCategoryParts.length > 0 && (
-      <section class="hub-section">
-        <header class="hub-section-header">
-          <h2>Same System — {part.category}</h2>
-          <p>Other {part.category.toLowerCase()} parts across different MTU engine series.</p>
-        </header>
-        <div class="hub-grid part-related-grid">
-          {sameCategoryParts.map((p) => (
-            <article class="hub-card">
-              <div class="hub-card-body">
-                <p class="hub-card-meta">{p.series.join(', ')}</p>
-                <h3 class="hub-card-title">
-                  <a href={`/part-products/${p.slug}/`}>{p.partNumber} {p.name}</a>
-                </h3>
               </div>
             </article>
           ))}

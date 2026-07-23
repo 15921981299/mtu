@@ -40,7 +40,9 @@ const termsPages = [
 ];
 
 const capabilityLinks = services.map((s) => ({ href: `/capabilities/${s.slug}/`, label: s.title }));
-const productLinks = products.map((p) => ({ href: `/products/${p.slug}/`, label: p.title }));
+const productLinks = products
+  .filter((product) => product.slug !== 'mtu-2000-series')
+  .map((product) => ({ href: `/products/${product.slug}/`, label: product.title }));
 const productSubLinks = productSubpages
   .filter((sp) => !isSubpageNoindex(sp.productSlug, sp.slug))
   .map((sp) => ({ href: `/products/${sp.productSlug}/${sp.slug}/`, label: sp.title }));

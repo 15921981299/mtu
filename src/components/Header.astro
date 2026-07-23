@@ -19,7 +19,7 @@ const resourcesActive = isActive('/resources') || isActive('/part-products/catal
       <div class="navbar-wrapper">
         <a href="/" class="navbar-brand" aria-label="Diesel Part Source home">
           <img src={site.logo.default} alt="Diesel Part Source logo" class="brand-logo is-1" width={site.logo.width} height={site.logo.height} loading="eager" fetchpriority="high" decoding="async" />
-          <img src={site.logo.default} alt="Diesel Part Source logo" class="brand-logo is-2" width={site.logo.width} height={site.logo.height} loading="eager" fetchpriority="high" decoding="async" />
+          <img src={site.logo.default} alt="" aria-hidden="true" class="brand-logo is-2" width={site.logo.width} height={site.logo.height} loading="eager" decoding="async" />
         </a>
 
         <div class="nav-menu-block" id="nav-menu">
@@ -51,10 +51,8 @@ const resourcesActive = isActive('/resources') || isActive('/part-products/catal
                   </svg>
                   <div class="nav-link-line-shape"></div>
                 </button>
-                <div class="nav-dropdown-list mega-menu">
-                  <div class="nav-dropdown-flex">
-                    <div class="nav-dropdown-column">
-                      <div class="nav-heading">Engine Parts</div>
+                <div class="nav-dropdown-list nav-dropdown-list--grid">
+                  <div class="nav-dropdown-panel">
                       <a href="/products/mtu-spare-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Spare Parts</span></a>
                       <a href="/products/mtu-2000-series-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Series Parts</span></a>
                       <a href="/products/mtu-4000-series-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Series Parts</span></a>
@@ -63,23 +61,6 @@ const resourcesActive = isActive('/resources') || isActive('/part-products/catal
                       <a href="/products/cummins-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Cummins Parts</span></a>
                       <a href="/products/deutz-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">DEUTZ Parts</span></a>
                       <a href="/products/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All Parts</span></a>
-                    </div>
-                    <div class="nav-dropdown-column">
-                      <div class="nav-heading">Service & Support</div>
-                      <a href="/capabilities/mtu-engine-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Engine Parts</span></a>
-                      <a href="/capabilities/cummins-engine-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Cummins Engine Parts</span></a>
-                      <a href="/capabilities/deutz-engine-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">DEUTZ Engine Parts</span></a>
-                      <a href="/capabilities/genuine-oem-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Verified OEM Sourcing</span></a>
-                      <a href="/capabilities/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All Support</span></a>
-                    </div>
-                    <div class="nav-dropdown-column">
-                      <div class="nav-heading">Applications</div>
-                      <a href="/industries/marine/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Marine</span></a>
-                      <a href="/industries/industrial-engines/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Industrial Engines</span></a>
-                      <a href="/industries/power-generation/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Power Generation</span></a>
-                      <a href="/industries/rail/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Rail</span></a>
-                      <a href="/industries/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All Applications</span></a>
-                    </div>
                   </div>
                 </div>
               </div>

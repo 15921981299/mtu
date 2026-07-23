@@ -10,11 +10,11 @@ export const site = {
   whatsapp: '+8615921981299',
   tagline: 'Verified Engine Parts | Fast Global Delivery',
   logo: {
-    default: '/logo.png',
-    compact: '/logo.png',
-    icon: '/logo.png',
-    width: 2076,
-    height: 758,
+    default: '/images/dieselpartsource-logo.svg',
+    compact: '/images/dieselpartsource-logo.svg',
+    icon: '/images/dieselpartsource-logo.svg',
+    width: 258,
+    height: 40,
   },
   /** Set your GA4 Measurement ID (e.g. G-XXXXXXXX) to enable analytics. Leave empty to disable. */
   gaMeasurementId: 'G-WFJ59G7FKN',
@@ -73,7 +73,7 @@ export const site = {
     'Diesel Part Source supports verified MTU, Detroit Diesel, Cummins, and DEUTZ engine parts sourcing for marine, industrial, rail, and power generation applications with global delivery from Shanghai.',
 };
 
-const organizationLogoUrl = `${site.url}/logo.png`;
+const organizationLogoUrl = `${site.url}${site.logo.default}`;
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
@@ -151,8 +151,9 @@ export function productSchema(product: {
   sku?: string;
   model?: string;
   brandName?: string;
+  manufacturerName?: string;
   category?: string;
-  /** schema.org Offer availability URL; defaults to InStock when omitted. */
+  /** Only emit availability when it has been checked for this specific item. */
   availability?: string;
 }) {
   const description = product.material
@@ -166,21 +167,28 @@ export function productSchema(product: {
     description,
     url: product.url,
     image: product.image,
-    brand: {
-      '@type': 'Brand',
-      name: product.brandName ?? site.name,
-    },
+    ...(product.brandName
+      ? {
+          brand: {
+            '@type': 'Brand',
+            name: product.brandName,
+          },
+        }
+      : {}),
     ...(product.category ? { category: product.category } : {}),
-    manufacturer: {
-      '@type': 'Organization',
-      name: site.name,
-      url: site.url,
-    },
+    ...(product.manufacturerName
+      ? {
+          manufacturer: {
+            '@type': 'Organization',
+            name: product.manufacturerName,
+          },
+        }
+      : {}),
     offers: {
       '@type': 'Offer',
       url: product.url,
       priceCurrency: 'USD',
-      availability: product.availability ?? 'https://schema.org/InStock',
+      ...(product.availability ? { availability: product.availability } : {}),
       itemCondition: 'https://schema.org/NewCondition',
       description:
         'Quote based on part number, engine model, serial number, quantity, stock status, and shipping destination.',

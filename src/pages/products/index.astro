@@ -66,7 +66,7 @@ const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-
           </div>
 
           <div class="hub-grid products-hub-grid">
-            {products.map((product) => (
+            {products.filter((product) => product.slug !== 'mtu-2000-series').map((product) => (
               <article class:list={['hub-card', { featured: featuredSlugs.has(product.slug) }]}>
                 {featuredSlugs.has(product.slug) && <span class="hub-featured-badge">Featured</span>}
                 <a href={`/products/${product.slug}/`} class="hub-card-image">

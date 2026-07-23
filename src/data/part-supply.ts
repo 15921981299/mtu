@@ -13,7 +13,7 @@
  *   and shipped quickly after order), "check" (confirm after inquiry).
  * - stockNote: short factual note, e.g. "2 pcs available in Shanghai warehouse".
  * - leadTime: e.g. "Ships in 1-3 days".
- * - lastVerified: ISO date (YYYY-MM-DD) of the last stock verification.
+ * - lastReviewed: ISO date (YYYY-MM-DD) when this sourcing note was reviewed.
  * - realPhotos: array of real photo paths under /public, e.g.
  *   ["/images/supply/0031845201-1.webp"]. Leave empty until photos exist.
  */
@@ -22,15 +22,15 @@ export type PartSupplyInfo = {
   stockStatus: 'in-stock' | 'fast-order' | 'check';
   stockNote: string;
   leadTime: string;
-  lastVerified: string;
+  lastReviewed: string;
   realPhotos?: readonly string[];
 };
 
-const placeholder = (partNumber: string): PartSupplyInfo => ({
+const placeholder = (_partNumber: string): PartSupplyInfo => ({
   stockStatus: 'check',
   stockNote: 'Availability confirmed within 24 hours',
   leadTime: 'Stock or sourcing route confirmed after inquiry',
-  lastVerified: '2026-07-21',
+  lastReviewed: '2026-07-21',
   realPhotos: [],
 });
 
@@ -60,5 +60,5 @@ export const partSupply: Record<string, PartSupplyInfo> = {
 export const supplyAvailabilitySchema: Record<PartSupplyInfo['stockStatus'], string> = {
   'in-stock': 'https://schema.org/InStock',
   'fast-order': 'https://schema.org/LimitedAvailability',
-  check: 'https://schema.org/InStock',
+  check: 'https://schema.org/LimitedAvailability',
 };
