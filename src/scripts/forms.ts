@@ -1,4 +1,4 @@
-﻿function getResultEl(form: HTMLFormElement) {
+function getResultEl(form: HTMLFormElement) {
   return form.querySelector<HTMLElement>('.form-result');
 }
 
@@ -28,7 +28,7 @@ async function handleQuote(form: HTMLFormElement) {
   }
 
   const endpoint = form.dataset.endpoint ?? '/api/rfq';
-  const fallbackEmail = form.dataset.fallbackEmail ?? 'charles@dieselpartsource.com';
+  const fallbackEmail = form.dataset.fallbackEmail ?? 'sales@dieselpartsource.com';
 
   setLoading(form, true);
 

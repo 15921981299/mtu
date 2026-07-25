@@ -102,14 +102,14 @@ export async function onRequest(context) {
     if (!resendKey) {
       console.error('RESEND_API_KEY not configured');
       return new Response(
-        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsource.com' }),
+        JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at sales@dieselpartsource.com' }),
         { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
 
     await sendResendEmail(resendKey, {
-      to: 'charles@dieselpartsource.com',
-      subject: `New RFQ: ${name} â€” ${material} / ${quantity}`,
+      to: 'sales@dieselpartsource.com',
+      subject: `New RFQ: ${name} â€?${material} / ${quantity}`,
       text: emailBody,
     });
 
@@ -117,9 +117,9 @@ export async function onRequest(context) {
       try {
         await sendResendEmail(resendKey, {
           to: email,
-          subject: 'We received your engine parts inquiry â€” Diesel Part Source',
+          subject: 'We received your engine parts inquiry â€?Diesel Part Source',
           text: buildCustomerAutoReply({ name, siteUrl: SITE_URL }),
-          replyTo: 'charles@dieselpartsource.com',
+          replyTo: 'sales@dieselpartsource.com',
         });
       } catch (autoReplyErr) {
         console.error('Customer auto-reply failed:', autoReplyErr.message);
@@ -166,7 +166,7 @@ export async function onRequest(context) {
     });
   } catch (err) {
     console.error('RFQ Error:', err.message);
-    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsource.com' }), {
+    return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at sales@dieselpartsource.com' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });

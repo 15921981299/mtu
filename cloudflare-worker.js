@@ -85,7 +85,7 @@ export default {
       const resendKey = env.RESEND_API_KEY;
       if (!resendKey) {
         console.error('RESEND_API_KEY not configured');
-        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at charles@dieselpartsource.com' }), {
+        return new Response(JSON.stringify({ ok: false, message: 'Email service not configured. Please email us at sales@dieselpartsource.com' }), {
           status: 503,
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
         });
@@ -99,7 +99,7 @@ export default {
         },
         body: JSON.stringify({
           from: 'Diesel Part Source <rfq@dieselpartsource.com>',
-          to: 'charles@dieselpartsource.com',
+          to: 'sales@dieselpartsource.com',
           subject: `New RFQ: ${name} - ${material} / ${quantity}`,
           text: emailBody,
         }),
@@ -123,7 +123,7 @@ export default {
           '- MTU part numbers: https://dieselpartsource.com/part-products/',
           '- Engine parts catalog: https://dieselpartsource.com/products/',
           '',
-          'Questions before we reply? Email charles@dieselpartsource.com - we respond within one business day.',
+          'Questions before we reply? Email sales@dieselpartsource.com - we respond within one business day.',
           '',
           'Best regards,',
           'Diesel Part Source Parts Team',
@@ -138,7 +138,7 @@ export default {
           body: JSON.stringify({
             from: 'Diesel Part Source <rfq@dieselpartsource.com>',
             to: email,
-            reply_to: 'charles@dieselpartsource.com',
+            reply_to: 'sales@dieselpartsource.com',
             subject: 'We received your engine parts inquiry - Diesel Part Source',
             text: autoReplyBody,
           }),
@@ -153,7 +153,7 @@ export default {
 
     } catch (err) {
       console.error('RFQ Error:', err.message);
-      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at charles@dieselpartsource.com' }), {
+      return new Response(JSON.stringify({ ok: false, message: 'Something went wrong. Please email us at sales@dieselpartsource.com' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

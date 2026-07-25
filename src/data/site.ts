@@ -5,7 +5,7 @@ export const site = {
     legalNameEn: 'Shanghai Diesel Part Source Co., Ltd.',
   },
   url: 'https://dieselpartsource.com',
-  email: 'charles@dieselpartsource.com',
+  email: 'sales@dieselpartsource.com',
   phone: '+8615921981299',
   whatsapp: '+8615921981299',
   tagline: 'Verified Engine Parts | Fast Global Delivery',
@@ -23,14 +23,14 @@ export const site = {
   /** Google Tag Manager container ID (e.g. GTM-XXXXXXX). Leave empty to disable GTM. */
   gtmContainerId: '',
   social: {
-    /** Company LinkedIn â€” set here or via PUBLIC_LINKEDIN_URL in .env */
+    /** Company LinkedIn â€?set here or via PUBLIC_LINKEDIN_URL in .env */
     linkedin:
       (typeof import.meta.env.PUBLIC_LINKEDIN_URL === 'string' && import.meta.env.PUBLIC_LINKEDIN_URL.trim()) ||
       '',
-    /** Factory tour video â€” matches quality.inspectionMedia.youtubeVideoId. */
+    /** Factory tour video â€?matches quality.inspectionMedia.youtubeVideoId. */
     youtube: 'https://www.youtube.com/watch?v=M7uJEbDD-_8',
   },
-  /** Author external profiles â€” fill URLs when live; used in Person schema sameAs */
+  /** Author external profiles â€?fill URLs when live; used in Person schema sameAs */
   authorSocial: {
     weiChenLinkedIn:
       (typeof import.meta.env.PUBLIC_AUTHOR_WEI_CHEN_LINKEDIN === 'string' &&
@@ -42,7 +42,7 @@ export const site = {
       '',
   },
   /**
-   * Quality claims shown on site â€” keep wording accurate.
+   * Quality claims shown on site â€?keep wording accurate.
    * Set iso9001CertNumber / iso9001CertBody when you hold a direct certificate;
    * otherwise we state partner-facility ISO 9001 (default).
    */
@@ -55,7 +55,7 @@ export const site = {
     /** Shown on certifications when no direct cert number is on file. */
     iso9001VerificationNote:
       'Available supplier documents and quality notes can be requested for qualified parts inquiries.',
-    /** Industry workflows we support â€” link to /certifications/ pages, not cert claims we cannot verify. */
+    /** Industry workflows we support â€?link to /certifications/ pages, not cert claims we cannot verify. */
     industryPrograms: [
       { label: 'Marine engine service', href: '/industries/marine/' },
       { label: 'Power generation parts', href: '/industries/power-generation/' },

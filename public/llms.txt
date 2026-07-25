@@ -1,4 +1,4 @@
-# Diesel Part Source â€” LLM / AI crawler index
+# Diesel Part Source â€?LLM / AI crawler index
 # https://dieselpartsource.com
 
 > Diesel engine parts supplier based in Shanghai. Diesel Part Source supplies MTU, Detroit Diesel, Cummins, and DEUTZ parts for marine, industrial, power generation, rail, shipyard, and repair customers. Buyers can inquire by part number, engine model, serial number, nameplate photo, old part photo, quantity, and destination.
@@ -43,7 +43,7 @@
 
 ## Contact
 
-- Email: charles@dieselpartsource.com
+- Email: sales@dieselpartsource.com
 - Phone: +8615921981299
 - WhatsApp: +8615921981299
 - Legal name: Shanghai Diesel Diesel Part Source Co., Ltd.

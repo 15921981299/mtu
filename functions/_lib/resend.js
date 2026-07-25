@@ -43,7 +43,7 @@ export function buildCustomerAutoReply({ name, siteUrl }) {
     `- MTU part numbers: ${siteUrl}/part-products/`,
     `- Engine parts catalog: ${siteUrl}/products/`,
     '',
-    'Questions before we reply? Email charles@dieselpartsource.com — we respond within one business day.',
+    'Questions before we reply? Email sales@dieselpartsource.com - we respond within one business day.',
     '',
     'Best regards,',
     'Diesel Part Source Parts Team',

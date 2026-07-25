@@ -36,7 +36,7 @@ export default {
         drawingInfo = `${drawing.name} (${(drawing.size / 1024).toFixed(0)} KB)`;
       }
 
-      // Log submission (view in Cloudflare dashboard â†’ Worker â†’ Logs)
+      // Log submission (view in Cloudflare dashboard â†?Worker â†?Logs)
       console.log(`
         === New RFQ ===
         Name: ${name}
@@ -61,7 +61,7 @@ export default {
     } catch (err) {
       return new Response(JSON.stringify({
         ok: false,
-        message: 'Something went wrong. Please email us at charles@dieselpartsource.com',
+        message: 'Something went wrong. Please email us at sales@dieselpartsource.com',
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json', ...corsHeaders },

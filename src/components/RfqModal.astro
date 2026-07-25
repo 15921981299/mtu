@@ -233,7 +233,7 @@ import { site } from '../data/site';
       }
       window.location.href = '/thank-you/?source=rfq-modal';
     } catch {
-      const fallbackEmail = form.dataset.fallbackEmail ?? 'charles@dieselpartsource.com';
+      const fallbackEmail = form.dataset.fallbackEmail ?? 'sales@dieselpartsource.com';
       resultEl.className = 'form-result rfq-modal__result is-visible is-error';
       resultEl.innerHTML = `<p>Something went wrong. Please email <a href="mailto:${fallbackEmail}">${fallbackEmail}</a> or use the <a href="/contact/?source=modal-error">full contact form</a>.</p>`;
       submitBtn.disabled = false;
