@@ -10,6 +10,28 @@ import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 const pageUrl = `${site.url}/part-products/`;
+const priorityModelPages = [
+  {
+    href: '/products/mtu-2000-series-parts/16v-2000-engine-parts/',
+    title: 'MTU 16V 2000 Engine Parts',
+    summary: 'Marine, generator, rail, and industrial parts verified by complete model and serial number.',
+  },
+  {
+    href: '/products/mtu-2000-series-parts/mtu-m96l-engine-parts/',
+    title: 'MTU 16V 2000 M96L Engine Parts',
+    summary: 'Marine propulsion and yacht-engine parts verified by full M96L serial and component reference.',
+  },
+  {
+    href: '/products/mtu-4000-series-parts/12v-4000-engine-parts/',
+    title: 'MTU 12V 4000 Engine Parts',
+    summary: 'Fuel, cooling, filter, sensor, turbocharger, and overhaul parts for 12V 4000 variants.',
+  },
+  {
+    href: '/products/mtu-4000-series-parts/16v-4000-engine-parts/',
+    title: 'MTU 16V 4000 Engine Parts',
+    summary: 'Parts support for marine propulsion, locomotives, generators, and heavy industrial service.',
+  },
+];
 const priorityParts = [...mtuParts]
   .filter((part) => isRealPartImage(part.image) && part.weightKg && part.hsCode)
   .sort((a, b) => {
@@ -27,8 +49,8 @@ const priorityParts = [...mtuParts]
 ---
 
 <BaseLayout
-  title="MTU Parts Catalog by Part Number | Diesel Part Source"
-  description="Browse MTU spare parts by part number, category, and engine series. Check availability for sensors, gaskets, fuel parts, turbochargers, cooling parts, and overhaul items."
+  title="MTU Engine Parts Catalog & Spare Parts | Diesel Part Source"
+  description="Browse the MTU engine parts catalog by part number, category, and series. Find MTU spare parts, replacement references, fitment notes, weights, HS codes, and RFQ support."
   currentPath="/products"
   jsonLd={[
     breadcrumbSchema([
@@ -40,7 +62,7 @@ const priorityParts = [...mtuParts]
 >
   <FunnelPageView stage="selection" label="mtu-part-products-index" />
   <BreadcrumbHero
-    title="MTU Parts<br>Catalog"
+    title="MTU Engine Parts<br>Catalog"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'MTU Parts Catalog' },
@@ -65,13 +87,26 @@ const priorityParts = [...mtuParts]
           </nav>
 
           <p class="resource-intro">
-            Browse MTU parts by engine series, part category, or individual part number. Each part page includes cross-references, applicable engine models, stock status, and ordering notes. Send your part list for line-by-line availability check and quotation.
+            Browse the MTU engine parts catalog by series, component category, or exact part number. Each MTU spare-parts page includes available cross-references, applicable engine information, stock route, and ordering notes. Send your parts list for a line-by-line availability check and quotation.
           </p>
 
           <div class="resource-meta">
             <span><strong>{mtuParts.length}</strong> part numbers</span>
             <span><strong>{seriesHubs.length}</strong> engine series</span>
             <span><strong>{categoryHubs.length}</strong> part categories</span>
+          </div>
+
+          <h2 style="margin-top: 36px;">High-Demand MTU Engine Models</h2>
+          <div class="hub-grid part-products-grid">
+            {priorityModelPages.map((model) => (
+              <article class="hub-card">
+                <div class="hub-card-body">
+                  <h3 class="hub-card-title"><a href={model.href}>{model.title}</a></h3>
+                  <p class="hub-card-summary">{model.summary}</p>
+                  <a href={model.href} class="hub-card-link">View model parts →</a>
+                </div>
+              </article>
+            ))}
           </div>
 
           <!-- Browse by Engine Series -->

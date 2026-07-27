@@ -8919,33 +8919,38 @@ const importedEngineFamilyProducts: ProductItem[] = [
   },
   {
     slug: 'mtu-series-8000-engines',
-    title: 'MTU Series 8000 Engines',
-    image: '/images/engine-parts-sensors-catalog.webp',
-    mainImage: '/images/engine-parts-hero.webp',
+    title: 'MTU 8000 Series Parts',
+    image: '/images/marine-diesel-engine-parts.webp',
+    mainImage: '/images/marine-diesel-engine-parts.webp',
     secondImage: '/images/engine-parts-verification-desk.webp',
-    seoTitle: 'MTU Series 8000 Engines Parts | Diesel Part Source',
-    h1Title: 'MTU Series 8000 Engines Engine Parts',
-    summary: 'MTU MTU Series 8000 Engines engine parts inquiry support for service, overhaul, and replacement planning.',
+    seoTitle: 'MTU 8000 Engine Parts Supplier | Diesel Part Source',
+    h1Title: 'MTU 8000 Engine Parts',
+    summary: 'MTU 8000 series engine parts support for high-output marine propulsion, including service, cooling, fuel, turbocharger, control, and overhaul inquiries.',
     materialSlugs: ['carbon-steel', 'stainless-steel'],
-    capabilitySlugs: ['mtu-engine-parts', 'industrial-engine-service'],
+    capabilitySlugs: ['mtu-engine-parts', 'marine-engine-service', 'genuine-oem-parts'],
     tolerance: 'Verified by engine model, serial number, and part reference',
     leadTime: 'Availability and shipping route confirmed after inquiry',
     content: {
       partOne: `
-        <h2>MTU Series 8000 Engines Parts Support</h2>
-        <p>Diesel Part Source supports MTU MTU Series 8000 Engines engine parts inquiries for maintenance teams, distributors, service companies, and fleet operators.</p>
-        <h3>Typical Requests</h3>
+        <h2>MTU 8000 Series Engine Parts</h2>
+        <p>MTU 8000 series engines serve large, high-output marine propulsion applications where part traceability and maintenance-window planning are critical. Diesel Part Source supports vessel operators, shipyards, engine service companies, and procurement teams with model-specific parts checks and international delivery planning.</p>
+        <h3>MTU 8000 Parts Categories</h3>
         <ul>
-          <li>Filters, gaskets, seals, belts, sensors, and service items</li>
-          <li>Fuel, cooling, lubrication, turbocharging, and control components</li>
-          <li>Overhaul parts and replacement assemblies checked by engine reference</li>
+          <li>Fuel pumps, injection components, valves, lines, and controls</li>
+          <li>Cooling pumps, impellers, thermostats, heat-exchange, and seawater-system parts</li>
+          <li>Turbocharger, lubrication, intake, exhaust, sensor, and electrical components</li>
+          <li>Filters, gaskets, seals, O-rings, and planned-service items</li>
+          <li>Cylinder-head, valve-train, piston, liner, bearing, and overhaul components</li>
         </ul>
+        <p>Because 8000 series configurations vary by vessel, engine rating, and production revision, we do not treat a general series match as final fitment confirmation.</p>
+        <p><a href="/applications/marine-propulsion-engines/">View MTU marine engine parts support</a></p>
       `,
       partTwo: `
-        <h2>What to Send</h2>
-        <p>Send the engine model, serial number, part numbers, quantity, destination, and required delivery date. Photos of the nameplate or old part help us confirm the right option.</p>
-        <p><a href="/contact/">Request MTU Series 8000 Engines parts</a></p>
-        <p><a href="/products/mtu-series-8000-engines/">MTU Series 8000 Engines</a> is listed under MTU Spare Parts inquiry support.</p>
+        <h2>MTU 8000 Parts Verification</h2>
+        <p>Send the complete engine designation, serial number, part numbers, quantities, vessel or shipyard location, and required delivery date. Include component nameplates for turbochargers, pumps, injectors, sensors, and control equipment.</p>
+        <h3>For Planned Overhauls</h3>
+        <p>Send the parts list in Excel format so replacement references, quantities, approximate shipment weights, availability, and lead times can be reviewed line by line. Graded internal components require the applicable size or measurement record before quotation.</p>
+        <p><a href="/contact/">Request MTU 8000 engine parts</a></p>
       `,
     },
   },
@@ -12095,24 +12100,26 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.webp',
     mainImage: '/images/engine-parts-hero.webp',
     secondImage: '/images/engine-parts-verification-desk.webp',
-    seoTitle: 'MTU Spare Parts Supplier | Diesel Part Source',
-    h1Title: 'MTU Spare Parts',
+    seoTitle: 'MTU Engine Parts & Spare Parts Supplier | Diesel Part Source',
+    h1Title: 'MTU Engine Parts & Spare Parts',
     summary:
-      'Genuine MTU parts for 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 series engines.',
+      'Independent MTU engine parts supplier for 183, 396, 595, 956, 1163, 2000, 4000, and 8000 series engines, with part-number verification and worldwide delivery.',
     materialSlugs: ['stainless-steel', 'carbon-steel', 'brass-copper'],
     capabilitySlugs: ['mtu-engine-parts', 'marine-engine-service', 'genuine-oem-parts'],
     tolerance: 'Verified by part number, engine model, and serial number',
     leadTime: 'Stock items ship quickly; special items quoted by availability',
     content: {
       partOne: `
-        <h2>MTU Spare Parts Supply</h2>
-        <p>Diesel Part Source supplies MTU engine spare parts for marine, industrial, rail, and power generation users. We support both routine service orders and urgent downtime requests with part-number verification, stock checking, and global delivery from Shanghai.</p>
+        <h2>MTU Engine Parts Supply</h2>
+        <p>Diesel Part Source is an independent MTU engine parts and spare-parts supplier for marine, industrial, rail, and power generation users. We support routine service orders, overhaul lists, and urgent downtime requests with part-number verification, stock checking, and global delivery from Shanghai.</p>
         <h3>Browse by Part Category</h3>
         <ul>
           <li><a href="/part-products/catalog/mtu-filters/">MTU Filters — oil, fuel, air, coolant</a></li>
-          <li><a href="/part-products/catalog/mtu-injectors/">MTU Injectors & fuel system parts</a></li>
+          <li><a href="/part-products/catalog/mtu-injectors/">MTU Injectors & nozzle parts</a></li>
+          <li><a href="/part-products/catalog/mtu-fuel-pumps/">MTU Fuel pumps — high and low pressure</a></li>
           <li><a href="/part-products/catalog/mtu-turbocharger-parts/">MTU Turbocharger parts</a></li>
           <li><a href="/part-products/catalog/mtu-sensors/">MTU Sensors & electrical components</a></li>
+          <li><a href="/part-products/catalog/mtu-starter-motors-alternators/">MTU Starter motors & alternators</a></li>
           <li><a href="/part-products/catalog/mtu-gasket-kits/">MTU Gaskets, seals & O-rings</a></li>
           <li><a href="/part-products/catalog/mtu-pistons-liners/">MTU Pistons, liners & rings</a></li>
           <li><a href="/part-products/catalog/mtu-valve-train/">MTU Valve train components</a></li>
@@ -12127,6 +12134,13 @@ const productCatalog: ProductItem[] = [
           <li><a href="/part-products/catalog/mtu-595-series/">MTU 595 Series parts</a></li>
           <li><a href="/part-products/catalog/mtu-956-series/">MTU 956 Series parts</a></li>
           <li><a href="/part-products/catalog/mtu-1163-series/">MTU 1163 Series parts</a></li>
+          <li><a href="/products/mtu-series-8000-engines/">MTU 8000 Series engine parts</a></li>
+        </ul>
+        <h3>High-Demand MTU Engine Models</h3>
+        <ul>
+          <li><a href="/products/mtu-2000-series-parts/16v-2000-engine-parts/">MTU 16V 2000 engine parts</a></li>
+          <li><a href="/products/mtu-4000-series-parts/12v-4000-engine-parts/">MTU 12V 4000 engine parts</a></li>
+          <li><a href="/products/mtu-4000-series-parts/16v-4000-engine-parts/">MTU 16V 4000 engine parts</a></li>
         </ul>
         <h3>Frequently Requested Part Numbers</h3>
         <ul>
@@ -12158,8 +12172,8 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-sensors-catalog.webp',
     mainImage: '/images/engine-parts-sensors-catalog.webp',
     secondImage: '/images/precision-micrometer-measurement.jpg',
-    seoTitle: 'MTU 2000 Series Parts | Diesel Part Source',
-    h1Title: 'MTU 2000 Series Engine Parts',
+    seoTitle: 'MTU 2000 Series Parts Supplier | Diesel Part Source',
+    h1Title: 'MTU 2000 Series Parts Supplier',
     summary:
       'Parts support for MTU 2000 series engines used in marine propulsion, generator sets, and industrial power units.',
     materialSlugs: ['stainless-steel', 'carbon-steel'],
@@ -12170,6 +12184,13 @@ const productCatalog: ProductItem[] = [
       partOne: `
         <h2>MTU 2000 Series Parts</h2>
         <p>The MTU 2000 series is widely used in marine, power generation, and industrial applications. We help maintenance teams review OEM, OEM-alternative, reman, and replacement routes for planned service and breakdown repair.</p>
+        <h3>MTU 2000 Model Coverage</h3>
+        <ul>
+          <li><a href="/products/mtu-2000-series-parts/16v-2000-engine-parts/">MTU 16V 2000 engine parts</a></li>
+          <li><a href="/products/mtu-2000-series-parts/mtu-m96l-engine-parts/">MTU 16V 2000 M96L engine parts</a></li>
+          <li><a href="/part-products/catalog/mtu-2000-series/">MTU 2000 parts catalog by part number</a></li>
+          <li><a href="/products/mtu-2000-series-parts/marine-generator-service-parts/">MTU 2000 marine and generator service parts</a></li>
+        </ul>
         <h3>Part Categories</h3>
         <ul>
           <li>Fuel injection and engine control components</li>
@@ -12190,8 +12211,8 @@ const productCatalog: ProductItem[] = [
     image: '/images/engine-parts-hero.webp',
     mainImage: '/images/engine-parts-verification-desk.webp',
     secondImage: '/images/engine-parts-verification-desk.webp',
-    seoTitle: 'MTU 4000 Series Parts | Diesel Part Source',
-    h1Title: 'MTU 4000 Series Engine Parts',
+    seoTitle: 'MTU 4000 Series Parts Supplier | Diesel Part Source',
+    h1Title: 'MTU 4000 Series Parts Supplier',
     summary:
       'Genuine MTU 4000 series parts for marine, generator, rail, and industrial engines, with worldwide shipment from Shanghai.',
     materialSlugs: ['stainless-steel', 'carbon-steel'],
@@ -12202,6 +12223,12 @@ const productCatalog: ProductItem[] = [
       partOne: `
         <h2>MTU 4000 Series Parts</h2>
         <p>We supply MTU 4000 series spare parts for demanding fleets and engine rooms where downtime is expensive. Our team helps confirm correct replacements and coordinate export logistics.</p>
+        <h3>MTU 4000 Model Coverage</h3>
+        <ul>
+          <li><a href="/products/mtu-4000-series-parts/12v-4000-engine-parts/">MTU 12V 4000 engine parts</a></li>
+          <li><a href="/products/mtu-4000-series-parts/16v-4000-engine-parts/">MTU 16V 4000 engine parts</a></li>
+          <li><a href="/part-products/catalog/mtu-4000-series/">MTU 4000 parts catalog by part number</a></li>
+        </ul>
         <h3>Common Parts</h3>
         <ul>
           <li>Fuel system components, pumps, sensors, and control parts</li>

@@ -20,26 +20,34 @@ export const industries: IndustryItem[] = [
     title: 'Marine',
     icon: '/images/marine-diesel-engine-parts.webp',
     image: '/images/marine-diesel-engine-parts.webp',
-    seoTitle: 'Marine Engine Parts & Service | Diesel Part Source',
-    h1Title: 'Marine Engine Parts & Service',
+    seoTitle: 'Marine Diesel Engine Parts Supplier for Shipyards & Fleets',
+    h1Title: 'Marine Diesel Engine Parts for Shipyards & Fleets',
     summary:
-      'Genuine MTU and diesel engine parts for navy, coast guard, ferries, yachts, shipyards, and offshore vessels.',
+      'Parts sourcing and consolidated RFQ support for shipyards, vessel operators, marine service companies, yachts, ferries, workboats, and offshore fleets.',
     materialSlugs: ['stainless-steel', 'brass-copper'],
     capabilitySlugs: ['marine-engine-service', 'mtu-engine-parts', 'genuine-oem-parts'],
     content: {
       partOne: `
-        <h2>Marine Engine Parts</h2>
-        <p>Diesel Part Source supplies engine parts for vessel operators and marine service companies that need correct parts, fast communication, and reliable delivery.</p>
-        <h3>Marine Users</h3>
+        <h2>Marine Parts Supply for Maintenance Teams</h2>
+        <p>Diesel Part Source supports shipyards, vessel operators, and marine service companies that need verified diesel engine parts, consolidated quotations, export packing, and delivery to a port, yard, or maintenance warehouse.</p>
+        <h3>Who We Support</h3>
         <ul>
           <li>Navy and coast guard fleets</li>
           <li>Ferries, yachts, shipyards, and repair companies</li>
           <li>Offshore and harbor service vessels</li>
         </ul>
+        <h3>Typical Procurement Work</h3>
+        <ul>
+          <li>Mixed maintenance lists covering filters, seals, sensors, pumps, and fuel parts</li>
+          <li>Urgent breakdown inquiries with a fixed vessel or yard deadline</li>
+          <li>Planned top-end repair and major-overhaul quotations</li>
+          <li>Repeat fleet replenishment consolidated into export-ready shipments</li>
+        </ul>
+        <p>For MTU-specific model and component coverage, use our <a href="/applications/marine-propulsion-engines/">MTU marine engine parts guide</a>.</p>
       `,
       partTwo: `
-        <h2>Fast Global Delivery</h2>
-        <p>We help confirm part numbers and arrange export shipment to the repair yard, vessel operator, or maintenance warehouse.</p>
+        <h2>From Parts List to Marine Delivery</h2>
+        <p>We check part numbers against the engine model and serial number, identify replacement references, return line-by-line availability, and arrange export shipment to the repair yard, vessel operator, or maintenance warehouse.</p>
         <p><a href="/contact/">Send a marine parts inquiry</a></p>
       `,
     },

@@ -33,7 +33,12 @@ const isCoreIndexProduct = new Set([
   'deutz-parts',
 ]).has(product.slug);
 const isMtuLongTail = /\bmtu\b|mtu-|2000|4000|1163|8000|396|183|538|595|956/.test(productIdentityText);
-const shouldNoindex = isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail;
+const isRedirectedLegacyProduct = new Set([
+  'mtu-series-2000-gensets',
+  'mtu-series-4000-engines',
+  'mtu-series-4000-gensets',
+]).has(product.slug);
+const shouldNoindex = isRedirectedLegacyProduct || (isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail);
 
 const brand = productText.includes('cummins')
   ? 'Cummins'

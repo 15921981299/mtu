@@ -2315,6 +2315,11 @@ export interface MtuCatalogHub {
   summary: string;
   description: string;
   longDescription?: string;
+  searchTopics?: Array<{
+    title: string;
+    description: string;
+    href?: string;
+  }>;
   type: 'series' | 'category';
   /** Filter function to select parts for this hub */
   partFilter: (part: MtuPart) => boolean;
@@ -2328,6 +2333,23 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     h1Title: 'MTU 2000 Series Engine Parts',
     summary: 'Complete parts catalog for MTU 2000 series diesel engines — marine, industrial, generator, and rail applications.',
     description: 'Browse MTU 2000 series parts by category: pistons, liners, bearings, valves, gaskets, fuel system, cooling, turbocharging, sensors, and filters. Each part is verified by part number and engine serial number before quotation.',
+    searchTopics: [
+      {
+        title: 'MTU 16V 2000 Engine Parts',
+        description: 'Parts support for 16V 2000 marine, generator, rail, and industrial engines, checked by full model and serial number.',
+        href: '/products/mtu-2000-series-parts/16v-2000-engine-parts/',
+      },
+      {
+        title: 'MTU 16V 2000 M96L Engine Parts',
+        description: 'Marine propulsion and yacht-engine parts checked against the complete M96L serial and component references.',
+        href: '/products/mtu-2000-series-parts/mtu-m96l-engine-parts/',
+      },
+      {
+        title: 'MTU 2000 Marine Engine Parts',
+        description: 'Service and overhaul parts for propulsion, auxiliary-power, and onboard generator applications.',
+        href: '/products/mtu-2000-series-parts/marine-generator-service-parts/',
+      },
+    ],
     longDescription: `The MTU 2000 series is one of the most widely deployed diesel engine families in the world, powering everything from fast ferries and naval vessels to generator sets and locomotives. Available in 8V, 12V, 16V, and 18V configurations across multiple power ratings (M84, M91, M93, M94, M96), these engines share a common parts architecture that makes maintenance programs predictable — but also demanding when parts are needed urgently.
 
     Our MTU 2000 parts catalog is organized by functional category so procurement teams can move from "I need a fuel system part" to a verified quotation quickly. Every part number listed here has been cross-referenced against MTU's own electronic parts catalog, and we verify fitment against your engine serial number before quoting. This means you receive a quote for the part that actually fits your engine — not a generic catalog entry that may have been superseded.
@@ -2344,6 +2366,23 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     h1Title: 'MTU 4000 Series Engine Parts',
     summary: 'Complete parts catalog for MTU 4000 series diesel engines — marine propulsion, power generation, locomotive, and heavy equipment.',
     description: 'Browse MTU 4000 series parts by category: cylinder liners, pistons, cylinder heads, bearings, valves, gaskets, fuel injection, cooling pumps, turbochargers, sensors, and filters. OEM and alternative options available.',
+    searchTopics: [
+      {
+        title: 'MTU 12V 4000 Engine Parts',
+        description: 'Fuel, cooling, filtration, sensor, turbocharger, and overhaul parts checked by exact 12V 4000 variant.',
+        href: '/products/mtu-4000-series-parts/12v-4000-engine-parts/',
+      },
+      {
+        title: 'MTU 16V 4000 Engine Parts',
+        description: 'Parts support for 16V 4000 marine, locomotive, generator, and heavy industrial applications.',
+        href: '/products/mtu-4000-series-parts/16v-4000-engine-parts/',
+      },
+      {
+        title: 'MTU 4000 Overhaul Parts',
+        description: 'Graded internal components and consolidated overhaul lists with line-by-line verification.',
+        href: '/products/mtu-4000-series-parts/overhaul-parts/',
+      },
+    ],
     longDescription: `The MTU 4000 series represents the top tier of MTU's high-speed diesel engine range, with power outputs from 1,500 kW to over 4,300 kW in 12V, 16V, and 20V configurations. These engines are found in the world's most demanding applications: fast naval vessels, superyachts, offshore supply vessels, mission-critical data center generators, and heavy-haul locomotives.
 
     Parts for the 4000 series are engineered to extreme tolerances. Cylinder liners, pistons, and bearings are size-graded components where an incorrect grade selection — even by one step — can cause premature failure. Every part number in this catalog is verified against MTU's electronic parts catalog for your specific engine serial number before quotation. We supply both OEM and OEM-alternative options, with remanufactured components available for high-value assemblies like injectors and turbochargers.
@@ -2410,10 +2449,24 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
   // ── Category Hubs ──
   {
     slug: 'mtu-filters',
-    title: 'MTU Filters — Oil, Fuel, Air & Coolant | Parts Catalog',
-    h1Title: 'MTU Filter Elements — Oil, Fuel, Air & Coolant',
+    title: 'MTU Oil, Fuel & Air Filters | Parts Catalog',
+    h1Title: 'MTU Oil, Fuel, Air & Coolant Filters',
     summary: 'MTU filter elements for scheduled maintenance and overhaul — oil filters, fuel filters, air filters, and coolant filters.',
     description: 'Filters are the highest-frequency consumables in any MTU maintenance program. We stock common oil, fuel, air, and coolant filter references for MTU 2000, 4000, 396, and 956 series engines. Bulk quantities available for fleet and service-company programs.',
+    searchTopics: [
+      {
+        title: 'MTU Oil Filters',
+        description: 'Spin-on oil filters and replaceable filter cartridges for routine service and fleet replenishment.',
+      },
+      {
+        title: 'MTU Fuel Filters',
+        description: 'Primary and secondary fuel filters selected by exact part number and engine application.',
+      },
+      {
+        title: 'MTU Air Filters',
+        description: 'Air-filter elements and intake filtration references for marine, generator, and industrial engines.',
+      },
+    ],
     longDescription: `Filters are the single most frequently replaced component on any MTU diesel engine. Whether it is a spin-on oil filter changed every 500 hours, a fuel filter protecting common-rail injectors from contamination, or an air filter keeping dust out of turbocharger compressor wheels — the right filter, available when you need it, is what keeps engines running and maintenance schedules on track.
 
     Our filter catalog covers the four critical filtration points on MTU engines: oil, fuel, air, and coolant. We stock common references for Series 2000, 4000, 396, 956, and 1163 engines. For fleet operators and service companies maintaining multiple engines, we offer bulk quantities with consolidated shipping to reduce per-unit cost. Each filter is verified by part number against your engine model before quotation.
@@ -2426,19 +2479,65 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
   },
   {
     slug: 'mtu-injectors',
-    title: 'MTU Injectors & Fuel System Parts | Parts Catalog',
-    h1Title: 'MTU Injectors & Fuel System Components',
-    summary: 'MTU fuel system parts — injectors, nozzle holders, fuel pumps, pressure valves, and fuel lines.',
-    description: 'Fuel system parts directly affect combustion quality and fuel economy. We supply injectors, high and low-pressure pumps, nozzle holders, relief valves, and fuel lines for MTU 2000, 4000, 396, 595, and 956 series engines. New and remanufactured options available.',
-    longDescription: `MTU common-rail and unit-pump fuel systems operate at extreme pressures — up to 2,200 bar on 4000 series engines. Injector performance directly determines combustion efficiency, exhaust emissions compliance, and fuel consumption. A single underperforming injector can cause cylinder imbalance, increased exhaust temperatures, and accelerated wear on piston rings and liners.
+    title: 'MTU Injectors & Nozzle Parts | Parts Catalog',
+    h1Title: 'MTU Engine Injectors & Nozzle Parts',
+    summary: 'MTU injectors, nozzle holders, nozzle elements, and related injection parts verified by stamped reference and engine serial number.',
+    description: 'Browse MTU injector and nozzle references for 2000, 4000, 396, 595, and 956 series engines. New, OEM-alternative, and remanufactured routes are quoted only after the stamped injector number, complete engine model, and serial number have been checked.',
+    searchTopics: [
+      {
+        title: 'MTU Engine Injectors',
+        description: 'New, OEM-alternative, and reman injector routes verified by stamped reference and engine serial number.',
+      },
+      {
+        title: 'MTU Fuel Pumps',
+        description: 'High-pressure and low-pressure fuel pumps checked against model, rating, and installation position.',
+        href: '/part-products/catalog/mtu-fuel-pumps/',
+      },
+      {
+        title: 'MTU Injector Identification',
+        description: 'Use the complete body marking, connector, nozzle reference, engine model, and serial number to separate nearby injector variants.',
+      },
+    ],
+    longDescription: `MTU common-rail and unit-pump injection systems operate at extreme pressure. Injector performance directly affects combustion balance, exhaust temperature, fuel consumption, and emissions. A single underperforming injector can cause hard starting, rough running, excessive smoke, increased return flow, or a cylinder-temperature deviation.
 
-    Our fuel system parts catalog covers the complete injection chain: injectors and nozzle holders, high-pressure pumps (HPFP), low-pressure feed pumps, pressure relief and limiting valves, fuel lines, and associated sealing elements. We supply new OEM, OEM-alternative, and professionally remanufactured injectors. Reman options follow standardized procedures including ultrasonic cleaning, new nozzle tips, and bench testing to verify spray pattern and opening pressure.
+    This page is limited to injectors, nozzle holders, nozzle elements, and directly related injection components. We supply new OEM, OEM-alternative, and professionally remanufactured routes when available. A remanufactured option should be supported by a traceable test process and clearly identified as remanufactured in the quotation.
 
-    High-demand injectors include EX52407500064 for MTU 4000 series, X53507500012 for MTU 2000 series, and the L'Orange/Bosch variants used across multiple engine families. For injectors, always send the complete part number stamped on the injector body — not just the engine serial number — because multiple injector variants can exist within the same engine series depending on power rating and emissions certification.
+    High-demand references include EX52407500064 for MTU 4000 series and X53507500012 for MTU 2000 series. Always send the complete number stamped on the injector body, a clear photo of the connector and nozzle end, and the full engine serial number. Multiple injector variants can exist within one engine series because of power rating, emissions certification, or production revision.
 
-    Fuel pumps and pressure valves are also listed here. The X53508200001 low-pressure pump and E0060704101 high-pressure pump are common requests for 2000 series marine and generator applications. Pressure relief valves (5501801015, 5361800515) are critical for maintaining correct rail pressure and should always be verified by engine serial number before ordering.`,
+    If the fault relates to supply pressure rather than injection quality, use the dedicated MTU fuel-pump catalog. Pump quotations require the pump label, drive arrangement, installation position, engine model, and serial number.`,
     type: 'category',
-    partFilter: (p) => p.category === 'Fuel system',
+    partFilter: (p) => p.category === 'Fuel system' && /(injector|nozzle)/i.test(p.name),
+  },
+  {
+    slug: 'mtu-fuel-pumps',
+    title: 'MTU Fuel Pumps | High & Low Pressure Parts Catalog',
+    h1Title: 'MTU Fuel Pumps',
+    summary: 'MTU high-pressure fuel pumps, low-pressure feed pumps, hand pumps, and delivery-pump references for marine, generator, rail, and industrial engines.',
+    description: 'Browse MTU fuel pump references and send the pump nameplate, complete engine model, serial number, installation position, and required quantity for compatibility verification before quotation.',
+    searchTopics: [
+      {
+        title: 'MTU High-Pressure Fuel Pumps',
+        description: 'High-pressure pump assemblies checked by pump label, engine rating, emissions configuration, and serial number.',
+      },
+      {
+        title: 'MTU Low-Pressure Fuel Pumps',
+        description: 'Feed and delivery pumps verified by inlet and outlet arrangement, drive type, and engine application.',
+      },
+      {
+        title: 'MTU Injectors and Nozzles',
+        description: 'Injection components have a separate catalog so injector and pump search intent remains clear.',
+        href: '/part-products/catalog/mtu-injectors/',
+      },
+    ],
+    longDescription: `An MTU fuel pump must be matched by more than the engine series. High-pressure pumps, low-pressure feed pumps, hand-priming pumps, and delivery pumps differ by pressure range, drive arrangement, port orientation, engine rating, and production revision. Ordering from a shortened engine description can result in a pump that mounts correctly but does not meet the required pressure or control specification.
+
+    This catalog focuses only on fuel-pump references, including X53508200001 low-pressure fuel pump, E0060704101 high-pressure fuel pump, X52808100014 fuel delivery pump, X53608200005 low-pressure fuel pump, and related delivery-pump assemblies. Availability can include new OEM, OEM-alternative, remanufactured, or replacement routes, with the supply condition stated clearly in the quotation.
+
+    Common pump-related service symptoms include difficult priming, low rail or supply pressure, power loss under load, abnormal pump noise, external leakage, and pressure faults that remain after filters and control valves have been checked. These symptoms do not prove that the pump itself has failed, so a diagnostic code, measured pressure, and existing pump label are useful before ordering.
+
+    For an RFQ, send the complete pump number, engine model and serial number, pump nameplate photo, inlet and outlet orientation, quantity, destination, and required delivery date. For a remanufactured route, also confirm whether a serviceable core is available.`,
+    type: 'category',
+    partFilter: (p) => /fuel/i.test(`${p.name} ${p.category}`) && /pump/i.test(p.name),
   },
   {
     slug: 'mtu-turbocharger-parts',
@@ -2446,6 +2545,16 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     h1Title: 'MTU Turbocharger Components',
     summary: 'MTU turbocharger parts — turbine wheels, bearing housings, heat shields, piston rings, and compressor wheels.',
     description: 'Turbocharger components operate under high thermal and mechanical loads. We verify each part number against your turbocharger serial number. New, OEM-alternative, and remanufactured options quoted per inquiry for MTU 2000, 4000, and 396 series engines.',
+    searchTopics: [
+      {
+        title: 'MTU Turbochargers',
+        description: 'Complete turbocharger and reman routes checked by turbo nameplate, engine application, and power rating.',
+      },
+      {
+        title: 'MTU Turbocharger Parts',
+        description: 'Turbine wheels, compressor wheels, bearing housings, heat shields, piston rings, and sealing components.',
+      },
+    ],
     type: 'category',
     partFilter: (p) => p.category === 'Turbocharging',
     longDescription: `MTU turbochargers are precision-rotating assemblies operating at speeds exceeding 100,000 RPM with exhaust gas inlet temperatures beyond 700 degrees Celsius. The turbine wheel, compressor wheel, bearing housing, and sealing rings form a balanced system where any component wear — even at the micron level — produces vibration, oil leakage, or efficiency loss that cascades into engine performance degradation.
@@ -2467,6 +2576,36 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     Our sensor and electrical parts catalog covers speed sensors (0005358233, 0005357933, 0005357633), pressure sensors (0035352531, 0035352731, 5205304531), temperature sensors (0005356430), level monitors (0005355103), solenoid valves (8495340000, 5840900595), and wiring harnesses (X00012160, X00011800). Each sensor type has specific connector, thread, and signal-range variants that must match the engine ECU configuration — we verify by part number and engine serial number before quotation.
 
     Common replacement triggers include intermittent signal faults during thermal cycling, connector corrosion in marine engine-room environments, and ECU-detected rationality errors during routine diagnostic checks. For fleet operators, we can quote sensor kits covering all critical monitoring points on a specific engine model.`,
+  },
+  {
+    slug: 'mtu-starter-motors-alternators',
+    title: 'MTU Starter Motors & Alternators | Parts Catalog',
+    h1Title: 'MTU Starter Motors & Alternators',
+    summary: 'MTU electric starter motors, alternators, charging generators, and related electrical drive references verified by voltage, mounting, and engine application.',
+    description: 'Browse MTU starter and alternator references for marine, generator, rail, and industrial engines. Confirm voltage, rotation, mounting flange, terminal layout, pulley or drive arrangement, and engine serial number before quotation.',
+    searchTopics: [
+      {
+        title: 'MTU Starter Motors',
+        description: 'Electric starters checked by system voltage, rotation direction, pinion, flange, terminal layout, and engine application.',
+      },
+      {
+        title: 'MTU Alternators',
+        description: 'Charging alternators and generators checked by output rating, pulley or coupling, mounting position, and connector arrangement.',
+      },
+      {
+        title: 'Electrical Identification',
+        description: 'Send the complete unit label and clear photos; voltage alone is not enough to confirm interchangeability.',
+      },
+    ],
+    longDescription: `MTU starter motors and alternators are installation-specific electrical assemblies. Units used on marine propulsion engines, generator sets, locomotives, and industrial power units can differ in system voltage, rotation direction, mounting flange, pinion or pulley arrangement, terminal position, output rating, and environmental protection. A visually similar unit should not be treated as interchangeable without checking these fields.
+
+    This catalog covers electric starter and charging references such as X59417200010 starter electric, X52421300004 alternator, X51621300033 generator, and 0071548102 three-phase generator. The available route may be new OEM, OEM-alternative, professionally remanufactured, or a verified replacement, with condition and warranty information identified before order confirmation.
+
+    Common starter complaints include slow cranking, intermittent engagement, pinion or solenoid faults, overheating, and voltage drop under load. Alternator complaints include low charging voltage, unstable output, bearing noise, belt or pulley wear, and regulator faults. Before replacing an assembly, verify batteries, cables, grounds, belts, and control signals so an installation fault is not mistaken for a failed unit.
+
+    For quotation, send the complete label number, engine model and serial number, system voltage, mounting and terminal photos, quantity, destination, and required delivery date. For alternators, include output rating and pulley details; for starters, include rotation and pinion information when available.`,
+    type: 'category',
+    partFilter: (p) => /(starter|alternator|three phase generator)/i.test(p.name),
   },
   {
     slug: 'mtu-gasket-kits',
@@ -2519,6 +2658,20 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     h1Title: 'MTU Cooling System Components',
     summary: 'MTU cooling system parts — coolant pumps, seawater pumps, impellers, thermostats, flanges, hoses, and heat exchangers.',
     description: 'Cooling system parts vary by engine application — marine (raw-water or keel-cooled), industrial (radiator), or rail. We confirm the correct variant by engine model and serial number for MTU 2000, 4000, 396, 595, and 956 series.',
+    searchTopics: [
+      {
+        title: 'MTU Coolant Pumps',
+        description: 'Engine coolant pumps, shafts, seals, housings, and related replacement components.',
+      },
+      {
+        title: 'MTU Seawater Pumps and Impellers',
+        description: 'Marine raw-water pump parts selected by engine model and cooling-system configuration.',
+      },
+      {
+        title: 'MTU Thermostats',
+        description: 'Thermostats and temperature-control parts for marine, generator, rail, and industrial installations.',
+      },
+    ],
     type: 'category',
     partFilter: (p) => p.category === 'Cooling system',
     longDescription: `MTU engine cooling systems are application-specific — a marine engine running on raw-water cooling through a keel cooler requires different pump and thermostat configurations than an industrial engine on a closed-loop radiator or a rail engine with split-circuit cooling. Ordering the wrong cooling-system variant is one of the most common parts-matching errors because the same engine series can have multiple cooling configurations.

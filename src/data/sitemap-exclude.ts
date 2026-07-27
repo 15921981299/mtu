@@ -17,12 +17,17 @@ function isGeneratedProductNoindex(product: (typeof products)[number]): boolean 
     'deutz-parts',
   ]).has(product.slug);
   const isMtuLongTail = /\bmtu\b|mtu-|2000|4000|1163|8000|396|183|538|595|956/.test(productIdentityText);
+  const isRedirectedLegacyProduct = new Set([
+    'mtu-series-2000-gensets',
+    'mtu-series-4000-engines',
+    'mtu-series-4000-gensets',
+  ]).has(product.slug);
 
-  return isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail;
+  return isRedirectedLegacyProduct || (isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail);
 }
 
 function isImportedPageNoindex(page: (typeof importedEngineFamilyPages)[number]): boolean {
-  return !/^(part\/mtu|marine$|industrial-engines$|power-generation$|stock$|support-services$|genuine-oem-parts$|mtu-filters$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
+  return !/^(part\/mtu-(183-parts|538-parts|1800-parts|specialized-tools)$|stock$|support-services$|genuine-oem-parts$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
 }
 
 const NOINDEX_PRODUCT_PATHS = new Set(

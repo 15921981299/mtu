@@ -17,17 +17,17 @@ const inquiryCta =
 export const applications: ApplicationItem[] = [
   {
     slug: 'marine-propulsion-engines',
-    title: 'Marine Propulsion Engines',
-    seoTitle: 'Marine Propulsion Engine Parts | MTU, Detroit Diesel, Cummins',
-    h1Title: 'Marine Propulsion Engine Parts',
+    title: 'MTU Marine Engine Parts',
+    seoTitle: 'MTU Marine Engine Parts | Yacht & Boat Diesel Parts',
+    h1Title: 'MTU Marine Engine Parts',
     summary:
-      'Verified OEM, OEM-alternative, reman, and replacement routes for marine propulsion engines used by vessels, ferries, yachts, coast guard fleets, and shipyards.',
-    productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts', 'detroit-diesel-parts'],
+      'MTU marine engine parts for yachts, boats, ferries, workboats, naval vessels, and shipyards, with model and serial-number verification before quotation.',
+    productSlugs: ['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts', 'mtu-series-8000-engines', 'detroit-diesel-parts'],
     content: {
       partOne:
-        '<h2>Marine Propulsion Parts Support</h2><p>Marine propulsion downtime is time-sensitive. Diesel Part Source supports MTU, Detroit Diesel, Cummins, and related diesel engine parts inquiries for vessels, ferries, yachts, shipyards, and coastal service teams.</p><h3>Common Requests</h3><ul><li>Fuel pumps, injectors, pressure sensors, and control components</li><li>Filters, gaskets, seals, O-rings, and maintenance kits</li><li>Cooling, turbocharging, lubrication, and exhaust components</li><li>Overhaul parts for planned shipyard maintenance</li></ul>',
+        '<h2>MTU Marine Diesel Engine Parts</h2><p>Marine propulsion downtime is time-sensitive. Diesel Part Source supplies MTU marine engine parts for yacht, boat, ferry, workboat, naval, offshore, and shipyard maintenance. We support current and legacy engine families, including MTU 2000, 4000, 396, 595, 956, 1163, and related marine configurations.</p><h3>Marine Engine Series and Models</h3><ul><li><a href="/products/mtu-2000-series-parts/16v-2000-engine-parts/">MTU 16V 2000 marine engine parts</a></li><li><a href="/products/mtu-2000-series-parts/mtu-m96l-engine-parts/">MTU 16V 2000 M96L yacht engine parts</a></li><li><a href="/products/mtu-4000-series-parts/12v-4000-engine-parts/">MTU 12V 4000 marine engine parts</a></li><li><a href="/products/mtu-4000-series-parts/16v-4000-engine-parts/">MTU 16V 4000 marine engine parts</a></li><li><a href="/part-products/catalog/mtu-396-series/">Legacy MTU 396 marine parts</a></li></ul><h3>Common Yacht and Boat Engine Parts</h3><ul><li>Fuel pumps, injectors, pressure valves, fuel lines, and control components</li><li>Oil filters, fuel filters, air filters, gaskets, seals, and maintenance kits</li><li>Seawater pumps, coolant pumps, impellers, thermostats, and heat-exchange parts</li><li>Turbocharger, lubrication, exhaust, sensor, and electrical components</li><li>Pistons, liners, bearings, valves, and overhaul parts for shipyard maintenance</li></ul><p>Browse the <a href="/part-products/">MTU part-number catalog</a> or send an Excel list for line-by-line checking.</p>',
       partTwo:
-        `<h2>What to Send</h2><p>Include the engine model, serial number, part numbers, quantity, vessel or yard location, and required delivery date. Nameplate photos help confirm the correct configuration.</p>${inquiryCta}`,
+        `<h2>How We Verify Marine Fitment</h2><p>Include the complete engine model, serial number, part numbers, quantity, vessel or shipyard location, and required delivery date. For injectors, turbochargers, pumps, and electrical components, send the component nameplate or stamped reference as well as the engine data.</p><h3>Marine RFQ Information</h3><ul><li>Vessel type and engine application: propulsion, auxiliary, or generator</li><li>Engine model, rating, serial number, and nameplate photo</li><li>Exact part number, old-part photo, quantity, and maintenance deadline</li><li>Destination port or city and preferred courier, air, or sea shipment</li></ul><p>Quotes identify the available OEM, OEM-alternative, reman, or replacement route rather than treating unconfirmed options as interchangeable.</p>${inquiryCta}`,
     },
   },
   {

@@ -23,7 +23,7 @@ const isCategoryPage = slugText.startsWith('categories/');
 const isPartPage = slugText.startsWith('part/');
 const isNewsPage = slugText.startsWith('news/') || slugText.startsWith('news-category/');
 const isStrategicImportedPage =
-  /^(part\/mtu|marine$|industrial-engines$|power-generation$|stock$|support-services$|genuine-oem-parts$|mtu-filters$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
+  /^(part\/mtu-(183-parts|538-parts|1800-parts|specialized-tools)$|stock$|support-services$|genuine-oem-parts$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
 const shouldNoindex = !isStrategicImportedPage;
 
 const pageKind = isPartPage

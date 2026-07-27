@@ -166,6 +166,26 @@ const catalogUseCases = hub.type === 'series'
             </div>
           )}
 
+          {hub.searchTopics && hub.searchTopics.length > 0 && (
+            <section class="catalog-depth-section">
+              <h2>{hub.type === 'series' ? 'Engine Model Coverage' : 'Component Coverage'}</h2>
+              <p>
+                Use these focused topics to narrow the catalog before sending a part-number list. Final fitment is
+                confirmed against the complete engine or component reference.
+              </p>
+              <div class="catalog-info-grid">
+                {hub.searchTopics.map((topic) => (
+                  <article class="catalog-info-card">
+                    <h3>
+                      {topic.href ? <a href={topic.href}>{topic.title}</a> : topic.title}
+                    </h3>
+                    <p>{topic.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
           <!-- ── Scope + coverage ── -->
           <section class="catalog-depth-section">
             <h2>Catalog Scope and Fitment Method</h2>
