@@ -52,7 +52,6 @@ Edit `src/data/site.ts`:
 
 RFQ API is implemented in `cloudflare-worker.js` (deployed as the Worker entry
 by `scripts/create-worker-entry.mjs`) and sends inquiries through Zoho SMTP.
-The legacy `functions/` directory is not used by the production Worker deployment.
 
 Set these secrets/bindings on Cloudflare Pages:
 
