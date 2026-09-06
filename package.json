@@ -9,6 +9,7 @@
     "check": "astro check",
     "check:links": "node scripts/check-internal-links.mjs",
     "audit:encoding": "node scripts/audit-encoding.mjs",
+    "test:rfq": "node --test scripts/test-rfq-download.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

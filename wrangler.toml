@@ -4,15 +4,24 @@ main = "dist/_worker.js/index.js"
 compatibility_date = "2026-07-18"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
+[vars]
+ZOHO_SMTP_USER = "sales@dieselpartsource.com"
+ZOHO_SMTP_HOST = "smtppro.zoho.com"
+ZOHO_SMTP_PORT = "465"
+
 [assets]
 directory = "./dist"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "mtu-rfq-uploads"
 
 # Deployment flow:
 #   1. pnpm build        (astro build && node scripts/create-worker-entry.mjs)
 #   2. wrangler deploy   (uploads dist/_worker.js + changed assets)
 #
 # Notes:
-# - RESEND_API_KEY is a Worker secret, managed via `wrangler secret put`
+# - ZOHO_SMTP_PASS is a Worker secret, managed via `wrangler secret put`
 #   or the Cloudflare dashboard — it is NOT defined here and persists
 #   across deploys.
 # - Do not add observability/log settings here; current production

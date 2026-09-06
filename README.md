@@ -46,13 +46,19 @@ Edit `src/data/site.ts`:
 - Astro 5 (static site generation)
 - TypeScript client scripts
 - `@astrojs/sitemap` for SEO
-- Cloudflare Worker (`cloudflare-worker.js`) for RFQ form submissions via Resend + R2
+- Cloudflare Worker (`cloudflare-worker.js`) for RFQ form submissions via Zoho SMTP + R2
 
 ### Worker secrets
 
-RFQ API is implemented in `functions/api/rfq/index.js` (Cloudflare Pages Function). `cloudflare-worker.js` is a standalone equivalent for separate Worker deploys.
+RFQ API is implemented in `cloudflare-worker.js` (deployed as the Worker entry
+by `scripts/create-worker-entry.mjs`) and sends inquiries through Zoho SMTP.
+The legacy `functions/` directory is not used by the production Worker deployment.
 
 Set these secrets/bindings on Cloudflare Pages:
 
-- `RESEND_API_KEY` — Resend API bearer token
+- `ZOHO_SMTP_PASS` — Zoho app password for `sales@dieselpartsource.com`
 - `R2_BUCKET` — R2 bucket binding for drawing uploads
+- `RFQ_DOWNLOAD_SECRET` — HMAC secret used for private drawing links that expire after 7 days
+
+Email is sent via Zoho SMTP (`smtppro.zoho.com:465`), with the mailbox and host
+declared in `wrangler.toml`.
