@@ -36,7 +36,7 @@ export default {
         drawingInfo = `${drawing.name} (${(drawing.size / 1024).toFixed(0)} KB)`;
       }
 
-      // Log submission (view in Cloudflare dashboard â†?Worker â†?Logs)
+      // Log submission (view in Cloudflare dashboard â†’ Worker â†’ Logs)
       console.log(`
         === New RFQ ===
         Name: ${name}
