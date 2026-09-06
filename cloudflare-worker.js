@@ -162,7 +162,7 @@ export default {
       }
 
       await deliverEmail(env, {
-        to: SALES_EMAIL,
+        to: 'admin@machiningsupplier.com',
         subject: `New RFQ: ${name} - ${material} / ${quantity}`,
         text: emailBody,
         replyTo: email.includes('@') && email !== '(not provided)' ? email : undefined,
