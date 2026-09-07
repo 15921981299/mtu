@@ -6,6 +6,7 @@ import { products } from '../data/products';
 import { productSubpages } from '../data/product-subpages';
 import { industries } from '../data/industries';
 import { applications } from '../data/applications';
+import { mtuCatalogHubs } from '../data/mtu-parts';
 import { isSubpageNoindex } from '../data/subpage-quality';
 import { breadcrumbSchema, site } from '../data/site';
 import '../styles/resource-page.css';
@@ -53,12 +54,17 @@ const productSubLinks = productSubpages
   .map((sp) => ({ href: `/products/${sp.productSlug}/${sp.slug}/`, label: sp.title }));
 const industryLinks = industries.map((i) => ({ href: `/industries/${i.slug}/`, label: i.title }));
 const applicationLinks = applications.map((a) => ({ href: `/applications/${a.slug}/`, label: a.title }));
+const catalogLinks = mtuCatalogHubs.map((hub) => ({
+  href: `/part-products/catalog/${hub.slug}/`,
+  label: hub.h1Title,
+}));
 
 const sections = [
   { title: 'Main Pages', items: corePages },
   { title: 'Service & Support', items: capabilityLinks },
   { title: 'Engine Parts', items: productLinks },
   { title: 'Parts Guides', items: productSubLinks },
+  { title: 'MTU Parts Catalogs', items: catalogLinks },
   { title: 'Industries', items: industryLinks },
   { title: 'Applications', items: applicationLinks },
   { title: 'Resources', items: toolPages },

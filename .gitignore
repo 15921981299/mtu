@@ -21,6 +21,7 @@ docs/*
 .claude/
 .codebuddy/
 .codex/
+.seo-cache/
 .continue/
 .cursor/
 .gemini/

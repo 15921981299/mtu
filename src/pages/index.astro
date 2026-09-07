@@ -6,6 +6,7 @@ import { services } from "../data/services";
 import { industries } from "../data/industries";
 import { itemListSchema, site, videoSchema } from "../data/site";
 import { isRealPartImage, mtuParts } from "../data/mtu-parts";
+import { searchPriorityPartNumbers } from "../data/search-priority";
 
 const homepageVideos = [
   videoSchema({
@@ -212,20 +213,7 @@ const engineBrands = [
   },
 ];
 
-const homepageHotPartNumbers = [
-  '5240113410',
-  'X53507500012',
-  'EX52407500064',
-  '5410160920',
-  '5240161580',
-  '5110804420',
-  '5240530301',
-  '0005358233',
-  '0031845201',
-  'X57508300091',
-  '5502003201',
-  '5240380471',
-];
+const homepageHotPartNumbers = searchPriorityPartNumbers.slice(0, 12);
 
 const homepageHotParts = homepageHotPartNumbers
   .map((partNumber) => mtuParts.find((part) => part.partNumber.toUpperCase() === partNumber.toUpperCase()))
