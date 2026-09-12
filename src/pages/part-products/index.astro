@@ -2,8 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { isRealPartImage, mtuPartCategories, mtuParts, mtuPartSeries, mtuCatalogHubs } from '../../data/mtu-parts';
-import { searchPriorityPartRank } from '../../data/search-priority';
+import {
+  isRealPartImage,
+  mtuPartCategories,
+  mtuParts,
+  mtuPartSeries,
+  mtuCatalogHubs,
+  searchPriorityPartRank,
+} from '../../data/mtu-parts';
 
 const seriesHubs = mtuCatalogHubs.filter((h) => h.type === 'series');
 const categoryHubs = mtuCatalogHubs.filter((h) => h.type === 'category');
