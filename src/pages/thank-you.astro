@@ -54,12 +54,10 @@ import '../styles/utility-page.css';
 
   const params = new URLSearchParams(window.location.search);
   const source = params.get('source') ?? 'contact';
-  const dedupeKey = `lead_tracked:${source}`;
   const attribution = getAttributionSnapshot();
 
-  if (typeof window.gtag === 'function' && !sessionStorage.getItem(dedupeKey)) {
-    sessionStorage.setItem(dedupeKey, '1');
-    window.gtag('event', 'generate_lead', {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'rfq_thank_you_view', {
       event_category: 'RFQ',
       event_label: source,
       ...(attribution

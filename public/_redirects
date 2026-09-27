@@ -1,3 +1,18 @@
+# Hand-written redirect rules.
+#
+# This file is the human-edited half of the site's redirects. At build time
+# scripts/create-worker-entry.mjs merges it with the part-page dedup map and
+# writes the combined list to dist/_redirects, which is the single file
+# Cloudflare actually reads.
+#
+# Syntax:   <from>  <to>  <status>       (one rule per line, whitespace-separated)
+#   - paths only: `_redirects` cannot match scheme or hostname, so http:// and
+#     www. collapsing is configured in the Cloudflare dashboard instead.
+#   - rules are evaluated top-down and the FIRST match wins; a duplicate source
+#     path would silently shadow every rule below it.
+#   - `#` starts a comment; blank lines are ignored.
+#
+# Old marketing URLs -> their current home
 /products/mtu-2000-series/ /products/mtu-2000-series-parts/ 301
 /marine/ /applications/marine-propulsion-engines/ 301
 /industrial-engines/ /industries/industrial-engines/ 301

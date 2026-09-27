@@ -60,6 +60,22 @@ async function downloadDrawing(request, env, now = Date.now()) {
   });
 }
 
+/**
+ * Serve the static build, falling back to the custom 404 page.
+ * `not_found_handling = "404-page"` already covers the plain miss; the explicit
+ * retry keeps the branded page in place if that asset setting is ever dropped.
+ */
+async function serveAssets(request, env) {
+  const response = await env.ASSETS.fetch(request);
+  if (response.status !== 404) return response;
+  if ((response.headers.get('content-type') || '').includes('text/html')) return response;
+
+  const fallback = await env.ASSETS.fetch(new Request(new URL('/404.html', request.url), { method: 'GET' }));
+  if (!fallback.ok) return response;
+
+  return new Response(fallback.body, { status: 404, headers: fallback.headers });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -68,9 +84,13 @@ export default {
 
     if (isDownloadRoute) return downloadDrawing(request, env);
 
+    // Everything that is not the RFQ endpoint is a static asset, and this
+    // branch only runs when no stored asset matched the path (assets are
+    // served directly otherwise). Redirects are therefore owned entirely by
+    // dist/_redirects — see scripts/create-worker-entry.mjs.
     if (!isRfqRoute) {
       if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
-        return env.ASSETS.fetch(request);
+        return serveAssets(request, env);
       }
 
       return new Response('Not found', { status: 404 });
@@ -106,6 +126,8 @@ export default {
       const source = fd.get('source')?.toString() || '-';
       const role = fd.get('role')?.toString() || '-';
       const nda = fd.get('nda') ? 'Yes' : 'No';
+      const attributionField = (key, limit = 500) => String(fd.get(key) || '').replace(/[\r\n\u0000-\u001f]/g, ' ').slice(0, limit) || '-';
+      const inquiryId = crypto.randomUUID();
 
       // Store file to R2
       let drawingInfo = 'No file';
@@ -134,6 +156,7 @@ export default {
       }
 
       const emailBody = [
+        `Inquiry ID: ${inquiryId}`,
         `Name:     ${name}`,
         `Email:    ${email}`,
         `Company:  ${company}`,
@@ -144,6 +167,13 @@ export default {
         `Drawing:  ${drawingInfo}`,
         `NDA:      ${nda}`,
         `Source:   ${source}`,
+        `Inquiry page: ${attributionField('page_url')}`,
+        `First landing page: ${attributionField('first_touch_page')}`,
+        `Entry source (browser-reported): ${attributionField('entry_source', 100)}`,
+        `Entry medium: ${attributionField('entry_medium', 100)}`,
+        `Referrer host: ${attributionField('referrer_host', 200)}`,
+        `Campaign: ${attributionField('entry_campaign', 100)}`,
+        `Page path: ${attributionField('touch_path', 1500)}`,
         '',
         `Message:`,
         message,
@@ -205,7 +235,7 @@ export default {
         }
       }
 
-      return new Response(JSON.stringify({ ok: true, message: `Thanks ${name}! We'll respond to ${email} within 24 hours.` }), {
+      return new Response(JSON.stringify({ ok: true, inquiryId, message: `Thanks ${name}! We'll respond to ${email} within 24 hours.` }), {
         status: 200,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

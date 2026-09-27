@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
 import FunnelPageView from '../../../components/FunnelPageView.astro';
-import { isRealPartImage, mtuCatalogHubs, mtuParts, type MtuCatalogHub } from '../../../data/mtu-parts';
+import { isRealPartImage, mtuCatalogHubs, mtuParts, searchPriorityPartRank, type MtuCatalogHub } from '../../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
 import '../../../styles/resource-page.css';
 
@@ -34,6 +34,9 @@ for (const part of parts) {
 const groupLabel = hub.type === 'series' ? 'category' : 'series';
 const featuredParts = [...parts]
   .sort((a, b) => {
+    const rankDifference = (searchPriorityPartRank.get(a.partNumber.toUpperCase()) ?? Infinity) -
+      (searchPriorityPartRank.get(b.partNumber.toUpperCase()) ?? Infinity);
+    if (rankDifference && !Number.isNaN(rankDifference)) return rankDifference;
     const bScore =
       Number(isRealPartImage(b.image)) * 4 +
       Number(Boolean(b.engineType && b.dimensions && b.weightKg && b.hsCode)) * 3 +

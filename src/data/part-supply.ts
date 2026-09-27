@@ -22,7 +22,7 @@ export type PartSupplyInfo = {
   stockStatus: 'in-stock' | 'fast-order' | 'check';
   stockNote: string;
   leadTime: string;
-  lastReviewed: string;
+  lastReviewed?: string;
   realPhotos?: readonly string[];
 };
 
@@ -30,7 +30,6 @@ const placeholder = (_partNumber: string): PartSupplyInfo => ({
   stockStatus: 'check',
   stockNote: 'Availability confirmed within 24 hours',
   leadTime: 'Stock or sourcing route confirmed after inquiry',
-  lastReviewed: '2026-07-21',
   realPhotos: [],
 });
 
@@ -57,8 +56,8 @@ export const partSupply: Record<string, PartSupplyInfo> = {
 };
 
 /** Maps internal stock status to schema.org Offer availability values. */
-export const supplyAvailabilitySchema: Record<PartSupplyInfo['stockStatus'], string> = {
+export const supplyAvailabilitySchema: Record<PartSupplyInfo['stockStatus'], string | undefined> = {
   'in-stock': 'https://schema.org/InStock',
   'fast-order': 'https://schema.org/LimitedAvailability',
-  check: 'https://schema.org/LimitedAvailability',
+  check: undefined,
 };

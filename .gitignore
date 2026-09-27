@@ -16,6 +16,11 @@ videocourse/
 docs/*
 !docs/**/*.md
 
+# SEO / build scratch (scripts, raw scan output, temp build copies)
+tmp/
+dist.prev/
+outputs/
+
 # AI / IDE tools
 .agent/
 .claude/
@@ -31,4 +36,7 @@ docs/*
 .roo/
 .trae/
 .windsurf/
+.workbuddy/
+.agents/
+.wrangler/
 exports/

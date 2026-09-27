@@ -1,5 +1,6 @@
 ---
 import { site } from '../data/site';
+import PartSearch from './PartSearch.astro';
 
 interface Props {
   currentPath?: string;
@@ -129,6 +130,8 @@ const resourcesActive = isActive('/resources') || isActive('/part-products/catal
             </li>
           </ul>
         </div>
+
+        <PartSearch />
 
         <a href="/contact/" class="contact-number-block contact-number-block--compact" aria-label="Contact us">
           <div class="contact-icon-block">

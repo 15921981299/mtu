@@ -66,7 +66,7 @@ import { site } from '../data/site';
 </div>
 
 <script>
-  import { fireAttributionLeadEvent, populateRfqAttributionFields } from '../scripts/attribution';
+  import { fireAttributionLeadEvent, getLeadAttributionParams, populateRfqAttributionFields } from '../scripts/attribution';
 
   const modal = document.getElementById('rfq-modal');
   const panel = modal?.querySelector<HTMLElement>('.rfq-modal__panel');
@@ -213,6 +213,8 @@ import { site } from '../data/site';
       });
 
       if (!response.ok) throw new Error('Server error');
+      const payload = await response.json();
+      if (payload.ok !== true) throw new Error('Inquiry not accepted');
 
       const source = formData.get('source')?.toString() || 'rfq_modal';
       if (typeof window.gtag === 'function') {
@@ -223,6 +225,8 @@ import { site } from '../data/site';
           has_attachment: attachment instanceof File && attachment.size > 0 ? 'yes' : 'no',
         });
         window.gtag('event', 'generate_lead', {
+          ...getLeadAttributionParams(),
+          inquiry_id: payload.inquiryId,
           event_category: 'RFQ',
           event_label: source,
         });

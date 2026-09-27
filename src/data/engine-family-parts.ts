@@ -9819,7 +9819,7 @@ export const engineFamilyParts = [
     sourceUrl: "https://engine-family.com/part-product/0005356430-temperature-sensor",
     image: "/images/engine-family-parts/0005356430-temperature-sensor.jpg",
     imageAlt: "MTU 2000 Parts | 0005356430 | TEMPERATURE SENSOR",
-    sourceDescription: "MTU 2000 engine original parts WIRING HARNESS, P/N: 0005356430.",
+    sourceDescription: "MTU temperature sensor, P/N: 0005356430. Catalog specification: M14X1,5, L=29, STECKER DIN72585.",
     engineType: "MTU ENGINES",
     dimensions: "M14X1,5, L=29, STECKER DIN72585",
     weightKg: "0.050 KG",

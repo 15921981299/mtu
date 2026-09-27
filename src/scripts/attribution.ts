@@ -11,7 +11,31 @@ export type AttributionData = {
   firstTouchStage: string;
   firstTouchTime: string;
   touches: AttributionTouch[];
+  entrySource?: string;
+  entryMedium?: string;
+  referrerHost?: string;
+  campaign?: string;
 };
+
+export function classifyEntry(pageUrl: string, referrer: string) {
+  const url = new URL(pageUrl);
+  let referrerHost = '';
+  try { referrerHost = new URL(referrer).hostname.toLowerCase(); } catch { /* direct or unavailable */ }
+  const campaignSource = url.searchParams.get('utm_source')?.trim().slice(0, 100);
+  if (campaignSource) {
+    return { entrySource: campaignSource, entryMedium: url.searchParams.get('utm_medium')?.slice(0, 100) || 'campaign', referrerHost, campaign: url.searchParams.get('utm_campaign')?.slice(0, 100) || '' };
+  }
+  if (url.searchParams.has('gclid') || url.searchParams.has('msclkid')) {
+    return { entrySource: url.searchParams.has('gclid') ? 'google' : 'bing', entryMedium: 'paid', referrerHost };
+  }
+  const google = /(^|\.)google\.(com|[a-z]{2,3}|co\.[a-z]{2}|com\.[a-z]{2})$/i.test(referrerHost);
+  const bing = /(^|\.)bing\.com$/i.test(referrerHost);
+  if (google || bing) return { entrySource: google ? 'google' : 'bing', entryMedium: 'organic', referrerHost };
+  if (referrerHost && referrerHost !== url.hostname.toLowerCase()) {
+    return { entrySource: referrerHost, entryMedium: 'referral', referrerHost };
+  }
+  return { entrySource: 'direct-or-unknown', entryMedium: 'none', referrerHost };
+}
 
 function inferFunnelStage(path: string): string {
   if (path.startsWith('/contact')) return 'quote';
@@ -58,6 +82,7 @@ export function trackPageAttribution(): AttributionData {
       firstTouchStage: stage,
       firstTouchTime: now,
       touches: [{ page: path, stage, time: now }],
+      ...classifyEntry(window.location.href, document.referrer),
     };
     writeAttribution(data);
     return data;
@@ -84,7 +109,7 @@ export function getTouchSummary(data: AttributionData): string {
 }
 
 export function populateRfqAttributionFields(form: HTMLFormElement): void {
-  const data = getAttributionSnapshot() ?? trackPageAttribution();
+  const data = trackPageAttribution();
   const setHidden = (name: string, value: string) => {
     let input = form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
     if (!input) {
@@ -100,6 +125,11 @@ export function populateRfqAttributionFields(form: HTMLFormElement): void {
   setHidden('first_touch_stage', data.firstTouchStage);
   setHidden('touch_count', String(data.touches.length));
   setHidden('touch_path', getTouchSummary(data));
+  setHidden('entry_source', data.entrySource ?? 'unknown');
+  setHidden('entry_medium', data.entryMedium ?? 'unknown');
+  setHidden('referrer_host', data.referrerHost ?? '');
+  setHidden('entry_campaign', data.campaign ?? '');
+  setHidden('page_url', `${window.location.origin}${window.location.pathname}`);
 
   const params = new URLSearchParams(window.location.search);
   const urlSource = params.get('source');
@@ -115,12 +145,22 @@ export function populateRfqAttributionFields(form: HTMLFormElement): void {
   }
 }
 
+export function getLeadAttributionParams(): Record<string, string> {
+  const data = getAttributionSnapshot();
+  return {
+    first_touch_page: data?.firstTouchPage ?? window.location.pathname,
+    entry_source: data?.entrySource ?? 'unknown',
+    entry_medium: data?.entryMedium ?? 'unknown',
+  };
+}
+
 export function fireAttributionLeadEvent(extra: Record<string, string | number> = {}): void {
   const data = getAttributionSnapshot();
   if (!data || typeof window.gtag !== 'function') return;
 
   window.gtag('event', 'rfq_attribution', {
     event_category: 'Attribution',
+    ...getLeadAttributionParams(),
     first_touch_page: data.firstTouchPage,
     first_touch_stage: data.firstTouchStage,
     touch_count: data.touches.length,

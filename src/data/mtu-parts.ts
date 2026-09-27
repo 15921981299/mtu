@@ -1,5 +1,7 @@
 ﻿import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
 
+import { applySearchPartContent } from './part-search-content';
+
 export type MtuPart = {
   slug: string;
   partNumber: string;
@@ -15,6 +17,8 @@ export type MtuPart = {
   notes: string[];
   /** Cross-reference / alternative OEM numbers */
   replacementFor?: string[];
+  crossReferences?: { partNumber: string; relationship: 'replaces' | 'replaced-by' | 'reference' }[];
+  specificationChecks?: string[];
   /** Typical shipping weight per unit (kg) */
   weightKg?: string;
   /** HS code for customs */
@@ -2203,7 +2207,133 @@ for (const part of mtuPartsRaw) {
   dedupedParts.set(key, applyEngineFamilyDetails(enrichHighValuePart(part))); // last write wins, then imported details refine specs/images
 }
 
-export const mtuPartsDeduped: MtuPart[] = Array.from(dedupedParts.values());
+// ── Collapse naming variants of the same part number ─────────────────────────
+// The catalogue is assembled from several imports, so one real part can arrive
+// more than once under different transcription conventions ("Nozzle Holder
+// W/Nozzle" vs "Nozzle Holder with Nozzle", "Sleeve WEAR Front CR SHF" vs
+// "Sleeve Wear Front Crankshaft"). A part number identifies exactly one
+// product, so every record sharing a part number is merged into a single
+// canonical page and the remaining URLs are 301-redirected onto it through
+// `mtuPartSlugRedirects`.
+//
+// The ranker below never rewrites a name into a different word — it only
+// prefers a fully expanded spelling over the abbreviated transcription of the
+// same words. Sibling variants that differ by a real descriptor (for example
+// "Crankshaft Bearing Aux PTO End" vs "... Free End") are still merged, because
+// one number is one product, but every discarded label is preserved in the
+// page notes so the merge stays auditable by hand.
+const ABBREVIATED_NAME_PATTERN =
+  /(\bw\/|\bf\/|\bshft\b|\bsprng\b|\brectanglr\b|\bcomp\b|\basm\b|\bsect\b|\bsenso\b|\bwat\b|\bpress\b|\bcr shf\b)/;
+
+const partNameRank = (name: string): number => {
+  const lower = name.toLowerCase();
+  const wordCount = lower.split(/[^a-z0-9]+/).filter(Boolean).length;
+  return (ABBREVIATED_NAME_PATTERN.test(lower) ? 0 : 100) + wordCount * 10 + name.length;
+};
+
+const partNumberKey = (value: string) => value.trim().toUpperCase();
+
+const isFilled = (value: unknown): boolean => {
+  if (value === undefined || value === null) return false;
+  if (typeof value === 'string') return value.trim().length > 0;
+  if (Array.isArray(value)) return value.length > 0;
+  return true;
+};
+
+const firstFilled = <T>(values: Array<T | undefined>): T | undefined => values.find(isFilled);
+
+const mergePartVariants = (variants: MtuPart[]): MtuPart => {
+  const [primary, ...rest] = variants;
+  const all = [primary, ...rest];
+  const merged: MtuPart = { ...primary };
+
+  merged.series = Array.from(new Set(all.flatMap((part) => part.series)));
+  merged.applications = Array.from(new Set(all.flatMap((part) => part.applications)));
+  merged.notes = Array.from(new Set([
+    ...all.flatMap((part) => part.notes),
+    ...(rest.length > 0 ? [`Also catalogued as: ${rest.map((part) => part.name).join('; ')}.`] : []),
+  ]));
+
+  const replacementFor = Array.from(new Set(all.flatMap((part) => part.replacementFor ?? [])));
+  if (replacementFor.length > 0) merged.replacementFor = replacementFor;
+
+  const bestImage = all.find((part) => isRealPartImage(part.image));
+  if (bestImage) merged.image = bestImage.image;
+
+  // Variants are ranked best-first, so the first filled value is the richest one.
+  const description = all
+    .map((part) => part.description?.trim())
+    .filter((value): value is string => Boolean(value))
+    .filter((value, index, list) => list.indexOf(value) === index)
+    .join(' ')
+    .trim();
+
+  const scalarFields: Array<[keyof MtuPart, unknown]> = [
+    ['imageAlt', firstFilled(all.map((part) => part.imageAlt))],
+    ['summary', firstFilled(all.map((part) => part.summary))],
+    ['stockStatus', firstFilled(all.map((part) => part.stockStatus))],
+    ['engineType', firstFilled(all.map((part) => part.engineType))],
+    ['applicableEngines', firstFilled(all.map((part) => part.applicableEngines))],
+    ['dimensions', firstFilled(all.map((part) => part.dimensions))],
+    ['weightKg', firstFilled(all.map((part) => part.weightKg))],
+    ['hsCode', firstFilled(all.map((part) => part.hsCode))],
+    ['natoNumber', firstFilled(all.map((part) => part.natoNumber))],
+    ['leadTime', firstFilled(all.map((part) => part.leadTime))],
+    ['orderingNotes', firstFilled(all.map((part) => part.orderingNotes))],
+    ['commonFailureScenarios', firstFilled(all.map((part) => part.commonFailureScenarios))],
+    ['quoteChecklist', firstFilled(all.map((part) => part.quoteChecklist))],
+    ['faqs', firstFilled(all.map((part) => part.faqs))],
+  ];
+
+  if (description) merged.description = description;
+  for (const [field, value] of scalarFields) {
+    if (value === undefined) continue;
+    // Field names are fixed above, so this assignment is type-safe in practice.
+    (merged as Record<string, unknown>)[field as string] = value;
+  }
+
+  return merged;
+};
+
+const variantGroups = new Map<string, MtuPart[]>();
+for (const part of dedupedParts.values()) {
+  const key = partNumberKey(part.partNumber);
+  const group = variantGroups.get(key);
+  if (group) group.push(part);
+  else variantGroups.set(key, [part]);
+}
+
+const variantSlugRedirects: Record<string, string> = {};
+const winnerByPartNumber = new Map<string, MtuPart>();
+
+for (const [key, group] of variantGroups) {
+  const ranked = [...group].sort(
+    (a, b) =>
+      partNameRank(b.name) - partNameRank(a.name) ||
+      a.name.localeCompare(b.name) ||
+      a.slug.localeCompare(b.slug),
+  );
+  const winner = mergePartVariants(ranked);
+  winnerByPartNumber.set(key, winner);
+
+  for (const variant of ranked) {
+    if (variant.slug !== winner.slug) variantSlugRedirects[variant.slug] = winner.slug;
+  }
+}
+
+/** Superseded part-page slugs → the canonical slug they must redirect to. */
+export const mtuPartSlugRedirects: Record<string, string> = variantSlugRedirects;
+
+const canonicalParts: MtuPart[] = [];
+const emittedSlugs = new Set<string>();
+for (const part of dedupedParts.values()) {
+  const winner = winnerByPartNumber.get(partNumberKey(part.partNumber));
+  if (!winner || emittedSlugs.has(winner.slug)) continue;
+  emittedSlugs.add(winner.slug);
+  canonicalParts.push(winner);
+}
+
+export const mtuPartsDeduped: MtuPart[] = canonicalParts.map(applySearchPartContent);
 export const mtuParts: MtuPart[] = mtuPartsDeduped;
 export const mtuPartCategories = Array.from(new Set(mtuPartsDeduped.map((part) => part.category))).sort();
 export const mtuPartSeries = Array.from(new Set(mtuPartsDeduped.flatMap((part) => part.series))).sort();
@@ -2269,8 +2399,9 @@ export function getSameCategoryParts(part: MtuPart, limit = 6) {
     .slice(0, limit);
 }
 
-/** Frequently purchased together — parts commonly ordered alongside this one. */
-export function getFrequentlyPairedParts(part: MtuPart, limit = 4): MtuPart[] {
+/** Other service categories in the same engine family; not order-history data. */
+export function getSameSeriesServiceParts(part: MtuPart, limit = 4): MtuPart[] {
+  if (part.series.length === 0) return [];
   const pairs: Record<string, string[]> = {
     'Pistons and liners': ['Gaskets and seals', 'Bearings', 'Lubrication'],
     'Valve train': ['Gaskets and seals', 'Pistons and liners', 'Turbocharging'],
@@ -2285,7 +2416,7 @@ export function getFrequentlyPairedParts(part: MtuPart, limit = 4): MtuPart[] {
   };
   const pairedCategories = pairs[part.category] ?? ['Gaskets and seals', 'Filters'];
   return mtuPartsDeduped
-    .filter((c) => c.slug !== part.slug && pairedCategories.includes(c.category))
+    .filter((c) => c.slug !== part.slug && pairedCategories.includes(c.category) && c.series.some((series) => part.series.includes(series)))
     .sort((a, b) => a.partNumber.localeCompare(b.partNumber))
     .slice(0, limit);
 }
@@ -2452,7 +2583,7 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     title: 'MTU Oil, Fuel & Air Filters | Parts Catalog',
     h1Title: 'MTU Oil, Fuel, Air & Coolant Filters',
     summary: 'MTU filter elements for scheduled maintenance and overhaul — oil filters, fuel filters, air filters, and coolant filters.',
-    description: 'Filters are the highest-frequency consumables in any MTU maintenance program. We stock common oil, fuel, air, and coolant filter references for MTU 2000, 4000, 396, and 956 series engines. Bulk quantities available for fleet and service-company programs.',
+    description: 'Compare MTU oil, fuel, air, and coolant filter references by installed number and engine application. Send a single filter number or a mixed service list for availability and shipping checks.',
     searchTopics: [
       {
         title: 'MTU Oil Filters',
@@ -2467,13 +2598,13 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
         description: 'Air-filter elements and intake filtration references for marine, generator, and industrial engines.',
       },
     ],
-    longDescription: `Filters are the single most frequently replaced component on any MTU diesel engine. Whether it is a spin-on oil filter changed every 500 hours, a fuel filter protecting common-rail injectors from contamination, or an air filter keeping dust out of turbocharger compressor wheels — the right filter, available when you need it, is what keeps engines running and maintenance schedules on track.
+    longDescription: `Oil-filter references include 0031845201 and 0031845301; fuel-filter references include X57508300091 and 0020922801. Air filters such as 0030944304 and replaceable elements such as 0000925105 require different mounting and sealing checks.
 
-    Our filter catalog covers the four critical filtration points on MTU engines: oil, fuel, air, and coolant. We stock common references for Series 2000, 4000, 396, 956, and 1163 engines. For fleet operators and service companies maintaining multiple engines, we offer bulk quantities with consolidated shipping to reduce per-unit cost. Each filter is verified by part number against your engine model before quotation.
+    For spin-on filters, confirm the mounting thread, sealing-ring dimensions, canister diameter, and height. For cartridge elements, include the housing number, end-cap arrangement, and filtration rating. A matching outer diameter or engine series alone does not establish interchangeability.
 
-    Common requests include oil filter spin-on elements (0031845201, 0031845301), fuel filter spin-on cartridges (0020922801, X57508300091), air filter elements (0030944304, 0170942502), and filter cartridges for legacy engines (0020940204). Many of these cross-reference across multiple MTU series, but we always verify fitment by engine serial number before shipment.
+    Keep the installed number in your inquiry even when a newer reference is listed. X57508300091 has X59408300151 listed as a later catalog number, while 0020922801 has X00012879. Each replacement needs an application check.
 
-    If you are setting up a preventive maintenance program or need regular filter replenishment for a fleet, send us your filter part numbers and annual consumption estimates. We can quote scheduled deliveries that align with your maintenance intervals.`,
+    Send part numbers, quantities, and destination to start an inquiry. Add label photos or a datasheet request when dimensions are unclear. Service intervals follow the engine's maintenance documentation and operating conditions.`,
     type: 'category',
     partFilter: (p) => p.category === 'Filters',
   },
@@ -2502,7 +2633,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
 
     This page is limited to injectors, nozzle holders, nozzle elements, and directly related injection components. We supply new OEM, OEM-alternative, and professionally remanufactured routes when available. A remanufactured option should be supported by a traceable test process and clearly identified as remanufactured in the quotation.
 
-    High-demand references include EX52407500064 for MTU 4000 series and X53507500012 for MTU 2000 series. Always send the complete number stamped on the injector body, a clear photo of the connector and nozzle end, and the full engine serial number. Multiple injector variants can exist within one engine series because of power rating, emissions certification, or production revision.
+    References include EX52407500064 for MTU 4000 catalog applications and X53507500012 for MTU 2000 catalog applications. Send the complete number stamped on the injector body, including prefixes, plus connector and nozzle-end photos. Multiple variants can exist within one engine series because of power rating, emissions configuration, or production revision.
+
+    For injector dimensions in millimeters or inches, request the offered unit's drawing or measurements with clearly identified endpoints. The EX52407500064 page does not yet publish verified dimensions. For a remanufactured option, ask what test documentation and core-return conditions apply.
 
     If the fault relates to supply pressure rather than injection quality, use the dedicated MTU fuel-pump catalog. Pump quotations require the pump label, drive arrangement, installation position, engine model, and serial number.`,
     type: 'category',
@@ -2571,11 +2704,13 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Electrical and sensor parts require precise matching — connector type, thread size, and signal range vary by engine installation. We cross-check part numbers against engine serial numbers for MTU 2000, 4000, 396, and 595 series.',
     type: 'category',
     partFilter: (p) => p.category === 'Sensors and electrical',
-    longDescription: `MTU engine sensors and electrical components form the nervous system of every engine installation — from crankcase speed pickups and rail pressure transducers to coolant temperature thermocouples and ECU memory modules. A failed sensor does not just produce a warning light; it can trigger a derate, an automatic shutdown, or in the worst case, allow a damaging condition to go undetected until catastrophic failure occurs.
+    longDescription: `This catalog includes speed sensors such as 0005357633, pressure sensors such as 0035352231 and X00E50214075, temperature sensor 0005356430, and level monitor X00E50203659. Choose by the complete component marking and measuring position, not by connector appearance alone.
 
-    Our sensor and electrical parts catalog covers speed sensors (0005358233, 0005357933, 0005357633), pressure sensors (0035352531, 0035352731, 5205304531), temperature sensors (0005356430), level monitors (0005355103), solenoid valves (8495340000, 5840900595), and wiring harnesses (X00012160, X00011800). Each sensor type has specific connector, thread, and signal-range variants that must match the engine ECU configuration — we verify by part number and engine serial number before quotation.
+    Catalog history lists X00E50214075 as a later number for 0035352231 and X00E50203659 as a later number for 0005355103. These records need an engine-specific check. Similar numbers, including 0005356633 and 0005357633, must not be assumed interchangeable.
 
-    Common replacement triggers include intermittent signal faults during thermal cycling, connector corrosion in marine engine-room environments, and ECU-detected rationality errors during routine diagnostic checks. For fleet operators, we can quote sensor kits covering all critical monitoring points on a specific engine model.`,
+    Include the pressure range or temperature characteristic where marked, connector pin arrangement, mounting thread, and cable or probe length. An alarm alone does not identify a failed sensor; wiring and system diagnosis should accompany the parts request when available.
+
+    Send a number and quantity to start. Photos, engine serial number, and any required drawing help resolve missing specifications before a replacement is quoted.`,
   },
   {
     slug: 'mtu-starter-motors-alternators',
@@ -2737,19 +2872,30 @@ export const mtuCatalogHubs: MtuCatalogHub[] = [
 ];
 
 /**
- * Part numbers prioritized from the 2026-09-07 Google Search Console export.
- * Order balances clicks, impressions, and proximity to the first results page.
+ * Priorities reviewed against Bing 2026-09-27 and the current GSC exports.
+ * Editorial order, not traffic totals across unlike date ranges.
  */
 export const searchPriorityPartNumbers = [
-  'X57508300091',
   '0031845201',
+  'X57508300091',
+  'EX52407500064',
+  'X00E50203659',
+  '5244920181',
+  '0020922801',
+  '0035352231',
+  '0000925105',
   '0005356430',
+  '0005357633',
+  'X00E50214075',
+  'X52421300004',
+  '0002000001',
+  '5410180233',
+  '0030944304',
+  '0049976736',
   'XP52618300032',
   '0180945802',
   'XP52718300060',
-  '0000925105',
   '5240530122',
-  '0020922801',
   'XP59501800123',
   'XP00A36400005',
   '700429050003',
@@ -2759,7 +2905,6 @@ export const searchPriorityPartNumbers = [
   'F6794703',
   '5360702032',
   '5840780024',
-  '0035352231',
   '0000982780',
   '5849900851',
   '5240332730',

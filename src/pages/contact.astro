@@ -888,7 +888,7 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
 
 
 <script>
-  import { fireAttributionLeadEvent, populateRfqAttributionFields } from '../scripts/attribution';
+  import { fireAttributionLeadEvent, getLeadAttributionParams, populateRfqAttributionFields } from '../scripts/attribution';
 
   // ── 文件上传 UI ──
   const fileLabel = document.querySelector<HTMLLabelElement>('.file-upload-label');
@@ -1040,7 +1040,8 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
         headers: { 'Accept': 'application/json' },
       });
 
-      if (res.ok) {
+      const payload = res.ok ? await res.json() : null;
+      if (res.ok && payload?.ok === true) {
         const source = formData.get('source')?.toString() ?? '';
         const country = formData.get('country')?.toString() ?? '';
         const message = formData.get('message')?.toString() ?? '';
@@ -1059,6 +1060,8 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
             inquiry_length: message.length,
           });
           window.gtag('event', 'generate_lead', {
+            ...getLeadAttributionParams(),
+            inquiry_id: payload.inquiryId,
             event_category: 'RFQ',
             event_label: source || 'contact_form',
             url_source: urlSource || 'unspecified',

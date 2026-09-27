@@ -10,6 +10,8 @@
     "check:links": "node scripts/check-internal-links.mjs",
     "audit:encoding": "node scripts/audit-encoding.mjs",
     "test:rfq": "node --test scripts/test-rfq-download.mjs",
+    "test:attribution": "node --experimental-strip-types --test scripts/test-attribution.mjs",
+    "test:seo": "node --test scripts/test-search-pages.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

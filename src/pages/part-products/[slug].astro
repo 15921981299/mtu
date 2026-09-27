@@ -4,7 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
-import { getFrequentlyPairedParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
+import { getSameSeriesServiceParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
@@ -29,7 +29,7 @@ const supplyBadgeLabel =
 const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
-const pairedParts = getFrequentlyPairedParts(part, 4);
+const pairedParts = getSameSeriesServiceParts(part, 4);
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
 const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 const shortApplicableEngines = hasSpecificApplicableEngines
@@ -42,15 +42,59 @@ const seriesText = part.series.length > 0
     : hasSpecificApplicableEngines
       ? shortApplicableEngines!
       : 'MTU engine serial-number verified applications';
-const title = `${part.partNumber} ${part.name} - ${seriesText} Part`;
-const metaStock = part.stockStatus ?? 'Availability checked after inquiry';
-const metaRaw = `${metaStock}. ${part.partNumber} ${part.name} for ${seriesText}. Engine type, dimensions, weight, HS code, and fitment checked before quote.`;
-const metaDesc = metaRaw.length <= 160 ? metaRaw : metaRaw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+// Title 专用短系列名：去掉冗余的 ENGINE(S) 后缀，无系列时回退为 "MTU"，避免 99 字符超长标题
+const isVagueSeriesText = (v?: string) =>
+  !v || /^Verify by engine serial number$/i.test(v) || /^MTU engine serial-number verified applications$/i.test(v);
+const seriesShort = part.series.length > 0
+  ? part.series.join(', ')
+  : hasSpecificEngineType
+    ? part.engineType!.replace(/\s+ENGINES?$/i, '').trim() || 'MTU'
+    : !isVagueSeriesText(shortApplicableEngines)
+      ? shortApplicableEngines!
+      : 'MTU';
+const title = `${part.partNumber} ${part.name} - ${seriesShort} Part`;
+const stockText = supply?.stockNote ?? 'Availability confirmed after inquiry';
+const replacementRefs = Array.from(new Set([...(part.replacementFor ?? []), ...(part.crossReferences ?? []).map((ref) => ref.partNumber)]))
+  .filter((ref) => ref.trim() !== '' && ref.toUpperCase() !== part.partNumber.toUpperCase());
+// Meta description：按优先级拼装分段，整段取舍而不是硬截断，保证 SERP 里句子完整
+const metaDesc = (() => {
+  const rawSummary = (part.summary ?? '').trim();
+  // 自动生成的双句 summary 常达 177 字符（>155 会被整段丢弃 → 134 页曾只剩 CTA）：
+  // 超限时只取首句；meta 场景把冗长模糊串压缩为 "MTU engines"（正文保留完整核验语言）
+  const firstSentence = rawSummary.includes('. ')
+    ? rawSummary.slice(0, rawSummary.indexOf('. ') + 1)
+    : rawSummary;
+  const summaryText = (rawSummary.length <= 155 ? rawSummary : firstSentence)
+    .replace(/MTU engine serial-number verified applications/g, 'MTU engines');
+  // 空 summary 兜底：料号+品名+适配+供应链表述，避免 SERP 只剩一句 CTA
+  const fallbackSummary = `${part.partNumber} ${part.name} — replacement part for ${seriesShort} engines. ${site.quality.iso9001Label}.`;
+  const segments: string[] = [summaryText || fallbackSummary];
+  if (supply?.stockStatus === 'in-stock') segments.push('In stock.');
+  else if (supply?.stockStatus === 'fast-order') segments.push('Fast-order supply route.');
+  const specBits: string[] = [];
+  if (part.weightKg && !/^n\/a$/i.test(part.weightKg.trim()) && !summaryText.includes(part.weightKg)) specBits.push(`weight ${part.weightKg}`);
+  if (part.hsCode && !summaryText.includes(part.hsCode)) specBits.push(`HS ${part.hsCode}`);
+  if (part.natoNumber && !/^n\/a$/i.test(part.natoNumber.trim()) && !summaryText.includes(part.natoNumber)) specBits.push(`NATO ${part.natoNumber}`);
+  if (specBits.length > 0) segments.push(specBits.join(' · ') + '.');
+  const freshRefs = replacementRefs.filter((ref) => !summaryText.includes(ref));
+  if (freshRefs.length > 0) segments.push(`Alt ref: ${freshRefs.slice(0, 3).join(', ')}.`);
+  const cta = `Request price and availability for ${part.partNumber}.`;
+  let out = '';
+  for (const seg of segments) {
+    const candidate = out ? `${out} ${seg}` : seg;
+    if (candidate.length > 155) continue; // 超长段跳过而不是终止，给后续规格段留机会
+    out = candidate;
+  }
+  const withCta = out ? `${out} ${cta}` : cta;
+  if (withCta.length <= 160) return withCta;
+  if (out) return out;
+  const raw = `${summaryText} ${cta}`;
+  return raw.length <= 160 ? raw : raw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+})();
 const partFaqs = part.faqs ?? [];
-const replacementRefs = part.replacementFor?.filter((ref) => ref.trim() !== '') ?? [];
 const hasReplacementRefs = replacementRefs.length > 0;
 const replacementReviewText = hasReplacementRefs
-  ? `${part.partNumber} may replace, supersede, or cross-reference the numbers below. Final fitment is checked against the engine serial number and installation position before quotation.`
+  ? 'Catalog history distinguishes earlier and later numbers where documented. Reference-only entries do not establish replacement direction or interchangeability. Confirm the offered number against the engine serial number and installation.'
   : `${part.partNumber} has no public alternative number listed in our current data. We still check old-part photos, engine serial number, and catalog position for supersession before quotation.`;
 const quoteChecklist = part.quoteChecklist ?? [
   `Part number: ${part.partNumber}`,
@@ -58,20 +102,15 @@ const quoteChecklist = part.quoteChecklist ?? [
   'Nameplate photo and old part photo when available',
   'Quantity, destination country, and required delivery date',
 ];
-const orderReleaseChecks = [
-  ['Supply route', 'Quote notes identify OEM, OEM-alternative, reman, repaired, or sourcing route when available.'],
-  ['Buyer confirmation', 'Serial number, old-part photo, installation position, or quantity questions are listed before order release.'],
-  ['Export handling', 'Approximate weight, HS code, packing route, and shipment method are confirmed when available.'],
-  ['Dispatch proof', 'Packing photos, visible label checks, or tracking details can be shared on request before shipment.'],
-];
-const procurementChecks = [
-  ['Fitment basis', hasSpecificApplicableEngines ? part.applicableEngines : seriesText],
-  ['Replacement check', hasReplacementRefs ? replacementRefs.join(', ') : 'Checked by old part number, serial number, and catalog position'],
-  ['Failure context', part.commonFailureScenarios?.[0] ?? 'Describe alarm, leakage, wear, service interval, or downtime symptom'],
-  ['Export fields', [part.weightKg ? `Weight ${part.weightKg}` : undefined, part.hsCode ? `HS ${part.hsCode}` : undefined]
-    .filter(Boolean)
-    .join(' / ') || 'Confirmed before export quote'],
-];
+const referenceRows = replacementRefs.map((number) => {
+  const relationship = part.crossReferences?.find((ref) => ref.partNumber === number)?.relationship ?? 'reference';
+  const linkedPart = mtuParts.find((candidate) => candidate.partNumber.toUpperCase() === number.toUpperCase());
+  return {
+    number,
+    label: relationship === 'replaced-by' ? 'Listed later number' : relationship === 'replaces' ? 'Listed earlier number' : 'Reference only; verify relationship',
+    href: linkedPart ? `/part-products/${linkedPart.slug}/` : undefined,
+  };
+});
 
 const specRows = [
   ['Part No.', part.partNumber],
@@ -83,8 +122,8 @@ const specRows = [
   ['Unit Weight', part.weightKg],
   ['HS Code', part.hsCode],
   ['NATO No.', part.natoNumber],
-  ['Lead Time', part.leadTime],
-].filter(([, value]) => value != null && String(value).trim() !== '');
+  ['Lead Time', supply?.leadTime ?? 'Confirmed with quotation'],
+].filter(([, value]) => value != null && String(value).trim() !== '' && !/^n\/a$/i.test(String(value).trim()));
 const browseCatalogLinks = Array.from(
   new Map(
     [
@@ -97,6 +136,7 @@ const browseCatalogLinks = Array.from(
 
 <BaseLayout
   title={title}
+  noTitleSuffix
   description={metaDesc}
   currentPath="/products"
   image={part.image}
@@ -153,13 +193,13 @@ const browseCatalogLinks = Array.from(
 
     <div class="stock-status-bar">
       <span class="stock-indicator"></span>
-      <span>{part.stockStatus ?? 'Stock status confirmed after inquiry'}</span>
+      <span>{stockText}</span>
     </div>
 
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Check ${part.partNumber} availability`}
-      text="Send engine model, serial number, nameplate photo, old part photo, quantity, destination, and required delivery date."
+      text="Start with the part number and quantity. Add an engine serial number or photo if available; we will follow up on any missing details."
       modalContext={`${part.partNumber} ${part.name} - ${seriesText}`}
       modalSource={`part-${part.slug}`}
       secondaryHref="/part-products/"
@@ -186,7 +226,7 @@ const browseCatalogLinks = Array.from(
         <div class="part-supply-card">
           <div class="part-supply-head">
             <span class={`part-supply-badge part-supply-badge--${supply.stockStatus}`}>{supplyBadgeLabel}</span>
-            <span class="part-supply-verified">Listing reviewed: {supply.lastReviewed}</span>
+            {supply.lastReviewed && <span class="part-supply-verified">Supply information reviewed: {supply.lastReviewed}</span>}
           </div>
           <dl class="part-supply-grid">
             <div>
@@ -220,10 +260,18 @@ const browseCatalogLinks = Array.from(
     <h2>About {part.partNumber} - {part.name}</h2>
     <p>{part.description ?? part.summary}</p>
 
+    {part.specificationChecks && (
+      <>
+        <h2>Fitment &amp; Measurements</h2>
+        <ul>{part.specificationChecks.map((check) => <li>{check}</li>)}</ul>
+      </>
+    )}
+
     {part.applicableEngines && (
       <>
-        <h2>Applicable Engine Models</h2>
+        <h2>Engine Catalog References</h2>
         <p>{part.applicableEngines}</p>
+        <p>Engine-family references do not confirm every installation. Final fitment depends on the full engine serial number and assembly position.</p>
       </>
     )}
 
@@ -240,25 +288,19 @@ const browseCatalogLinks = Array.from(
     <h2>Cross-Reference and Superseded Part Numbers</h2>
     <p>{replacementReviewText}</p>
     {hasReplacementRefs ? (
-      <ul>
-        {replacementRefs.map((ref) => <li><strong>{ref}</strong></li>)}
-      </ul>
+      <table class="part-reference-table">
+        <caption>References relative to {part.partNumber}</caption>
+        <thead><tr><th scope="col">Part number</th><th scope="col">Catalog relationship</th></tr></thead>
+        <tbody>{referenceRows.map((ref) => (
+          <tr><th scope="row">{ref.href ? <a href={ref.href}>{ref.number}</a> : ref.number}</th><td>{ref.label}</td></tr>
+        ))}</tbody>
+      </table>
     ) : (
       <div class="part-verification-card">
         <strong>Replacement status to verify:</strong>
         <span>Send the old part marking, engine model, engine serial number, and installation photo. We check whether a newer, reman, or OEM-alternative route applies before quoting.</span>
       </div>
     )}
-
-    <h2>Procurement Snapshot</h2>
-    <div class="part-procurement-grid">
-      {procurementChecks.map(([label, value]) => (
-        <div>
-          <dt>{label}</dt>
-          <dd>{value}</dd>
-        </div>
-      ))}
-    </div>
 
     <h2>Common Applications</h2>
     <ul>
@@ -268,22 +310,8 @@ const browseCatalogLinks = Array.from(
     <h2>Information to Send for Quotation</h2>
     <ul>
       {quoteChecklist.map((item) => <li>{item}</li>)}
-      {part.dimensions && <li><strong>Dimensions reference:</strong> {part.dimensions}</li>}
-      {part.weightKg && <li><strong>Approximate shipping weight:</strong> {part.weightKg}</li>}
-      {part.hsCode && <li><strong>HS code for customs reference:</strong> {part.hsCode}</li>}
-      {part.natoNumber && <li><strong>NATO number:</strong> {part.natoNumber}</li>}
     </ul>
-
-    <h2>Order Release Standard</h2>
-    <p>For {part.partNumber} inquiries, the quote should make the sourcing route and remaining confirmation points clear before payment or shipment approval.</p>
-    <div class="part-release-grid">
-      {orderReleaseChecks.map(([label, value]) => (
-        <div>
-          <dt>{label}</dt>
-          <dd>{value}</dd>
-        </div>
-      ))}
-    </div>
+    <p>The quotation confirms the offered part number, supply condition, price, lead time, and shipping options.</p>
 
     {part.orderingNotes && (
       <>
@@ -333,12 +361,11 @@ const browseCatalogLinks = Array.from(
       </section>
     )}
 
-    {/* Frequently Purchased Together */}
     {pairedParts.length > 0 && (
       <section class="hub-section">
         <header class="hub-section-header">
-          <h2>Frequently Purchased Together</h2>
-          <p>Parts commonly ordered alongside {part.partNumber} {part.name}.</p>
+          <h2>Other Service Parts in This Engine Series</h2>
+          <p>Related service categories. Each item requires its own fitment check.</p>
         </header>
         <div class="hub-grid part-related-grid">
           {pairedParts.map((p) => (
@@ -383,6 +410,33 @@ const browseCatalogLinks = Array.from(
 </BaseLayout>
 
 <style>
+  .part-reference-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 16px 0 28px;
+    font-size: 14px;
+  }
+
+  .part-reference-table caption {
+    text-align: left;
+    margin-bottom: 8px;
+    color: #475569;
+  }
+
+  .part-reference-table th,
+  .part-reference-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-stroke);
+    text-align: left;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+  }
+
+  .part-reference-table thead {
+    background: #f8fafc;
+  }
+
   .part-related-grid {
     grid-template-columns: repeat(2, 1fr);
   }
