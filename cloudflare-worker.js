@@ -122,6 +122,9 @@ export default {
       const phone = fd.get('phone')?.toString() || '-';
       const material = fd.get('material')?.toString() || '-';
       const quantity = fd.get('quantity')?.toString() || '-';
+      const engineModel = fd.get('engine_model')?.toString() || '-';
+      const engineSerial = fd.get('engine_serial')?.toString() || '-';
+      const country = fd.get('country')?.toString() || '-';
       const message = fd.get('message')?.toString() || '-';
       const source = fd.get('source')?.toString() || '-';
       const role = fd.get('role')?.toString() || '-';
@@ -164,6 +167,9 @@ export default {
         `Role:     ${role}`,
         `Material: ${material}`,
         `Quantity: ${quantity}`,
+        `Engine model:  ${engineModel}`,
+        `Engine serial: ${engineSerial}`,
+        `Destination:   ${country}`,
         `Drawing:  ${drawingInfo}`,
         `NDA:      ${nda}`,
         `Source:   ${source}`,

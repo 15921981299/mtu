@@ -180,6 +180,14 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
                   <label class="contact-field-label" for="rfq-country">Destination Country</label>
                   <input class="contact-form-input-field" type="text" id="rfq-country" name="country" placeholder="e.g. United States, Germany, Australia" autocomplete="country-name" />
                 </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-engine-model">Engine Model</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-engine-model" name="engine_model" placeholder="e.g. MTU 12V4000, 16V2000" />
+                </div>
+                <div class="contact-form-column">
+                  <label class="contact-field-label" for="rfq-engine-serial">Engine Serial Number</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-engine-serial" name="engine_serial" placeholder="From the engine nameplate" />
+                </div>
                 <div class="contact-form-column contact-form-column--full">
                   <label class="contact-field-label" for="rfq-message">Part Number / Inquiry Details *</label>
                   <textarea id="rfq-message" placeholder="Paste part numbers, engine model or serial number, quantity, destination, or describe the old part." name="message" class="contact-form-input-field large" required></textarea>

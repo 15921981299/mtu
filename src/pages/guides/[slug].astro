@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
+import FunnelPageView from '../../components/FunnelPageView.astro';
+import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import { partsGuides } from '../../data/guides';
+import { mtuParts } from '../../data/mtu-parts';
+import { articleSchema, breadcrumbSchema, faqSchema, site } from '../../data/site';
+import '../../styles/resource-page.css';
+
+export function getStaticPaths() {
+  return partsGuides.map((guide) => ({ params: { slug: guide.slug }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const pageUrl = `${site.url}/guides/${guide.slug}/`;
+
+// Real parts for this series, grouped by category (data-driven, no invented content).
+const seriesSet = new Set(guide.seriesFilter);
+const guideParts = mtuParts.filter((part) => part.series.some((s) => seriesSet.has(s)));
+const byCategory = new Map<string, typeof guideParts>();
+for (const part of guideParts) {
+  const list = byCategory.get(part.category) ?? [];
+  list.push(part);
+  byCategory.set(part.category, list);
+}
+const categories = [...byCategory.entries()].sort((a, b) => b[1].length - a[1].length);
+const MAX_ROWS_PER_CATEGORY = 12;
+
+const today = new Date().toISOString().slice(0, 10);
+---
+
+<BaseLayout
+  title={guide.seoTitle}
+  description={guide.description}
+  currentPath="/guides"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Parts Guides', url: `${site.url}/guides/` },
+      { name: guide.h1, url: pageUrl },
+    ]),
+    articleSchema({
+      title: guide.h1,
+      description: guide.description,
+      url: pageUrl,
+      image: `${site.url}/images/mtu-4000-series-overhaul-parts.webp`,
+      datePublished: today,
+      dateModified: today,
+      authorName: site.name,
+    }),
+    faqSchema(guide.faqs),
+  ]}
+>
+  <FunnelPageView stage={guide.stage} label={`guide-${guide.slug}`} />
+  <BreadcrumbHero
+    title={guide.h1}
+    trail={[{ label: 'Home', href: '/' }, { label: 'Parts Guides', href: '/guides/' }, { label: guide.h1 }]}
+    variant="3"
+  />
+
+  <div class="resource-page">
+    <section class="resource-page-section">
+      {guide.intro.map((paragraph) => <p>{paragraph}</p>)}
+      <div class="resource-meta">
+        <span><strong>Parts listed</strong> {guideParts.length} verified records</span>
+        <span><strong>Fitment check</strong> By engine serial number</span>
+        <span><strong>Supersessions</strong> Traced before quoting</span>
+      </div>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>{guide.checklistHeading}</h2>
+      <ul class="resource-checklist">
+        {guide.checklist.map((item) => <li>{item}</li>)}
+      </ul>
+      {guide.specNote && <p>{guide.specNote}</p>}
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Parts We Supply for This Series</h2>
+      <p>
+        The groups below are generated from our verified part records for this engine series
+        ({guideParts.length} part numbers). Open any number for fitment, weight, HS code, and
+        interchange details, or browse the full
+        <a href={guide.seriesCatalog.href}> {guide.seriesCatalog.label}</a>.
+      </p>
+      {categories.map(([category, parts]) => (
+        <div class="guide-category">
+          <h3>{category} <span class="guide-category__count">({parts.length})</span></h3>
+          <table class="guide-parts-table">
+            <tbody>
+              {parts.slice(0, MAX_ROWS_PER_CATEGORY).map((part) => (
+                <tr>
+                  <td class="guide-pn">
+                    <a href={`/part-products/${part.slug}/`}>{part.partNumber}</a>
+                  </td>
+                  <td>{part.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {parts.length > MAX_ROWS_PER_CATEGORY && (
+            <p class="guide-more">
+              <a href={guide.seriesCatalog.href}>
+                + {parts.length - MAX_ROWS_PER_CATEGORY} more {category.toLowerCase()} parts in the catalog →
+              </a>
+            </p>
+          )}
+        </div>
+      ))}
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Related Resources</h2>
+      <ul class="resource-olist">
+        {guide.relatedHubs.map((hub) => (
+          <li><a href={hub.href}>{hub.label}</a></li>
+        ))}
+        <li><a href="/guides/">All parts guides</a></li>
+      </ul>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>FAQ</h2>
+      {guide.faqs.map((item) => (
+        <details class="guide-faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+
+    <DetailRfqStrip
+      title="Send your engine details"
+      text="Model, serial number, and the positions you need — we verify fitment and supersessions, then quote with availability per line."
+      quoteHref={`/contact/?source=guide-${guide.slug}`}
+      label="Request Parts Quote"
+      modalSource={`guide-${guide.slug}`}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .guide-category {
+    margin-bottom: 26px;
+  }
+
+  .guide-category h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+  }
+
+  .guide-category__count {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .guide-parts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .guide-parts-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  .guide-pn {
+    white-space: nowrap;
+  }
+
+  .guide-pn a {
+    color: var(--color-primary, #146ef5);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 700;
+  }
+
+  .guide-more {
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+
+  .guide-faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  .guide-faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .guide-faq-item p {
+    margin: 10px 0 0;
+    color: #475569;
+    line-height: 1.6;
+  }
+</style>

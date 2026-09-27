@@ -1,9 +1,19 @@
 import { products } from './products';
 import { importedEngineFamilyPages } from './imported-engine-family-pages';
 import { isPartPageIndexable, mtuParts } from './mtu-parts';
+import { publishedCaseStudies } from './case-studies';
 
 /** Pathnames excluded from sitemap-index (must match trailingSlash: 'always'). */
 const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/']);
+
+/**
+ * /case-studies/ is noindex while there are no published (customer-authorized)
+ * cases; keep it out of the sitemap in that state. Individual case pages only
+ * exist for published entries, so they need no exclusion here.
+ */
+const CASE_STUDIES_EXCLUDES = new Set(
+  publishedCaseStudies.length === 0 ? ['/case-studies/'] : [],
+);
 
 function isGeneratedProductNoindex(product: (typeof products)[number]): boolean {
   const productIdentityText = `${product.slug} ${product.title} ${product.h1Title}`.toLowerCase();
@@ -48,6 +58,7 @@ export function isSitemapExcluded(pathname: string): boolean {
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
   return (
     STATIC_EXCLUDES.has(normalized) ||
+    CASE_STUDIES_EXCLUDES.has(normalized) ||
     NOINDEX_PRODUCT_PATHS.has(normalized) ||
     NOINDEX_IMPORTED_PATHS.has(normalized) ||
     NOINDEX_PART_PATHS.has(normalized)
