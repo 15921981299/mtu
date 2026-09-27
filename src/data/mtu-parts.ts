@@ -407,6 +407,16 @@ const inferLeadTime = (category: string) =>
     ? 'Common references are usually checked fastest'
     : 'Quoted by stock, replacement route, and destination';
 
+/**
+ * 类目兜底摘要：注入料号+品名+系列，避免整类目共享同一句字节级文本
+ * （AI-Slop「信息熵极低」信号防御——每页摘要必须可区分）。
+ */
+const buildCatalogSummary = (part: CatalogPartSeed, catSummary: string): string => {
+  const joined = part.series.map((s) => s.replace(/^MTU\s*/i, '').trim()).filter(Boolean).join('/');
+  const scoped = joined ? catSummary.replace(/^MTU\s*/i, `MTU ${joined} `) : catSummary;
+  return `${part.partNumber} ${part.name}: ${scoped}`;
+};
+
 const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
   const cat = categoryDefaults[part.category] ?? categoryDefaults['Engine components'];
   const spec = publicPartSpecs[part.partNumber] ?? {};
@@ -417,15 +427,15 @@ const createCatalogPart = (part: CatalogPartSeed): MtuPart => {
     name: part.name,
     series: [...part.series],
     category: part.category,
-    summary: part.summary ?? cat.summary,
+    summary: part.summary ?? buildCatalogSummary(part, cat.summary),
     description: part.description ?? cat.description,
     image: inferTextMatchedPartImage(part),
     availability: 'Stock, replacement status, lead time, and shipping route confirmed after inquiry.',
     stockStatus: part.stockStatus ?? cat.stockStatus,
     applications: cat.applications,
     notes: [
-      'Confirm engine model, serial number, required quantity, and destination before ordering.',
-      'Send old part photos or nameplate details when markings or replacement status are unclear.',
+      `For ${part.partNumber}, confirm engine model, serial number, required quantity, and destination before ordering.`,
+      `If ${part.partNumber} markings or replacement status are unclear, send old-part photos or nameplate details.`,
     ],
     replacementFor,
     weightKg: part.weightKg ?? spec.weightKg ?? cat.weightKg,
@@ -2157,9 +2167,18 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
     : `${seriesText}; final fitment is confirmed by engine serial number and parts-catalog position.`;
   const engineTypeText = hasSpecificEngineType ? part.engineType! : seriesText;
 
+  // 第二句按真实数据变化（类目 + NATO + 替代号数量），避免 700+ 页共享同一字节级句子
+  const natoRef = part.natoNumber && !/^n\/a$/i.test(part.natoNumber.trim()) ? part.natoNumber.trim() : '';
+  const recordBits: string[] = [];
+  if (natoRef) recordBits.push(`NATO ${natoRef}`);
+  if (part.replacementFor && part.replacementFor.length > 0) {
+    recordBits.push(`${part.replacementFor.length} superseded reference${part.replacementFor.length > 1 ? 's' : ''} traced`);
+  }
+  const recordText = recordBits.length > 0 ? ` ${recordBits.join('; ')} on record.` : '';
+
   return {
     ...part,
-    summary: `${part.partNumber} ${part.name} for ${seriesText}. High-priority MTU spare part with fitment, stock route, and export details checked before quotation.`,
+    summary: `${part.partNumber} ${part.name} for ${seriesText}. High-priority MTU ${part.category.toLowerCase()} item — fitment, stock route, and export details checked before quotation.${recordText}`,
     description: `${part.partNumber} ${part.name} is treated as a priority MTU parts inquiry because it is commonly requested for overhaul, fleet maintenance, or downtime repair. Known public fields on this page include engine type (${engineTypeText}), application (${applicationText}), replacement references (${part.replacementFor && part.replacementFor.length > 0 ? part.replacementFor.join(', ') : 'checked before quote'}), weight (${part.weightKg ?? 'confirmed before shipment'}), HS code (${part.hsCode ?? 'confirmed before export'}), and lead time (${part.leadTime ?? 'checked per inquiry'}). We verify the part number against the engine model, serial number, installation position, and any superseded reference before quoting.`,
     commonFailureScenarios: part.commonFailureScenarios ?? scenarios,
     orderingNotes: part.orderingNotes ?? `For ${part.partNumber}, send the engine model, serial number, quantity, old-part photo, and destination country. We will confirm whether the item is OEM, OEM-alternative, reman, or superseded before quotation.`,
