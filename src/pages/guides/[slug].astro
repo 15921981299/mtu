@@ -28,6 +28,8 @@ const categories = [...byCategory.entries()].sort((a, b) => b[1].length - a[1].l
 const MAX_ROWS_PER_CATEGORY = 12;
 
 const today = new Date().toISOString().slice(0, 10);
+// 作者身份：site.author.name 填了真实人才启用 Person 署名，否则保持 Organization（诚实兜底）
+const hasPersonAuthor = Boolean(site.author.name);
 ---
 
 <BaseLayout
@@ -47,7 +49,10 @@ const today = new Date().toISOString().slice(0, 10);
       image: `${site.url}/images/mtu-4000-series-overhaul-parts.webp`,
       datePublished: today,
       dateModified: today,
-      authorName: site.name,
+      authorName: hasPersonAuthor ? site.author.name : site.name,
+      authorType: hasPersonAuthor ? 'Person' : 'Organization',
+      authorJobTitle: hasPersonAuthor && site.author.jobTitle ? site.author.jobTitle : undefined,
+      authorSameAs: hasPersonAuthor && site.author.linkedin ? [site.author.linkedin] : undefined,
     }),
     faqSchema(guide.faqs),
   ]}
@@ -66,6 +71,11 @@ const today = new Date().toISOString().slice(0, 10);
         <span><strong>Parts listed</strong> {guideParts.length} verified records</span>
         <span><strong>Fitment check</strong> By engine serial number</span>
         <span><strong>Supersessions</strong> Traced before quoting</span>
+        {hasPersonAuthor ? (
+          <span><strong>Reviewed by</strong> {site.author.name}{site.author.jobTitle ? `, ${site.author.jobTitle}` : ''}</span>
+        ) : (
+          <span><strong>Maintained by</strong> The {site.name} parts desk</span>
+        )}
       </div>
     </section>
 

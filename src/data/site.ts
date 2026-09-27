@@ -42,6 +42,23 @@ export const site = {
       '',
   },
   /**
+   * Visible author/reviewer identity for guides & case studies.
+   * RED LINE: fill with a REAL, verifiable person only (Google AI-Slop method 6 —
+   * fictional authors with stock photos are a high-risk signal; Organization
+   * authorship is the honest default and is perfectly acceptable).
+   * Leave `name` empty → pages emit Organization author. Set name + jobTitle +
+   * linkedin → pages switch to Person author with sameAs.
+   */
+  author: {
+    name: '',
+    jobTitle: '',
+    /** Public LinkedIn profile URL of the named person (sameAs evidence). */
+    linkedin:
+      (typeof import.meta.env.PUBLIC_AUTHOR_LINKEDIN === 'string' &&
+        import.meta.env.PUBLIC_AUTHOR_LINKEDIN.trim()) ||
+      '',
+  },
+  /**
    * Quality claims shown on site — keep wording accurate.
    * Set iso9001CertNumber / iso9001CertBody when you hold a direct certificate;
    * otherwise we state partner-facility ISO 9001 (default).

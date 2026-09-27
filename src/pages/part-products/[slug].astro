@@ -199,7 +199,7 @@ const browseCatalogLinks = Array.from(
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Check ${part.partNumber} availability`}
-      text="Start with the part number and quantity. Add an engine serial number or photo if available; we will follow up on any missing details."
+      text={`Start with ${part.partNumber} and the quantity. Add an engine serial number or a photo of the old ${part.name} if available; we will follow up on any missing details.`}
       modalContext={`${part.partNumber} ${part.name} - ${seriesText}`}
       modalSource={`part-${part.slug}`}
       secondaryHref="/part-products/"
@@ -271,7 +271,7 @@ const browseCatalogLinks = Array.from(
       <>
         <h2>Engine Catalog References</h2>
         <p>{part.applicableEngines}</p>
-        <p>Engine-family references do not confirm every installation. Final fitment depends on the full engine serial number and assembly position.</p>
+        <p>Engine-family references do not confirm every installation. Final fitment of {part.partNumber} depends on the full engine serial number and assembly position.</p>
       </>
     )}
 
@@ -343,7 +343,7 @@ const browseCatalogLinks = Array.from(
       <section class="hub-section">
         <header class="hub-section-header">
           <h2>Related MTU Parts</h2>
-          <p>Similar parts by engine series or category.</p>
+          <p>Similar to {part.name} by engine series or category.</p>
         </header>
         <div class="hub-grid part-related-grid">
           {relatedParts.map((related) => (
@@ -365,7 +365,7 @@ const browseCatalogLinks = Array.from(
       <section class="hub-section">
         <header class="hub-section-header">
           <h2>Other Service Parts in This Engine Series</h2>
-          <p>Related service categories. Each item requires its own fitment check.</p>
+          <p>Related {seriesShort} service categories. Each item requires its own fitment check.</p>
         </header>
         <div class="hub-grid part-related-grid">
           {pairedParts.map((p) => (
