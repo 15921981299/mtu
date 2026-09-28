@@ -119,8 +119,8 @@ const specRows = [
   ['Engine Type', hasSpecificEngineType ? part.engineType : seriesText],
   ['Series', seriesText],
   ['Dimensions', part.dimensions],
-  ['Unit Weight', part.weightKg],
-  ['HS Code', part.hsCode],
+  ['Catalog Weight', part.weightKg],
+  ['HS Code (reference)', part.hsCode],
   ['NATO No.', part.natoNumber],
   ['Lead Time', supply?.leadTime ?? 'Confirmed with quotation'],
 ].filter(([, value]) => value != null && String(value).trim() !== '' && !/^n\/a$/i.test(String(value).trim()));
@@ -260,10 +260,12 @@ const browseCatalogLinks = Array.from(
     <h2>About {part.partNumber} - {part.name}</h2>
     <p>{part.description ?? part.summary}</p>
 
-    {part.specificationChecks && (
+    {part.specificationChecks && part.specificationChecks.length > 0 && (
       <>
-        <h2>Fitment &amp; Measurements</h2>
+        <h2>Technical Data Status</h2>
+        <p>Published catalog details help identify this part, but they are not a controlled drawing for the item offered. Measurements that are not shown here still need confirmation before substitution or order.</p>
         <ul>{part.specificationChecks.map((check) => <li>{check}</li>)}</ul>
+        <p><a href={quoteHref} data-rfq-modal data-rfq-context={`${part.partNumber} technical data and document request`} data-rfq-source={`part-${part.slug}-documents`}>Request a datasheet or measurement check</a></p>
       </>
     )}
 

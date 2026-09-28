@@ -578,7 +578,7 @@ const homepagePartNumberGroups = [
         subtitle="Most Requested"
       />
       <p class="popular-parts-intro">
-        <strong>{mtuParts.length}+ MTU part numbers</strong> indexed by engine series and part category. These high-request parts show the same fields buyers usually need before RFQ: engine type, weight, HS code, stock route, and replacement notes.
+        <strong>{mtuParts.length}+ MTU part numbers</strong> indexed by engine series and category. Start with the exact number, then confirm fitment, replacement history, and availability for the item quoted.
       </p>
       <div class="popular-parts-grid">
         {homepageHotParts.map((part) => (
@@ -597,11 +597,11 @@ const homepagePartNumberGroups = [
                 <dd>{part.category}</dd>
               </div>
               <div>
-                <dt>Weight</dt>
+                <dt>Catalog Weight</dt>
                 <dd>{part.weightKg ?? 'Quote check'}</dd>
               </div>
               <div>
-                <dt>HS Code</dt>
+                <dt>HS Code (ref.)</dt>
                 <dd>{part.hsCode ?? 'Quote check'}</dd>
               </div>
               <div>
@@ -609,12 +609,12 @@ const homepagePartNumberGroups = [
                 <dd>{part.natoNumber && part.natoNumber !== 'N/A' ? part.natoNumber : 'N/A'}</dd>
               </div>
               <div>
-                <dt>Stock</dt>
-                <dd>{part.stockStatus ?? part.availability}</dd>
+                <dt>Availability</dt>
+                <dd>Confirmed after inquiry</dd>
               </div>
             </dl>
             {part.replacementFor && part.replacementFor.length > 0 && (
-              <p class="popular-part-replacement">Alt: {part.replacementFor.slice(0, 2).join(', ')}</p>
+              <p class="popular-part-replacement">Other catalog refs: {part.replacementFor.slice(0, 2).join(', ')}</p>
             )}
             <a
               href={`/contact/?source=hot-part-${part.slug}`}
@@ -635,7 +635,7 @@ const homepagePartNumberGroups = [
       </p>
 
       <div class="featured-parts-block">
-        <h3 class="featured-parts-title">Featured MTU Parts with Real Images</h3>
+        <h3 class="featured-parts-title">Featured MTU Parts with Catalog Photos</h3>
         <div class="featured-parts-grid">
           {homepageFeaturedParts.map((part) => (
             <a href={`/part-products/${part.slug}/`} class="featured-part-tile">

@@ -15,7 +15,7 @@ import { site } from '../data/site';
     <div class="rfq-modal__header">
       <p class="rfq-modal__kicker">Fast parts inquiry</p>
       <h2 id="rfq-modal-title">Check Price & Availability</h2>
-      <p>Send the part number, a photo, or a short parts list. We verify fitment before quotation.</p>
+      <p>Send a part number or short parts list. Add an engine serial or photo when available.</p>
     </div>
 
     <form class="rfq-modal__form" id="rfq-modal-form" data-endpoint="https://dieselpartsource.com/api/rfq/" data-fallback-email={site.email}>
@@ -36,20 +36,12 @@ import { site } from '../data/site';
         <span>Quantity</span>
         <input type="text" name="quantity" placeholder="e.g. 2 pcs, 1 set, or unknown" />
       </label>
-      <label>
-        <span>Engine Model</span>
-        <input type="text" name="engine_model" placeholder="e.g. MTU 12V4000, 16V2000" />
-      </label>
-      <label>
-        <span>Engine Serial Number</span>
-        <input type="text" name="engine_serial" placeholder="From the engine nameplate" />
-      </label>
       <label class="rfq-modal__full">
         <span>Part Number / Inquiry Details *</span>
         <textarea
           name="message"
           rows="4"
-          placeholder="Paste part numbers, engine model/serial number, destination, or describe the old part."
+          placeholder="Paste part numbers and quantity. Add engine serial or destination if known."
           required
         ></textarea>
       </label>

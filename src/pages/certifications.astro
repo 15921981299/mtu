@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
-import { site, breadcrumbSchema, videoSchema } from '../data/site';
+import { site, breadcrumbSchema } from '../data/site';
 import '../styles/resource-page.css';
 import '../styles/hub-list-page.css';
 import '../styles/certification-page.css';
@@ -16,113 +16,71 @@ const certIcons: Record<string, string> = {
   dfm: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke="currentColor" stroke-width="1.5"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.5"/></svg>`,
 };
 
-const { quality } = site;
-const inspectionVideo = videoSchema({
-  name: 'Engine Parts Verification and Packing Process',
-  description:
-    'See how Diesel Part Source checks part numbers, supplier documents, packing, and shipment details for engine parts inquiries.',
-  thumbnailUrl: 'https://img.youtube.com/vi/M7uJEbDD-_8/hqdefault.jpg',
-  embedUrl: 'https://www.youtube.com/embed/M7uJEbDD-_8',
-  uploadDate: '2023-06-01',
-});
-const iso9001Title = quality.iso9001CertNumber
-  ? `ISO 9001:2015 — Certificate ${quality.iso9001CertNumber}`
-  : quality.iso9001Label;
-const iso9001Body = quality.iso9001CertNumber
-  ? `${quality.iso9001Description} Certificate body: ${quality.iso9001CertBody || 'on file'}.`
-  : `${quality.iso9001Description} ${quality.iso9001VerificationNote}`;
-
 const pageUrl = `${site.url}/certifications/`;
 
 const qualityCommitments = [
   {
-    title: iso9001Title,
-    description: iso9001Body,
-    iconKey: 'iso',
-  },
-  {
-    title: 'IATF 16949-Aligned Automotive Programs',
-    description:
-      'Automotive and equipment buyers can request supplier documentation, packing photos, and traceability notes where applicable. Specify required documents when sending the part list.',
-    iconKey: 'automotive',
-  },
-  {
-    title: 'ISO 13485-Aligned Medical Documentation',
-    description:
-      'For regulated or critical applications, tell us the documentation your internal QA process needs before order placement so the sourcing route can be checked early.',
-    iconKey: 'medical',
-  },
-  {
-    title: 'Part-Number and Photo Verification',
-    description:
-      'We check the requested part number against engine model, serial number, nameplate photo, old-part photo, and replacement notes whenever those details are available.',
+    title: 'Part identification',
+    description: 'We use the full part marking, engine model, serial number, and old-part photo when available to review the requested item.',
     iconKey: 'cmm',
   },
   {
-    title: 'Supplier and Packing Documents',
-    description:
-      'For qualified inquiries, buyers can request available supplier documents, packing photos, shipment documents, and customs information before dispatch.',
+    title: 'Clear supply condition',
+    description: 'The quotation identifies the exact offered number and whether the route is OEM, alternative, remanufactured, or a replacement reference.',
+    iconKey: 'dfm',
+  },
+  {
+    title: 'Supplier document scope',
+    description: 'Request the datasheet, certificate, test record, or origin information you need with the RFQ. We confirm which documents apply to the offered item.',
     iconKey: 'material',
   },
   {
-    title: 'Inquiry Review — Free with Every Quote',
-    description:
-      'Before quotation, we review whether the inquiry has enough information to reduce wrong-part risk: part number, serial number, photos, quantity, destination, and delivery window.',
-    iconKey: 'dfm',
+    title: 'Pre-shipment checks',
+    description: 'For an approved order, marking and packing photos can be requested before dispatch. The available evidence is agreed with the quotation.',
+    iconKey: 'iso',
   },
 ];
 
 const equipment = [
-  { name: 'MTU part-number database checks', qty: 'Ongoing', capability: 'Part number, replacement, and series matching' },
-  { name: 'Supplier document review', qty: 'On request', capability: 'Available documents checked before shipment' },
-  { name: 'Nameplate and old-part photo review', qty: 'Standard', capability: 'Reduces wrong-part risk before quotation' },
-  { name: 'Packing photo confirmation', qty: 'On request', capability: 'Photos before dispatch for urgent orders' },
-  { name: 'Export shipment coordination', qty: 'Global', capability: 'Express, air, and freight route planning' },
-  { name: 'Excel list line-item check', qty: 'Supported', capability: 'Overhaul and maintenance lists checked item by item' },
+  { name: 'Identification', qty: 'Before quote', capability: 'Requested number, engine serial, old-part marking, and replacement history' },
+  { name: 'Offered item', qty: 'At quote', capability: 'Offered number, condition, quantity, availability, and lead time' },
+  { name: 'Documents', qty: 'Per item', capability: 'Confirm available datasheet, certificate, test record, or origin document' },
+  { name: 'Shipment', qty: 'Before dispatch', capability: 'Confirm marking, packing, shipping documents, and tracking scope' },
 ];
 
 const inspectionSteps = [
-  'Receive part number, quantity, destination, and delivery deadline',
-  'Check engine model, serial number, and nameplate photo when available',
-  'Review old-part photos and markings for unclear or legacy items',
-  'Confirm stock, replacement, or sourcing route before quotation',
-  'Clarify supplier documentation and packing requirements',
-  'Quote delivery route by urgency, size, and destination',
-  'Prepare packing and shipment details before dispatch',
-  'Follow up with tracking and document support after shipment',
+  'Receive the part number, quantity, destination, and any marking or nameplate photos',
+  'Check the engine serial and catalog relationship when fitment or supersession is uncertain',
+  'Quote the offered number, condition, lead time, document scope, and delivery terms',
+  'Confirm marking and packing requirements before dispatch; provide agreed shipment documents',
 ];
 
 const verificationDocuments = [
   {
     label: 'Supplier availability confirmation',
     detail: 'Line-item review for part number, quantity, replacement route, and expected delivery window.',
-    sampleId: null,
   },
   {
     label: 'Nameplate and old-part photo check',
     detail: 'Engine model, serial number, plate photo, casting mark, or old-part image review when the part number is unclear.',
-    sampleId: null,
   },
   {
     label: 'Packing and shipment photos',
     detail: 'Photo confirmation before dispatch for urgent orders, export packing, or high-value assemblies.',
-    sampleId: null,
   },
   {
     label: 'Supplier documents on request',
     detail: 'Available supplier documents, conformity notes, invoice, packing list, and export paperwork matched to the order scope.',
-    sampleId: null,
   },
   {
     label: 'Customs and HS code support',
     detail: 'HS code and shipment document support for engine parts orders when required by the destination country.',
-    sampleId: null,
   },
 ] as const;
 ---
 
 <BaseLayout
-  title="Quality Policy & Parts Verification | Diesel Part Source"
+  title="Parts Verification & Documentation | Diesel Part Source"
   description="Diesel Part Source checks engine part numbers, serial numbers, supplier documents, packing requirements, and delivery routes before quotation and shipment."
   currentPath="/certifications"
   jsonLd={[
@@ -130,70 +88,53 @@ const verificationDocuments = [
       { name: 'Home', url: site.url },
       { name: 'Certifications', url: pageUrl },
     ]),
-    inspectionVideo,
   ]}
 >
   <FunnelPageView stage="signing" event="cert_page_view" label="certifications" />
-  <BreadcrumbHero title="Quality & Certifications" current="Certifications" variant="5" />
+  <BreadcrumbHero title="Parts Verification & Documentation" current="Quality" variant="5" />
 
   <section class="blog-details-section detail-page-section">
     <div class="section-gap bottom">
       <div class="container">
         <article class="blog-details-content-block blog-index-page cert-page fade-in">
           <nav class="resource-nav blog-index-top-nav" aria-label="Quality navigation">
-            <a href="/certifications/" class="resource-nav-link active" aria-current="page">
-              QC & certifications
-            </a>
-            <a href="/certifications/" class="resource-nav-link">Inspection samples</a>
-            <a href="/certifications/" class="resource-nav-link">Standards</a>
-            <a href="/about/" class="resource-nav-link">Case studies</a>
-            <a href="/certifications/" class="resource-nav-link resource-nav-all">
-              Material certs
-            </a>
+            <a href="#quality-commitments" class="resource-nav-link">Verification scope</a>
+            <a href="#inspection-process" class="resource-nav-link">Review steps</a>
+            <a href="#documentation" class="resource-nav-link">Documents</a>
+            <a href="/about/" class="resource-nav-link resource-nav-all">About us</a>
           </nav>
 
           <header class="blog-index-hero cert-hero">
-            <p class="blog-index-kicker">Part verification · Shipment-ready</p>
+            <p class="blog-index-kicker">Part identification · Quotation review</p>
             <p class="blog-index-intro">
-              Diesel Part Source reduces wrong-part risk by checking part numbers, serial numbers, nameplates, old-part photos,
-              supplier documents, packing requirements, and delivery routes before quotation and shipment.
+              Send a part number and quantity to begin. Engine serial numbers, old-part markings, and photos help us check fitment when the catalog reference is incomplete. The quotation states the offered item and which documents can accompany it.
             </p>
             <div class="blog-index-stats" role="list">
               <span class="blog-index-stat" role="listitem">
-                <strong>ISO 9001</strong>
-                <span>partner facilities</span>
+                <strong>Part no.</strong>
+                <span>Identification</span>
               </span>
               <span class="blog-index-stat" role="listitem">
-                <strong>100%</strong>
-                <span>part checks</span>
+                <strong>Serial</strong>
+                <span>Fitment check</span>
               </span>
               <span class="blog-index-stat" role="listitem">
-                <strong>EN 10204</strong>
-                <span>documents on request</span>
+                <strong>Quote</strong>
+                <span>Document scope</span>
               </span>
             </div>
           </header>
 
           <div class="blog-index-rfq-strip detail-rfq-strip">
             <p>List required documents with your parts inquiry — supplier documents, packing photos, customs paperwork, or delivery deadline. We confirm what is practical before order placement.</p>
-            <a href="/contact/?source=certifications" class="blog-index-rfq-btn detail-rfq-link">Request Parts Check</a>
+            <a href="/contact/?source=certifications" class="blog-index-rfq-btn detail-rfq-link" data-rfq-modal data-rfq-context="Parts verification and document request" data-rfq-source="certifications">Request Parts Check</a>
           </div>
-
-          <nav class="hub-list-jump-nav cert-jump" aria-label="On this page">
-            <a href="#quality-commitments" class="hub-list-jump-link">
-              Commitments
-              <span class="hub-list-jump-count">{qualityCommitments.length}</span>
-            </a>
-            <a href="#inspection-process" class="hub-list-jump-link">Inspection process</a>
-            <a href="#equipment" class="hub-list-jump-link">Equipment</a>
-            <a href="#documentation" class="hub-list-jump-link">Documentation</a>
-          </nav>
 
           <section id="quality-commitments" class="blog-index-section cert-section">
             <header class="blog-index-section-head">
               <div>
-                <h2>Quality commitments</h2>
-                <p>What we document on every order — and what regulated programs can request on the RFQ.</p>
+                <h2>Verification scope</h2>
+                <p>Identification and documentation are agreed for the part and supply route being quoted.</p>
               </div>
             </header>
             <div class="cert-grid">
@@ -211,7 +152,7 @@ const verificationDocuments = [
             <header class="blog-index-section-head">
               <div>
                 <h2>Our parts verification process</h2>
-                <p>Eight documented steps from inquiry intake through packing and shipment support.</p>
+                <p>Four checks from part identification to the agreed shipment documents.</p>
               </div>
             </header>
             <div class="inspection-list">
@@ -227,18 +168,18 @@ const verificationDocuments = [
           <section id="equipment" class="blog-index-section cert-section">
             <header class="blog-index-section-head">
               <div>
-                <h2>Tools &amp; capabilities</h2>
-                <p>Internal and partner support for part-number checks, document review, packing, and export shipment.</p>
+                <h2>What the buyer can confirm</h2>
+                <p>Ask for the evidence you need with the parts list so its availability can be checked before the order.</p>
               </div>
             </header>
             <div class="equip-table-wrap">
               <table class="equip-table">
-                <caption class="equip-table-caption">Tools supporting part verification and shipment release</caption>
+                <caption class="equip-table-caption">Quotation and shipment review points</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Support area</th>
-                    <th scope="col">Scope</th>
-                    <th scope="col">Capability</th>
+                    <th scope="col">Review point</th>
+                    <th scope="col">When</th>
+                    <th scope="col">Information to confirm</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -258,7 +199,7 @@ const verificationDocuments = [
             <header class="blog-index-section-head">
               <div>
                 <h2>Documentation buyers can request</h2>
-                <p>Specify which items you need on your inquiry — we confirm available supplier documents, packing notes, and shipment documents before order placement.</p>
+                <p>Document availability depends on the quoted supplier and item. Request it before approving the order; this page does not imply that every record exists for every part.</p>
               </div>
             </header>
             <div class="verify-doc-grid">
@@ -266,19 +207,10 @@ const verificationDocuments = [
                 <div class="verify-doc-card">
                   <h3 class="verify-doc-label">{doc.label}</h3>
                   <p class="verify-doc-detail">{doc.detail}</p>
-                  {doc.sampleId && (
-                    <a href={`/certifications/#${doc.sampleId}`} class="verify-doc-sample">
-                      View redacted sample →
-                    </a>
-                  )}
                 </div>
               ))}
             </div>
             <p class="cert-cta-row">
-              <a href="/certifications/">Document samples</a>
-              <span aria-hidden="true">·</span>
-              <a href="/certifications/">MTU lookup guide</a>
-              <span aria-hidden="true">·</span>
               <a href="/part-products/">MTU part numbers</a>
               <span aria-hidden="true">·</span>
               <a href="/contact/?source=certifications">Request documentation scope →</a>

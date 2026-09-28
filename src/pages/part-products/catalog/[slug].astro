@@ -49,7 +49,9 @@ const featuredParts = [...parts]
       Number(Boolean(a.applicableEngines));
     return bScore - aScore || a.partNumber.localeCompare(b.partNumber);
   })
-  .slice(0, 20);
+  .filter((part) => part.specificationChecks?.length)
+  .slice(0, 8);
+const hasPublishedSizes = featuredParts.some((part) => Boolean(part.dimensions));
 const partSlugSet = new Set(parts.map((part) => part.slug));
 const relatedCatalogHubs = mtuCatalogHubs
   .filter((h) => h.slug !== hub.slug)
@@ -130,8 +132,8 @@ const catalogUseCases = hub.type === 'series'
               <span class="catalog-stat-icon catalog-stat-icon--moq">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
               </span>
-              <span class="catalog-stat-value">No Min</span>
-              <span class="catalog-stat-label">MOQ</span>
+              <span class="catalog-stat-value">Per RFQ</span>
+              <span class="catalog-stat-label">Quantity</span>
             </div>
             <div class="catalog-stat-item">
               <span class="catalog-stat-icon catalog-stat-icon--globe">
@@ -211,31 +213,29 @@ const catalogUseCases = hub.type === 'series'
             </div>
           </section>
 
-          <!-- ── Spec table ── -->
-          <section class="catalog-depth-section">
-            <h2>Representative Part Data</h2>
-            <p>These examples show the type of fields checked before quotation: engine type, dimensions, unit weight, HS code, and stock route.</p>
-            <div class="catalog-spec-table" role="table" aria-label={`${hub.h1Title} representative part data`}>
+          <!-- ── Part-number checks ── -->
+          {featuredParts.length > 0 && <section class="catalog-depth-section">
+            <h2>Part Numbers &amp; Selection Checks</h2>
+            <p>These numbers have part-specific identification checks. Catalog measurements, where shown, still require confirmation for the quoted item and engine.</p>
+            <div class:list={['catalog-spec-table', { 'catalog-spec-table--no-size': !hasPublishedSizes }]} role="table" aria-label={`${hub.h1Title} part-number selection checks`}>
               <div class="catalog-spec-head" role="row">
                 <span role="columnheader">Part No.</span>
-                <span role="columnheader">Name</span>
-                <span role="columnheader">Engine</span>
-                <span role="columnheader">Weight</span>
-                <span role="columnheader">HS Code</span>
-                <span role="columnheader">Alt / NATO</span>
+                <span role="columnheader">Component</span>
+                <span role="columnheader">Engine Series</span>
+                {hasPublishedSizes && <span role="columnheader">Published Size</span>}
+                <span role="columnheader">Check Before Quote</span>
               </div>
               {featuredParts.map((part) => (
                 <a class="catalog-spec-row" role="row" href={`/part-products/${part.slug}/`}>
-                  <span role="cell" class="catalog-spec-cell-pn">{part.partNumber}</span>
-                  <span role="cell">{part.name}</span>
-                  <span role="cell">{part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Verify')}</span>
-                  <span role="cell">{part.weightKg ?? '—'}</span>
-                  <span role="cell">{part.hsCode ? <code class="catalog-hs-code">{part.hsCode}</code> : '—'}</span>
-                  <span role="cell">{part.replacementFor?.slice(0, 2).join(', ') || part.natoNumber || 'Serial check'}</span>
+                  <span role="cell" class="catalog-spec-cell-pn" data-label="Part No.">{part.partNumber}</span>
+                  <span role="cell" data-label="Component">{part.name}</span>
+                  <span role="cell" data-label="Engine Series">{part.series.join(', ') || 'Serial check'}</span>
+                  {hasPublishedSizes && <span role="cell" data-label="Published Size">{part.dimensions || 'Not published'}</span>}
+                  <span role="cell" data-label="Check Before Quote">{part.specificationChecks?.[0] ?? 'Confirm part marking and engine serial number.'}</span>
                 </a>
               ))}
             </div>
-          </section>
+          </section>}
 
           <!-- ── Verification checklist ── -->
           <section class="catalog-depth-section">
@@ -246,7 +246,6 @@ const catalogUseCases = hub.type === 'series'
                   <span class="catalog-checklist-step">{String(i + 1).padStart(2, '0')}</span>
                   <div class="catalog-checklist-body">
                     <h3>{item}</h3>
-                    <p>Checked against part-number history, engine application, stock status, and export shipping requirements.</p>
                   </div>
                 </article>
               ))}
@@ -301,26 +300,23 @@ const catalogUseCases = hub.type === 'series'
                             <dd>{part.category}</dd>
                           </div>
                           <div>
-                            <dt>Weight</dt>
+                            <dt>Catalog Weight</dt>
                             <dd>{part.weightKg ?? 'Quote check'}</dd>
                           </div>
                           <div>
-                            <dt>HS Code</dt>
+                            <dt>HS Code (ref.)</dt>
                             <dd>{part.hsCode ?? 'Quote check'}</dd>
                           </div>
                           <div>
-                            <dt>Alt Refs</dt>
+                            <dt>Other References</dt>
                             <dd>{part.replacementFor?.slice(0, 2).join(', ') || 'Verify'}</dd>
                           </div>
                           <div>
                             <dt>Image</dt>
-                            <dd>{isRealPartImage(part.image) ? 'Part photo' : 'Category image'}</dd>
+                            <dd>{isRealPartImage(part.image) ? 'Catalog photo' : 'Category image'}</dd>
                           </div>
                         </dl>
-                        <p class="hub-card-summary">
-                          {part.engineType ?? (part.series.length > 0 ? part.series.join(', ') : 'Serial-number verified')}
-                          {part.stockStatus && ` - ${part.stockStatus.slice(0, 60)}`}
-                        </p>
+                        <p class="hub-card-summary">Availability confirmed for the quoted part number and quantity.</p>
                       </div>
                     </a>
                   ))}
@@ -863,8 +859,13 @@ const catalogUseCases = hub.type === 'series'
   .catalog-spec-head,
   .catalog-spec-row {
     display: grid;
-    grid-template-columns: 1fr 1.35fr 1.05fr 0.8fr 0.72fr 1fr;
+    grid-template-columns: 1fr 1.2fr 1fr 1.1fr 1.9fr;
     gap: 0;
+  }
+
+  .catalog-spec-table--no-size .catalog-spec-head,
+  .catalog-spec-table--no-size .catalog-spec-row {
+    grid-template-columns: 1fr 1.2fr 1fr 2fr;
   }
 
   .catalog-spec-head {
@@ -905,15 +906,6 @@ const catalogUseCases = hub.type === 'series'
     color: var(--color-primary);
   }
 
-  .catalog-hs-code {
-    padding: 2px 7px;
-    border-radius: 4px;
-    background: rgba(20, 110, 245, 0.06);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
   .catalog-spec-head span,
   .catalog-spec-row span {
     padding: 12px 14px;
@@ -937,13 +929,24 @@ const catalogUseCases = hub.type === 'series'
       display: none;
     }
 
-    .catalog-spec-row {
+    .catalog-spec-row,
+    .catalog-spec-table--no-size .catalog-spec-row {
       grid-template-columns: 1fr;
       padding: 12px 0;
     }
 
     .catalog-spec-row span {
       padding: 5px 14px;
+    }
+
+    .catalog-spec-row span::before {
+      content: attr(data-label);
+      display: block;
+      margin-bottom: 2px;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
     .catalog-spec-cell-pn {
