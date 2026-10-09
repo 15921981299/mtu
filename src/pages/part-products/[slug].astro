@@ -42,6 +42,15 @@ const seriesText = part.series.length > 0
     : hasSpecificApplicableEngines
       ? shortApplicableEngines!
       : 'MTU engine serial-number verified applications';
+// Authority concentration: link MTU 2000/4000 series part pages back to the
+// matching overhaul guide (hub-and-spoke). The guide already links out to the
+// series catalog, so this closes the loop and pushes weight onto the strongest asset.
+const overhaulGuide = (() => {
+  const joined = part.series.join(' ');
+  if (/MTU 2000/.test(joined)) return { href: '/guides/mtu-2000-overhaul-parts/', label: 'MTU 2000 Series Overhaul Parts Guide' };
+  if (/MTU 4000/.test(joined)) return { href: '/guides/mtu-4000-overhaul-parts/', label: 'MTU 4000 Series Overhaul Parts Guide' };
+  return undefined;
+})();
 // Title 专用短系列名：去掉冗余的 ENGINE(S) 后缀，无系列时回退为 "MTU"，避免 99 字符超长标题
 const isVagueSeriesText = (v?: string) =>
   !v || /^Verify by engine serial number$/i.test(v) || /^MTU engine serial-number verified applications$/i.test(v);
@@ -400,6 +409,12 @@ const browseCatalogLinks = Array.from(
       <a href="/part-products/">All MTU part numbers</a>
       /
       <a href="/products/mtu-spare-parts/">MTU spare parts</a>
+      {overhaulGuide && (
+        <>
+          /
+          <a href={overhaulGuide.href}>{overhaulGuide.label}</a>
+        </>
+      )}
       /
       <a
         href={quoteHref}

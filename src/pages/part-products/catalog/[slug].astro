@@ -68,6 +68,12 @@ const catalogCategories = Array.from(new Set(parts.map((part) => part.category))
 const catalogScope = hub.type === 'series'
   ? `${hub.h1Title} covers ${catalogCategories.join(', ')} and related service references.`
   : `${hub.h1Title} covers ${catalogSeries.join(', ')} and serial-number verified applications.`;
+// Authority concentration: series hubs link to the matching overhaul guide (hub-and-spoke).
+const overhaulGuideLink = hub.slug === 'mtu-2000-series'
+  ? { href: '/guides/mtu-2000-overhaul-parts/', label: 'MTU 2000 Series Overhaul Parts Guide' }
+  : hub.slug === 'mtu-4000-series'
+    ? { href: '/guides/mtu-4000-overhaul-parts/', label: 'MTU 4000 Series Overhaul Parts Guide' }
+    : undefined;
 const quoteChecklist = [
   'Exact part number and quantity',
   'Engine model, rating, and serial number',
@@ -359,6 +365,12 @@ const catalogUseCases = hub.type === 'series'
             </a>
             <span class="catalog-footer-sep" aria-hidden="true">/</span>
             <a href="/products/mtu-spare-parts/" class="catalog-footer-link">MTU Spare Parts</a>
+            {overhaulGuideLink && (
+              <>
+                <span class="catalog-footer-sep" aria-hidden="true">/</span>
+                <a href={overhaulGuideLink.href} class="catalog-footer-link">{overhaulGuideLink.label}</a>
+              </>
+            )}
             <span class="catalog-footer-sep" aria-hidden="true">/</span>
             <a
               href={quoteHref}

@@ -39,6 +39,16 @@ const isRedirectedLegacyProduct = new Set([
   'mtu-series-4000-gensets',
 ]).has(product.slug);
 const shouldNoindex = isRedirectedLegacyProduct || (isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail);
+// Authority concentration: the 2000/4000 series product pages are among the
+// highest-impression pages on the site, and the overhaul guides already link
+// out to them. Linking back closes the loop (hub-and-spoke) and pushes weight
+// onto the strongest content asset for these two series.
+const overhaulGuideLink =
+  product.slug === 'mtu-2000-series-parts'
+    ? { href: '/guides/mtu-2000-overhaul-parts/', label: 'MTU 2000 Series Overhaul Parts Guide' }
+    : product.slug === 'mtu-4000-series-parts'
+      ? { href: '/guides/mtu-4000-overhaul-parts/', label: 'MTU 4000 Series Overhaul Parts Guide' }
+      : undefined;
 
 const brand = productText.includes('cummins')
   ? 'Cummins'
@@ -189,6 +199,12 @@ const verificationFocus = [
       <a href="/part-products/">MTU part numbers</a>
       ·
       <a href="/products/mtu-spare-parts/">MTU parts</a>
+      {overhaulGuideLink && (
+        <>
+          ·
+          <a href={overhaulGuideLink.href}>{overhaulGuideLink.label}</a>
+        </>
+      )}
       ·
       <a
         href={quoteHref}
