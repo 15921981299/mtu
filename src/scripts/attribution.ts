@@ -154,6 +154,27 @@ export function getLeadAttributionParams(): Record<string, string> {
   };
 }
 
+const recordedInquiries = new Set<string>();
+
+export function trackAcceptedInquiry(inquiryId: unknown, extra: Record<string, string | number> = {}): boolean {
+  if (typeof inquiryId !== 'string' || !/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(inquiryId)
+    || typeof window.gtag !== 'function' || recordedInquiries.has(inquiryId)) return false;
+  const key = `rfq_accepted_${inquiryId}`;
+  try {
+    if (sessionStorage.getItem(key)) return false;
+    sessionStorage.setItem(key, '1');
+  } catch { /* Deduplicate in memory when storage is unavailable. */ }
+  recordedInquiries.add(inquiryId);
+  window.gtag('event', 'generate_lead', {
+    ...getLeadAttributionParams(),
+    ...extra,
+    inquiry_id: inquiryId,
+    event_category: 'RFQ',
+  });
+  fireAttributionLeadEvent({ ...extra, inquiry_id: inquiryId });
+  return true;
+}
+
 export function fireAttributionLeadEvent(extra: Record<string, string | number> = {}): void {
   const data = getAttributionSnapshot();
   if (!data || typeof window.gtag !== 'function') return;

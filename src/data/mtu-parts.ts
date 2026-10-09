@@ -1,6 +1,6 @@
 ﻿import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
 
-import { applySearchPartContent } from './part-search-content';
+import { applySearchPartContent, partSearchContent } from './part-search-content';
 
 export type MtuPart = {
   slug: string;
@@ -15,9 +15,10 @@ export type MtuPart = {
   stockStatus?: string;
   applications: string[];
   notes: string[];
+  catalogSourceUrl?: string;
   /** Cross-reference / alternative OEM numbers */
   replacementFor?: string[];
-  crossReferences?: { partNumber: string; relationship: 'replaces' | 'replaced-by' | 'reference' }[];
+  crossReferences?: { partNumber: string; relationship: 'replaces' | 'replaced-by' | 'reference'; sourceUrl?: string }[];
   specificationChecks?: string[];
   /** Typical shipping weight per unit (kg) */
   weightKg?: string;
@@ -380,7 +381,7 @@ const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
   // ── MTU 2000 fuel & cooling ──
   'X53508200001': { engineType: 'MTU 2000', dimensions: 'LP fuel pump assembly', weightKg: '3.500 KG', hsCode: '84133000', natoNumber: 'N/A' },
   'E0060704101': { engineType: 'MTU 2000', dimensions: 'HP fuel pump assembly', weightKg: '5.000 KG', hsCode: '84133000', natoNumber: 'N/A', leadTime: 'Quoted by engine serial — 1-3 weeks typical.' },
-  '5501800016': { engineType: 'MTU 2000', dimensions: 'Spin-on element', weightKg: '0.700 KG', hsCode: '84212300', natoNumber: 'N/A' },
+  '5501800016': { engineType: 'MTU 396', weightKg: '0.658 KG', hsCode: '84212300', natoNumber: '2940123179421' },
   '0010928801': { engineType: 'MTU 2000', dimensions: 'Prefilter cartridge', weightKg: '0.500 KG', hsCode: '84212300', natoNumber: 'N/A' },
   '0030944304': { engineType: 'MTU 2000', dimensions: '300mm OD x 400mm L', weightKg: '2.000 KG', hsCode: '84213100', natoNumber: 'N/A' },
   // ── MTU 595 / 956 / 1163 ──
@@ -1101,7 +1102,7 @@ const sitemapMtuParts = [
   { partNumber: '8695860572', name: 'Gasket Kit', series: ['MTU 956', 'MTU 1163'], category: 'Gaskets and seals' },
   { partNumber: '8699810032', name: 'Cyl Roller Bearing', series: ['MTU 956', 'MTU 1163'], category: 'Bearings' },
   { partNumber: '8699810033', name: 'Anglr Cont Ball Brg', series: ['MTU 956', 'MTU 1163'], category: 'Engine components' },
-  { partNumber: '8699890005', name: 'Adhesive', series: ['MTU 956', 'MTU 1163'], category: 'Engine components' },
+  { partNumber: '8699890005', name: 'Adhesive', series: ['MTU 2000'], category: 'Engine components' },
   { partNumber: '8699970114', name: 'Sealing Ring', series: ['MTU 956', 'MTU 1163'], category: 'Gaskets and seals' },
   { partNumber: '8699970212', name: 'O Ring', series: ['MTU 956', 'MTU 1163'], category: 'Engine components' },
   { partNumber: '8699970213', name: 'O Ring', series: ['MTU 956', 'MTU 1163'], category: 'Engine components' },
@@ -1682,7 +1683,7 @@ const mtuPartsRaw: MtuPart[] = [
     { partNumber: '5502040906', name: 'Impeller', series: [], category: 'Cooling system', stockStatus: 'Common service item — typically in stock', replacementFor: [], weightKg: '0.8 kg', hsCode: '8413.30' },
     { partNumber: '5502030060', name: 'Sight Glass', series: [], category: 'Cooling system', stockStatus: 'Small part — commonly in stock', replacementFor: [], weightKg: '0.1 kg', hsCode: '7017.90' },
     // ── MTU 2000 Filters ──
-    { partNumber: '5501800016', name: 'Oil Filter Element', series: [], category: 'Filters', stockStatus: 'High-volume consumable — bulk quantities available', replacementFor: [], weightKg: '0.7 kg', hsCode: '8421.23' },
+    { partNumber: '5501800016', name: 'Oil Filter Element', series: ['MTU 396'], category: 'Filters', stockStatus: 'Availability checked per inquiry', replacementFor: [], weightKg: '0.658 KG', hsCode: '84212300' },
     { partNumber: '0010928801', name: 'Fuel Prefilter', series: [], category: 'Filters', stockStatus: 'Common consumable — typically in stock', replacementFor: [], weightKg: '0.5 kg', hsCode: '8421.23' },
     { partNumber: '0030944304', name: 'Air Filter', series: [], category: 'Filters', stockStatus: 'Common consumable — bulk quantities available', replacementFor: ['0030947404', '0030948104'], weightKg: '2.0 kg', hsCode: '8421.31' },
     { partNumber: '0180944502', name: 'Prefilter', series: [], category: 'Filters', stockStatus: 'Common consumable item', replacementFor: [], weightKg: '1.5 kg', hsCode: '8421.31' },
@@ -2061,41 +2062,12 @@ const highValueFaqs = (part: MtuPart, seriesText: string, scenarios: string[]) =
 };
 
 const inferHighValueApplication = (part: MtuPart): string => {
-  const partNumber = part.partNumber.toUpperCase();
   const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
   const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 
   if (part.series.length > 0) return part.series.join(', ');
   if (hasSpecificEngineType) return part.engineType!;
   if (hasSpecificApplicableEngines) return part.applicableEngines!;
-  if (partNumber.startsWith('524') || partNumber.startsWith('X524') || partNumber.startsWith('EX524') || partNumber.startsWith('X547')) {
-    return 'MTU 4000 series applications';
-  }
-  if (
-    partNumber.startsWith('541') ||
-    partNumber.startsWith('550') ||
-    partNumber.startsWith('536') ||
-    partNumber.startsWith('531') ||
-    partNumber.startsWith('532') ||
-    partNumber.startsWith('X535') ||
-    partNumber.startsWith('E006')
-  ) {
-    return 'MTU 2000 series applications';
-  }
-  if (partNumber.startsWith('555') || partNumber.startsWith('556') || partNumber.startsWith('558') || partNumber.startsWith('559') || partNumber.startsWith('849')) {
-    return 'MTU 956 / 1163 series applications';
-  }
-  if (partNumber.startsWith('584')) return 'MTU 595 / 1163 series applications';
-  if (
-    partNumber.startsWith('000535') ||
-    partNumber.startsWith('003535') ||
-    partNumber.startsWith('520530') ||
-    partNumber.startsWith('004542') ||
-    partNumber.startsWith('000153')
-  ) {
-    return 'MTU electronic monitoring applications';
-  }
-
   return 'MTU engine serial-number verified applications';
 };
 
@@ -2160,12 +2132,10 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
 
   const seriesText = inferHighValueApplication(part);
   const scenarios = inferNameSpecificScenarios(part, highValueScenarios[part.category] ?? highValueScenarios['Engine components']);
-  const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
   const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
   const applicationText = hasSpecificApplicableEngines
     ? part.applicableEngines!
     : `${seriesText}; final fitment is confirmed by engine serial number and parts-catalog position.`;
-  const engineTypeText = hasSpecificEngineType ? part.engineType! : seriesText;
 
   // 第二句按真实数据变化（类目 + NATO + 替代号数量），避免 700+ 页共享同一字节级句子
   const natoRef = part.natoNumber && !/^n\/a$/i.test(part.natoNumber.trim()) ? part.natoNumber.trim() : '';
@@ -2178,15 +2148,15 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
 
   return {
     ...part,
-    summary: `${part.partNumber} ${part.name} for ${seriesText}. High-priority MTU ${part.category.toLowerCase()} item — fitment, stock route, and export details checked before quotation.${recordText}`,
-    description: `${part.partNumber} ${part.name} is treated as a priority MTU parts inquiry because it is commonly requested for overhaul, fleet maintenance, or downtime repair. Known public fields on this page include engine type (${engineTypeText}), application (${applicationText}), replacement references (${part.replacementFor && part.replacementFor.length > 0 ? part.replacementFor.join(', ') : 'checked before quote'}), weight (${part.weightKg ?? 'confirmed before shipment'}), HS code (${part.hsCode ?? 'confirmed before export'}), and lead time (${part.leadTime ?? 'checked per inquiry'}). We verify the part number against the engine model, serial number, installation position, and any superseded reference before quoting.`,
+    summary: part.catalogSourceUrl ? part.summary : `${part.partNumber} ${part.name}. Request a part-number and engine-serial check before quotation.${recordText}`,
+    description: part.description,
     commonFailureScenarios: part.commonFailureScenarios ?? scenarios,
     orderingNotes: part.orderingNotes ?? `For ${part.partNumber}, send the engine model, serial number, quantity, old-part photo, and destination country. We will confirm whether the item is OEM, OEM-alternative, reman, or superseded before quotation.`,
     applicableEngines: applicationText,
     leadTime: part.leadTime ?? 'Priority stock check; fastest available OEM, OEM-alternative, or reman route quoted per inquiry',
     quoteChecklist: part.quoteChecklist ?? highValueQuoteChecklist(part, seriesText),
     faqs: part.faqs ?? highValueFaqs(part, seriesText, part.commonFailureScenarios ?? scenarios),
-    imageAlt: part.imageAlt ?? `${part.partNumber} ${part.name} for ${seriesText} - MTU ${part.category} spare part with serial-number verification`,
+    imageAlt: part.imageAlt ?? `${part.partNumber} ${part.name} - MTU ${part.category} catalog reference`,
     notes: Array.from(new Set([
       ...part.notes,
       'Priority item: part number, supersession, and export packing details are checked before quote.',
@@ -2198,32 +2168,48 @@ const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
   const detail = engineFamilyPartDetailsBySlug[part.slug] ?? engineFamilyPartDetailsByPartNumber[part.partNumber.toUpperCase()];
   if (!detail) return part;
 
-  const replacementFor = Array.from(new Set([...(part.replacementFor ?? []), ...detail.replacementFor]));
-  const detailDescription = detail.sourceDescription?.trim();
-  const currentDescription = part.description?.trim();
-  const mergedDescription = detailDescription && currentDescription && !currentDescription.includes(detailDescription)
-    ? `${detailDescription} ${currentDescription}`
-    : detailDescription || currentDescription;
+  const usable = (value: string) => value.trim() && !/^n\/a$/i.test(value.trim()) ? value.trim() : undefined;
+  const isReference = (value: string) => /\d/.test(value) && /^[a-z0-9][a-z0-9 /._-]*$/i.test(value)
+    && !/^\d{4}[/-]\d{1,2}[/-]\d{1,2}$/.test(value) && value.toUpperCase() !== part.partNumber.toUpperCase();
+  const replacementFor = Array.from(new Set(detail.replacementFor.filter(isReference)));
+  const oldMatch = detail.sourceDescription.match(/OLD P\/N:\s*(.*?)\s*[,.;]?\s*NEW P\/N:/i);
+  const newMatch = detail.sourceDescription.match(/NEW P\/N:\s*([a-z0-9/._-]+)/i);
+  const earlier = (oldMatch?.[1] ?? '').split(',').map((number) => number.trim()).filter(isReference);
+  const later = newMatch?.[1].replace(/[.,;]+$/, '');
+  const crossReferences: NonNullable<MtuPart['crossReferences']> = replacementFor.map((number) => ({
+    partNumber: number,
+    relationship: later?.toUpperCase() === part.partNumber.toUpperCase() && earlier.includes(number) ? 'replaces'
+      : later?.toUpperCase() === number.toUpperCase() && oldMatch?.[1].split(',').some((old) => old.trim().toUpperCase() === part.partNumber.toUpperCase()) ? 'replaced-by' : 'reference',
+    sourceUrl: detail.sourceUrl,
+  }));
+  const series = detail.series.flatMap((label) => {
+    const combined = label.match(/^MTU\s+(\d+(?:\/\d+)+)$/i);
+    return combined ? combined[1].split('/').map((number) => `MTU ${number}`) : [label];
+  });
 
   return {
     ...part,
     image: detail.image || part.image,
     imageAlt: detail.imageAlt || part.imageAlt,
-    description: mergedDescription,
-    engineType: detail.engineType || part.engineType,
-    applicableEngines: detail.applicableEngines || part.applicableEngines,
-    dimensions: detail.dimensions || part.dimensions,
-    weightKg: detail.weightKg || part.weightKg,
-    hsCode: detail.hsCode || part.hsCode,
-    natoNumber: detail.natoNumber || part.natoNumber,
+    catalogSourceUrl: detail.sourceUrl,
+    series: [...new Set(series)],
+    summary: `${part.partNumber} ${part.name}. Listed in ${series.join(', ') || 'MTU'} catalog references; confirm installation and current availability before ordering.`,
+    description: usable(detail.sourceDescription),
+    engineType: usable(detail.engineType),
+    applicableEngines: usable(detail.applicableEngines),
+    dimensions: usable(detail.dimensions),
+    weightKg: usable(detail.weightKg),
+    hsCode: usable(detail.hsCode),
+    natoNumber: usable(detail.natoNumber),
     replacementFor,
+    crossReferences,
   };
 };
 
 const dedupedParts = new Map<string, MtuPart>();
 for (const part of mtuPartsRaw) {
   const key = `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`;
-  dedupedParts.set(key, applyEngineFamilyDetails(enrichHighValuePart(part))); // last write wins, then imported details refine specs/images
+  dedupedParts.set(key, enrichHighValuePart(applyEngineFamilyDetails(part)));
 }
 
 // ── Collapse naming variants of the same part number ─────────────────────────
@@ -2502,9 +2488,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     ],
     longDescription: `The MTU 2000 series is one of the most widely deployed diesel engine families in the world, powering everything from fast ferries and naval vessels to generator sets and locomotives. Available in 8V, 12V, 16V, and 18V configurations across multiple power ratings (M84, M91, M93, M94, M96), these engines share a common parts architecture that makes maintenance programs predictable — but also demanding when parts are needed urgently.
 
-    Our MTU 2000 parts catalog is organized by functional category so procurement teams can move from "I need a fuel system part" to a verified quotation quickly. Every part number listed here has been cross-referenced against MTU's own electronic parts catalog, and we verify fitment against your engine serial number before quoting. This means you receive a quote for the part that actually fits your engine — not a generic catalog entry that may have been superseded.
+    Catalog listings identify part numbers and component families, but they do not establish fitment for every engine build. The complete model, serial number, and installation position are needed to check the offered replacement. Public catalog references are distinguished from confirmed measurements and current supply information.
 
-    Common parts requests for the 2000 series include cylinder head gaskets (5410160920), fuel injectors (X53507500012), seawater pump impellers (X00022524), and oil filter spin-on elements (0031845201). These are high-frequency consumables that we typically hold in stock or can source within days. For major overhauls, we also supply pistons, liners, bearings, valves, and complete gasket kits.
+    Catalog references include cylinder-head gaskets, fuel injectors, service filters, sensors, and sealing components. Stock, dimensions, supplied condition, and lead time are confirmed for the exact reference in the quotation, rather than inferred from a series name.
 
     If you are maintaining a fleet of MTU 2000 engines — whether in a shipyard, a power plant, or a rail depot — send us your parts list and engine serial numbers. We check availability line by line and quote practical shipping from Shanghai to your destination.`,
     type: 'series',
@@ -2535,9 +2521,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     ],
     longDescription: `The MTU 4000 series represents the top tier of MTU's high-speed diesel engine range, with power outputs from 1,500 kW to over 4,300 kW in 12V, 16V, and 20V configurations. These engines are found in the world's most demanding applications: fast naval vessels, superyachts, offshore supply vessels, mission-critical data center generators, and heavy-haul locomotives.
 
-    Parts for the 4000 series are engineered to extreme tolerances. Cylinder liners, pistons, and bearings are size-graded components where an incorrect grade selection — even by one step — can cause premature failure. Every part number in this catalog is verified against MTU's electronic parts catalog for your specific engine serial number before quotation. We supply both OEM and OEM-alternative options, with remanufactured components available for high-value assemblies like injectors and turbochargers.
+    Cylinder liners, pistons, and bearings require size-grade and installation checks. Catalog references are starting points for identification, not proof of compatibility with every MTU 4000 build. The quotation should state the exact offered number and condition, including any replacement or exchange terms.
 
-    High-demand 4000 series parts include cylinder liners (5240113410), cylinder head gaskets (5240161580), injectors (EX52407500064), main bearings (5240334901), conrod bearings (5240383710), and turbocharger turbine wheels (5110804420). These are components where lead time can directly impact vessel availability or generator uptime. We stock common grades and can expedite special orders.
+    For injector, pump, and control-component inquiries, retain the complete reference including prefixes and suffixes. For an overhaul, identify each component and size grade separately. Availability and shipping lead time depend on the offered item and are confirmed with the quotation.
 
     For major overhauls, we recommend sending a complete parts list with engine serial numbers. We verify each line item, flag any superseded part numbers, and quote shipping from Shanghai via express courier, air freight, or sea freight depending on urgency and part dimensions.`,
     type: 'series',
@@ -2938,5 +2924,6 @@ export const searchPriorityPartNumbers = [
 ] as const;
 
 export const searchPriorityPartRank = new Map<string, number>(
-  searchPriorityPartNumbers.map((partNumber, index) => [partNumber.toUpperCase(), index]),
+  [...new Set([...searchPriorityPartNumbers, ...Object.keys(partSearchContent)])]
+    .map((partNumber, index) => [partNumber.toUpperCase(), index]),
 );

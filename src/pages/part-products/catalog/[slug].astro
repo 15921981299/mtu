@@ -15,6 +15,14 @@ const { hub } = Astro.props as { hub: MtuCatalogHub };
 const parts = mtuParts.filter(hub.partFilter);
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
+const catalogHeading = /catalog/i.test(hub.h1Title) ? hub.h1Title : `${hub.h1Title} Catalog`;
+const seriesGuideLinks: Record<string, { href: string; label: string }> = {
+  'mtu-2000-series': { href: '/series/mtu-2000/', label: 'MTU 2000 model identification' },
+  'mtu-396-series': { href: '/series/mtu-396/', label: 'MTU 396 model identification' },
+  'mtu-1163-series': { href: '/series/mtu-1163/', label: 'MTU 1163 model identification' },
+  'mtu-4000-series': { href: '/series/mtu-4000-variants/', label: 'MTU 4000 model variants' },
+};
+const seriesGuide = seriesGuideLinks[hub.slug];
 
 // For series hubs: group by category. For category hubs: group by engine series.
 const categoryGroups = new Map<string, typeof parts>();
@@ -54,12 +62,13 @@ const featuredParts = [...parts]
 const hasPublishedSizes = featuredParts.some((part) => Boolean(part.dimensions));
 const partSlugSet = new Set(parts.map((part) => part.slug));
 const relatedCatalogHubs = mtuCatalogHubs
-  .filter((h) => h.slug !== hub.slug)
+    .filter((h) => h.slug !== hub.slug)
   .map((h) => ({
     hub: h,
     overlap: mtuParts.filter(h.partFilter).filter((part) => partSlugSet.has(part.slug)).length,
     crossTypeBoost: h.type === hub.type ? 0 : 1,
   }))
+  .filter(({ overlap }) => overlap > 0)
   .sort((a, b) => b.overlap - a.overlap || b.crossTypeBoost - a.crossTypeBoost || a.hub.h1Title.localeCompare(b.hub.h1Title))
   .slice(0, 12)
   .map(({ hub }) => hub);
@@ -105,7 +114,7 @@ const catalogUseCases = hub.type === 'series'
 >
   <FunnelPageView stage="selection" label={`catalog-${hub.slug}`} />
   <BreadcrumbHero
-    title={hub.h1Title}
+    title={catalogHeading}
     trail={[
       { label: 'Home', href: '/' },
       { label: 'MTU Parts Catalog', href: '/part-products/' },
@@ -169,6 +178,7 @@ const catalogUseCases = hub.type === 'series'
           </div>
 
           <h2>{hub.type === 'series' ? 'Parts by Category' : 'Parts by Engine Series'}</h2>
+          {seriesGuide && <p><a href={seriesGuide.href}>{seriesGuide.label}</a> · <a href={hub.slug === 'mtu-4000-series' ? '/products/mtu-4000-series-parts/' : hub.slug === 'mtu-2000-series' ? '/products/mtu-2000-series-parts/' : '/products/mtu-spare-parts/'}>Parts supply and quotation</a></p>}
           <p class="catalog-intro-text">{hub.description}</p>
 
           {hub.longDescription && (

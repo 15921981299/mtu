@@ -3,16 +3,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { productFaqs } from '../../data/page-faqs';
-import { products } from '../../data/products';
+import { products, isProductPageNoindex } from '../../data/products';
 import { breadcrumbSchema, faqSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-4000-series-parts']);
+const publishedProducts = products.filter((product) => product.slug !== 'mtu-2000-series' && !isProductPageNoindex(product));
 ---
 
 <BaseLayout
   title="Diesel Engine Parts — MTU, Cummins, DEUTZ & Detroit Diesel"
-  description="Diesel Part Source supplies genuine diesel engine parts for MTU, Detroit Diesel, Cummins, and DEUTZ engines. Search by part number, engine series, model, or serial number."
+  description="Independent diesel engine parts sourcing for MTU, Cummins, DEUTZ, and Detroit Diesel. Request part-number, application, and availability checks before quotation."
   currentPath="/products"
   jsonLd={[
     breadcrumbSchema([
@@ -52,7 +53,7 @@ const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-
           </p>
 
           <div class="resource-meta">
-            <span><strong>{products.length}</strong> brand and series hubs</span>
+            <span><strong>{publishedProducts.length}</strong> brand and series hubs</span>
             <span>Genuine · OEM manufacturer parts</span>
             <span>MTU 183 to <strong>8000</strong> series</span>
           </div>
@@ -60,13 +61,13 @@ const featuredSlugs = new Set(['mtu-spare-parts', 'mtu-2000-series-parts', 'mtu-
           <div class="detail-rfq-strip">
             <p>Send your part number, engine serial number, and quantity. We check stock, replacements, and global shipping options.</p>
             <div class="detail-rfq-actions-inline">
-              <a href="/contact/?source=products" class="detail-rfq-link">Check Parts Availability</a>
+              <a href="/contact/?source=products" class="detail-rfq-link" data-rfq-modal data-rfq-context="Diesel engine parts inquiry" data-rfq-source="products-index">Check Parts Availability</a>
               <a href="/part-products/" class="detail-rfq-link detail-rfq-link-secondary">Browse Part Numbers</a>
             </div>
           </div>
 
           <div class="hub-grid products-hub-grid">
-            {products.filter((product) => product.slug !== 'mtu-2000-series').map((product) => (
+            {publishedProducts.map((product) => (
               <article class:list={['hub-card', { featured: featuredSlugs.has(product.slug) }]}>
                 {featuredSlugs.has(product.slug) && <span class="hub-featured-badge">Featured</span>}
                 <a href={`/products/${product.slug}/`} class="hub-card-image">

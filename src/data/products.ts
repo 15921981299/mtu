@@ -1,5 +1,7 @@
 ﻿type ProductItem = {
   slug: string;
+  brand?: 'MTU' | 'Cummins' | 'DEUTZ' | 'Detroit Diesel';
+  generatedModel?: boolean;
   title: string;
   image: string;
   mainImage: string;
@@ -18,6 +20,40 @@
 
 };
 
+
+const confirmedModelBrands: Record<string, NonNullable<ProductItem['brand']>> = {
+  'b125-33': 'Cummins',
+  'eqb125-20': 'Cummins',
+  'eqb140-20': 'Cummins',
+};
+
+function normalizeImportedModel(product: ProductItem): ProductItem {
+  const brand = product.slug.startsWith('mtu-') ? 'MTU'
+    : product.slug.startsWith('deutz-') ? 'DEUTZ'
+      : confirmedModelBrands[product.slug];
+  const model = confirmedModelBrands[product.slug] ? product.slug.toUpperCase() : product.title;
+  const identity = brand ? `${brand} ${model.replace(/^(MTU|DEUTZ)\s+/i, '')}` : model;
+  const support = brand ? `${brand} parts` : 'diesel engine parts';
+  return {
+    ...product,
+    brand,
+    generatedModel: true,
+    title: model,
+    h1Title: `${identity} Parts Identification`,
+    seoTitle: `${identity} Parts Identification | Diesel Part Source`,
+    summary: `${identity} parts inquiry: identify the installed component by its full marking, engine serial number, and required quantity. Availability is checked per request.`,
+    capabilitySlugs: brand === 'MTU' ? product.capabilitySlugs : ['industrial-engine-service'],
+    content: {
+      partOne: product.content.partOne.replaceAll(`MTU ${product.title}`, identity),
+      partTwo: product.content.partTwo.replace('MTU Spare Parts inquiry support', `${support} inquiry support`),
+    },
+  };
+}
+
+export function isProductPageNoindex(product: ProductItem): boolean {
+  const redirected = ['mtu-series-2000-gensets', 'mtu-series-4000-engines', 'mtu-series-4000-gensets'];
+  return redirected.includes(product.slug) || Boolean(product.generatedModel && product.brand !== 'MTU');
+}
 
 // BEGIN ENGINE FAMILY SITEMAP PRODUCTS
 const importedEngineFamilyProducts: ProductItem[] = [
@@ -12144,25 +12180,27 @@ const productCatalog: ProductItem[] = [
         </ul>
         <h3>Frequently Requested Part Numbers</h3>
         <ul>
-          <li><a href="/part-products/5240113410-cylinder-liner-size-0/">5240113410 — Cylinder Liner Size 0 (MTU 4000)</a></li>
-          <li><a href="/part-products/x53507500012-injector/">X53507500012 — Injector (MTU 2000)</a></li>
-          <li><a href="/part-products/ex52407500064-injector/">EX52407500064 — Injector (MTU 4000)</a></li>
-          <li><a href="/part-products/5110804420-turbine-wheel/">5110804420 — Turbine Wheel (MTU 4000)</a></li>
-          <li><a href="/part-products/5410160920-cylinder-head-gasket/">5410160920 — Cylinder Head Gasket (MTU 2000)</a></li>
-          <li><a href="/part-products/0020940204-filter-cartridge/">0020940204 — Filter Cartridge (MTU 956)</a></li>
-          <li><a href="/part-products/0031845201-oil-filter-spin-on/">0031845201 — Oil Filter Spin-On (MTU 2000/4000)</a></li>
-          <li><a href="/part-products/x57508300091-fuel-filter-spin-on/">X57508300091 — Fuel Filter Spin-On (MTU 4000)</a></li>
-          <li><a href="/part-products/0005358233-speed-sensor/">0005358233 — Speed Sensor (MTU 2000/4000)</a></li>
-          <li><a href="/part-products/5240530301-inlet-valve/">5240530301 — Inlet Valve (MTU 4000)</a></li>
-          <li><a href="/part-products/5240380471-conrod-bolt/">5240380471 — Conrod Bolt (MTU 4000)</a></li>
-          <li><a href="/part-products/5502003201-seawater-pump/">5502003201 — Seawater Pump (MTU 2000)</a></li>
+          <li><a href="/part-products/5240113410-cylinder-liner-size-0/">5240113410 — Cylinder Liner Size 0</a></li>
+          <li><a href="/part-products/x53507500012-injector/">X53507500012 — Injector</a></li>
+          <li><a href="/part-products/ex52407500064-injector/">EX52407500064 — Injector</a></li>
+          <li><a href="/part-products/5110804420-turbine-wheel/">5110804420 — Turbine Wheel</a></li>
+          <li><a href="/part-products/5410160920-cylinder-head-gasket/">5410160920 — Cylinder Head Gasket</a></li>
+          <li><a href="/part-products/0020940204-filter-cartridge/">0020940204 — Filter Cartridge</a></li>
+          <li><a href="/part-products/0031845201-oil-filter-spin-on/">0031845201 — Oil Filter Spin-On</a></li>
+          <li><a href="/part-products/x57508300091-fuel-filter-spin-on/">X57508300091 — Fuel Filter Spin-On</a></li>
+          <li><a href="/part-products/0005358233-speed-sensor/">0005358233 — Speed Sensor</a></li>
+          <li><a href="/part-products/5240530301-inlet-valve/">5240530301 — Inlet Valve</a></li>
+          <li><a href="/part-products/5240380471-conrod-bolt/">5240380471 — Conrod Bolt</a></li>
+          <li><a href="/part-products/5502003201-seawater-pump/">5502003201 — Seawater Pump</a></li>
         </ul>
-        <p><a href="/part-products/">Browse all 300+ MTU part numbers →</a></p>
+        <p><a href="/part-products/">MTU part-number catalog</a></p>
       `,
       partTwo: `
         <h2>How We Verify MTU Parts</h2>
         <p>Send the part number, engine series, engine serial number, and photos when available. We confirm the correct item — including superseded part numbers and size grades — before quotation and shipment.</p>
-        <p><a href="/contact/">Request MTU spare parts →</a></p>
+        <p>The quotation identifies the exact number, offered condition, supply route, included items, and shipping terms. Catalog images and historical references are not proof of current warehouse stock.</p>
+        <p><a href="/certifications/">Quality documentation</a> · <a href="/about/">Company information</a> · <a href="/series/mtu-2000/">MTU 2000 model identification</a></p>
+        <p><a href="/contact/?source=mtu-spare-parts" data-rfq-modal data-rfq-context="MTU spare parts inquiry" data-rfq-source="mtu-spare-parts">Request MTU spare parts</a></p>
       `,
     },
   },
@@ -12201,7 +12239,9 @@ const productCatalog: ProductItem[] = [
       partTwo: `
         <h2>Fast Identification</h2>
         <p>Share the engine model, serial number, and required part numbers. If you only have the old part, send clear photos and markings.</p>
-        <p><a href="/contact/">Check MTU 2000 series availability</a></p>
+        <p><a href="/series/mtu-2000/">MTU 2000 model and variant identification</a> · <a href="/series/16v2000m96/">16V2000M96 identification</a> · <a href="/part-products/catalog/mtu-2000-series/">MTU 2000 part-number catalog</a></p>
+        <p>For an overhaul list, identify the scope by cylinder and assembly. The quote specifies the included references and supply condition; shared series names do not confirm every installation.</p>
+        <p><a href="/contact/?source=mtu-2000-supply" data-rfq-modal data-rfq-context="MTU 2000 parts supply inquiry" data-rfq-source="mtu-2000-supply">Check MTU 2000 series availability</a></p>
       `,
     },
   },
@@ -12239,7 +12279,9 @@ const productCatalog: ProductItem[] = [
       partTwo: `
         <h2>For Fleet Maintenance</h2>
         <p>We support repeat orders and consolidated spare-parts lists for vessel, power plant, and industrial maintenance programs.</p>
-        <p><a href="/contact/">Request MTU 4000 parts</a></p>
+        <p><a href="/series/mtu-4000-variants/">MTU 4000 model variants</a> · <a href="/part-products/catalog/mtu-4000-series/">MTU 4000 part-number catalog</a> · <a href="/guides/mtu-4000-overhaul-parts/">Overhaul scope and ordering checks</a></p>
+        <p>Keep the complete X/EX reference and suffix in your parts list. Confirm the offered condition, included accessories, and any exchange or core-return terms before accepting a replacement route.</p>
+        <p><a href="/contact/?source=mtu-4000-supply" data-rfq-modal data-rfq-context="MTU 4000 parts supply inquiry" data-rfq-source="mtu-4000-supply">Request MTU 4000 parts</a></p>
       `,
     },
   },
@@ -12339,7 +12381,7 @@ const productCatalog: ProductItem[] = [
       `,
     },
   },
-  ...importedEngineFamilyProducts,
+  ...importedEngineFamilyProducts.map(normalizeImportedModel),
 ];
 
 function resolveProductImages(product: ProductItem): Pick<ProductItem, 'image' | 'mainImage' | 'secondImage'> {

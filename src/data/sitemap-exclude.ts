@@ -1,4 +1,4 @@
-import { products } from './products';
+import { products, isProductPageNoindex } from './products';
 import { importedEngineFamilyPages } from './imported-engine-family-pages';
 import { isPartPageIndexable, mtuParts } from './mtu-parts';
 import { publishedCaseStudies } from './case-studies';
@@ -15,33 +15,12 @@ const CASE_STUDIES_EXCLUDES = new Set(
   publishedCaseStudies.length === 0 ? ['/case-studies/'] : [],
 );
 
-function isGeneratedProductNoindex(product: (typeof products)[number]): boolean {
-  const productIdentityText = `${product.slug} ${product.title} ${product.h1Title}`.toLowerCase();
-  const isGeneratedModelPage = /is listed under .* inquiry support/i.test(product.content.partTwo);
-  const isCoreIndexProduct = new Set([
-    'mtu-spare-parts',
-    'mtu-2000-series-parts',
-    'mtu-4000-series-parts',
-    'detroit-diesel-parts',
-    'cummins-parts',
-    'deutz-parts',
-  ]).has(product.slug);
-  const isMtuLongTail = /\bmtu\b|mtu-|2000|4000|1163|8000|396|183|538|595|956/.test(productIdentityText);
-  const isRedirectedLegacyProduct = new Set([
-    'mtu-series-2000-gensets',
-    'mtu-series-4000-engines',
-    'mtu-series-4000-gensets',
-  ]).has(product.slug);
-
-  return isRedirectedLegacyProduct || (isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail);
-}
-
 function isImportedPageNoindex(page: (typeof importedEngineFamilyPages)[number]): boolean {
   return !/^(part\/mtu-(183-parts|538-parts|1800-parts|specialized-tools)$|stock$|support-services$|genuine-oem-parts$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
 }
 
 const NOINDEX_PRODUCT_PATHS = new Set(
-  products.filter(isGeneratedProductNoindex).map((product) => `/products/${product.slug}/`)
+  products.filter(isProductPageNoindex).map((product) => `/products/${product.slug}/`)
 );
 
 const NOINDEX_IMPORTED_PATHS = new Set(

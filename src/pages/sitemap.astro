@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import { services } from '../data/services';
-import { products } from '../data/products';
+import { products, isProductPageNoindex } from '../data/products';
 import { productSubpages } from '../data/product-subpages';
 import { industries } from '../data/industries';
 import { applications } from '../data/applications';
@@ -58,7 +58,7 @@ const termsPages = [
 
 const capabilityLinks = services.map((s) => ({ href: `/capabilities/${s.slug}/`, label: s.title }));
 const productLinks = products
-  .filter((product) => product.slug !== 'mtu-2000-series')
+  .filter((product) => product.slug !== 'mtu-2000-series' && !isProductPageNoindex(product))
   .map((product) => ({ href: `/products/${product.slug}/`, label: product.title }));
 const productSubLinks = productSubpages
   .filter((sp) => !isSubpageNoindex(sp.productSlug, sp.slug))

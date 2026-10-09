@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import ts from 'typescript';
 
 const page = (slug) => readFileSync(new URL(`../dist/part-products/${slug}/index.html`, import.meta.url), 'utf8');
 const targets = [
@@ -44,4 +45,55 @@ test('catalogs promote the relevant priority pages', () => {
   assert.ok(rows.includes('/part-products/0000925105-filter-element/'));
   assert.ok(page('catalog/mtu-injectors').includes('ex52407500064-injector'));
   assert.ok(page('catalog/mtu-sensors').includes('x00e50203659-level-monitor'));
+});
+
+test('all thirty search opportunity pages have distinct identification content and remain indexable', async () => {
+  const code = ts.transpileModule(readFileSync(new URL('../src/data/part-search-content.ts', import.meta.url), 'utf8'), {
+    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  const { partSearchContent } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
+  assert.equal(Object.keys(partSearchContent).length, 30);
+  const index = JSON.parse(readFileSync(new URL('../dist/search-index.json', import.meta.url), 'utf8'));
+  const records = Array.isArray(index) ? index : index.parts;
+  for (const [number, content] of Object.entries(partSearchContent)) {
+    const record = records.find((record) => record.pn?.toUpperCase() === number);
+    assert.ok(record, number);
+    const html = page(record.slug);
+    assert.doesNotMatch(html, /<meta[^>]*name="robots"[^>]*noindex/, number);
+    assert.match(html, /Technical Data Status/, number);
+    assert.ok(html.includes(content.description), number);
+    assert.ok(html.includes(`data-part-number="${number}"`), number);
+  }
+});
+
+test('catalog imports do not publish contradictory series or old estimated measurements', () => {
+  const filter = page('5501800016-oil-filter-element');
+  assert.match(filter, /0\.658 KG/);
+  assert.match(filter, /<title>5501800016 Oil Filter Element - MTU 396 Part<\/title>/);
+  assert.doesNotMatch(filter, /0\.700 KG|0\.7 kg|Spin-on element/);
+  const adhesive = page('8699890005-adhesive');
+  assert.match(adhesive, /Listed in MTU 2000/);
+  assert.doesNotMatch(adhesive, /Adhesive for MTU 956|Adhesive for MTU 1163/);
+  assert.doesNotMatch(page('xp00a36400005-filter-element'), /2024\/02\/8<\/th>/);
+  assert.doesNotMatch(page('5240530122-valve-spring-inner'), /35mm OD x 70mm L/);
+});
+
+test('non-MTU generated model pages have corrected brands and remain outside the sitemap', () => {
+  const product = (slug) => readFileSync(new URL(`../dist/products/${slug}/index.html`, import.meta.url), 'utf8');
+  for (const slug of ['b125-33', 'eqb125-20', 'eqb140-20']) {
+    const html = product(slug);
+    assert.match(html, /Cummins/);
+    assert.match(html, /<meta[^>]*name="robots"[^>]*noindex/);
+    assert.doesNotMatch(html, /supports MTU|under MTU Spare Parts/);
+    const overview = readFileSync(new URL('../dist/products/index.html', import.meta.url), 'utf8');
+    assert.ok(!overview.includes(`/products/${slug}/`));
+  }
+});
+
+test('drawing relationships link actual catalog components without calling them a confirmed kit', () => {
+  const html = page('x52420300037-thermal-actuator');
+  assert.match(html, /Parts in the Same Catalog Drawing/);
+  assert.match(html, /href="\/part-products\/05132155-ring-sealing\/"/);
+  assert.match(page('05132155-ring-sealing'), /href="\/part-products\/x52420300037-thermal-actuator\/"/);
+  assert.match(html, /not a confirmed kit/);
 });

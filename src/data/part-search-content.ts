@@ -1,7 +1,7 @@
 import type { MtuPart } from './mtu-parts';
 
-type SearchPartContent = Pick<MtuPart, 'summary' | 'description' | 'quoteChecklist' | 'faqs'> &
-  Partial<Pick<MtuPart, 'dimensions' | 'specificationChecks' | 'crossReferences'>>;
+type SearchPartContent = Pick<MtuPart, 'summary' | 'description'> &
+  Partial<Pick<MtuPart, 'dimensions' | 'specificationChecks' | 'crossReferences' | 'quoteChecklist' | 'faqs'>>;
 
 // Buyer questions from September 2026 Bing/GSC exports. Catalog records are
 // not a substitute for checking the actual engine and offered component.
@@ -109,6 +109,139 @@ export const partSearchContent: Record<string, SearchPartContent> = {
     specificationChecks: ['Send the old label, including the pressure range and units.', 'Confirm connector pin arrangement and installation position before accepting a replacement.'],
     quoteChecklist: ['Current or old pressure-sensor number and quantity', 'Range/label and connector photos', 'Engine serial number and destination country'],
     faqs: [{ question: 'Can I request X00E50214075 using an old 0035352231 number?', answer: 'Yes. Include the old number in the inquiry so the catalog relationship, pressure range, and connector can be checked. The quotation should identify the exact number being supplied.' }],
+  },
+  '8692040010': {
+    summary: '8692040010 thrust ring listed for MTU 396 catalog applications. Confirm the shaft position, mating components, and ring dimensions before ordering.',
+    description: 'Identify 8692040010 by its assembly position, not simply by the words thrust ring. Catalog weight does not establish thickness, material, or permissible axial clearance. Include the drawing position or a photo of the ring in its installed arrangement.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm inside/outside diameters, thickness, shaft location, and mating-part numbers.'],
+    faqs: [{ question: 'Can I select 8692040010 by its weight?', answer: 'No. The catalog weight is a logistics reference. Ring geometry and the assembly position must match the engine build.' }],
+  },
+  '700429260000': {
+    summary: '700429260000 MTU O-ring reference, with catalog numbers 0019972348 and 0089977545. Request seal-size and material confirmation.',
+    description: 'The current catalog does not publish verified dimensions for 700429260000. Do not infer a 260 mm inside diameter from the number. References 0019972348 and 0089977545 need application checks before being treated as interchangeable seals.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm inside diameter, cross-section, material, and the fluid and temperature at the sealing position.'],
+    faqs: [{ question: 'Does 700429260000 mean a 260 mm O-ring?', answer: 'The part number alone does not establish seal dimensions. Use a controlled drawing or measurements with material confirmation.' }],
+  },
+  '5840780024': {
+    summary: '5840780024 thrust member listed in MTU 956/1163 high-pressure fuel-line references. Confirm the line and connection position with your inquiry.',
+    description: '5840780024 is a small fuel-line connection component, not a complete high-pressure line. Send the line assembly reference and a view of the connection so the supplied thrust member can be checked against its mating parts.',
+    dimensions: undefined,
+    specificationChecks: ['Identify the high-pressure line and connection position; ask whether mating seals or fittings are included in the quotation.'],
+    faqs: [{ question: 'Does 5840780024 include the fuel line?', answer: 'The listing identifies a thrust member. A complete line or associated fittings must be requested and quoted separately.' }],
+  },
+  '4221880001': {
+    summary: '4221880001 oil cooler listed for MTU 183 catalog applications. Request connection, installation, and supply-condition checks.',
+    description: 'When requesting 4221880001, identify the cooler body, mounting arrangement, and oil/coolant connections. A quote for the cooler should distinguish the core or assembly offered and state whether seals and mounting hardware are included.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm port arrangement and mounting pattern. Ask for available pressure/leak-test documentation for the offered cooler.'],
+    faqs: [{ question: 'Is 4221880001 supplied with seals?', answer: 'The catalog number alone does not define the shipment contents. Request an itemized quote for the cooler and any required seals.' }],
+  },
+  X52420300037: {
+    summary: 'X52420300037 MTU 4000 thermal actuator. Catalog earlier references include 0662030073, 0052031575, and 0052035175.',
+    description: 'The catalog marking for X52420300037 includes 38 degrees and an FKM reference. This is not enough to establish a complete operating curve or installation geometry. Match the old actuator, its housing position, and the engine serial number before replacement.',
+    dimensions: undefined,
+    specificationChecks: ['Catalog marking: 38 degrees / 2.363 FKM MTL5076. Confirm the meaning, travel, housing interface, and operating specification with the offered unit.'],
+    faqs: [{ question: 'Is X52420300037 a complete thermostat assembly?', answer: 'The listing describes a thermal actuator. Housing, seals, and other thermostat components need their own identification and quotation.' }],
+  },
+  '23540455': {
+    summary: '23540455 centrifugal oil filter assembly listed for MTU 4000. Specify whether you need the complete assembly or individual service items.',
+    description: '23540455 identifies a centrifugal oil-filter assembly in the catalog. Identify the housing and installed connections before ordering. Inserts, seals, rotor components, and complete assemblies are different supply scopes and should not be substituted based on the filter name alone.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm the assembly number, connection arrangement, and exact list of items included in supply.'],
+    faqs: [{ question: 'Is 23540455 the same as a replacement filter insert?', answer: 'No such equivalence is established here. This record is for an assembly; identify the insert separately from the assembly drawing.' }],
+  },
+  '5240530122': {
+    summary: '5240530122 inner valve spring for MTU 4000 catalog references. Confirm spring position and the listed reference X52404100108.',
+    description: '5240530122 is identified as an inner valve spring. Its free length, diameter, and load characteristics are not verified in the published record. Request the applicable spring specification before choosing a substitute.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm inner versus outer spring, free length, wire diameter, and required load data from the applicable valve-train drawing.'],
+    faqs: [{ question: 'Does 5240530122 include the outer spring?', answer: 'The listing identifies the inner spring only. Request the outer spring, retainer, and other items by their own references if needed.' }],
+  },
+  '5240550550': {
+    summary: '5240550550 MTU 4000 bushing, with catalog references 5240550150 and X52499100176. Request bore, outside diameter, and installation checks.',
+    description: 'For 5240550550, specify the bushing position and its mating shaft or housing. Catalog cross-references do not define an installation tolerance or prove interchangeability. Ask for a dimensional drawing of the offered bushing before approving a substitute.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm bore, outside diameter, length, lubrication features, and installation tolerance.'],
+    faqs: [{ question: 'Are 5240550150 and 5240550550 interchangeable?', answer: 'They appear in the reference data without a confirmed replacement direction. The installation and dimensional specification must be checked.' }],
+  },
+  '0005358233': {
+    summary: '0005358233 MTU speed sensor. Catalog markings list a 19 x 90 mm body reference and a 1150 mm cable.',
+    description: 'The catalog marks 0005358233 as D=19X90 with a cable length of 1150 mm. These are catalog references, not measurements of current stock. Match the sensing end, connector, mounting position, and signal specification as well as the cable length.',
+    dimensions: 'Catalog: diameter 19 mm x 90 mm; cable length 1150 mm',
+    specificationChecks: ['Confirm measurement endpoints, connector pin arrangement, sensing gap, and electrical specification.'],
+    faqs: [{ question: 'Does the cable length identify 0005358233 by itself?', answer: 'No. The full body number, connector, and sensing specification must also match the installed sensor.' }],
+  },
+  '5240530830': {
+    summary: '5240530830 MTU 4000 valve guide. Catalog history lists 5240530530 and X52404100299 as earlier references.',
+    description: 'The 5240530830 catalog marking includes 19.00 R6 H7 and a finished-machining description. Do not treat those tokens as a complete dimensional drawing. Confirm the mating valve, cylinder-head bore, and any required finishing work for the offered guide.',
+    dimensions: undefined,
+    specificationChecks: ['Catalog marking: FERTIG BEARBEITET, 19.00 R6 H7. Confirm which dimensions and tolerances it describes.'],
+    faqs: [{ question: 'Can I order 5240530830 using X52404100299?', answer: 'The catalog identifies X52404100299 as an earlier reference. Include the old number and engine serial number so the offered guide and installation requirements can be confirmed.' }],
+  },
+  '0002000001': {
+    summary: '0002000001 coolant pump listed for MTU 183, not automatically for MTU 2000. Request drive, flange, and connection checks.',
+    description: 'The catalog places 0002000001 in the MTU 183 engine family. Other engine-family installations are not confirmed by this listing. Send the pump marking, engine serial number, flange photo, and cooling arrangement for application confirmation.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm pump drive, mounting flange, ports, and whether the quotation includes the complete pump or a repair scope.'],
+    faqs: [{ question: 'Is 0002000001 confirmed for every MTU 2000 engine?', answer: 'No. The current record lists MTU 183 catalog applications. Other installations require an application-specific catalog check.' }],
+  },
+  F6794703: {
+    summary: 'F6794703 injector fitting/removal tool listed for MTU BR4000-00/01/02. Confirm the injector connection and required tool components.',
+    description: 'F6794703 is a fitting/removal device, not a replacement injector. The catalog associates it with extracting an injector from the cylinder head on BR4000-00/01/02 applications. Confirm the installed injector design and the components included in the tool set.',
+    dimensions: undefined,
+    specificationChecks: ['Provide the injector and engine references; confirm adapters, puller components, and the applicable service procedure.'],
+    faqs: [{ question: 'Will F6794703 work on every MTU injector?', answer: 'Universal compatibility is not established. Check the tool interface against the injector design and service procedure for the engine build.' }],
+  },
+  '4420110059': {
+    summary: '4420110059 tombak ring listed for MTU 183. Catalog dimensions are 147.4 x 153.5 x 0.15; confirm units and sealing position.',
+    description: 'The 4420110059 catalog lists 147,4 X 153,5 X 0,15. Confirm the units, inside/outside diameter convention, and thickness against a drawing before selecting the ring. The numeric catalog references 93212870199 and 93.21287-0199 do not independently establish replacement direction.',
+    dimensions: 'Catalog marking: 147.4 x 153.5 x 0.15; confirm units and endpoints',
+    specificationChecks: ['Confirm ring material, sealing position, dimensions, and whether the old seal is reusable under the applicable service procedure.'],
+    faqs: [{ question: 'Are the published 4420110059 dimensions stock measurements?', answer: 'No. They are transcribed catalog markings. Ask for a drawing or measurements of the offered ring with explicit units.' }],
+  },
+  '0000943268': {
+    summary: '0000943268 MTU air-filter restriction indicator. Check the mounting connection, indication range, and listed reference numbers.',
+    description: '0000943268 is an air-filter restriction indicator, not an air-filter element. Catalog references DX002278, RBX002278, and X002278 require interface and range confirmation. Provide a photo showing the indicator scale and mounting connection.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm indication threshold/range, reset arrangement, mounting thread, and connection to the air-filter housing.'],
+    faqs: [{ question: 'Does 0000943268 include an air-filter element?', answer: 'The listing is for the restriction indicator. Identify and request the filter element separately.' }],
+  },
+  '700429100000': {
+    summary: '700429100000 O-ring in MTU 956/1163 coolant-pump catalog references. Catalog marking A 100 x 5 requires material and installation confirmation.',
+    description: 'The catalog describes 700429100000 as a coolant-pump O-ring with marking A 100 X 5. It lists 614D15702/1, 11.32287-2006, and 700294100000 as earlier references. Confirm the dimensional convention, seal material, and pump position rather than assuming all rings of that size are equivalent.',
+    dimensions: 'Catalog marking: A 100 x 5; confirm units and material',
+    specificationChecks: ['Confirm inside diameter, cross-section, material, and the exact coolant-pump sealing position.'],
+    faqs: [{ question: 'Can I replace 700429100000 with any 100 x 5 O-ring?', answer: 'Matching nominal size is insufficient. Material, fluid compatibility, temperature, and installation requirements must also match.' }],
+  },
+  'X54920200040/87': {
+    summary: 'X54920200040/87 MTU 4000 high-temperature circuit water pump. Catalog history names EX54920200040/87 as a later reference.',
+    description: 'Keep the /87 suffix when requesting X54920200040/87. The catalog separates this high-temperature circuit pump from other cooling-pump references and lists EX54920200040/87 as a later number. The EX prefix alone does not confirm supply condition or a core-return policy.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm high-temperature circuit, pump drive, ports, mounting interface, offered condition, and any exchange/core terms.'],
+    faqs: [{ question: 'Can I omit /87 from X54920200040/87?', answer: 'Retain the complete marking. The suffix is part of the catalog reference and may distinguish an assembly variant.' }],
+  },
+  '50773': {
+    summary: '50773 silicone sealing compound catalog reference with LOCTITE 5970 marking. Confirm the offered product, pack size, and shelf life.',
+    description: '50773 is listed as a silicone sealing compound with a LOCTITE 5970 reference, not a machined engine part. Identify the actual manufacturer label, product code, pack size, batch, and expiry date. Other numbers in the catalog are reference-only unless the approved service material is confirmed.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm manufacturer product code, package quantity, batch/expiry, and the approved application; request the technical and safety data sheets.'],
+    faqs: [{ question: 'Are all sealants listed under 50773 equivalent?', answer: 'No equivalence is established by the reference list. Confirm the approved product specification and application before substitution.' }],
+  },
+  '5610105420': {
+    summary: '5610105420 cylinder head listed for MTU 538. Specify bare head versus assembled head and request inspection documentation.',
+    description: 'The 5610105420 record identifies a cylinder head in the MTU 538 family. Its long catalog reference list does not mean every head assembly has the same configuration. Identify the casting/assembly marking and whether valves, guides, seats, and other components are required.',
+    dimensions: undefined,
+    specificationChecks: ['Confirm complete engine designation, head assembly scope, casting marking, and available inspection or test records.'],
+    faqs: [{ question: 'Is 5610105420 supplied as a complete cylinder head?', answer: 'The shipment scope must be stated in the quotation. Request an itemized description of the head and included components.' }],
+  },
+  '05132155': {
+    summary: '05132155 sealing ring with catalog successor 0002034480. Preserve the leading zero and confirm dimensions and sealing position.',
+    description: 'The catalog lists 05132155 with marking 57,76 X 67,5 X 6,4 and identifies 0002034480 as a later number. Leading-zero and prefixed references should be retained exactly as marked. Confirm material and installation details before approving the successor.',
+    dimensions: 'Catalog marking: 57.76 x 67.5 x 6.4; confirm units and endpoints',
+    specificationChecks: ['Confirm inside/outside diameters, thickness, material, and installation position against the offered reference.'],
+    faqs: [{ question: 'Does 0002034480 supersede 05132155?', answer: 'The imported catalog lists it as the later number. Check the engine application and offered ring before ordering; do not assume all similar reference strings describe the same supply.' }],
   },
 };
 

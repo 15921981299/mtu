@@ -5,7 +5,7 @@ import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import ProductSidebar from '../../components/ProductSidebar.astro';
-import { products } from '../../data/products';
+import { products, isProductPageNoindex } from '../../data/products';
 import { services } from '../../data/services';
 import { breadcrumbSchema, productSchema, serviceSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
@@ -22,23 +22,7 @@ const quoteHref = `/contact/?source=product-${product.slug}`;
 const capabilitySlugs = (product.capabilitySlugs ?? []) as readonly string[];
 const linkedCapabilities = services.filter((s) => capabilitySlugs.includes(s.slug));
 const productText = `${product.slug} ${product.title} ${product.summary} ${product.content.partOne}`.toLowerCase();
-const productIdentityText = `${product.slug} ${product.title} ${product.h1Title}`.toLowerCase();
-const isGeneratedModelPage = /is listed under .* inquiry support/i.test(product.content.partTwo);
-const isCoreIndexProduct = new Set([
-  'mtu-spare-parts',
-  'mtu-2000-series-parts',
-  'mtu-4000-series-parts',
-  'detroit-diesel-parts',
-  'cummins-parts',
-  'deutz-parts',
-]).has(product.slug);
-const isMtuLongTail = /\bmtu\b|mtu-|2000|4000|1163|8000|396|183|538|595|956/.test(productIdentityText);
-const isRedirectedLegacyProduct = new Set([
-  'mtu-series-2000-gensets',
-  'mtu-series-4000-engines',
-  'mtu-series-4000-gensets',
-]).has(product.slug);
-const shouldNoindex = isRedirectedLegacyProduct || (isGeneratedModelPage && !isCoreIndexProduct && !isMtuLongTail);
+const shouldNoindex = isProductPageNoindex(product);
 // Authority concentration: the 2000/4000 series product pages are among the
 // highest-impression pages on the site, and the overhaul guides already link
 // out to them. Linking back closes the loop (hub-and-spoke) and pushes weight
@@ -50,13 +34,13 @@ const overhaulGuideLink =
       ? { href: '/guides/mtu-4000-overhaul-parts/', label: 'MTU 4000 Series Overhaul Parts Guide' }
       : undefined;
 
-const brand = productText.includes('cummins')
+const brand = product.brand ?? (productText.includes('cummins')
   ? 'Cummins'
   : productText.includes('deutz')
     ? 'DEUTZ'
     : productText.includes('detroit')
       ? 'Detroit Diesel'
-      : 'MTU';
+      : productText.includes('mtu') ? 'MTU' : 'diesel engine');
 const applicationFocus = productText.includes('marine') || productText.includes('vessel') || productText.includes('ship')
   ? 'marine propulsion and shipyard maintenance'
   : productText.includes('g-drive') || productText.includes('generator') || productText.includes('genset') || productText.includes('power')

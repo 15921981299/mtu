@@ -58,6 +58,7 @@ Set these secrets/bindings on Cloudflare Pages:
 - `ZOHO_SMTP_PASS` — Zoho app password for `sales@dieselpartsource.com`
 - `R2_BUCKET` — R2 bucket binding for drawing uploads
 - `RFQ_DOWNLOAD_SECRET` — HMAC secret used for private drawing links that expire after 7 days
+- `RFQ_NOTIFICATION_EMAIL` (optional Worker variable) - sales-notification recipient. If unset, the existing `admin@machiningsupplier.com` recipient is retained. Confirm the new mailbox can receive mail before changing it.
 
 Email is sent via Zoho SMTP (`smtppro.zoho.com:465`), with the mailbox and host
 declared in `wrangler.toml`.

@@ -165,8 +165,8 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
               </div>
               <form class="contact-form" id="rfq-form" aria-labelledby="inquiry-form-heading" data-endpoint="https://dieselpartsource.com/api/rfq/" data-fallback-email={site.email}>
                 <div class="contact-form-column">
-                  <label class="contact-field-label" for="rfq-name">Your Name *</label>
-                  <input class="contact-form-input-field" type="text" id="rfq-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+                  <label class="contact-field-label" for="rfq-name">Your Name</label>
+                  <input class="contact-form-input-field" type="text" id="rfq-name" name="name" placeholder="Jane Smith" autocomplete="name" />
                 </div>
                 <div class="contact-form-column">
                   <label class="contact-field-label" for="rfq-email">Your Email *</label>
@@ -896,7 +896,7 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
 
 
 <script>
-  import { fireAttributionLeadEvent, getLeadAttributionParams, populateRfqAttributionFields } from '../scripts/attribution';
+  import { trackAcceptedInquiry, populateRfqAttributionFields } from '../scripts/attribution';
 
   // ── 文件上传 UI ──
   const fileLabel = document.querySelector<HTMLLabelElement>('.file-upload-label');
@@ -1067,20 +1067,14 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
             has_attachment: hasAttachment,
             inquiry_length: message.length,
           });
-          window.gtag('event', 'generate_lead', {
-            ...getLeadAttributionParams(),
-            inquiry_id: payload.inquiryId,
-            event_category: 'RFQ',
-            event_label: source || 'contact_form',
-            url_source: urlSource || 'unspecified',
-            destination_country: country || 'unspecified',
-            has_attachment: hasAttachment,
-          });
-          fireAttributionLeadEvent({
-            lead_source: source || 'unspecified',
-            url_source: urlSource || 'unspecified',
-          });
         }
+        trackAcceptedInquiry(payload.inquiryId, {
+          event_label: source || 'contact_form',
+          lead_source: source || 'unspecified',
+          url_source: urlSource || 'unspecified',
+          destination_country: country || 'unspecified',
+          has_attachment: hasAttachment,
+        });
         window.location.href = '/thank-you/?source=rfq';
         return;
       } else {

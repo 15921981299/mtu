@@ -6,6 +6,7 @@ import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { getSameSeriesServiceParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
+import { getCatalogAssemblies } from '../../data/part-assemblies';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -30,6 +31,13 @@ const pageUrl = `${site.url}/part-products/${part.slug}/`;
 const quoteHref = `/contact/?source=part-${part.slug}`;
 const relatedParts = getRelatedMtuParts(part, 4);
 const pairedParts = getSameSeriesServiceParts(part, 4);
+const assemblyReferences = getCatalogAssemblies(part.partNumber).map((assembly) => ({
+  ...assembly,
+  parts: assembly.parts.filter((item) => item.partNumber !== part.partNumber).map((item) => ({
+    ...item,
+    linkedPart: mtuParts.find((candidate) => candidate.partNumber.toUpperCase() === item.partNumber.toUpperCase()),
+  })),
+}));
 const hasSpecificEngineType = part.engineType && !/^Verify by engine serial number$/i.test(part.engineType);
 const hasSpecificApplicableEngines = part.applicableEngines && !/^Verify by engine serial number$/i.test(part.applicableEngines);
 const shortApplicableEngines = hasSpecificApplicableEngines
@@ -86,7 +94,7 @@ const metaDesc = (() => {
   if (part.natoNumber && !/^n\/a$/i.test(part.natoNumber.trim()) && !summaryText.includes(part.natoNumber)) specBits.push(`NATO ${part.natoNumber}`);
   if (specBits.length > 0) segments.push(specBits.join(' · ') + '.');
   const freshRefs = replacementRefs.filter((ref) => !summaryText.includes(ref));
-  if (freshRefs.length > 0) segments.push(`Alt ref: ${freshRefs.slice(0, 3).join(', ')}.`);
+  if (freshRefs.length > 0) segments.push(`Catalog refs: ${freshRefs.slice(0, 3).join(', ')}.`);
   const cta = `Request price and availability for ${part.partNumber}.`;
   let out = '';
   for (const seg of segments) {
@@ -193,7 +201,7 @@ const browseCatalogLinks = Array.from(
       decoding="async"
     />
 
-    <div class="resource-meta" aria-label="Part specifications">
+    <div class="resource-meta" aria-label="Part specifications" data-part-number={part.partNumber}>
       {specRows.slice(0, 8).map(([label, value]) => (
         <span><strong>{label}</strong> {value}</span>
       ))}
@@ -267,6 +275,7 @@ const browseCatalogLinks = Array.from(
     )}
 
     <h2>About {part.partNumber} - {part.name}</h2>
+    {part.catalogSourceUrl && <p>Published catalog details are identification references. They do not establish current stock, supplied condition, or confirmed fitment for your engine.</p>}
     <p>{part.description ?? part.summary}</p>
 
     {part.specificationChecks && part.specificationChecks.length > 0 && (
@@ -299,6 +308,7 @@ const browseCatalogLinks = Array.from(
     <h2>Cross-Reference and Superseded Part Numbers</h2>
     <p>{replacementReviewText}</p>
     {hasReplacementRefs ? (
+      <div class="part-reference-scroll" tabindex="0" role="region" aria-label="Part-number cross-reference table">
       <table class="part-reference-table">
         <caption>References relative to {part.partNumber}</caption>
         <thead><tr><th scope="col">Part number</th><th scope="col">Catalog relationship</th></tr></thead>
@@ -306,12 +316,33 @@ const browseCatalogLinks = Array.from(
           <tr><th scope="row">{ref.href ? <a href={ref.href}>{ref.number}</a> : ref.number}</th><td>{ref.label}</td></tr>
         ))}</tbody>
       </table>
+      </div>
     ) : (
       <div class="part-verification-card">
         <strong>Replacement status to verify:</strong>
         <span>Send the old part marking, engine model, engine serial number, and installation photo. We check whether a newer, reman, or OEM-alternative route applies before quoting.</span>
       </div>
     )}
+
+    {assemblyReferences.map((assembly) => (
+      <section class="hub-section">
+        <h2>Parts in the Same Catalog Drawing</h2>
+        <p>{assembly.name}. Drawing positions are identification references, not a confirmed kit or a list of items included with this part. Check the engine serial number and drawing revision before ordering.</p>
+        <div class="part-reference-scroll" tabindex="0" role="region" aria-label="Assembly drawing references">
+        <table class="part-reference-table">
+          <caption>Other references in this assembly drawing</caption>
+          <thead><tr><th scope="col">Position</th><th scope="col">Part number</th><th scope="col">Description</th></tr></thead>
+          <tbody>{assembly.parts.map((item) => (
+            <tr>
+              <td>{item.position}</td>
+              <th scope="row">{item.linkedPart ? <a href={`/part-products/${item.linkedPart.slug}/`}>{item.partNumber}</a> : item.partNumber}</th>
+              <td>{item.description}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+        </div>
+      </section>
+    ))}
 
     <h2>Common Applications</h2>
     <ul>
@@ -427,9 +458,14 @@ const browseCatalogLinks = Array.from(
 </BaseLayout>
 
 <style>
+  .part-reference-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .part-reference-table {
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
     border-collapse: collapse;
     margin: 16px 0 28px;
     font-size: 14px;
@@ -452,6 +488,11 @@ const browseCatalogLinks = Array.from(
 
   .part-reference-table thead {
     background: #f8fafc;
+  }
+
+  .part-reference-table th[scope="row"] {
+    white-space: nowrap;
+    overflow-wrap: normal;
   }
 
   .part-related-grid {

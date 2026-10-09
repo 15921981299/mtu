@@ -32,6 +32,7 @@ test('uploaded drawing receives a working seven-day private link', async () => {
   const form = new FormData();
   form.set('name', 'Test Buyer');
   form.set('email', 'buyer@example.com');
+  form.set('message', '0031845201, 2 pieces. Please confirm availability.');
   form.set('first_touch_page', '/part-products/0031845201-oil-filter-spin-on/');
   form.set('page_url', 'https://dieselpartsource.com/contact/');
   form.set('entry_source', 'bing');
@@ -71,6 +72,7 @@ test('failed sales delivery does not acknowledge a lead', async () => {
   const form = new FormData();
   form.set('name', 'Test Buyer');
   form.set('email', 'buyer@example.com');
+  form.set('message', '0031845201, 2 pieces. Please confirm availability.');
   const response = await worker.fetch(new Request('https://dieselpartsource.com/api/rfq', { method: 'POST', body: form }), {
     __sendEmail: async () => { throw new Error('Simulated SMTP failure'); },
   });
@@ -78,4 +80,38 @@ test('failed sales delivery does not acknowledge a lead', async () => {
   const body = await response.json();
   assert.equal(body.ok, false);
   assert.equal(body.inquiryId, undefined);
+});
+
+test('only email and part details are required, and the notification recipient is configurable', async () => {
+  const form = new FormData();
+  form.set('email', 'buyer@example.com');
+  form.set('message', '5840780024, 4 pieces');
+  form.set('part_number', '5840780024');
+  form.set('rfq_context', 'MTU thrust member inquiry');
+  const emails = [];
+  const response = await worker.fetch(new Request('https://dieselpartsource.com/api/rfq/', { method: 'POST', body: form }), {
+    RFQ_NOTIFICATION_EMAIL: 'sales@example.com',
+    __sendEmail: async (_env, email) => emails.push(email),
+  });
+  assert.equal(response.status, 200);
+  assert.equal(emails[0].to, 'sales@example.com');
+  assert.match(emails[0].text, /Part number: 5840780024/);
+  assert.match(emails[0].text, /Inquiry context: MTU thrust member inquiry/);
+  assert.match(emails[1].text, /^Hello,/);
+});
+
+test('empty inquiries and invalid emails cannot become accepted lead events', async () => {
+  for (const [email, message, website] of [['invalid', 'Parts request', ''], ['buyer@example.com', ' ', ''], ['buyer@example.com', 'Parts request', 'spam']]) {
+    const form = new FormData();
+    form.set('email', email);
+    form.set('message', message);
+    form.set('website', website);
+    const response = await worker.fetch(new Request('https://dieselpartsource.com/api/rfq/', { method: 'POST', body: form }), {
+      __sendEmail: async () => assert.fail('Invalid inquiry must not be delivered'),
+    });
+    assert.equal(response.status, 400);
+    const payload = await response.json();
+    assert.equal(payload.ok, false);
+    assert.equal(payload.inquiryId, undefined);
+  }
 });

@@ -21,8 +21,8 @@ import { site } from '../data/site';
     <form class="rfq-modal__form" id="rfq-modal-form" data-endpoint="https://dieselpartsource.com/api/rfq/" data-fallback-email={site.email}>
       <div class="rfq-modal__context" id="rfq-modal-context">Current page inquiry</div>
       <label>
-        <span>Your Name *</span>
-        <input type="text" name="name" autocomplete="name" required />
+        <span>Your Name</span>
+        <input type="text" name="name" autocomplete="name" />
       </label>
       <label>
         <span>Email *</span>
@@ -53,6 +53,7 @@ import { site } from '../data/site';
       <input type="hidden" name="page_url" />
       <input type="hidden" name="page_title" />
       <input type="hidden" name="rfq_context" />
+      <input type="hidden" name="part_number" />
       <div class="rfq-modal__hp" aria-hidden="true">
         <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
       </div>
@@ -66,7 +67,7 @@ import { site } from '../data/site';
 </div>
 
 <script>
-  import { fireAttributionLeadEvent, getLeadAttributionParams, populateRfqAttributionFields } from '../scripts/attribution';
+  import { trackAcceptedInquiry, populateRfqAttributionFields } from '../scripts/attribution';
 
   const modal = document.getElementById('rfq-modal');
   const panel = modal?.querySelector<HTMLElement>('.rfq-modal__panel');
@@ -88,14 +89,16 @@ import { site } from '../data/site';
     lastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const context = trigger.dataset.rfqContext || trigger.dataset.rfqTitle || document.title;
     const source = trigger.dataset.rfqSource || new URL(trigger.href, window.location.href).searchParams.get('source') || 'modal-rfq';
+    const partNumber = trigger.dataset.rfqPartNumber || document.querySelector<HTMLElement>('[data-part-number]')?.dataset.partNumber || '';
 
     contextEl && (contextEl.textContent = context);
     setHidden('source', source);
     setHidden('page_url', window.location.href);
     setHidden('page_title', document.title);
     setHidden('rfq_context', context);
+    setHidden('part_number', partNumber);
     if (messageEl && !messageEl.value.trim()) {
-      messageEl.value = `Inquiry page: ${context}\nPage URL: ${window.location.href}\n\nPart number / quantity / destination: `;
+      messageEl.value = partNumber ? `Part number: ${partNumber}\n` : '';
     }
     populateRfqAttributionFields(form);
 
@@ -109,6 +112,7 @@ import { site } from '../data/site';
         event_category: 'Funnel',
         event_label: source,
         funnel_stage: 'quote',
+        part_number: partNumber,
       });
     }
   };
@@ -224,17 +228,13 @@ import { site } from '../data/site';
           funnel_stage: 'quote',
           has_attachment: attachment instanceof File && attachment.size > 0 ? 'yes' : 'no',
         });
-        window.gtag('event', 'generate_lead', {
-          ...getLeadAttributionParams(),
-          inquiry_id: payload.inquiryId,
-          event_category: 'RFQ',
-          event_label: source,
-        });
-        fireAttributionLeadEvent({
-          lead_source: source,
-          url_source: formData.get('url_source')?.toString() || 'unspecified',
-        });
       }
+      trackAcceptedInquiry(payload.inquiryId, {
+        event_label: source,
+        lead_source: source,
+        part_number: formData.get('part_number')?.toString() || '',
+        url_source: formData.get('url_source')?.toString() || 'unspecified',
+      });
       window.location.href = '/thank-you/?source=rfq-modal';
     } catch {
       const fallbackEmail = form.dataset.fallbackEmail ?? 'sales@dieselpartsource.com';

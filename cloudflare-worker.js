@@ -116,8 +116,15 @@ export default {
 
     try {
       const fd = await request.formData();
+      const submittedEmail = fd.get('email')?.toString().trim() || '';
+      const submittedMessage = fd.get('message')?.toString().trim() || '';
+      if (fd.get('website') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submittedEmail) || !submittedMessage) {
+        return new Response(JSON.stringify({ ok: false, message: 'Please provide a valid email and part details.' }), {
+          status: 400, headers: { 'Content-Type': 'application/json' },
+        });
+      }
       const name = fd.get('name')?.toString() || '(not provided)';
-      const email = fd.get('email')?.toString() || '(not provided)';
+      const email = submittedEmail;
       const company = fd.get('company')?.toString() || '-';
       const phone = fd.get('phone')?.toString() || '-';
       const material = fd.get('material')?.toString() || '-';
@@ -125,7 +132,7 @@ export default {
       const engineModel = fd.get('engine_model')?.toString() || '-';
       const engineSerial = fd.get('engine_serial')?.toString() || '-';
       const country = fd.get('country')?.toString() || '-';
-      const message = fd.get('message')?.toString() || '-';
+      const message = submittedMessage;
       const source = fd.get('source')?.toString() || '-';
       const role = fd.get('role')?.toString() || '-';
       const nda = fd.get('nda') ? 'Yes' : 'No';
@@ -174,6 +181,8 @@ export default {
         `NDA:      ${nda}`,
         `Source:   ${source}`,
         `Inquiry page: ${attributionField('page_url')}`,
+        `Part number: ${attributionField('part_number', 100)}`,
+        `Inquiry context: ${attributionField('rfq_context', 300)}`,
         `First landing page: ${attributionField('first_touch_page')}`,
         `Entry source (browser-reported): ${attributionField('entry_source', 100)}`,
         `Entry medium: ${attributionField('entry_medium', 100)}`,
@@ -198,7 +207,7 @@ export default {
       }
 
       await deliverEmail(env, {
-        to: 'admin@machiningsupplier.com',
+        to: env.RFQ_NOTIFICATION_EMAIL || 'admin@machiningsupplier.com',
         subject: `New RFQ: ${name} - ${material} / ${quantity}`,
         text: emailBody,
         replyTo: email.includes('@') && email !== '(not provided)' ? email : undefined,
@@ -207,7 +216,7 @@ export default {
 
       if (email.includes('@') && email !== '(not provided)') {
         const autoReplyBody = [
-          `Hi ${name},`,
+          name === '(not provided)' ? 'Hello,' : `Hi ${name},`,
           '',
           'Thank you for submitting your engine parts inquiry to Diesel Part Source.',
           '',
