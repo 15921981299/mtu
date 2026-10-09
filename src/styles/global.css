@@ -345,9 +345,13 @@ blockquote {
 
 .header {
     z-index: 999;
-    background-color: var(--color-white);
+    /* background-color: var(--color-white); */
     border-radius: 4px;
     width: 100%
+}
+
+.header .container {
+    background-color: var(--color-white);
 }
 
 .navbar {
@@ -746,10 +750,14 @@ blockquote {
 }
 
 .hero-section {
-    background-color: var(--color-white);
+    /* background-color: var(--color-white); */
     border-radius: 4px;
     margin-top: 30px;
     overflow: hidden
+}
+
+.hero-section .container {
+    background-color: var(--color-white);
 }
 
 .hero-wrapper {
@@ -2908,7 +2916,9 @@ blockquote {
     border-radius: 4px;
     margin-top: 20px;
     overflow: hidden;
-    position: relative
+    position: relative;
+    max-width: min(calc(100vw - 64px), 1880px);
+    margin: 0 auto;
 }
 
 .breadcrumb-content-wrapper {
