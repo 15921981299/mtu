@@ -20,6 +20,8 @@ docs/*
 tmp/
 dist.prev/
 outputs/
+# Local analysis reports (competitor/SEO reviews — working docs, not site source)
+reports/
 
 # AI / IDE tools
 .agent/
