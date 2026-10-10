@@ -2,7 +2,7 @@
  * Real supply capability data for MTU part pages.
  *
  * Keyed by partNumber — must match the `partNumber` field in
- * `engine-family-parts.ts` exactly (case-sensitive).
+ * `catalog-part-details.ts` exactly (case-sensitive).
  *
  * The part-product template (`src/pages/part-products/[slug].astro`) renders
  * the "Supply & Availability" module only when an entry exists here for the

@@ -182,7 +182,7 @@ export const partSearchContent: Record<string, SearchPartContent> = {
   },
   '0002000001': {
     summary: '0002000001 coolant pump listed for MTU 183, not automatically for MTU 2000. Request drive, flange, and connection checks.',
-    description: 'The catalog places 0002000001 in the MTU 183 engine family. Other engine-family installations are not confirmed by this listing. Send the pump marking, engine serial number, flange photo, and cooling arrangement for application confirmation.',
+    description: 'The catalog places 0002000001 in the MTU 183 engine series. Other engine-series installations are not confirmed by this listing. Send the pump marking, engine serial number, flange photo, and cooling arrangement for application confirmation.',
     dimensions: undefined,
     specificationChecks: ['Confirm pump drive, mounting flange, ports, and whether the quotation includes the complete pump or a repair scope.'],
     faqs: [{ question: 'Is 0002000001 confirmed for every MTU 2000 engine?', answer: 'No. The current record lists MTU 183 catalog applications. Other installations require an application-specific catalog check.' }],
@@ -253,7 +253,7 @@ export function applySearchPartContent(part: MtuPart): MtuPart {
     ...content,
     commonFailureScenarios: undefined,
     orderingNotes: undefined,
-    notes: ['Catalog references and engine-family listings require confirmation against the full engine serial number before order.'],
+    notes: ['Catalog references and engine-series listings require confirmation against the full engine serial number before order.'],
     imageAlt: `${part.partNumber} ${part.name} - MTU replacement part identification`,
   };
 }

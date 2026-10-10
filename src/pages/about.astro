@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import CustomerFeedback from '../components/CustomerFeedback.astro';
 import {
   aboutPageSchema,
   breadcrumbSchema,
@@ -291,6 +292,8 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
       </div>
     </div>
   </section>
+
+  <CustomerFeedback id="about-feedback" />
 
   <!-- RFQ process -->
   <section id="about-process" class="who-we-are-section about-section" aria-labelledby="about-process-heading">

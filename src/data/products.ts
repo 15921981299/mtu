@@ -55,8 +55,8 @@ export function isProductPageNoindex(product: ProductItem): boolean {
   return redirected.includes(product.slug) || Boolean(product.generatedModel && product.brand !== 'MTU');
 }
 
-// BEGIN ENGINE FAMILY SITEMAP PRODUCTS
-const importedEngineFamilyProducts: ProductItem[] = [
+// BEGIN IMPORTED SITEMAP PRODUCTS
+const importedModelProducts: ProductItem[] = [
   {
     slug: '4b3-9-g1-g-drive',
     title: '4b3 9 G1 G Drive',
@@ -12127,7 +12127,7 @@ const importedEngineFamilyProducts: ProductItem[] = [
     },
   },
 ];
-// END ENGINE FAMILY SITEMAP PRODUCTS
+// END IMPORTED SITEMAP PRODUCTS
 
 const productCatalog: ProductItem[] = [
   {
@@ -12381,7 +12381,7 @@ const productCatalog: ProductItem[] = [
       `,
     },
   },
-  ...importedEngineFamilyProducts.map(normalizeImportedModel),
+  ...importedModelProducts.map(normalizeImportedModel),
 ];
 
 function resolveProductImages(product: ProductItem): Pick<ProductItem, 'image' | 'mainImage' | 'secondImage'> {

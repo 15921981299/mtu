@@ -1,6 +1,7 @@
-﻿import { engineFamilyPartDetailsByPartNumber, engineFamilyPartDetailsBySlug, engineFamilyPartSeeds } from './engine-family-parts';
+﻿import { catalogPartDetailsByPartNumber, catalogPartDetailsBySlug, catalogPartSeeds } from './catalog-part-details';
 
 import { applySearchPartContent, partSearchContent } from './part-search-content';
+import { sentencePartName, standardPartName } from './part-names';
 
 export type MtuPart = {
   slug: string;
@@ -15,10 +16,10 @@ export type MtuPart = {
   stockStatus?: string;
   applications: string[];
   notes: string[];
-  catalogSourceUrl?: string;
+  hasCatalogDetails?: boolean;
   /** Cross-reference / alternative OEM numbers */
   replacementFor?: string[];
-  crossReferences?: { partNumber: string; relationship: 'replaces' | 'replaced-by' | 'reference'; sourceUrl?: string }[];
+  crossReferences?: { partNumber: string; relationship: 'replaces' | 'replaced-by' | 'reference' }[];
   specificationChecks?: string[];
   /** Typical shipping weight per unit (kg) */
   weightKg?: string;
@@ -68,7 +69,7 @@ const categoryImages: Record<string, string> = {
 const defaultPartImage = '/images/mtu-2000-series-parts.webp';
 
 export const isRealPartImage = (image: string) =>
-  image.includes('/images/engine-family-parts/') || image.includes('/images/diesel-part-source-parts/');
+  image.includes('/images/mtu-catalog-parts/') || image.includes('/images/diesel-part-source-parts/');
 
 /** Popular/high-value parts get a more relevant image. */
 const popularPartImages: Record<string, string> = {
@@ -525,7 +526,7 @@ const expandedMtuParts = [
   { partNumber: '4570530001', name: 'Inlet Valve', series: ['MTU 396'], category: 'Valve train' },
 ].map(createCatalogPart);
 
-// BEGIN ENGINE FAMILY SITEMAP PARTS
+// BEGIN IMPORTED SITEMAP PARTS
 const sitemapMtuParts = [
   { partNumber: '000007005115', name: 'Dowel Pin', series: [], category: 'Drive components' },
   { partNumber: '0000160119', name: 'Sealing Ring', series: [], category: 'Gaskets and seals' },
@@ -1294,14 +1295,14 @@ const sitemapMtuParts = [
   { partNumber: 'Y20098771', name: 'Feeler Gauge', series: [], category: 'Engine components' },
   { partNumber: 'Z', name: '30467 Ball Cock', series: [], category: 'Engine components' },
 ].map(createCatalogPart);
-// END ENGINE FAMILY SITEMAP PARTS
+// END IMPORTED SITEMAP PARTS
 
 
 
 
 const mtuPartsRaw: MtuPart[] = [
   ...sitemapMtuParts,
-  ...engineFamilyPartSeeds.map(createCatalogPart),
+  ...catalogPartSeeds.map(createCatalogPart),
   {
     slug: '5840530229-valve-guide-inlet-size-1',
     partNumber: '5840530229',
@@ -1526,7 +1527,7 @@ const mtuPartsRaw: MtuPart[] = [
     category: 'Fuel system',
     summary: 'Damper strip support for MTU fuel and engine assembly service.',
     image: partImage,
-    availability: 'Checked by engine family and required quantity.',
+    availability: 'Checked by engine series and required quantity.',
     applications: ['Marine service', 'Industrial maintenance', 'Legacy engine support'],
     notes: ['Legacy series may require replacement confirmation.', 'Photos help when old markings are worn.'],
   },
@@ -2148,7 +2149,7 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
 
   return {
     ...part,
-    summary: part.catalogSourceUrl ? part.summary : `${part.partNumber} ${part.name}. Request a part-number and engine-serial check before quotation.${recordText}`,
+    summary: part.hasCatalogDetails ? part.summary : `${part.partNumber} ${part.name}. Request a part-number and engine-serial check before quotation.${recordText}`,
     description: part.description,
     commonFailureScenarios: part.commonFailureScenarios ?? scenarios,
     orderingNotes: part.orderingNotes ?? `For ${part.partNumber}, send the engine model, serial number, quantity, old-part photo, and destination country. We will confirm whether the item is OEM, OEM-alternative, reman, or superseded before quotation.`,
@@ -2164,8 +2165,52 @@ const enrichHighValuePart = (part: MtuPart): MtuPart => {
   };
 };
 
-const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
-  const detail = engineFamilyPartDetailsBySlug[part.slug] ?? engineFamilyPartDetailsByPartNumber[part.partNumber.toUpperCase()];
+const readableName = sentencePartName;
+
+const seriesPhrase = (series: string[]) =>
+  series.length === 0 ? 'MTU' : series.length === 1 ? series[0] : `${series.slice(0, -1).join(', ')} and ${series[series.length - 1]}`;
+
+const catalogImageAlt = (part: MtuPart, series: string[]) =>
+  `${standardPartName(part.name)} ${part.partNumber} for ${seriesPhrase(series)} engines`;
+
+/** Built from catalog facts so part pages never reuse third-party description text. */
+const catalogDescription = (
+  part: MtuPart,
+  detail: { sourceDescription: string; weightKg: string; dimensions: string },
+  series: string[],
+  crossReferences: NonNullable<MtuPart['crossReferences']>,
+) => {
+  const name = readableName(part.name);
+  const model = detail.sourceDescription.match(/^MTU\s+(\d{1,2}V\s+\d{3,4}\s+[A-Z]{1,2}\d{2}[A-Z]?)\b/i)?.[1];
+  const assembly = detail.sourceDescription.match(/original\s+(.+?)\s+parts\s+\S/i)?.[1];
+  const sentences: string[] = [];
+
+  const article = /^[aeiou]|^(HP|LP|NTC)\b/i.test(name) ? 'an' : 'a';
+  const where = model ? `the MTU ${model.toUpperCase()}` : `${seriesPhrase(series)} engines`;
+  sentences.push(
+    assembly
+      ? `${part.partNumber} is ${article} ${name} from the ${readableName(assembly)} group of ${where}.`
+      : `${part.partNumber} is ${article} ${name} catalogued for ${where}.`,
+  );
+
+  const replaces = crossReferences.filter((ref) => ref.relationship === 'replaces').map((ref) => ref.partNumber);
+  const replacedBy = crossReferences.filter((ref) => ref.relationship === 'replaced-by').map((ref) => ref.partNumber);
+  if (replaces.length > 0) {
+    sentences.push(`It is the later number for ${replaces.slice(0, 4).join(', ')}${replaces.length > 4 ? ` and ${replaces.length - 4} more earlier references` : ''}, so lists quoting ${replaces.length === 1 ? 'that number' : 'those numbers'} are normally supplied as ${part.partNumber}.`);
+  }
+  if (replacedBy.length > 0) {
+    sentences.push(`Catalog history lists ${replacedBy[0]} as its later number; we check whether the later part can be fitted alone or needs related parts changed with it.`);
+  }
+
+  const weight = detail.weightKg.trim();
+  if (weight && !/^n\/a$/i.test(weight)) {
+    sentences.push(`The catalog unit weight is ${weight.toLowerCase()}, which we use to estimate freight before quoting.`);
+  }
+  return sentences.join(' ');
+};
+
+const applyCatalogDetails = (part: MtuPart): MtuPart => {
+  const detail = catalogPartDetailsBySlug[part.slug] ?? catalogPartDetailsByPartNumber[part.partNumber.toUpperCase()];
   if (!detail) return part;
 
   const usable = (value: string) => value.trim() && !/^n\/a$/i.test(value.trim()) ? value.trim() : undefined;
@@ -2180,21 +2225,21 @@ const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
     partNumber: number,
     relationship: later?.toUpperCase() === part.partNumber.toUpperCase() && earlier.includes(number) ? 'replaces'
       : later?.toUpperCase() === number.toUpperCase() && oldMatch?.[1].split(',').some((old) => old.trim().toUpperCase() === part.partNumber.toUpperCase()) ? 'replaced-by' : 'reference',
-    sourceUrl: detail.sourceUrl,
   }));
   const series = detail.series.flatMap((label) => {
     const combined = label.match(/^MTU\s+(\d+(?:\/\d+)+)$/i);
     return combined ? combined[1].split('/').map((number) => `MTU ${number}`) : [label];
   });
+  const uniqueSeries = [...new Set(series)];
 
   return {
     ...part,
     image: detail.image || part.image,
-    imageAlt: detail.imageAlt || part.imageAlt,
-    catalogSourceUrl: detail.sourceUrl,
-    series: [...new Set(series)],
-    summary: `${part.partNumber} ${part.name}. Listed in ${series.join(', ') || 'MTU'} catalog references; confirm installation and current availability before ordering.`,
-    description: usable(detail.sourceDescription),
+    imageAlt: catalogImageAlt(part, uniqueSeries),
+    hasCatalogDetails: true,
+    series: uniqueSeries,
+    summary: `${part.partNumber} ${part.name}. Listed in ${uniqueSeries.join(', ') || 'MTU'} catalog references; confirm installation and current availability before ordering.`,
+    description: catalogDescription(part, detail, uniqueSeries, crossReferences),
     engineType: usable(detail.engineType),
     applicableEngines: usable(detail.applicableEngines),
     dimensions: usable(detail.dimensions),
@@ -2209,7 +2254,7 @@ const applyEngineFamilyDetails = (part: MtuPart): MtuPart => {
 const dedupedParts = new Map<string, MtuPart>();
 for (const part of mtuPartsRaw) {
   const key = `${slugifyPart(part.partNumber)}-${slugifyPart(part.name)}`;
-  dedupedParts.set(key, enrichHighValuePart(applyEngineFamilyDetails(part)));
+  dedupedParts.set(key, enrichHighValuePart(applyCatalogDetails(part)));
 }
 
 // ── Collapse naming variants of the same part number ─────────────────────────
@@ -2266,10 +2311,12 @@ const mergePartVariants = (variants: MtuPart[]): MtuPart => {
   if (bestImage) merged.image = bestImage.image;
 
   // Variants are ranked best-first, so the first filled value is the richest one.
+  const isGeneratedCatalogText = (value: string) => value.startsWith(`${primary.partNumber} is `);
   const description = all
     .map((part) => part.description?.trim())
     .filter((value): value is string => Boolean(value))
     .filter((value, index, list) => list.indexOf(value) === index)
+    .filter((value, index, list) => !isGeneratedCatalogText(value) || list.findIndex(isGeneratedCatalogText) === index)
     .join(' ')
     .trim();
 
@@ -2338,7 +2385,32 @@ for (const part of dedupedParts.values()) {
   canonicalParts.push(winner);
 }
 
-export const mtuPartsDeduped: MtuPart[] = canonicalParts.map(applySearchPartContent);
+const replaceAll = (text: string, from: string, to: string) => (from === to ? text : text.split(from).join(to));
+
+/** Display names are normalised last so slugs, dedupe keys, and variant ranking keep using the raw names. */
+const applyStandardName = (part: MtuPart): MtuPart => {
+  const name = standardPartName(part.name);
+  const swap = (text: string) => replaceAll(text, part.name, name);
+  const swapOptional = (text?: string) => (text === undefined ? text : swap(text));
+  return {
+    ...part,
+    name,
+    summary: swap(part.summary),
+    description: swapOptional(part.description),
+    imageAlt: swapOptional(part.imageAlt),
+    orderingNotes: swapOptional(part.orderingNotes),
+    notes: part.notes.flatMap((note) => {
+      if (!note.startsWith('Also catalogued as: ')) return [swap(note)];
+      const variants = [...new Set(note.slice(20, -1).split('; ').map(standardPartName))].filter((variant) => variant !== name);
+      return variants.length > 0 ? [`Also catalogued as: ${variants.join('; ')}.`] : [];
+    }),
+    quoteChecklist: part.quoteChecklist?.map(swap),
+    commonFailureScenarios: part.commonFailureScenarios?.map(swap),
+    faqs: part.faqs?.map((faq) => ({ question: swap(faq.question), answer: swap(faq.answer) })),
+  };
+};
+
+export const mtuPartsDeduped: MtuPart[] = canonicalParts.map(applySearchPartContent).map(applyStandardName);
 export const mtuParts: MtuPart[] = mtuPartsDeduped;
 export const mtuPartCategories = Array.from(new Set(mtuPartsDeduped.map((part) => part.category))).sort();
 export const mtuPartSeries = Array.from(new Set(mtuPartsDeduped.flatMap((part) => part.series))).sort();
@@ -2404,7 +2476,7 @@ export function getSameCategoryParts(part: MtuPart, limit = 6) {
     .slice(0, limit);
 }
 
-/** Other service categories in the same engine family; not order-history data. */
+/** Other service categories in the same engine series; not order-history data. */
 export function getSameSeriesServiceParts(part: MtuPart, limit = 4): MtuPart[] {
   if (part.series.length === 0) return [];
   const pairs: Record<string, string[]> = {

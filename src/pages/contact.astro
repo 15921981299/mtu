@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import CustomerFeedback from '../components/CustomerFeedback.astro';
 import FaqSection from '../components/FaqSection.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
 import { faqs } from '../data/faqs';
+import { salesContact } from '../data/testimonials';
 import {
   breadcrumbSchema,
   contactPageSchema,
@@ -260,6 +262,9 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
         <p class="contact-nap-lead">
           Shanghai Diesel Part Source Co., Ltd. supports verified diesel engine parts sourcing worldwide. Reach the sales desk by email, phone, or WhatsApp for MTU and multi-brand parts support.
         </p>
+        <p class="contact-nap-lead contact-sales-contact">
+          Your inquiry is handled by <strong>{salesContact.name}</strong>, {salesContact.role}. Replies in {salesContact.languages}, within one business day.
+        </p>
         <div class="contact-info-wrapper">
           <div class="contact-info-single-block fade-in">
             <div class="contact-info-icon-block"><img src="/images/contact-email-message-icon.svg" alt="" aria-hidden="true" class="contact-info-icon" width="24" height="24" loading="lazy" decoding="async" /></div>
@@ -299,6 +304,8 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
       </div>
     </div>
   </section>
+
+  <CustomerFeedback id="contact-feedback" />
 
   <section class="contact-standard-section" aria-labelledby="contact-standard-heading">
     <div class="section-gap bottom">

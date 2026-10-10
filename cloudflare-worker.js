@@ -206,9 +206,17 @@ export default {
         });
       }
 
+      const subjectPart = attributionField('part_number', 60);
+      const subjectParts = [
+        subjectPart !== '-' ? subjectPart : '',
+        quantity !== '-' ? `Qty ${quantity}` : '',
+        country !== '-' ? country : '',
+        name !== '(not provided)' ? name : email,
+      ].filter(Boolean).map((part) => part.replace(/[\r\n]+/g, ' ').trim()).join(' | ');
+
       await deliverEmail(env, {
         to: env.RFQ_NOTIFICATION_EMAIL || 'admin@machiningsupplier.com',
-        subject: `New RFQ: ${name} - ${material} / ${quantity}`,
+        subject: `New RFQ: ${subjectParts}`.slice(0, 180),
         text: emailBody,
         replyTo: email.includes('@') && email !== '(not provided)' ? email : undefined,
       });
@@ -250,7 +258,7 @@ export default {
         }
       }
 
-      return new Response(JSON.stringify({ ok: true, inquiryId, message: `Thanks ${name}! We'll respond to ${email} within 24 hours.` }), {
+      return new Response(JSON.stringify({ ok: true, inquiryId, message: `Thanks${name === '(not provided)' ? '' : ` ${name}`}! We'll reply to ${email} within one business day.` }), {
         status: 200,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       });

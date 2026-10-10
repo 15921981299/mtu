@@ -7,7 +7,7 @@ import FunnelPageView from '../../components/FunnelPageView.astro';
 import ProductSidebar from '../../components/ProductSidebar.astro';
 import { products, isProductPageNoindex } from '../../data/products';
 import { services } from '../../data/services';
-import { breadcrumbSchema, productSchema, serviceSchema, site } from '../../data/site';
+import { breadcrumbSchema, serviceSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 export function getStaticPaths() {
@@ -83,12 +83,6 @@ const verificationFocus = [
       { name: product.title, url: pageUrl },
     ]),
     serviceSchema({
-      name: product.title,
-      description: product.summary,
-      url: pageUrl,
-      image: `${site.url}${product.mainImage}`,
-    }),
-    productSchema({
       name: product.title,
       description: product.summary,
       url: pageUrl,

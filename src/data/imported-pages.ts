@@ -1,4 +1,4 @@
-export type ImportedEngineFamilyPage = {
+export type ImportedPage = {
   slug: string;
   title: string;
   seoTitle: string;
@@ -6,7 +6,7 @@ export type ImportedEngineFamilyPage = {
   summary: string;
 };
 
-export const importedEngineFamilyPages: ImportedEngineFamilyPage[] = [
+export const importedPages: ImportedPage[] = [
   {
     slug: 'categories/4b-series',
     title: '4B Series',
@@ -383,35 +383,35 @@ export const importedEngineFamilyPages: ImportedEngineFamilyPage[] = [
     title: 'Company News',
     seoTitle: 'Company News | Diesel Part Source',
     section: 'News Category',
-    summary: 'Company News information page for engine parts sourcing, service planning, and quotation support.',
+    summary: 'Updates from Diesel Part Source on catalog additions, supply routes, and changes to how we handle engine parts inquiries.',
   },
   {
     slug: 'news-category/industry-new',
-    title: 'Industry New',
-    seoTitle: 'Industry New | Diesel Part Source',
+    title: 'Industry News',
+    seoTitle: 'Industry News | Diesel Part Source',
     section: 'News Category',
-    summary: 'Industry New information page for engine parts sourcing, service planning, and quotation support.',
+    summary: 'Notes on engine and fuel developments that affect how MTU and diesel engine parts are specified and ordered.',
   },
   {
     slug: 'news/marine-defense',
     title: 'Marine Defense',
     seoTitle: 'Marine Defense | Diesel Part Source',
     section: 'News',
-    summary: 'Marine Defense reference page for engine parts buyers tracking service, marine, power generation, and industrial engine updates.',
+    summary: 'Background for naval and coast guard buyers on keeping MTU-powered patrol craft and frigates supplied with spare parts over long service lives.',
   },
   {
     slug: 'news/maritime-energy-transition-mtu-large-engines-from-rolls-royce-now-approved-for-hvo-and-imo-iii',
-    title: 'Maritime Energy Transition MTU Large Engines From Rolls Royce Now Approved For Hvo And Imo Iii',
-    seoTitle: 'Maritime Energy Transition MTU Large Engines From Rolls Royce Now Approved For Hvo And Imo Iii | Diesel Part Source',
+    title: 'HVO Fuel and IMO Tier III: What Changes for MTU Marine Engine Parts',
+    seoTitle: 'HVO and IMO Tier III on MTU Marine Engines | Parts Buyer Notes',
     section: 'News',
-    summary: 'Maritime Energy Transition MTU Large Engines From Rolls Royce Now Approved For Hvo And Imo Iii reference page for engine parts buyers tracking service, marine, power generation, and industrial engine updates.',
+    summary: 'What renewable HVO diesel approval and IMO Tier III emission limits mean for MTU marine engine operators when they plan filters, fuel-system parts, and aftertreatment-related spares.',
   },
   {
     slug: 'news/rolls-royce-supplies-mtu-propulsion-and-on-board-power-systems-for-three-new-polish-navy-frigates',
-    title: 'Rolls Royce Supplies MTU Propulsion And On Board Power Systems For Three New Polish Navy Frigates',
-    seoTitle: 'Rolls Royce Supplies MTU Propulsion And On Board Power Systems For Three New Polish Navy Frigates | Diesel Part Source',
+    title: 'MTU Power on New Naval Frigates: Long-Term Spare-Parts Planning',
+    seoTitle: 'MTU Engines on New Frigates | Naval Spare-Parts Planning',
     section: 'News',
-    summary: 'Rolls Royce Supplies MTU Propulsion And On Board Power Systems For Three New Polish Navy Frigates reference page for engine parts buyers tracking service, marine, power generation, and industrial engine updates.',
+    summary: 'Why navies that commission new MTU-powered frigates plan spare-parts packages, NATO stock numbers, and supersession tracking for the full service life of the propulsion and on-board power systems.',
   },
   {
     slug: 'nuclear-power-plants',

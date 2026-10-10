@@ -71,7 +71,7 @@ const secondaryImage = item.image;
     <DetailRfqStrip
       quoteHref={quoteHref}
       title={`Quote ${item.title.toLowerCase()} parts`}
-      text="Send your part number for industry-specific parts verification feedback, compliance notes, and a quote within 24 hours."
+      text="Send your part number for industry-specific parts verification feedback, compliance notes, and a reply within one business day."
     />
 
     <div set:html={item.content.partOne} />
@@ -96,7 +96,7 @@ const secondaryImage = item.image;
     stage="selection"
     topic={item.slug}
     title={`Quote ${item.title.toLowerCase()} parts`}
-    text="Send your part number with industry and compliance notes — we confirm scope and respond within 24 hours."
+    text="Send your part number with industry and compliance notes — we confirm scope and reply within one business day."
     primaryLabel="Request a Quote"
     primaryHref={quoteHref}
     primaryEvent={`industry_${item.slug}_rfq`}

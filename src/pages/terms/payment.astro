@@ -10,7 +10,7 @@ import '../../styles/terms-page.css';
 
 <BaseLayout
   title="Payment Terms — Engine Parts RFQ & Orders | Diesel Part Source"
-  description="Payment terms for engine parts orders: T/T wire transfer, PayPal for samples, L/C for large production POs, and invoice timing."
+  description="Payment terms for engine parts orders: T/T wire transfer, PayPal for small orders, L/C for large overhaul and project POs, proforma invoices, and balance timing."
   currentPath="/terms/payment"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -39,7 +39,7 @@ import '../../styles/terms-page.css';
 
           <div class="terms-meta" aria-label="Payment overview">
             <span><strong>T/T wire</strong> standard</span>
-            <span>PayPal samples under <strong>USD 2,000</strong></span>
+            <span>PayPal under <strong>USD 2,000</strong></span>
             <span><strong>Net 30</strong> after 3 orders</span>
             <span>L/C for large POs</span>
           </div>
@@ -61,12 +61,12 @@ import '../../styles/terms-page.css';
               </thead>
               <tbody>
                 <tr>
-                  <td>Prototype / sample</td>
-                  <td><strong>100% prepayment</strong> before production starts</td>
-                  <td>T/T wire transfer; PayPal for samples under USD 2,000</td>
+                  <td>Small or first orders</td>
+                  <td><strong>100% prepayment</strong> before dispatch</td>
+                  <td>T/T wire transfer; PayPal for orders under USD 2,000</td>
                 </tr>
                 <tr>
-                  <td>Production (standard)</td>
+                  <td>Standard parts orders</td>
                   <td><strong>50% deposit</strong>, 50% before shipment</td>
                   <td>T/T wire transfer</td>
                 </tr>
@@ -76,7 +76,7 @@ import '../../styles/terms-page.css';
                   <td>Available after 3 successful orders</td>
                 </tr>
                 <tr>
-                  <td>Large production POs</td>
+                  <td>Large overhaul or project POs</td>
                   <td>Irrevocable <strong>L/C</strong> at sight or usance</td>
                   <td>Qualified buyers — case by case</td>
                 </tr>
@@ -84,19 +84,26 @@ import '../../styles/terms-page.css';
             </table>
           </div>
 
-          <h2>Prototype &amp; Sample Orders</h2>
+          <h2>Quotation Validity and Currency</h2>
           <ul class="terms-list">
             <li>Quote valid <strong>30 days</strong>; currency USD unless otherwise stated</li>
-            <li>Production begins after payment confirmation and drawing approval</li>
-            <li>Sample policy details: <a href="/terms/samples/">Sample &amp; FAI terms →</a></li>
+            <li>Ready-stock lines are reserved after payment is received, not at quotation stage</li>
+            <li>Sourced-to-order lines are purchased after the deposit or prepayment is received</li>
+            <li>Sample policy details: <a href="/terms/samples/">sample terms →</a></li>
           </ul>
+
+          <h2>How a Parts Order Is Paid</h2>
+          <p>After you confirm the quotation, we issue a proforma invoice listing every part number, quantity, unit price, freight, and the agreed Incoterm. Payment is made against the proforma invoice. For orders with a deposit, the balance is due once all lines are packed and we have sent you the packing list and, if requested, photos of the parts and cases. The final commercial invoice and packing list travel with the shipment.</p>
+
+          <h3>Bank Charges and Payment References</h3>
+          <p>International wire transfers usually involve sender, intermediary, and receiving bank charges. Please instruct your bank to pay the sender charges and quote the proforma invoice number as the payment reference, so the payment can be matched to your order without delay.</p>
 
           <h2>What Affects Payment Structure</h2>
           <ul class="terms-list">
             <li>First-time vs. repeat customer relationship</li>
-            <li>Order value and custom tooling / fixture investment</li>
-            <li>Long-lead raw material purchases tied to your PO</li>
-            <li>Industry compliance requirements (medical, aerospace traceability)</li>
+            <li>Order value and the share of sourced-to-order lines</li>
+            <li>High-value items such as cylinder heads, turbochargers, or injector sets bought specifically for your order</li>
+            <li>Tender or government procurement rules that require L/C or payment after delivery</li>
           </ul>
 
           <div class="terms-note">

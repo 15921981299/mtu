@@ -7,6 +7,8 @@ import FunnelPageView from '../../components/FunnelPageView.astro';
 import { getSameSeriesServiceParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
 import { getCatalogAssemblies } from '../../data/part-assemblies';
+import { getPartGuidance } from '../../data/part-category-guidance';
+import { standardPartName } from '../../data/part-names';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -16,6 +18,7 @@ export function getStaticPaths() {
 
 const { part } = Astro.props;
 const supply = partSupply[part.partNumber];
+const guidance = getPartGuidance(part.category, part.series);
 const heroImageAlt =
   part.imageAlt ??
   (isRealPartImage(part.image)
@@ -149,6 +152,17 @@ const browseCatalogLinks = Array.from(
     ].map((hub) => [hub.slug, hub]),
   ).values(),
 ).slice(0, 6);
+const productJsonLd = productSchema({
+  name: `${part.partNumber} ${part.name}`,
+  description: part.summary,
+  url: pageUrl,
+  image: `${site.url}${part.image}`,
+  sku: part.partNumber,
+  model: seriesText,
+  brandName: 'MTU',
+  category: part.category,
+  ...(supply ? { availability: supplyAvailabilitySchema[supply.stockStatus] } : {}),
+});
 ---
 
 <BaseLayout
@@ -164,17 +178,7 @@ const browseCatalogLinks = Array.from(
       { name: 'MTU Parts Catalog', url: `${site.url}/part-products/` },
       { name: `${part.partNumber} ${part.name}`, url: pageUrl },
     ]),
-    productSchema({
-      name: `${part.partNumber} ${part.name}`,
-      description: part.summary,
-      url: pageUrl,
-      image: `${site.url}${part.image}`,
-      sku: part.partNumber,
-      model: seriesText,
-      brandName: 'MTU',
-      category: part.category,
-      ...(supply ? { availability: supplyAvailabilitySchema[supply.stockStatus] } : {}),
-    }),
+    ...(productJsonLd ? [productJsonLd] : []),
     ...(partFaqs.length > 0 ? [faqSchema(partFaqs)] : []),
   ]}
 >
@@ -275,8 +279,20 @@ const browseCatalogLinks = Array.from(
     )}
 
     <h2>About {part.partNumber} - {part.name}</h2>
-    {part.catalogSourceUrl && <p>Published catalog details are identification references. They do not establish current stock, supplied condition, or confirmed fitment for your engine.</p>}
+    {part.hasCatalogDetails && <p>Published catalog details are identification references. They do not establish current stock, supplied condition, or confirmed fitment for your engine.</p>}
     <p>{part.description ?? part.summary}</p>
+
+    {guidance && (
+      <>
+        <h2>Technical Notes: {part.category}</h2>
+        <p>{guidance.role}</p>
+        {guidance.seriesNote && <p>{guidance.seriesNote}</p>}
+        <h3>When This Type of Part Is Usually Replaced</h3>
+        <ul>{guidance.replaceWhen.map((item) => <li>{item}</li>)}</ul>
+        <h3>Checks Before Ordering</h3>
+        <ul>{guidance.checks.map((item) => <li>{item}</li>)}</ul>
+      </>
+    )}
 
     {part.specificationChecks && part.specificationChecks.length > 0 && (
       <>
@@ -291,7 +307,7 @@ const browseCatalogLinks = Array.from(
       <>
         <h2>Engine Catalog References</h2>
         <p>{part.applicableEngines}</p>
-        <p>Engine-family references do not confirm every installation. Final fitment of {part.partNumber} depends on the full engine serial number and assembly position.</p>
+        <p>Engine-series references do not confirm every installation. Final fitment of {part.partNumber} depends on the full engine serial number and assembly position.</p>
       </>
     )}
 
@@ -336,7 +352,7 @@ const browseCatalogLinks = Array.from(
             <tr>
               <td>{item.position}</td>
               <th scope="row">{item.linkedPart ? <a href={`/part-products/${item.linkedPart.slug}/`}>{item.partNumber}</a> : item.partNumber}</th>
-              <td>{item.description}</td>
+              <td>{standardPartName(item.description)}</td>
             </tr>
           ))}</tbody>
         </table>

@@ -158,7 +158,11 @@ export function serviceSchema(service: {
   };
 }
 
-/** schema.org Product markup for engine parts and quote-based spare-parts inquiries. */
+/**
+ * schema.org Product markup.
+ * Google treats Product without a priced Offer (or reviews/ratings) as an invalid
+ * product snippet, so quote-on-request items return null and emit no Product.
+ */
 export function productSchema(product: {
   name: string;
   description: string;
@@ -172,7 +176,12 @@ export function productSchema(product: {
   category?: string;
   /** Only emit availability when it has been checked for this specific item. */
   availability?: string;
+  /** Public unit price in USD. Omit for quote-on-request items. */
+  price?: number | string;
+  /** ISO date the public price stays valid until. */
+  priceValidUntil?: string;
 }) {
+  if (product.price == null || product.price === '') return null;
   const description = product.material
     ? `${product.description} Reference groups: ${product.material}.`
     : product.description;
@@ -204,11 +213,11 @@ export function productSchema(product: {
     offers: {
       '@type': 'Offer',
       url: product.url,
+      price: String(product.price),
       priceCurrency: 'USD',
+      ...(product.priceValidUntil ? { priceValidUntil: product.priceValidUntil } : {}),
       ...(product.availability ? { availability: product.availability } : {}),
       itemCondition: 'https://schema.org/NewCondition',
-      description:
-        'Quote based on part number, engine model, serial number, quantity, stock status, and shipping destination.',
       seller: {
         '@type': 'Organization',
         name: site.name,

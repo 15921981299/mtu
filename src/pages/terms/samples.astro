@@ -9,8 +9,8 @@ import '../../styles/terms-page.css';
 ---
 
 <BaseLayout
-  title="Sample & First Article Policy — Engine Parts | Diesel Part Source"
-  description="engine parts sample order policy: first article inspection, paid samples, revision rounds, and path from sample to production."
+  title="Sample & Trial Order Policy — Engine Parts | Diesel Part Source"
+  description="How to start with a small trial order for MTU and diesel engine parts: what a trial order includes, arrival checks, photos before dispatch, and moving to repeat or framework orders."
   currentPath="/terms/samples"
   jsonLd={breadcrumbSchema([
     { name: 'Home', url: site.url },
@@ -19,7 +19,7 @@ import '../../styles/terms-page.css';
 >
   <FunnelPageView stage="signing" label="sample-policy" />
   <BreadcrumbHero
-    title="Sample &amp; First Article Policy"
+    title="Sample &amp; Trial Order Policy"
     trail={[
       { label: 'Home', href: '/' },
       { label: 'Sample Policy' },
@@ -34,92 +34,99 @@ import '../../styles/terms-page.css';
           <TermsNav active="samples" />
 
           <p class="terms-intro">
-            Samples and first-article inspection (FAI) de-risk production POs. This is our standard path from sample to volume — scope and lead time are confirmed on your quotation.
+            Many buyers start with a small trial order before placing a full maintenance or overhaul list with a new supplier. This page explains how a trial order works with us and what you can check before ordering more.
           </p>
 
-          <div class="terms-meta" aria-label="Sample policy overview">
-            <span><strong>Paid sample</strong> 1–10 pcs</span>
-            <span><strong>FAI</strong> before balance runs</span>
-            <span>Golden sample retained for reorders</span>
-            <span><strong>7–15</strong> business day lead time</span>
+          <div class="terms-meta" aria-label="Trial order overview">
+            <span><strong>Paid trial</strong> orders</span>
+            <span>Photos <strong>before dispatch</strong></span>
+            <span>Same documents as full orders</span>
+            <span>Express shipping available</span>
           </div>
 
           <div class="terms-rfq-strip">
-            <p>Send your part number for a sample quote — we confirm piece count, inspection scope, and path to production pricing.</p>
-            <a href="/contact/?source=sample" class="terms-rfq-link">Request Sample Quote</a>
+            <p>Send the part numbers you want to trial — we confirm availability, supply route, and shipping cost in one quote.</p>
+            <a href="/contact/?source=sample" class="terms-rfq-link">Request Trial Quote</a>
           </div>
 
           <div class="terms-table-wrap">
             <table class="terms-table">
-              <caption class="terms-table-caption">Sample, FAI, and production transition stages</caption>
+              <caption class="terms-table-caption">From trial order to repeat supply</caption>
               <thead>
                 <tr>
                   <th scope="col">Stage</th>
                   <th scope="col">What's included</th>
-                  <th scope="col">Timing</th>
+                  <th scope="col">What you check</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Paid sample / sample</strong></td>
-                  <td>1–10 pieces; supplier document report on critical features; one inquiry prep revision if issue is on our side</td>
-                  <td>7–15 business days depending on complexity</td>
+                  <td><strong>Trial order</strong></td>
+                  <td>A few lines from your real maintenance list, quoted with supply route and dispatch estimate</td>
+                  <td>Quote clarity and response speed</td>
                 </tr>
                 <tr>
-                  <td><strong>First article inspection (FAI)</strong></td>
-                  <td>First piece of each batch inspected 100% on critical dimensions; report before balance proceeds</td>
-                  <td>At production batch start</td>
+                  <td><strong>Before dispatch</strong></td>
+                  <td>Photos of parts, labels, and packing on request; packing list and invoice draft</td>
+                  <td>Part markings against your old parts</td>
                 </tr>
                 <tr>
-                  <td><strong>Sample → production</strong></td>
-                  <td>Approved sample becomes golden reference; tooling and fixtures retained for reorders</td>
-                  <td>Unit cost typically drops 30–60% at volume</td>
+                  <td><strong>On arrival</strong></td>
+                  <td>Commercial invoice, packing list, and HS codes as on a full order</td>
+                  <td>Fit, labels, packaging, and documents</td>
+                </tr>
+                <tr>
+                  <td><strong>Repeat supply</strong></td>
+                  <td>Same references, packing format, and marking kept for later orders</td>
+                  <td>Consistency across orders</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <nav class="terms-jump-nav" aria-label="On this page">
-            <a href="#paid-sample" class="terms-jump-link">Paid sample</a>
-            <a href="#fai" class="terms-jump-link">FAI</a>
-            <a href="#sample-to-production" class="terms-jump-link">Production transition</a>
+            <a href="#trial-order" class="terms-jump-link">Trial order</a>
+            <a href="#arrival-check" class="terms-jump-link">Arrival check</a>
+            <a href="#repeat-supply" class="terms-jump-link">Repeat supply</a>
           </nav>
 
-          <h2 id="paid-sample">Paid Prototype / Sample Orders</h2>
+          <h2 id="trial-order">Choosing Parts for a Trial Order</h2>
           <ul class="terms-list">
-            <li><strong>100% prepayment</strong> before production — see <a href="/terms/payment/">payment terms →</a></li>
-            <li>Express shipping available for urgent validation runs</li>
-            <li>Material certificates and inspection report layout: <a href="/certifications/">redacted samples →</a></li>
+            <li>Pick parts you use regularly, such as filters, seals, or sensors, so the comparison with your current supplier is meaningful</li>
+            <li>Include at least one item that is harder to find, to see how sourcing and lead times are handled</li>
+            <li>Trial orders are paid in advance — see <a href="/terms/payment/">payment terms →</a></li>
+            <li>Express courier is usually the most practical shipping method for small trial orders</li>
           </ul>
 
-          <h2 id="fai">First Article Inspection (FAI)</h2>
+          <h2 id="arrival-check">Checking the Trial Order on Arrival</h2>
           <ul class="terms-list">
-            <li>Customer sign-off on FAI recommended for aerospace, medical, and automotive programs</li>
-            <li>AS9102 form set available for aerospace production releases</li>
-            <li>FAI scope should match drawing criticality — specify on your PO</li>
+            <li>Compare part numbers, labels, and packaging with the quotation and your old parts</li>
+            <li>Check that the invoice, packing list, and box labels match line by line</li>
+            <li>Use our buyer checklist on <a href="/genuine-oem-parts/">how to check genuine MTU parts</a></li>
+            <li>If anything does not match, send photos before installing the part</li>
           </ul>
 
-          <h2 id="sample-to-production">Sample-to-Production Transition</h2>
+          <h2 id="repeat-supply">Moving to Repeat or Framework Orders</h2>
           <ul class="terms-list">
-            <li>No re-setup charge on repeat orders when tooling is retained</li>
-            <li>Dimensional drift monitored against golden sample on subsequent batches</li>
-            <li>Change orders after sample approval may reset FAI requirements</li>
+            <li>Larger maintenance and overhaul lists can follow once the trial order has been checked</li>
+            <li>For regular orders we keep your preferred references, packing, and case marking on file</li>
+            <li>Payment options for repeat customers are described on the <a href="/terms/payment/">payment terms</a> page</li>
           </ul>
 
           <div class="terms-note">
-            <strong>Quality tip:</strong> Request a redacted FAI or supplier documents sample before your first production PO — see our <a href="/certifications/">inspection report samples</a> to set the documentation standard your incoming QA team should expect.
+            <strong>Buyer tip:</strong> Send the same short list to every supplier you are comparing, including engine serial number and destination, so quotes can be compared on part reference, supply route, and delivered cost rather than unit price alone.
           </div>
 
           <p class="terms-related">
-            <a href="/certifications/">Inspection report samples</a>
-            <span aria-hidden="true">·</span>
             <a href="/certifications/">Quality process</a>
             <span aria-hidden="true">·</span>
-            <a href="/about/">Project proof</a>
+            <a href="/about/">About us</a>
             <span aria-hidden="true">·</span>
             <a href="/terms/payment/">Payment terms</a>
             <span aria-hidden="true">·</span>
-            <a href="/contact/?source=sample">Request a sample quote →</a>
+            <a href="/terms/shipping/">Shipping terms</a>
+            <span aria-hidden="true">·</span>
+            <a href="/contact/?source=sample">Request a trial quote →</a>
           </p>
         </article>
       </div>
@@ -129,12 +136,12 @@ import '../../styles/terms-page.css';
   <BlogCta
     stage="signing"
     topic="samples"
-    title="Start with a paid sample"
-    text="Send your part number for a sample quote — we confirm piece count, inspection scope, lead time, and the path to production pricing."
-    primaryLabel="Request a Sample Quote"
+    title="Start with a small trial order"
+    text="Send a few part numbers from your maintenance list — we confirm availability, supply route, and shipping cost in one quote."
+    primaryLabel="Request a Trial Quote"
     primaryHref="/contact/?source=sample"
     primaryEvent="sample_terms_rfq"
-    secondaryLabel="Inspection samples"
+    secondaryLabel="Quality process"
     secondaryHref="/certifications/"
     secondaryEvent="sample_terms_inspection"
   />

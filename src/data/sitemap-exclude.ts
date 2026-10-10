@@ -1,5 +1,5 @@
 import { products, isProductPageNoindex } from './products';
-import { importedEngineFamilyPages } from './imported-engine-family-pages';
+import { importedPages } from './imported-pages';
 import { isPartPageIndexable, mtuParts } from './mtu-parts';
 import { publishedCaseStudies } from './case-studies';
 
@@ -15,7 +15,7 @@ const CASE_STUDIES_EXCLUDES = new Set(
   publishedCaseStudies.length === 0 ? ['/case-studies/'] : [],
 );
 
-function isImportedPageNoindex(page: (typeof importedEngineFamilyPages)[number]): boolean {
+function isImportedPageNoindex(page: (typeof importedPages)[number]): boolean {
   return !/^(part\/mtu-(183-parts|538-parts|1800-parts|specialized-tools)$|stock$|support-services$|genuine-oem-parts$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
 }
 
@@ -24,7 +24,7 @@ const NOINDEX_PRODUCT_PATHS = new Set(
 );
 
 const NOINDEX_IMPORTED_PATHS = new Set(
-  importedEngineFamilyPages.filter(isImportedPageNoindex).map((page) => `/${page.slug}/`)
+  importedPages.filter(isImportedPageNoindex).map((page) => `/${page.slug}/`)
 );
 
 const NOINDEX_PART_PATHS = new Set(
