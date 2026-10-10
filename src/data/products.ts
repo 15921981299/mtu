@@ -318,6 +318,8 @@ const productCatalog: ProductItem[] = [
           <li>Cylinder-head, valve-train, piston, liner, and bearing parts</li>
           <li>Turbocharging, cooling, lubrication, and filtration components</li>
         </ul>
+        <h3>Diesel and Gas Builds</h3>
+        <p>MTU builds the 4000 series as both a diesel engine and a gas engine (the GS variants). Fuel delivery, ignition, and control parts differ between the two builds, so the engine type code on the nameplate matters as much as the part number. If your engine is a gas variant, say so when you inquire and we verify the reference against the gas build rather than assuming the diesel counterpart carries over.</p>
       `,
       partTwo: `
         <h2>For Fleet Maintenance</h2>

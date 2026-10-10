@@ -127,7 +127,7 @@ export const partsGuides: PartsGuide[] = [
     h1: 'MTU 396 Series Parts Guide',
     seriesFilter: ['MTU 396', 'MTU 956 MTU 1163 MTU 396', 'MTU 396 MTU 4000', 'MTU 396 MTU 595', 'MTU 2000 MTU 396', 'MTU 396 MTU 493', 'MTU 396 MTU 538'],
     intro: [
-      'The MTU 396 family spans 8V, 12V, and 16V variants with TE, TB, and TC designations, serving marine propulsion, naval and coast-guard craft, generator sets, and rail applications. Many of these engines have been in service for decades, which makes correct identification essential: components changed across production runs, and the variant suffix and serial range determine which part number fits.',
+      'The MTU 396 family spans 8V, 12V, and 16V variants with TE, TB, and TC designations, serving marine propulsion, commercial craft, generator sets, and rail applications. Many of these engines have been in service for decades, which makes correct identification essential: components changed across production runs, and the variant suffix and serial range determine which part number fits.',
       'We do not publish workshop specifications — for dimensions, torque values, and procedures, the official MTU documentation for your engine is the authoritative source. What this guide provides is identification guidance and the part groups we supply for the 396 series, verified against your engine details before quoting.',
     ],
     checklistHeading: 'Identify your engine before ordering',
@@ -153,9 +153,9 @@ export const partsGuides: PartsGuide[] = [
           'They identify the engine variant within the 396 family, and variant affects which components fit — especially in the fuel, cooling, and turbocharging groups. Always include the full designation with the suffix when inquiring.',
       },
       {
-        question: 'Our 396 is ex-military / ex-rail. Can you still identify parts?',
+        question: 'Our 396 came out of a long-serving fleet and the numbers are worn. Can you still identify parts?',
         answer:
-          'Yes. These engines often carry NATO stock numbers or operator-specific markings alongside the MTU number. Send whatever numbers you have — MTU part number, NATO/NSN, or a photo of the part — and we work from there.',
+          'Yes. These engines often carry operator-specific stock markings alongside the MTU number. Send whatever numbers you have — the MTU part number, the operator stock number, or a photo of the part — and we work from there.',
       },
       {
         question: 'Do you publish MTU 396 technical specifications?',

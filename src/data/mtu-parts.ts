@@ -2661,7 +2661,7 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
 
     Parts for the 595 series reflect its heavy engineering heritage: cylinder liners weighing over 50 kg, pistons with separate crowns and skirts (5840371625 crown, 5840300615 skirt), connecting rods built for extreme cylinder pressures, and fuel systems operating at high injection pressures with HP fuel lines (5840700632-87) and solenoid valves (5840900595, 5840980257). Every component is size-graded and serial-number-specific.
 
-    Because 595 series engines often serve in military or continuous-duty applications, parts traceability and documentation requirements can be stringent. We support part-number verification with engine serial numbers, provide HS codes and approximate weights for freight planning, and can quote with material certificates where required.`,
+    Because 595 series engines often serve in continuous-duty applications, parts traceability and documentation requirements can be stringent. We support part-number verification with engine serial numbers, provide HS codes and approximate weights for freight planning, and can quote with material certificates where required.`,
   },
   {
     slug: 'mtu-956-series',
@@ -2683,7 +2683,7 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 1163 series parts: cylinder heads, bearings, valves, cooling system, fuel system, gaskets, and seals.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('1163')),
-    longDescription: `The MTU 1163 series represents the high-output end of MTU's medium-speed engine portfolio, with individual cylinder outputs significantly above the 956 series. Found in major naval programs, large commercial vessels, and heavy-duty power generation, 1163 engines demand parts that meet exacting specifications. Cylinder heads, main bearings (5550330130), connecting rod bearings (5550302160), and cooling pump shafts (5562010105) are high-value components where fitment must be confirmed before shipment.
+    longDescription: `The MTU 1163 series represents the high-output end of MTU's medium-speed engine portfolio, with individual cylinder outputs significantly above the 956 series. Deployed in naval and large commercial vessels and in heavy-duty power generation, 1163 engines demand parts that meet exacting specifications. Cylinder heads, main bearings (5550330130), connecting rod bearings (5550302160), and cooling pump shafts (5562010105) are high-value components where fitment must be confirmed before shipment.
 
     Many 1163 series parts cross-reference with the 956 series, but running changes across production years mean that engine serial number verification is essential. We check each part number against the latest MTU electronic parts catalog revision for your specific engine, flag superseded numbers, and quote with lead times that reflect real stock availability.`,
   },

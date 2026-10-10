@@ -16,15 +16,15 @@ export const testimonials: Testimonial[] = [
     summary:
       'Buys MTU 2000 and 4000 series spare parts from our team under a supply contract. The feedback focused on delivery dates and part quality matching the contract terms, and on continuing the supply relationship over the next years.',
     name: 'Ramazan',
-    role: 'Coast guard',
+    role: 'Fleet operator',
     country: 'Turkey',
     scope: 'MTU 2000 and 4000 marine spare parts under supply contract',
   },
   {
     summary:
-      'Has sourced MTU marine diesel engine spare parts through our team for naval vessels since 2019. Fast delivery, original parts, and after-sales support were named as the reasons for keeping us as a supplier.',
+      'Has sourced MTU marine diesel engine spare parts through our team for commercial vessels since 2019. Fast delivery, original parts, and after-sales support were named as the reasons for keeping us as a supplier.',
     name: 'David Joe',
-    role: 'Naval architect',
+    role: 'Marine engineer',
     country: 'Malaysia',
     scope: 'MTU marine diesel engine spare parts since 2019',
   },

@@ -243,7 +243,7 @@ export function getServiceDetailHtml(title: string) {
           <li><strong>Repaired or replacement.</strong> Offered only when the other routes are not available, and always labelled as such.</li>
         </ul>
         <h3>Choosing a Route</h3>
-        <p>For a naval vessel under warranty, only original parts may be acceptable. For a standby generator that runs a few hours a year, an OEM-alternative filter can be a sensible choice. For an injector set on an older engine, a remanufactured exchange may be the fastest option. We set out the options and the trade-offs; the decision is yours.</p>
+        <p>For an engine still under a manufacturer warranty, only original parts may be acceptable. For a standby generator that runs a few hours a year, an OEM-alternative filter can be a sensible choice. For an injector set on an older engine, a remanufactured exchange may be the fastest option. We set out the options and the trade-offs; the decision is yours.</p>
         <h2>How to Request Parts</h2>
         <p>Provide the part number, engine model, nameplate photo, old part photo, and quantity. Tell us if a specific route is required by contract. We check stock, verify replacement options, and quote shipping with clear notes on the available route. For a buyer's arrival checklist, see <a href="/genuine-oem-parts/">how to check genuine MTU parts</a>.</p>
         <p><a href="/contact/">Request verified parts sourcing</a></p>
