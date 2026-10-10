@@ -6,6 +6,10 @@ import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import { getSameSeriesServiceParts, getRelatedMtuParts, isPartPageIndexable, isRealPartImage, mtuCatalogHubs, mtuParts } from '../../data/mtu-parts';
 import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
+import { priorityPartScopes } from '../../data/procurement-content';
+import { getPartReferences } from '../../data/part-references';
+import QuotationExamples from '../../components/QuotationExamples.astro';
+import { getQuotationExamplesForPart } from '../../data/quotation-examples';
 import { getCatalogAssemblies } from '../../data/part-assemblies';
 import { getPartGuidance } from '../../data/part-category-guidance';
 import { standardPartName } from '../../data/part-names';
@@ -20,6 +24,8 @@ export function getStaticPaths() {
 
 const { part } = Astro.props;
 const supply = partSupply[part.partNumber];
+const procurement = priorityPartScopes[part.partNumber];
+const quotationIds = getQuotationExamplesForPart(part.partNumber).slice(0, 1).map((example) => example.id);
 const guidance = getPartGuidance(part.category, part.series);
 const heroImageAlt =
   part.imageAlt ??
@@ -145,12 +151,12 @@ const quoteChecklist = part.quoteChecklist ?? [
   'Nameplate photo and old part photo when available',
   'Quantity, destination country, and required delivery date',
 ];
-const referenceRows = replacementRefs.map((number) => {
-  const relationship = part.crossReferences?.find((ref) => ref.partNumber === number)?.relationship ?? 'reference';
+const referenceRows = getPartReferences(part).map((ref) => {
+  const number = ref.number;
   const linkedPart = mtuParts.find((candidate) => candidate.partNumber.toUpperCase() === number.toUpperCase());
   return {
     number,
-    label: relationship === 'replaced-by' ? 'Listed later number' : relationship === 'replaces' ? 'Listed earlier number' : 'Reference only; verify relationship',
+    label: ref.label,
     href: linkedPart ? `/part-products/${linkedPart.slug}/` : undefined,
   };
 });
@@ -301,9 +307,20 @@ const productJsonLd = productSchema({
       </>
     )}
 
+    {procurement && <section data-procurement-part={part.partNumber}>
+      <h2>{part.partNumber} Quotation Scope</h2>
+      <dl class="part-spec-table">
+        <div><dt>Requested contents</dt><dd>{procurement.scope}</dd></div>
+        <div><dt>Evidence to request</dt><dd>{procurement.evidence}</dd></div>
+        <div><dt>Supplier confirmation</dt><dd>Current stock, exact supplied condition and unit-specific documents are not confirmed by this catalog record. Request them with the quotation.</dd></div>
+        <div><dt>Quote acceptance</dt><dd>Offered number, quantity, included items, condition, price, lead time and delivery terms must be agreed before order release.</dd></div>
+      </dl>
+    </section>}
+
     <h2>About {part.partNumber} - {part.name}</h2>
     {part.hasCatalogDetails && <p>Published catalog details are identification references. They do not establish current stock, supplied condition, or confirmed fitment for your engine.</p>}
     <p>{part.description ?? part.summary}</p>
+    {quotationIds.length > 0 && <QuotationExamples ids={quotationIds} source={`part-${part.slug}-quote-example`} />}
 
     {guidance && (
       <>

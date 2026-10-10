@@ -1,5 +1,8 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProcurementBrief from '../../components/ProcurementBrief.astro';
+import QuotationExamples from '../../components/QuotationExamples.astro';
+import { marineProcurement } from '../../data/procurement-content';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import ApplicationSidebar from '../../components/ApplicationSidebar.astro';
 import BlogCta from '../../components/BlogCta.astro';
@@ -100,6 +103,8 @@ const inlineImage =
       quoteHref={quoteHref}
       title={`Check parts for ${app.title.toLowerCase()}`}
       text="Send the part number, engine model, serial number, quantity, destination, and required delivery date for an availability check."
+      modalSource={`application-${app.slug}`}
+      modalContext={app.h1Title}
     />
 
     {linkedProducts.length > 0 && (
@@ -116,6 +121,8 @@ const inlineImage =
     )}
 
     <div set:html={app.content.partOne} />
+    {app.slug === 'marine-propulsion-engines' && <ProcurementBrief brief={marineProcurement} source="marine-delivery-rfq" />}
+    {app.slug === 'marine-propulsion-engines' && <QuotationExamples ids={['mixed-parts-list']} source="marine-parts-list-example" />}
     <figure class="detail-page-figure">
       <img
         src={inlineImage}

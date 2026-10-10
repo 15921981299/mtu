@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import ProcurementBrief from '../../components/ProcurementBrief.astro';
+import QuotationExamples from '../../components/QuotationExamples.astro';
+import { modelProcurement } from '../../data/procurement-content';
 import { partsGuides } from '../../data/guides';
 import { mtuParts } from '../../data/mtu-parts';
 import { articleSchema, breadcrumbSchema, faqSchema, site } from '../../data/site';
@@ -27,7 +30,7 @@ for (const part of guideParts) {
 const categories = [...byCategory.entries()].sort((a, b) => b[1].length - a[1].length);
 const MAX_ROWS_PER_CATEGORY = 12;
 
-const today = new Date().toISOString().slice(0, 10);
+const guideSeries = guide.slug === 'mtu-2000-overhaul-parts' ? '2000' : guide.slug === 'mtu-4000-overhaul-parts' ? '4000' : undefined;
 // 作者身份：site.author.name 填了真实人才启用 Person 署名，否则保持 Organization（诚实兜底）
 const hasPersonAuthor = Boolean(site.author.name);
 ---
@@ -46,9 +49,8 @@ const hasPersonAuthor = Boolean(site.author.name);
       title: guide.h1,
       description: guide.description,
       url: pageUrl,
-      image: `${site.url}/images/mtu-4000-series-overhaul-parts.webp`,
-      datePublished: today,
-      dateModified: today,
+      image: `${site.url}/images/${guideSeries === '2000' ? 'mtu-2000-series-parts.webp' : guideSeries === '4000' ? 'mtu-4000-series-overhaul-parts.webp' : 'engine-parts-hero.webp'}`,
+      dateModified: '2026-10-10',
       authorName: hasPersonAuthor ? site.author.name : site.name,
       authorType: hasPersonAuthor ? 'Person' : 'Organization',
       authorJobTitle: hasPersonAuthor && site.author.jobTitle ? site.author.jobTitle : undefined,
@@ -68,7 +70,7 @@ const hasPersonAuthor = Boolean(site.author.name);
     <section class="resource-page-section">
       {guide.intro.map((paragraph) => <p>{paragraph}</p>)}
       <div class="resource-meta">
-        <span><strong>Parts listed</strong> {guideParts.length} verified records</span>
+        <span><strong>Parts listed</strong> {guideParts.length} catalog records</span>
         <span><strong>Fitment check</strong> By engine serial number</span>
         <span><strong>Supersessions</strong> Traced before quoting</span>
         {hasPersonAuthor ? (
@@ -78,6 +80,23 @@ const hasPersonAuthor = Boolean(site.author.name);
         )}
       </div>
     </section>
+
+    {guideSeries && <>
+      <ProcurementBrief brief={modelProcurement(guideSeries)} source={`guide-${guide.slug}-scope`} />
+      <section class="resource-page-section">
+        <h2>Itemized Overhaul RFQ Worksheet</h2>
+        <p>The worksheet contains catalog reference examples, not a completed customer order or a universal overhaul kit. Quantities, engine serial number, grade, supplied condition and required documents remain blank for your request. An included reference is not confirmation that your engine needs it.</p>
+        <p><a href={`/downloads/mtu-${guideSeries}-overhaul-rfq.xlsx`} download>Download MTU {guideSeries} RFQ Worksheet</a></p>
+        <ul class="resource-checklist">
+          <li>Cylinder components: liner, piston, rings and seals listed separately with grade and per-position quantities.</li>
+          <li>Bearings: upper/lower shells and measured shaft grade; record any workshop repair history.</li>
+          <li>Gaskets: itemized contents rather than an unspecified complete gasket set.</li>
+          <li>Injection: complete marked numbers, offered condition, test records and any core terms.</li>
+        </ul>
+        <DetailRfqStrip quoteHref={`/contact/?source=guide-${guide.slug}-worksheet`} title="Quote your overhaul list" text="Attach your worksheet or existing parts list. Start with the numbers you have; unresolved positions can be checked separately." label="Send Parts List" modalSource={`guide-${guide.slug}-worksheet`} modalContext={`MTU ${guideSeries} overhaul list; quote contents, grade and condition per line`} />
+      </section>
+    </>}
+    {guideSeries === '4000' && <QuotationExamples ids={['generator-service-filters', 'cylinder-head-components']} source="4000-guide-real-rfq" />}
 
     <section class="resource-page-section">
       <h2>{guide.checklistHeading}</h2>
@@ -90,7 +109,7 @@ const hasPersonAuthor = Boolean(site.author.name);
     <section class="resource-page-section">
       <h2>Parts We Supply for This Series</h2>
       <p>
-        The groups below are generated from our verified part records for this engine series
+        The groups below are generated from catalog records listed under this engine series
         ({guideParts.length} part numbers). Open any number for fitment, weight, HS code, and
         interchange details, or browse the full
         <a href={guide.seriesCatalog.href}> {guide.seriesCatalog.label}</a>.
@@ -98,7 +117,7 @@ const hasPersonAuthor = Boolean(site.author.name);
       {categories.map(([category, parts]) => (
         <div class="guide-category">
           <h3>{category} <span class="guide-category__count">({parts.length})</span></h3>
-          <table class="guide-parts-table">
+          <div class="guide-table-wrap"><table class="guide-parts-table">
             <tbody>
               {parts.slice(0, MAX_ROWS_PER_CATEGORY).map((part) => (
                 <tr>
@@ -109,7 +128,7 @@ const hasPersonAuthor = Boolean(site.author.name);
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
           {parts.length > MAX_ROWS_PER_CATEGORY && (
             <p class="guide-more">
               <a href={guide.seriesCatalog.href}>
@@ -155,6 +174,7 @@ const hasPersonAuthor = Boolean(site.author.name);
 </BaseLayout>
 
 <style>
+  .guide-table-wrap { max-width: 100%; overflow-x: auto; }
   .guide-category {
     margin-bottom: 26px;
   }

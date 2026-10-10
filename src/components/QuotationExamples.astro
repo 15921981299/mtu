@@ -1,0 +1,41 @@
+---
+import { quotationExamples } from '../data/quotation-examples';
+import { mtuParts } from '../data/mtu-parts';
+interface Props { ids: string[]; source: string; }
+const { ids, source } = Astro.props;
+const examples = quotationExamples.filter((example) => ids.includes(example.id));
+const findPart = (number: string) => mtuParts.find((part) => part.partNumber === number);
+---
+{examples.length > 0 && <section class="quotation-examples">
+  <h2>Completed Parts Orders</h2>
+  <p>Customer-authorized, anonymized orders with completed delivery confirmed by Diesel Part Source. The line items below are taken from the corresponding quotations. Prices and buyer contacts are withheld; quoted options and quantities are not presented as a dispatch manifest.</p>
+  {examples.map((example) => <article data-quotation-example={example.id}>
+    <h3>{example.title}</h3>
+    <p class="quotation-date">Quotation date: <time datetime={example.date}>{example.date}</time></p>
+    <p class="quotation-date">Order status: delivered. Actual delivery date and selected supply option are not published.</p>
+    <p>{example.context}</p>
+    <div class="quotation-table-wrap" tabindex="0" aria-label={`${example.title} line items`}>
+      <table>
+        <thead><tr><th scope="col">Part number</th><th scope="col">Quoted line</th><th scope="col">RFQ quantity</th><th scope="col">Source context</th></tr></thead>
+        <tbody>{example.lines.map((line) => {
+          const part = findPart(line.number);
+          return <tr><th scope="row">{part ? <a href={`/part-products/${part.slug}/`}>{line.number}</a> : line.number}</th><td>{line.name}</td><td>{line.quantity}</td><td>{[line.model, line.weightKg === undefined ? undefined : `Quoted unit weight ${line.weightKg} kg`, line.hsCode ? `HS reference ${line.hsCode}` : undefined].filter(Boolean).join('; ') || 'Engine/position not specified in quotation'}</td></tr>;
+        })}</tbody>
+      </table>
+    </div>
+    <p>{example.lesson}</p>
+  </article>)}
+  <p><a class="detail-rfq-link" href={`/contact/?source=${source}`} data-rfq-modal data-rfq-source={source} data-rfq-context="Itemized MTU parts quotation; specify quantities and offered condition">Request Your Parts List Quote</a></p>
+</section>}
+<style>
+  .quotation-examples { margin: 32px 0; padding: 24px 0; border-top: 1px solid #dbe3e8; }
+  article { margin: 22px 0; padding-bottom: 16px; border-bottom: 1px solid #dbe3e8; }
+  h3 { margin-bottom: 6px; font-size: 20px; }
+  .quotation-date { color: #566575; font-size: 14px; }
+  .quotation-table-wrap { max-width: 100%; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid #dbe3e8; line-height: 1.6; }
+  thead { background: #f1f5f7; }
+  tbody th { white-space: nowrap; font-family: ui-monospace, monospace; }
+  @media (max-width: 600px) { table { min-width: 660px; } }
+</style>

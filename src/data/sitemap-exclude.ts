@@ -1,6 +1,7 @@
 import { products, isProductPageNoindex } from './products';
 import { isPartPageIndexable, mtuParts } from './mtu-parts';
 import { publishedCaseStudies } from './case-studies';
+import { quotationExamples } from './quotation-examples';
 
 /** Pathnames excluded from sitemap-index (must match trailingSlash: 'always'). */
 const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/']);
@@ -11,7 +12,7 @@ const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/']);
  * exist for published entries, so they need no exclusion here.
  */
 const CASE_STUDIES_EXCLUDES = new Set(
-  publishedCaseStudies.length === 0 ? ['/case-studies/'] : [],
+  publishedCaseStudies.length === 0 && quotationExamples.length === 0 ? ['/case-studies/'] : [],
 );
 
 // NOTE: src/data/imported-pages.ts used to be filtered through a slug regex

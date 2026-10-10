@@ -3,12 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
+import QuotationExamples from '../../components/QuotationExamples.astro';
+import { quotationExamples } from '../../data/quotation-examples';
 import { publishedCaseStudies } from '../../data/case-studies';
 import { breadcrumbSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
 const pageUrl = `${site.url}/case-studies/`;
-const hasCases = publishedCaseStudies.length > 0;
+const hasCases = publishedCaseStudies.length > 0 || quotationExamples.length > 0;
 ---
 
 <BaseLayout
@@ -31,7 +33,8 @@ const hasCases = publishedCaseStudies.length > 0;
   />
 
   <div class="resource-page">
-    {hasCases ? (
+    {quotationExamples.length > 0 && <QuotationExamples ids={quotationExamples.map((example) => example.id)} source="completed-order-cases" />}
+    {publishedCaseStudies.length > 0 ? (
       <section class="resource-page-section">
         <div class="guides-grid">
           {publishedCaseStudies.map((study) => (
@@ -43,7 +46,7 @@ const hasCases = publishedCaseStudies.length > 0;
           ))}
         </div>
       </section>
-    ) : (
+    ) : !hasCases && (
       <section class="resource-page-section">
         <p>
           We publish supply cases only with the customer's written permission — including the

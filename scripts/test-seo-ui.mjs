@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const baseUrl = process.env.TEST_BASE_URL || 'http://127.0.0.1:4327';
-const output = new URL('../tmp/seo-p0-p2/', import.meta.url);
+const output = new URL('../tmp/keyword-expansion-2026-10-10/ui/', import.meta.url);
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   headless: true,
@@ -17,6 +17,17 @@ const targets = [
   ['part-products/catalog/mtu-filters/', 'catalog'],
   ['part-products/x52420300037-thermal-actuator/', 'assembly'],
   ['part-products/0031845201-oil-filter-spin-on/', 'part'],
+  ['part-products/x57508300091-fuel-filter-spin-on/', 'part-case'],
+  ['part-products/catalog/mtu-injectors/', 'injectors'],
+  ['part-products/catalog/mtu-fuel-pumps/', 'pumps'],
+  ['part-products/catalog/mtu-gasket-kits/', 'gaskets'],
+  ['part-products/catalog/mtu-1163-series/', '1163'],
+  ['guides/mtu-2000-overhaul-parts/', '2000-guide'],
+  ['guides/mtu-4000-overhaul-parts/', '4000-guide'],
+  ['applications/marine-propulsion-engines/', 'marine'],
+  ['products/mtu-2000-series-parts/16v-2000-engine-parts/', '16v'],
+  ['cross-reference/', 'xref'],
+  ['case-studies/', 'cases'],
 ];
 
 try {
@@ -42,8 +53,15 @@ try {
         await page.locator('h2').filter({ hasText: 'Parts in the Same Catalog Drawing' }).scrollIntoViewIfNeeded();
         await page.screenshot({ path: fileURLToPath(new URL(`${size}-assembly-table.png`, output)) });
       }
+      if (label === 'catalog' || label === 'marine') {
+        await page.locator('.procurement-brief').scrollIntoViewIfNeeded();
+        await page.screenshot({ path: fileURLToPath(new URL(`${size}-${label}-procurement.png`, output)) });
+        await page.locator('.quotation-examples').scrollIntoViewIfNeeded();
+        await page.screenshot({ path: fileURLToPath(new URL(`${size}-${label}-orders.png`, output)) });
+      }
       console.log(JSON.stringify({ size, path, ...layout }));
     }
+    await page.goto(`${baseUrl}/part-products/0031845201-oil-filter-spin-on/`, { waitUntil: 'networkidle' });
     await page.evaluate(() => {
       window.dataLayer = [];
       window.gtag = (...args) => window.dataLayer.push(args);

@@ -186,7 +186,7 @@ const productCatalog: ProductItem[] = [
     materialSlugs: ['stainless-steel', 'carbon-steel', 'brass-copper'],
     capabilitySlugs: ['mtu-engine-parts', 'marine-engine-service', 'genuine-oem-parts'],
     tolerance: 'Verified by part number, engine model, and serial number',
-    leadTime: 'Stock items ship quickly; special items quoted by availability',
+    leadTime: 'Availability and dispatch time confirmed per quotation',
     content: {
       partOne: `
         <h2>MTU Engine Parts Supply</h2>
@@ -297,7 +297,7 @@ const productCatalog: ProductItem[] = [
     seoTitle: 'MTU 4000 Series Parts Supplier | Diesel Part Source',
     h1Title: 'MTU 4000 Series Parts Supplier',
     summary:
-      'Genuine MTU 4000 series parts for marine, generator, rail, and industrial engines, with worldwide shipment from Shanghai.',
+      'MTU 4000 series parts sourcing for marine, generator, rail and industrial engines. Confirm the exact offered number, origin and supply condition with your quotation.',
     materialSlugs: ['stainless-steel', 'carbon-steel'],
     capabilitySlugs: ['mtu-engine-parts', 'genuine-oem-parts'],
     tolerance: 'Part-number and application verification',

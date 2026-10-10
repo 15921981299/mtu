@@ -4,13 +4,13 @@ import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
 import DetailRfqStrip from '../components/DetailRfqStrip.astro';
 import { mtuParts } from '../data/mtu-parts';
+import { getPartReferences } from '../data/part-references';
 import { breadcrumbSchema, faqSchema, site } from '../data/site';
 import '../styles/resource-page.css';
 
 /**
  * Cross-reference index: OEM / superseded / aftermarket part numbers →
- * the part numbers we supply. Built entirely from verified replacementFor
- * and crossReferences data on the part records.
+ * catalog records. References do not independently prove interchangeability.
  */
 
 type XrefRow = {
@@ -26,18 +26,7 @@ const normalize = (value: string) => value.toUpperCase().replace(/[^A-Z0-9]/g, '
 
 const rows: XrefRow[] = [];
 for (const part of mtuParts) {
-  const refs: { num: string; rel: string }[] = [
-    ...(part.replacementFor ?? []).map((num) => ({ num, rel: 'Interchanges with' })),
-    ...(part.crossReferences ?? []).map((ref) => ({
-      num: ref.partNumber,
-      rel:
-        ref.relationship === 'replaces'
-          ? 'Replaced by our part'
-          : ref.relationship === 'replaced-by'
-            ? 'Replaces our part'
-            : 'Reference',
-    })),
-  ];
+  const refs = getPartReferences(part).map((ref) => ({ num: ref.number, rel: ref.label }));
   for (const { num, rel } of refs) {
     const cleaned = num.trim();
     if (!cleaned || normalize(cleaned) === normalize(part.partNumber)) continue;
@@ -73,24 +62,24 @@ const faqItems = [
   {
     question: 'How do I use this cross-reference list?',
     answer:
-      'Find the part number you have — OEM, superseded, or another supplier\'s number — in the list or with your browser search (Ctrl+F). The right-hand column shows the part number we supply and links to its detail page with fitment and specification data.',
+      'Match your marked number to the catalog record. Earlier and later labels describe the reference relative to the linked catalog part. Reference-only rows have no confirmed replacement direction. Open the part page for identification checks and send engine details before ordering.',
   },
   {
     question: 'My part number is not listed. Can you still supply it?',
     answer:
-      'Yes. This list only covers numbers already verified against our records. Send your part number, engine model, and serial number through the inquiry form and we will check availability and interchange options before quoting.',
+      'Send the complete number, engine model and serial number for a sourcing check. Absence from this index does not establish availability or unavailability.',
   },
   {
     question: 'Does an interchange reference mean the parts are identical?',
     answer:
-      'It means the parts serve the same fit and function for the applications we have verified. Engine serial-number ranges can change which number fits a specific engine, so we always confirm fitment against your engine details before shipment.',
+      'No. These are catalog history and related-number references, including imported public catalog data. They do not prove identical dimensions, condition or application. Confirm the exact offered number, engine serial range and any mating-part changes before substitution.',
   },
 ];
 ---
 
 <BaseLayout
   title="Part Number Cross Reference — MTU, Detroit Diesel & DEUTZ Alternatives"
-  description={`Look up ${groups.length} OEM, superseded, and aftermarket part numbers that interchange with the MTU, Detroit Diesel, and DEUTZ engine parts we supply. Each reference links to a verified replacement part.`}
+  description={`Check ${groups.length} catalog reference numbers, earlier and later part-number history. Follow linked part records and request application-specific replacement verification.`}
   currentPath="/cross-reference"
   jsonLd={[
     breadcrumbSchema([
@@ -111,9 +100,9 @@ const faqItems = [
     <section class="resource-page-section">
       <p>
         Have an OEM, superseded, or another supplier's part number? This index lists
-        <strong>{groups.length} reference numbers</strong> that interchange with the MTU, Detroit Diesel,
-        and DEUTZ engine parts we supply. Every reference is taken from our verified part records — no
-        scraped interchange tables.
+        <strong>{groups.length} catalog reference numbers</strong> linked to part records.
+        Earlier and later labels describe published catalog history; an undirected reference does
+        not establish interchangeability. Imported catalog data is an identification aid, not supplier-confirmed fitment.
       </p>
       <p>
         Type any part number fragment below to filter the list, then open the linked part page for
@@ -138,7 +127,8 @@ const faqItems = [
           <thead>
             <tr>
               <th scope="col">Your Part Number</th>
-              <th scope="col">Interchanges With (We Supply)</th>
+              <th scope="col">Linked Catalog Number</th>
+              <th scope="col">Reference Relationship</th>
               <th scope="col">Part</th>
             </tr>
           </thead>
@@ -150,6 +140,7 @@ const faqItems = [
                   <td>
                     <a href={`/part-products/${target.slug}/`}>{target.partNumber}</a>
                   </td>
+                  <td>{target.relationship}</td>
                   <td>{target.partName}</td>
                 </tr>
               )),
@@ -157,7 +148,7 @@ const faqItems = [
           </tbody>
         </table>
         <p class="xref-empty" id="xref-empty" hidden>
-          No match in the verified list. <a href="/contact/?source=xref-not-found">Send us the number</a> —
+          No match in the catalog index. <a href="/contact/?source=xref-not-found" data-rfq-modal data-rfq-source="xref-not-found" data-rfq-context="Unlisted part-number verification">Send us the number</a> —
           we check interchanges manually.
         </p>
       </div>

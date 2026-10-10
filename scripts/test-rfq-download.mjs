@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import worker from '../cloudflare-worker.js';
+import worker from '../dist/_worker.js/index.js';
 
 test('unsigned download requests are rejected', async () => {
   const response = await worker.fetch(

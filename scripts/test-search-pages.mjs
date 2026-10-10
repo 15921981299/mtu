@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
 import ts from 'typescript';
 
@@ -78,13 +78,11 @@ test('catalog imports do not publish contradictory series or old estimated measu
   assert.doesNotMatch(page('5240530122-valve-spring-inner'), /35mm OD x 70mm L/);
 });
 
-test('non-MTU generated model pages have corrected brands and remain outside the sitemap', () => {
-  const product = (slug) => readFileSync(new URL(`../dist/products/${slug}/index.html`, import.meta.url), 'utf8');
+test('retired non-MTU model pages are not generated or linked from the product overview', () => {
+  const retired = readFileSync(new URL('../src/data/retired-urls.txt', import.meta.url), 'utf8');
   for (const slug of ['b125-33', 'eqb125-20', 'eqb140-20']) {
-    const html = product(slug);
-    assert.match(html, /Cummins/);
-    assert.match(html, /<meta[^>]*name="robots"[^>]*noindex/);
-    assert.doesNotMatch(html, /supports MTU|under MTU Spare Parts/);
+    assert.equal(existsSync(new URL(`../dist/products/${slug}/index.html`, import.meta.url)), false);
+    assert.ok(retired.includes(`/products/${slug}/`));
     const overview = readFileSync(new URL('../dist/products/index.html', import.meta.url), 'utf8');
     assert.ok(!overview.includes(`/products/${slug}/`));
   }

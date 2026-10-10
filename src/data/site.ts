@@ -489,7 +489,7 @@ export function articleSchema(article: {
   description: string;
   url: string;
   image: string;
-  datePublished: string;
+  datePublished?: string;
   dateModified?: string;
   authorName: string;
   authorUrl?: string;
@@ -504,7 +504,7 @@ export function articleSchema(article: {
     headline: article.title,
     description: article.description,
     image: article.image,
-    datePublished: article.datePublished,
+    ...(article.datePublished ? { datePublished: article.datePublished } : {}),
     ...(article.dateModified ? { dateModified: article.dateModified } : {}),
     author: {
       '@type': authorType,

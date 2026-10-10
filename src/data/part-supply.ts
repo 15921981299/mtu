@@ -1,5 +1,7 @@
+import { priorityPartScopes } from './procurement-content';
+
 /**
- * Real supply capability data for MTU part pages.
+ * Supply status for MTU part pages; "check" is not confirmed availability.
  *
  * Keyed by partNumber — must match the `partNumber` field in
  * `catalog-part-details.ts` exactly (case-sensitive).
@@ -34,6 +36,7 @@ const placeholder = (_partNumber: string): PartSupplyInfo => ({
 });
 
 export const partSupply: Record<string, PartSupplyInfo> = {
+  ...Object.fromEntries(Object.keys(priorityPartScopes).map((number) => [number, placeholder(number)])),
   '700429108000': placeholder('700429108000'),
   X53608200005: placeholder('X53608200005'),
   '0031845201': placeholder('0031845201'),

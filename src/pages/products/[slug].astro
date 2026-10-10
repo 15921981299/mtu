@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProcurementBrief from '../../components/ProcurementBrief.astro';
+import QuotationExamples from '../../components/QuotationExamples.astro';
+import { supplyProcurement, modelProcurement } from '../../data/procurement-content';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
@@ -141,6 +144,8 @@ const verificationFocus = [
     )}
 
     <div set:html={product.content.partOne} />
+    {product.slug === 'mtu-spare-parts' && <ProcurementBrief brief={supplyProcurement} source="mtu-supply-comparison" />}
+    {product.slug === 'mtu-4000-series-parts' && <ProcurementBrief brief={modelProcurement('4000')} source="mtu-4000-model-rfq" />}
     <section class="detail-differentiation-block">
       <h2>{product.title} Buying Context</h2>
       <p>
@@ -170,6 +175,8 @@ const verificationFocus = [
       />
     </figure>
     <div set:html={product.content.partTwo} />
+    {product.slug === 'mtu-spare-parts' && <QuotationExamples ids={['spare-parts-kit', 'molded-tubing']} source="mtu-supply-quotation-examples" />}
+    {product.slug === 'mtu-4000-series-parts' && <QuotationExamples ids={['generator-service-filters']} source="mtu-4000-quotation-example" />}
 
     <p class="resource-note detail-page-back">
       <a href="/products/">All products</a>

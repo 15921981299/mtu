@@ -2643,7 +2643,7 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 396 series parts including cylinder liners, pistons, bearings, valves, gaskets, fuel system, cooling, and turbocharger components. Legacy and superseded part numbers supported.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('396')),
-    longDescription: `The MTU 396 series is one of the most respected legacy high-speed diesel engine families, widely deployed in naval vessels, fast ferries, luxury yachts, and land-based power generation from the 1980s through the early 2000s. Available in 8V, 12V, and 16V configurations (TE54, TE74L, TE84, TE94, TB34, TC52/82/92 variants), these engines remain in active service worldwide — and their parts demand has not diminished.
+    longDescription: `For an MTU 396 parts request, retain the full nameplate designation and serial number. Legacy installations can have changed components, so include the number on the installed item as well as any old invoice or parts-list reference.
 
     Because the 396 series is now a legacy platform, OEM-route availability can be inconsistent. This is where our verification process adds value: we check each part number against your engine serial number, confirm whether superseded references apply, and quote OEM, OEM-alternative, reman, or replacement options with transparent lead times. Common 396 series requests include cylinder liners (5320110110), cylinder head covers (5320100130), exhaust valves (5410500227), inlet valves (4570530001), valve springs (5320530020), main and thrust bearings, oil pumps (5321800001), oil separators (5410100163), and turbocharger turbine wheels (5110800220/5110804420).
 
@@ -2683,9 +2683,9 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Browse MTU 1163 series parts: cylinder heads, bearings, valves, cooling system, fuel system, gaskets, and seals.',
     type: 'series',
     partFilter: (p) => p.series.some((s) => s.includes('1163')),
-    longDescription: `The MTU 1163 series represents the high-output end of MTU's medium-speed engine portfolio, with individual cylinder outputs significantly above the 956 series. Deployed in naval and large commercial vessels and in heavy-duty power generation, 1163 engines demand parts that meet exacting specifications. Cylinder heads, main bearings (5550330130), connecting rod bearings (5550302160), and cooling pump shafts (5562010105) are high-value components where fitment must be confirmed before shipment.
+    longDescription: `MTU 1163 parts requests need the full engine designation, serial number and installation position. Catalog references include cylinder-head components, main bearings (5550330130), connecting rod bearings (5550302160) and cooling pump shafts (5562010105). Treat each reference as a separate identification task rather than a universally compatible 1163 part.
 
-    Many 1163 series parts cross-reference with the 956 series, but running changes across production years mean that engine serial number verification is essential. We check each part number against the latest MTU electronic parts catalog revision for your specific engine, flag superseded numbers, and quote with lead times that reflect real stock availability.`,
+    Some public records list references under both 1163 and 956. That does not prove fitment across both families. Provide the engine serial number, installed component marking and drawing revision for an application-specific check. Access to a current manufacturer catalog and current stock is not established by this public listing.`,
   },
 
   // ── Category Hubs ──
@@ -2801,7 +2801,7 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     ],
     type: 'category',
     partFilter: (p) => p.category === 'Turbocharging',
-    longDescription: `MTU turbochargers are precision-rotating assemblies operating at speeds exceeding 100,000 RPM with exhaust gas inlet temperatures beyond 700 degrees Celsius. The turbine wheel, compressor wheel, bearing housing, and sealing rings form a balanced system where any component wear — even at the micron level — produces vibration, oil leakage, or efficiency loss that cascades into engine performance degradation.
+    longDescription: `Separate a complete turbocharger from a rotating assembly, wheel, housing or sealing component. Request the turbocharger nameplate and complete assembly reference; an engine family alone does not identify the installed turbocharger build.
 
     Our turbocharger parts catalog covers the complete rotating assembly: turbine wheels (5110804420, 5110800220, 5110800420), compressor wheels (5090251301), bearing housings (5110803201), piston ring seals (5110850060, 5120850560), heat shields (5110812603, 5110820226), and diffusers (5361420025). We verify each part number against your turbocharger nameplate — not just the engine serial — because turbocharger variants within the same engine series can differ by application, power rating, and emissions certification.
 
@@ -2858,24 +2858,24 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     title: 'MTU Gaskets & Seal Kits | Parts Catalog',
     h1Title: 'MTU Gaskets, Seals & O-Rings',
     summary: 'MTU gaskets and seals — cylinder head gaskets, O-rings, sealing rings, shaft seals, and complete gasket kits.',
-    description: 'Gaskets and seals are application-specific — material grade, thickness, and shape all vary by engine installation. We supply individual gaskets and complete gasket kits for overhaul projects. Common references in stock for MTU 2000, 4000, 396, 595, and 956 series.',
+    description: 'Request individual MTU gaskets or an itemized overhaul sealing list. Confirm material, thickness, shape and installation position; stock and kit contents are checked for each quotation.',
     type: 'category',
     partFilter: (p) => p.category === 'Gaskets and seals',
     longDescription: `Gaskets, seals, and O-rings may be the smallest parts on an MTU engine by weight, but they are among the most consequential. A failed cylinder head gasket can pressurize the cooling system and cause overheating within minutes. A leaking turbocharger oil seal can empty the oil sump into the exhaust. A deteriorated O-ring on a fuel injector sleeve can allow combustion gas into the fuel return circuit. Every gasket and seal in this catalog has been selected because it serves a critical containment function.
 
-    Our gasket and seal catalog covers cylinder head gaskets (5240161580, 5410160920, 5550161420), O-rings (700429260000, 700429050003), rotary and radial-lip shaft seals (8699970499, XP51529700004), copper sealing rings (007603016105), and valve stem seals (0000530361). We stock common references and can source application-specific material grades. For overhaul projects, we recommend complete gasket kits — they are more economical than ordering individual pieces and ensure every sealing surface is renewed.`,
+    Catalog references include cylinder head gaskets (5240161580, 5410160920, 5550161420), O-rings (700429260000, 700429050003), shaft seals (8699970499, XP51529700004), sealing rings (007603016105) and valve stem seals (0000530361). Current stock and material grades remain subject to supplier confirmation. A gasket-set quote must identify its contents and quantities; a kit label alone does not establish complete coverage or a lower price.`,
   },
   {
     slug: 'mtu-pistons-liners',
     title: 'MTU Pistons, Liners & Rings | Parts Catalog',
     h1Title: 'MTU Pistons, Cylinder Liners & Ring Sets',
     summary: 'MTU piston assemblies, cylinder liners, piston rings, piston pins, and connecting rod components.',
-    description: 'Pistons, liners, and rings are size-graded components. Incorrect grade selection causes premature wear or seizure. We verify size code, engine series, and serial number before quotation. OEM and OEM-alternative grades available for MTU 2000, 4000, 396, and 595 series.',
+    description: 'MTU piston, liner and ring references need component markings, size-grade documentation and engine serial-number checks. Supply condition and available grades are confirmed for the offered number.',
     type: 'category',
     partFilter: (p) => p.category === 'Pistons and liners',
     longDescription: `The piston-and-liner assembly is the heart of every MTU engine's combustion system. These are size-graded, precision-machined components where clearance between the piston skirt and cylinder liner is measured in hundredths of a millimeter. An incorrect size grade — even one step off — leads to scuffing, excessive oil consumption, or in severe cases, piston seizure. This is not a commodity part; it is an engineered assembly where the price of a mistake is measured in engine hours lost.
 
-    Our pistons and liners catalog covers cylinder liners (5240113410, 5320110110, 5840111810), piston assemblies with crowns and skirts (5240303917, 5840300917), compression and oil control rings (0120370618, 0090375019, 0080375819), piston pins (5410370220), and connecting rod bushings and bolts. For each inquiry, we verify the engine serial number to confirm the correct size grade — standard (0), first oversize (1), or second oversize (2) — before quotation. Both OEM and OEM-alternative grades are available.`,
+    Catalog references include cylinder liners (5240113410, 5320110110, 5840111810), pistons (5240303917, 5840300917), ring components (0120370618, 0090375019, 0080375819) and piston pins (5410370220). Request the included components and mating grades explicitly. Do not assume every grade code means a universal oversize increment; confirm it against the applicable drawing and offered unit.`,
   },
   {
     slug: 'mtu-valve-train',
@@ -2891,12 +2891,12 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     title: 'MTU Engine Bearings — Crankshaft, Conrod, Camshaft, Thrust | Parts Catalog',
     h1Title: 'MTU Engine Bearings',
     summary: 'MTU bearings — crankshaft main bearings, connecting rod bearings, camshaft bearings, thrust bearings, and bushings.',
-    description: 'Bearings are precision-graded components. Undersize, standard, and oversize grades available. We verify engine serial number to confirm the correct grade for MTU 2000, 4000, 396, 595, and 956 series engines.',
+    description: 'Compare MTU main, connecting-rod, camshaft and thrust-bearing references. Specify shell position, grade markings, measured journal size and shaft repair history; available grades are checked per inquiry.',
     type: 'category',
     partFilter: (p) => p.category === 'Bearings',
     longDescription: `MTU engine bearings — crankshaft main bearings, connecting rod bearings, camshaft bearings, and thrust washers — are precision-graded components manufactured to tolerances that determine oil film thickness, load distribution, and ultimately engine life. A bearing set that is one size grade off will not "almost work"; it will wipe within the first hours of operation and take the crankshaft journal with it.
 
-    Our bearing catalog covers main bearings (5240334901/5240335602 upper/lower pairs, 5410330605), connecting rod bearings (5240383710/5240382711 upper/lower pairs, 5550302160), camshaft bearings (5240510110), thrust bearings (5090200512, 5110200412), and thrust washers (5360330262). Every bearing inquiry requires the engine serial number to confirm the correct size grade — standard (STD), 0.25mm undersize, 0.50mm undersize, or 0.75mm undersize. We stock standard grades for common MTU series and can source non-standard grades with transparent lead times.`,
+    Catalog references include main-bearing shells (5240334901, 5240335602, 5410330605), connecting-rod bearing components (5240383710, 5240382711, 5550302160), camshaft bearings (5240510110) and thrust components (5090200512, 5110200412, 5360330262). Confirm shell position and grade using applicable documentation and workshop measurements. No universal undersize increments or current stock grades are established by this catalog.`,
   },
   {
     slug: 'mtu-cooling-system',

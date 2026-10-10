@@ -3,6 +3,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
 import FunnelPageView from '../../../components/FunnelPageView.astro';
+import ProcurementBrief from '../../../components/ProcurementBrief.astro';
+import QuotationExamples from '../../../components/QuotationExamples.astro';
+import { catalogAssemblies } from '../../../data/part-assemblies';
+import { catalogProcurement } from '../../../data/procurement-content';
 import { isRealPartImage, mtuCatalogHubs, mtuParts, searchPriorityPartRank, type MtuCatalogHub } from '../../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
 import '../../../styles/resource-page.css';
@@ -13,6 +17,8 @@ export function getStaticPaths() {
 
 const { hub } = Astro.props as { hub: MtuCatalogHub };
 const parts = mtuParts.filter(hub.partFilter);
+const drawingGroups = ['mtu-396-series', 'mtu-1163-series'].includes(hub.slug)
+  ? catalogAssemblies.filter((assembly) => assembly.parts.some((item) => parts.some((part) => part.partNumber === item.partNumber))) : [];
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
 const catalogHeading = /catalog/i.test(hub.h1Title) ? hub.h1Title : `${hub.h1Title} Catalog`;
@@ -76,7 +82,7 @@ const catalogSeries = Array.from(new Set(parts.flatMap((part) => part.series.len
 const catalogCategories = Array.from(new Set(parts.map((part) => part.category))).slice(0, 8);
 const catalogScope = hub.type === 'series'
   ? `${hub.h1Title} covers ${catalogCategories.join(', ')} and related service references.`
-  : `${hub.h1Title} covers ${catalogSeries.join(', ')} and serial-number verified applications.`;
+  : `${hub.h1Title} includes catalog references listed under ${catalogSeries.join(', ')}. Engine-specific fitment remains subject to verification.`;
 // Authority concentration: series hubs link to the matching overhaul guide (hub-and-spoke).
 const overhaulGuideLink = hub.slug === 'mtu-2000-series'
   ? { href: '/guides/mtu-2000-overhaul-parts/', label: 'MTU 2000 Series Overhaul Parts Guide' }
@@ -141,7 +147,7 @@ const catalogUseCases = hub.type === 'series'
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
               </span>
               <span class="catalog-stat-value">{categoryGroups.size}</span>
-              <span class="catalog-stat-label">{groupLabel === 'series' ? 'Categories' : 'Series'}</span>
+              <span class="catalog-stat-label">{groupLabel === 'series' ? 'Series' : 'Categories'}</span>
             </div>
             <div class="catalog-stat-item">
               <span class="catalog-stat-icon catalog-stat-icon--moq">
@@ -180,6 +186,20 @@ const catalogUseCases = hub.type === 'series'
           <h2>{hub.type === 'series' ? 'Parts by Category' : 'Parts by Engine Series'}</h2>
           {seriesGuide && <p><a href={seriesGuide.href}>{seriesGuide.label}</a> · <a href={hub.slug === 'mtu-4000-series' ? '/products/mtu-4000-series-parts/' : hub.slug === 'mtu-2000-series' ? '/products/mtu-2000-series-parts/' : '/products/mtu-spare-parts/'}>Parts supply and quotation</a></p>}
           <p class="catalog-intro-text">{hub.description}</p>
+          {catalogProcurement[hub.slug] && <ProcurementBrief brief={catalogProcurement[hub.slug]} source={`catalog-${hub.slug}-scope`} />}
+          {drawingGroups.length > 0 && <section class="catalog-depth-section">
+            <h2>Catalog Drawing Positions</h2>
+            <p>These are catalog drawing relationships, not a confirmed kit. Check the revision and your engine serial range before using the positions.</p>
+            {drawingGroups.map((assembly) => <>
+              <h3>{assembly.name}</h3>
+              <ul>{assembly.parts.map((item) => {
+                const linked = mtuParts.find((part) => part.partNumber === item.partNumber);
+                return <li>Position {item.position}: {linked ? <a href={`/part-products/${linked.slug}/`}>{item.partNumber} {item.description}</a> : `${item.partNumber} ${item.description}`}</li>;
+              })}</ul>
+            </>)}
+          </section>}
+          {hub.slug === 'mtu-filters' && <QuotationExamples ids={['generator-service-filters']} source="filters-real-rfq" />}
+          {hub.slug === 'mtu-gasket-kits' && <QuotationExamples ids={['cylinder-head-components']} source="gaskets-real-rfq" />}
 
           {hub.longDescription && (
             <div class="catalog-long-description">

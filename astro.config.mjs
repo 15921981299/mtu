@@ -5,6 +5,9 @@ import { isSitemapExcluded } from './src/data/sitemap-exclude.ts';
 export default defineConfig({
   site: 'https://dieselpartsource.com',
   trailingSlash: 'always',
+  vite: {
+    optimizeDeps: { entries: ['src/scripts/**/*.ts'] },
+  },
   build: {
     // The deploy uploads the whole directory, so HTML that stops being
     // generated (e.g. part pages merged into a canonical slug) would otherwise

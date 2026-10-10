@@ -1,5 +1,7 @@
 ﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProcurementBrief from '../../../components/ProcurementBrief.astro';
+import { modelProcurement } from '../../../data/procurement-content';
 import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
 import BlogCta from '../../../components/BlogCta.astro';
 import DetailPageShell from '../../../components/DetailPageShell.astro';
@@ -59,9 +61,12 @@ const noindex = isSubpageNoindex(subpage.productSlug, subpage.slug);
       quoteHref={quoteHref}
       title={`Check ${parentTitle.toLowerCase()} availability`}
       text="Send the part number, engine model, serial number, quantity, and delivery country. We confirm compatibility before shipment."
+      modalSource={funnelLabel}
+      modalContext={subpage.h1Title}
     />
 
     <div set:html={subpage.content.partOne} />
+    {subpage.slug === '16v-2000-engine-parts' && <ProcurementBrief brief={modelProcurement('2000')} source="16v-2000-model-rfq" />}
     <div set:html={subpage.content.partTwo} />
     <p class="resource-note detail-page-back">
       <a href={`/products/${subpage.productSlug}/`}>← {parentTitle}</a>
