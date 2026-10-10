@@ -9,6 +9,8 @@ import { partSupply, supplyAvailabilitySchema } from '../../data/part-supply';
 import { getCatalogAssemblies } from '../../data/part-assemblies';
 import { getPartGuidance } from '../../data/part-category-guidance';
 import { standardPartName } from '../../data/part-names';
+import { describeModel, getModelGroupsForPart, parseModels } from '../../data/engine-models';
+import { getCompanionParts } from '../../data/part-companions';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -72,7 +74,14 @@ const seriesShort = part.series.length > 0
     : !isVagueSeriesText(shortApplicableEngines)
       ? shortApplicableEngines!
       : 'MTU';
-const title = `${part.partNumber} ${part.name} - ${seriesShort} Part`;
+const earlierNumbers = (part.crossReferences ?? []).filter((ref) => ref.relationship === 'replaces').map((ref) => ref.partNumber);
+const laterNumber = (part.crossReferences ?? []).find((ref) => ref.relationship === 'replaced-by')?.partNumber;
+const baseTitle = `${part.partNumber} ${part.name} - ${seriesShort} Part`;
+const supersessionTitle = earlierNumbers.length > 0 ? `${part.partNumber} ${part.name} (Replaces ${earlierNumbers[0]}) - ${seriesShort}` : undefined;
+const title = supersessionTitle && supersessionTitle.length <= 65 ? supersessionTitle : baseTitle;
+const engineModels = parseModels(part.applicableEngines);
+const modelGroups = getModelGroupsForPart(part);
+const companions = getCompanionParts(part);
 const stockText = supply?.stockNote ?? 'Availability confirmed after inquiry';
 const replacementRefs = Array.from(new Set([...(part.replacementFor ?? []), ...(part.crossReferences ?? []).map((ref) => ref.partNumber)]))
   .filter((ref) => ref.trim() !== '' && ref.toUpperCase() !== part.partNumber.toUpperCase());
@@ -111,7 +120,21 @@ const metaDesc = (() => {
   const raw = `${summaryText} ${cta}`;
   return raw.length <= 160 ? raw : raw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
 })();
-const partFaqs = part.faqs ?? [];
+const supersessionFaqs = [
+  ...(earlierNumbers.length > 0
+    ? [{
+        question: `Is ${earlierNumbers[0]} replaced by ${part.partNumber}?`,
+        answer: `Catalog history lists ${part.partNumber} as the later number for ${earlierNumbers.join(', ')}. Orders quoting ${earlierNumbers.length === 1 ? 'that number' : 'those numbers'} are normally supplied as ${part.partNumber}; we confirm the change against the engine serial number, because a later number can come with related changes to mating parts.`,
+      }]
+    : []),
+  ...(laterNumber
+    ? [{
+        question: `What replaces ${part.partNumber}?`,
+        answer: `Catalog history lists ${laterNumber} as the later number. We check whether ${laterNumber} can be fitted on its own or needs related parts changed, and quote ${part.partNumber} where it is still available and preferred.`,
+      }]
+    : []),
+];
+const partFaqs = [...(part.faqs ?? []), ...supersessionFaqs.filter((faq) => !(part.faqs ?? []).some((existing) => existing.question === faq.question))];
 const hasReplacementRefs = replacementRefs.length > 0;
 const replacementReviewText = hasReplacementRefs
   ? 'Catalog history distinguishes earlier and later numbers where documented. Reference-only entries do not establish replacement direction or interchangeability. Confirm the offered number against the engine serial number and installation.'
@@ -306,7 +329,24 @@ const productJsonLd = productSchema({
     {part.applicableEngines && (
       <>
         <h2>Engine Catalog References</h2>
-        <p>{part.applicableEngines}</p>
+        {engineModels.length > 0 ? (
+          <>
+            <p>{part.partNumber} is listed for {engineModels.length} engine model{engineModels.length > 1 ? 's' : ''}. How each model code reads:</p>
+            <ul class="part-model-list">
+              {engineModels.map((model) => <li><strong>{model.code}</strong>: {describeModel(model)}</li>)}
+            </ul>
+          </>
+        ) : (
+          <p>{part.applicableEngines}</p>
+        )}
+        {modelGroups.length > 0 && (
+          <p>
+            Full parts list for {modelGroups.length > 1 ? 'these engines' : 'this model family'}:{' '}
+            {modelGroups.map((group, index) => (
+              <>{index > 0 && ', '}<a href={`/engine-models/${group.slug}/`}>{group.title}</a></>
+            ))}
+          </p>
+        )}
         <p>Engine-series references do not confirm every installation. Final fitment of {part.partNumber} depends on the full engine serial number and assembly position.</p>
       </>
     )}
@@ -317,6 +357,18 @@ const productJsonLd = productSchema({
         <p>This part is commonly replaced when:</p>
         <ul>
           {part.commonFailureScenarios.map((s) => <li>{s}</li>)}
+        </ul>
+      </>
+    )}
+
+    {companions && (
+      <>
+        <h2>Usually Ordered with {part.name}</h2>
+        <p>{companions.reason} These {seriesShort} references are commonly checked in the same job; each still needs its own fitment check.</p>
+        <ul>
+          {companions.parts.map((item) => (
+            <li><a href={`/part-products/${item.slug}/`}>{item.partNumber} {item.name}</a></li>
+          ))}
         </ul>
       </>
     )}

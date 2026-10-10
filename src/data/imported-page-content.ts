@@ -14,47 +14,6 @@ const cta = (label: string, source: string) =>
   `<p><a href="/contact/?source=${source}">${label} →</a></p>`;
 
 export const importedPageContent: Record<string, ImportedPageContent> = {
-  'news/maritime-energy-transition-mtu-large-engines-from-rolls-royce-now-approved-for-hvo-and-imo-iii': {
-    summary:
-      'What renewable HVO diesel approval and IMO Tier III emission limits mean for MTU marine engine operators when they plan filters, fuel-system parts, and aftertreatment-related spares.',
-    body: `
-      <h2>Two Separate Changes</h2>
-      <p>Operators often hear about HVO and IMO Tier III together, but they affect engines in different ways. <strong>HVO</strong> (hydrotreated vegetable oil) is a renewable paraffinic diesel covered by the EN 15940 fuel standard. It is a fuel change. <strong>IMO Tier III</strong> sets lower NOx limits for ships operating in emission control areas. On high-speed engines it is usually met with exhaust aftertreatment such as selective catalytic reduction (SCR), so it is a hardware change.</p>
-      <h2>What HVO Means for Parts</h2>
-      <ul>
-        <li>Use HVO only on engines and ratings the engine maker has released for EN 15940 fuels</li>
-        <li>Switching fuel can loosen deposits in tanks and lines, so plan extra fuel-filter changes after the changeover</li>
-        <li>Check seal and hose materials in older fuel systems when changing fuel type</li>
-      </ul>
-      <h2>What Tier III Means for Parts</h2>
-      <ul>
-        <li>SCR systems add dosing units, sensors, and reductant lines to the spare-parts list</li>
-        <li>Exhaust-side sensors and control items become part of routine maintenance stock</li>
-        <li>Parts references for Tier III installations should be checked against the vessel's exact configuration</li>
-      </ul>
-      <p>For filter references, see the <a href="/part-products/catalog/mtu-filters/">MTU filters catalog</a>; for marine engine parts in general, see <a href="/applications/marine-propulsion-engines/">MTU marine engine parts</a>.</p>
-      ${cta('Ask about parts for HVO or Tier III engines', 'news-hvo-tier3')}
-    `,
-  },
-  'news/rolls-royce-supplies-mtu-propulsion-and-on-board-power-systems-for-three-new-polish-navy-frigates': {
-    summary:
-      'Why navies that commission new MTU-powered frigates plan spare-parts packages, NATO stock numbers, and supersession tracking for the full service life of the propulsion and on-board power systems.',
-    body: `
-      <h2>Frigate Power Systems Run for Decades</h2>
-      <p>A frigate is usually planned for a service life of thirty years or more, and its propulsion and on-board power engines will go through several major overhauls in that time. Over that period part numbers are superseded, suppliers change, and the original documentation ages. Navies that plan spare parts from the start avoid many of the availability problems that older fleets face.</p>
-      <h2>What Good Spares Planning Covers</h2>
-      <ul>
-        <li>An initial spares package sized to the number of engines and the planned operating profile</li>
-        <li>NATO stock numbers linked to each manufacturer part number for logistics systems</li>
-        <li>A supersession record, so later numbers are recognised when old ones disappear</li>
-        <li>Special tools for onboard and shore-based maintenance</li>
-        <li>Overhaul parts lists prepared before each major overhaul is due</li>
-      </ul>
-      <h2>Where We Help</h2>
-      <p>We support navy and coast guard buyers with part identification, NATO numbers and HS codes on quotations where known, and supply of current and legacy MTU references. See <a href="/capabilities/marine-engine-service/">marine engine parts for naval buyers</a> and <a href="/part/mtu-specialized-tools/">MTU special tools</a>.</p>
-      ${cta('Discuss a naval spares list', 'news-naval-frigates')}
-    `,
-  },
   stock: {
     title: 'MTU Parts Stock & Availability',
     seoTitle: 'MTU Parts Stock & Availability Check | Diesel Part Source',
@@ -279,7 +238,7 @@ export const importedPageContent: Record<string, ImportedPageContent> = {
       </ul>
       <h2>Old Reference Formats</h2>
       <p>Some 538 parts use older reference formats that include letters and a slash suffix, such as 135L45018/1. Keep the suffix when you send the number, since it identifies a specific version. If only a drawing position or an old parts-list page is available, send a photo of it together with the engine serial number.</p>
-      <p>Naval buyers can ask for NATO stock numbers and HS codes on the quotation where they are known.</p>
+      <p>Fleet buyers can ask for part numbers, HS codes, and packing data on the quotation where they are known.</p>
       <h2>Overhaul Lists for 538 Engines</h2>
       <p>Because many 538 parts are now hard to find, we recommend sending the complete overhaul list early, before the engine is removed. We return each line marked as available, sourced to order with an estimated lead time, or not currently available, so your team can plan around the difficult items instead of discovering them in the middle of the job.</p>
       ${cta('Request MTU 538 parts', 'part-mtu-538-parts')}

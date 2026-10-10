@@ -32,7 +32,7 @@ export const industries: IndustryItem[] = [
         <p>Diesel Part Source supports shipyards, vessel operators, and marine service companies that need verified diesel engine parts, consolidated quotations, export packing, and delivery to a port, yard, or maintenance warehouse.</p>
         <h3>Who We Support</h3>
         <ul>
-          <li>Navy and coast guard fleets</li>
+          <li>Ferry, workboat, and commercial vessel fleets</li>
           <li>Ferries, yachts, shipyards, and repair companies</li>
           <li>Offshore and harbor service vessels</li>
         </ul>

@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/create-worker-entry.mjs",
+    "build": "node scripts/build.mjs",
+    "build:pages": "astro build",
     "preview": "astro preview",
     "check": "astro check",
     "check:links": "node scripts/check-internal-links.mjs",

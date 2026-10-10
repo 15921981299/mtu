@@ -293,9 +293,9 @@ const phoneHref = `tel:${site.phone.replace(/\s/g, '')}`;
               <h3 class="contact-info-title">Shanghai office</h3>
               <p class="contact-info-summary">
                 <address class="contact-address">
-                  Shanghai Diesel Part Source Co., Ltd.<br />
-                  Room A102, No. 399 Hengnan Road, Pujiang Town,<br />
-                  Minhang District, Shanghai, 201112, China
+                  {site.company.legalNameEn}<br />
+                  {site.company.address.streetAddress},<br />
+                  {site.company.address.addressRegion}, {site.company.address.postalCode}, China
                 </address>
               </p>
             </div>

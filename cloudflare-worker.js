@@ -1,4 +1,5 @@
 import { SALES_EMAIL, isZohoSmtpConfigured, sendZohoEmail } from './zoho-smtp.js';
+import { RETIRED_PATHS } from './retired-paths.js';
 
 const DOWNLOAD_TTL_SECONDS = 7 * 24 * 60 * 60;
 const textEncoder = new TextEncoder();
@@ -61,6 +62,58 @@ async function downloadDrawing(request, env, now = Date.now()) {
 }
 
 /**
+ * Retired URLs answer 410 Gone.
+ *
+ * Cloudflare's `_redirects` file only supports 301/302/303/307/308 and 200
+ * rewrites, so a `410` rule written there is silently dropped and the path
+ * falls back to a plain 404. The retired list is therefore compiled into
+ * ./retired-paths.js by scripts/create-worker-entry.mjs (source of truth:
+ * src/data/retired-urls.txt) and answered here.
+ *
+ * This handler only runs when no stored asset matched the request, so a path
+ * listed as retired is guaranteed to have nothing served behind it.
+ */
+const GONE_HTML = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Page removed | Diesel Part Source</title>
+</head>
+<body style="margin:0;font:16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif;color:#1f2933;background:#f7f9fb">
+<main style="max-width:640px;margin:0 auto;padding:64px 24px">
+<h1 style="font-size:24px;margin:0 0 12px">This page has been removed</h1>
+<p style="margin:0 0 20px">The model-page group it belonged to was retired, and there is no equivalent page to forward you to.</p>
+<p style="margin:0 0 8px"><strong>Looking for a part?</strong></p>
+<ul style="margin:0 0 20px;padding-left:20px">
+<li><a href="/products/">Engine parts by series</a> &mdash; MTU main series and overhaul coverage</li>
+<li><a href="/part-products/">Part numbers</a> &mdash; look up a specific part number</li>
+<li><a href="/contact/">Send an inquiry</a> &mdash; part number, engine model, serial number, quantity, destination</li>
+</ul>
+<p style="margin:0;color:#52606d;font-size:14px">If you followed a link you trust, email <a href="mailto:sales@dieselpartsource.com">sales@dieselpartsource.com</a> and we will point you to the right page.</p>
+</main>
+</body>
+</html>`;
+
+const GONE_HEADERS = {
+  'Content-Type': 'text/html; charset=utf-8',
+  // Permanent by design; a day at the edge keeps Worker invocations down.
+  'Cache-Control': 'public, max-age=86400',
+  'X-Content-Type-Options': 'nosniff',
+};
+
+/** `/foo/` and `/foo` must resolve to the same key. */
+function normalizePathKey(pathname) {
+  const trimmed = pathname.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed;
+}
+
+function isRetiredPath(pathname) {
+  return RETIRED_PATHS.size > 0 && RETIRED_PATHS.has(normalizePathKey(pathname));
+}
+
+/**
  * Serve the static build, falling back to the custom 404 page.
  * `not_found_handling = "404-page"` already covers the plain miss; the explicit
  * retry keeps the branded page in place if that asset setting is ever dropped.
@@ -86,9 +139,16 @@ export default {
 
     // Everything that is not the RFQ endpoint is a static asset, and this
     // branch only runs when no stored asset matched the path (assets are
-    // served directly otherwise). Redirects are therefore owned entirely by
-    // dist/_redirects — see scripts/create-worker-entry.mjs.
+    // served directly otherwise). 301/302 rules are owned entirely by
+    // dist/_redirects; 410 belongs here because _redirects cannot express it.
     if (!isRfqRoute) {
+      if (isRetiredPath(url.pathname)) {
+        return new Response(request.method === 'HEAD' ? null : GONE_HTML, {
+          status: 410,
+          headers: GONE_HEADERS,
+        });
+      }
+
       if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
         return serveAssets(request, env);
       }

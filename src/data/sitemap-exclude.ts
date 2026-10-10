@@ -1,5 +1,4 @@
 import { products, isProductPageNoindex } from './products';
-import { importedPages } from './imported-pages';
 import { isPartPageIndexable, mtuParts } from './mtu-parts';
 import { publishedCaseStudies } from './case-studies';
 
@@ -15,16 +14,16 @@ const CASE_STUDIES_EXCLUDES = new Set(
   publishedCaseStudies.length === 0 ? ['/case-studies/'] : [],
 );
 
-function isImportedPageNoindex(page: (typeof importedPages)[number]): boolean {
-  return !/^(part\/mtu-(183-parts|538-parts|1800-parts|specialized-tools)$|stock$|support-services$|genuine-oem-parts$|mtu-oils$|mtu-coolants$|series-4000|rail-drive-solutions$)/i.test(page.slug);
-}
+// NOTE: src/data/imported-pages.ts used to be filtered through a slug regex
+// here (`isImportedPageNoindex`). After the engine-family shell pages were
+// removed on 2026-10-10 that list is 12 hand-curated pages and the filter
+// matched none of them — a second, stale copy of a one-off migration script's
+// whitelist that would have silently re-excluded any page added later.
+// If an imported page ever needs to be excluded again, mark it where it is
+// generated. Do not reintroduce a slug regex here.
 
 const NOINDEX_PRODUCT_PATHS = new Set(
   products.filter(isProductPageNoindex).map((product) => `/products/${product.slug}/`)
-);
-
-const NOINDEX_IMPORTED_PATHS = new Set(
-  importedPages.filter(isImportedPageNoindex).map((page) => `/${page.slug}/`)
 );
 
 const NOINDEX_PART_PATHS = new Set(
@@ -39,7 +38,6 @@ export function isSitemapExcluded(pathname: string): boolean {
     STATIC_EXCLUDES.has(normalized) ||
     CASE_STUDIES_EXCLUDES.has(normalized) ||
     NOINDEX_PRODUCT_PATHS.has(normalized) ||
-    NOINDEX_IMPORTED_PATHS.has(normalized) ||
     NOINDEX_PART_PATHS.has(normalized)
   );
 }
@@ -47,12 +45,8 @@ export function isSitemapExcluded(pathname: string): boolean {
 /** For build-time logging. */
 export const sitemapExcludeStats = {
   static: STATIC_EXCLUDES.size,
+  caseStudies: CASE_STUDIES_EXCLUDES.size,
   noindexProducts: NOINDEX_PRODUCT_PATHS.size,
-  noindexImported: NOINDEX_IMPORTED_PATHS.size,
   noindexParts: NOINDEX_PART_PATHS.size,
-  total:
-    STATIC_EXCLUDES.size +
-    NOINDEX_PRODUCT_PATHS.size +
-    NOINDEX_IMPORTED_PATHS.size +
-    NOINDEX_PART_PATHS.size,
+  total: STATIC_EXCLUDES.size + CASE_STUDIES_EXCLUDES.size + NOINDEX_PRODUCT_PATHS.size + NOINDEX_PART_PATHS.size,
 };

@@ -3,6 +3,21 @@ export const site = {
   company: {
     legalName: 'Shanghai Diesel Part Source Co., Ltd.',
     legalNameEn: 'Shanghai Diesel Part Source Co., Ltd.',
+    /**
+     * Registered / correspondence address (Pudong New Area, Shanghai).
+     * SINGLE SOURCE OF TRUTH: the three schema.org PostalAddress blocks, the
+     * visible NAP text on /about/ and /contact/, and public/llms.txt all read
+     * from here, so an address change can never leave the site half-updated.
+     */
+    address: {
+      streetAddress: 'Room 401, No. 655 Jialin Road, Pudong New Area',
+      addressLocality: 'Shanghai',
+      addressRegion: 'Shanghai',
+      postalCode: '201206',
+      addressCountry: 'CN',
+      /** One-line form for visible NAP text. */
+      singleLine: 'Room 401, No. 655 Jialin Road, Pudong New Area, Shanghai, 201206, China',
+    },
   },
   url: 'https://dieselpartsource.com',
   email: 'sales@dieselpartsource.com',
@@ -105,10 +120,11 @@ export const organizationSchema = {
   areaServed: 'Worldwide',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District',
-    addressLocality: 'Shanghai',
-    addressRegion: 'Shanghai',
-    addressCountry: 'CN',
+    streetAddress: site.company.address.streetAddress,
+    addressLocality: site.company.address.addressLocality,
+    addressRegion: site.company.address.addressRegion,
+    postalCode: site.company.address.postalCode,
+    addressCountry: site.company.address.addressCountry,
   },
   contactPoint: [
     {
@@ -292,11 +308,11 @@ export function aboutPageSchema(page: {
       description: site.defaultDescription,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District',
-        addressLocality: 'Shanghai',
-        addressRegion: 'Shanghai',
-        postalCode: '201112',
-        addressCountry: 'CN',
+        streetAddress: site.company.address.streetAddress,
+        addressLocality: site.company.address.addressLocality,
+        addressRegion: site.company.address.addressRegion,
+        postalCode: site.company.address.postalCode,
+        addressCountry: site.company.address.addressCountry,
       },
       contactPoint: {
         '@type': 'ContactPoint',
@@ -336,11 +352,11 @@ export function contactPageSchema(page: {
       telephone: site.phone,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Room A102, No. 399 Hengnan Road, Pujiang Town, Minhang District',
-        addressLocality: 'Shanghai',
-        addressRegion: 'Shanghai',
-        postalCode: '201112',
-        addressCountry: 'CN',
+        streetAddress: site.company.address.streetAddress,
+        addressLocality: site.company.address.addressLocality,
+        addressRegion: site.company.address.addressRegion,
+        postalCode: site.company.address.postalCode,
+        addressCountry: site.company.address.addressCountry,
       },
       contactPoint: {
         '@type': 'ContactPoint',

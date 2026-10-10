@@ -60,7 +60,7 @@ export const services: ServiceItem[] = [
     seoTitle: 'Marine Diesel Engine Parts & Service | Diesel Part Source',
     h1Title: 'Marine Engine Parts & Service',
     summary:
-      'Verified MTU spare-parts sourcing for naval, coast guard, ferry, yacht, shipyard, and offshore engine users with urgent global shipment support.',
+      'Verified MTU spare-parts sourcing for ferry, workboat, yacht, shipyard, and offshore engine operators, with urgent global shipment support.',
     image: '/images/marine-diesel-engine-parts.webp',
     mainImage: '/images/mtu-engine-parts-hero.webp',
     secondImage: '/images/global-engine-parts-delivery.webp',
@@ -197,27 +197,27 @@ export function getServiceDetailHtml(title: string) {
     },
     'Marine Engine Service': {
       partOne: `
-        <h2>Marine Engine Parts & Service</h2>
-        <p>We support verified MTU parts sourcing for naval vessels, coast guard fleets, ferries, yachts, shipyards, and offshore equipment. MTU 2000, 4000, 595, 956, 1163, and related series are common request areas.</p>
+        <h2>Marine Engine Parts &amp; Service</h2>
+        <p>We support verified MTU parts sourcing for ferries, workboats, yachts, shipyards, and offshore equipment. MTU 2000, 4000, 595, 956, 1163, and related series are common request areas.</p>
         <h3>Marine Buyers We Serve</h3>
         <ul>
-          <li>Navy, coast guard, and law-enforcement vessel operators</li>
-          <li>Ferry companies, yacht maintenance teams, and shipyards</li>
-          <li>Offshore, harbor, and commercial marine service providers</li>
+          <li>Ferry, workboat, and commercial vessel operators</li>
+          <li>Yacht maintenance teams and shipyards</li>
+          <li>Offshore, harbor, and marine service providers</li>
         </ul>
       `,
       partTwo: `
         <h2>Urgent Shipment Support</h2>
         <p>Marine breakdowns are time-sensitive. We help confirm correct parts quickly and coordinate export documentation, express delivery, or freight shipment to the vessel or repair yard.</p>
-        <h3>Documentation for Naval and Government Buyers</h3>
-        <p>Navy and coast guard procurement often requires more than a commercial quote. Where the information is available, we can include on the quotation:</p>
+        <h3>Documentation for Institutional and Fleet Buyers</h3>
+        <p>Fleet and institutional procurement often needs more than a commercial quote. Where the information is available, we can include on the quotation:</p>
         <ul>
-          <li>NATO stock numbers (NSN) linked to the MTU part number</li>
+          <li>Part number, description, and engine application per line</li>
           <li>HS codes, net weight, and country of origin per line</li>
           <li>Supersession notes when the requested number has been replaced</li>
-          <li>Packing and marking according to your tender or contract instructions</li>
+          <li>Packing and marking according to your purchasing instructions</li>
         </ul>
-        <p>Many of our part pages already show NATO numbers, HS codes, and weights, for example the gaskets and seals in the <a href="/part-products/catalog/mtu-956-series/">MTU 956</a> and <a href="/part-products/catalog/mtu-1163-series/">MTU 1163</a> catalogs used on fast naval craft.</p>
+        <p>Our part pages carry HS codes and packing data where they are confirmed, for example the gaskets and seals in the <a href="/part-products/catalog/mtu-956-series/">MTU 956</a> and <a href="/part-products/catalog/mtu-1163-series/">MTU 1163</a> catalogues.</p>
         <h3>Tender and Framework Orders</h3>
         <p>For tenders, send the full item list with quantities and the required documents. We return a line-by-line quote that your team can paste into the tender format. For framework agreements, we can hold the same reference and packing format for repeat orders. Shipyard and vessel workflows are described on our <a href="/industries/marine/">marine industry page</a>.</p>
         <p><a href="/contact/">Send a marine parts inquiry</a></p>

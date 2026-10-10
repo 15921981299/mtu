@@ -40,7 +40,7 @@ export const testimonials: Testimonial[] = [
 
 /** Named sales contact shown on contact/about pages. */
 export const salesContact = {
-  name: 'Charles',
+  name: 'Leo',
   role: 'export sales for MTU and diesel engine parts',
   languages: 'English and Chinese',
 };
