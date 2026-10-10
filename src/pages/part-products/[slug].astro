@@ -10,6 +10,8 @@ import { priorityPartScopes } from '../../data/procurement-content';
 import { getPartReferences } from '../../data/part-references';
 import QuotationExamples from '../../components/QuotationExamples.astro';
 import { getQuotationExamplesForPart } from '../../data/quotation-examples';
+import PartBuyerEvidence from '../../components/PartBuyerEvidence.astro';
+import { partBuyerEvidence } from '../../data/part-buyer-evidence';
 import { getCatalogAssemblies } from '../../data/part-assemblies';
 import { getPartGuidance } from '../../data/part-category-guidance';
 import { standardPartName } from '../../data/part-names';
@@ -25,10 +27,11 @@ export function getStaticPaths() {
 const { part } = Astro.props;
 const supply = partSupply[part.partNumber];
 const procurement = priorityPartScopes[part.partNumber];
+const buyerEvidence = partBuyerEvidence[part.partNumber];
 const quotationIds = getQuotationExamplesForPart(part.partNumber).slice(0, 1).map((example) => example.id);
 const guidance = getPartGuidance(part.category, part.series);
 const heroImageAlt =
-  part.imageAlt ??
+  buyerEvidence?.imageAlt ?? part.imageAlt ??
   (isRealPartImage(part.image)
     ? `${part.partNumber} ${part.name} - MTU ${part.category} spare part`
     : `Representative ${part.category.toLowerCase()} image for ${part.partNumber} ${part.name} sourcing`);
@@ -84,7 +87,7 @@ const earlierNumbers = (part.crossReferences ?? []).filter((ref) => ref.relation
 const laterNumber = (part.crossReferences ?? []).find((ref) => ref.relationship === 'replaced-by')?.partNumber;
 const baseTitle = `${part.partNumber} ${part.name} - ${seriesShort} Part`;
 const supersessionTitle = earlierNumbers.length > 0 ? `${part.partNumber} ${part.name} (Replaces ${earlierNumbers[0]}) - ${seriesShort}` : undefined;
-const title = supersessionTitle && supersessionTitle.length <= 65 ? supersessionTitle : baseTitle;
+const title = buyerEvidence?.title ?? (supersessionTitle && supersessionTitle.length <= 65 ? supersessionTitle : baseTitle);
 const engineModels = parseModels(part.applicableEngines);
 const modelGroups = getModelGroupsForPart(part);
 const companions = getCompanionParts(part);
@@ -92,7 +95,7 @@ const stockText = supply?.stockNote ?? 'Availability confirmed after inquiry';
 const replacementRefs = Array.from(new Set([...(part.replacementFor ?? []), ...(part.crossReferences ?? []).map((ref) => ref.partNumber)]))
   .filter((ref) => ref.trim() !== '' && ref.toUpperCase() !== part.partNumber.toUpperCase());
 // Meta description：按优先级拼装分段，整段取舍而不是硬截断，保证 SERP 里句子完整
-const metaDesc = (() => {
+const metaDesc = buyerEvidence?.metaDescription ?? (() => {
   const rawSummary = (part.summary ?? '').trim();
   // 自动生成的双句 summary 常达 177 字符（>155 会被整段丢弃 → 134 页曾只剩 CTA）：
   // 超限时只取首句；meta 场景把冗长模糊串压缩为 "MTU engines"（正文保留完整核验语言）
@@ -130,7 +133,9 @@ const supersessionFaqs = [
   ...(earlierNumbers.length > 0
     ? [{
         question: `Is ${earlierNumbers[0]} replaced by ${part.partNumber}?`,
-        answer: `Catalog history lists ${part.partNumber} as the later number for ${earlierNumbers.join(', ')}. Orders quoting ${earlierNumbers.length === 1 ? 'that number' : 'those numbers'} are normally supplied as ${part.partNumber}; we confirm the change against the engine serial number, because a later number can come with related changes to mating parts.`,
+        answer: buyerEvidence
+          ? `Imported catalog history lists ${part.partNumber} as a later reference for ${earlierNumbers.join(', ')}. This does not establish universal interchangeability or the number currently available. Confirm the offered component, specifications and engine installation before accepting a substitution.`
+          : `Catalog history lists ${part.partNumber} as the later number for ${earlierNumbers.join(', ')}. Orders quoting ${earlierNumbers.length === 1 ? 'that number' : 'those numbers'} are normally supplied as ${part.partNumber}; we confirm the change against the engine serial number, because a later number can come with related changes to mating parts.`,
       }]
     : []),
   ...(laterNumber
@@ -227,12 +232,14 @@ const productJsonLd = productSchema({
       slot="hero"
       src={part.image}
       alt={heroImageAlt}
-      width="1400"
-      height="692"
+      width={buyerEvidence ? 640 : 1400}
+      height={buyerEvidence ? 468 : 692}
       loading="eager"
       fetchpriority="high"
       decoding="async"
+      class:list={{ 'buyer-reference-image': Boolean(buyerEvidence) }}
     />
+    {buyerEvidence && <p class="buyer-image-caption">{buyerEvidence.imageCaption}</p>}
 
     <div class="resource-meta" aria-label="Part specifications" data-part-number={part.partNumber}>
       {specRows.slice(0, 8).map(([label, value]) => (
@@ -250,11 +257,13 @@ const productJsonLd = productSchema({
       quoteHref={quoteHref}
       title={`Check ${part.partNumber} availability`}
       text={`Start with ${part.partNumber} and the quantity. Add an engine serial number or a photo of the old ${part.name} if available; we will follow up on any missing details.`}
-      modalContext={`${part.partNumber} ${part.name} - ${seriesText}`}
+      modalContext={buyerEvidence?.rfqContext ?? `${part.partNumber} ${part.name} - ${seriesText}`}
       modalSource={`part-${part.slug}`}
       secondaryHref="/part-products/"
       secondaryLabel="All MTU part numbers"
     />
+
+    {buyerEvidence && <PartBuyerEvidence number={part.partNumber} evidence={buyerEvidence} />}
 
     <h2>{part.partNumber} Specification</h2>
     <div class="part-spec-table">
@@ -322,7 +331,7 @@ const productJsonLd = productSchema({
     <p>{part.description ?? part.summary}</p>
     {quotationIds.length > 0 && <QuotationExamples ids={quotationIds} source={`part-${part.slug}-quote-example`} />}
 
-    {guidance && (
+    {guidance && !buyerEvidence && (
       <>
         <h2>Technical Notes: {part.category}</h2>
         <p>{guidance.role}</p>
@@ -543,6 +552,23 @@ const productJsonLd = productSchema({
 </BaseLayout>
 
 <style>
+  .buyer-reference-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    background: #f5f7f8;
+  }
+
+  .buyer-image-caption {
+    margin: -8px 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #566575;
+    overflow-wrap: anywhere;
+  }
+
   .part-reference-scroll {
     max-width: 100%;
     overflow-x: auto;

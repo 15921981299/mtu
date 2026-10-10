@@ -43,6 +43,7 @@ export const partSupply: Record<string, PartSupplyInfo> = {
   '5410501336': placeholder('5410501336'),
   '5360900250': placeholder('5360900250'),
   '5410180233': placeholder('5410180233'),
+  X52808100004: placeholder('X52808100004'),
   '5840780024': placeholder('5840780024'),
   X53507500012: placeholder('X53507500012'),
   '0000925105': placeholder('0000925105'),

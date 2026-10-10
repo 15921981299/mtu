@@ -6,6 +6,25 @@ export type CatalogAssembly = {
 // Drawing relationships are catalog references, not confirmed installation kits.
 export const catalogAssemblies: CatalogAssembly[] = [
   {
+    name: 'MTU 20V4000G83 example build 528100707, low-pressure fuel pump BOM X00040005, drawing 08100172d',
+    parts: [
+      { partNumber: 'X52808100004', position: '50', description: 'Fuel delivery pump' },
+      { partNumber: 'X52408100002', position: '150', description: 'Link' },
+      { partNumber: '700429083000', position: '250', description: 'O-ring' },
+      { partNumber: '735151010100', position: '300 / 550', description: 'Washer' },
+      { partNumber: 'X52607700008', position: '500', description: 'Retainer' },
+      { partNumber: '000933010116', position: '600', description: 'Hexagon screw' },
+    ],
+  },
+  {
+    name: 'MTU 20V4000G83 example build 528100707, oil separator BOM 0000187135',
+    parts: [
+      { partNumber: '5410180233', position: '5', description: 'Oil-separator membrane' },
+      { partNumber: '5410100080', position: '10', description: 'Oil-separator insert' },
+      { partNumber: '0000180680', position: '15', description: 'Gasket' },
+    ],
+  },
+  {
     name: 'MTU 396 oil-filter housing reference',
     parts: [
       { partNumber: '5501800016', position: '11Z', description: 'Oil filter element' },

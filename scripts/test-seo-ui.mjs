@@ -18,6 +18,10 @@ const targets = [
   ['part-products/x52420300037-thermal-actuator/', 'assembly'],
   ['part-products/0031845201-oil-filter-spin-on/', 'part'],
   ['part-products/x57508300091-fuel-filter-spin-on/', 'part-case'],
+  ['part-products/x00e50203659-level-monitor/', 'level-monitor'],
+  ['part-products/x52808100004-fuel-delivery-pump/', 'delivery-pump'],
+  ['part-products/x00e50214075-pressure-sensor/', 'pressure-sensor'],
+  ['part-products/5410180233-diaphragm-for-oil-separator/', 'diaphragm'],
   ['part-products/catalog/mtu-injectors/', 'injectors'],
   ['part-products/catalog/mtu-fuel-pumps/', 'pumps'],
   ['part-products/catalog/mtu-gasket-kits/', 'gaskets'],
@@ -49,6 +53,16 @@ try {
       assert.ok(layout.overflow <= 1, `${size} ${path}: ${layout.overflow}px overflow`);
       assert.deepEqual(layout.broken, [], path);
       await page.screenshot({ path: fileURLToPath(new URL(`${size}-${label}.png`, output)) });
+      if (await page.locator('[data-buyer-evidence]').count()) {
+        const evidence = page.locator('[data-buyer-evidence]');
+        await evidence.scrollIntoViewIfNeeded();
+        await evidence.locator('summary').click();
+        await page.screenshot({ path: fileURLToPath(new URL(`${size}-${label}-evidence.png`, output)) });
+        await page.locator('.detail-rfq-strip [data-rfq-modal]').first().click();
+        assert.equal(await page.locator('#rfq-modal-form [name="part_number"]').inputValue(), await evidence.getAttribute('data-buyer-evidence'));
+        assert.ok((await page.locator('#rfq-modal-form [name="rfq_context"]').inputValue()).length > 60);
+        await page.keyboard.press('Escape');
+      }
       if (label === 'assembly') {
         await page.locator('h2').filter({ hasText: 'Parts in the Same Catalog Drawing' }).scrollIntoViewIfNeeded();
         await page.screenshot({ path: fileURLToPath(new URL(`${size}-assembly-table.png`, output)) });
@@ -62,9 +76,14 @@ try {
       console.log(JSON.stringify({ size, path, ...layout }));
     }
     await page.goto(`${baseUrl}/part-products/0031845201-oil-filter-spin-on/`, { waitUntil: 'networkidle' });
+    const analyticsEvents = [];
+    await page.exposeFunction('captureTestAnalytics', (args) => analyticsEvents.push(args));
     await page.evaluate(() => {
       window.dataLayer = [];
-      window.gtag = (...args) => window.dataLayer.push(args);
+      window.gtag = (...args) => {
+        window.dataLayer.push(args);
+        window.captureTestAnalytics(args);
+      };
     });
     let attempts = 0;
     await page.route('**/api/rfq/', async (route) => {
@@ -86,12 +105,11 @@ try {
     await form.locator('button[type="submit"]').click();
     await form.locator('.is-error').waitFor();
     assert.match(await form.locator('[name="message"]').inputValue(), /0031845201/);
-    assert.equal(await page.evaluate(() => window.dataLayer.filter((event) => Array.isArray(event) && event[1] === 'generate_lead').length), 0);
+    assert.equal(analyticsEvents.filter((event) => event[1] === 'generate_lead').length, 0);
     await page.screenshot({ path: fileURLToPath(new URL(`${size}-rfq.png`, output)) });
-    const successEvent = page.waitForFunction(() => window.dataLayer.some((event) => Array.isArray(event) && event[1] === 'generate_lead'));
     await form.locator('button[type="submit"]').click();
-    await successEvent;
     await page.waitForURL('**/thank-you/?source=rfq-modal');
+    assert.equal(analyticsEvents.filter((event) => event[1] === 'generate_lead').length, 1);
     assert.equal(attempts, 2);
     assert.deepEqual(errors, []);
     console.log(JSON.stringify({ size, modal: 'optional name, correct part number, failed retry and successful redirect verified' }));

@@ -9,6 +9,37 @@ const loadData = async path => {
   return import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
 };
 
+test('six Bing opportunity pages publish scoped evidence, truthful photos and distinct metadata', async () => {
+  const { partBuyerEvidence } = await loadData('../src/data/part-buyer-evidence.ts');
+  const index = JSON.parse(readFileSync(new URL('../dist/search-index.json', import.meta.url), 'utf8'));
+  assert.equal(Object.keys(partBuyerEvidence).length, 6);
+  assert.equal(new Set(Object.values(partBuyerEvidence).map(item => item.title)).size, 6);
+  for (const [number, evidence] of Object.entries(partBuyerEvidence)) {
+    const part = index.find(item => item.pn === number);
+    assert.ok(part, number);
+    const page = html(`part-products/${part.slug}`);
+    assert.ok(page.includes(`data-buyer-evidence="${number}"`), number);
+    assert.ok(page.includes(evidence.imageCaption), number);
+    assert.ok(page.includes(evidence.rfqContext), number);
+    assert.ok(evidence.metaDescription.length <= 160, number);
+    assert.ok(evidence.title.length <= 65, number);
+    assert.doesNotMatch(page, /<meta[^>]*name="robots"[^>]*noindex/, number);
+    assert.doesNotMatch(page, /schema.org\/(InStock|LimitedAvailability)/, number);
+    assert.doesNotMatch(page, /are normally supplied as/, number);
+    assert.doesNotMatch(page, /Technical Notes: (Filters|Sensors and electrical|Gaskets and seals|Fuel system)/, number);
+    for (const fact of evidence.facts) assert.ok(evidence.sources.some(source => source.id === fact.source), `${number}: ${fact.source}`);
+    for (const source of evidence.sources) {
+      if (source.url.startsWith('/images/')) assert.ok(existsSync(new URL(`../public${source.url}`, import.meta.url)), source.url);
+      assert.ok(page.includes(`id="part-source-${source.id}"`), number);
+    }
+  }
+  assert.match(html('part-products/0031845201-oil-filter-spin-on'), /alternative-product dimensions/);
+  assert.match(html('part-products/x57508300091-fuel-filter-spin-on'), /marked X59408300151, not X57508300091/);
+  assert.match(html('part-products/x52808100004-fuel-delivery-pump'), /low-pressure fuel-pump group/);
+  assert.match(html('part-products/5410180233-diaphragm-for-oil-separator'), /item 5/);
+  assert.match(html('case-studies'), /id="generator-service-filters"/);
+});
+
 test('undirected and duplicate catalog references cannot become interchanges', async () => {
   const { getPartReferences } = await loadData('../src/data/part-references.ts');
   const refs = getPartReferences({ partNumber: 'B002', replacementFor: ['A001', 'C003', 'B002'], crossReferences: [{ partNumber: 'A001', relationship: 'replaces' }, { partNumber: 'C003', relationship: 'reference' }] });

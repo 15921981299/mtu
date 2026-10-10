@@ -1,6 +1,7 @@
 .resource-page {
   margin: 0 auto;
   padding: 28px 30px;
+  max-width: 1880px;
 }
 
 .resource-page-section {

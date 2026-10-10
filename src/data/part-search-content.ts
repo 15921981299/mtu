@@ -1,21 +1,23 @@
 import type { MtuPart } from './mtu-parts';
 
 type SearchPartContent = Pick<MtuPart, 'summary' | 'description'> &
-  Partial<Pick<MtuPart, 'dimensions' | 'specificationChecks' | 'crossReferences' | 'quoteChecklist' | 'faqs'>>;
+  Partial<Pick<MtuPart, 'dimensions' | 'specificationChecks' | 'crossReferences' | 'quoteChecklist' | 'faqs' | 'commonFailureScenarios' | 'orderingNotes'>>;
 
 // Buyer questions from September 2026 Bing/GSC exports. Catalog records are
 // not a substitute for checking the actual engine and offered component.
 export const partSearchContent: Record<string, SearchPartContent> = {
   '0031845201': {
-    summary: '0031845201 spin-on oil filter for MTU engine service. Request pricing, thread-size confirmation, and replacement-reference checks.',
+    summary: '0031845201 spin-on oil filter for MTU engine service. Compare the manufacturer-listed WD 1374/5 reference, then request the exact offered brand, quantity and price.',
     description: 'Identify 0031845201 by the number on the filter body and the installed filter head. The mounting thread, sealing-ring dimensions, and available clearance must agree with the existing assembly; a similar canister shape alone does not establish interchangeability.',
     dimensions: undefined,
-    specificationChecks: ['Thread size is not yet verified in our published data. Send the filter number and a clear view of the mounting base for confirmation.', 'For a dimensional check, include overall height, outside diameter, and sealing-ring inside/outside diameters with units.'],
+    specificationChecks: ['MANN WD 1374/5 has a published 1 1/2-16 UN-2B thread reference. A current MTU-labelled unit has not been measured here; confirm the brand and base before substitution.', 'Compare canister height, body diameter and gasket inside/outside diameters. Manufacturer alternative dimensions must not be used as packed dimensions or measurements of another brand.'],
     crossReferences: [{ partNumber: '0031844601', relationship: 'reference' }, { partNumber: '0031844801', relationship: 'reference' }],
-    quoteChecklist: ['0031845201 and required quantity', 'Engine model and serial number, if available', 'Filter label and mounting-base photos; destination country'],
+    quoteChecklist: ['0031845201 and required quantity; genuine MTU or an identified alternative requested', 'Engine model and serial number, if available', 'Filter label, mounting-base photo and existing thread/seal details', 'Destination country; request exact offered brand, net/gross weight and lead time'],
+    orderingNotes: 'Keep 0031845201 with its leading zeros. Request one clearly identified filter brand per quote line; the manufacturer cross-reference does not imply that a WD 1374/5 alternative will arrive in MTU packaging.',
     faqs: [
-      { question: 'What is the thread size of 0031845201?', answer: 'A verified thread size is not yet published here. Send the filter marking and mounting-base photo so the thread and sealing surface can be checked before a replacement is quoted.' },
+      { question: 'What thread reference is available for 0031845201?', answer: 'MANN-FILTER lists MTU 003 184 52 01 under WD 1374/5, whose published thread is 1 1/2-16 UN-2B. This is the alternative manufacturer product specification, not a measurement of current MTU stock. Check the offered brand and installed filter head.' },
       { question: 'Can I request a 0031845201 brochure or dimension drawing?', answer: 'Include the document request with your inquiry. We check whether a supplier datasheet or drawing is available for the offered filter; the catalog weight alone does not establish its dimensions.' },
+      { question: 'Will the quote supply MTU 0031845201 or MANN WD 1374/5?', answer: 'State your preferred brand and whether a manufacturer-listed alternative is acceptable. The quote must identify the exact brand and number offered; these are not the same branded product.' },
     ],
   },
   X57508300091: {
@@ -25,9 +27,12 @@ export const partSearchContent: Record<string, SearchPartContent> = {
     crossReferences: [{ partNumber: 'X59408300151', relationship: 'replaced-by' }, { partNumber: 'SUA94131', relationship: 'reference' }, { partNumber: 'X00042421', relationship: 'reference' }],
     specificationChecks: ['Confirm the mounting thread, sealing surface, and filter-head reference before substituting a different number.', 'State whether the request is for one filter or the complete service quantity for the engine.'],
     quoteChecklist: ['Installed number: X57508300091, X59408300151, or the number on your filter', 'Quantity and destination country', 'Engine serial number or filter-head/label photos, if available'],
+    orderingNotes: 'The reference image shows X59408300151. A past delivered order used that later number for a request quoting X57508300091; a new quotation still needs filter-head verification and your acceptance of the offered number.',
     faqs: [
       { question: 'Is X59408300151 a replacement for X57508300091?', answer: 'The catalog records list X59408300151 as the later reference. This does not mean every listed old number can be substituted in both directions. Confirm the engine and filter-head application before ordering.' },
       { question: 'Should I request X57508300091 or the newer number?', answer: 'Send the installed number and note whether a superseding part is acceptable. The quotation should state the exact number and condition being supplied.' },
+      { question: 'Why does the photograph show X59408300151?', answer: 'The canister is the later-number product shown as an identification reference. It is not a photograph of old-number stock. Ask for a fresh label photo for the exact filter being offered.' },
+      { question: 'Which filter weight should I use for freight?', answer: 'The old-number catalog weight and the historical quote for X59408300151 differ. Request current unit net weight, packing quantity, carton dimensions and gross shipment weight for the exact offered number.' },
     ],
   },
   EX52407500064: {
@@ -47,8 +52,14 @@ export const partSearchContent: Record<string, SearchPartContent> = {
     dimensions: undefined,
     crossReferences: ['0005354003', '0005355103', 'X00032631', 'X00031104'].map((partNumber) => ({ partNumber, relationship: 'replaces' })),
     specificationChecks: ['Provide the old probe marking and a connector photo, including pin arrangement.', 'Probe length, mounting details, and electrical specification require confirmation for the offered unit.'],
-    quoteChecklist: ['Current or old level-monitor number and quantity', 'Probe and connector photos', 'Engine model/serial number and destination, if available'],
-    faqs: [{ question: 'Does X00E50203659 replace 0005355103?', answer: 'Our catalog history lists 0005355103 as an earlier reference for X00E50203659. Confirm the engine serial number, probe installation, and connector before treating it as a replacement for your unit.' }],
+    quoteChecklist: ['Current or old level-monitor number and quantity', 'Probe, connector and installed-position photos', 'Engine model/serial number and destination, if available', 'Required probe depth, mounting interface and electrical specification, if known'],
+    commonFailureScenarios: ['inspection confirms probe or connector damage and identifies the replacement number', 'a diagnosed level-monitor fault remains after checking wiring and the actual monitored-fluid level'],
+    orderingNotes: 'Specify a complete level monitor or any separately needed seal/connector. Ask for fresh body and packaging labels; a low-level alarm on its own is not sufficient to choose this replacement.',
+    faqs: [
+      { question: 'Does X00E50203659 replace 0005355103?', answer: 'Our catalog history lists 0005355103 as an earlier reference for X00E50203659. Confirm the engine serial number, probe installation, and connector before treating it as a replacement for your unit.' },
+      { question: 'Can I order X00E50203659 for a low-level alarm alone?', answer: 'An alarm does not establish a failed monitor. Check the fluid level, installation and wiring using the applicable service procedure, then send the diagnosed component marking and measuring position with the RFQ.' },
+      { question: 'Is the probe length or pinout verified?', answer: 'Neither is established by the catalog photograph or public procurement reference. Request an offered-unit drawing or datasheet; do not choose a monitor from connector appearance alone.' },
+    ],
   },
   '5244920181': {
     summary: '5244920181 sealing ring for MTU exhaust turbocharger-system references. Check the earlier number 5244920081 and the sealing position before ordering.',
@@ -106,9 +117,46 @@ export const partSearchContent: Record<string, SearchPartContent> = {
     summary: 'X00E50214075 MTU pressure sensor. Check earlier references such as 0035352231 against the installed range and connector.',
     description: 'X00E50214075 is listed as a later pressure-sensor reference for 0035352231, SUA90827, and X00E50201940. Confirm the pressure range and electrical interface of the offered unit for the engine installation.',
     crossReferences: ['0035352231', 'SUA90827', 'X00E50201940'].map((partNumber) => ({ partNumber, relationship: 'replaces' })),
-    specificationChecks: ['Send the old label, including the pressure range and units.', 'Confirm connector pin arrangement and installation position before accepting a replacement.'],
+    dimensions: 'Catalog thread reference: M14 x 1.5; confirm the offered unit',
+    specificationChecks: ['Catalog marking M14X1,5 EDELSTAHL describes a thread and stainless-steel reference, not the pressure range or output signal.', 'Send the old label, including pressure range, units and part number. Do not transfer the earlier 0035352231 specification without checking the offered sensor.', 'Confirm connector pin arrangement, electrical output and measuring position before accepting a replacement.'],
     quoteChecklist: ['Current or old pressure-sensor number and quantity', 'Range/label and connector photos', 'Engine serial number and destination country'],
-    faqs: [{ question: 'Can I request X00E50214075 using an old 0035352231 number?', answer: 'Yes. Include the old number in the inquiry so the catalog relationship, pressure range, and connector can be checked. The quotation should identify the exact number being supplied.' }],
+    commonFailureScenarios: ['a service check identifies the pressure sensor rather than wiring, connector or an actual pressure problem as the failed component', 'the installed sensor marking and signal specification are established before replacement'],
+    orderingNotes: 'Include the sensor-body marking as well as the box label. A public procurement revision changes 0035352231 to X00E50214075, but it does not verify every range, pinout or engine installation.',
+    faqs: [
+      { question: 'Can I request X00E50214075 using an old 0035352231 number?', answer: 'Yes. Include the old number in the inquiry so the catalog relationship, pressure range, and connector can be checked. The quotation should identify the exact number being supplied.' },
+      { question: 'Does M14 x 1.5 prove that two pressure sensors are equivalent?', answer: 'No. A matching thread does not establish the same pressure range, relative/absolute measurement, output signal or pin arrangement. Request those specifications for the offered unit.' },
+      { question: 'Can the earlier sensor range be assumed for X00E50214075?', answer: 'No. Confirm it on the offered-unit label or datasheet. The purchasing reference change is evidence of numbering history, not a controlled electrical specification.' },
+    ],
+  },
+  X52808100004: {
+    summary: 'X52808100004 MTU low-pressure fuel delivery pump. The 20V4000G83 parts catalog identifies the pump at item 50; request a quote for the exact pump and included fittings.',
+    description: 'X52808100004 is documented in the low-pressure fuel-pump group for the example 20V4000G83 engine build. Distinguish the pump from the coupling link, O-ring, retainer and mounting screws shown as separate drawing items. A complete pump assembly must have its included items stated in the quotation.',
+    dimensions: undefined,
+    crossReferences: [{ partNumber: 'X52808100015', relationship: 'replaced-by' }, { partNumber: 'X00010945', relationship: 'reference' }, { partNumber: 'X52808100013', relationship: 'reference' }, { partNumber: 'X52808100008', relationship: 'reference' }],
+    specificationChecks: ['Check the full pump identification plate, drive interface, flange, inlet/outlet arrangement and offered condition.', 'Flow and pressure ratings, installation dimensions and test documentation are not provided by the cited parts drawing. Request an offered-unit specification.', 'X52808100015 is a later imported-catalog reference; verify whether the later pump needs related connection or mounting changes.'],
+    quoteChecklist: ['X52808100004 or full installed pump number; required quantity', 'Complete engine model/serial number and pump-plate photo', 'Drive/link, flange and port photos; pump-only versus assembly scope', 'Destination; exact offered number, condition, included seals and available test documents'],
+    commonFailureScenarios: ['a diagnosed delivery-pump fault requires replacement after fuel supply and connection checks', 'a planned repair identifies a damaged pump drive/interface and specifies the pump and any separate coupling components'],
+    orderingNotes: 'Do not describe X52808100004 as a high-pressure injection pump. Request link X52408100002 and O-ring 700429083000 separately if required for the documented installation; the drawing does not define shipment contents.',
+    faqs: [
+      { question: 'Is X52808100004 a high-pressure injection pump?', answer: 'No. The cited MTU example catalog places it in the low-pressure fuel-pump group. Identify the high-pressure pump separately if that is the required component.' },
+      { question: 'Does X52808100004 include the link and O-ring?', answer: 'The parts drawing gives those separate numbers and positions. Ask for an itemized quote specifying whether the link, seal, retainer and hardware are included.' },
+      { question: 'Is X52808100015 a confirmed direct replacement?', answer: 'It is a later reference in the imported catalog history. Direct fitment and any related modifications must be checked against the engine serial number; the cited older OEM drawing does not approve the successor.' },
+    ],
+  },
+  '5410180233': {
+    summary: '5410180233 oil-separator diaphragm for MTU catalog applications. The 20V4000G83 drawing identifies the membrane separately from the insert and gasket; request quantity and housing checks.',
+    description: '5410180233 is the membrane service item in the cited MTU oil-separator drawing, not a complete oil-separator assembly. The example 20V4000G83 build lists it at item 5, alongside separately numbered insert and gasket components. Confirm the installed separator housing before purchasing a membrane for another engine build.',
+    dimensions: undefined,
+    crossReferences: [{ partNumber: '5410180033', relationship: 'reference' }, { partNumber: '5410180333', relationship: 'reference' }],
+    specificationChecks: ['Confirm the separator housing number and the membrane seating/profile using a clear old-part photo.', 'Membrane material and dimensions are not provided in the cited OEM parts drawing. Do not treat a retail package size as the diaphragm diameter.', 'Ask whether supply is membrane-only; request the insert and gasket separately where needed.'],
+    quoteChecklist: ['5410180233, quantity and membrane-only versus additional service items', 'Engine model/serial number and separator housing reference', 'Old membrane and seating/profile photos', 'Destination; fresh package label and confirmation of included items'],
+    commonFailureScenarios: ['inspection finds a torn, hardened or distorted membrane in the identified oil separator', 'separator servicing confirms the membrane is required, rather than replacing it solely because oil carry-over is reported'],
+    orderingNotes: 'For the cited drawing, insert 5410100080 and gasket 0000180680 are distinct items. A diaphragm quotation does not include the housing, spring, insert or gasket unless they are itemized.',
+    faqs: [
+      { question: 'Is 5410180233 a complete oil separator?', answer: 'No. It is the membrane at item 5 in the example MTU parts drawing. The insert and gasket have their own numbers, and a complete separator assembly must be identified separately.' },
+      { question: 'Is there a documented 4000-series application?', answer: 'The cited OEM catalog lists 5410180233 for the example 20V4000G83 engine serial 528100707. This supports that particular build, not all 2000 or 4000 engines.' },
+      { question: 'What are the diaphragm dimensions and material?', answer: 'The cited drawing does not provide them. Send the housing reference and old membrane photo, and request a supplier-confirmed drawing or measurements for the offered item.' },
+    ],
   },
   '8692040010': {
     summary: '8692040010 thrust ring listed for MTU 396 catalog applications. Confirm the shaft position, mating components, and ring dimensions before ordering.',
@@ -251,8 +299,8 @@ export function applySearchPartContent(part: MtuPart): MtuPart {
   return {
     ...part,
     ...content,
-    commonFailureScenarios: undefined,
-    orderingNotes: undefined,
+    commonFailureScenarios: content.commonFailureScenarios,
+    orderingNotes: content.orderingNotes,
     notes: ['Catalog references and engine-series listings require confirmation against the full engine serial number before order.'],
     imageAlt: `${part.partNumber} ${part.name} - MTU replacement part identification`,
   };

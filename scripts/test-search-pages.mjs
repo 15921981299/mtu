@@ -24,7 +24,8 @@ test('existing search landing pages remain indexable with self canonicals and RF
 });
 
 test('missing dimensions are not published as product measurements', () => {
-  assert.match(page('0031845201-oil-filter-spin-on'), /What is the thread size of 0031845201/);
+  assert.match(page('0031845201-oil-filter-spin-on'), /What thread reference is available for 0031845201/);
+  assert.match(page('0031845201-oil-filter-spin-on'), /not a measurement of current MTU stock/);
   assert.match(page('ex52407500064-injector'), /dimensions of EX52407500064 in inches/);
   assert.doesNotMatch(page('0020922801-fuel-filter-spin-on'), /EM 1 PAL = 160STK/);
   assert.doesNotMatch(page('0005356430-temperature-sensor'), /WIRING HARNESS/);
@@ -47,12 +48,12 @@ test('catalogs promote the relevant priority pages', () => {
   assert.ok(page('catalog/mtu-sensors').includes('x00e50203659-level-monitor'));
 });
 
-test('all thirty search opportunity pages have distinct identification content and remain indexable', async () => {
+test('priority search opportunity pages have distinct identification content and remain indexable', async () => {
   const code = ts.transpileModule(readFileSync(new URL('../src/data/part-search-content.ts', import.meta.url), 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
   }).outputText;
   const { partSearchContent } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
-  assert.equal(Object.keys(partSearchContent).length, 30);
+  assert.equal(Object.keys(partSearchContent).length, 32);
   const index = JSON.parse(readFileSync(new URL('../dist/search-index.json', import.meta.url), 'utf8'));
   const records = Array.isArray(index) ? index : index.parts;
   for (const [number, content] of Object.entries(partSearchContent)) {
