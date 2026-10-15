@@ -18,8 +18,32 @@
  */
 
 import { mkdir, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { createServer } from 'vite';
+import { resolve, dirname } from 'node:path';
+import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
+
+/**
+ * Load Vite through Astro's own dependency tree instead of by bare specifier.
+ *
+ * `vite` is NOT a declared dependency of this project — Astro brings it in. A
+ * flat (npm) install leaves a copy at node_modules/vite, so a bare
+ * `import { createServer } from 'vite'` works on any machine that has ever run
+ * `npm install`. Under pnpm's isolated linker it lives only in the .pnpm
+ * virtual store and is never public-hoisted, so the bare specifier throws
+ * ERR_MODULE_NOT_FOUND and this step exits 1 — taking the whole build with it,
+ * because scripts/build.mjs surfaces the first non-zero step as a hard failure.
+ *
+ * That is exactly what happened in the Cloudflare build: green locally (mixed
+ * node_modules still had the hoisted copy), red in CI (clean pnpm install).
+ *
+ * Resolving from Astro's own directory lands on the .pnpm virtual store entry
+ * and works under both layouts, with no lockfile change and no new dependency.
+ */
+const require = createRequire(import.meta.url);
+const viteEntry = require.resolve('vite', {
+  paths: [dirname(require.resolve('astro/package.json'))],
+});
+const { createServer } = await import(pathToFileURL(viteEntry).href);
 
 const OUT_DIR = resolve('public/downloads');
 const SITE = 'https://dieselpartsource.com';
@@ -353,12 +377,30 @@ function buildPages(catalog, rows, generatedOn) {
 
 async function main() {
   const server = await createServer({
-    server: { middlewareMode: true },
+    // `watch: null` disables the chokidar watcher. We load one module and close
+    // immediately, so watching buys nothing — and in a build container the
+    // inotify watch budget is scarce, where hitting it throws ENOSPC.
+    server: { middlewareMode: true, watch: null },
+    // `noDiscovery` skips the entry scan. We only ever load one local .ts file,
+    // so there is nothing to pre-bundle — and the scan globs `**/*.html` from
+    // the project root, which drags in outputs/, tmp/ and any dist.prev-* left
+    // over from a previous build. When that glob gets big enough Vite prints a
+    // "Failed to scan for dependencies" error into the build log, which looks
+    // like a failure in a step that actually succeeded.
+    optimizeDeps: { noDiscovery: true },
     appType: 'custom',
     logLevel: 'error',
   });
   const { mtuParts } = await server.ssrLoadModule('/src/data/mtu-parts.ts');
   await server.close();
+
+  if (!Array.isArray(mtuParts) || mtuParts.length === 0) {
+    console.error(
+      '! /src/data/mtu-parts.ts did not yield a non-empty array of parts.\n' +
+        '  Refusing to write catalogs that would silently cover zero part numbers.'
+    );
+    process.exit(1);
+  }
 
   await mkdir(OUT_DIR, { recursive: true });
 
