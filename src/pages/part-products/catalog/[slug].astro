@@ -5,7 +5,7 @@ import BlogCta from '../../../components/BlogCta.astro';
 import FunnelPageView from '../../../components/FunnelPageView.astro';
 import ProcurementBrief from '../../../components/ProcurementBrief.astro';
 import QuotationExamples from '../../../components/QuotationExamples.astro';
-import { catalogAssemblies } from '../../../data/part-assemblies';
+import { allCatalogAssemblies } from '../../../data/part-assemblies';
 import { catalogProcurement } from '../../../data/procurement-content';
 import { isRealPartImage, mtuCatalogHubs, mtuParts, searchPriorityPartRank, type MtuCatalogHub } from '../../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../../data/site';
@@ -17,8 +17,8 @@ export function getStaticPaths() {
 
 const { hub } = Astro.props as { hub: MtuCatalogHub };
 const parts = mtuParts.filter(hub.partFilter);
-const drawingGroups = ['mtu-396-series', 'mtu-1163-series'].includes(hub.slug)
-  ? catalogAssemblies.filter((assembly) => assembly.parts.some((item) => parts.some((part) => part.partNumber === item.partNumber))) : [];
+const drawingGroups = ['mtu-396-series', 'mtu-1163-series', 'mtu-956-series'].includes(hub.slug)
+  ? allCatalogAssemblies.filter((assembly) => assembly.parts.some((item) => parts.some((part) => part.partNumber === item.partNumber))) : [];
 const pageUrl = `${site.url}/part-products/catalog/${hub.slug}/`;
 const quoteHref = `/contact/?source=catalog-${hub.slug}`;
 const catalogHeading = /catalog/i.test(hub.h1Title) ? hub.h1Title : `${hub.h1Title} Catalog`;
@@ -192,9 +192,11 @@ const catalogUseCases = hub.type === 'series'
             <p>These are catalog drawing relationships, not a confirmed kit. Check the revision and your engine serial range before using the positions.</p>
             {drawingGroups.map((assembly) => <>
               <h3>{assembly.name}</h3>
+              {assembly.kind === 'derived' && <p>{assembly.provenance}</p>}
               <ul>{assembly.parts.map((item) => {
                 const linked = mtuParts.find((part) => part.partNumber === item.partNumber);
-                return <li>Position {item.position}: {linked ? <a href={`/part-products/${linked.slug}/`}>{item.partNumber} {item.description}</a> : `${item.partNumber} ${item.description}`}</li>;
+                const label = `${item.partNumber} ${item.description}`;
+                return <li>{item.position ? `Position ${item.position}: ` : ''}{linked ? <a href={`/part-products/${linked.slug}/`}>{label}</a> : label}</li>;
               })}</ul>
             </>)}
           </section>}
@@ -300,6 +302,28 @@ const catalogUseCases = hub.type === 'series'
               ))}
             </ul>
             <p class="catalog-scenarios-note">For mixed lists, send the spreadsheet as-is. We return line-by-line availability, replacement notes, and practical shipping options instead of a generic catalog reply.</p>
+          </section>
+
+          <!-- ── Not listed? Just ask ── -->
+          <section class="catalog-depth-section catalog-just-ask">
+            <h2>Don't See Your Part Number Here? Just Ask.</h2>
+            <p>
+              This page lists the references indexed for {hub.h1Title.toLowerCase()} — it is not the
+              full MTU spare-parts range, and a missing number says nothing about availability. Send
+              the complete part number with your engine model and serial number: we check the
+              reference, trace supersessions, name the supply grade, and confirm stock before
+              quoting. If a number cannot be verified, we say so instead of shipping a guess.
+            </p>
+            <a
+              href={quoteHref}
+              class="detail-rfq-link"
+              data-rfq-modal
+              data-rfq-context="Unlisted part number sourcing check"
+              data-rfq-source={`catalog-${hub.slug}-just-ask`}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              Send My Part Number
+            </a>
           </section>
 
           <!-- ── Grouped part cards ── -->
@@ -541,6 +565,31 @@ const catalogUseCases = hub.type === 'series'
   /* ── Info cards (scope) ── */
   .catalog-depth-section {
     margin: 32px 0;
+  }
+
+  /* ── "Don't see your part number here? Just ask." ── */
+  .catalog-just-ask {
+    padding: 24px 26px;
+    background: #f0f6ff;
+    border: 1px solid rgba(20, 110, 245, 0.22);
+    border-radius: 12px;
+  }
+
+  .catalog-just-ask h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+  }
+
+  .catalog-just-ask p {
+    margin: 0 0 16px;
+    color: #334155;
+    line-height: 1.7;
+  }
+
+  .catalog-just-ask .detail-rfq-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .catalog-info-grid {

@@ -75,6 +75,77 @@ const quoteStandards = [
   },
 ];
 
+const identificationSteps = [
+  {
+    step: '01',
+    name: 'Evidence',
+    title: 'Send what you have',
+    summary:
+      'A part number, an engine model code, a serial number, or just a photo of the nameplate or the old part. Incomplete information is enough to begin.',
+  },
+  {
+    step: '02',
+    name: 'Verification',
+    title: 'We confirm fitment',
+    summary:
+      'We check the number against your engine series and serial range, trace superseded references, and confirm the supply condition before anything is quoted.',
+  },
+  {
+    step: '03',
+    name: 'Quotation',
+    title: 'You get a usable quote',
+    summary:
+      'Price, grade, lead time, weight, HS code, and shipping options per line — so you can compare quotes on the same basis and commit with confidence.',
+  },
+];
+
+const supplyGrades = [
+  {
+    name: 'Genuine — new',
+    body: 'Supplied through the manufacturer channel, new and unused. The reference point every other grade is measured against.',
+  },
+  {
+    name: 'Genuine — exchange (reman)',
+    body: 'Factory-remanufactured unit supplied against your old core, with a core deposit credited on return. Same functional warranty, materially lower price, often shorter lead time.',
+  },
+  {
+    name: 'OEM-quality alternative',
+    body: 'Made to the manufacturer specification by a third party. Fit and function are the design intent; channel, documentation, and warranty path differ from genuine.',
+  },
+  {
+    name: 'Aftermarket',
+    body: 'Third-party manufacture. A legitimate cost choice for wear positions where the application tolerates it — quoted only with written acceptance for precision fuel-system parts.',
+  },
+];
+
+/**
+ * Quantified service commitments. Deliberately process promises the operation
+ * can keep — response time, labelling discipline, verification coverage — not
+ * outcome promises (stock levels, delivery dates) that depend on upstream.
+ */
+const serviceCommitments = [
+  {
+    metric: '1 working day',
+    title: 'Reply time on every inquiry',
+    body: 'Every inquiry with a part number, model code, or nameplate photo gets a substantive reply within one working day — including a clear "we cannot verify this" when that is the honest answer.',
+  },
+  {
+    metric: '4 grades',
+    title: 'Named on every quote line',
+    body: 'Genuine new, genuine exchange, OEM-quality, or aftermarket — each quoted as its own labelled line. No blended numbers that hide which product you are actually buying.',
+  },
+  {
+    metric: `${mtuParts.length} numbers`,
+    title: 'Checked before anything ships',
+    body: `Fitment verified against the complete model code and serial number, with superseded references traced before quoting — across ${mtuParts.length} indexed part numbers and 10 engine series.`,
+  },
+  {
+    metric: '0 guessed',
+    title: 'Substitutions or unverified numbers',
+    body: 'If a number cannot be verified or sourced, we say so and offer the verified alternative. Silence and a plausible-looking part number are not answers.',
+  },
+];
+
 const catalogHubs = [
   {
     href: "/part-products/catalog/mtu-filters/",
@@ -163,7 +234,12 @@ const engineBrands = [
   {
     href: "/products/mtu-2000-series-parts/16v-2000-engine-parts/",
     title: "MTU 16V 2000",
-    summary: "Marine, generator, rail, and industrial parts verified by model and serial number.",
+    summary: "Marine M84 / M86 / M96L variants — parts verified by model code and engine serial number.",
+  },
+  {
+    href: "/engine-models/",
+    title: "Parts Lists by Engine Model",
+    summary: "Every catalogued part number for your model code, grouped by system — from 183 to 8000 series.",
   },
   {
     href: "/products/mtu-4000-series-parts/12v-4000-engine-parts/",
@@ -209,6 +285,11 @@ const engineBrands = [
     href: "/contact/",
     title: "Part Identification",
     summary: "Send a nameplate photo, old-part marking, or serial number for verification.",
+  },
+  {
+    href: "/capabilities/",
+    title: "Other Engine Brands",
+    summary: "Cummins, Detroit Diesel, DEUTZ and others — sourcing pages by brand, plus line-by-line checks for models without a published page.",
   },
 ];
 
@@ -327,15 +408,16 @@ const homepagePartNumberGroups = [
           </div>
           <div class="hero-title-block">
             <h1 class="hero-title fade-in">
-              MTU Engine Parts Supplier<br />Verified Quotes, Global Delivery
+              The Right MTU Part,<br />Verified Before It Ships
             </h1>
           </div>
           <div class="hero-bottom-content-block">
             <div class="hero-summary-block">
               <p class="hero-summary">
                 Shanghai-based diesel engine parts supplier specializing in MTU spare
-                parts. Browse 800+ part numbers by engine series and category, then send
-                your model, serial number, and parts list for fitment review and quotation.
+                parts. Send a part number, a model code, or a photo of the nameplate —
+                we verify fitment, trace superseded numbers, and quote with the supply
+                grade stated on every line.
               </p>
             </div>
             <div class="hero-button-block">
@@ -349,9 +431,10 @@ const homepagePartNumberGroups = [
                 <a href="/products/mtu-spare-parts/" class="hero-secondary-cta">MTU Spare Parts</a>
               </div>
               <ul class="hero-trust-row" aria-label="Key service guarantees">
-                <li>MTU full-series support</li>
-                <li>OEM / alternative route labelled</li>
-                <li>Worldwide shipping</li>
+                <li>{mtuParts.length}+ MTU part numbers indexed</li>
+                <li>10 engine series — 183 to 8000</li>
+                <li>Grade labelled on every quote line</li>
+                <li>Worldwide shipment from Shanghai</li>
               </ul>
             </div>
           </div>
@@ -370,6 +453,34 @@ const homepagePartNumberGroups = [
           <div class="hero-image-overlay image-overlay fade-in"></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ PART IDENTIFICATION SERVICE (P1) ═══ -->
+  <section class="identify-section section-gap bottom" aria-labelledby="identify-heading">
+    <div class="container">
+      <SectionHeading
+        title="Part Identification Service"
+        subtitle="Incomplete Information Is Enough to Begin"
+      />
+      <div class="identify-grid fade-in">
+        {
+          identificationSteps.map((item) => (
+            <article class="identify-card">
+              <div class="identify-card-head">
+                <span class="identify-step" aria-hidden="true">{item.step}</span>
+                <span class="identify-name">{item.name}</span>
+              </div>
+              <h3 class="identify-card-title">{item.title}</h3>
+              <p class="identify-card-summary">{item.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="identify-note">
+        No part number yet? A photo of the engine nameplate, the worn label, or the old
+        component is enough for us to start. <a href="/contact/?source=identify">Send what you have →</a>
+      </p>
     </div>
   </section>
 
@@ -508,6 +619,61 @@ const homepagePartNumberGroups = [
     </div>
   </section>
 
+  <!-- ═══ SUPPLY GRADES (P6) ═══ -->
+  <section class="grades-section section-gap bottom" aria-labelledby="grades-heading">
+    <div class="container">
+      <SectionHeading
+        title="Every Quote Line Names Its Grade"
+        subtitle="Genuine, Exchange, OEM & Aftermarket"
+      />
+      <p class="grades-lead">
+        Most "cheaper elsewhere" comparisons are really grade comparisons — a new unit, an
+        exchange unit, and a third-party part are three different products at three price
+        levels. We quote each grade as its own labelled line, so the trade-off stays visible.
+      </p>
+      <div class="grades-grid fade-in">
+        {
+          supplyGrades.map((grade, i) => (
+            <article class="grade-card">
+              <span class="grade-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="grade-name">{grade.name}</h3>
+              <p class="grade-body">{grade.body}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="grades-note">
+        Full comparison: <a href="/guides/mtu-parts-grades/">Genuine, OEM, Reman or Aftermarket — how to compare quotes</a>
+        ｜ Exchange numbering (X, XP, EX): <a href="/guides/mtu-exchange-reman-parts/">MTU exchange &amp; reman parts explained</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE COMMITMENTS ═══ -->
+  <section class="commitments-section section-gap bottom" aria-labelledby="commitments-heading">
+    <div class="container">
+      <SectionHeading
+        title="What You Can Expect From Us"
+        subtitle="Quantified Service Commitments"
+      />
+      <p class="commitments-lead">
+        Four commitments you can hold us to on every inquiry — process promises we control,
+        not slogans about stock and delivery we do not.
+      </p>
+      <div class="commitments-grid fade-in">
+        {
+          serviceCommitments.map((item) => (
+            <article class="commitment-card">
+              <span class="commitment-metric">{item.metric}</span>
+              <h3 class="commitment-title">{item.title}</h3>
+              <p class="commitment-body">{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ MATERIALS ═══ -->
   <section class="pricing-section">
     <div class="section-gap bottom">
@@ -530,8 +696,8 @@ const homepagePartNumberGroups = [
           }
         </div>
         <p class="materials-note">
-          Need another engine series? <a href="/contact/">Send the model and part list</a>
-          so we can check sourcing options and replacement availability.
+          Don't see your brand here? Just ask. <a href="/contact/">Send the model and part list</a>
+          — we check sourcing options and replacement availability, including series not listed above.
         </p>
       </div>
     </div>
@@ -859,6 +1025,262 @@ const homepagePartNumberGroups = [
     max-width: 920px;
     margin: 20px auto 0;
     text-align: center;
+  }
+
+  /* ── Part identification service (P1) ── */
+  .identify-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .identify-card {
+    position: relative;
+    padding: 24px 22px 22px;
+    border: 1px solid rgba(20, 110, 245, 0.14);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .identify-card:hover {
+    border-color: rgba(20, 110, 245, 0.3);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  .identify-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .identify-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 30px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .identify-name {
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0f172a;
+  }
+
+  .identify-card-title {
+    margin: 0 0 10px;
+    color: var(--color-title);
+    font-size: 17px;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  .identify-card-summary {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .identify-note {
+    max-width: 860px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+  }
+
+  .identify-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .identify-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 991px) {
+    .identify-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Supply grades (P6) ── */
+  .grades-lead {
+    max-width: 880px;
+    margin: 0 auto 4px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  .grades-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .grade-card {
+    position: relative;
+    min-height: 220px;
+    padding: 22px;
+    border: 1px solid rgba(20, 110, 245, 0.14);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .grade-card:hover {
+    border-color: rgba(20, 110, 245, 0.3);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  .grade-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 28px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .grade-name {
+    margin: 0 0 10px;
+    color: var(--color-title);
+    font-size: 16px;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  .grade-body {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .grades-note {
+    max-width: 920px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  .grades-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .grades-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Service commitments ── */
+  .commitments-lead {
+    max-width: 880px;
+    margin: 0 auto 4px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  .commitments-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .commitment-card {
+    position: relative;
+    min-height: 210px;
+    padding: 22px;
+    border: 1px solid rgba(20, 110, 245, 0.14);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .commitment-card:hover {
+    border-color: rgba(20, 110, 245, 0.3);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  .commitment-metric {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    margin-bottom: 16px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(20, 110, 245, 0.1);
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+
+  .commitment-title {
+    margin: 0 0 10px;
+    color: var(--color-title);
+    font-size: 16px;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  .commitment-body {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 991px) {
+    .grades-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .commitments-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .grades-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .commitments-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 991px) {

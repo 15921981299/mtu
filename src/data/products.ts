@@ -390,6 +390,16 @@ const productCatalog: ProductItem[] = [
       partTwo: `
         <h2>What to Send</h2>
         <p>For faster quotation, include engine model, CPL, serial number, part number, quantity, and delivery country.</p>
+        <h3>Cummins Engine Series Pages</h3>
+        <ul>
+          <li><a href="/products/cummins-parts/cummins-ism-engine-parts/">Cummins ISM / QSM11 10.8 L engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-isl-engine-parts/">Cummins ISL / ISLe / QSL 8.9 L engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-qsk19-engine-parts/">Cummins QSK19 / KTA19 19 L engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-qsk38-v12-engine-parts/">Cummins QSK38 / KTA38 V12 engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-qsk50-v16-engine-parts/">Cummins QSK50 / KTA50 V16 engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-6bt-engine-parts/">Cummins 6BT / 4BT B-series engine parts</a></li>
+          <li><a href="/products/cummins-parts/cummins-n14-engine-parts/">Cummins N14 / NT855 engine parts</a></li>
+        </ul>
         <p><a href="/contact/">Check Cummins parts</a></p>
       `,
     },
@@ -422,6 +432,13 @@ const productCatalog: ProductItem[] = [
       partTwo: `
         <h2>Support from Shanghai</h2>
         <p>Send your DEUTZ engine model, serial number, and required part list. We will check availability and shipping options.</p>
+        <h3>DEUTZ Engine Series Pages</h3>
+        <ul>
+          <li><a href="/products/deutz-parts/deutz-2012-series-parts/">DEUTZ 2012 series engine parts</a></li>
+          <li><a href="/products/deutz-parts/deutz-2013-series-parts/">DEUTZ TCD 2013 series engine parts</a></li>
+          <li><a href="/products/deutz-parts/deutz-1011-series-parts/">DEUTZ 1011 series engine parts</a></li>
+          <li><a href="/products/deutz-parts/deutz-2011-series-parts/">DEUTZ 2011 series engine parts</a></li>
+        </ul>
         <p><a href="/contact/">Request DEUTZ parts</a></p>
       `,
     },

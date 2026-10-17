@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
+import FunnelPageView from '../../../components/FunnelPageView.astro';
+import DetailRfqStrip from '../../../components/DetailRfqStrip.astro';
+import { mtuParts } from '../../../data/mtu-parts';
+import { parseModels } from '../../../data/engine-models';
+import { breadcrumbSchema, faqSchema, site } from '../../../data/site';
+import '../../../styles/resource-page.css';
+
+/**
+ * MTU Series 1600 parts + the newer-generation (F-build) models of Series
+ * 2000 and 4000 that the site's indexed catalog data does not yet cover.
+ *
+ * Model codes, layouts, displacement and power figures below are taken from
+ * MTU's published product data (Power Generation product finder, 60 Hz
+ * ratings) and cross-checked against independent packager tables. They are
+ * reference figures for identification — the engine nameplate always governs.
+ *
+ * Honest framing: this page publishes verified *model* coverage. Part-number
+ * coverage for 1600 and the F-build models is built per inquiry, so every
+ * block ends in a sourcing check instead of an invented parts list.
+ */
+
+type Model = {
+  code: string;
+  layout: string;
+  application: string;
+  rating: string;
+  cooling: string;
+  note: string;
+};
+
+/** Series 1600 — MTU's post-2013 platform. 6R/8V/10V/12V, 122/150 mm, 21.0 L (12V). */
+const models1600: Model[] = [
+  { code: '6R 1600 G10', layout: '6R in line', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: 'Bottom of the 1600 range' },
+  { code: '6R 1600 G20', layout: '6R in line', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: '' },
+  { code: '6R 1600 G40 / G50', layout: '6R in line', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: 'Upper power steps' },
+  { code: '8V 1600 G10', layout: '8V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: '' },
+  { code: '8V 1600 G20', layout: '8V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: '' },
+  { code: '8V 1600 G40 / G50', layout: '8V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: 'Upper power steps' },
+  { code: '10V 1600 G10', layout: '10V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: '' },
+  { code: '10V 1600 G20', layout: '10V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: '' },
+  { code: '10V 1600 G40 / G50', layout: '10V', application: 'Generator set', rating: '—', cooling: 'Air / water charge-air', note: 'Upper power steps' },
+  { code: '12V 1600 G10F', layout: '12V', application: 'Generator set', rating: '524 kW', cooling: 'Air charge-air', note: 'Data-centre continuous / prime / standby' },
+  { code: '12V 1600 G11F', layout: '12V', application: 'Generator set', rating: '673 kW', cooling: 'Air charge-air', note: 'Data-centre continuous / prime / standby' },
+  { code: '12V 1600 G20F', layout: '12V', application: 'Generator set', rating: '576 kW', cooling: 'Air charge-air', note: 'Prime / data-centre continuous / standby' },
+  { code: '12V 1600 G21F', layout: '12V', application: 'Generator set', rating: '715 kW', cooling: 'Air charge-air', note: 'Data-centre continuous / prime / standby' },
+  { code: '12V 1600 G31F', layout: '12V', application: 'Generator set', rating: '806 kW', cooling: 'Air charge-air', note: 'Top prime rating in the published range' },
+  { code: '12V 1600 G70F', layout: '12V', application: 'Generator set', rating: '634 kW standby', cooling: 'Air charge-air', note: 'Standby step' },
+  { code: '12V 1600 G71F', layout: '12V', application: 'Generator set', rating: '787 kW standby', cooling: 'Air charge-air', note: 'Standby step' },
+  { code: '12V 1600 G80F', layout: '12V', application: 'Generator set', rating: '665 kW continuous', cooling: 'Air charge-air', note: 'Continuous-duty step' },
+  { code: '12V 1600 G81F / G91F', layout: '12V', application: 'Generator set', rating: 'Standby steps', cooling: 'Air charge-air', note: 'Upper standby ratings' },
+  { code: '12V 1600 R50', layout: '12V', application: 'Marine propulsion', rating: '690 kW (925 bhp) @ 1,900 rpm', cooling: '—', note: 'Reference unit: 21.0 L total displacement, 1,850 × 1,200 × 1,200 mm, 2,350 kg dry' },
+];
+
+/**
+ * Newer-generation F-build models of Series 2000 and 4000 published by MTU
+ * (60 Hz product line). The site's indexed catalog data does not yet carry
+ * applicableEngines references for these builds.
+ */
+const fBuildModels: Model[] = [
+  { code: '12V 2000 G16F', layout: '12V', application: 'Generator set', rating: '665 kW', cooling: 'Air charge-air', note: 'Continuous / prime / emergency ratings published' },
+  { code: '12V 2000 G26F', layout: '12V', application: 'Generator set', rating: '709 kW prime', cooling: 'Air charge-air', note: '' },
+  { code: '12V 2000 G76F', layout: '12V', application: 'Generator set', rating: '740 kW standby', cooling: 'Air charge-air', note: '' },
+  { code: '12V 2000 G86F', layout: '12V', application: 'Generator set', rating: 'Standby step', cooling: 'Air charge-air', note: '' },
+  { code: '16V 2000 G16F', layout: '16V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: 'Published in the 60 Hz line; confirm rating by nameplate' },
+  { code: '16V 2000 G26F', layout: '16V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '16V 2000 G36F', layout: '16V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '16V 2000 G76F / G86F', layout: '16V', application: 'Generator set', rating: 'Standby steps', cooling: 'Air charge-air', note: '' },
+  { code: '12V / 16V / 18V 2000 B26F', layout: '12–18V', application: 'Generator set (B = standby/emergency build)', rating: '665 kW continuous (12V)', cooling: 'Air charge-air', note: 'B-build variants published across 12V, 16V and 18V' },
+  { code: '12V 4000 G14F / G14RF', layout: '12V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: 'First F-build step in the 4000 genset line' },
+  { code: '12V 4000 G24F', layout: '12V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '12V 4000 G34F', layout: '12V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '12V 4000 G74F / G94F', layout: '12V', application: 'Generator set', rating: 'Upper standby steps', cooling: 'Air charge-air', note: '' },
+  { code: '16V 4000 G14F / G24F / G34F', layout: '16V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '16V 4000 G74F / G84F / G94F', layout: '16V', application: 'Generator set', rating: 'Upper standby steps', cooling: 'Air charge-air', note: '' },
+  { code: '20V 4000 G14F / G24F / G34F', layout: '20V', application: 'Generator set', rating: '—', cooling: 'Air charge-air', note: '' },
+  { code: '20V 4000 G44F / G64F / G74F / G94F', layout: '20V', application: 'Generator set', rating: 'Upper standby steps', cooling: 'Air charge-air', note: '' },
+];
+
+/** How many distinct engine series the indexed catalog data actually covers. */
+const coveredSeries = new Set<string>();
+for (const part of mtuParts) {
+  for (const model of parseModels(part.applicableEngines)) {
+    coveredSeries.add(model.series);
+  }
+}
+const coveredSeriesList = [...coveredSeries].sort((a, b) => Number(a) - Number(b));
+
+const pageUrl = `${site.url}/products/mtu-spare-parts/mtu-1600-series-parts/`;
+const faqItems = [
+  {
+    question: 'Why does this page not list part numbers for Series 1600?',
+    answer:
+      'Our indexed catalog data currently covers ' +
+      coveredSeriesList.map((s) => `Series ${s}`).join(', ') +
+      ' — the model codes above are published MTU references, verified against the manufacturer’s public product data, but the 1600-series part-number lists are not yet in the index. Rather than publish an unverified list, we quote Series 1600 line by line: send the model code, serial number, and your parts list, and we confirm each reference against supplier data before quoting.',
+  },
+  {
+    question: 'What is the difference between the F and S suffixes on 1600 genset models?',
+    answer:
+      'F marks air charge-air cooling (radiator-mounted, jacket-cooled intercooler is absent) and S marks water charge-air cooling in MTU’s published product data. The suffix changes the charge-air piping, coolant circuit, and several adjacent parts, so the complete model code from the nameplate is required before any reference is confirmed.',
+  },
+  {
+    question: 'Is Series 1600 a replacement for Series 2000?',
+    answer:
+      'No. Series 1600 is a separate platform (122/150 mm bore/stroke, 21.0 L total displacement on the 12-cylinder) that sits alongside Series 2000 in the MTU range, with different architecture, ratings, and parts. Sets built on 1600 engines usually enter service from 2013 onward; Series 2000 engines remain in the fleet in much larger numbers. Both need their own model code for identification.',
+  },
+  {
+    question: 'Can you supply parts for an engine whose model is on this page but not in your index?',
+    answer:
+      'Yes — that is what the page is for. Send the complete model code, serial number, and the part numbers or photos of what you need. We check each line against current supplier data and come back with availability, grade (genuine new, exchange, OEM-quality alternative), and practical shipping options. Absence from the index never establishes unavailability.',
+  },
+];
+---
+
+<BaseLayout
+  title="MTU Series 1600 Parts — Model Coverage & Sourcing"
+  description="MTU Series 1600 (6R–12V 1600 G/R) and the newer F-build models of Series 2000 and 4000: verified model codes, layouts, and published ratings, with line-by-line sourcing for part numbers."
+  currentPath="/products/mtu-spare-parts/mtu-1600-series-parts"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Products', url: `${site.url}/products/` },
+      { name: 'MTU Spare Parts', url: `${site.url}/products/mtu-spare-parts/` },
+      { name: 'Series 1600 & F-Build Models', url: pageUrl },
+    ]),
+    faqSchema(faqItems),
+  ]}
+>
+  <FunnelPageView stage="selection" label="mtu-1600-series-parts" />
+  <BreadcrumbHero
+    title="MTU Series 1600 & Newer F-Build Models"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Products', href: '/products/' },
+      { label: 'MTU Spare Parts', href: '/products/mtu-spare-parts/' },
+      { label: 'Series 1600 & F-Build Models' },
+    ]}
+    variant="2"
+  />
+
+  <div class="resource-page">
+    <section class="resource-page-section">
+      <p>
+        Two families of MTU models are absent from most parts websites: the
+        <strong>Series 1600</strong> platform introduced after 2013 (6R, 8V, 10V and 12V, 122/150 mm bore
+        and stroke), and the <strong>newer F-build models</strong> of Series 2000 and 4000 (G16F, G26F,
+        G34F, B26F and the like). Both are in growing service, and enquiries for them arrive with a
+        model code and a nameplate — not with a part number.
+      </p>
+      <p>
+        This page publishes the verified <strong>model</strong> coverage: codes, layouts, applications,
+        cooling types and published ratings. Part-number lists for these builds are confirmed line by
+        line against supplier data, so every section ends in a sourcing check rather than an invented
+        parts list.
+      </p>
+      <p class="resource-note">
+        Model codes and ratings are from MTU’s published product data and independent packager tables.
+        Ratings vary by frequency, altitude, temperature, and set configuration — the engine nameplate
+        always governs. The site’s indexed catalog data currently covers{' '}
+        {coveredSeriesList.map((s) => `Series ${s}`).join(', ')}.
+      </p>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Series 1600 — published model coverage</h2>
+      <p>
+        Series 1600 is MTU’s current mid-range platform: 6R, 8V, 10V and 12-cylinder configurations,
+        122/150 mm bore and stroke, 1.75 L per cylinder, rated up to 1,800–2,100 rpm. The 12-cylinder
+        displaces 21.0 L and the reference R50 marine unit produces 690 kW (925 bhp) at 1,900 rpm. G-codes
+        are generator-set ratings; the F suffix marks air charge-air cooling and S marks water charge-air
+        cooling.
+      </p>
+      <div class="xref-table-wrap">
+        <table class="xref-table">
+          <thead>
+            <tr>
+              <th scope="col">Model Code</th>
+              <th scope="col">Layout</th>
+              <th scope="col">Application</th>
+              <th scope="col">Published Rating</th>
+              <th scope="col">Charge-Air Cooling</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {models1600.map((m) => (
+              <tr>
+                <td class="pn-engine">{m.code}</td>
+                <td>{m.layout}</td>
+                <td>{m.application}</td>
+                <td class="pn-kw">{m.rating}</td>
+                <td>{m.cooling}</td>
+                <td>{m.note || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="resource-note">
+        Power steps shown for the 12-cylinder genset models are MTU’s published 60 Hz figures (prime,
+        standby, continuous and data-centre ratings). Six-, eight- and ten-cylinder variants are
+        published in G10/G20/G40/G50 steps with F (air-cooled charge air) and S (water-cooled charge
+        air) suffixes; confirm the exact step from the nameplate.
+      </p>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Series 2000 & 4000 — newer F-build models</h2>
+      <p>
+        MTU continues to publish new genset builds on the 2000 and 4000 platforms. The F-build models
+        below appear in MTU’s current 60 Hz product line; the site’s indexed catalog data does not yet
+        carry applicableEngines references for them, so they are listed here for identification and
+        sourcing rather than as indexed parts lists.
+      </p>
+      <div class="xref-table-wrap">
+        <table class="xref-table">
+          <thead>
+            <tr>
+              <th scope="col">Model Code</th>
+              <th scope="col">Layout</th>
+              <th scope="col">Application</th>
+              <th scope="col">Published Rating</th>
+              <th scope="col">Charge-Air Cooling</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fBuildModels.map((m) => (
+              <tr>
+                <td class="pn-engine">{m.code}</td>
+                <td>{m.layout}</td>
+                <td>{m.application}</td>
+                <td class="pn-kw">{m.rating}</td>
+                <td>{m.cooling}</td>
+                <td>{m.note || '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="resource-note">
+        “—” marks models whose rating was not published in the sources checked for this page. Send the
+        nameplate photo and we will read the rating and build code directly.
+      </p>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>How a Series 1600 enquiry is handled</h2>
+      <p>
+        Enquiries for these builds are quoted line by line, in three steps — the same verification
+        sequence used across this site:
+      </p>
+      <div class="catalog-depth-section">
+        <div class="catalog-depth-card">
+          <h3>01 — Evidence</h3>
+          <p>
+            You send the complete model code, engine serial number, and your parts list (or photos of
+            the components and installation positions). We read the build, cooling type, and rating
+            variant from that evidence.
+          </p>
+        </div>
+        <div class="catalog-depth-card">
+          <h3>02 — Verification</h3>
+          <p>
+            Each line is checked against supplier data for the exact build: availability, grade
+            (genuine new, factory exchange, OEM-quality alternative), and whether a reference is
+            superseded. Nothing is inferred from a series name.
+          </p>
+        </div>
+        <div class="catalog-depth-card">
+          <h3>03 — Quotation</h3>
+          <p>
+            You receive line-by-line availability, grade, and practical shipping options from Shanghai
+            — with a clear note where a line cannot be confirmed, instead of a generic catalog reply.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Related coverage</h2>
+      <ul class="catalog-scenarios-list">
+        <li>Genset parts by power rating (Series 2000 &amp; 4000): <a href="/products/mtu-spare-parts/mtu-genset-parts-by-power/">MTU genset parts by power rating</a></li>
+        <li>Full part number index (EN · DE designations): <a href="/part-number-index/">MTU part number index</a></li>
+        <li>Parts lists by engine model: <a href="/engine-models/">Parts lists by engine model</a></li>
+        <li>Legacy and gas engine coverage: <a href="/products/mtu-spare-parts/mtu-legacy-gas-engine-parts/">Legacy &amp; gas engine parts</a></li>
+      </ul>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Series 1600 &amp; F-Build FAQ</h2>
+      {faqItems.map((item) => (
+        <details class="resource-faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+
+    <DetailRfqStrip
+      context="Series 1600 / F-build model sourcing"
+      heading="Send the model code and serial number"
+      text="Series 1600 and newer F-build enquiries are quoted line by line. Include the complete model code, serial number, and your parts list — or photos of the components and installation positions."
+    />
+  </div>
+</BaseLayout>

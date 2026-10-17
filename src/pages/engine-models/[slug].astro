@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
-import { describeModel, getSeriesCatalogHub, isListedPart, modelApplication, modelGroups, type ModelGroup } from '../../data/engine-models';
+import { describeModel, getSeriesCatalogHub, isListedPart, modelApplication, modelBuildLabel, modelGroups, type ModelGroup } from '../../data/engine-models';
 import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -67,13 +67,20 @@ const jsonLd = [
     <h2>Engine Models Covered</h2>
     <p>
       The list covers {cylinderOptions.join(', ')} versions of the Series {group.series}
-      {applications.length > 0 ? ` for ${applications.join(' and ')}` : ''}. Each model code below is read from left to right: cylinder count and arrangement, series, then the application and build codes.
+      {applications.length > 0 ? ` for ${applications.join(' and ')}` : ''}. Each model code below is read from left to right: cylinder count and arrangement, series, then the application and build codes. The <a href="/products/mtu-spare-parts/mtu-engine-series-guide/">MTU engine series guide</a> explains the naming systems in full.
     </p>
     <div class="part-reference-scroll" tabindex="0" role="region" aria-label="Engine models in this parts list">
       <table class="part-reference-table">
-        <thead><tr><th scope="col">Model</th><th scope="col">How the code reads</th></tr></thead>
+        <thead><tr><th scope="col">Model</th><th scope="col">Cylinders</th><th scope="col">Arrangement</th><th scope="col">Application</th><th scope="col">Group / build</th><th scope="col">How the code reads</th></tr></thead>
         <tbody>{group.models.map((model) => (
-          <tr><th scope="row">{model.code}</th><td>{describeModel(model)}</td></tr>
+          <tr>
+            <th scope="row">{model.code}</th>
+            <td>{model.cylinders}</td>
+            <td>{model.arrangement === 'V' ? 'V' : 'In-line'}</td>
+            <td>{modelApplication(model) ?? '—'}</td>
+            <td>{modelBuildLabel(model)}</td>
+            <td>{describeModel(model)}</td>
+          </tr>
         ))}</tbody>
       </table>
     </div>

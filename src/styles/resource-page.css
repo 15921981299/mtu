@@ -716,9 +716,11 @@ a.hub-card:hover .hub-card-title {
   overflow: hidden;
 }
 
-.detail-page-hero :global(img) {
-  width: 100%;
-  height: auto;
+.detail-page-hero img {
+  width: auto;
+  height: 500px;
+  aspect-ratio: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -728,9 +730,11 @@ a.hub-card:hover .hub-card-title {
   overflow: hidden;
 }
 
-.detail-page-figure :global(img) {
+.detail-page-figure img {
   width: 100%;
   height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   display: block;
 }
 

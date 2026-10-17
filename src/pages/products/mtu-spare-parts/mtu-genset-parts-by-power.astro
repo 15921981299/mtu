@@ -1,0 +1,384 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../../../components/BreadcrumbHero.astro';
+import FunnelPageView from '../../../components/FunnelPageView.astro';
+import DetailRfqStrip from '../../../components/DetailRfqStrip.astro';
+import { isPartPageIndexable, mtuParts, type MtuPart } from '../../../data/mtu-parts';
+import { modelApplication, parseModels } from '../../../data/engine-models';
+import { breadcrumbSchema, faqSchema, site } from '../../../data/site';
+import '../../../styles/resource-page.css';
+
+/**
+ * MTU genset parts by power rating.
+ *
+ * The angle competitors do not cover: buyers arrive with a power rating
+ * ("I need parts for a 1,600 kW set"), not a model code. The power band
+ * points at the engine model, the model code points at the parts list.
+ *
+ * Power figures are typical 50 Hz prime ratings published by genset
+ * packagers for these engine models (multiple independent packager tables
+ * agree). Ratings vary by set configuration, site conditions, and
+ * frequency — the rating plate and engine nameplate always govern.
+ */
+
+type Band = {
+  engine: string;
+  cylinders: string;
+  primeKw: string;
+  note: string;
+};
+
+const bands2000: Band[] = [
+  { engine: '12V 2000 G25', cylinders: '12 V', primeKw: '520–580', note: 'Entry band; unit-pump injection' },
+  { engine: '12V 2000 G65', cylinders: '12 V', primeKw: '630–640', note: '' },
+  { engine: '12V 2000 G45', cylinders: '12 V', primeKw: '640', note: '' },
+  { engine: '12V 2000 G85', cylinders: '12 V', primeKw: '720–744', note: '' },
+  { engine: '16V 2000 G25', cylinders: '16 V', primeKw: '720–740', note: '' },
+  { engine: '16V 2000 G65', cylinders: '16 V', primeKw: '800', note: '' },
+  { engine: '16V 2000 G45', cylinders: '16 V', primeKw: '800–840', note: '' },
+  { engine: '16V 2000 G85', cylinders: '16 V', primeKw: '900–920', note: '' },
+  { engine: '18V 2000 G65', cylinders: '18 V', primeKw: '900', note: '' },
+  { engine: '18V 2000 G26F', cylinders: '18 V', primeKw: '1,000', note: '' },
+  { engine: '18V 2000 G85', cylinders: '18 V', primeKw: '1,000–1,092', note: 'Top of the 2000 range' },
+];
+
+const bands4000: Band[] = [
+  { engine: '12V 4000 G23', cylinders: '12 V', primeKw: '1,100–1,200', note: '' },
+  { engine: '12V 4000 G43', cylinders: '12 V', primeKw: '1,360–1,400', note: '' },
+  { engine: '12V 4000 G63', cylinders: '12 V', primeKw: '1,400–1,440', note: '' },
+  { engine: '12V 4000 G83', cylinders: '12 V', primeKw: '1,600', note: '' },
+  { engine: '16V 4000 G23', cylinders: '16 V', primeKw: '1,600–1,650', note: '' },
+  { engine: '16V 4000 G43', cylinders: '16 V', primeKw: '1,800–1,850', note: '' },
+  { engine: '16V 4000 G63', cylinders: '16 V', primeKw: '1,760–1,800', note: '' },
+  { engine: '16V 4000 G83', cylinders: '16 V', primeKw: '2,000–2,100', note: '' },
+  { engine: '20V 4000 G23', cylinders: '20 V', primeKw: '2,000', note: '' },
+  { engine: '20V 4000 G43', cylinders: '20 V', primeKw: '2,250–2,300', note: '' },
+  { engine: '20V 4000 G63', cylinders: '20 V', primeKw: '2,200–2,250', note: '' },
+  { engine: '20V 4000 G83', cylinders: '20 V', primeKw: '2,500–2,550', note: '' },
+  { engine: '20V 4000 G83L', cylinders: '20 V', primeKw: '2,800', note: 'Top of the 4000 range' },
+];
+
+/** Parts the catalog data actually references for genset (G/L-rated) models. */
+function gensetPartsForSeries(series: string, limit = 8): MtuPart[] {
+  return mtuParts
+    .filter((part) => {
+      if (!isPartPageIndexable(part)) return false;
+      const models = parseModels(part.applicableEngines);
+      return models.some((model) => {
+        const app = modelApplication(model);
+        return app?.includes('generator') && `MTU ${model.series}` === series;
+      });
+    })
+    .sort((a, b) => a.partNumber.localeCompare(b.partNumber))
+    .slice(0, limit);
+}
+
+/** Every indexed part referenced against any genset-rated model. */
+const gensetPartTotal = mtuParts.filter((part) => {
+  if (!isPartPageIndexable(part)) return false;
+  return parseModels(part.applicableEngines).some((model) => modelApplication(model)?.includes('generator'));
+}).length;
+
+const seriesBlocks = [
+  {
+    series: 'MTU 2000',
+    heading: 'Series 2000 gensets — roughly 520 to 1,100 kW prime',
+    text: 'The workhorse band for standby and prime power in buildings, hospitals, data centres, and industrial sites. Series 2000 genset engines use electronic unit-pump injection rather than common rail, so injector and pump references differ from the 4000 series.',
+    bands: bands2000,
+    hubHref: '/part-products/catalog/mtu-2000-series/',
+    hubLabel: 'MTU 2000 parts catalog',
+  },
+  {
+    series: 'MTU 4000',
+    heading: 'Series 4000 gensets — roughly 1,100 to 2,800 kW prime',
+    text: 'Large standby and prime-power sets for utilities, heavy industry, and data centres. Series 4000 genset engines use high-pressure common rail; the same engine family also serves marine propulsion under M-rated codes with different turbocharging, cooling, and control parts.',
+    bands: bands4000,
+    hubHref: '/part-products/catalog/mtu-4000-series/',
+    hubLabel: 'MTU 4000 parts catalog',
+  },
+];
+
+const legacyNote =
+  'Older genset duty also sits in the legacy series: 12V 183 TB32, 12V/16V/20V 956 TB33 and TB34, and 8V/12V/16V/20V 396 group-3 engines (TB34, TC34, TE34 and R/D variants) are all constant-speed generator applications in the catalog data. Ask with the full model code and we will check the references for that specific build.';
+
+const pageUrl = `${site.url}/products/mtu-spare-parts/mtu-genset-parts-by-power/`;
+const faqItems = [
+  {
+    question: 'How do I find genset parts from a power rating?',
+    answer:
+      'Match the set rating plate to the band in the table above, read across to the engine model, then send us the complete model code and serial number from the engine nameplate. The power rating narrows the engine model; the model code and serial number confirm the exact parts list. Ratings vary between 50 Hz and 60 Hz sets and between packagers, so the nameplate always governs.',
+  },
+  {
+    question: 'Are genset parts the same as marine parts for the same series?',
+    answer:
+      'Partly. Filters, seals, gaskets, belts, and many maintenance items are shared across a series, but the application letter changes key components. A G-rated genset engine is usually radiator-cooled with no seawater circuit, and its injectors, turbochargers, cooling parts, and engine control can differ from the M-rated marine engine of the same series. Always quote from the complete model code.',
+  },
+  {
+    question: 'What does the G (or L) in the model code mean?',
+    answer:
+      'G marks a diesel generator-set rating and L marks a gas generator-set rating in the current MTU naming system. M is marine propulsion, R is rail, S is industrial variable speed, P is oil and gas, and C is mining. In the older series such as 396, 956, and 1163, the first digit after the charging letters is the application group — group 3 is constant-speed generator service.',
+  },
+  {
+    question: 'Which parts are usually needed first for genset duty?',
+    answer:
+      'Planned genset maintenance centres on oil, fuel, and air filters, drive belts, coolant thermostats, hoses and clamps, sensors that raise alarms, battery-charging parts, and gasket sets. Running hours and the load profile decide the rest — high-hour sets also need injector, pump, turbocharger, and cooling-system attention. Send the running hours and we will propose a staged list.',
+  },
+];
+---
+
+<BaseLayout
+  title="MTU Genset Parts by Power Rating — 520 to 2,800 kW"
+  description="MTU generator-set parts organised by power rating. Match the set rating to the engine model (12V/16V/18V/20V 2000 and 4000 G-series), then verify the exact parts list by model code and serial number."
+  currentPath="/products/mtu-spare-parts/mtu-genset-parts-by-power"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Products', url: `${site.url}/products/` },
+      { name: 'MTU Spare Parts', url: `${site.url}/products/mtu-spare-parts/` },
+      { name: 'Genset Parts by Power Rating', url: pageUrl },
+    ]),
+    faqSchema(faqItems),
+  ]}
+>
+  <FunnelPageView stage="selection" label="genset-parts-by-power" />
+  <BreadcrumbHero
+    title="MTU Genset Parts by Power Rating"
+    trail={[
+      { label: 'Home', href: '/' },
+      { label: 'Products', href: '/products/' },
+      { label: 'MTU Spare Parts', href: '/products/mtu-spare-parts/' },
+      { label: 'Genset Parts by Power Rating' },
+    ]}
+    variant="2"
+  />
+
+  <div class="resource-page">
+    <section class="resource-page-section">
+      <p>
+        Most genset enquiries arrive with a power rating — “parts for a 1,600 kW standby set” —
+        not a model code. This page closes that gap: the rating points at the engine model, and
+        the model code points at the parts list. Bands below cover the current
+        <strong>Series 2000 (about 520–1,100 kW)</strong> and <strong>Series 4000 (about 1,100–2,800 kW)</strong>
+        diesel genset engines, plus a note on legacy genset duty.
+      </p>
+      <p>
+        <strong>{gensetPartTotal} indexed part numbers</strong> are referenced against genset-rated
+        engine models in our catalog data — the sections below list them by series.
+      </p>
+      <p class="resource-note">
+        Power figures are typical 50 Hz prime ratings published by genset packagers for these engine
+        models. Ratings vary by set configuration, frequency, altitude, and temperature — the set's
+        rating plate and the engine nameplate always govern. Use the band to start the conversation,
+        then send the complete model code and serial number for verification.
+      </p>
+    </section>
+
+    {seriesBlocks.map((block) => (
+      <section class="resource-page-section">
+        <h2>{block.heading}</h2>
+        <p>{block.text}</p>
+        <div class="xref-table-wrap">
+          <table class="xref-table">
+            <thead>
+              <tr>
+                <th scope="col">Engine Model</th>
+                <th scope="col">Layout</th>
+                <th scope="col">Typical Prime Power (kW, 50 Hz)</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {block.bands.map((band) => (
+                <tr>
+                  <td class="pn-engine">{band.engine}</td>
+                  <td>{band.cylinders}</td>
+                  <td class="pn-kw">{band.primeKw}</td>
+                  <td>{band.note || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {(() => {
+          const parts = gensetPartsForSeries(block.series);
+          return parts.length >= 3 ? (
+            <div class="genset-parts">
+              <h3>Parts the catalog references for {block.series} genset models</h3>
+              <p class="genset-parts__intro">
+                Examples from our indexed catalog data for this series' genset-rated engines — open a
+                part page for fitment notes, or send the full list from your maintenance schedule.
+              </p>
+              <ul class="genset-parts__list">
+                {parts.map((part) => (
+                  <li>
+                    <a href={`/part-products/${part.slug}/`}>{part.partNumber}</a>
+                    <span>{part.name}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="genset-parts__more">
+                Browse the full series in the <a href={block.hubHref}>{block.hubLabel}</a>, or filter
+                every part number in the <a href="/part-number-index/">part number index</a>.
+              </p>
+            </div>
+          ) : (
+            <p class="genset-parts__more">
+              Series-wide references live in the <a href={block.hubHref}>{block.hubLabel}</a> — filter
+              every part number in the <a href="/part-number-index/">part number index</a>, or send your
+              model code and serial number for a list built to your engine.
+            </p>
+          );
+        })()}
+      </section>
+    ))}
+
+    <section class="resource-page-section">
+      <h2>Legacy genset engines</h2>
+      <p>{legacyNote}</p>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>What changes with the rating — and what does not</h2>
+      <p>
+        Within one series, a higher rating is not just a different tune. Expect differences in
+        injectors, high-pressure pumps and lines, turbochargers, charge-air and cooling components,
+        and engine-control parts. Filters, seals, gaskets, belts, thermostats, and many sensors are
+        usually shared across the series — which is why a service kit quoted for the wrong variant
+        still looks plausible on paper.
+      </p>
+      <h3>Send these details with the rating</h3>
+      <ul>
+        <li>Complete engine model code from the nameplate (for example 16V 4000 G63 or 12V 2000 G65)</li>
+        <li>Engine serial number and running hours</li>
+        <li>Set rating plate: prime or standby, kW or kVA, 50 Hz or 60 Hz</li>
+        <li>Part numbers, quantities, and the maintenance deadline</li>
+        <li>Application: standby, prime, or continuous — load profile affects wear parts</li>
+      </ul>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Genset Parts FAQ</h2>
+      {faqItems.map((item) => (
+        <details class="resource-faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+
+    <DetailRfqStrip
+      title="Building a genset spares list?"
+      text="Send the engine model, serial number, running hours, and your parts list. We verify references against the exact rating and build before quoting."
+      quoteHref="/contact/?source=genset-parts-by-power"
+      label="Send My Genset Details"
+      modalSource="genset-parts-by-power"
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .pn-engine {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .pn-kw {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .genset-parts {
+    margin-top: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px;
+    background: #f8fafc;
+  }
+
+  .genset-parts h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+  }
+
+  .genset-parts__intro {
+    margin: 0 0 12px;
+    color: #475569;
+    font-size: 14px;
+  }
+
+  .genset-parts__list {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px 20px;
+  }
+
+  .genset-parts__list li {
+    font-size: 14px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .genset-parts__list a {
+    color: var(--color-primary, #146ef5);
+    font-weight: 700;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    white-space: nowrap;
+  }
+
+  .genset-parts__list span {
+    color: #475569;
+  }
+
+  .genset-parts__more {
+    margin: 0;
+    font-size: 14px;
+    color: #475569;
+  }
+
+  .xref-table-wrap {
+    overflow-x: auto;
+  }
+
+  .xref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .xref-table th,
+  .xref-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .xref-table th {
+    background: #f8fafc;
+    font-weight: 700;
+  }
+
+  .resource-faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  .resource-faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .resource-faq-item p {
+    margin: 10px 0 0;
+    color: #475569;
+    line-height: 1.6;
+  }
+</style>

@@ -60,6 +60,14 @@ const schemas = [
     '@type': 'WebSite',
     name: site.name,
     url: site.url,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${site.url}/part-number-index/?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   },
   ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
 ];

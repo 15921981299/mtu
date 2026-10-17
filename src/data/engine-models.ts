@@ -68,6 +68,10 @@ export const describeModel = (model: EngineModel): string => {
   return bits.join(', ');
 };
 
+/** Group/build column label for spec tables: old series encode the application in the group digit. */
+export const modelBuildLabel = (model: EngineModel): string =>
+  OLD_SERIES.has(model.series) ? `build ${model.build}` : `subgroup ${model.group}, build ${model.build}`;
+
 export type ModelGroup = {
   slug: string;
   title: string;

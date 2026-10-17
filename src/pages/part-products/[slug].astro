@@ -15,8 +15,10 @@ import { partBuyerEvidence } from '../../data/part-buyer-evidence';
 import { getCatalogAssemblies } from '../../data/part-assemblies';
 import { getPartGuidance } from '../../data/part-category-guidance';
 import { standardPartName } from '../../data/part-names';
-import { describeModel, getModelGroupsForPart, parseModels } from '../../data/engine-models';
+import { germanPartName } from '../../data/part-names-de';
+import { describeModel, getModelGroupsForPart, modelApplication, modelBuildLabel, parseModels } from '../../data/engine-models';
 import { getCompanionParts } from '../../data/part-companions';
+import { isMeasurementLike, isMissingSpec } from '../../data/spec-fields';
 import { breadcrumbSchema, faqSchema, productSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -166,18 +168,26 @@ const referenceRows = getPartReferences(part).map((ref) => {
   };
 });
 
+// German designation (catalog usage). Only shown when the translation is
+// substantive — identical output would mean an untranslated name, and labelling
+// that "DE" would be false.
+const partNameDe = germanPartName(part.name);
 const specRows = [
   ['Part No.', part.partNumber],
   ['Name', part.name],
+  ...(partNameDe && partNameDe !== part.name ? [['Designation (DE)', partNameDe]] : []),
   ['Category', part.category],
   ['Engine Type', hasSpecificEngineType ? part.engineType : seriesText],
   ['Series', seriesText],
-  ['Dimensions', part.dimensions],
+  // Only measurement-like values are shown: the source column also carries
+  // designation codes, ratings and description text that must not be
+  // published under a Dimensions label.
+  ...(isMeasurementLike(part.dimensions) ? [['Dimensions', part.dimensions]] : []),
   ['Catalog Weight', part.weightKg],
   ['HS Code (reference)', part.hsCode],
   ['NATO No.', part.natoNumber],
   ['Lead Time', supply?.leadTime ?? 'Confirmed with quotation'],
-].filter(([, value]) => value != null && String(value).trim() !== '' && !/^n\/a$/i.test(String(value).trim()));
+].filter(([, value]) => !isMissingSpec(value as string | undefined));
 const browseCatalogLinks = Array.from(
   new Map(
     [
@@ -355,13 +365,31 @@ const productJsonLd = productSchema({
     {part.applicableEngines && (
       <>
         <h2>Engine Catalog References</h2>
-        {engineModels.length > 0 ? (
+        {engineModels.length > 1 ? (
           <>
-            <p>{part.partNumber} is listed for {engineModels.length} engine model{engineModels.length > 1 ? 's' : ''}. How each model code reads:</p>
+            <p>{part.partNumber} is listed for {engineModels.length} engine models in the catalog references. The specification table decodes each model code from the fitment list; it does not confirm every installation.</p>
+            <div class="part-reference-scroll" tabindex="0" role="region" aria-label={`Engine models listed for ${part.partNumber}`}>
+              <table class="part-reference-table">
+                <caption>Engine models listed for {part.partNumber}</caption>
+                <thead><tr><th scope="col">Model</th><th scope="col">Cylinders</th><th scope="col">Arrangement</th><th scope="col">Application</th><th scope="col">Group / build</th></tr></thead>
+                <tbody>{engineModels.map((model) => (
+                  <tr>
+                    <th scope="row">{model.code}</th>
+                    <td>{model.cylinders}</td>
+                    <td>{model.arrangement === 'V' ? 'V' : 'In-line'}</td>
+                    <td>{modelApplication(model) ?? '—'}</td>
+                    <td>{modelBuildLabel(model)}</td>
+                  </tr>
+                ))}</tbody>
+              </table>
+            </div>
+            <h3>How Each Model Code Reads</h3>
             <ul class="part-model-list">
               {engineModels.map((model) => <li><strong>{model.code}</strong>: {describeModel(model)}</li>)}
             </ul>
           </>
+        ) : engineModels.length === 1 ? (
+          <p>{part.partNumber} is listed for {engineModels[0].code} ({describeModel(engineModels[0])}).</p>
         ) : (
           <p>{part.applicableEngines}</p>
         )}
@@ -420,15 +448,24 @@ const productJsonLd = productSchema({
 
     {assemblyReferences.map((assembly) => (
       <section class="hub-section">
-        <h2>Parts in the Same Catalog Drawing</h2>
-        <p>{assembly.name}. Drawing positions are identification references, not a confirmed kit or a list of items included with this part. Check the engine serial number and drawing revision before ordering.</p>
+        {assembly.kind === 'derived' ? (
+          <>
+            <h2>Other Parts in the Same Assembly Group</h2>
+            <p>{assembly.provenance} Parts in the same group are often renewed together, but each reference still needs its own fitment check against the engine serial number.</p>
+          </>
+        ) : (
+          <>
+            <h2>Parts in the Same Catalog Drawing</h2>
+            <p>{assembly.name}. Drawing positions are identification references, not a confirmed kit or a list of items included with this part. Check the engine serial number and drawing revision before ordering.</p>
+          </>
+        )}
         <div class="part-reference-scroll" tabindex="0" role="region" aria-label="Assembly drawing references">
         <table class="part-reference-table">
-          <caption>Other references in this assembly drawing</caption>
-          <thead><tr><th scope="col">Position</th><th scope="col">Part number</th><th scope="col">Description</th></tr></thead>
+          <caption>{assembly.kind === 'derived' ? 'Other catalog references in the same assembly group' : 'Other references in this assembly drawing'}</caption>
+          <thead><tr>{assembly.kind === 'derived' ? null : <th scope="col">Position</th>}<th scope="col">Part number</th><th scope="col">Description</th></tr></thead>
           <tbody>{assembly.parts.map((item) => (
             <tr>
-              <td>{item.position}</td>
+              {assembly.kind === 'derived' ? null : <td>{item.position}</td>}
               <th scope="row">{item.linkedPart ? <a href={`/part-products/${item.linkedPart.slug}/`}>{item.partNumber}</a> : item.partNumber}</th>
               <td>{standardPartName(item.description)}</td>
             </tr>

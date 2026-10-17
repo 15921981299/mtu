@@ -11,7 +11,7 @@ const isActive = (path: string) => currentPath === path || (path !== '/' && curr
 const productsActive = isActive('/products') || isActive('/part-products');
 const supportActive = isActive('/capabilities') || isActive('/industries');
 const companyActive = isActive('/about') || isActive('/certifications');
-const resourcesActive = isActive('/resources') || isActive('/part-products/catalog');
+const resourcesActive = isActive('/resources') || isActive('/part-products/catalog') || isActive('/part-number-index');
 ---
 
 <header class="header">
@@ -86,22 +86,42 @@ const resourcesActive = isActive('/resources') || isActive('/part-products/catal
                   </svg>
                   <div class="nav-link-line-shape"></div>
                 </button>
-                <div class="nav-dropdown-list nav-dropdown-list--grid">
+                <div class="nav-dropdown-list nav-dropdown-list--grid nav-dropdown-list--systems">
                   <div class="nav-dropdown-panel">
-                    <a href="/part-products/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All MTU Part Numbers</span></a>
-                    <a href="/part-products/catalog/mtu-2000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Catalog</span></a>
-                    <a href="/part-products/catalog/mtu-4000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Catalog</span></a>
-                    <a href="/part-products/catalog/mtu-injectors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Injectors</span></a>
-                    <a href="/part-products/catalog/mtu-fuel-pumps/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU Fuel Pumps</span></a>
-                    <a href="/part-products/catalog/mtu-filters/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Filters</span></a>
-                    <a href="/part-products/catalog/mtu-sensors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Sensors</span></a>
-                    <a href="/part-products/catalog/mtu-starter-motors-alternators/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Starters & Alternators</span></a>
-                    <a href="/series/mtu-396/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 396 Series Hub</span></a>
-                    <a href="/series/mtu-2000/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Series Hub</span></a>
-                    <a href="/series/mtu-1163/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 1163 Series Hub</span></a>
-                    <a href="/series/mtu-4000-variants/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Variant Decoder</span></a>
-                    <a href="/series/mtu-396-variants/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 396 Variants</span></a>
-                    <a href="/series/mtu-2000-variants/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Variants</span></a>
+                    <div class="nav-dropdown-col">
+                      <span class="nav-dropdown-group-label">By System</span>
+                      <a href="/part-products/catalog/mtu-injectors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Injectors &amp; Nozzles</span></a>
+                      <a href="/part-products/catalog/mtu-fuel-pumps/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Fuel Pumps</span></a>
+                      <a href="/part-products/catalog/mtu-filters/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Filters</span></a>
+                      <a href="/part-products/catalog/mtu-turbocharger-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Turbocharging</span></a>
+                      <a href="/part-products/catalog/mtu-cooling-system/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Cooling System</span></a>
+                      <a href="/part-products/catalog/mtu-gasket-kits/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Gaskets &amp; Seals</span></a>
+                      <a href="/part-products/catalog/mtu-sensors/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Sensors &amp; Electrical</span></a>
+                      <a href="/part-products/catalog/mtu-starter-motors-alternators/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Starters &amp; Alternators</span></a>
+                      <a href="/part-products/catalog/mtu-cylinder-heads/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Cylinder Heads &amp; Covers</span></a>
+                      <a href="/products/mtu-spare-parts/mtu-overhaul-kits/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Overhaul Kits</span></a>
+                    </div>
+                    <div class="nav-dropdown-col">
+                      <span class="nav-dropdown-group-label">By Engine Series</span>
+                      <a href="/part-products/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">All MTU Part Numbers</span></a>
+                      <a href="/part-products/catalog/mtu-2000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Catalog</span></a>
+                      <a href="/part-products/catalog/mtu-4000-series/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Catalog</span></a>
+                      <a href="/series/mtu-396/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 396 Series Hub</span></a>
+                      <a href="/series/mtu-1163/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 1163 Series Hub</span></a>
+                      <a href="/series/mtu-2000-variants/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 2000 Variants</span></a>
+                      <a href="/series/mtu-4000-variants/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">MTU 4000 Variant Decoder</span></a>
+                    </div>
+                    <div class="nav-dropdown-col">
+                      <span class="nav-dropdown-group-label">Guides &amp; Tools</span>
+                      <a href="/guides/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Parts Guides</span></a>
+                      <a href="/engine-models/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Parts Lists by Engine Model</span></a>
+                      <a href="/cross-reference/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Part Number Cross Reference</span></a>
+                      <a href="/part-number-index/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Part Number Index (EN · DE)</span></a>
+                      <a href="/products/mtu-spare-parts/mtu-1600-series-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Series 1600 &amp; F-Build Models</span></a>
+                      <a href="/products/mtu-spare-parts/mtu-legacy-gas-engine-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Legacy &amp; Gas Engines</span></a>
+                      <a href="/products/mtu-spare-parts/mtu-genset-parts-by-power/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Genset Parts by Power</span></a>
+                      <a href="/standing-parts/" class="nav-dropdown-link-block"><div class="nav-dropdown-shape"></div><span class="nav-dropdown-link-text">Standing Series List</span></a>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -6,11 +6,13 @@
     "heading": "MTU Engine Parts — Complete Reference List",
     "subtitle": "All catalogued part numbers across every engine series we supply.",
     "series": "All engine series",
-    "parts": 843,
-    "pages": 17,
-    "bytes": 397930,
-    "generated": "2026-10-15",
-    "truncatedCells": {}
+    "parts": 891,
+    "pages": 18,
+    "bytes": 419808,
+    "generated": "2026-10-17",
+    "truncatedCells": {
+      "category": 4
+    }
   },
   {
     "slug": "MTU-2000-Series-Parts-Catalog",
@@ -21,8 +23,8 @@
     "series": "MTU 2000",
     "parts": 160,
     "pages": 4,
-    "bytes": 77715,
-    "generated": "2026-10-15",
+    "bytes": 77712,
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -32,10 +34,10 @@
     "heading": "MTU 4000 Series Parts Catalog",
     "subtitle": "12V, 16V and 20V 4000 series part numbers.",
     "series": "MTU 4000",
-    "parts": 175,
+    "parts": 176,
     "pages": 4,
-    "bytes": 84722,
-    "generated": "2026-10-15",
+    "bytes": 85187,
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -47,8 +49,8 @@
     "series": "MTU 396",
     "parts": 159,
     "pages": 4,
-    "bytes": 76595,
-    "generated": "2026-10-15",
+    "bytes": 76582,
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -60,8 +62,8 @@
     "series": "MTU 1163",
     "parts": 95,
     "pages": 2,
-    "bytes": 46869,
-    "generated": "2026-10-15",
+    "bytes": 46863,
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -74,7 +76,7 @@
     "parts": 79,
     "pages": 2,
     "bytes": 39580,
-    "generated": "2026-10-15",
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -84,10 +86,10 @@
     "heading": "MTU 538 Series Parts Catalog",
     "subtitle": "High-speed marine 538 series part numbers.",
     "series": "MTU 538",
-    "parts": 79,
+    "parts": 80,
     "pages": 2,
-    "bytes": 38778,
-    "generated": "2026-10-15",
+    "bytes": 39219,
+    "generated": "2026-10-17",
     "truncatedCells": {}
   },
   {
@@ -100,7 +102,7 @@
     "parts": 48,
     "pages": 2,
     "bytes": 24865,
-    "generated": "2026-10-15",
+    "generated": "2026-10-17",
     "truncatedCells": {}
   }
 ]
