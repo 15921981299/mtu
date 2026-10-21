@@ -51,7 +51,9 @@ const {
 } = Astro.props;
 
 const fullTitle = noTitleSuffix || title.includes(site.name) ? title : `${title} | ${site.name}`;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// noindex 工具页（404、确认页）canonical 指向站根：这类页面没有独立索引价值，
+// 自指 canonical（如 https://…/404/）只会把垃圾 URL 写进抓取链路。
+const canonical = new URL(noindex ? '/' : Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/images/og-mtu-engine-parts.jpg', Astro.site);
 const schemas = [
   organizationSchema,

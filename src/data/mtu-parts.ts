@@ -3044,7 +3044,9 @@ const generatedSeriesCategoryHubs: MtuCatalogHub[] = seriesCatalogTargets.flatMa
       category,
       count: mtuParts.filter((part) => part.series.includes(series) && part.category === category).length,
     }))
-    .filter(({ count }) => count >= 2)
+    // 阈值 3：2 件的页面整页只有一张两行表，13/15 个薄 hub 在 Bing 三个月零曝光。
+    // 低于 3 件的组合不再生成，旧 URL 301 回对应系列页（public/_redirects E 段）。
+    .filter(({ count }) => count >= 3)
     .map(({ series, category, count }) => {
       const seriesSlug = slugifyPart(series.replace('MTU ', 'mtu-'));
       const categorySlug = slugifyPart(category);

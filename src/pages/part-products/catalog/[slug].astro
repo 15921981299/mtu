@@ -189,7 +189,7 @@ const catalogUseCases = hub.type === 'series'
           {catalogProcurement[hub.slug] && <ProcurementBrief brief={catalogProcurement[hub.slug]} source={`catalog-${hub.slug}-scope`} />}
           {drawingGroups.length > 0 && <section class="catalog-depth-section">
             <h2>Catalog Drawing Positions</h2>
-            <p>These are catalog drawing relationships, not a confirmed kit. Check the revision and your engine serial range before using the positions.</p>
+            <p>These are catalog drawing relationships, not a confirmed kit. Check the revision and your engine serial range before using the positions. Every drawing group in the catalog is also collected in the <a href="/part-assemblies/">assembly &amp; BOM reference index</a>.</p>
             {drawingGroups.map((assembly) => <>
               <h3>{assembly.name}</h3>
               {assembly.kind === 'derived' && <p>{assembly.provenance}</p>}

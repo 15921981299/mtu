@@ -431,7 +431,7 @@ export const partsGuides: PartsGuide[] = [
     relatedHubs: [
       { href: '/part-products/catalog/mtu-4000-fuel-system-parts/', label: 'MTU 4000 Fuel System Parts' },
       { href: '/part-products/catalog/mtu-injectors/', label: 'MTU Injectors Catalog' },
-      { href: '/part-products/catalog/mtu-4000-turbocharging-parts/', label: 'MTU 4000 Turbocharger Parts' },
+      { href: '/part-products/catalog/mtu-turbocharger-parts/', label: 'MTU Turbocharger Parts' },
       { href: '/guides/mtu-2000-overhaul-parts/', label: 'MTU 2000 Overhaul Parts Guide' },
     ],
     faqs: [
@@ -590,7 +590,7 @@ export const partsGuides: PartsGuide[] = [
     seriesCatalog: { href: '/part-products/catalog/mtu-turbocharger-parts/', label: 'MTU Turbocharger Parts Catalog' },
     relatedHubs: [
       { href: '/part-products/catalog/mtu-2000-turbocharging-parts/', label: 'MTU 2000 Turbocharger Parts' },
-      { href: '/part-products/catalog/mtu-4000-turbocharging-parts/', label: 'MTU 4000 Turbocharger Parts' },
+      { href: '/engine-models/mtu-4000-m53-to-m65l-parts/', label: 'MTU 4000 Model Parts List' },
       { href: '/guides/mtu-exchange-reman-parts/', label: 'MTU Exchange & Reman Parts (Core Deposit Explained)' },
       { href: '/guides/mtu-396-marine-engine-blue-smoke/', label: 'MTU 396 Blue Smoke: When Oil Is Burning' },
     ],

@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbHero from '../components/BreadcrumbHero.astro';
+import FunnelPageView from '../components/FunnelPageView.astro';
+import DetailRfqStrip from '../components/DetailRfqStrip.astro';
+import { mtuParts } from '../data/mtu-parts';
+import { allCatalogAssemblies, type CatalogAssembly } from '../data/part-assemblies';
+import { standardPartName } from '../data/part-names';
+import { breadcrumbSchema, faqSchema, site } from '../data/site';
+import '../styles/resource-page.css';
+
+/**
+ * Assembly & BOM reference index.
+ *
+ * Two kinds of groups, kept visibly distinct:
+ *  - "curated" groups come from catalog drawings. They carry drawing positions,
+ *    which are identification references — not a kit list.
+ *  - "derived" groups are generated from catalog description text that names a
+ *    parent assembly. They carry no position, because the source text has none.
+ * Neither kind is presented as a confirmed installation kit.
+ */
+
+// Short display names for the curated drawing groups. The stored names carry
+// build and drawing numbers and make poor headings; the full name still shows
+// in the section text so nothing is lost.
+const CURATED_TITLES: Record<string, { slug: string; title: string }> = {
+  'MTU 20V4000G83 example build 528100707, low-pressure fuel pump BOM X00040005, drawing 08100172d': {
+    slug: 'mtu-4000-low-pressure-fuel-pump',
+    title: 'MTU 4000 low-pressure fuel pump',
+  },
+  'MTU 20V4000G83 example build 528100707, oil separator BOM 0000187135': {
+    slug: 'mtu-4000-oil-separator',
+    title: 'MTU 4000 oil separator',
+  },
+  'MTU 396 oil-filter housing reference': {
+    slug: 'mtu-396-oil-filter-housing',
+    title: 'MTU 396 oil-filter housing',
+  },
+  'MTU 956/1163 high-pressure fuel-line reference': {
+    slug: 'mtu-956-1163-high-pressure-fuel-line',
+    title: 'MTU 956/1163 high-pressure fuel line',
+  },
+  'MTU 4000 thermostat-housing reference': {
+    slug: 'mtu-4000-thermostat-housing',
+    title: 'MTU 4000 thermostat housing',
+  },
+};
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+type AssemblyGroup = {
+  slug: string;
+  title: string;
+  kind: 'curated' | 'derived';
+  fullName: string;
+  provenance?: string;
+  rows: { position?: string; partNumber: string; description: string; slug?: string }[];
+};
+
+const partByNumber = new Map(mtuParts.map((part) => [part.partNumber.toUpperCase(), part]));
+
+const groups: AssemblyGroup[] = allCatalogAssemblies.map((assembly: CatalogAssembly) => {
+  const curated = CURATED_TITLES[assembly.name];
+  return {
+    slug: curated?.slug ?? slugify(assembly.name),
+    title: curated?.title ?? assembly.name,
+    kind: assembly.kind ?? 'curated',
+    fullName: assembly.name,
+    provenance: assembly.provenance,
+    rows: assembly.parts.map((item) => {
+      const linked = partByNumber.get(item.partNumber.toUpperCase());
+      return {
+        position: item.position,
+        partNumber: item.partNumber,
+        description: standardPartName(item.description),
+        slug: linked?.slug,
+      };
+    }),
+  };
+});
+
+const curatedCount = groups.filter((group) => group.kind === 'curated').length;
+const derivedCount = groups.length - curatedCount;
+const totalRows = groups.reduce((sum, group) => sum + group.rows.length, 0);
+const linkedRows = groups.reduce(
+  (sum, group) => sum + group.rows.filter((row) => row.slug).length,
+  0,
+);
+
+const pageUrl = `${site.url}/part-assemblies/`;
+const faqItems = [
+  {
+    question: 'What is the difference between a drawing reference and a catalog-derived group?',
+    answer:
+      'Drawing references come from published catalog drawings and list a position number for each item. Catalog-derived groups are built from catalog description text that names a parent assembly, so they list the part numbers without positions. Both are identification aids; neither is a confirmed kit.',
+  },
+  {
+    question: 'Can I order the complete assembly as one line?',
+    answer:
+      'Not from this page. Send the assembly name together with your engine model and serial number and we quote per position, including items that are only serviced as part of a repair kit. Quantities and mating parts are confirmed against the engine before quotation.',
+  },
+  {
+    question: 'Why is a part number on this page not linked to a part page?',
+    answer:
+      'Only numbers we hold a catalog record for are linked. An unlinked number is still a valid drawing reference — send it with the engine details and we check what can be supplied against it.',
+  },
+  {
+    question: 'Do positions mean installation order?',
+    answer:
+      'No. A position identifies the item on the drawing for that assembly. It carries no sequence, quantity, or revision information. Confirm the drawing revision against the engine before ordering.',
+  },
+];
+---
+
+<BaseLayout
+  title="MTU Assembly & BOM Part References — Drawing Positions by Assembly"
+  description={`${totalRows} part-number references across ${groups.length} assembly groups, with drawing positions where published. Fitment checked by engine serial number.`}
+  currentPath="/part-assemblies"
+  jsonLd={[
+    breadcrumbSchema([
+      { name: 'Home', url: site.url },
+      { name: 'Assembly & BOM References', url: pageUrl },
+    ]),
+    faqSchema(faqItems),
+  ]}
+>
+  <FunnelPageView stage="comparison" label="assembly-index" />
+  <BreadcrumbHero
+    title="Assembly & BOM Part References"
+    trail={[{ label: 'Home', href: '/' }, { label: 'Assembly & BOM References' }]}
+    variant="2"
+  />
+
+  <div class="resource-page">
+    <section class="resource-page-section">
+      <p>
+        This index collects the <strong>{groups.length} assembly groups</strong> our catalog references
+        resolve into: {curatedCount} drawing groups with position numbers and {derivedCount} groups
+        derived from catalog description text. Together they list{' '}
+        <strong>{totalRows} part-number references</strong>, {linkedRows} of which link to a part page
+        in this catalog.
+      </p>
+      <p>
+        Work from the assembly, not from a single number, when a repair touches several positions at
+        once — a fuel-pump or coolant-pump job usually renews seals, screws and retainers together.
+        Every reference still needs its own fitment check: positions identify the item on a drawing,
+        and a drawing revision or engine serial number decides which variant is fitted.
+      </p>
+      <p>
+        The same tables appear on the individual part pages, so a group can also be reached from any
+        number inside it. For replacement and earlier-number history, use the{' '}
+        <a href="/cross-reference/">part-number cross reference</a>.
+      </p>
+    </section>
+
+    <section class="resource-page-section">
+      <h2>Assembly Groups</h2>
+      <div class="part-reference-scroll" tabindex="0" role="region" aria-label="Assembly group summary">
+        <table class="part-reference-table">
+          <caption>Catalog assembly groups, by reference type</caption>
+          <thead>
+            <tr>
+              <th scope="col">Assembly</th>
+              <th scope="col">Reference type</th>
+              <th scope="col">Positions listed</th>
+              <th scope="col">Jump to</th>
+            </tr>
+          </thead>
+          <tbody>
+            {groups.map((group) => (
+              <tr>
+                <th scope="row">{group.title}</th>
+                <td>{group.kind === 'curated' ? 'Catalog drawing' : 'Catalog-derived'}</td>
+                <td>{group.rows.length}</td>
+                <td><a href={`#${group.slug}`}>Open table</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {groups.map((group) => (
+      <section class="hub-section" id={group.slug}>
+        <h2>{group.title}</h2>
+        {group.kind === 'curated' ? (
+          <p>
+            Catalog drawing reference: {group.fullName}. Positions identify the item on the drawing;
+            they are not a kit list and carry no quantity. Check the drawing revision and the engine
+            serial number before ordering.
+          </p>
+        ) : (
+          <p>
+            {group.provenance} Parts in the same group are often renewed together, but each reference
+            still needs its own fitment check against the engine serial number.
+          </p>
+        )}
+        <div class="part-reference-scroll" tabindex="0" role="region" aria-label={`${group.title} BOM table`}>
+          <table class="part-reference-table">
+            <caption>
+              {group.kind === 'curated'
+                ? `Drawing references for ${group.title}`
+                : `Catalog references grouped under ${group.title}`}
+            </caption>
+            <thead>
+              <tr>
+                {group.kind === 'curated' && <th scope="col">Position</th>}
+                <th scope="col">Part number</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {group.rows.map((row) => (
+                <tr>
+                  {group.kind === 'curated' && <td>{row.position ?? '—'}</td>}
+                  <th scope="row">
+                    {row.slug ? <a href={`/part-products/${row.slug}/`}>{row.partNumber}</a> : row.partNumber}
+                  </th>
+                  <td>{row.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+
+    <section class="resource-page-section">
+      <h2>Assembly Reference FAQ</h2>
+      {faqItems.map((item) => (
+        <details class="resource-faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+
+    <DetailRfqStrip
+      title="Working from a drawing or a BOM?"
+      text="Send the assembly name or drawing number with your engine model and serial number. We confirm positions, quantities and availability per line before quoting."
+      quoteHref="/contact/?source=part-assemblies"
+      label="Request This Assembly"
+      modalSource="part-assemblies"
+    />
+  </div>
+</BaseLayout>

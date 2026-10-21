@@ -119,3 +119,21 @@
 # is derived from the covered codes, so it changed with them. One rule only.
 # ---------------------------------------------------------------------------
 /engine-models/mtu-538-tb92-tb93-parts/ /engine-models/mtu-538-tb1-to-tb93-parts/ 301
+
+# ---------------------------------------------------------------------------
+# E. Two-part catalog pages consolidated into their series page
+#
+# 2026-10-21: series x category pages were generated for every combination
+# with at least two matching part numbers. Eight of them held exactly two
+# parts and none of them had a single Bing impression in three months, so
+# the generation threshold moved to three. Each old URL forwards to the
+# series catalog, which lists the same parts grouped by category.
+# ---------------------------------------------------------------------------
+/part-products/catalog/mtu-1163-filters-parts/ /part-products/catalog/mtu-1163-series/ 301
+/part-products/catalog/mtu-396-cylinder-heads-parts/ /part-products/catalog/mtu-396-series/ 301
+/part-products/catalog/mtu-4000-turbocharging-parts/ /part-products/catalog/mtu-4000-series/ 301
+/part-products/catalog/mtu-595-valve-train-parts/ /part-products/catalog/mtu-595-series/ 301
+/part-products/catalog/mtu-956-filters-parts/ /part-products/catalog/mtu-956-series/ 301
+/part-products/catalog/mtu-956-pistons-and-liners-parts/ /part-products/catalog/mtu-956-series/ 301
+/part-products/catalog/mtu-956-turbocharging-parts/ /part-products/catalog/mtu-956-series/ 301
+/part-products/catalog/mtu-956-valve-train-parts/ /part-products/catalog/mtu-956-series/ 301

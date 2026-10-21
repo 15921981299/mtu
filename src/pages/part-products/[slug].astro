@@ -165,14 +165,16 @@ const metaDesc = buyerEvidence?.metaDescription ?? (() => {
   } for ${seriesShort}.`;
   const specBits: string[] = [];
   const weight = (part.weightKg ?? '').trim();
-  if (weight && !/^n\/a$/i.test(weight)) specBits.push(`Weight ${weight.toLowerCase()}`);
+  // "Confirmed with quotation" 与 "N/A" 一样是占位值，不是规格，不进 meta
+  if (weight && !/^(n\/a|confirmed)/i.test(weight)) specBits.push(`Weight ${weight.toLowerCase()}`);
   if (part.hsCode) specBits.push(`HS ${part.hsCode}`);
   const nato = (part.natoNumber ?? '').trim();
   if (nato && !/^n\/a$/i.test(nato)) specBits.push(`NATO ${nato}`);
   const freshRefs = replacementRefs.filter((ref) => !summaryText.includes(ref));
   const segments = [
     summaryText || identity,
-    ...(summaryText ? [identity] : []),
+    // summary 回退句本身就以「料号 品名」开头，再接一遍身份段会口吃
+    ...(summaryText && !summaryText.startsWith(`${part.partNumber} ${part.name}`) ? [identity] : []),
     specBits.length > 0 ? `${specBits.join(', ')}.` : '',
     freshRefs.length > 0 ? `Supersedes ${freshRefs.slice(0, 2).join(', ')}.` : '',
     supply?.stockStatus === 'in-stock' ? 'In stock.' : supply?.stockStatus === 'fast-order' ? 'Fast-order route.' : '',
@@ -529,6 +531,13 @@ const productJsonLd = productSchema({
         </div>
       </section>
     ))}
+
+    {assemblyReferences.length > 0 && (
+      <p class="resource-note">
+        All {assemblyReferences.length === 1 ? 'assembly group' : 'assembly groups'} on this page are
+        collected in the <a href="/part-assemblies/">assembly &amp; BOM reference index</a>.
+      </p>
+    )}
 
     <h2>Common Applications</h2>
     <ul>
