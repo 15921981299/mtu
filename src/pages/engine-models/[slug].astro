@@ -4,7 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import { describeModel, getSeriesCatalogHub, isListedPart, modelApplication, modelBuildLabel, modelGroups, type ModelGroup } from '../../data/engine-models';
-import { getSeriesCategoryHub } from '../../data/mtu-parts';
+import { categoryDisplayName, getSeriesCategoryHub } from '../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -29,6 +29,7 @@ const categorySections = categories.map(([category, parts]) => {
   const samples = [...parts].sort((a, b) => a.partNumber.localeCompare(b.partNumber)).slice(0, 3);
   return {
     category,
+    label: categoryDisplayName(category),
     parts,
     share: parts.length / totalParts,
     withEarlier,
@@ -149,11 +150,11 @@ const jsonLd = [
       {' '}Each section below is the complete set we can quote for this model family — the engine
       serial number still decides which variant of a given number is fitted.
     </p>
-    {categorySections.map(({ category, parts, share, withEarlier, samples, hub }) => (
+    {categorySections.map(({ category, label, parts, share, withEarlier, samples, hub }) => (
       <section class="hub-section">
-        <h3>{category}</h3>
+        <h3>{label}</h3>
         <p>
-          {category} — {parts.length} of the {group.parts.length} numbers listed here
+          {label} — {parts.length} of the {group.parts.length} numbers listed here
           ({(share * 100).toFixed(0)}%).
           {withEarlier.length > 0
             ? ` ${withEarlier.length} of them carry an earlier number in our catalog history, which is why a parts list written against an older manual can still match this page.`
@@ -161,9 +162,9 @@ const jsonLd = [
           {' '}Representative references: {samples.map((part) => `${part.partNumber} (${part.name})`).join(', ')}.
           {hub && (
             <>
-              {' '}The full {category.toLowerCase()} list for Series {group.series} is on the{' '}
+              {' '}The full {label.toLowerCase()} list for Series {group.series} is on the{' '}
               <a href={`/part-products/catalog/${hub.slug}/`}>
-                MTU {group.series} {category.toLowerCase()} catalog page
+                MTU {group.series} {label.toLowerCase()} catalog page
               </a>.
             </>
           )}

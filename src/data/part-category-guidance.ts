@@ -205,6 +205,32 @@ export const categoryGuidance: Record<string, CategoryGuidance> = {
       'Record the old unit serial number and label before removal',
     ],
   },
+  'Tools and supplies': {
+    role: 'Special tools and assembly supplies — barring devices, setting mandrels, pullers, lifting brackets, gauges, and assembly compounds. These exist because the corresponding service operation cannot be done correctly with an improvised substitute: turning the engine to top dead centre with the barring device, setting injector height with the mandrel, pulling a sleeve without loading the housing, or recording compression with the press recorder. An improvised tool usually damages the very component it is meant to service.',
+    replaceWhen: [
+      'a factory-specified service operation names the tool by its tool number',
+      'an improvised tool has already marked or damaged a component',
+      'the engine is being opened for a service the workshop has not done before',
+    ],
+    checks: [
+      'Identify by the tool number (usually the F-prefix series), not by what the tool looks like',
+      'Confirm which engine application the tool number covers — one tool family can serve several series',
+      'Check for a superseded tool number before assuming the current one is unavailable',
+    ],
+  },
+  'Starting and charging': {
+    role: 'Starters, alternators, and charging generators are installation-specific electrical assemblies. Units that look alike can differ in system voltage, rotation direction, mounting flange, pinion or pulley arrangement, terminal position, output rating, and environmental protection. A visually similar unit should never be treated as interchangeable on appearance alone.',
+    replaceWhen: [
+      'the unit fails bench testing, or produces an abnormal noise or smell under load',
+      'charging output is low or unstable at rated engine speed',
+      'the starter drags, clicks, or engages intermittently',
+    ],
+    checks: [
+      'Send the complete unit label and the engine model and serial number',
+      'Confirm voltage, rotation, mounting flange, pinion or pulley arrangement, and terminal layout',
+      'Photograph the connector and pulley end when the label is worn or missing',
+    ],
+  },
 };
 
 /** Series-level technical context used to refine the category guidance. */

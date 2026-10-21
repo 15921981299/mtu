@@ -3028,7 +3028,9 @@ const categoryTitleMap: Record<string, string> = {
   'Cooling system': 'Cooling System',
   'Sensors and electrical': 'Sensors and Electrical',
   'Cylinder heads': 'Cylinder Heads',
-  'Drive components': 'Drive Components',
+  // 该品类 99 个记录里 77 个是螺栓/螺母/垫圈/卡箍/销/挡圈（实为紧固件桶），
+  // 命名照实写，避免零件页标题给一颗螺母标成 "Drive Parts"。
+  'Drive components': 'Fasteners and Hardware',
   'Engine components': 'Engine Components',
   'Fasteners and retaining rings': 'Fasteners and Retaining Rings',
   'Tools and supplies': 'Special Tools and Supplies',
@@ -3092,7 +3094,7 @@ const gapSeriesCategoryPairs: Array<readonly [string, string]> = [
 /** Service role of each category. Kept descriptive and hedged — no absolute claims. */
 const categoryServiceRole: Record<string, string> = {
   'Drive components':
-    'Drive-side parts — couplings, dampers, hubs, pulleys and shafts — carry torque from the flywheel into the driven machine. Wear usually shows up as vibration, coupling backlash or a damper change interval rather than as an obvious leak, which is why the fitted variant has to be read off the engine rather than guessed from the series.',
+    'Fasteners, washers, pins, clamps and retaining hardware — the smallest items on an engine by value and the ones most often re-used when they should not be. A threaded fastener stretches on its first tightening, and a tab washer or locking plate that has been straightened out is no longer doing its job. Both are common sources of repeat work, which is why these positions belong on the parts list with a quantity and a grade, not as an afterthought. A small number of genuine drive-side references (coupling, drive shaft, belt pulley, idler gear) sit in the same group.',
   'Gaskets and seals':
     'Gaskets and seals are among the parts most often replaced during a top-end or in-frame overhaul. The same nominal gasket can differ in material and thickness between build standards, so the part number on the engine usually matters more than the drawing position.',
   'Pistons and liners':
@@ -3168,6 +3170,15 @@ export const getSeriesCategoryHub = (series: string, category: string): MtuCatal
     (hub) =>
       hub.slug === `${slugifyPart(series.replace('MTU ', 'mtu-'))}-${slugifyPart(category)}-parts`,
   );
+
+/**
+ * Display label for a catalog category. The raw category strings come from
+ * imported data and do not always describe their contents (notably
+ * "Drive components", which is in fact the fasteners bucket) — pages that
+ * need a buyer-facing label use this instead of the raw string.
+ */
+export const categoryDisplayName = (category: string): string =>
+  categoryTitleMap[category] ?? category;
 
 /**
  * Priorities reviewed against Bing 2026-09-27 and the current GSC exports.
