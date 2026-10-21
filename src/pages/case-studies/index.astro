@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import FunnelPageView from '../../components/FunnelPageView.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
-import QuotationExamples from '../../components/QuotationExamples.astro';
 import { quotationExamples } from '../../data/quotation-examples';
 import { publishedCaseStudies } from '../../data/case-studies';
 import { breadcrumbSchema, site } from '../../data/site';
@@ -33,7 +32,21 @@ const hasCases = publishedCaseStudies.length > 0 || quotationExamples.length > 0
   />
 
   <div class="resource-page">
-    {quotationExamples.length > 0 && <QuotationExamples ids={quotationExamples.map((example) => example.id)} source="completed-order-cases" />}
+    <section class="resource-page-section">
+      <p>
+        Every case below is a real order: <strong>customer-authorized, anonymized, and confirmed
+        delivered</strong>. The line items come from the corresponding quotations; prices, buyer
+        contacts and delivery dates are withheld. Each page shows the request as it arrived, how it
+        was verified, and what it teaches a buyer — no customer names, no composed quotations, no
+        invented result figures.
+      </p>
+      <p>
+        Where the original request did not state something — an engine model, a region, an industry —
+        the page says so instead of filling the gap. Part numbers link to the catalog only where we
+        hold a page for them; the rest are shown as quoted.
+      </p>
+    </section>
+
     {publishedCaseStudies.length > 0 ? (
       <section class="resource-page-section">
         <div class="guides-grid">
@@ -46,7 +59,7 @@ const hasCases = publishedCaseStudies.length > 0 || quotationExamples.length > 0
           ))}
         </div>
       </section>
-    ) : !hasCases && (
+    ) : (
       <section class="resource-page-section">
         <p>
           We publish supply cases only with the customer's written permission — including the

@@ -71,8 +71,8 @@ const pageUrl = `${site.url}/case-studies/${study.slug}/`;
           <tbody>
             {study.suppliedParts.map((part) => (
               <tr>
-                <td class="case-pn"><a href={`/part-products/${part.slug}/`}>{part.partNumber}</a></td>
-                <td>{part.name}</td>
+                <td class="case-pn">{part.slug ? <a href={`/part-products/${part.slug}/`}>{part.partNumber}</a> : part.partNumber}</td>
+                <td>{part.name}{!part.slug && <span class="case-no-page"> — not in the online catalog, quoted from the RFQ record</span>}</td>
               </tr>
             ))}
           </tbody>
@@ -124,6 +124,11 @@ const pageUrl = `${site.url}/case-studies/${study.slug}/`;
     color: var(--color-primary, #146ef5);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-weight: 700;
+  }
+
+  .case-no-page {
+    color: #64748b;
+    font-size: 13px;
   }
 
   .case-quote {
