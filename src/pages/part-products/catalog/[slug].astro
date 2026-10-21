@@ -209,6 +209,25 @@ const catalogUseCases = hub.type === 'series'
             </div>
           )}
 
+          {hub.applicationNotes && hub.applicationNotes.length > 0 && (
+            <section class="catalog-depth-section">
+              <h2>What Changes With the Installation</h2>
+              <p>
+                The same part number can be ordered for a propulsion engine, a generator set, or a workshop overhaul,
+                and what surrounds the order is different in each case. These notes cover what to confirm for each
+                installation type before the list is finalised.
+              </p>
+              <div class="catalog-info-grid">
+                {hub.applicationNotes.map((note) => (
+                  <article class="catalog-info-card">
+                    <h3>{note.heading}</h3>
+                    <p>{note.body}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
           {hub.searchTopics && hub.searchTopics.length > 0 && (
             <section class="catalog-depth-section">
               <h2>{hub.type === 'series' ? 'Engine Model Coverage' : 'Component Coverage'}</h2>

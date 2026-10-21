@@ -14,11 +14,42 @@ const guideCards = partsGuides.map((guide) => {
   const count = mtuParts.filter((part) => part.series.some((s) => seriesSet.has(s))).length;
   return { guide, count };
 });
+
+// Grouped by what the reader is doing, not by funnel taxonomy: a chief engineer
+// chasing smoke, a planner scoping an overhaul, and a buyer choosing a grade are
+// three different visits. Order within each group follows the guide list.
+const GROUPS = [
+  {
+    id: 'diagnosis',
+    heading: 'Diagnosing a symptom',
+    blurb:
+      'Starting points for a fault that has not been attributed to a component yet: which systems an investigation covers, what to measure or record, and the positions involved once the cause narrows.',
+    match: (stage: string) => stage === 'awareness',
+  },
+  {
+    id: 'service',
+    heading: 'Planning an overhaul or repair',
+    blurb:
+      'Scope, checklists, and what to confirm before the engine is opened — written to keep a parts list accurate rather than to replace the workshop manual.',
+    match: (stage: string) => stage === 'service',
+  },
+  {
+    id: 'selection',
+    heading: 'Identifying and buying the right part',
+    blurb:
+      'Number identification, grades, exchange routes, and how to compare quotations that are not like-for-like.',
+    match: (stage: string) => !['awareness', 'service'].includes(stage),
+  },
+];
+const groupedGuides = GROUPS.map((group) => ({
+  ...group,
+  cards: guideCards.filter((card) => group.match(card.guide.stage)),
+})).filter((group) => group.cards.length > 0);
 ---
 
 <BaseLayout
-  title="Engine Parts Guides — Overhaul Planning & Series Identification"
-  description="Practical sourcing guides for MTU engine parts: overhaul planning checklists, series identification, superseded-number tracing, and the verified part groups we supply per series."
+  title="MTU Engine Parts Guides — Fault Diagnosis, Overhaul Planning & Part Identification"
+  description="Practical MTU parts guides: what to check when fuel consumption rises, an engine overheats, smoke appears, or a turbocharger fails — plus overhaul planning, series identification, and superseded-number tracing."
   currentPath="/guides"
   jsonLd={[
     breadcrumbSchema([
@@ -42,23 +73,37 @@ const guideCards = partsGuides.map((guide) => {
         identification checklist with the verified part groups we supply for that series —
         no filler content, no invented specifications.
       </p>
+      <p>
+        The diagnosis guides cover what an investigation usually works through when a symptom
+        appears, and the positions that are normally involved. They deliberately stop short of
+        fault-finding settings: those belong in the manufacturer's documentation for your engine,
+        and a figure taken from the wrong build is worse than no figure at all.
+      </p>
     </section>
 
-    <section class="resource-page-section">
-      <div class="guides-grid">
-        {guideCards.map(({ guide, count }) => (
-          <a class="guide-card" href={`/guides/${guide.slug}/`}>
-            <h2>{guide.h1}</h2>
-            <p>{guide.description}</p>
-            <span class="guide-card__meta">{count} verified part numbers inside →</span>
-          </a>
-        ))}
-      </div>
-    </section>
+    {groupedGuides.map((group) => (
+      <section class="resource-page-section" id={`guides-${group.id}`}>
+        <h2>{group.heading}</h2>
+        <p>{group.blurb}</p>
+        <div class="guides-grid">
+          {group.cards.map(({ guide, count }) => (
+            <a class="guide-card" href={`/guides/${guide.slug}/`}>
+              <h2>{guide.h1}</h2>
+              <p>{guide.description}</p>
+              <span class="guide-card__meta">{count} verified part numbers inside →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
 
     <section class="resource-page-section">
       <h2>Which Guide to Start With</h2>
       <p>
+        If you are <strong>chasing a symptom</strong> — rising fuel consumption, an engine running hot, smoke, a
+        turbocharger that has failed — start with the matching diagnosis guide: it lists the systems an
+        investigation usually works through and the positions normally involved, so the parts request you
+        eventually send is already narrowed.
         If you are planning a <strong>major overhaul</strong>, start with the overhaul guide for your series: it lists the
         part groups that are always replaced, the ones that depend on measurements, and the information to collect before the
         engine is opened. If you only have an <strong>old or unreadable part number</strong>, use the series identification

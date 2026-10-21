@@ -13,9 +13,9 @@ import {
 } from '../data/site';
 
 const pageUrl = `${site.url}/about/`;
-const pageTitle = 'About Diesel Part Source | Shanghai Diesel Engine Parts Supplier';
+const pageTitle = 'About Diesel Part Source | Independent MTU Parts Supplier in Shanghai';
 const pageDescription =
-  'Learn about Diesel Part Source — a Shanghai diesel engine parts supplier for MTU, Detroit Diesel, Cummins, and DEUTZ. Part-number verification, export packing, and worldwide delivery support.';
+  'Independent Shanghai supplier of MTU, Detroit Diesel, Cummins and DEUTZ parts: what we are, what we are not, and the warranty documentation that ships.';
 
 const inquirySteps = [
   {
@@ -51,6 +51,40 @@ const buyerScenarios = [
   {
     title: 'Fleet and industrial buyers',
     text: 'Mixed-brand diesel engine parts support for repeated service items, old stock replacement, and consolidated export shipment from Shanghai.',
+  },
+];
+
+/**
+ * Supplier-intent section. Buyers reach this page searching for a supplier,
+ * an exporter, a "direct from manufacturer" route, or warranty documentation.
+ * The honest answer distinguishes what we are (an independent Shanghai
+ * supplier) from what we are not (MTU's authorised distributor, or the
+ * manufacturer of MTU parts), and states what documentation actually ships.
+ */
+const supplyRouteAnswers = [
+  {
+    title: 'Independent supplier, not an authorised distributor',
+    text: 'We source MTU, Detroit Diesel, Cummins, and DEUTZ parts through supply channels in China and Europe and ship from Shanghai. We are not the engine manufacturer and we are not an authorised MTU distributor, and we do not describe ourselves as either. That distinction matters in one practical way: if your end user or class surveyor requires a distributor invoice to keep a warranty on a new engine, say so in the inquiry and we will tell you honestly whether we can meet it, rather than letting the order reach that point first.',
+  },
+  {
+    title: 'What "direct from manufacturer" can and cannot mean',
+    text: 'For a buyer the phrase usually means one of three things: genuine parts in factory packaging, a factory exchange (reman) unit, or a price without a distributor margin. We can quote genuine new and genuine exchange supply, and the quotation states which one each line is. What we will not do is describe a third-party or reconditioned part as factory supply, or present a substitution as an equivalent without saying that it is one.',
+  },
+  {
+    title: 'What "with stock" means on a quotation',
+    text: 'Stock is confirmed per inquiry and per line, not advertised from a live inventory feed. A quote tells you which positions are available now, which need a transfer, and which have to be ordered, because a single availability statement covering a twenty-line order is no help in planning a docking or a shutdown.',
+  },
+  {
+    title: 'Warranty documentation that ships with the order',
+    text: 'Every export order carries a packing list matching the quoted line items, and an invoice that states the part numbers and the grade supplied. Mill certificates, pressure or leak-test reports, and flow or test sheets for fuel-system components are available on request and priced into the line when the end user or class authority requires them. Core terms on exchange units are stated on the quotation before you order, not introduced at shipment.',
+  },
+  {
+    title: 'Replacement and alternative parts, labelled as such',
+    text: 'Where a position has no genuine supply inside your deadline, we offer the routes that can meet it: OEM-quality alternatives, professionally remanufactured units, or a verified replacement reference. Each is quoted as its own line with its own price, lead time, and warranty position, so the comparison stays visible instead of collapsing into one number that hides the grade.',
+  },
+  {
+    title: 'How to verify us before the first order',
+    text: 'Our legal entity, registered address, and contact details are published on this page and appear on every quotation and invoice. Ask for the business licence and the bank details through the contact form, then check that the beneficiary name matches the entity on the quotation. A supplier uncomfortable with that check is telling you something useful.',
   },
 ];
 
@@ -294,6 +328,30 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
   </section>
 
   <CustomerFeedback id="about-feedback" />
+
+  <!-- Supplier intent: what we are, what we are not, what ships with an order -->
+  <section id="about-supply-route" class="who-we-are-section about-section" aria-labelledby="about-supply-heading">
+    <div class="section-gap bottom">
+      <div class="container">
+        <div id="about-supply-heading">
+          <SectionHeading title="Buying Direct, and What We Can Document" subtitle="Supplier &amp; Export" />
+        </div>
+        <p class="about-supply-lede fade-in">
+          Most buyers reaching this page are checking one of four things: whether we are a real, verifiable supplier;
+          whether we are the manufacturer or a distributor; what "in stock" means; and what paperwork arrives with the
+          parts. The answers below are deliberately specific, including the parts where the answer is no.
+        </p>
+        <div class="about-buyer-scenarios about-supply-grid fade-in">
+          {supplyRouteAnswers.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- RFQ process -->
   <section id="about-process" class="who-we-are-section about-section" aria-labelledby="about-process-heading">
@@ -672,6 +730,23 @@ const linkArrow = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" x
 
   .about-buyer-scenarios p {
     margin: 0;
+  }
+
+  .about-supply-lede {
+    max-width: 70ch;
+    margin: 0 0 20px;
+  }
+
+  /* Six supplier-intent cards: two columns on desktop, one on narrow screens. */
+  .about-supply-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .about-supply-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .about-jump-nav {

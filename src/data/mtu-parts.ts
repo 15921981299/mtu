@@ -2557,6 +2557,13 @@ export interface MtuCatalogHub {
   summary: string;
   description: string;
   longDescription?: string;
+  /**
+   * Application-specific buying notes. Editorial guidance on how the buying
+   * question changes between installations — deliberately not driven by the
+   * `applications` field, which is a bulk tag (256 of 259 gasket records carry
+   * all four application labels, so a per-application count would be meaningless).
+   */
+  applicationNotes?: Array<{ heading: string; body: string }>;
   searchTopics?: Array<{
     title: string;
     description: string;
@@ -2801,6 +2808,16 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     ],
     type: 'category',
     partFilter: (p) => p.category === 'Turbocharging',
+    applicationNotes: [
+      {
+        heading: 'Marine propulsion turbochargers',
+        body: 'A propulsion turbocharger works against a propeller curve, so boost and load move together with vessel speed and sea state. That makes the failure signature different from a steady-load engine: a slowly degrading unit often shows as lost vessel speed at a given engine rpm before any smoke appears. Two things are worth confirming on a marine unit — the class or flag-state requirement for the position, because some survey regimes require documented remanufacture rather than repair, and the turbocharger nameplate, because the variant can differ from the engine rating plate when an engine has been re-rated. Record both before the unit is removed.',
+      },
+      {
+        heading: 'Power generation turbochargers',
+        body: 'A generator-set turbocharger runs at near-constant speed and load, which changes both wear and diagnosis. The unit accumulates hours quickly but with far fewer thermal cycles than a propulsion engine, so bearing and seal condition tends to follow oil quality and oil-change discipline more closely than load profile. Because the engine speed is fixed, a boost shortfall does not show up as lost speed — it shows up as the engine failing to carry rated load or as rising exhaust temperature at full load. Have those readings with you before ordering: they distinguish a turbocharger problem from a fuel or air-side one.',
+      },
+    ],
     longDescription: `Separate a complete turbocharger from a rotating assembly, wheel, housing or sealing component. Request the turbocharger nameplate and complete assembly reference; an engine family alone does not identify the installed turbocharger build.
 
     Our turbocharger parts catalog covers the complete rotating assembly: turbine wheels (5110804420, 5110800220, 5110800420), compressor wheels (5090251301), bearing housings (5110803201), piston ring seals (5110850060, 5120850560), heat shields (5110812603, 5110820226), and diffusers (5361420025). We verify each part number against your turbocharger nameplate — not just the engine serial — because turbocharger variants within the same engine series can differ by application, power rating, and emissions certification.
@@ -2861,6 +2878,24 @@ const manualMtuCatalogHubs: MtuCatalogHub[] = [
     description: 'Request individual MTU gaskets or an itemized overhaul sealing list. Confirm material, thickness, shape and installation position; stock and kit contents are checked for each quotation.',
     type: 'category',
     partFilter: (p) => p.category === 'Gaskets and seals',
+    applicationNotes: [
+      {
+        heading: 'Marine gasket and seal sets',
+        body: 'Marine engines combine a salt-laden atmosphere with a raw-water cooling circuit, and the two failures that follow from it are different from anything on a land installation. External corrosion attacks exposed steel faces and fastener heads rather than the sealing media, so a set that looks serviceable on the bench can be impossible to reassemble with the original hardware. On the cooling side, a failed seal between the raw-water and coolant circuits contaminates both, which is why salt-water evidence on a dismantled component changes the scope. Where the vessel has a class survey due, confirm what documentation the surveyor requires with the shipment — it is easier to arrange before dispatch than after.',
+      },
+      {
+        heading: 'Generator set gasket and seal sets',
+        body: 'A generator engine spends most of its life at fixed speed and either steady load or standby, and that duty changes which sealing positions fail first. Thermal cycling matters more than running hours on a standby unit: an engine that is started, loaded, and stopped repeatedly works its head gaskets and exhaust joints harder than one running continuously. For continuous-duty sets the opposite applies — hours accumulate against oil and coolant condition. If the engine is being opened for a scheduled top-end rather than a fault, the useful distinction is between the sealing positions that are always renewed and the ones that are only replaced if the mating surface has moved.',
+      },
+      {
+        heading: 'Industrial and rail installations',
+        body: 'Industrial and rail engines usually run long shifts in dusty or vibration-heavy conditions, and the sealing positions that suffer first reflect that: intake and exhaust joints, rocker-cover seals, and anything mounted on a vibrating structure. Maintenance windows are often fixed by a production or timetable constraint rather than by the fault, which makes the parts list the critical path. Build the list against the window, and treat any position that needs measurement as a second order rather than assuming it can be resolved during the shutdown.',
+      },
+      {
+        heading: 'Overhaul gasket sets: complete or itemized',
+        body: 'An overhaul sealing order is the one place where a complete set is genuinely useful — but only if its contents are stated. A kit label does not establish coverage, and two suppliers quoting the same kit number can be supplying different contents. Ask for the itemized list with quantities, check it against the positions the workshop actually plans to open, and add the one-time-use items explicitly: gaskets and seals that must not be reused are the most common omission on an overhaul order, and the most expensive to discover during reassembly.',
+      },
+    ],
     longDescription: `Gaskets, seals, and O-rings may be the smallest parts on an MTU engine by weight, but they are among the most consequential. A failed cylinder head gasket can pressurize the cooling system and cause overheating within minutes. A leaking turbocharger oil seal can empty the oil sump into the exhaust. A deteriorated O-ring on a fuel injector sleeve can allow combustion gas into the fuel return circuit. Every gasket and seal in this catalog has been selected because it serves a critical containment function.
 
     Catalog references include cylinder head gaskets (5240161580, 5410160920, 5550161420), O-rings (700429260000, 700429050003), shaft seals (8699970499, XP51529700004), sealing rings (007603016105) and valve stem seals (0000530361). Current stock and material grades remain subject to supplier confirmation. A gasket-set quote must identify its contents and quantities; a kit label alone does not establish complete coverage or a lower price.`,

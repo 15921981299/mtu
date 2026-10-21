@@ -133,40 +133,52 @@ const companions = getCompanionParts(part);
 const stockText = supply?.stockNote ?? 'Availability confirmed after inquiry';
 const replacementRefs = Array.from(new Set([...(part.replacementFor ?? []), ...(part.crossReferences ?? []).map((ref) => ref.partNumber)]))
   .filter((ref) => ref.trim() !== '' && ref.toUpperCase() !== part.partNumber.toUpperCase());
-// Meta description：按优先级拼装分段，整段取舍而不是硬截断，保证 SERP 里句子完整
+// Meta description: assembled from whole segments, never cut mid-word.
+//
+// 741 of 891 catalog records carry an auto-generated summary of the form
+// "<number> <name>. Listed in MTU <series> catalog references; confirm
+// installation and current availability before ordering." Repeating that in the
+// meta description made 741 snippets effectively identical, which is the worst
+// possible outcome for a page whose only job is to win a click against other
+// listings of the same part number. For those records the description is built
+// from fields that actually differ between parts — category, weight, HS code,
+// NATO stock number, supersession references — and the boilerplate is dropped
+// from the snippet (it still appears in the page body).
 const metaDesc = buyerEvidence?.metaDescription ?? (() => {
   const rawSummary = (part.summary ?? '').trim();
-  // 自动生成的双句 summary 常达 177 字符（>155 会被整段丢弃 → 134 页曾只剩 CTA）：
-  // 超限时只取首句；meta 场景把冗长模糊串压缩为 "MTU engines"（正文保留完整核验语言）
+  const isBoilerplate = /Listed in MTU .*catalog references/i.test(rawSummary);
   const firstSentence = rawSummary.includes('. ')
     ? rawSummary.slice(0, rawSummary.indexOf('. ') + 1)
     : rawSummary;
-  const summaryText = (rawSummary.length <= 155 ? rawSummary : firstSentence)
-    .replace(/MTU engine serial-number verified applications/g, 'MTU engines');
-  // 空 summary 兜底：料号+品名+适配+供应链表述，避免 SERP 只剩一句 CTA
-  const fallbackSummary = `${part.partNumber} ${part.name} — replacement part for ${seriesShort} engines. ${site.quality.iso9001Label}.`;
-  const segments: string[] = [summaryText || fallbackSummary];
-  if (supply?.stockStatus === 'in-stock') segments.push('In stock.');
-  else if (supply?.stockStatus === 'fast-order') segments.push('Fast-order supply route.');
+  const summaryText = isBoilerplate
+    ? ''
+    : (rawSummary.length <= 155 ? rawSummary : firstSentence)
+        .replace(/MTU engine serial-number verified applications/g, 'MTU engines');
+  const identity = `${part.partNumber} ${part.name} — ${
+    categoryNoun ? categoryNoun.toLowerCase() : 'engine part'
+  } for ${seriesShort}.`;
   const specBits: string[] = [];
-  if (part.weightKg && !/^n\/a$/i.test(part.weightKg.trim()) && !summaryText.includes(part.weightKg)) specBits.push(`weight ${part.weightKg}`);
-  if (part.hsCode && !summaryText.includes(part.hsCode)) specBits.push(`HS ${part.hsCode}`);
-  if (part.natoNumber && !/^n\/a$/i.test(part.natoNumber.trim()) && !summaryText.includes(part.natoNumber)) specBits.push(`NATO ${part.natoNumber}`);
-  if (specBits.length > 0) segments.push(specBits.join(' · ') + '.');
+  const weight = (part.weightKg ?? '').trim();
+  if (weight && !/^n\/a$/i.test(weight)) specBits.push(`Weight ${weight.toLowerCase()}`);
+  if (part.hsCode) specBits.push(`HS ${part.hsCode}`);
+  const nato = (part.natoNumber ?? '').trim();
+  if (nato && !/^n\/a$/i.test(nato)) specBits.push(`NATO ${nato}`);
   const freshRefs = replacementRefs.filter((ref) => !summaryText.includes(ref));
-  if (freshRefs.length > 0) segments.push(`Catalog refs: ${freshRefs.slice(0, 3).join(', ')}.`);
-  const cta = `Request price and availability for ${part.partNumber}.`;
+  const segments = [
+    summaryText || identity,
+    ...(summaryText ? [identity] : []),
+    specBits.length > 0 ? `${specBits.join(', ')}.` : '',
+    freshRefs.length > 0 ? `Supersedes ${freshRefs.slice(0, 2).join(', ')}.` : '',
+    supply?.stockStatus === 'in-stock' ? 'In stock.' : supply?.stockStatus === 'fast-order' ? 'Fast-order route.' : '',
+    'Fitment checked by engine serial number.',
+  ].filter(Boolean);
   let out = '';
-  for (const seg of segments) {
-    const candidate = out ? `${out} ${seg}` : seg;
-    if (candidate.length > 155) continue; // 超长段跳过而不是终止，给后续规格段留机会
+  for (const segment of segments) {
+    const candidate = out ? `${out} ${segment}` : segment;
+    if (candidate.length > 158) continue; // skip the segment, keep trying shorter ones
     out = candidate;
   }
-  const withCta = out ? `${out} ${cta}` : cta;
-  if (withCta.length <= 160) return withCta;
-  if (out) return out;
-  const raw = `${summaryText} ${cta}`;
-  return raw.length <= 160 ? raw : raw.slice(0, 157).replace(/\s+\S*$/, '') + '...';
+  return out || `${part.partNumber} ${part.name} for ${seriesShort} engines.`;
 })();
 const supersessionFaqs = [
   ...(earlierNumbers.length > 0
