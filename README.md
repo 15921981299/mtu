@@ -41,6 +41,15 @@ Edit `src/data/site.ts`:
 - `googleSiteVerification` — GSC HTML verification content value (leave empty to skip)
 - `social.linkedin` / `social.youtube` — footer social links (leave empty to hide)
 
+## Data red lines
+
+Rules that keep published numbers true. Breaking these produces fabricated claims, not content.
+
+- **`applications` is a batch label, not fitment data.** 256 of 259 gasket records carry all four application tags, so "256 marine gaskets" is a false number. Scene sections may only be written in editorial terms; never count by application, and never "fix" the data — there is no real mapping source.
+- **`parts.leadTime` is unpublished by design.** No page renders it; the published lead-time stance is the single `availability` line ("confirmed after inquiry"). The per-category lead-time strings in `categoryDefaults` were never wired into the fallback chain and are historical content, not a current commitment. Publishing them is a commercial decision for the owner.
+- **Cases and testimonials need written customer permission.** `src/data/case-studies.ts` and `src/data/quotation-examples.ts` hold only real, customer-authorized, delivered orders. No invented customer names, quotations, or result figures.
+- **Keyword/Bing columns are page-level.** Bing Webmaster exposes page data only; any keyword-level impression or click number is fabricated. Aggregate by landing page.
+
 ## Stack
 
 - Astro 5 (static site generation)

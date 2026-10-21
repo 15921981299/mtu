@@ -14,6 +14,12 @@ export type MtuPart = {
   image: string;
   availability: string;
   stockStatus?: string;
+  /**
+   * ⚠️ 批量标签，不是适配数据，禁止按它计数。259 个垫片里 256 个同时挂着
+   * Marine / Industrial / Generator / Overhaul 四个标签——「256 个船用垫片」
+   * 是假数字。页面里只能写编辑口径的场景段，不能写按应用的数量。
+   * 没有真实映射来源，改数据就是编。
+   */
   applications: string[];
   notes: string[];
   hasCatalogDetails?: boolean;
@@ -404,6 +410,18 @@ const publicPartSpecs: Record<string, Partial<CatalogPartSeed>> = {
 const inferEngineType = (series: readonly string[]) =>
   series.length > 0 ? series.map((item) => item.replace(/^MTU\s*/i, 'MTU ')).join('/') : 'Verify by engine serial number';
 
+/**
+ * ⚠️ 未发布字段，别误接。parts.leadTime 全库只有 inferLeadTime 的两个模糊模板值，
+ * 且**没有任何页面渲染它**（零件页规格表读 partSupply.leadTime，缺省显示
+ * 'Confirmed with quotation'；products 页用自己的 products.ts 数据）。
+ *
+ * categoryDefaults 里每品类那条具体交期（如「常用垫片 2–5 工作日」）也从未接进
+ * createCatalogPart 的兜底链——它是历史内容，不是现行承诺。
+ * 全站对交期的公开口径只有 availability 一句「confirmed after inquiry」。
+ *
+ * 要把品类交期发布到页面 = 商业承诺，需 owner 确认这些数字仍属实；不发布就删。
+ * 在那之前，保持字段存在但不渲染，别把它当「已发布数据」引用。
+ */
 const inferLeadTime = (category: string) =>
   category === 'Filters' || category === 'Gaskets and seals'
     ? 'Common references are usually checked fastest'

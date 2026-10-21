@@ -152,7 +152,10 @@ const replacementRefs = Array.from(new Set([...(part.replacementFor ?? []), ...(
 // from the snippet (it still appears in the page body).
 const metaDesc = buyerEvidence?.metaDescription ?? (() => {
   const rawSummary = (part.summary ?? '').trim();
-  const isBoilerplate = /Listed in MTU .*catalog references/i.test(rawSummary);
+  // 锅炉段判据用独有尾巴：系列标签不总是 "MTU <系列>"，工具类零件是
+  // "Listed in Special tools catalog references"，旧正则 /Listed in MTU .*
+  // catalog references/ 会漏掉这 17 个（全库共 758 个模板 summary）。
+  const isBoilerplate = /confirm installation and current availability/i.test(rawSummary);
   const firstSentence = rawSummary.includes('. ')
     ? rawSummary.slice(0, rawSummary.indexOf('. ') + 1)
     : rawSummary;
@@ -171,10 +174,18 @@ const metaDesc = buyerEvidence?.metaDescription ?? (() => {
   const nato = (part.natoNumber ?? '').trim();
   if (nato && !/^n\/a$/i.test(nato)) specBits.push(`NATO ${nato}`);
   const freshRefs = replacementRefs.filter((ref) => !summaryText.includes(ref));
+  // 真实适配机型码：engineModels 已从 applicableEngines 解析出来（正文原样发布同一份
+  // 数据），但 meta 描述此前只写到系列名（"MTU 396 engines"）。机型码是买家查询里
+  // 最常带的词，也是这页真实拥有的数据。取前两个，超过两个注明数量，不堆砌。
+  const fitCodes = [...new Set(engineModels.map((model) => model.code))];
+  const fitSegment = fitCodes.length > 0
+    ? `Catalogued for ${fitCodes.slice(0, 2).join(', ')}${fitCodes.length > 2 ? ` and ${fitCodes.length - 2} more model codes` : ''}.`
+    : '';
   const segments = [
     summaryText || identity,
     // summary 回退句本身就以「料号 品名」开头，再接一遍身份段会口吃
     ...(summaryText && !summaryText.startsWith(`${part.partNumber} ${part.name}`) ? [identity] : []),
+    fitSegment,
     specBits.length > 0 ? `${specBits.join(', ')}.` : '',
     freshRefs.length > 0 ? `Supersedes ${freshRefs.slice(0, 2).join(', ')}.` : '',
     supply?.stockStatus === 'in-stock' ? 'In stock.' : supply?.stockStatus === 'fast-order' ? 'Fast-order route.' : '',
