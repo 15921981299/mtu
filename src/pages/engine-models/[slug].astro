@@ -4,6 +4,7 @@ import BreadcrumbHero from '../../components/BreadcrumbHero.astro';
 import DetailPageShell from '../../components/DetailPageShell.astro';
 import DetailRfqStrip from '../../components/DetailRfqStrip.astro';
 import { describeModel, getSeriesCatalogHub, isListedPart, modelApplication, modelBuildLabel, modelGroups, type ModelGroup } from '../../data/engine-models';
+import { getSeriesCategoryHub } from '../../data/mtu-parts';
 import { breadcrumbSchema, itemListSchema, site } from '../../data/site';
 import '../../styles/resource-page.css';
 
@@ -20,12 +21,69 @@ const modelText = modelCodes.length <= 4 ? modelCodes.join(', ') : `${modelCodes
 const byCategory = new Map<string, typeof group.parts>();
 for (const part of group.parts) byCategory.set(part.category, [...(byCategory.get(part.category) ?? []), part]);
 const categories = [...byCategory.entries()].sort((a, b) => b[1].length - a[1].length);
+// Per-category blocks: each one carries its own counts, supersession share and a link to the
+// matching series × category catalog page, so the section is content rather than a bare table.
+const totalParts = group.parts.length || 1;
+const categorySections = categories.map(([category, parts]) => {
+  const withEarlier = parts.filter((part) => (part.replacementFor ?? []).length > 0);
+  const samples = [...parts].sort((a, b) => a.partNumber.localeCompare(b.partNumber)).slice(0, 3);
+  return {
+    category,
+    parts,
+    share: parts.length / totalParts,
+    withEarlier,
+    samples,
+    hub: getSeriesCategoryHub(`MTU ${group.series}`, category),
+  };
+});
+const topTwo = categorySections.slice(0, 2);
+// One sentence describing the system mix. Built as a whole string so JSX never
+// inserts a stray space before punctuation, and so the tail is not a dump of
+// every remaining category.
+const systemSummary = (() => {
+  const labelled = categorySections.map(
+    (section) => `${section.category.toLowerCase()} (${(section.share * 100).toFixed(0)}%)`,
+  );
+  if (categorySections.length === 0) return '';
+  if (categorySections.length === 1) {
+    return `All ${group.parts.length} numbers on this page are ${labelled[0]}.`;
+  }
+  const rest = categorySections.slice(topTwo.length).map((section) => section.parts.length);
+  const head = `Across ${categorySections.length} systems, ${labelled.slice(0, 2).join(' and ')} ${
+    labelled.length > 1 ? 'are the two largest' : 'is the largest'
+  }`;
+  if (rest.length === 0) return `${head}.`;
+  const range = Math.min(...rest) === Math.max(...rest)
+    ? `${Math.min(...rest)} ${Math.min(...rest) === 1 ? 'number' : 'numbers'}`
+    : `${Math.min(...rest)} to ${Math.max(...rest)} numbers`;
+  return `${head}; the other ${rest.length} systems hold ${range} each.`;
+})();
 const withHistory = group.parts.filter((part) => (part.replacementFor ?? []).length > 0);
 const applications = [...new Set(group.models.map(modelApplication).filter((value): value is string => Boolean(value)))];
 const cylinderOptions = [...new Set(group.models.map((model) => `${model.cylinders}${model.arrangement}`))];
 const hub = getSeriesCatalogHub(group.series);
 
-const description = `${group.parts.length} catalogued MTU part numbers for ${modelText}, grouped by system, with superseded numbers and model-code notes. Send your engine serial number for a quote.`.slice(0, 158);
+// Meta description: assembled from whole sentences and kept under the SERP limit.
+// Long model lists ("12V 538 TB8, 12V 538 TB9, 12V 538 TB92 and 7 more") would push a
+// single-sentence description past 158 characters, so the model count is used instead of
+// the enumeration — and nothing is ever cut mid-word.
+const description = (() => {
+  const topCategories = categorySections.slice(0, 3).map((section) => section.category.toLowerCase());
+  const label = group.title.replace(/\s+Parts List$/, '');
+  const modelWord = group.models.length === 1 ? 'model code' : 'model codes';
+  const segments = [
+    `${label} — ${group.parts.length} part numbers across ${group.models.length} ${modelWord}.`,
+    topCategories.length > 0 ? `Covers ${topCategories.join(', ')}.` : '',
+    withHistory.length > 0 ? `${withHistory.length} with earlier numbers.` : '',
+    'Serial-number verified before quotation.',
+  ].filter(Boolean);
+  let out = '';
+  for (const segment of segments) {
+    const next = out ? `${out} ${segment}` : segment;
+    if (next.length <= 158) out = next;
+  }
+  return out || `${group.parts.length} MTU ${group.series} part numbers, checked by engine serial number.`;
+})();
 
 const jsonLd = [
   breadcrumbSchema([
@@ -86,10 +144,30 @@ const jsonLd = [
     </div>
 
     <h2>Parts by System</h2>
-    <p>{categories.map(([category, parts]) => `${category} (${parts.length})`).join(', ')}.</p>
-    {categories.map(([category, parts]) => (
+    <p>
+      {systemSummary}
+      {' '}Each section below is the complete set we can quote for this model family — the engine
+      serial number still decides which variant of a given number is fitted.
+    </p>
+    {categorySections.map(({ category, parts, share, withEarlier, samples, hub }) => (
       <section class="hub-section">
         <h3>{category}</h3>
+        <p>
+          {category} — {parts.length} of the {group.parts.length} numbers listed here
+          ({(share * 100).toFixed(0)}%).
+          {withEarlier.length > 0
+            ? ` ${withEarlier.length} of them carry an earlier number in our catalog history, which is why a parts list written against an older manual can still match this page.`
+            : ' None of them carry an earlier number in our catalog history.'}
+          {' '}Representative references: {samples.map((part) => `${part.partNumber} (${part.name})`).join(', ')}.
+          {hub && (
+            <>
+              {' '}The full {category.toLowerCase()} list for Series {group.series} is on the{' '}
+              <a href={`/part-products/catalog/${hub.slug}/`}>
+                MTU {group.series} {category.toLowerCase()} catalog page
+              </a>.
+            </>
+          )}
+        </p>
         <div class="part-reference-scroll" tabindex="0" role="region" aria-label={`${category} part numbers`}>
           <table class="part-reference-table">
             <thead><tr><th scope="col">Part number</th><th scope="col">Description</th><th scope="col">Earlier numbers</th></tr></thead>

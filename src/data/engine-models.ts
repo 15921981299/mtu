@@ -6,7 +6,14 @@ import { isPartPageIndexable, mtuCatalogHubs, mtuParts, type MtuPart } from './m
  * parts-list page, so models with identical lists never produce duplicate pages.
  */
 
-const MODEL_RE = /\b(\d{1,2})\s?(V|R)\s?(\d{3,4})\s?([A-Z]{1,2})(\d)(\d)([A-Z]?)\b/g;
+/**
+ * Old-series codes are sometimes written with a single trailing digit
+ * ("12V 538 TB8", "20V 538 TB1") instead of the group+build pair used by
+ * "538 TB92". The build digit is therefore optional. When it is missing we
+ * record the code as `undecoded`: the raw code is displayed, but no application
+ * group or build reading is invented for it.
+ */
+const MODEL_RE = /\b(\d{1,2})\s?(V|R)\s?(\d{3,4})\s?([A-Z]{1,2})(\d)(\d)?([A-Z]?)\b/g;
 const OLD_SERIES = new Set(['183', '331', '396', '538', '595', '956', '1163']);
 
 /** Application letters of the current naming system (2000, 4000, 1600, 8000 ...). */
@@ -30,6 +37,8 @@ export type EngineModel = {
   group: string;
   build: string;
   suffix: string;
+  /** True when the source code carries one trailing digit, so group/build cannot be separated. */
+  undecoded: boolean;
 };
 
 export const parseModels = (text: string | undefined): EngineModel[] => {
@@ -37,13 +46,26 @@ export const parseModels = (text: string | undefined): EngineModel[] => {
   const found = new Map<string, EngineModel>();
   for (const m of text.toUpperCase().matchAll(MODEL_RE)) {
     const [, cyl, arrangement, series, letters, group, build, suffix] = m;
-    const code = `${cyl}${arrangement} ${series} ${letters}${group}${build}${suffix}`;
-    found.set(code, { code, cylinders: Number(cyl), arrangement: arrangement as 'V' | 'R', series, letters, group, build, suffix });
+    const buildValue = build ?? '';
+    const code = `${cyl}${arrangement} ${series} ${letters}${group}${buildValue}${suffix}`;
+    found.set(code, {
+      code,
+      cylinders: Number(cyl),
+      arrangement: arrangement as 'V' | 'R',
+      series,
+      letters,
+      group,
+      build: buildValue,
+      suffix: suffix ?? '',
+      undecoded: build === undefined,
+    });
   }
   return [...found.values()];
 };
 
 export const modelApplication = (model: EngineModel): string | undefined => {
+  // A single-digit code does not separate group from build, so no application is claimed.
+  if (model.undecoded) return undefined;
   if (!OLD_SERIES.has(model.series)) return APPLICATION[model.letters];
   const group = Number(model.group);
   return group === 3 ? 'generator sets' : [5, 6, 7, 9].includes(group) ? 'marine' : undefined;
@@ -53,6 +75,12 @@ export const modelApplication = (model: EngineModel): string | undefined => {
 export const describeModel = (model: EngineModel): string => {
   const layout = `${model.cylinders} cylinders ${model.arrangement === 'V' ? 'in V arrangement' : 'in line'}`;
   const bits = [layout, `Series ${model.series}`];
+  if (model.undecoded) {
+    bits.push(`single-digit build code ${model.letters}${model.build}`);
+    if (model.suffix === 'L') bits.push('increased rating (L)');
+    else if (model.suffix) bits.push(`rating variant ${model.suffix}`);
+    return bits.join(', ');
+  }
   if (OLD_SERIES.has(model.series)) {
     bits.push(model.letters.startsWith('T') ? `turbocharged, charge-air code ${model.letters}` : `charging and cooling code ${model.letters}`);
     const group = Number(model.group);
@@ -69,8 +97,10 @@ export const describeModel = (model: EngineModel): string => {
 };
 
 /** Group/build column label for spec tables: old series encode the application in the group digit. */
-export const modelBuildLabel = (model: EngineModel): string =>
-  OLD_SERIES.has(model.series) ? `build ${model.build}` : `subgroup ${model.group}, build ${model.build}`;
+export const modelBuildLabel = (model: EngineModel): string => {
+  if (model.undecoded) return `build ${model.letters}${model.build}`;
+  return OLD_SERIES.has(model.series) ? `build ${model.build}` : `subgroup ${model.group}, build ${model.build}`;
+};
 
 export type ModelGroup = {
   slug: string;

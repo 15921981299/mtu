@@ -109,3 +109,13 @@
 # ---------------------------------------------------------------------------
 /products/mtu-16v-396-te74l/ /engine-models/mtu-12v-396-tb94-to-te94-parts/ 301
 /products/mtu-series-1163-engines/ /engine-models/mtu-1163-tb73-to-tb93-parts/ 301
+
+# ---------------------------------------------------------------------------
+# D. Engine-model slugs that changed when model-code parsing was corrected
+#
+# 2026-10-21: the model-code parser now accepts the single-digit build codes
+# used in old-series fitment lists ("12V 538 TB8"), so the Series 538 page
+# covers all seven codes it actually lists instead of only TB92/TB93. The slug
+# is derived from the covered codes, so it changed with them. One rule only.
+# ---------------------------------------------------------------------------
+/engine-models/mtu-538-tb92-tb93-parts/ /engine-models/mtu-538-tb1-to-tb93-parts/ 301

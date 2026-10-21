@@ -87,9 +87,46 @@ const seriesShort = part.series.length > 0
       : 'MTU';
 const earlierNumbers = (part.crossReferences ?? []).filter((ref) => ref.relationship === 'replaces').map((ref) => ref.partNumber);
 const laterNumber = (part.crossReferences ?? []).find((ref) => ref.relationship === 'replaced-by')?.partNumber;
+/**
+ * Category noun used in the title. Buyers search "<part number> MTU <category>"
+ * as often as they search the part name (Bing page export, 2026-10-15), so the
+ * category belongs in the title next to the part number.
+ */
+const CATEGORY_NOUN: Record<string, string> = {
+  'Gaskets and seals': 'Gaskets and Seals',
+  'Engine components': 'Engine Parts',
+  'Drive components': 'Drive Parts',
+  'Bearings': 'Bearings',
+  'Valve train': 'Valve Train Parts',
+  'Pistons and liners': 'Pistons and Liners',
+  'Sensors and electrical': 'Sensors',
+  'Filters': 'Filters',
+  'Fuel system': 'Fuel System Parts',
+  'Cooling system': 'Cooling System Parts',
+  'Lubrication': 'Lubrication Parts',
+  'Turbocharging': 'Turbocharger Parts',
+  'Air and intake': 'Air Intake Parts',
+  'Cylinder heads': 'Cylinder Heads',
+  'Fasteners and retaining rings': 'Fasteners',
+  'Repair kits': 'Repair Kits',
+  'Control components': 'Control Components',
+  'Tools and supplies': 'Special Tools',
+};
+const categoryNoun = CATEGORY_NOUN[part.category];
 const baseTitle = `${part.partNumber} ${part.name} - ${seriesShort} Part`;
+// 品类版标题：料号 + 品名 + 系列 + 品类名词，便于接住 "MTU <系列> <品类>" 组合搜索。
+// 与 72 字符上限配合，超长则退回不带品类的版本，避免把系列/品类截断在 SERP 之外。
+const categoryTitle = categoryNoun
+  ? `${part.partNumber} ${part.name} - ${seriesShort} ${categoryNoun}`
+  : undefined;
 const supersessionTitle = earlierNumbers.length > 0 ? `${part.partNumber} ${part.name} (Replaces ${earlierNumbers[0]}) - ${seriesShort}` : undefined;
-const title = buyerEvidence?.title ?? (supersessionTitle && supersessionTitle.length <= 65 ? supersessionTitle : baseTitle);
+const title =
+  buyerEvidence?.title ??
+  (supersessionTitle && supersessionTitle.length <= 65
+    ? supersessionTitle
+    : categoryTitle && categoryTitle.length <= 72
+      ? categoryTitle
+      : baseTitle);
 const engineModels = parseModels(part.applicableEngines);
 const modelGroups = getModelGroupsForPart(part);
 const companions = getCompanionParts(part);

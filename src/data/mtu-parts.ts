@@ -2993,6 +2993,8 @@ const categoryTitleMap: Record<string, string> = {
   'Cooling system': 'Cooling System',
   'Sensors and electrical': 'Sensors and Electrical',
   'Cylinder heads': 'Cylinder Heads',
+  'Drive components': 'Drive Components',
+  'Engine components': 'Engine Components',
   'Fasteners and retaining rings': 'Fasteners and Retaining Rings',
   'Tools and supplies': 'Special Tools and Supplies',
   'Starting and charging': 'Starters and Alternators',
@@ -3024,10 +3026,113 @@ const generatedSeriesCategoryHubs: MtuCatalogHub[] = seriesCatalogTargets.flatMa
     })
 );
 
+/**
+ * Series × category gap hubs.
+ *
+ * The generator above has two blind spots found by the 2026-10-21 keyword matrix
+ * (outputs/MTU配件站长尾关键词扩展清单_20261021.xlsx):
+ *   1. "Drive components" holds 99 parts — the third largest category — but was
+ *      never added to categoryCatalogTargets, so it has no series-level pages.
+ *   2. Series 538 and 183 were never added to seriesCatalogTargets, so neither
+ *      series has any series × category entry page.
+ * Pairs are listed explicitly with a count >= 3 guard so the gap is closed
+ * without generating two-part pages.
+ */
+const gapSeriesCategoryPairs: Array<readonly [string, string]> = [
+  ['MTU 2000', 'Drive components'],
+  ['MTU 4000', 'Drive components'],
+  ['MTU 396', 'Drive components'],
+  ['MTU 595', 'Drive components'],
+  ['MTU 956', 'Drive components'],
+  ['MTU 1163', 'Drive components'],
+  ['MTU 538', 'Drive components'],
+  ['MTU 538', 'Gaskets and seals'],
+  ['MTU 538', 'Pistons and liners'],
+  ['MTU 538', 'Bearings'],
+  ['MTU 183', 'Gaskets and seals'],
+  ['MTU 183', 'Cooling system'],
+  ['MTU 183', 'Valve train'],
+];
+
+/** Service role of each category. Kept descriptive and hedged — no absolute claims. */
+const categoryServiceRole: Record<string, string> = {
+  'Drive components':
+    'Drive-side parts — couplings, dampers, hubs, pulleys and shafts — carry torque from the flywheel into the driven machine. Wear usually shows up as vibration, coupling backlash or a damper change interval rather than as an obvious leak, which is why the fitted variant has to be read off the engine rather than guessed from the series.',
+  'Gaskets and seals':
+    'Gaskets and seals are among the parts most often replaced during a top-end or in-frame overhaul. The same nominal gasket can differ in material and thickness between build standards, so the part number on the engine usually matters more than the drawing position.',
+  'Pistons and liners':
+    'Pistons, liners and rings are graded components. They are matched to the bore and, in many builds, to each other, so a liner ordered without its matching piston can leave the assembly outside tolerance.',
+  'Bearings':
+    'Main and connecting-rod bearings are sized to the ground crankshaft. The fitted size has to be confirmed from the engine rather than assumed from the series name, because a reground crank takes an undersize set.',
+  'Cooling system':
+    'Cooling-system parts — coolant and seawater pumps, impellers, thermostats and housings — follow the cooling circuit. A marine raw-water engine and an industrial radiator engine rarely share the same pump variant even within one series.',
+  'Valve train':
+    'Valve-train parts — valves, guides, seats, springs and rocker components — are normally replaced as a set during a cylinder-head overhaul. Mixing wear levels between cylinders is a common cause of repeat work.',
+};
+
+const gapSeriesCategoryHubs: MtuCatalogHub[] = gapSeriesCategoryPairs
+  .map(([series, category]) => ({
+    series,
+    category,
+    parts: mtuParts.filter((part) => part.series.includes(series) && part.category === category),
+  }))
+  .filter(({ parts }) => parts.length >= 3)
+  .map(({ series, category, parts }) => {
+    const seriesSlug = slugifyPart(series.replace('MTU ', 'mtu-'));
+    const categorySlug = slugifyPart(category);
+    const categoryTitle = categoryTitleMap[category] ?? category;
+    const cleanSeries = series.replace('MTU ', '');
+    const sorted = [...parts].sort((a, b) => a.partNumber.localeCompare(b.partNumber));
+    const representatives = sorted.slice(0, 4);
+    const withEarlier = parts.filter((part) => (part.replacementFor ?? []).length > 0).length;
+    const modelHint = sorted
+      .map((part) => part.applicableEngines)
+      .find((value) => value && !/^Verify by engine serial number$/i.test(value))
+      ?.split(';')[0]
+      .replace(/\.$/, '');
+    const role = categoryServiceRole[category] ?? '';
+
+    return {
+      slug: `${seriesSlug}-${categorySlug}-parts`,
+      title: `${series} ${categoryTitle} Parts Catalog`,
+      h1Title: `${series} ${categoryTitle} Parts`,
+      summary: `${parts.length} ${series} ${categoryTitle} part numbers for RFQ, availability checks, and serial-number verification.`,
+      description: `${parts.length} ${categoryTitle.toLowerCase()} part numbers for MTU ${cleanSeries} engines, including ${representatives
+        .slice(0, 2)
+        .map((part) => part.partNumber)
+        .join(' and ')}. Fitment is confirmed against the engine serial number before quotation.`,
+      longDescription: [
+        `${parts.length} of the part numbers we hold for the MTU ${cleanSeries} series are ${categoryTitle.toLowerCase()}${
+          modelHint ? `, listed against engines such as ${modelHint}` : ''
+        }. The list below is the full set we can quote against for this combination, not a sample of it.`,
+        role,
+        withEarlier > 0
+          ? `${withEarlier} of these ${parts.length} references carry an earlier or alternative number in our catalog history. Older parts lists and engine manuals often still quote those numbers; send them as they appear and we check whether the change also affects the parts around them.`
+          : `No earlier numbers are recorded for these ${parts.length} references. If your documents show a different number, send it as it appears and we check it against the catalog history.`,
+        `Send the engine model code and serial number, the part numbers you need, quantities, and the destination port. We confirm the fitted variant line by line and quote the reference that matches your engine build, rather than the closest number in the list.`,
+      ]
+        .filter(Boolean)
+        .join('\n\n'),
+      type: 'category',
+      partFilter: (part: MtuPart) => part.series.includes(series) && part.category === category,
+    } satisfies MtuCatalogHub;
+  });
+
 export const mtuCatalogHubs: MtuCatalogHub[] = [
   ...manualMtuCatalogHubs,
   ...generatedSeriesCategoryHubs,
+  ...gapSeriesCategoryHubs,
 ];
+
+/**
+ * Look up the series × category catalog page for a given engine series.
+ * Slug construction lives here so callers never re-derive it by hand.
+ */
+export const getSeriesCategoryHub = (series: string, category: string): MtuCatalogHub | undefined =>
+  mtuCatalogHubs.find(
+    (hub) =>
+      hub.slug === `${slugifyPart(series.replace('MTU ', 'mtu-'))}-${slugifyPart(category)}-parts`,
+  );
 
 /**
  * Priorities reviewed against Bing 2026-09-27 and the current GSC exports.
