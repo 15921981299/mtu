@@ -4,7 +4,7 @@ import { publishedCaseStudies } from './case-studies';
 import { quotationExamples } from './quotation-examples';
 
 /** Pathnames excluded from sitemap-index (must match trailingSlash: 'always'). */
-const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/']);
+const STATIC_EXCLUDES = new Set(['/401/', '/404/', '/thank-you/', '/llm-instructions/']);
 
 /**
  * /case-studies/ is noindex while there are no published (customer-authorized)

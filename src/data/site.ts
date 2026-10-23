@@ -196,12 +196,12 @@ export function productSchema(product: {
   price?: number | string;
   /** ISO date the public price stays valid until. */
   priceValidUntil?: string;
-}) {
-  // Quote-on-request items (no public price) still emit a Product entity so the
-  // part number (mpn/sku) and brand are associated with the page for part-number
-  // search. Only the Offer node is withheld when there is no verifiable price —
-  // an Offer without price is invalid, and inventing one is not an option.
+}): Record<string, unknown> | null {
+  // Google treats Product without a priced Offer as an invalid product snippet.
+  // Quote-on-request items (no verifiable price) return null — do not invent prices.
   const hasPrice = product.price != null && product.price !== '';
+  if (!hasPrice) return null;
+
   const description = product.material
     ? `${product.description} Reference groups: ${product.material}.`
     : product.description;
@@ -230,24 +230,20 @@ export function productSchema(product: {
           },
         }
       : {}),
-    ...(hasPrice
-      ? {
-          offers: {
-            '@type': 'Offer',
-            url: product.url,
-            price: String(product.price),
-            priceCurrency: 'USD',
-            ...(product.priceValidUntil ? { priceValidUntil: product.priceValidUntil } : {}),
-            ...(product.availability ? { availability: product.availability } : {}),
-            itemCondition: 'https://schema.org/NewCondition',
-            seller: {
-              '@type': 'Organization',
-              name: site.name,
-              url: site.url,
-            },
-          },
-        }
-      : {}),
+    offers: {
+      '@type': 'Offer',
+      url: product.url,
+      price: String(product.price),
+      priceCurrency: 'USD',
+      ...(product.priceValidUntil ? { priceValidUntil: product.priceValidUntil } : {}),
+      ...(product.availability ? { availability: product.availability } : {}),
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@type': 'Organization',
+        name: site.name,
+        url: site.url,
+      },
+    },
     ...(sku
       ? {
           sku,
@@ -257,6 +253,7 @@ export function productSchema(product: {
       : {}),
   };
 }
+
 
 /** schema.org FAQPage markup for pages with Q&A sections. */
 export function faqSchema(faqs: { question: string; answer: string }[]) {

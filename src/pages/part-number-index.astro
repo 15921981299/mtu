@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BreadcrumbHero from '../components/BreadcrumbHero.astro';
 import FunnelPageView from '../components/FunnelPageView.astro';
 import DetailRfqStrip from '../components/DetailRfqStrip.astro';
-import { mtuParts } from '../data/mtu-parts';
+import { mtuParts, searchPriorityPartNumbers } from '../data/mtu-parts';
 import { germanCategoryName, germanPartName, germanSeriesName } from '../data/part-names-de';
 import { breadcrumbSchema, faqSchema, site } from '../data/site';
 import '../styles/resource-page.css';
@@ -76,6 +76,12 @@ const rowMatchesQuery = (row: Row): boolean => {
 const visibleRowCount = rows.filter(rowMatchesQuery).length;
 
 const pageUrl = `${site.url}/part-number-index/`;
+const popularPartLinks = searchPriorityPartNumbers
+  .slice(0, 12)
+  .map((partNumber) => mtuParts.find((part) => part.partNumber.toUpperCase() === partNumber.toUpperCase()))
+  .filter((part): part is (typeof mtuParts)[number] => Boolean(part))
+  .map((part) => ({ partNumber: part.partNumber, slug: part.slug, name: part.name }));
+
 const faqItems = [
   {
     question: 'What is this part number index?',
@@ -103,7 +109,7 @@ const faqItems = [
 <BaseLayout
   title={hasServerQuery ? `"${rawQuery}" — MTU Part Number Index Results` : "MTU Part Number Index — All Series, English & German Designations"}
   description={hasServerQuery
-    ? `${visibleRows.length} MTU part numbers matching "${rawQuery}" in the part number index, with English and German designations, component category, and engine series.`
+    ? `${visibleRowCount} MTU part numbers matching "${rawQuery}" in the part number index, with English and German designations, component category, and engine series.`
     : `Flat index of ${rows.length} MTU part numbers with English and German designations, component category, and engine series. Filter by number, name, or series, then open the part page for fitment and availability.`}
   currentPath="/part-number-index"
   noindex={hasServerQuery}
@@ -138,6 +144,20 @@ const faqItems = [
         the number on the part and the engine nameplate remain authoritative.
       </p>
     </section>
+
+    {popularPartLinks.length > 0 && (
+      <section class="resource-page-section" aria-label="Popular part pages">
+        <h2 class="pn-popular-heading">Popular part pages</h2>
+        <ul class="pn-popular-list">
+          {popularPartLinks.map((part) => (
+            <li>
+              <a href={`/part-products/${part.slug}/`}>{part.partNumber}</a>
+              <span class="pn-popular-name">{part.name}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <section class="resource-page-section">
       <div class="xref-filter">
@@ -410,5 +430,27 @@ const faqItems = [
     margin: 10px 0 0;
     color: #475569;
     line-height: 1.6;
+  }
+</style>
+<style>
+  .pn-popular-heading {
+    font-size: 1.15rem;
+    margin: 0 0 0.75rem;
+  }
+  .pn-popular-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.35rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pn-popular-list a {
+    font-weight: 600;
+  }
+  .pn-popular-name {
+    margin-left: 0.4rem;
+    color: var(--color-muted, #667);
+    font-size: 0.92em;
   }
 </style>

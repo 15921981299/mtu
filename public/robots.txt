@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you/
+Disallow: /api/
+Disallow: /llm-instructions/
 
 Sitemap: https://dieselpartsource.com/sitemap-index.xml
+Sitemap: https://dieselpartsource.com/sitemap.xml

@@ -43,6 +43,7 @@ bucket_name = "mtu-rfq-uploads"
 #     curl -sI https://dieselpartsource.com/products/mtu-series-2000-gensets/
 # - http:// and www. collapsing CANNOT be expressed in _redirects (it matches
 #   paths, never scheme or hostname) and must be configured on the dashboard.
+#   HSTS is now emitted from public/_headers (copied into dist on build).
 #   Status as of 2026-09-27:
 #     http -> https  : DONE (http:// and http://www. both 301 to https)
 #     www -> root    : TODO — https://www. still serves a full duplicate (200)

@@ -24,6 +24,12 @@ export default defineConfig({
           return true;
         }
       },
+      serialize(item) {
+        return {
+          ...item,
+          lastmod: new Date().toISOString(),
+        };
+      },
     }),
   ],
 });

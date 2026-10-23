@@ -360,6 +360,45 @@ if (!existsSync(sitemapPath)) {
   );
 }
 
+
+// ---------------------------------------------------------------------------
+// Stable /sitemap.xml mirror + robots.txt merge
+// ---------------------------------------------------------------------------
+// Live /sitemap.xml used to 404 while robots only listed /sitemap-index.xml
+// (which intermittently 500s). Mirror the index byte-for-byte so both URLs
+// work, and ensure robots lists both + Disallow utility paths.
+// ---------------------------------------------------------------------------
+const sitemapIndexPath = resolve('dist/sitemap-index.xml');
+const sitemapMirrorPath = resolve('dist/sitemap.xml');
+const robotsPath = resolve('dist/robots.txt');
+
+if (existsSync(sitemapIndexPath)) {
+  await copyFile(sitemapIndexPath, sitemapMirrorPath);
+  console.log(`Wrote sitemap.xml mirror from sitemap-index.xml (-> ${sitemapMirrorPath})`);
+} else if (existsSync(sitemapPath)) {
+  // Fallback: if only the chunk exists, still do not invent an index.
+  console.warn('! dist/sitemap-index.xml missing — sitemap.xml mirror not written.');
+} else {
+  console.warn('! No sitemap-index.xml to mirror as sitemap.xml.');
+}
+
+{
+  const robotsBody = [
+    'User-agent: *',
+    'Allow: /',
+    'Disallow: /thank-you/',
+    'Disallow: /api/',
+    'Disallow: /llm-instructions/',
+    '',
+    'Sitemap: https://dieselpartsource.com/sitemap-index.xml',
+    'Sitemap: https://dieselpartsource.com/sitemap.xml',
+    '',
+  ].join('\n');
+  await writeFile(robotsPath, robotsBody, 'utf8');
+  console.log(`Wrote ${robotsPath} (both sitemaps + Disallow /api/ /llm-instructions/)`);
+}
+
+
 if (failures.length) {
   console.error('\n' + '='.repeat(78));
   console.error(`BUILD VERIFICATION FAILED (${failures.length} problem${failures.length === 1 ? '' : 's'})`);

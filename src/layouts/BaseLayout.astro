@@ -35,6 +35,8 @@ interface Props {
   articlePublishedTime?: string;
   /** Skip the "| <site.name>" title suffix — for long part-number titles where SERP real estate matters. */
   noTitleSuffix?: boolean;
+  /** Optional pathname override for canonical. Defaults to Astro.url.pathname. */
+  canonicalPath?: string;
 }
 
 const {
@@ -48,12 +50,12 @@ const {
   ogType = 'website',
   articlePublishedTime,
   noTitleSuffix = false,
+  canonicalPath,
 } = Astro.props;
 
 const fullTitle = noTitleSuffix || title.includes(site.name) ? title : `${title} | ${site.name}`;
-// noindex 工具页（404、确认页）canonical 指向站根：这类页面没有独立索引价值，
-// 自指 canonical（如 https://…/404/）只会把垃圾 URL 写进抓取链路。
-const canonical = new URL(noindex ? '/' : Astro.url.pathname, Astro.site);
+// Always self-canonical on pathname (strips query). noindex keeps meta; do not rewrite to /.
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
 const ogImage = new URL(image ?? '/images/og-mtu-engine-parts.jpg', Astro.site);
 const schemas = [
   organizationSchema,
