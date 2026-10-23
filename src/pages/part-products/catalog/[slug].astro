@@ -401,15 +401,32 @@ const catalogUseCases = hub.type === 'series'
                   ))}
                 </div>
                 {groupParts.length > 12 && (
-                  <p class="catalog-group-more">
-                    <span class="catalog-group-more-count">+{groupParts.length - 12}</span> more {groupKey.toLowerCase()} parts —
-                    <a
-                      href={quoteHref}
-                      data-rfq-modal
-                      data-rfq-context={`${hub.h1Title} full catalog list inquiry`}
-                      data-rfq-source={`catalog-${hub.slug}`}
-                    >send a part list for full catalog</a>
-                  </p>
+                  <details class="catalog-group-overflow">
+                    <summary>
+                      <span class="catalog-group-more-count">+{groupParts.length - 12}</span> more {groupKey.toLowerCase()} parts
+                      <span class="catalog-group-overflow-hint">— view the full list</span>
+                    </summary>
+                    {/* 溢出的料号以紧凑文本链呈现：视觉上仍是 12 张卡的墙，
+                        但爬虫与买家都能拿到完整列表（之前这里只有询盘 CTA，
+                        导致 271 个零件页没有任何 catalog 入链）。 */}
+                    <ul class="catalog-overflow-list">
+                      {groupParts.slice(12).map((part) => (
+                        <li>
+                          <a href={`/part-products/${part.slug}/`}>{part.partNumber}</a>
+                          <span>{part.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p class="catalog-group-more">
+                      Need a line-by-line quote?{' '}
+                      <a
+                        href={quoteHref}
+                        data-rfq-modal
+                        data-rfq-context={`${hub.h1Title} full catalog list inquiry`}
+                        data-rfq-source={`catalog-${hub.slug}`}
+                      >send a part list for full catalog</a>
+                    </p>
+                  </details>
                 )}
               </section>
             ))
@@ -822,6 +839,87 @@ const catalogUseCases = hub.type === 'series'
 
   .catalog-group-more a:hover {
     text-decoration: underline;
+  }
+
+  .catalog-group-overflow {
+    margin-top: 12px;
+    border: 1px solid var(--color-stroke, #e2e8f0);
+    border-radius: 8px;
+    background: #f8fafc;
+  }
+
+  .catalog-group-overflow > summary {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #475569;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .catalog-group-overflow > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .catalog-group-overflow > summary::before {
+    content: '▸';
+    color: var(--color-primary);
+    font-size: 12px;
+  }
+
+  .catalog-group-overflow[open] > summary::before {
+    content: '▾';
+  }
+
+  .catalog-group-overflow-hint {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .catalog-overflow-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px 18px;
+    margin: 0;
+    padding: 4px 14px 12px 30px;
+    list-style: none;
+  }
+
+  .catalog-overflow-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 3px 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-bottom: 1px dotted #e2e8f0;
+  }
+
+  .catalog-overflow-list a {
+    color: var(--color-primary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .catalog-overflow-list a:hover {
+    text-decoration: underline;
+  }
+
+  .catalog-overflow-list span {
+    color: #64748b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .catalog-group-overflow .catalog-group-more {
+    margin: 0;
+    padding: 0 14px 12px 30px;
   }
 
   .catalog-group-more a:focus-visible {
