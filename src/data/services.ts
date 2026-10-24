@@ -17,8 +17,8 @@ export const services: ServiceItem[] = [
     h1Title: 'Verified MTU Engine Parts Supply',
     summary:
       'Full-range MTU spare parts for series 183, 331, 396, 493, 538, 595, 956, 1163, 2000, 4000, and 8000 engines with verified sourcing routes and global delivery.',
-    image: '/images/mtu-engine-parts-hero.webp',
-    mainImage: '/images/mtu-2000-series-parts.webp',
+    image: '/images/mtu-2000-series-parts.webp',
+    mainImage: '/images/mtu-engine-parts-hero.webp',
     secondImage: '/images/mtu-part-number-verification.webp',
   },
   {
@@ -28,9 +28,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Cummins Diesel Engine Parts',
     summary:
       'Supply support for Cummins diesel engines and verified replacement routes for industrial, marine, generator, and equipment maintenance programs.',
-    image: '/images/industrial-diesel-engine-parts.webp',
+    image: '/images/engine-parts-hero.webp',
     mainImage: '/images/generator-engine-parts.webp',
-    secondImage: '/images/mtu-part-number-verification.webp',
+    secondImage: '/images/global-engine-parts-delivery.webp',
   },
   {
     slug: 'deutz-engine-parts',
@@ -39,8 +39,8 @@ export const services: ServiceItem[] = [
     h1Title: 'DEUTZ Diesel Engine Parts',
     summary:
       'DEUTZ replacement parts and engine support for construction machinery, power units, pumps, compressors, and industrial fleets.',
-    image: '/images/industrial-diesel-engine-parts.webp',
-    mainImage: '/images/mtu-part-number-verification.webp',
+    image: '/images/diesel-fuel-system-parts-category.jpg',
+    mainImage: '/images/industrial-diesel-engine-parts.webp',
     secondImage: '/images/global-engine-parts-delivery.webp',
   },
   {
@@ -52,7 +52,7 @@ export const services: ServiceItem[] = [
       'Parts sourcing and technical support for engines used in pumps, compressors, heavy equipment, oilfield units, and industrial power systems.',
     image: '/images/industrial-diesel-engine-parts.webp',
     mainImage: '/images/generator-engine-parts.webp',
-    secondImage: '/images/mtu-part-number-verification.webp',
+    secondImage: '/images/engine-parts-verification-desk.webp',
   },
   {
     slug: 'marine-engine-service',
@@ -63,7 +63,7 @@ export const services: ServiceItem[] = [
       'Verified MTU spare-parts sourcing for ferry, workboat, yacht, shipyard, and offshore engine operators, with urgent global shipment support.',
     image: '/images/marine-diesel-engine-parts.webp',
     mainImage: '/images/mtu-engine-parts-hero.webp',
-    secondImage: '/images/global-engine-parts-delivery.webp',
+    secondImage: '/images/global-shipping-delivery-service.webp',
   },
   {
     slug: 'genuine-oem-parts',
@@ -72,9 +72,9 @@ export const services: ServiceItem[] = [
     h1Title: 'Verified OEM Parts Sourcing',
     summary:
       'OEM, OEM-alternative, reman, and replacement sourcing routes across wear parts, fuel and filtration, sensors, and major components — each line labelled by supply grade before you compare price.',
-    image: '/images/mtu-4000-series-overhaul-parts.webp',
-    mainImage: '/images/mtu-engine-parts-hero.webp',
-    secondImage: '/images/mtu-part-number-verification.webp',
+    image: '/images/mtu-part-number-verification.webp',
+    mainImage: '/images/mtu-4000-series-overhaul-parts.webp',
+    secondImage: '/images/engine-parts-verification-desk.webp',
   },
 ];
 

@@ -1,4 +1,4 @@
-﻿type IndustryItem = {
+type IndustryItem = {
   slug: string;
   title: string;
   icon: string;
@@ -192,8 +192,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'shipyards-repair',
     title: 'Shipyards & Repair',
-    icon: '/images/marine-diesel-engine-parts.webp',
-    image: '/images/mtu-part-number-verification.webp',
+    icon: '/images/engine-parts-verification-desk.webp',
+    image: '/images/engine-parts-verification-desk.webp',
     seoTitle: 'Shipyard Diesel Engine Parts | Diesel Part Source',
     h1Title: 'Shipyard & Repair Engine Parts',
     summary:
@@ -232,8 +232,8 @@ export const industries: IndustryItem[] = [
   {
     slug: 'energy-suppliers',
     title: 'Energy Suppliers',
-    icon: '/images/generator-engine-parts.webp',
-    image: '/images/global-engine-parts-delivery.webp',
+    icon: '/images/global-engine-parts-delivery.webp',
+    image: '/images/global-shipping-delivery-service.webp',
     seoTitle: 'Engine Parts for Energy Suppliers | Diesel Part Source',
     h1Title: 'Engine Parts for Energy Suppliers',
     summary:
