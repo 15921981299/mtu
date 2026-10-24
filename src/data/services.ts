@@ -71,7 +71,7 @@ export const services: ServiceItem[] = [
     seoTitle: 'Verified OEM Diesel Engine Parts Sourcing | Diesel Part Source',
     h1Title: 'Verified OEM Parts Sourcing',
     summary:
-      'OEM, OEM-alternative, reman, and replacement sourcing routes from O-rings to crankshafts, clearly labelled for maintenance, overhaul, and fleet operation.',
+      'OEM, OEM-alternative, reman, and replacement sourcing routes across wear parts, fuel and filtration, sensors, and major components — each line labelled by supply grade before you compare price.',
     image: '/images/mtu-4000-series-overhaul-parts.webp',
     mainImage: '/images/mtu-engine-parts-hero.webp',
     secondImage: '/images/mtu-part-number-verification.webp',
@@ -226,7 +226,7 @@ export function getServiceDetailHtml(title: string) {
     'Verified OEM Sourcing': {
       partOne: `
         <h2>OEM and Replacement Route Review</h2>
-        <p>From O-rings to crankshafts, Diesel Part Source helps buyers compare practical supply routes for MTU, Detroit Diesel, Cummins, and DEUTZ engines. Quotes identify OEM, OEM-alternative, reman, repaired, or replacement routes when they apply.</p>
+        <p>OEM, OEM-alternative, reman, and replacement sourcing routes across wear parts, fuel and filtration, sensors, and major components — each line labelled by supply grade before you compare price. Diesel Part Source helps buyers compare practical supply routes for MTU, Detroit Diesel, Cummins, and DEUTZ engines, with OEM, OEM-alternative, reman, repaired, or replacement routes identified when they apply.</p>
         <h3>Why Route Clarity Matters</h3>
         <ul>
           <li>Correct fit and reliable service life</li>

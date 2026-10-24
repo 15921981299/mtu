@@ -1,6 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
-import { testimonials } from '../data/testimonials';
+import { buyerPatterns } from '../data/testimonials';
 
 interface Props {
   id?: string;
@@ -13,30 +13,37 @@ const { id = 'customer-feedback' } = Astro.props;
   <div class="section-gap bottom">
     <div class="container">
       <div id={`${id}-heading`}>
-        <SectionHeading title="What Long-Term Buyers Say" subtitle="Customer Feedback" />
+        <SectionHeading title="How buyers usually work with us" subtitle="Buying Patterns" />
       </div>
+      <p class="customer-feedback-intro">
+        We don't publish named testimonials on this site until a buyer agrees in writing to be identified. Until then, here is the pattern of work that repeat RFQs follow.
+      </p>
       <div class="customer-feedback-grid fade-in">
-        {testimonials.map((item) => (
+        {buyerPatterns.map((item) => (
           <figure class="customer-feedback-card">
-            <p class="customer-feedback-scope">{item.scope}</p>
+            <p class="customer-feedback-scope">{item.title}</p>
             <div class="customer-feedback-summary">
-              <p>{item.summary}</p>
+              <p>{item.text}</p>
             </div>
-            <figcaption>
-              <strong>{item.name}</strong>
-              <span>{item.role}, {item.country}</span>
-            </figcaption>
           </figure>
         ))}
       </div>
       <p class="customer-feedback-note">
-        Published with the customers' permission. Feedback is summarised in our words.
+        If you are an existing buyer and want a named reference published, email <a href="mailto:sales@dieselpartsource.com">sales@dieselpartsource.com</a> and we will only post what you approve in writing.
       </p>
     </div>
   </div>
 </section>
 
 <style>
+  .customer-feedback-intro {
+    margin: 0 0 24px;
+    max-width: 52rem;
+    color: #334155;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
   .customer-feedback-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -74,23 +81,14 @@ const { id = 'customer-feedback' } = Astro.props;
     line-height: 1.7;
   }
 
-  .customer-feedback-card figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-top: 12px;
-    border-top: 1px solid #e2e8f0;
-    font-size: 14px;
-  }
-
-  .customer-feedback-card figcaption span {
-    color: #64748b;
-  }
-
   .customer-feedback-note {
     margin: 16px 0 0;
     color: #64748b;
     font-size: 13px;
+  }
+
+  .customer-feedback-note a {
+    color: var(--color-primary);
   }
 
   @media (max-width: 991px) {
@@ -99,3 +97,4 @@ const { id = 'customer-feedback' } = Astro.props;
     }
   }
 </style>
+

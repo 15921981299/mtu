@@ -1,40 +1,25 @@
 /**
- * Buyer feedback published with customer permission, summarised in our own
- * words (not quoted). Do not add Review/AggregateRating schema for it
+ * Anonymous buyer-work patterns shown on About/Contact until a buyer agrees
+ * in writing to be identified. Do not add Review/AggregateRating schema
  * (self-serving reviews are not eligible for Google review snippets).
  */
-export type Testimonial = {
-  summary: string;
-  name: string;
-  role: string;
-  country: string;
-  scope: string;
+export type BuyerPattern = {
+  title: string;
+  text: string;
 };
 
-export const testimonials: Testimonial[] = [
+export const buyerPatterns: BuyerPattern[] = [
   {
-    summary:
-      'Buys MTU 2000 and 4000 series spare parts from our team under a supply contract. The feedback focused on delivery dates and part quality matching the contract terms, and on continuing the supply relationship over the next years.',
-    name: 'Ramazan',
-    role: 'Fleet operator',
-    country: 'Turkey',
-    scope: 'MTU 2000 and 4000 marine spare parts under supply contract',
+    title: 'Contract-style repeat supply',
+    text: 'Multi-line MTU 2000 / 4000 (and related series) lists quoted with grade and lead time stated per line, then repeated against the same packing and document checklist.',
   },
   {
-    summary:
-      'Has sourced MTU marine diesel engine spare parts through our team for commercial vessels since 2019. Fast delivery, original parts, and after-sales support were named as the reasons for keeping us as a supplier.',
-    name: 'David Joe',
-    role: 'Marine engineer',
-    country: 'Malaysia',
-    scope: 'MTU marine diesel engine spare parts since 2019',
+    title: 'Urgent marine / vessel downtime',
+    text: 'Part number or nameplate photo first; fitment check before price; express options only after the line is confirmed.',
   },
   {
-    summary:
-      'A long-time buyer of MTU spare parts who now orders exclusively through us. He highlighted original parts, reliable delivery times, and a straightforward working relationship.',
-    name: 'Luis López Palancar',
-    role: 'Manager',
-    country: 'Spain',
-    scope: 'Repeat MTU spare-parts orders',
+    title: 'Overhaul and shipyard lists',
+    text: 'Excel/PDF lists checked line by line for supersessions and mixed grades, so substitutions stay labelled instead of hidden in one blended price.',
   },
 ];
 
